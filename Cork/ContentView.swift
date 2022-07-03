@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var brewData = BrewDataStorage()
+    @StateObject var selectedPackageInfo = SelectedPackageInfo()
     
     @State private var multiSelection = Set<UUID>()
     
@@ -18,33 +19,42 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            List(selection: $multiSelection) {
-                Section("Installed Formulae") {
-                    Text("Installed Formulae")
-                        .font(.headline)
-                    if brewData.installedFormulae.count != 0 {
-                        ForEach(brewData.installedFormulae) { package in
-                            
-                            PackageListItem(packageItem: package)
+            NavigationView {
+                List(selection: $multiSelection) {
+                    Section(header: Text("Installed Formulae").font(.headline).foregroundColor(.black)) {
+                        if brewData.installedFormulae.count != 0 {
+                            ForEach(brewData.installedFormulae) { package in
+                                
+                                NavigationLink {
+                                    PackageDetailView(package: package, isCask: false, packageInfo: selectedPackageInfo)
+                                } label: {
+                                    PackageListItem(packageItem: package)
+                                }
+                                
+                            }
+                        } else {
+                            ProgressView()
                         }
-                    } else {
-                        ProgressView()
+                    }
+                    
+                    Section(header: Text("Installed Casks").font(.headline).foregroundColor(.black)) {
+                        if brewData.installedCasks.count != 0 {
+                            ForEach(brewData.installedCasks) { package in
+                                
+                                NavigationLink {
+                                    PackageDetailView(package: package, isCask: true, packageInfo: selectedPackageInfo)
+                                } label: {
+                                    PackageListItem(packageItem: package)
+                                }
+                                
+                            }
+                        } else {
+                            ProgressView()
+                        }
                     }
                 }
-                
-                Section("Installed Casks") {
-                    Text("Installed Casks")
-                        .font(.headline)
-                    if brewData.installedCasks.count != 0 {
-                        ForEach(brewData.installedCasks) { package in
-                            PackageListItem(packageItem: package)
-                        }
-                    } else {
-                        ProgressView()
-                    }
-                }
+                .listStyle(.bordered)
             }
-            .listStyle(.bordered)
             .toolbar {
                 VStack(alignment: .leading) {
                     Text("Cork")
@@ -98,12 +108,9 @@ struct ContentView: View {
             
             Task {
                 print("Started Command task at \(Date())")
-                do {
-                    let commandResult = try await executeCommand("/opt/homebrew/bin list")
-                    print(commandResult)
-                } catch let error as NSError {
-                    print("Error executing command: \(error)")
-                }
+                
+                let commandResult = await shell("/opt/homebrew/bin/brew", ["search", "gimp"])
+                print(commandResult)
             }
             
             Task { // Task that gets the contents of the Cellar folder
@@ -111,8 +118,8 @@ struct ContentView: View {
                 let contentsOfCellarFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCellarPath)
                 
                 for package in contentsOfCellarFolder {
-                    brewData.installedFormulae.append(BrewPackage(name: package))
-                    print("Appended \(package)")
+                    brewData.installedFormulae.append(package)
+                    // print("Appended \(package)")
                 }
                 
                 //print(brewData.installedFormulae!)
@@ -123,8 +130,8 @@ struct ContentView: View {
                 let contentsOfCaskFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCaskPath)
                 
                 for package in contentsOfCaskFolder {
-                    brewData.installedCasks.append(BrewPackage(name: package))
-                    print("Appended \(package)")
+                    brewData.installedCasks.append(package)
+                    // print("Appended \(package)")
                 }
                 
                 //print(brewData.installedCasks!)

@@ -12,11 +12,13 @@ struct PackageListItem: View {
     
     var body: some View {
         HStack {
-            Text(packageItem.name)
+            HStack(alignment: .firstTextBaseline) {
+                Text(packageItem.name)
+                Text(returnFormattedVersions(packageItem.versions))
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
             
-            Spacer()
-            
-            Image(systemName: "arrow.right")
         }
     }
 }
