@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct CorkApp: App {
+struct CorkApp: App {    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
+        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
