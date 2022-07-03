@@ -25,3 +25,17 @@ func executeBrewCommand(commandType: BrewCommands, argument: String? = nil) -> S
     }
 }
 */
+
+struct SearchResults {
+    let foundFormulae: [String]
+    let foundCasks: [String]
+}
+
+func getListOfFoundPackages(searchWord: String) -> String {
+    var parsedResponse: String?
+    Task {
+        parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord])!
+    }
+    
+    return parsedResponse!
+}

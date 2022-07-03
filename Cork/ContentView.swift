@@ -63,6 +63,17 @@ struct ContentView: View {
                         .font(.subheadline)
                 }
                 
+                Button {
+                    print("Clicked on upgrade")
+                } label: {
+                    Label {
+                        Text("Upgrade Formulae")
+                    } icon: {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                }
+
+                
                 Spacer()
                 
                 if !multiSelection.isEmpty { // If the user selected a package, show a button to uninstall it
@@ -71,7 +82,7 @@ struct ContentView: View {
                             isShowingAlert.toggle()
                         } label: {
                             Label {
-                                Text("Remove Package")
+                                Text("Remove Formula")
                             } icon: {
                                 Image(systemName: "trash")
                             }
@@ -84,7 +95,7 @@ struct ContentView: View {
                                 isShowingAlert.toggle()
                             }
                         } message: {
-                            Text("Deleting a package will completely remove it from your Mac. You will have to reinstall the package if you want to use it again.")
+                            Text("Deleting a formula will completely remove it from your Mac. You will have to reinstall the formula if you want to use it again.")
                             Text("This action cannot be undone.")
                         }
 
@@ -94,7 +105,7 @@ struct ContentView: View {
                     isShowingInstallSheet.toggle()
                 } label: {
                     Label {
-                        Text("Add Package")
+                        Text("Add Formula")
                     } icon: {
                         Image(systemName: "plus")
                     }
@@ -138,7 +149,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isShowingInstallSheet) {
-            AddPackageView(isShowingSheet: $isShowingInstallSheet)
+            AddFormulaView(isShowingSheet: $isShowingInstallSheet)
         }
     }
 }

@@ -37,15 +37,19 @@ struct PackageDetailView: View {
                     Text("Loading package info...")
                 }
             } else {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Description")
+                        .font(.headline)
                     Text(description)
+                    
+                    Text("Homepage")
+                        .font(.headline)
                     Text(.init(homepage))
                 }
             }
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .padding()
+        .padding([.horizontal, .bottom])
         .onAppear {
             Task {
                 if !isCask {
