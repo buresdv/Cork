@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @StateObject var brewData = BrewDataStorage()
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
+    @StateObject var updateProgressTracker = UpdateProgressTracker()
     
     @State private var multiSelection = Set<UUID>()
     
@@ -67,11 +67,8 @@ struct ContentView: View {
                 
                 Button {
                     print("Clicked on upgrade")
-                    do {
-                        try upgradeBrewPackages()
-                    } catch let error as NSError {
-                        print("Failed while upgrading packages: \(error)")
-                    }
+                    
+                    upgradeBrewPackages(updateProgressTracker)
                 } label: {
                     Label {
                         Text("Upgrade Formulae")
@@ -123,14 +120,6 @@ struct ContentView: View {
         .padding()
         .environmentObject(brewData)
         .onAppear {
-            
-            Task {
-                print("Started Command task at \(Date())")
-                
-                let commandResult = await shell("/opt/homebrew/bin/brew", ["search", "gimp"])
-                print(commandResult)
-            }
-            
             Task { // Task that gets the contents of the Cellar folder
                 print("Started Cellar task at \(Date())")
                 let contentsOfCellarFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCellarPath)
@@ -157,6 +146,14 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isShowingInstallSheet) {
             AddFormulaView(isShowingSheet: $isShowingInstallSheet)
+        }
+        .sheet(isPresented: $updateProgressTracker.showUpdateSheet) {
+            VStack {
+                ProgressView(value: updateProgressTracker.updateProgress)
+                    .frame(width: 200)
+                Text(updateProgressTracker.updateStage.rawValue)
+            }
+            .padding()
         }
     }
 }

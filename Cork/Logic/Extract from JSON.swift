@@ -14,7 +14,7 @@ enum WhatToExtract: String {
 
 func extractPackageInfo(rawJSON: String, whatToExtract: WhatToExtract) -> String {
     let regex = "(?<=\(whatToExtract.rawValue)\": \").*?(?=\")"
-    guard let matchedRange = rawJSON.range(of: regex, options: .regularExpression) else { return "" }
+    guard let matchedRange = rawJSON.range(of: regex, options: .regularExpression) else { return "ERROR" }
     let matchedString: String = String(rawJSON[matchedRange])
     
     return matchedString
