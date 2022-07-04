@@ -36,6 +36,7 @@ struct ContentView: View {
                             ProgressView()
                         }
                     }
+                    .collapsible(true)
                     
                     Section(header: Text("Installed Casks").font(.headline).foregroundColor(.black)) {
                         if brewData.installedCasks.count != 0 {
@@ -52,6 +53,7 @@ struct ContentView: View {
                             ProgressView()
                         }
                     }
+                    .collapsible(true)
                 }
                 .listStyle(.bordered)
             }
@@ -65,6 +67,11 @@ struct ContentView: View {
                 
                 Button {
                     print("Clicked on upgrade")
+                    do {
+                        try upgradeBrewPackages()
+                    } catch let error as NSError {
+                        print("Failed while upgrading packages: \(error)")
+                    }
                 } label: {
                     Label {
                         Text("Upgrade Formulae")

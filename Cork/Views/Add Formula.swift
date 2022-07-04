@@ -9,8 +9,8 @@ import SwiftUI
 
 
 class SearchResultTracker: ObservableObject {
-    @Published var foundFormulae: [String] = [String]()
-    @Published var foundCasks: [String] = [String]()
+    @Published var foundFormulae: [SearchResult] = [SearchResult]()
+    @Published var foundCasks: [SearchResult] = [SearchResult]()
 }
 
 struct AddFormulaView: View {
@@ -18,6 +18,9 @@ struct AddFormulaView: View {
     
     @State private var packageRequested: String = ""
     @State private var isShowingListLoader: Bool = false
+    @State private var isShowingResultsList: Bool = false
+    
+    @State private var foundPackageSelection: String?
     
     @ObservedObject var searchResultTracker = SearchResultTracker()
     
@@ -26,28 +29,24 @@ struct AddFormulaView: View {
             TextField("Search For Formula...", text: $packageRequested)
                 .padding(.horizontal)
             
-            if isShowingListLoader == false {
-                List {
+            if isShowingListLoader {
+                ProgressView()
+            } else if isShowingResultsList {
+                List(selection: $foundPackageSelection) {
                     Section("Found Formulae") {
                         ForEach(searchResultTracker.foundFormulae) { formula in
-                            Text(formula)
+                            Text(formula.packageName)
                         }
                     }
                     
                     Section("Found Casks") {
-                        Text("AAaa")
-                        Text("AAaa")
-                        Text("AAaa")
-                        Text("AAaa")
-                        Text("AAaa")
-                        Text("AAaa")
-                        Text("AAaa")
-                        Text("AAaa")
+                        ForEach(searchResultTracker.foundCasks) { cask in
+                            Text(cask.packageName)
+                        }
                     }
                 }
                 .listStyle(.inset(alternatesRowBackgrounds: true))
-            } else {
-                ProgressView()
+                .frame(width: 300, height: 300)
             }
             
             HStack {
@@ -61,6 +60,10 @@ struct AddFormulaView: View {
                 Spacer()
                 
                 Button {
+                    isShowingResultsList = false
+                    searchResultTracker.foundFormulae = [SearchResult]()
+                    searchResultTracker.foundCasks = [SearchResult]()
+                    
                     Task {
                         isShowingListLoader = true
                         print("Loader status: \(isShowingListLoader)")
@@ -72,17 +75,56 @@ struct AddFormulaView: View {
                         
                         print(resultArray)
                         
+                        var foundFormulaeRaw = [String]()
+                        var foundCasksRaw = [String]()
                         
                         if resultArray.contains("==> Formulae") && resultArray.contains("==> Casks") {
                             
-                            searchResultTracker.foundFormulae = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.firstIndex(of: "==> Casks")!])
-                            searchResultTracker.foundCasks = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
+                            foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.firstIndex(of: "==> Casks")!])
+                            foundFormulaeRaw.removeFirst()
+                            foundFormulaeRaw.removeLast()
+                            
+                            foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
+                            foundCasksRaw.removeFirst()
+                            foundCasksRaw.removeLast()
+                            
+                            for formula in foundFormulaeRaw {
+                                searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                            }
+                            
+                            for cask in foundCasksRaw {
+                                searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
+                            }
                             
                             print(searchResultTracker.foundFormulae)
                             print(searchResultTracker.foundCasks)
+                        } else if resultArray.contains("==> Formulae") {
+                            foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.count])
+                            foundFormulaeRaw.removeFirst()
+                            foundFormulaeRaw.removeLast()
+                            
+                            for formula in foundFormulaeRaw {
+                                searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                            }
+                            
+                            print(searchResultTracker.foundFormulae)
+                            
+                        } else if resultArray.contains("==> Casks") {
+                            foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
+                            foundCasksRaw.removeFirst()
+                            foundCasksRaw.removeLast()
+                            
+                            for cask in foundCasksRaw {
+                                searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
+                            }
+                            
+                            print(searchResultTracker.foundCasks)
+                        } else {
+                            
                         }
                         
                         isShowingListLoader = false
+                        isShowingResultsList = true
                     }
                 } label: {
                     Text("Search")
@@ -92,6 +134,6 @@ struct AddFormulaView: View {
             .padding(.horizontal)
         }
         .padding(.vertical)
-        .frame(minWidth: 300, minHeight: 300)
+        .frame(width: 300)
     }
 }
