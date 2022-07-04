@@ -20,7 +20,7 @@ struct AddFormulaView: View {
     @State private var isShowingListLoader: Bool = false
     @State private var isShowingResultsList: Bool = false
     
-    @State private var foundPackageSelection: String?
+    @State private var foundPackageSelection = Set<UUID>()
     
     @ObservedObject var searchResultTracker = SearchResultTracker()
     
@@ -59,77 +59,88 @@ struct AddFormulaView: View {
                 
                 Spacer()
                 
-                Button {
-                    isShowingResultsList = false
-                    searchResultTracker.foundFormulae = [SearchResult]()
-                    searchResultTracker.foundCasks = [SearchResult]()
-                    
-                    Task {
-                        isShowingListLoader = true
-                        print("Loader status: \(isShowingListLoader)")
-                        let searchResults = await shell("/opt/homebrew/bin/brew", ["search", packageRequested])!
+                if foundPackageSelection.isEmpty {
+                    Button {
+                        isShowingResultsList = false
+                        searchResultTracker.foundFormulae = [SearchResult]()
+                        searchResultTracker.foundCasks = [SearchResult]()
                         
-                        print(searchResults)
-                        
-                        let resultArray: [String] = searchResults.components(separatedBy: "\n")
-                        
-                        print(resultArray)
-                        
-                        var foundFormulaeRaw = [String]()
-                        var foundCasksRaw = [String]()
-                        
-                        if resultArray.contains("==> Formulae") && resultArray.contains("==> Casks") {
+                        Task {
+                            isShowingListLoader = true
+                            print("Loader status: \(isShowingListLoader)")
+                            let searchResults = await shell("/opt/homebrew/bin/brew", ["search", packageRequested])!
                             
-                            foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.firstIndex(of: "==> Casks")!])
-                            foundFormulaeRaw.removeFirst()
-                            foundFormulaeRaw.removeLast()
+                            print(searchResults)
                             
-                            foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
-                            foundCasksRaw.removeFirst()
-                            foundCasksRaw.removeLast()
+                            let resultArray: [String] = searchResults.components(separatedBy: "\n")
                             
-                            for formula in foundFormulaeRaw {
-                                searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                            print(resultArray)
+                            
+                            var foundFormulaeRaw = [String]()
+                            var foundCasksRaw = [String]()
+                            
+                            if resultArray.contains("==> Formulae") && resultArray.contains("==> Casks") {
+                                
+                                foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.firstIndex(of: "==> Casks")!])
+                                foundFormulaeRaw.removeFirst()
+                                foundFormulaeRaw.removeLast()
+                                
+                                foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
+                                foundCasksRaw.removeFirst()
+                                foundCasksRaw.removeLast()
+                                
+                                for formula in foundFormulaeRaw {
+                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                                }
+                                
+                                for cask in foundCasksRaw {
+                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
+                                }
+                                
+                                print(searchResultTracker.foundFormulae)
+                                print(searchResultTracker.foundCasks)
+                            } else if resultArray.contains("==> Formulae") {
+                                foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.count])
+                                foundFormulaeRaw.removeFirst()
+                                foundFormulaeRaw.removeLast()
+                                
+                                for formula in foundFormulaeRaw {
+                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                                }
+                                
+                                print(searchResultTracker.foundFormulae)
+                                
+                            } else if resultArray.contains("==> Casks") {
+                                foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
+                                foundCasksRaw.removeFirst()
+                                foundCasksRaw.removeLast()
+                                
+                                for cask in foundCasksRaw {
+                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
+                                }
+                                
+                                print(searchResultTracker.foundCasks)
+                            } else {
+                                
                             }
                             
-                            for cask in foundCasksRaw {
-                                searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
-                            }
-                            
-                            print(searchResultTracker.foundFormulae)
-                            print(searchResultTracker.foundCasks)
-                        } else if resultArray.contains("==> Formulae") {
-                            foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.count])
-                            foundFormulaeRaw.removeFirst()
-                            foundFormulaeRaw.removeLast()
-                            
-                            for formula in foundFormulaeRaw {
-                                searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
-                            }
-                            
-                            print(searchResultTracker.foundFormulae)
-                            
-                        } else if resultArray.contains("==> Casks") {
-                            foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
-                            foundCasksRaw.removeFirst()
-                            foundCasksRaw.removeLast()
-                            
-                            for cask in foundCasksRaw {
-                                searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
-                            }
-                            
-                            print(searchResultTracker.foundCasks)
-                        } else {
-                            
+                            isShowingListLoader = false
+                            isShowingResultsList = true
                         }
-                        
-                        isShowingListLoader = false
-                        isShowingResultsList = true
+                    } label: {
+                        Text("Search")
                     }
-                } label: {
-                    Text("Search")
+                    .keyboardShortcut(.defaultAction)
+                } else {
+                    Button {
+                        for selection in foundPackageSelection {
+                            print(selection)
+                        }
+                    } label: {
+                        Text("Install")
+                    }
+                    .keyboardShortcut(.defaultAction)
                 }
-                .keyboardShortcut(.defaultAction)
             }
             .padding(.horizontal)
         }
