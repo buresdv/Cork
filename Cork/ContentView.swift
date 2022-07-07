@@ -56,7 +56,6 @@ struct ContentView: View {
                     .collapsible(true)
                 }
                 .listStyle(.bordered)
-                
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")

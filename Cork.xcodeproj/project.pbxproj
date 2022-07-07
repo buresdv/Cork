@@ -28,6 +28,8 @@
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
 		637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006A28734041005C9890 /* Install Selected Packages.swift */; };
 		637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006D2873419B005C9890 /* Install Progress Tracker.swift */; };
+		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
+		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
 		639A7D832871D08200B50280 /* Add Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D822871D08200B50280 /* Add Formula.swift */; };
 		639A7D862871D78C00B50280 /* Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D852871D78C00B50280 /* Package Details.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
 		637E006A28734041005C9890 /* Install Selected Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Selected Packages.swift"; sourceTree = "<group>"; };
 		637E006D2873419B005C9890 /* Install Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Progress Tracker.swift"; sourceTree = "<group>"; };
+		63958CFC2877341F00E0B807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63958CFF287735F800E0B807 /* About View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About View.swift"; sourceTree = "<group>"; };
 		639A7D822871D08200B50280 /* Add Formula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Formula.swift"; sourceTree = "<group>"; };
 		639A7D852871D78C00B50280 /* Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Details.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +103,7 @@
 				6340656D2871AA42001A2178 /* Cork.entitlements */,
 				6340656A2871AA42001A2178 /* Preview Content */,
 				6340657E2871AF68001A2178 /* App Constants.swift */,
+				63958CFC2877341F00E0B807 /* AppDelegate.swift */,
 			);
 			path = Cork;
 			sourceTree = "<group>";
@@ -188,9 +193,18 @@
 			path = Installation;
 			sourceTree = "<group>";
 		};
+		63958CFE287735ED00E0B807 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				63958CFF287735F800E0B807 /* About View.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		639A7D812871D07800B50280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63958CFE287735ED00E0B807 /* About */,
 				637E006C28734189005C9890 /* Installation */,
 				6371EA1C2871D96800300E1B /* Packages */,
 			);
@@ -291,6 +305,8 @@
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
+				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
+				63958D00287735F800E0B807 /* About View.swift in Sources */,
 				639A7D862871D78C00B50280 /* Package Details.swift in Sources */,
 				634065652871AA42001A2178 /* CorkApp.swift in Sources */,
 			);
