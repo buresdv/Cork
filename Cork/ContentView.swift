@@ -56,31 +56,27 @@ struct ContentView: View {
                     .collapsible(true)
                 }
                 .listStyle(.bordered)
-            }
-            .toolbar {
-                VStack(alignment: .leading) {
-                    Text("Cork")
-                        .font(.headline)
-                    Text("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
-                        .font(.subheadline)
-                }
                 
-                Button {
-                    print("Clicked on upgrade")
-                    
-                    upgradeBrewPackages(updateProgressTracker)
-                } label: {
-                    Label {
-                        Text("Upgrade Formulae")
-                    } icon: {
-                        Image(systemName: "arrow.clockwise")
+            }
+            .navigationTitle("Cork")
+            .navigationSubtitle("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button {
+                        print("Clicked on upgrade")
+                        
+                        upgradeBrewPackages(updateProgressTracker)
+                    } label: {
+                        Label {
+                            Text("Upgrade Formulae")
+                        } icon: {
+                            Image(systemName: "arrow.clockwise")
+                        }
                     }
                 }
-
-                
-                Spacer()
-                
-                if !multiSelection.isEmpty { // If the user selected a package, show a button to uninstall it
+        
+                ToolbarItemGroup(placement: .destructiveAction) {
+                    if !multiSelection.isEmpty { // If the user selected a package, show a button to uninstall it
                         Button {
                             print("Clicked Delete")
                             isShowingAlert.toggle()
@@ -102,19 +98,20 @@ struct ContentView: View {
                             Text("Deleting a formula will completely remove it from your Mac. You will have to reinstall the formula if you want to use it again.")
                             Text("This action cannot be undone.")
                         }
-
-                }
-                
-                Button {
-                    isShowingInstallSheet.toggle()
-                } label: {
-                    Label {
-                        Text("Add Formula")
-                    } icon: {
-                        Image(systemName: "plus")
                     }
                 }
-
+                
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button {
+                        isShowingInstallSheet.toggle()
+                    } label: {
+                        Label {
+                            Text("Add Formula")
+                        } icon: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
             }
         }
         .padding()

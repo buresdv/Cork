@@ -11,6 +11,14 @@ import SwiftUI
 class SearchResultTracker: ObservableObject {
     @Published var foundFormulae: [SearchResult] = [SearchResult]()
     @Published var foundCasks: [SearchResult] = [SearchResult]()
+    @Published var selectedPackagesForInstallation: [String] = [String]()
+}
+
+class InstallationProgressTracker: ObservableObject {
+    @Published var progressNumber: Float = 0
+    @Published var packageBeingCurrentlyInstalled: String = ""
+    
+    @Published var isShowingInstallationFailureAlert: Bool = false
 }
 
 struct AddFormulaView: View {
@@ -23,6 +31,7 @@ struct AddFormulaView: View {
     @State private var foundPackageSelection = Set<UUID>()
     
     @ObservedObject var searchResultTracker = SearchResultTracker()
+    @ObservedObject var installationProgressTracker = InstallationProgressTracker()
     
     var body: some View {
         VStack {
@@ -31,17 +40,23 @@ struct AddFormulaView: View {
             
             if isShowingListLoader {
                 ProgressView()
+            } else if installationProgressTracker.progressNumber != 0 {
+                InstallProgressTrackerView(progress: $installationProgressTracker.progressNumber, currentlyInstallingPackage: $installationProgressTracker.packageBeingCurrentlyInstalled)
             } else if isShowingResultsList {
                 List(selection: $foundPackageSelection) {
-                    Section("Found Formulae") {
-                        ForEach(searchResultTracker.foundFormulae) { formula in
-                            Text(formula.packageName)
+                    if !searchResultTracker.foundFormulae.isEmpty {
+                        Section("Found Formulae") {
+                            ForEach(searchResultTracker.foundFormulae) { formula in
+                                Text(formula.packageName)
+                            }
                         }
                     }
                     
-                    Section("Found Casks") {
-                        ForEach(searchResultTracker.foundCasks) { cask in
-                            Text(cask.packageName)
+                    if !searchResultTracker.foundCasks.isEmpty {
+                        Section("Found Casks") {
+                            ForEach(searchResultTracker.foundCasks) { cask in
+                                Text(cask.packageName)
+                            }
                         }
                     }
                 }
@@ -133,9 +148,12 @@ struct AddFormulaView: View {
                     .keyboardShortcut(.defaultAction)
                 } else {
                     Button {
-                        for selection in foundPackageSelection {
-                            print(selection)
-                        }
+                        // TODO: Optimize this
+                        searchResultTracker.selectedPackagesForInstallation = [String]()
+                        
+                        installSelectedPackages(packageArray: getPackageNamesFromUUID(selectionBinding: foundPackageSelection, tracker: searchResultTracker), tracker: installationProgressTracker)
+                        
+                        print(searchResultTracker.selectedPackagesForInstallation)
                     } label: {
                         Text("Install")
                     }
@@ -146,5 +164,13 @@ struct AddFormulaView: View {
         }
         .padding(.vertical)
         .frame(width: 300)
+        .alert("Error installing package", isPresented: $installationProgressTracker.isShowingInstallationFailureAlert) {
+            Button("Close", role: .cancel) {
+                installationProgressTracker.isShowingInstallationFailureAlert = false
+            }
+        } message: {
+            Text("An error occured while installing one of the selected packages.")
+            Text("Please try again in a feww minutes")
+        }
     }
 }
