@@ -17,6 +17,8 @@ class SearchResultTracker: ObservableObject {
 class InstallationProgressTracker: ObservableObject {
     @Published var progressNumber: Float = 0
     @Published var packageBeingCurrentlyInstalled: String = ""
+    
+    @Published var isShowingInstallationFailureAlert: Bool = false
 }
 
 struct AddFormulaView: View {
@@ -162,5 +164,13 @@ struct AddFormulaView: View {
         }
         .padding(.vertical)
         .frame(width: 300)
+        .alert("Error installing package", isPresented: $installationProgressTracker.isShowingInstallationFailureAlert) {
+            Button("Close", role: .cancel) {
+                installationProgressTracker.isShowingInstallationFailureAlert = false
+            }
+        } message: {
+            Text("An error occured while installing one of the selected packages.")
+            Text("Please try again in a feww minutes")
+        }
     }
 }

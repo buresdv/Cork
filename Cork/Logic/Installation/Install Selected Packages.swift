@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker) -> Void {
@@ -18,9 +19,14 @@ func installSelectedPackages(packageArray: [String], tracker: InstallationProgre
             tracker.packageBeingCurrentlyInstalled = package
             print(tracker.packageBeingCurrentlyInstalled)
             
-            await shell("/opt/homebrew/bin/brew", ["install", package])
+            let installCommandOutput = await shell("/opt/homebrew/bin/brew", ["install", package])
             
-            tracker.progressNumber += progressSteps
+            if installCommandOutput!.contains("was successfully installed") {
+                tracker.progressNumber += progressSteps
+            } else {
+                tracker.isShowingInstallationFailureAlert = true
+            }
+        
             print("Installing \(tracker.packageBeingCurrentlyInstalled) at \(tracker.progressNumber)")
         }
     }
