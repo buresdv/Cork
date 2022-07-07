@@ -13,7 +13,9 @@ struct CorkApp: App {
         WindowGroup {
             ContentView()
         }
-        .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
-        .windowStyle(HiddenTitleBarWindowStyle())
+        .windowStyle(.automatic)
+        .windowToolbarStyle(.automatic)
+        //.windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: true))
+        //.windowStyle(HiddenTitleBarWindowStyle())
     }
 }

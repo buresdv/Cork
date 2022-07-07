@@ -57,14 +57,9 @@ struct ContentView: View {
                 }
                 .listStyle(.bordered)
             }
+            .navigationTitle("Cork")
+            .navigationSubtitle("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
             .toolbar {
-                VStack(alignment: .leading) {
-                    Text("Cork")
-                        .font(.headline)
-                    Text("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
-                        .font(.subheadline)
-                }
-                
                 Button {
                     print("Clicked on upgrade")
                     
