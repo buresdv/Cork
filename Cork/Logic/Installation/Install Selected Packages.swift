@@ -10,6 +10,8 @@ import SwiftUI
 
 @MainActor
 func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker) -> Void {
+    @EnvironmentObject var brewData: BrewDataStorage
+    
     let progressSteps: Float = Float(1) / Float(packageArray.count)
     
     tracker.progressNumber = 0
@@ -26,8 +28,11 @@ func installSelectedPackages(packageArray: [String], tracker: InstallationProgre
             } else {
                 tracker.isShowingInstallationFailureAlert = true
             }
-        
             print("Installing \(tracker.packageBeingCurrentlyInstalled) at \(tracker.progressNumber)")
         }
+    }
+    
+    Task {
+        await loadUpInstalledPackages(into: brewData)
     }
 }

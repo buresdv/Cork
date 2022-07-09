@@ -32,10 +32,7 @@ struct PackageDetailView: View {
             }
             
             if packageInfo.contents == nil {
-                VStack {
-                    ProgressView()
-                    Text("Loading package info...")
-                }
+                LoadingView()
             } else {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Description")
