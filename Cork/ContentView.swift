@@ -114,28 +114,8 @@ struct ContentView: View {
         }
         .environmentObject(brewData)
         .onAppear {
-            Task { // Task that gets the contents of the Cellar folder
-                print("Started Cellar task at \(Date())")
-                let contentsOfCellarFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCellarPath)
-                
-                for package in contentsOfCellarFolder {
-                    brewData.installedFormulae.append(package)
-                    // print("Appended \(package)")
-                }
-                
-                //print(brewData.installedFormulae!)
-            }
-            
-            Task { // Task that gets the contents of the Cask folder
-                print("Started Cask task at \(Date())")
-                let contentsOfCaskFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCaskPath)
-                
-                for package in contentsOfCaskFolder {
-                    brewData.installedCasks.append(package)
-                    // print("Appended \(package)")
-                }
-                
-                //print(brewData.installedCasks!)
+            Task {
+                await loadUpInstalledPackages(into: brewData)
             }
         }
         .sheet(isPresented: $isShowingInstallSheet) {
