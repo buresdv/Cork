@@ -11,7 +11,7 @@ struct AboutView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading) {
-                Text("Cork")
+                Text(AppConstantsLocal.appName)
                     .font(.title)
                 Text("Version 0.1")
                     .font(.subheadline)

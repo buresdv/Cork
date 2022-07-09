@@ -21,7 +21,7 @@ struct ContentView: View {
         VStack {
             NavigationView {
                 List(selection: $multiSelection) {
-                    Section(header: Text("Installed Formulae").font(.headline).foregroundColor(.black)) {
+                    Section("Installed Formulae") {
                         if brewData.installedFormulae.count != 0 {
                             ForEach(brewData.installedFormulae) { package in
                                 
@@ -38,7 +38,7 @@ struct ContentView: View {
                     }
                     .collapsible(true)
                     
-                    Section(header: Text("Installed Casks").font(.headline).foregroundColor(.black)) {
+                    Section("Installed Casks") {
                         if brewData.installedCasks.count != 0 {
                             ForEach(brewData.installedCasks) { package in
                                 
@@ -55,15 +55,13 @@ struct ContentView: View {
                     }
                     .collapsible(true)
                 }
-                .listStyle(.bordered)
+                .listStyle(SidebarListStyle())
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
-                    Button {
-                        print("Clicked on upgrade")
-                        
+                    Button {                        
                         upgradeBrewPackages(updateProgressTracker)
                     } label: {
                         Label {
@@ -72,6 +70,7 @@ struct ContentView: View {
                             Image(systemName: "arrow.clockwise")
                         }
                     }
+                    .keyboardShortcut("r")
                 }
         
                 ToolbarItemGroup(placement: .destructiveAction) {
@@ -113,7 +112,6 @@ struct ContentView: View {
                 }
             }
         }
-        .padding()
         .environmentObject(brewData)
         .onAppear {
             Task { // Task that gets the contents of the Cellar folder

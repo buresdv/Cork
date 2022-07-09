@@ -49,7 +49,7 @@ struct PackageDetailView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .padding([.horizontal, .bottom])
+        .padding()
         .onAppear {
             Task {
                 if !isCask {
