@@ -72,7 +72,7 @@ struct ContentView: View {
                     }
                     .keyboardShortcut("r")
                 }
-        
+                
                 ToolbarItemGroup(placement: .destructiveAction) {
                     if !multiSelection.isEmpty { // If the user selected a package, show a button to uninstall it
                         Button {
@@ -119,7 +119,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isShowingInstallSheet) {
-            AddFormulaView(isShowingSheet: $isShowingInstallSheet)
+            AddFormulaView(isShowingSheet: $isShowingInstallSheet, brewData: brewData)
         }
         .sheet(isPresented: $updateProgressTracker.showUpdateSheet) {
             VStack {

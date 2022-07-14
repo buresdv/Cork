@@ -28,6 +28,8 @@ struct AddFormulaView: View {
     @State private var isShowingListLoader: Bool = false
     @State private var isShowingResultsList: Bool = false
     
+    @State var brewData: BrewDataStorage
+    
     @State private var foundPackageSelection = Set<UUID>()
     
     @ObservedObject var searchResultTracker = SearchResultTracker()
@@ -147,17 +149,27 @@ struct AddFormulaView: View {
                     }
                     .keyboardShortcut(.defaultAction)
                 } else {
-                    Button {
-                        // TODO: Optimize this
-                        searchResultTracker.selectedPackagesForInstallation = [String]()
+                    HStack {
+                        Button {
+                            // TODO: Add logic that will show the user more information about the selected package
+                        } label: {
+                            Text("More info")
+                        }
+                        .keyboardShortcut(.tab)
                         
-                        installSelectedPackages(packageArray: getPackageNamesFromUUID(selectionBinding: foundPackageSelection, tracker: searchResultTracker), tracker: installationProgressTracker)
+                        Button {
+                            // TODO: Optimize this
+                            searchResultTracker.selectedPackagesForInstallation = [String]()
+                            
+                            installSelectedPackages(packageArray: getPackageNamesFromUUID(selectionBinding: foundPackageSelection, tracker: searchResultTracker), tracker: installationProgressTracker, brewData: brewData)
+                            
+                            print(searchResultTracker.selectedPackagesForInstallation)
+                        } label: {
+                            Text("Install")
+                        }
+                        .keyboardShortcut(.defaultAction)
                         
-                        print(searchResultTracker.selectedPackagesForInstallation)
-                    } label: {
-                        Text("Install")
                     }
-                    .keyboardShortcut(.defaultAction)
                 }
             }
             .padding(.horizontal)

@@ -11,7 +11,7 @@ import SwiftUI
 enum UpdateStages: String {
     case notDoingAnything = ""
     case updating = "Pulling updates..."
-    case upgrading = "Applying updates... this might take some time"
+    case upgrading = "Applying updates..."
 }
 
 class UpdateProgressTracker: ObservableObject {
