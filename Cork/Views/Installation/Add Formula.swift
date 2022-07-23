@@ -37,7 +37,7 @@ struct AddFormulaView: View {
     
     var body: some View {
         VStack {
-            TextField("Search For Formula...", text: $packageRequested, onEditingChanged: { focused in
+            TextField("Search For Formula...", text: $packageRequested, onEditingChanged: { _ in
                 foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
             })
                 .padding(.horizontal)
@@ -158,7 +158,7 @@ struct AddFormulaView: View {
                             let selectedPackages: [String] = getPackageNamesFromUUID(selectionBinding: foundPackageSelection, tracker: searchResultTracker)
                             
                             for selectedPackage in selectedPackages {
-                                PackageDetailWindow(package: selectedPackage, tracker: searchResultTracker).openNewWindow()
+                                PackageDetailWindow(package: selectedPackage, tracker: searchResultTracker).openNewWindow(with: "Detail - \(selectedPackage)")
                             }
                             
                         } label: {
