@@ -7,15 +7,9 @@
 
 import SwiftUI
 
-class LoadingStatus: ObservableObject {
-    @Published var isLoadingPackageInfo: Bool = true
-}
-
 struct PackageDetailWindow: View {
     @State var package: String
     @State var tracker: SearchResultTracker
-    
-    @State private var packageInfoLoadingStatus: LoadingStatus = LoadingStatus()
     
     @State private var displayedPackage: SearchResult? = nil
     @State private var packageInfo: SelectedPackageInfo = SelectedPackageInfo()
@@ -33,6 +27,10 @@ struct PackageDetailWindow: View {
                         ProgressView()
                     }
 
+                } else {
+                    Text("Error occured while getting package name")
+                        .font(.headline)
+                    Text("Report this to github")
                 }
                 
             } else {
@@ -60,15 +58,12 @@ struct PackageDetailWindow: View {
                 displayedPackage = SearchResult(packageName: package, isCask: false)
                 
                 Task {
-                    packageInfoLoadingStatus.isLoadingPackageInfo = true
-                    
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package])
                     
-                    print(packageInfo.contents)
+                    //print(packageInfo.contents)
                     
                     assembledPackage = BrewPackage(name: package, versions: ["\(extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .version))"])
                     
-                    packageInfoLoadingStatus.isLoadingPackageInfo = false
                 }
         
             } else {
@@ -76,15 +71,11 @@ struct PackageDetailWindow: View {
                 displayedPackage = SearchResult(packageName: package, isCask: true)
                 
                 Task {
-                    packageInfoLoadingStatus.isLoadingPackageInfo = true
-                    
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package])
                     
-                    print(packageInfo.contents)
+                    // print(packageInfo.contents)
                     
                     assembledPackage = BrewPackage(name: package, versions: ["\(extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .version))"])
-                    
-                    packageInfoLoadingStatus.isLoadingPackageInfo = false
                 }
                 
             }
