@@ -152,6 +152,13 @@ struct AddFormulaView: View {
                     HStack {
                         Button {
                             // TODO: Add logic that will show the user more information about the selected package
+                            
+                            let selectedPackages: [String] = getPackageNamesFromUUID(selectionBinding: foundPackageSelection, tracker: searchResultTracker)
+                            
+                            for selectedPackage in selectedPackages {
+                                PackageDetailWindow(package: selectedPackage).openNewWindow()
+                            }
+                            
                         } label: {
                             Text("More info")
                         }
