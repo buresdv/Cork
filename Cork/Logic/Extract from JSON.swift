@@ -10,6 +10,7 @@ import Foundation
 enum WhatToExtract: String {
     case description = "desc"
     case homepage = "homepage"
+    case version = "version"
 }
 
 func extractPackageInfo(rawJSON: String, whatToExtract: WhatToExtract) -> String {

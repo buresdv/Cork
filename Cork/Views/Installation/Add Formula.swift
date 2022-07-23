@@ -107,11 +107,11 @@ struct AddFormulaView: View {
                                 foundCasksRaw.removeLast()
                                 
                                 for formula in foundFormulaeRaw {
-                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula, isCask: false))
                                 }
                                 
                                 for cask in foundCasksRaw {
-                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
+                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask, isCask: true))
                                 }
                                 
                                 print(searchResultTracker.foundFormulae)
@@ -122,7 +122,7 @@ struct AddFormulaView: View {
                                 foundFormulaeRaw.removeLast()
                                 
                                 for formula in foundFormulaeRaw {
-                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula))
+                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula, isCask: false))
                                 }
                                 
                                 print(searchResultTracker.foundFormulae)
@@ -133,7 +133,7 @@ struct AddFormulaView: View {
                                 foundCasksRaw.removeLast()
                                 
                                 for cask in foundCasksRaw {
-                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask))
+                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask, isCask: true))
                                 }
                                 
                                 print(searchResultTracker.foundCasks)
@@ -156,7 +156,7 @@ struct AddFormulaView: View {
                             let selectedPackages: [String] = getPackageNamesFromUUID(selectionBinding: foundPackageSelection, tracker: searchResultTracker)
                             
                             for selectedPackage in selectedPackages {
-                                PackageDetailWindow(package: selectedPackage).openNewWindow()
+                                PackageDetailWindow(package: selectedPackage, tracker: searchResultTracker).openNewWindow()
                             }
                             
                         } label: {
