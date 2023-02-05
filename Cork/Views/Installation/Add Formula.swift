@@ -87,60 +87,20 @@ struct AddFormulaView: View {
                         Task {
                             isShowingListLoader = true
                             print("Loader status: \(isShowingListLoader)")
-                            let searchResults = await shell("/opt/homebrew/bin/brew", ["search", packageRequested])!
                             
-                            print(searchResults)
-                            
-                            let resultArray: [String] = searchResults.components(separatedBy: "\n")
-                            
-                            print(resultArray)
-                            
-                            var foundFormulaeRaw = [String]()
-                            var foundCasksRaw = [String]()
-                            
-                            if resultArray.contains("==> Formulae") && resultArray.contains("==> Casks") {
+                            do {
+                                let foundFormulae: [String] = try await searchForPackage(packageName: packageRequested, packageType: .formula)
+                                let foundCasks: [String] = try await searchForPackage(packageName: packageRequested, packageType: .cask)
                                 
-                                foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.firstIndex(of: "==> Casks")!])
-                                foundFormulaeRaw.removeFirst()
-                                foundFormulaeRaw.removeLast()
-                                
-                                foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
-                                foundCasksRaw.removeFirst()
-                                foundCasksRaw.removeLast()
-                                
-                                for formula in foundFormulaeRaw {
+                                for formula in foundFormulae {
                                     searchResultTracker.foundFormulae.append(SearchResult(packageName: formula, isCask: false))
                                 }
                                 
-                                for cask in foundCasksRaw {
+                                for cask in foundCasks {
                                     searchResultTracker.foundCasks.append(SearchResult(packageName: cask, isCask: true))
                                 }
-                                
-                                print(searchResultTracker.foundFormulae)
-                                print(searchResultTracker.foundCasks)
-                            } else if resultArray.contains("==> Formulae") {
-                                foundFormulaeRaw = Array(resultArray[resultArray.firstIndex(of: "==> Formulae")!..<resultArray.count])
-                                foundFormulaeRaw.removeFirst()
-                                foundFormulaeRaw.removeLast()
-                                
-                                for formula in foundFormulaeRaw {
-                                    searchResultTracker.foundFormulae.append(SearchResult(packageName: formula, isCask: false))
-                                }
-                                
-                                print(searchResultTracker.foundFormulae)
-                                
-                            } else if resultArray.contains("==> Casks") {
-                                foundCasksRaw = Array(resultArray[resultArray.firstIndex(of: "==> Casks")!..<resultArray.count])
-                                foundCasksRaw.removeFirst()
-                                foundCasksRaw.removeLast()
-                                
-                                for cask in foundCasksRaw {
-                                    searchResultTracker.foundCasks.append(SearchResult(packageName: cask, isCask: true))
-                                }
-                                
-                                print(searchResultTracker.foundCasks)
-                            } else {
-                                
+                            } catch let packageRetrievalError as NSError {
+                                print(packageRetrievalError)
                             }
                             
                             isShowingListLoader = false

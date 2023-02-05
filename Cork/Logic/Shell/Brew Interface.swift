@@ -31,11 +31,9 @@ struct SearchResults {
     let foundCasks: [String]
 }
 
-func getListOfFoundPackages(searchWord: String) -> String {
+func getListOfFoundPackages(searchWord: String) async -> String {
     var parsedResponse: String?
-    Task {
-        parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord])!
-    }
+    parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord])!
     
     return parsedResponse!
 }

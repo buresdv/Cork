@@ -20,17 +20,10 @@ struct PackageDetailWindow: View {
         VStack {
             if displayedPackage != nil {
                 
-                if packageInfo != nil {
-                    if assembledPackage != nil {
-                        PackageDetailView(package: assembledPackage!, isCask: displayedPackage!.isCask, packageInfo: packageInfo)
-                    } else {
-                        ProgressView()
-                    }
-
+                if assembledPackage != nil {
+                    PackageDetailView(package: assembledPackage!, isCask: displayedPackage!.isCask, packageInfo: packageInfo)
                 } else {
-                    Text("Error occured while getting package name")
-                        .font(.headline)
-                    Text("Report this to github")
+                    ProgressView()
                 }
                 
             } else {

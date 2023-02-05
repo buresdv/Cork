@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 func loadUpInstalledPackages(into brewData: BrewDataStorage) async -> Void {
     
     Task { // Task that gets the contents of the Cellar folder
