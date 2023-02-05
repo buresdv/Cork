@@ -7,33 +7,36 @@
 
 import Foundation
 
-enum BrewCommands {
+enum BrewCommands
+{
     case search, info, install, delete
 }
 
 /*
-func executeBrewCommand(commandType: BrewCommands, argument: String? = nil) -> String {
-    switch commandType {
-    case .search:
-        <#code#>
-    case .info:
-        <#code#>
-    case .install:
-        <#code#>
-    case .delete:
-        <#code#>
-    }
-}
-*/
+ func executeBrewCommand(commandType: BrewCommands, argument: String? = nil) -> String {
+     switch commandType {
+     case .search:
+         <#code#>
+     case .info:
+         <#code#>
+     case .install:
+         <#code#>
+     case .delete:
+         <#code#>
+     }
+ }
+ */
 
-struct SearchResults {
+struct SearchResults
+{
     let foundFormulae: [String]
     let foundCasks: [String]
 }
 
-func getListOfFoundPackages(searchWord: String) async -> String {
+func getListOfFoundPackages(searchWord: String) async -> String
+{
     var parsedResponse: String?
     parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord])!
-    
+
     return parsedResponse!
 }

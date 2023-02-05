@@ -7,7 +7,8 @@
 
 import Foundation
 
-class BrewDataStorage: ObservableObject {
+class BrewDataStorage: ObservableObject
+{
     @Published var installedFormulae = [BrewPackage]()
     @Published var installedCasks = [BrewPackage]()
 }

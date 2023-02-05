@@ -15,9 +15,12 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> String?
 
     let pipe = Pipe()
     task.standardOutput = pipe
-    do {
+    do
+    {
         try task.run()
-    } catch {
+    }
+    catch
+    {
         print(error)
     }
 

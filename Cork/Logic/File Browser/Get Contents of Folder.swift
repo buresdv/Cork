@@ -7,46 +7,52 @@
 
 import Foundation
 
-func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage] {
+func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
+{
     var contentsOfFolder = [BrewPackage]()
-    
-    var temporaryVersionStorage: [String] = [String]()
-    
-    do {
+
+    var temporaryVersionStorage = [String]()
+
+    do
+    {
         let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path)
-        
-        for item in items {
-            do {
+
+        for item in items
+        {
+            do
+            {
                 let versions = try FileManager.default.contentsOfDirectory(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path)
-                
-                for version in versions { // Check if what we're about to add are actual versions or just some supporting folders
+
+                for version in versions
+                { // Check if what we're about to add are actual versions or just some supporting folders
                     print("Scanned version: \(version)")
-                    
-                    if version != ".metadata" {
+
+                    if version != ".metadata"
+                    {
                         print("Found desirable version: \(version). Appending to temporary package list")
-                        
+
                         temporaryVersionStorage.append(version)
-                        
-                    } else {
+                    }
+                    else
+                    {
                         print("Found non-desirable version: \(version). Ignoring")
                     }
-                    
-                    
                 }
-                
+
                 contentsOfFolder.append(BrewPackage(name: item, versions: temporaryVersionStorage))
-                
+
                 temporaryVersionStorage = [String]()
-                
-            } catch let error as NSError {
+            }
+            catch let error as NSError
+            {
                 print("Failed while getting package version: \(error)")
             }
-            
         }
-        
-    } catch let error as NSError {
+    }
+    catch let error as NSError
+    {
         print("Failed while accessing foldeR: \(error)")
     }
-    
+
     return contentsOfFolder
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
-func returnFormattedVersions(_ array: [String]) -> String {
+func returnFormattedVersions(_ array: [String]) -> String
+{
     return array.joined(separator: ", ")
 }

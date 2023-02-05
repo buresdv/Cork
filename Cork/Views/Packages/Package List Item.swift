@@ -7,18 +7,21 @@
 
 import SwiftUI
 
-struct PackageListItem: View {
+struct PackageListItem: View
+{
     var packageItem: BrewPackage
-    
-    var body: some View {
-        HStack {
-            HStack(alignment: .firstTextBaseline) {
+
+    var body: some View
+    {
+        HStack
+        {
+            HStack(alignment: .firstTextBaseline)
+            {
                 Text(packageItem.name)
                 Text(returnFormattedVersions(packageItem.versions))
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
-            
         }
     }
 }

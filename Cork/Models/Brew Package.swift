@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct BrewPackage: Identifiable {
+struct BrewPackage: Identifiable
+{
     let id = UUID()
     let name: String
     let versions: [String]

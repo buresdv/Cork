@@ -7,27 +7,33 @@
 
 import Foundation
 
-func getPackageNamesFromUUID(selectionBinding: Set<UUID>, tracker: SearchResultTracker) -> [String] {
+func getPackageNamesFromUUID(selectionBinding: Set<UUID>, tracker: SearchResultTracker) -> [String]
+{
     let foundFormulae: [SearchResult] = tracker.foundFormulae
     let foundCasks: [SearchResult] = tracker.foundCasks
-    
-    var resultArray: [String] = [String]()
-    
-    for selection in selectionBinding {
+
+    var resultArray = [String]()
+
+    for selection in selectionBinding
+    {
         /// Step 1: Look through formulae
-        for item in foundFormulae {
-            if selection == item.id {
+        for item in foundFormulae
+        {
+            if selection == item.id
+            {
                 resultArray.append(item.packageName)
             }
         }
-        
+
         /// Step 2: Look through casks
-        for item in foundCasks {
-            if selection == item.id {
+        for item in foundCasks
+        {
+            if selection == item.id
+            {
                 resultArray.append(item.packageName)
             }
         }
     }
-    
+
     return resultArray
 }

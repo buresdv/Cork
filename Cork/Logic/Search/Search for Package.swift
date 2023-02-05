@@ -10,22 +10,25 @@ import Foundation
 func searchForPackage(packageName: String, packageType: PackageType) async throws -> [String]
 {
     var finalPackageArray: [String]
-    
-    switch packageType {
+
+    switch packageType
+    {
     case .formula:
-        var foundFormulae = await Task {
-            return await shell("/opt/homebrew/bin/brew", ["search", "--formulae", packageName])!
+        let foundFormulae = await Task
+        {
+            await shell("/opt/homebrew/bin/brew", ["search", "--formulae", packageName])!
         }.result
-        
+
         finalPackageArray = try foundFormulae.get().components(separatedBy: "\n")
-        
+
     case .cask:
-        var foundCasks = await Task {
-            return await shell("/opt/homebrew/bin/brew", ["search", "--casks", packageName])!
+        let foundCasks = await Task
+        {
+            await shell("/opt/homebrew/bin/brew", ["search", "--casks", packageName])!
         }.result
-        
+
         finalPackageArray = try foundCasks.get().components(separatedBy: "\n")
     }
-    
+
     return finalPackageArray
 }

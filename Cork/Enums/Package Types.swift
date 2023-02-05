@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum PackageType {
+enum PackageType
+{
     case formula, cask
 }

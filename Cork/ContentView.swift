@@ -7,49 +7,62 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View
+{
     @StateObject var brewData = BrewDataStorage()
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
     @StateObject var updateProgressTracker = UpdateProgressTracker()
-    
+
     @State private var multiSelection = Set<UUID>()
-    
+
     @State private var isShowingInstallSheet: Bool = false
     @State private var isShowingAlert: Bool = false
-    
-    var body: some View {
-        VStack {
-            NavigationView {
-                List(selection: $multiSelection) {
-                    Section("Installed Formulae") {
-                        if brewData.installedFormulae.count != 0 {
-                            ForEach(brewData.installedFormulae) { package in
-                                
-                                NavigationLink {
+
+    var body: some View
+    {
+        VStack
+        {
+            NavigationView
+            {
+                List(selection: $multiSelection)
+                {
+                    Section("Installed Formulae")
+                    {
+                        if brewData.installedFormulae.count != 0
+                        {
+                            ForEach(brewData.installedFormulae)
+                            { package in
+                                NavigationLink
+                                {
                                     PackageDetailView(package: package, isCask: false, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
-                                
                             }
-                        } else {
+                        }
+                        else
+                        {
                             ProgressView()
                         }
                     }
                     .collapsible(true)
-                    
-                    Section("Installed Casks") {
-                        if brewData.installedCasks.count != 0 {
-                            ForEach(brewData.installedCasks) { package in
-                                
-                                NavigationLink {
+
+                    Section("Installed Casks")
+                    {
+                        if brewData.installedCasks.count != 0
+                        {
+                            ForEach(brewData.installedCasks)
+                            { package in
+                                NavigationLink
+                                {
                                     PackageDetailView(package: package, isCask: true, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
-                                
                             }
-                        } else {
+                        }
+                        else
+                        {
                             ProgressView()
                         }
                     }
@@ -59,12 +72,16 @@ struct ContentView: View {
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
-            .toolbar {
-                ToolbarItemGroup(placement: .primaryAction) {
-                    Button {                        
+            .toolbar
+            {
+                ToolbarItemGroup(placement: .primaryAction)
+                {
+                    Button
+                    {
                         upgradeBrewPackages(updateProgressTracker)
                     } label: {
-                        Label {
+                        Label
+                        {
                             Text("Upgrade Formulae")
                         } icon: {
                             Image(systemName: "arrow.clockwise")
@@ -72,24 +89,29 @@ struct ContentView: View {
                     }
                     .keyboardShortcut("r")
                 }
-                
-                ToolbarItemGroup(placement: .destructiveAction) {
-                    if !multiSelection.isEmpty { // If the user selected a package, show a button to uninstall it
-                        Button {
+
+                ToolbarItemGroup(placement: .destructiveAction)
+                {
+                    if !multiSelection.isEmpty
+                    { // If the user selected a package, show a button to uninstall it
+                        Button
+                        {
                             print("Clicked Delete")
                             isShowingAlert.toggle()
                         } label: {
-                            Label {
+                            Label
+                            {
                                 Text("Remove Formula")
                             } icon: {
                                 Image(systemName: "trash")
                             }
                         }
-                        .alert("Are you sure you want to delete the selected package(s)?", isPresented: $isShowingAlert) {
-                            Button("Delete", role: .destructive) {
-                                
-                            }
-                            Button("Cancel", role: .cancel) {
+                        .alert("Are you sure you want to delete the selected package(s)?", isPresented: $isShowingAlert)
+                        {
+                            Button("Delete", role: .destructive)
+                            {}
+                            Button("Cancel", role: .cancel)
+                            {
                                 isShowingAlert.toggle()
                             }
                         } message: {
@@ -98,12 +120,15 @@ struct ContentView: View {
                         }
                     }
                 }
-                
-                ToolbarItemGroup(placement: .primaryAction) {
-                    Button {
+
+                ToolbarItemGroup(placement: .primaryAction)
+                {
+                    Button
+                    {
                         isShowingInstallSheet.toggle()
                     } label: {
-                        Label {
+                        Label
+                        {
                             Text("Add Formula")
                         } icon: {
                             Image(systemName: "plus")
@@ -113,16 +138,21 @@ struct ContentView: View {
             }
         }
         .environmentObject(brewData)
-        .onAppear {
-            Task {
+        .onAppear
+        {
+            Task
+            {
                 await loadUpInstalledPackages(into: brewData)
             }
         }
-        .sheet(isPresented: $isShowingInstallSheet) {
+        .sheet(isPresented: $isShowingInstallSheet)
+        {
             AddFormulaView(isShowingSheet: $isShowingInstallSheet, brewData: brewData)
         }
-        .sheet(isPresented: $updateProgressTracker.showUpdateSheet) {
-            VStack {
+        .sheet(isPresented: $updateProgressTracker.showUpdateSheet)
+        {
+            VStack
+            {
                 ProgressView(value: updateProgressTracker.updateProgress)
                     .frame(width: 200)
                 Text(updateProgressTracker.updateStage.rawValue)

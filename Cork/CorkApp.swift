@@ -8,27 +8,30 @@
 import SwiftUI
 
 @main
-struct CorkApp: App {
+struct CorkApp: App
+{
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    var body: some Scene {
-        WindowGroup {
+
+    var body: some Scene
+    {
+        WindowGroup
+        {
             ContentView()
         }
         .commands(content: {
-            CommandGroup(replacing: CommandGroupPlacement.appInfo) {
-                Button {
+            CommandGroup(replacing: CommandGroupPlacement.appInfo)
+            {
+                Button
+                {
                     appDelegate.showAboutPanel()
                 } label: {
                     Text("About \(AppConstantsLocal.appName)")
                 }
-
-
             }
         })
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
-        //.windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: true))
-        //.windowStyle(HiddenTitleBarWindowStyle())
+        // .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: true))
+        // .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
