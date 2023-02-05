@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker, brewData _: BrewDataStorage)
+func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker, brewData: BrewDataStorage)
 {
     let progressSteps = Float(1) / Float(packageArray.count)
 
@@ -32,6 +32,7 @@ func installSelectedPackages(packageArray: [String], tracker: InstallationProgre
                 tracker.isShowingInstallationFailureAlert = true
             }
             print("Installing \(tracker.packageBeingCurrentlyInstalled) at \(tracker.progressNumber)")
+            
         }
     }
 }

@@ -30,5 +30,9 @@ func searchForPackage(packageName: String, packageType: PackageType) async throw
         finalPackageArray = try foundCasks.get().components(separatedBy: "\n")
     }
 
+    finalPackageArray.removeLast()
+    
+    print("Search found these: \(finalPackageArray)")
+    
     return finalPackageArray
 }

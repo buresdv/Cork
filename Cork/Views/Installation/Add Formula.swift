@@ -64,7 +64,14 @@ struct AddFormulaView: View
                         {
                             ForEach(searchResultTracker.foundFormulae)
                             { formula in
-                                Text(formula.packageName)
+                                HStack
+                                {
+                                    Text(formula.packageName)
+                                    if brewData.installedFormulae.contains(where: { $0.name == formula.packageName })
+                                    {
+                                        PillText(text: "Already Installed")
+                                    }
+                                }
                             }
                         }
                     }
@@ -75,7 +82,16 @@ struct AddFormulaView: View
                         {
                             ForEach(searchResultTracker.foundCasks)
                             { cask in
-                                Text(cask.packageName)
+
+                                HStack
+                                {
+                                    Text(cask.packageName)
+                                    if brewData.installedCasks.contains(where: { $0.name == cask.packageName })
+                                    {
+                                        PillText(text: "Already Installed")
+                                    }
+                                }
+                                
                             }
                         }
                     }
