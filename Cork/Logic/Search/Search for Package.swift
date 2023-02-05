@@ -14,20 +14,16 @@ func searchForPackage(packageName: String, packageType: PackageType) async throw
     switch packageType
     {
     case .formula:
-        let foundFormulae = await Task
-        {
-            await shell("/opt/homebrew/bin/brew", ["search", "--formulae", packageName])!
-        }.result
+        
+        let foundFormulae = await shell("/opt/homebrew/bin/brew", ["search", "--formulae", packageName])!
 
-        finalPackageArray = try foundFormulae.get().components(separatedBy: "\n")
+        finalPackageArray = foundFormulae.components(separatedBy: "\n")
 
     case .cask:
-        let foundCasks = await Task
-        {
-            await shell("/opt/homebrew/bin/brew", ["search", "--casks", packageName])!
-        }.result
+        
+        let foundCasks = await shell("/opt/homebrew/bin/brew", ["search", "--casks", packageName])!
 
-        finalPackageArray = try foundCasks.get().components(separatedBy: "\n")
+        finalPackageArray = foundCasks.components(separatedBy: "\n")
     }
 
     finalPackageArray.removeLast()
