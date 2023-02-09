@@ -34,9 +34,21 @@ struct ContentView: View
                             { package in
                                 NavigationLink
                                 {
-                                    PackageDetailView(package: package, isCask: false, packageInfo: selectedPackageInfo)
+                                    PackageDetailView(package: package, isCask: false, brewData: brewData, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
+                                }
+                                .contextMenu
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await uninstallSelectedPackages(packages: [package.name], isCask: false, brewData: brewData)
+                                        }
+                                    } label: {
+                                        Text("Uninstall Formula")
+                                    }
                                 }
                             }
                         }
@@ -55,9 +67,21 @@ struct ContentView: View
                             { package in
                                 NavigationLink
                                 {
-                                    PackageDetailView(package: package, isCask: true, packageInfo: selectedPackageInfo)
+                                    PackageDetailView(package: package, isCask: true, brewData: brewData, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
+                                }
+                                .contextMenu
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await uninstallSelectedPackages(packages: [package.name], isCask: true, brewData: brewData)
+                                        }
+                                    } label: {
+                                        Text("Uninstall Cask")
+                                    }
                                 }
                             }
                         }

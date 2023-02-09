@@ -11,6 +11,8 @@ struct PackageDetailWindow: View
 {
     @State var package: String
     @State var tracker: SearchResultTracker
+    
+    @State var brewData: BrewDataStorage
 
     @State private var displayedPackage: SearchResult? = nil
     @State private var packageInfo: SelectedPackageInfo = .init()
@@ -25,7 +27,7 @@ struct PackageDetailWindow: View
             {
                 if assembledPackage != nil
                 {
-                    PackageDetailView(package: assembledPackage!, isCask: displayedPackage!.isCask, packageInfo: packageInfo)
+                    PackageDetailView(package: assembledPackage!, isCask: displayedPackage!.isCask, brewData: brewData, packageInfo: packageInfo)
                 }
                 else
                 {

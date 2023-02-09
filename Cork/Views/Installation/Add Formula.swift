@@ -41,7 +41,7 @@ struct AddFormulaView: View
     {
         VStack
         {
-            TextField("Search For Formula...", text: $packageRequested, onEditingChanged: { _ in
+            TextField("Search For Packages...", text: $packageRequested, onEditingChanged: { _ in
                 foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
             })
             .padding(.horizontal)
@@ -165,7 +165,7 @@ struct AddFormulaView: View
 
                             for selectedPackage in selectedPackages
                             {
-                                PackageDetailWindow(package: selectedPackage, tracker: searchResultTracker).openNewWindow(with: "Detail - \(selectedPackage)")
+                                PackageDetailWindow(package: selectedPackage, tracker: searchResultTracker, brewData: brewData).openNewWindow(with: "Detail - \(selectedPackage)")
                             }
 
                         } label: {
@@ -188,7 +188,7 @@ struct AddFormulaView: View
                     }
                 }
             }
-            .padding(.horizontal)
+            .padding([.horizontal, .top])
         }
         .padding(.vertical)
         .frame(width: 300)

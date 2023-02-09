@@ -35,6 +35,8 @@
 		63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A87464298FE7FC009F9533 /* Search for Package.swift */; };
 		63A87468298FE811009F9533 /* Package Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A87467298FE811009F9533 /* Package Types.swift */; };
 		63A8746A2990127D009F9533 /* PillText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A874692990127D009F9533 /* PillText.swift */; };
+		63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746B2990477A009F9533 /* Uninstall Packages.swift */; };
+		63A8746E29904A7F009F9533 /* App State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746D29904A7F009F9533 /* App State.swift */; };
 		63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0275288B22D9004AE2EC /* View - New Windows.swift */; };
 		63CD0279288B2316004AE2EC /* Package Detail Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0278288B2316004AE2EC /* Package Detail Window.swift */; };
 		63D8C955287A15C300483A52 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C954287A15C300483A52 /* Load up Installed Packages.swift */; };
@@ -71,6 +73,8 @@
 		63A87464298FE7FC009F9533 /* Search for Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package.swift"; sourceTree = "<group>"; };
 		63A87467298FE811009F9533 /* Package Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Types.swift"; sourceTree = "<group>"; };
 		63A874692990127D009F9533 /* PillText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillText.swift; sourceTree = "<group>"; };
+		63A8746B2990477A009F9533 /* Uninstall Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Packages.swift"; sourceTree = "<group>"; };
+		63A8746D29904A7F009F9533 /* App State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App State.swift"; sourceTree = "<group>"; };
 		63CD0275288B22D9004AE2EC /* View - New Windows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - New Windows.swift"; sourceTree = "<group>"; };
 		63CD0278288B2316004AE2EC /* Package Detail Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Detail Window.swift"; sourceTree = "<group>"; };
 		63D8C954287A15C300483A52 /* Load up Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Installed Packages.swift"; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				6340656A2871AA42001A2178 /* Preview Content */,
 				6340657E2871AF68001A2178 /* App Constants.swift */,
 				63958CFC2877341F00E0B807 /* AppDelegate.swift */,
+				63A8746D29904A7F009F9533 /* App State.swift */,
 			);
 			path = Cork;
 			sourceTree = "<group>";
@@ -136,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				63A87463298FE7E4009F9533 /* Search */,
-				637E006928734032005C9890 /* Installation */,
+				637E006928734032005C9890 /* Installation & Removal */,
 				6371EA242871EE6000300E1B /* Shell */,
 				6371EA1F2871E0EC00300E1B /* Helpers */,
 				634065802871B0A3001A2178 /* File Browser */,
@@ -194,12 +199,13 @@
 			path = Shell;
 			sourceTree = "<group>";
 		};
-		637E006928734032005C9890 /* Installation */ = {
+		637E006928734032005C9890 /* Installation & Removal */ = {
 			isa = PBXGroup;
 			children = (
 				637E006A28734041005C9890 /* Install Selected Packages.swift */,
+				63A8746B2990477A009F9533 /* Uninstall Packages.swift */,
 			);
-			path = Installation;
+			path = "Installation & Removal";
 			sourceTree = "<group>";
 		};
 		637E006C28734189005C9890 /* Installation */ = {
@@ -340,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
 				634065782871AB3A001A2178 /* Shell Interface.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
@@ -352,6 +359,7 @@
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
+				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */,
@@ -426,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -481,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;

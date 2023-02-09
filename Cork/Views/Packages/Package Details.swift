@@ -18,6 +18,8 @@ struct PackageDetailView: View
 
     @State var isCask: Bool
 
+    @State var brewData: BrewDataStorage
+
     @StateObject var packageInfo: SelectedPackageInfo
 
     @State private var description: String = ""
@@ -42,15 +44,42 @@ struct PackageDetailView: View
             }
             else
             {
-                VStack(alignment: .leading, spacing: 5)
+                GroupBox
                 {
-                    Text("Description")
-                        .font(.headline)
-                    Text(description)
+                    Grid(alignment: .leading)
+                    {
+                        GridRow(alignment: .top)
+                        {
+                            Text("Description")
+                            Text(description)
+                        }
+                        Divider()
+                        GridRow(alignment: .top)
+                        {
+                            Text("Homepage")
+                            Text(.init(homepage))
+                        }
+                    }
 
-                    Text("Homepage")
+                } label: {
+                    Text("Package Info")
                         .font(.headline)
-                    Text(.init(homepage))
+                }
+            }
+
+            Spacer()
+
+            HStack
+            {
+                Spacer()
+                Button(role: .destructive)
+                {
+                    Task
+                    {
+                        await uninstallSelectedPackages(packages: [package.name], isCask: isCask, brewData: brewData)
+                    }
+                } label: {
+                    Text("Uninstall \(isCask ? "Cask" : "Formula")") /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
                 }
             }
         }
