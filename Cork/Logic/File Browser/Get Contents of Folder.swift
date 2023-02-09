@@ -39,7 +39,16 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
                     }
                 }
 
-                contentsOfFolder.append(BrewPackage(name: item, versions: temporaryVersionStorage))
+                print("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
+                
+                /// What the fuck?
+                let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
+                
+                print("Installation date for package \(item) is \(installedOn)")
+                
+                //let installedOn: Date? = try? URL(string: item)!.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
+                
+                contentsOfFolder.append(BrewPackage(name: item, installedOn: installedOn, versions: temporaryVersionStorage))
 
                 temporaryVersionStorage = [String]()
             }

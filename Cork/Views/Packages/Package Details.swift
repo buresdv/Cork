@@ -53,11 +53,24 @@ struct PackageDetailView: View
                             Text("Description")
                             Text(description)
                         }
+
                         Divider()
+
                         GridRow(alignment: .top)
                         {
                             Text("Homepage")
                             Text(.init(homepage))
+                        }
+
+                        if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
+                        {
+                            Divider()
+
+                            GridRow(alignment: .top)
+                            {
+                                Text("Installed On")
+                                Text(package.convertDateToPresentableFormat(date: installedOnDate))
+                            }
                         }
                     }
 
@@ -69,17 +82,20 @@ struct PackageDetailView: View
 
             Spacer()
 
-            HStack
+            if let _ = package.installedOn // Only show the uninstall button for packages that are actually installed
             {
-                Spacer()
-                Button(role: .destructive)
+                HStack
                 {
-                    Task
+                    Spacer()
+                    Button(role: .destructive)
                     {
-                        await uninstallSelectedPackages(packages: [package.name], isCask: isCask, brewData: brewData)
+                        Task
+                        {
+                            await uninstallSelectedPackages(packages: [package.name], isCask: isCask, brewData: brewData)
+                        }
+                    } label: {
+                        Text("Uninstall \(isCask ? "Cask" : "Formula")") /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
                     }
-                } label: {
-                    Text("Uninstall \(isCask ? "Cask" : "Formula")") /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
                 }
             }
         }
