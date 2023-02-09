@@ -24,18 +24,28 @@ struct PackageDetailView: View
 
     @State private var description: String = ""
     @State private var homepage: String = ""
+    
+    @State var isShowingPopover: Bool = false
 
     var body: some View
     {
-        VStack(alignment: .leading, spacing: 10)
+        VStack(alignment: .leading, spacing: 15)
         {
-            VStack(alignment: .leading)
+            VStack(alignment: .leading, spacing: 5)
             {
-                Text(package.name)
-                    .font(.title)
-                Text(returnFormattedVersions(package.versions))
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                HStack(alignment: .firstTextBaseline, spacing: 5) {
+                    Text(package.name)
+                        .font(.title)
+                    Text("v. \(returnFormattedVersions(package.versions))")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                
+                if packageInfo.contents != nil
+                {
+                    Text(description)
+                        .font(.subheadline)
+                }
             }
 
             if packageInfo.contents == nil
@@ -44,39 +54,68 @@ struct PackageDetailView: View
             }
             else
             {
-                GroupBox
+                VStack(alignment: .leading, spacing: 10)
                 {
-                    Grid(alignment: .leading)
+                    Text("Package Info")
+                        .font(.title2)
+                    
+                    GroupBox
                     {
-                        GridRow(alignment: .top)
+                        Grid(alignment: .leading)
                         {
-                            Text("Description")
-                            Text(description)
-                        }
-
-                        Divider()
-
-                        GridRow(alignment: .top)
-                        {
-                            Text("Homepage")
-                            Text(.init(homepage))
-                        }
-
-                        if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
-                        {
-                            Divider()
-
                             GridRow(alignment: .top)
                             {
-                                Text("Installed On")
-                                Text(package.convertDateToPresentableFormat(date: installedOnDate))
+                                Text("Homepage")
+                                Text(.init(homepage))
+                            }
+                        }
+
+                    }
+                    
+                    if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
+                    {
+                        GroupBox {
+                            Grid(alignment: .leading)
+                            {
+                                GridRow(alignment: .top)
+                                {
+                                    Text("Installed On")
+                                    Text(package.convertDateToPresentableFormat(date: installedOnDate))
+                                }
+                                
+                                if let packageSize = package.sizeInBytes
+                                {
+                                    Divider()
+                                    
+                                    GridRow(alignment: .top)
+                                    {
+                                        Text("Size")
+                                        
+                                        HStack
+                                        {
+                                            Text(package.convertSizeToPresentableFormat(size: packageSize))
+                                            
+                                            if isCask {
+                                                HelpButton {
+                                                    isShowingPopover.toggle()
+                                                }
+                                                .help("Why is the size so small?")
+                                                .popover(isPresented: $isShowingPopover) {
+                                                    VStack(spacing: 10)
+                                                    {
+                                                        Text("Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory.")
+                                                        Text("Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask.")
+                                                    }
+                                                    .padding()
+                                                    .frame(width: 300, alignment: .center)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
-
-                } label: {
-                    Text("Package Info")
-                        .font(.headline)
                 }
             }
 
