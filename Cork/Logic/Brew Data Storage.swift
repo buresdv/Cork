@@ -12,3 +12,8 @@ class BrewDataStorage: ObservableObject
     @Published var installedFormulae = [BrewPackage]()
     @Published var installedCasks = [BrewPackage]()
 }
+
+class AvailableTaps: ObservableObject
+{
+    @Published var tappedTaps = [BrewTap]()
+}

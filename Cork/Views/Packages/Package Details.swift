@@ -24,6 +24,7 @@ struct PackageDetailView: View
 
     @State private var description: String = ""
     @State private var homepage: String = ""
+    @State private var tap: String = ""
     
     @State var isShowingPopover: Bool = false
 
@@ -65,6 +66,14 @@ struct PackageDetailView: View
                         {
                             GridRow(alignment: .top)
                             {
+                                Text("Tap")
+                                Text(tap)
+                            }
+                            
+                            Divider()
+                            
+                            GridRow(alignment: .top)
+                            {
                                 Text("Homepage")
                                 Text(.init(homepage))
                             }
@@ -101,8 +110,10 @@ struct PackageDetailView: View
                                                 }
                                                 .help("Why is the size so small?")
                                                 .popover(isPresented: $isShowingPopover) {
-                                                    VStack(spacing: 10)
+                                                    VStack(alignment: .leading, spacing: 10)
                                                     {
+                                                        Text("Why is the size so small?")
+                                                            .font(.headline)
                                                         Text("Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory.")
                                                         Text("Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask.")
                                                     }
@@ -155,6 +166,7 @@ struct PackageDetailView: View
 
                 description = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .description)
                 homepage = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .homepage)
+                tap = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .tap)
             }
         }
         .onDisappear

@@ -11,6 +11,7 @@ enum WhatToExtract: String
 {
     case description = "desc"
     case homepage
+    case tap = "tap"
     case version
 }
 

@@ -39,8 +39,11 @@ struct AddFormulaView: View
 
     var body: some View
     {
-        VStack
+        VStack(alignment: .leading)
         {
+            Text("Install Packages")
+                .font(.headline)
+                .padding(.leading)
             TextField("Search For Packages...", text: $packageRequested, onEditingChanged: { _ in
                 foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
             })

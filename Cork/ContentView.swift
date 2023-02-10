@@ -10,12 +10,16 @@ import SwiftUI
 struct ContentView: View
 {
     @StateObject var brewData = BrewDataStorage()
+
+    @StateObject var availableTaps = AvailableTaps()
+
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
     @StateObject var updateProgressTracker = UpdateProgressTracker()
 
     @State private var multiSelection = Set<UUID>()
 
     @State private var isShowingInstallSheet: Bool = false
+    @State private var isShowingTapSheet: Bool = false
     @State private var isShowingAlert: Bool = false
 
     var body: some View
@@ -91,6 +95,22 @@ struct ContentView: View
                         }
                     }
                     .collapsible(true)
+
+                    Section("Tapped Taps")
+                    {
+                        if availableTaps.tappedTaps.count != 0
+                        {
+                            ForEach(availableTaps.tappedTaps)
+                            { tap in
+                                Text(tap.name)
+                            }
+                        }
+                        else
+                        {
+                            ProgressView()
+                        }
+                    }
+                    .collapsible(false)
                 }
                 .listStyle(SidebarListStyle())
             }
@@ -112,41 +132,21 @@ struct ContentView: View
                         }
                     }
                     .keyboardShortcut("r")
-                }
 
-                ToolbarItemGroup(placement: .destructiveAction)
-                {
-                    if !multiSelection.isEmpty
-                    { // If the user selected a package, show a button to uninstall it
-                        Button
+                    Spacer()
+
+                    Button
+                    {
+                        isShowingTapSheet.toggle()
+                    } label: {
+                        Label
                         {
-                            print("Clicked Delete")
-                            isShowingAlert.toggle()
-                        } label: {
-                            Label
-                            {
-                                Text("Remove Formula")
-                            } icon: {
-                                Image(systemName: "trash")
-                            }
-                        }
-                        .alert("Are you sure you want to delete the selected package(s)?", isPresented: $isShowingAlert)
-                        {
-                            Button("Delete", role: .destructive)
-                            {}
-                            Button("Cancel", role: .cancel)
-                            {
-                                isShowingAlert.toggle()
-                            }
-                        } message: {
-                            Text("Deleting a formula will completely remove it from your Mac. You will have to reinstall the formula if you want to use it again.")
-                            Text("This action cannot be undone.")
+                            Text("Add Tap")
+                        } icon: {
+                            Image(systemName: "spigot.fill")
                         }
                     }
-                }
 
-                ToolbarItemGroup(placement: .primaryAction)
-                {
                     Button
                     {
                         isShowingInstallSheet.toggle()
@@ -166,12 +166,17 @@ struct ContentView: View
         {
             Task
             {
+                await loadUpTappedTaps(into: availableTaps)
                 await loadUpInstalledPackages(into: brewData)
             }
         }
         .sheet(isPresented: $isShowingInstallSheet)
         {
             AddFormulaView(isShowingSheet: $isShowingInstallSheet, brewData: brewData)
+        }
+        .sheet(isPresented: $isShowingTapSheet)
+        {
+            AddTapView(isShowingSheet: $isShowingTapSheet)
         }
         .sheet(isPresented: $updateProgressTracker.showUpdateSheet)
         {
