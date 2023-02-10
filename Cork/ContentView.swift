@@ -113,9 +113,11 @@ struct ContentView: View
                     .collapsible(false)
                 }
                 .listStyle(SidebarListStyle())
+                
+                StartPage(brewData: brewData, updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
-            .navigationSubtitle("\(brewData.installedCasks.count + brewData.installedFormulae.count) packages installed")
+            .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
             .toolbar
             {
                 ToolbarItemGroup(placement: .primaryAction)
@@ -176,7 +178,7 @@ struct ContentView: View
         }
         .sheet(isPresented: $isShowingTapSheet)
         {
-            AddTapView(isShowingSheet: $isShowingTapSheet)
+            AddTapView(isShowingSheet: $isShowingTapSheet, availableTaps: availableTaps)
         }
         .sheet(isPresented: $updateProgressTracker.showUpdateSheet)
         {

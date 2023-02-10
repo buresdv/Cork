@@ -27,6 +27,8 @@ struct AddTapView: View
     @State private var requestedTap: String = ""
 
     @State private var isShowingErrorPopover: Bool = false
+    
+    @StateObject var availableTaps: AvailableTaps
 
     var body: some View
     {
@@ -128,6 +130,8 @@ struct AddTapView: View
                         .font(.headline)
                         .onAppear
                         {
+                            
+                            availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3)
                             {
                                 isShowingSheet = false
