@@ -16,8 +16,9 @@ struct GroupBoxHeadlineGroup: View {
         VStack(alignment: .leading)
         {
             Text(title)
-                .font(.headline)
             Text(mainText)
+                .font(.subheadline)
+                .foregroundColor(.gray)
         }
     }
 }
