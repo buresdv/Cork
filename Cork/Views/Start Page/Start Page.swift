@@ -9,12 +9,9 @@ import SwiftUI
 
 struct StartPage: View
 {
-    // @ObservedObject var brewData: BrewDataStorage
+    @StateObject var brewData: BrewDataStorage
 
     @EnvironmentObject var appState: AppState
-
-    @Binding var numberOfInstalledFormulae: Int
-    @Binding var numberOfInstalledCasks: Int
 
     @State var updateProgressTracker: UpdateProgressTracker
 
@@ -120,20 +117,16 @@ struct StartPage: View
                                 {
                                     GridRow(alignment: .firstTextBaseline)
                                     {
-                                        GroupBoxHeadlineGroup(title: "You have \(numberOfInstalledFormulae) Formulae installed", mainText: "Formulae are usually apps that you run in a terminal")
+                                        GroupBoxHeadlineGroup(title: "You have \(brewData.installedFormulae.count) Formulae installed", mainText: "Formulae are usually apps that you run in a terminal")
                                     }
 
                                     Divider()
 
                                     GridRow(alignment: .firstTextBaseline)
                                     {
-                                        GroupBoxHeadlineGroup(title: "You have \(numberOfInstalledCasks) Casks instaled", mainText: "Casks are usually graphical apps")
+                                        GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks instaled", mainText: "Casks are usually graphical apps")
                                     }
                                 }
-                            }
-                            .onAppear {
-                                print(numberOfInstalledFormulae)
-                                print(numberOfInstalledCasks)
                             }
                         }
                     }

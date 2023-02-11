@@ -15,16 +15,20 @@ func uninstallSelectedPackages(packages: [String], isCask: Bool, brewData: BrewD
     {
         if isCask
         {
-            withAnimation
-            {
-                brewData.installedCasks.removeAll(where: { $0.name == package })
+            DispatchQueue.main.async {
+                withAnimation
+                {
+                    brewData.installedCasks.removeAll(where: { $0.name == package })
+                }
             }
         }
         else
         {
-            withAnimation
-            {
-                brewData.installedFormulae.removeAll(where: { $0.name == package })
+            DispatchQueue.main.async {
+                withAnimation
+                {
+                    brewData.installedFormulae.removeAll(where: { $0.name == package })
+                }
             }
         }
 

@@ -23,9 +23,6 @@ struct ContentView: View
     @State private var isShowingInstallSheet: Bool = false
     @State private var isShowingTapSheet: Bool = false
     @State private var isShowingAlert: Bool = false
-    
-    @State var numberOfInstalledFormulae: Int = 0
-    @State var numberOfInstalledCasks: Int = 0
 
     var body: some View
     {
@@ -64,10 +61,6 @@ struct ContentView: View
                         else
                         {
                             ProgressView()
-                                .onDisappear {
-                                    numberOfInstalledFormulae = brewData.installedFormulae.count
-                                    print("Number of installed Formulae: \(numberOfInstalledFormulae)")
-                                }
                         }
                     }
                     .collapsible(true)
@@ -101,10 +94,6 @@ struct ContentView: View
                         else
                         {
                             ProgressView()
-                                .onDisappear {
-                                    numberOfInstalledCasks = brewData.installedCasks.count
-                                    print("Number of installed Casks: \(numberOfInstalledCasks)")
-                                }
                         }
                     }
                     .collapsible(true)
@@ -127,10 +116,10 @@ struct ContentView: View
                 }
                 .listStyle(SidebarListStyle())
                 
-                StartPage(numberOfInstalledFormulae: $numberOfInstalledFormulae, numberOfInstalledCasks: $numberOfInstalledCasks, updateProgressTracker: updateProgressTracker)
+                StartPage(brewData: brewData, updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
-            .navigationSubtitle("\(numberOfInstalledFormulae + numberOfInstalledCasks) packages installed")
+            .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
             .toolbar
             {
                 ToolbarItemGroup(placement: .primaryAction)
