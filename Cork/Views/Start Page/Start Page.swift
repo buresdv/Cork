@@ -9,10 +9,15 @@ import SwiftUI
 
 struct StartPage: View
 {
-    @ObservedObject var brewData: BrewDataStorage
-    
+    // @ObservedObject var brewData: BrewDataStorage
+
+    @EnvironmentObject var appState: AppState
+
+    @Binding var numberOfInstalledFormulae: Int
+    @Binding var numberOfInstalledCasks: Int
+
     @State var updateProgressTracker: UpdateProgressTracker
-    
+
     @State var upgradeablePackages: [BrewPackage] = .init()
 
     @State private var isDisclosureGroupExpanded: Bool = false
@@ -107,19 +112,28 @@ struct StartPage: View
                             }
                         }
 
-                        GroupBox
+                        if !appState.isLoadingFormulae && !appState.isLoadingCasks
                         {
-                            Grid(alignment: .leading)
+                            GroupBox
                             {
-                                GridRow(alignment: .firstTextBaseline) {
-                                    GroupBoxHeadlineGroup(title: "You have \(brewData.installedFormulae.count) Formulae installed", mainText: "Formulae are usually apps that you run in a terminal")
+                                Grid(alignment: .leading)
+                                {
+                                    GridRow(alignment: .firstTextBaseline)
+                                    {
+                                        GroupBoxHeadlineGroup(title: "You have \(numberOfInstalledFormulae) Formulae installed", mainText: "Formulae are usually apps that you run in a terminal")
+                                    }
+
+                                    Divider()
+
+                                    GridRow(alignment: .firstTextBaseline)
+                                    {
+                                        GroupBoxHeadlineGroup(title: "You have \(numberOfInstalledCasks) Casks instaled", mainText: "Casks are usually graphical apps")
+                                    }
                                 }
-                                
-                                Divider()
-                                
-                                GridRow(alignment: .firstTextBaseline) {
-                                    GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks instaled", mainText: "Casks are usually graphical apps")
-                                }
+                            }
+                            .onAppear {
+                                print(numberOfInstalledFormulae)
+                                print(numberOfInstalledCasks)
                             }
                         }
                     }

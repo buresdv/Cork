@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View
 {
+    @StateObject var appState = AppState()
+    
     @StateObject var brewData = BrewDataStorage()
 
     @StateObject var availableTaps = AvailableTaps()
@@ -21,6 +23,9 @@ struct ContentView: View
     @State private var isShowingInstallSheet: Bool = false
     @State private var isShowingTapSheet: Bool = false
     @State private var isShowingAlert: Bool = false
+    
+    @State var numberOfInstalledFormulae: Int = 0
+    @State var numberOfInstalledCasks: Int = 0
 
     var body: some View
     {
@@ -32,7 +37,7 @@ struct ContentView: View
                 {
                     Section("Installed Formulae")
                     {
-                        if brewData.installedFormulae.count != 0
+                        if !appState.isLoadingFormulae
                         {
                             ForEach(brewData.installedFormulae)
                             { package in
@@ -59,13 +64,17 @@ struct ContentView: View
                         else
                         {
                             ProgressView()
+                                .onDisappear {
+                                    numberOfInstalledFormulae = brewData.installedFormulae.count
+                                    print("Number of installed Formulae: \(numberOfInstalledFormulae)")
+                                }
                         }
                     }
                     .collapsible(true)
 
                     Section("Installed Casks")
                     {
-                        if brewData.installedCasks.count != 0
+                        if !appState.isLoadingCasks
                         {
                             ForEach(brewData.installedCasks)
                             { package in
@@ -92,6 +101,10 @@ struct ContentView: View
                         else
                         {
                             ProgressView()
+                                .onDisappear {
+                                    numberOfInstalledCasks = brewData.installedCasks.count
+                                    print("Number of installed Casks: \(numberOfInstalledCasks)")
+                                }
                         }
                     }
                     .collapsible(true)
@@ -114,10 +127,10 @@ struct ContentView: View
                 }
                 .listStyle(SidebarListStyle())
                 
-                StartPage(brewData: brewData, updateProgressTracker: updateProgressTracker)
+                StartPage(numberOfInstalledFormulae: $numberOfInstalledFormulae, numberOfInstalledCasks: $numberOfInstalledCasks, updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
-            .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
+            .navigationSubtitle("\(numberOfInstalledFormulae + numberOfInstalledCasks) packages installed")
             .toolbar
             {
                 ToolbarItemGroup(placement: .primaryAction)
@@ -169,7 +182,7 @@ struct ContentView: View
             Task
             {
                 await loadUpTappedTaps(into: availableTaps)
-                await loadUpInstalledPackages(into: brewData)
+                await loadUpInstalledPackages(into: brewData, appState: appState)
             }
         }
         .sheet(isPresented: $isShowingInstallSheet)
@@ -190,5 +203,6 @@ struct ContentView: View
             }
             .padding()
         }
+        .environmentObject(appState)
     }
 }
