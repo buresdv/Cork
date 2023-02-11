@@ -7,14 +7,10 @@
 
 import SwiftUI
 
-struct AboutView: View
-{
-    var body: some View
-    {
-        VStack(alignment: .leading, spacing: 20)
-        {
-            VStack(alignment: .leading)
-            {
+struct AboutView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading) {
                 Text(AppConstantsLocal.appName)
                     .font(.title)
                 Text("Version 0.1")
@@ -23,19 +19,16 @@ struct AboutView: View
 
             Text("© 2022 David Bureš. All rights reserved.")
 
-            HStack
-            {
+            HStack {
                 Spacer()
 
-                Button
-                {
+                Button {
                     NSWorkspace.shared.open(URL(string: "https://twitter.com/davidbures")!)
                 } label: {
                     Text("Twitter")
                 }
 
-                Button
-                {
+                Button {
                     NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork")!)
                 } label: {
                     Text("\(AppConstantsLocal.appName) on GitHub")

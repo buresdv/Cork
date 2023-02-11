@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct SearchResult: Identifiable
-{
+struct SearchResult: Identifiable {
     let id = UUID()
     let packageName: String
     let isCask: Bool

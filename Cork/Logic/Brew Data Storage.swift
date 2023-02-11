@@ -7,13 +7,11 @@
 
 import Foundation
 
-class BrewDataStorage: ObservableObject
-{
+class BrewDataStorage: ObservableObject {
     @Published var installedFormulae = [BrewPackage]()
     @Published var installedCasks = [BrewPackage]()
 }
 
-class AvailableTaps: ObservableObject
-{
+class AvailableTaps: ObservableObject {
     @Published var tappedTaps = [BrewTap]()
 }

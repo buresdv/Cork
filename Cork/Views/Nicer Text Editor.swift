@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-struct NicerTextEditor: View
-{
+struct NicerTextEditor: View {
     @Binding var text: String
 
-    var body: some View
-    {
+    var body: some View {
         TextEditor(text: $text)
             .font(.body)
             .background(Color.white)
@@ -20,4 +18,3 @@ struct NicerTextEditor: View
             .border(Color(nsColor: NSColor.separatorColor))
     }
 }
-

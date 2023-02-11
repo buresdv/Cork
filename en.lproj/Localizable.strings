@@ -1,0 +1,9 @@
+/* 
+ Localizable.strings
+ Cork
+ 
+ Created by Manuel Lorenzo Parejo on 11/02/2023.
+ 
+ */
+"casks_not_installed_in_same_folder_as_formulae_error_text" = "Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory.";
+"no_access_to_applications_directory_error_text" = "Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask.";

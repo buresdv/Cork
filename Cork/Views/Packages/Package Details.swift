@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-class SelectedPackageInfo: ObservableObject
-{
+class SelectedPackageInfo: ObservableObject {
     @Published var contents: String?
 }
 
-struct PackageDetailView: View
-{
+struct PackageDetailView: View {
     @State var package: BrewPackage
 
     @State var isCask: Bool
@@ -25,15 +23,22 @@ struct PackageDetailView: View
     @State private var description: String = ""
     @State private var homepage: String = ""
     @State private var tap: String = ""
-    
-    @State var isShowingPopover: Bool = false
 
-    var body: some View
-    {
-        VStack(alignment: .leading, spacing: 15)
-        {
-            VStack(alignment: .leading, spacing: 5)
-            {
+    @State var isShowingPopover: Bool = false
+    var notInstalledInSameFolderText = Text(
+        String(
+            localized: "casks_not_installed_in_same_folder_as_formulae_error_text"
+        )
+    )
+    var noAccessToApplicationsFolderText = Text(
+        String(
+            localized: "no_access_to_applications_directory_error_text"
+        )
+    )
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            VStack(alignment: .leading, spacing: 5) {
                 HStack(alignment: .firstTextBaseline, spacing: 5) {
                     Text(package.name)
                         .font(.title)
@@ -41,81 +46,64 @@ struct PackageDetailView: View
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
-                
-                if packageInfo.contents != nil
-                {
+
+                if packageInfo.contents != nil {
                     Text(description)
                         .font(.subheadline)
                 }
             }
 
-            if packageInfo.contents == nil
-            {
+            if packageInfo.contents == nil {
                 LoadingView()
-            }
-            else
-            {
-                VStack(alignment: .leading, spacing: 10)
-                {
+            } else {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("Package Info")
                         .font(.title2)
-                    
-                    GroupBox
-                    {
-                        Grid(alignment: .leading)
-                        {
-                            GridRow(alignment: .top)
-                            {
+
+                    GroupBox {
+                        Grid(alignment: .leading) {
+                            GridRow(alignment: .top) {
                                 Text("Tap")
                                 Text(tap)
                             }
-                            
+
                             Divider()
-                            
-                            GridRow(alignment: .top)
-                            {
+
+                            GridRow(alignment: .top) {
                                 Text("Homepage")
                                 Text(.init(homepage))
                             }
                         }
 
                     }
-                    
-                    if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
-                    {
+
+                    // Only show the "Installed on" date for packages that are actually installed
+                    if let installedOnDate = package.installedOn {
                         GroupBox {
-                            Grid(alignment: .leading)
-                            {
-                                GridRow(alignment: .top)
-                                {
+                            Grid(alignment: .leading) {
+                                GridRow(alignment: .top) {
                                     Text("Installed On")
                                     Text(package.convertDateToPresentableFormat(date: installedOnDate))
                                 }
-                                
-                                if let packageSize = package.sizeInBytes
-                                {
+                                if let packageSize = package.sizeInBytes {
                                     Divider()
-                                    
-                                    GridRow(alignment: .top)
-                                    {
+                                    GridRow(alignment: .top) {
                                         Text("Size")
-                                        
-                                        HStack
-                                        {
+                                        HStack {
                                             Text(package.convertSizeToPresentableFormat(size: packageSize))
-                                            
+
                                             if isCask {
                                                 HelpButton {
                                                     isShowingPopover.toggle()
                                                 }
                                                 .help("Why is the size so small?")
                                                 .popover(isPresented: $isShowingPopover) {
-                                                    VStack(alignment: .leading, spacing: 10)
-                                                    {
+                                                    VStack(alignment: .leading, spacing: 10) {
                                                         Text("Why is the size so small?")
                                                             .font(.headline)
-                                                        Text("Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory.")
-                                                        Text("Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask.")
+
+                                                        notInstalledInSameFolderText
+                                                        noAccessToApplicationsFolderText
                                                     }
                                                     .padding()
                                                     .frame(width: 300, alignment: .center)
@@ -131,37 +119,33 @@ struct PackageDetailView: View
             }
 
             Spacer()
-
-            if let _ = package.installedOn // Only show the uninstall button for packages that are actually installed
-            {
-                HStack
-                {
+            // Only show the uninstall button for packages that are actually installed
+            if package.installedOn != nil {
+                HStack {
                     Spacer()
-                    Button(role: .destructive)
-                    {
-                        Task
-                        {
-                            await uninstallSelectedPackages(packages: [package.name], isCask: isCask, brewData: brewData)
+                    Button(role: .destructive) {
+                        Task {
+                            await uninstallSelectedPackages(
+                                packages: [package.name], isCask: isCask, brewData: brewData
+                            )
                         }
                     } label: {
-                        Text("Uninstall \(isCask ? "Cask" : "Formula")") /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        Text("Uninstall \(isCask ? "Cask" : "Formula")")
                     }
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding()
-        .onAppear
-        {
-            Task
-            {
-                if !isCask
-                {
+        .onAppear {
+            Task {
+                if !isCask {
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package.name])
-                }
-                else
-                {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name])
+                } else {
+                    packageInfo.contents = await shell(
+                        "/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name]
+                    )
                 }
 
                 description = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .description)
@@ -169,8 +153,7 @@ struct PackageDetailView: View
                 tap = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .tap)
             }
         }
-        .onDisappear
-        {
+        .onDisappear {
             packageInfo.contents = nil
         }
     }

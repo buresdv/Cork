@@ -8,12 +8,11 @@
 import Foundation
 
 @MainActor
-func loadUpTappedTaps(into tracker: AvailableTaps) async -> Void
-{
+func loadUpTappedTaps(into tracker: AvailableTaps) async {
     let availableTapsRaw = await shell("/opt/homebrew/bin/brew", ["tap"])!
-    
+
     let availableTaps = availableTapsRaw.components(separatedBy: "\n")
-    
+
     for tap in availableTaps {
         tracker.tappedTaps.append(BrewTap(name: tap))
     }

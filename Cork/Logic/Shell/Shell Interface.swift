@@ -7,20 +7,16 @@
 
 import Foundation
 
-func shell(_ launchPath: String, _ arguments: [String]) async -> String?
-{
+func shell(_ launchPath: String, _ arguments: [String]) async -> String? {
     let task = Process()
     task.launchPath = launchPath
     task.arguments = arguments
 
     let pipe = Pipe()
     task.standardOutput = pipe
-    do
-    {
+    do {
         try task.run()
-    }
-    catch
-    {
+    } catch {
         print(error)
     }
 

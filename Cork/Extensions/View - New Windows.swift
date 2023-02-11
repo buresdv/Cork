@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-extension View
-{
-    private func newWindowInternal(with title: String) -> NSWindow
-    {
+extension View {
+    private func newWindowInternal(with title: String) -> NSWindow {
         let window = NSWindow(
             contentRect: NSRect(x: 20, y: 20, width: 680, height: 600),
             styleMask: [.titled, .closable, .resizable, .fullSizeContentView],
@@ -24,8 +22,7 @@ extension View
         return window
     }
 
-    func openNewWindow(with title: String = "new Window")
-    {
+    func openNewWindow(with title: String = "new Window") {
         newWindowInternal(with: title).contentView = NSHostingView(rootView: self)
     }
 }

@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-struct PillText: View
-{
+struct PillText: View {
     @State var text: String
-    var body: some View
-    {
+    var body: some View {
         Text(text)
             .font(.caption2)
             .padding(.horizontal, 4)

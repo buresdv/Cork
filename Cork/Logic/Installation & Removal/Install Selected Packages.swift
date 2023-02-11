@@ -8,32 +8,26 @@
 import Foundation
 
 @MainActor
-func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker, brewData: BrewDataStorage) -> Void
-{
+func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker, brewData: BrewDataStorage) {
     let progressSteps = Float(1) / Float(packageArray.count)
     print(progressSteps)
 
     tracker.progressNumber = 0
 
-    for package in packageArray
-    {
-        Task
-        {
+    for package in packageArray {
+        Task {
             tracker.packageBeingCurrentlyInstalled = package
             print("Trying to install \(tracker.packageBeingCurrentlyInstalled)")
 
             let installCommandOutput = await shell("/opt/homebrew/bin/brew", ["install", package])
 
-            if installCommandOutput!.contains("Pouring")
-            {
+            if installCommandOutput!.contains("Pouring") {
                 print("Installing \(tracker.packageBeingCurrentlyInstalled) at \(tracker.progressNumber)")
                 tracker.progressNumber += progressSteps
-            }
-            else
-            {
+            } else {
                 tracker.isShowingInstallationFailureAlert = true
             }
-            
+
         }
     }
 }

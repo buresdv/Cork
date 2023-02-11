@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HelpButton: View {
-    var action : () -> Void
+    var action: () -> Void
 
     var body: some View {
         Button(action: action, label: {

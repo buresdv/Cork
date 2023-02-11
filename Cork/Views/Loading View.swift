@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-struct LoadingView: View
-{
-    var body: some View
-    {
-        HStack
-        {
+struct LoadingView: View {
+    var body: some View {
+        HStack {
             ProgressView()
                 .scaleEffect(0.5)
             Text("Loading package info...")
@@ -21,10 +18,8 @@ struct LoadingView: View
     }
 }
 
-struct LoadingView_Previews: PreviewProvider
-{
-    static var previews: some View
-    {
+struct LoadingView_Previews: PreviewProvider {
+    static var previews: some View {
         LoadingView()
     }
 }

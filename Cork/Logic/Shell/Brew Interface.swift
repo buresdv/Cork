@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum BrewCommands
-{
+enum BrewCommands {
     case search, info, install, delete
 }
 
@@ -27,42 +26,38 @@ enum BrewCommands
  }
  */
 
-struct SearchResults
-{
+struct SearchResults {
     let foundFormulae: [String]
     let foundCasks: [String]
 }
 
-func getListOfFoundPackages(searchWord: String) async -> String
-{
+func getListOfFoundPackages(searchWord: String) async -> String {
     var parsedResponse: String?
     parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord])!
 
     return parsedResponse!
 }
 
-func getListOfUpgradeablePackages() async -> [BrewPackage]
-{
+func getListOfUpgradeablePackages() async -> [BrewPackage] {
     var finalOutdatedPackages = [BrewPackage]()
-    
+
     let outdatedPackagesRaw: String = await shell("/opt/homebrew/bin/brew", ["outdated"])!
-    
+
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
-    
+
     for package in outdatedPackages {
         finalOutdatedPackages.append(BrewPackage(name: package, installedOn: nil, versions: [""], sizeInBytes: nil))
     }
-    
+
     finalOutdatedPackages.removeLast()
-    
+
     return finalOutdatedPackages
 }
 
-func tapAtap(tapName: String) async -> String
-{
+func tapAtap(tapName: String) async -> String {
     let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", tapName])!
-    
+
     print("Task inside function finished: \(tapResult)")
-    
+
     return tapResult
 }

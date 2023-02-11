@@ -7,12 +7,10 @@
 
 import Foundation
 
-func searchForPackage(packageName: String, packageType: PackageType) async throws -> [String]
-{
+func searchForPackage(packageName: String, packageType: PackageType) async throws -> [String] {
     var finalPackageArray: [String]
 
-    switch packageType
-    {
+    switch packageType {
     case .formula:
         let foundFormulae = await shell("/opt/homebrew/bin/brew", ["search", "--formulae", packageName])!
 
@@ -25,8 +23,8 @@ func searchForPackage(packageName: String, packageType: PackageType) async throw
     }
 
     finalPackageArray.removeLast()
-    
+
     print("Search found these: \(finalPackageArray)")
-    
+
     return finalPackageArray
 }

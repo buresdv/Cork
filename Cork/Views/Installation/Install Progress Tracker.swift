@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct InstallProgressTrackerView: View
-{
+struct InstallProgressTrackerView: View {
     @Binding var progress: Float
     @Binding var currentlyInstallingPackage: String
 
-    var body: some View
-    {
-        VStack
-        {
+    var body: some View {
+        VStack {
             ProgressView(value: progress)
             Text("Installing \(currentlyInstallingPackage)")
         }

@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View
-{
+struct ContentView: View {
     @StateObject var brewData = BrewDataStorage()
 
     @StateObject var availableTaps = AvailableTaps()
@@ -22,112 +21,101 @@ struct ContentView: View
     @State private var isShowingTapSheet: Bool = false
     @State private var isShowingAlert: Bool = false
 
-    var body: some View
-    {
-        VStack
-        {
-            NavigationView
-            {
-                List(selection: $multiSelection)
-                {
-                    Section("Installed Formulae")
-                    {
-                        if brewData.installedFormulae.count != 0
-                        {
-                            ForEach(brewData.installedFormulae)
-                            { package in
-                                NavigationLink
-                                {
-                                    PackageDetailView(package: package, isCask: false, brewData: brewData, packageInfo: selectedPackageInfo)
+    var body: some View {
+        VStack {
+            NavigationView {
+                List(selection: $multiSelection) {
+                    Section("Installed Formulae") {
+                        if brewData.installedFormulae.count != 0 {
+                            ForEach(brewData.installedFormulae) { package in
+                                NavigationLink {
+                                    PackageDetailView(
+                                        package: package,
+                                        isCask: false,
+                                        brewData: brewData,
+                                        packageInfo: selectedPackageInfo
+                                    )
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
-                                .contextMenu
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await uninstallSelectedPackages(packages: [package.name], isCask: false, brewData: brewData)
+                                .contextMenu {
+                                    Button {
+                                        Task {
+                                            await uninstallSelectedPackages(
+                                                packages: [package.name],
+                                                isCask: false,
+                                                brewData: brewData
+                                            )
                                         }
                                     } label: {
                                         Text("Uninstall Formula")
                                     }
                                 }
                             }
-                        }
-                        else
-                        {
+                        } else {
                             ProgressView()
                         }
                     }
                     .collapsible(true)
 
-                    Section("Installed Casks")
-                    {
-                        if brewData.installedCasks.count != 0
-                        {
-                            ForEach(brewData.installedCasks)
-                            { package in
-                                NavigationLink
-                                {
-                                    PackageDetailView(package: package, isCask: true, brewData: brewData, packageInfo: selectedPackageInfo)
+                    Section("Installed Casks") {
+                        if brewData.installedCasks.count != 0 {
+                            ForEach(brewData.installedCasks) { package in
+                                NavigationLink {
+                                    PackageDetailView(
+                                        package: package,
+                                        isCask: true,
+                                        brewData: brewData,
+                                        packageInfo: selectedPackageInfo
+                                    )
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
-                                .contextMenu
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await uninstallSelectedPackages(packages: [package.name], isCask: true, brewData: brewData)
+                                .contextMenu {
+                                    Button {
+                                        Task {
+                                            await uninstallSelectedPackages(
+                                                packages: [package.name],
+                                                isCask: true,
+                                                brewData: brewData
+                                            )
                                         }
                                     } label: {
                                         Text("Uninstall Cask")
                                     }
                                 }
                             }
-                        }
-                        else
-                        {
+                        } else {
                             ProgressView()
                         }
                     }
                     .collapsible(true)
 
-                    Section("Tapped Taps")
-                    {
-                        if availableTaps.tappedTaps.count != 0
-                        {
-                            ForEach(availableTaps.tappedTaps)
-                            { tap in
+                    Section("Tapped Taps") {
+                        if availableTaps.tappedTaps.count != 0 {
+                            ForEach(availableTaps.tappedTaps) { tap in
                                 Text(tap.name)
                             }
-                        }
-                        else
-                        {
+                        } else {
                             ProgressView()
                         }
                     }
                     .collapsible(false)
                 }
                 .listStyle(SidebarListStyle())
-                
+
                 StartPage(brewData: brewData, updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
-            .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
-            .toolbar
-            {
-                ToolbarItemGroup(placement: .primaryAction)
-                {
-                    Button
-                    {
+            .navigationSubtitle(
+                "\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed"
+            )
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button {
                         upgradeBrewPackages(updateProgressTracker)
                     } label: {
-                        Label
-                        {
+                        Label {
                             Text("Upgrade Formulae")
                         } icon: {
                             Image(systemName: "arrow.clockwise")
@@ -137,24 +125,20 @@ struct ContentView: View
 
                     Spacer()
 
-                    Button
-                    {
+                    Button {
                         isShowingTapSheet.toggle()
                     } label: {
-                        Label
-                        {
+                        Label {
                             Text("Add Tap")
                         } icon: {
                             Image(systemName: "spigot.fill")
                         }
                     }
 
-                    Button
-                    {
+                    Button {
                         isShowingInstallSheet.toggle()
                     } label: {
-                        Label
-                        {
+                        Label {
                             Text("Add Formula")
                         } icon: {
                             Image(systemName: "plus")
@@ -164,26 +148,20 @@ struct ContentView: View
             }
         }
         .environmentObject(brewData)
-        .onAppear
-        {
-            Task
-            {
+        .onAppear {
+            Task {
                 await loadUpTappedTaps(into: availableTaps)
                 await loadUpInstalledPackages(into: brewData)
             }
         }
-        .sheet(isPresented: $isShowingInstallSheet)
-        {
+        .sheet(isPresented: $isShowingInstallSheet) {
             AddFormulaView(isShowingSheet: $isShowingInstallSheet, brewData: brewData)
         }
-        .sheet(isPresented: $isShowingTapSheet)
-        {
+        .sheet(isPresented: $isShowingTapSheet) {
             AddTapView(isShowingSheet: $isShowingTapSheet, availableTaps: availableTaps)
         }
-        .sheet(isPresented: $updateProgressTracker.showUpdateSheet)
-        {
-            VStack
-            {
+        .sheet(isPresented: $updateProgressTracker.showUpdateSheet) {
+            VStack {
                 ProgressView(value: updateProgressTracker.updateProgress)
                     .frame(width: 200)
                 Text(updateProgressTracker.updateStage.rawValue)

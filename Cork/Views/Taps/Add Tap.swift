@@ -7,18 +7,15 @@
 
 import SwiftUI
 
-enum TapAddingStates
-{
+enum TapAddingStates {
     case ready, tapping, finished, error
 }
 
-enum TapInputErrors
-{
+enum TapInputErrors {
     case empty, missingSlash
 }
 
-struct AddTapView: View
-{
+struct AddTapView: View {
     @Binding var isShowingSheet: Bool
 
     @State var progress: TapAddingStates = .ready
@@ -27,40 +24,31 @@ struct AddTapView: View
     @State private var requestedTap: String = ""
 
     @State private var isShowingErrorPopover: Bool = false
-    
+
     @StateObject var availableTaps: AvailableTaps
 
-    var body: some View
-    {
-        VStack
-        {
-            switch progress
-            {
+    var body: some View {
+        VStack {
+            switch progress {
             case .ready:
-                VStack(alignment: .leading)
-                {
+                VStack(alignment: .leading) {
                     Text("Tap a tap")
                         .font(.headline)
                     TextField("homebrew/core", text: $requestedTap)
-                        .onSubmit
-                        {
+                        .onSubmit {
                             checkIfTapNameIsValid(tapName: requestedTap)
                         }
-                        .popover(isPresented: $isShowingErrorPopover)
-                        {
-                            switch tapInputError
-                            {
+                        .popover(isPresented: $isShowingErrorPopover) {
+                            switch tapInputError {
                             case .empty:
-                                VStack(alignment: .leading)
-                                {
+                                VStack(alignment: .leading) {
                                     Text("Tap name empty")
                                         .font(.headline)
                                     Text("You didn't put in any tap name")
                                 }
                                 .padding()
                             case .missingSlash:
-                                VStack(alignment: .leading)
-                                {
+                                VStack(alignment: .leading) {
                                     Text("Tap name needs a slash")
                                         .font(.headline)
                                     Text("Tap names always have to contain a slash")
@@ -69,10 +57,8 @@ struct AddTapView: View
                             }
                         }
 
-                    HStack
-                    {
-                        Button
-                        {
+                    HStack {
+                        Button {
                             isShowingSheet.toggle()
                         } label: {
                             Text("Cancel")
@@ -81,12 +67,10 @@ struct AddTapView: View
 
                         Spacer()
 
-                        Button
-                        {
+                        Button {
                             checkIfTapNameIsValid(tapName: requestedTap)
 
-                            if !isShowingErrorPopover
-                            {
+                            if !isShowingErrorPopover {
                                 progress = .tapping
                             }
                         } label: {
@@ -99,20 +83,17 @@ struct AddTapView: View
                 .frame(width: 200)
 
             case .tapping:
-                ProgressView
-                {
+                ProgressView {
                     Text("Tapping \(requestedTap)")
                 }
-                .onAppear
-                {
-                    Task
-                    {
+                .onAppear {
+                    Task {
                         let tapResult = await tapAtap(tapName: requestedTap)
 
                         print("The task finished")
 
                         print("Result: \(tapResult)") // Why does this shit not FUCKING WORK
-                        
+
                         let debugResult = await shell("/opt/homebrew/bin/brew", ["outdated"])!
                         print("Sanity debug result: \(debugResult)")
 
@@ -124,16 +105,13 @@ struct AddTapView: View
                     }
                 }
             case .finished:
-                VStack
-                {
+                VStack {
                     Text("Successfully tapped \(requestedTap)")
                         .font(.headline)
-                        .onAppear
-                        {
-                            
+                        .onAppear {
+
                             availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3)
-                            {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                                 isShowingSheet = false
                             }
                         }
@@ -141,28 +119,23 @@ struct AddTapView: View
                 }
 
             case .error:
-                VStack
-                {
-                    HStack(spacing: 10)
-                    {
+                VStack {
+                    HStack(spacing: 10) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .resizable()
                             .frame(width: 25, height: 25)
 
-                        VStack(alignment: .leading)
-                        {
+                        VStack(alignment: .leading) {
                             Text("An error occured while tapping \(requestedTap)")
                                 .font(.headline)
                             Text("Make sure you got the tap name right")
                         }
                     }
 
-                    HStack
-                    {
+                    HStack {
                         Spacer()
 
-                        Button
-                        {
+                        Button {
                             isShowingSheet.toggle()
                         } label: {
                             Text("Close")
@@ -174,15 +147,11 @@ struct AddTapView: View
         .padding()
     }
 
-    func checkIfTapNameIsValid(tapName: String)
-    {
-        if tapName.isEmpty
-        {
+    func checkIfTapNameIsValid(tapName: String) {
+        if tapName.isEmpty {
             tapInputError = .empty
             isShowingErrorPopover = true
-        }
-        else if !tapName.contains("/")
-        {
+        } else if !tapName.contains("/") {
             tapInputError = .missingSlash
             isShowingErrorPopover = true
         }
