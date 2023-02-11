@@ -10,9 +10,10 @@ import Foundation
 @MainActor
 func loadUpCasks(appState: AppState) async -> [BrewPackage]
 {
-    appState.isLoadingCasks = true
-
     print("Started Cask task at \(Date())")
+    
+    appState.isLoadingCasks = true
+    
     let contentsOfCaskFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCaskPath)
 
     var installedCasks = [BrewPackage]() // Empty the tracker in case there is already something in it

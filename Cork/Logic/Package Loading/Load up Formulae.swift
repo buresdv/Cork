@@ -11,6 +11,7 @@ import Foundation
 func loadUpFormulae(appState: AppState) async -> [BrewPackage]
 {
     print("Started Cellar task at \(Date())")
+    
     appState.isLoadingFormulae = true
 
     let contentsOfCellarFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCellarPath)

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class BrewDataStorage: ObservableObject
 {
     @Published var installedFormulae = [BrewPackage]()

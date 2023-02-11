@@ -182,7 +182,9 @@ struct ContentView: View
             Task
             {
                 await loadUpTappedTaps(into: availableTaps)
-                await loadUpInstalledPackages(into: brewData, appState: appState)
+                
+                brewData.installedFormulae = await loadUpFormulae(appState: appState)
+                brewData.installedCasks = await loadUpCasks(appState: appState)
             }
         }
         .sheet(isPresented: $isShowingInstallSheet)
