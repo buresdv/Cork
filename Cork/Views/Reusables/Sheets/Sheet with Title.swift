@@ -22,5 +22,6 @@ struct SheetWithTitle<Content: View>: View
 
             sheetContent
         }
+        .frame(minWidth: 300)
     }
 }

@@ -32,8 +32,6 @@ struct AddFormulaView: View
     @Binding var isShowingSheet: Bool
 
     @State private var packageRequested: String = ""
-    @State private var isShowingListLoader: Bool = false
-    @State private var isShowingResultsList: Bool = false
 
     @State var brewData: BrewDataStorage
 
@@ -43,6 +41,8 @@ struct AddFormulaView: View
     @ObservedObject var installationProgressTracker = InstallationProgressTracker()
 
     @State var installationSteps: InstallationSteps = .ready
+
+    @FocusState var isSearchFieldFocused: Bool
 
     var body: some View
     {
@@ -79,14 +79,37 @@ struct AddFormulaView: View
 
             case .searching:
                 ProgressView("Searching for \(packageRequested)...")
+                    .onAppear
+                    {
+                        Task
+                        {
+                            searchResultTracker.foundFormulae = []
+                            searchResultTracker.foundCasks = []
+                            
+                            async let foundFormulae = try searchForPackage(packageName: packageRequested, packageType: .formula)
+                            async let foundCasks = try searchForPackage(packageName: packageRequested, packageType: .cask)
+
+                            for formula in try await foundFormulae
+                            {
+                                searchResultTracker.foundFormulae.append(SearchResult(packageName: formula, isCask: false))
+                            }
+                            for cask in try await foundCasks
+                            {
+                                searchResultTracker.foundCasks.append(SearchResult(packageName: cask, isCask: true))
+                            }
+
+                            installationSteps = .presentingSearchResults
+                        }
+                    }
 
             case .presentingSearchResults:
                 VStack
                 {
                     TextField("Search for packages...", text: $packageRequested)
-                    { _ in
+                    { focus in
                         foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                     }
+                    .focused($isSearchFieldFocused)
 
                     List(selection: $foundPackageSelection)
                     {
@@ -94,17 +117,19 @@ struct AddFormulaView: View
                         {
                             ForEach(searchResultTracker.foundFormulae)
                             { formula in
-                                SearchResultRow(packageName: formula.packageName, isCask: formula.isCask)
+                                SearchResultRow(brewData: brewData, packageName: formula.packageName, isCask: formula.isCask)
                             }
                         }
                         Section("Found Casks")
                         {
                             ForEach(searchResultTracker.foundCasks)
                             { cask in
-                                SearchResultRow(packageName: cask.packageName, isCask: cask.isCask)
+                                SearchResultRow(brewData: brewData, packageName: cask.packageName, isCask: cask.isCask)
                             }
                         }
                     }
+                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .frame(width: 300, height: 300)
 
                     HStack
                     {
@@ -112,13 +137,26 @@ struct AddFormulaView: View
 
                         Spacer()
 
-                        Button
+                        if isSearchFieldFocused
                         {
-                            installationSteps = .installing
-                        } label: {
-                            Text("Install")
+                            Button
+                            {
+                                installationSteps = .searching
+                            } label: {
+                                Text("Search")
+                            }
+                            .keyboardShortcut(.defaultAction)
                         }
-                        .keyboardShortcut(.defaultAction)
+                        else
+                        {
+                            Button
+                            {
+                                installationSteps = .installing
+                            } label: {
+                                Text("Install")
+                            }
+                            .keyboardShortcut(.defaultAction)
+                        }
                     }
                 }
 

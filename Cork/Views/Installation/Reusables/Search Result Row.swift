@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchResultRow: View
 {
-    @EnvironmentObject var brewData: BrewDataStorage
+    @State var brewData: BrewDataStorage
 
     @State var packageName: String
     @State var isCask: Bool
