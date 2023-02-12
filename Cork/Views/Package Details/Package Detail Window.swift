@@ -64,7 +64,7 @@ struct PackageDetailWindow: View
 
                 Task
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package])
+                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package]).standardOutput
 
                     // print(packageInfo.contents)
 
@@ -78,7 +78,7 @@ struct PackageDetailWindow: View
 
                 Task
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package])
+                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package]).standardOutput
 
                     // print(packageInfo.contents)
 

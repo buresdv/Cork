@@ -7,7 +7,7 @@
 
 import Foundation
 
-func shell(_ launchPath: String, _ arguments: [String]) async -> String?
+func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
 {
     let task = Process()
     task.launchPath = launchPath
@@ -15,6 +15,10 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> String?
 
     let pipe = Pipe()
     task.standardOutput = pipe
+    
+    let errorPipe = Pipe()
+    task.standardError = errorPipe
+    
     do
     {
         try task.run()
@@ -24,8 +28,11 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> String?
         print(error)
     }
 
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output = String(data: data, encoding: String.Encoding.utf8)
-
-    return output
+    let standardOutput = pipe.fileHandleForReading.readDataToEndOfFile()
+    let standardError = errorPipe.fileHandleForReading.readDataToEndOfFile()
+    
+    let finalOutput = String(data: standardOutput, encoding: .utf8) ?? ""
+    let finalError = String(data: standardError, encoding: .utf8) ?? ""
+    
+    return TerminalOutput(standardOutput: finalOutput, standardError: finalError)
 }

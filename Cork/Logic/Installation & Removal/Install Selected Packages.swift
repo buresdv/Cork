@@ -24,7 +24,7 @@ func installSelectedPackages(packageArray: [String], tracker: InstallationProgre
 
             let installCommandOutput = await shell("/opt/homebrew/bin/brew", ["install", package])
 
-            if installCommandOutput!.contains("Pouring")
+            if installCommandOutput.standardOutput.contains("Pouring")
             {
                 print("Installing \(tracker.packageBeingCurrentlyInstalled) at \(tracker.progressNumber)")
                 tracker.progressNumber += progressSteps

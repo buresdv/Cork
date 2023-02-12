@@ -157,11 +157,11 @@ struct PackageDetailView: View
             {
                 if !isCask
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package.name])
+                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package.name]).standardOutput
                 }
                 else
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name])
+                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name]).standardOutput
                 }
 
                 description = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .description)

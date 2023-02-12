@@ -36,7 +36,7 @@ struct SearchResults
 func getListOfFoundPackages(searchWord: String) async -> String
 {
     var parsedResponse: String?
-    parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord])!
+    parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord]).standardOutput
 
     return parsedResponse!
 }
@@ -45,7 +45,7 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
 {
     var finalOutdatedPackages = [BrewPackage]()
     
-    let outdatedPackagesRaw: String = await shell("/opt/homebrew/bin/brew", ["outdated"])!
+    let outdatedPackagesRaw: String = await shell("/opt/homebrew/bin/brew", ["outdated"]).standardOutput
     
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
     
@@ -60,7 +60,9 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
 
 func tapAtap(tapName: String) async -> String
 {
-    let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", tapName])!
+    let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", tapName]).standardError
+    
+    print("Tapping result: \(tapResult)")
     
     return tapResult
 }

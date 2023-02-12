@@ -18,14 +18,14 @@ func upgradeBrewPackages(_ updateProgressTracker: UpdateProgressTracker)
         updateProgressTracker.showUpdateSheet = true
         updateProgressTracker.updateStage = .updating
         updateProgressTracker.updateProgress += 0.2
-        let updateResult = await shell("/opt/homebrew/bin/brew", ["update"])!
+        let updateResult = await shell("/opt/homebrew/bin/brew", ["update"]).standardOutput
         updateProgressTracker.updateProgress += 0.3
         
         print("update result: \(updateResult)")
 
         updateProgressTracker.updateStage = .upgrading
         updateProgressTracker.updateProgress += 0.2
-        let upgradeResult = await shell("/opt/homebrew/bin/brew", ["upgrade"])!
+        let upgradeResult = await shell("/opt/homebrew/bin/brew", ["upgrade"]).standardOutput
         updateProgressTracker.updateProgress += 0.3
         
         print("Upgrade result: \(upgradeResult)")

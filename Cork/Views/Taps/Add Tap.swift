@@ -113,11 +113,11 @@ struct AddTapView: View
 
                         print("Result: \(tapResult)") // Why does this shit not FUCKING WORK
                         
-                        let debugResult = await shell("/opt/homebrew/bin/brew", ["outdated"])!
+                        let debugResult = await shell("/opt/homebrew/bin/brew", ["outdated"]).standardOutput
                         print("Sanity debug result: \(debugResult)")
 
                         #warning("Remove this in production. It untaps the tap right after")
-                        let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", requestedTap])!
+                        let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", requestedTap]).standardOutput
                         print("Untap Result: \(untapResult)")
 
                         progress = .finished // TODO: Make this actually check if it successfully tapped the tap
