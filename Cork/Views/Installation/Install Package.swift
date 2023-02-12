@@ -9,8 +9,8 @@ import SwiftUI
 
 class SearchResultTracker: ObservableObject
 {
-    @Published var foundFormulae: [SearchResult] = .init()
-    @Published var foundCasks: [SearchResult] = .init()
+    @Published var foundFormulae: [BrewPackage] = .init()
+    @Published var foundCasks: [BrewPackage] = .init()
     @Published var selectedPackagesForInstallation: [String] = .init()
 }
 
@@ -91,11 +91,11 @@ struct AddFormulaView: View
 
                             for formula in try await foundFormulae
                             {
-                                searchResultTracker.foundFormulae.append(SearchResult(packageName: formula, isCask: false))
+                                searchResultTracker.foundFormulae.append(BrewPackage(name: formula, isCask: false, installedOn: nil, versions: [], sizeInBytes: nil))
                             }
                             for cask in try await foundCasks
                             {
-                                searchResultTracker.foundCasks.append(SearchResult(packageName: cask, isCask: true))
+                                searchResultTracker.foundCasks.append(BrewPackage(name: cask, isCask: true, installedOn: nil, versions: [], sizeInBytes: nil))
                             }
 
                             installationSteps = .presentingSearchResults
@@ -117,14 +117,14 @@ struct AddFormulaView: View
                         {
                             ForEach(searchResultTracker.foundFormulae)
                             { formula in
-                                SearchResultRow(brewData: brewData, packageName: formula.packageName, isCask: formula.isCask)
+                                SearchResultRow(brewData: brewData, packageName: formula.name, isCask: formula.isCask)
                             }
                         }
                         Section("Found Casks")
                         {
                             ForEach(searchResultTracker.foundCasks)
                             { cask in
-                                SearchResultRow(brewData: brewData, packageName: cask.packageName, isCask: cask.isCask)
+                                SearchResultRow(brewData: brewData, packageName: cask.name, isCask: cask.isCask)
                             }
                         }
                     }
@@ -169,6 +169,7 @@ struct AddFormulaView: View
                 {
                     for requestedPackage in foundPackageSelection {
                         //print(getPackageNamesFromUUID(selectionBinding: requestedPackage, tracker: searchResultTracker))
+                        print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
                     }
                 }
 
