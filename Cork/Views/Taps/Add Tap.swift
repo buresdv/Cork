@@ -37,10 +37,7 @@ struct AddTapView: View
             switch progress
             {
             case .ready:
-                VStack(alignment: .leading)
-                {
-                    Text("Tap a tap")
-                        .font(.headline)
+                SheetWithTitle(title: "Tap a tap") {
                     TextField("homebrew/core", text: $requestedTap)
                         .onSubmit
                         {
@@ -124,20 +121,12 @@ struct AddTapView: View
                     }
                 }
             case .finished:
-                VStack
-                {
-                    Text("Successfully tapped \(requestedTap)")
-                        .font(.headline)
+                DisappearableSheet(isShowingSheet: $isShowingSheet) {
+                    HeadlineWithSubheadline(headline: "Successfully tapped \(requestedTap)", subheadline: "There were no errors", alignment: .center)
                         .onAppear
                         {
-                            
                             availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3)
-                            {
-                                isShowingSheet = false
-                            }
                         }
-                    Text("There were no errors")
                 }
 
             case .error:
