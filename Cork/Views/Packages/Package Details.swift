@@ -74,6 +74,21 @@ struct PackageDetailView: View
                             
                             GridRow(alignment: .top)
                             {
+                                Text("Type")
+                                if package.isCask
+                                {
+                                    Text("Cask")
+                                }
+                                else
+                                {
+                                    Text("Formula")
+                                }
+                            }
+                            
+                            Divider()
+                            
+                            GridRow(alignment: .top)
+                            {
                                 Text("Homepage")
                                 Text(.init(homepage))
                             }

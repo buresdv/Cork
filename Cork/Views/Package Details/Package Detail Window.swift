@@ -68,7 +68,7 @@ struct PackageDetailWindow: View
 
                     // print(packageInfo.contents)
 
-                    assembledPackage = BrewPackage(name: package, installedOn: nil, versions: ["\(extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .version))"], sizeInBytes: nil)
+                    assembledPackage = BrewPackage(name: package, isCask: false, installedOn: nil, versions: ["\(extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .version))"], sizeInBytes: nil)
                 }
             }
             else
@@ -82,7 +82,7 @@ struct PackageDetailWindow: View
 
                     // print(packageInfo.contents)
 
-                    assembledPackage = BrewPackage(name: package, installedOn: nil, versions: ["\(extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .version))"], sizeInBytes: nil)
+                    assembledPackage = BrewPackage(name: package, isCask: true, installedOn: nil, versions: ["\(extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .version))"], sizeInBytes: nil)
                 }
             }
         }

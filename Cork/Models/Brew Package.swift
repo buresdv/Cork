@@ -11,6 +11,9 @@ struct BrewPackage: Identifiable
 {
     let id = UUID()
     let name: String
+    
+    let isCask: Bool
+    
     let installedOn: Date?
     let versions: [String]
     

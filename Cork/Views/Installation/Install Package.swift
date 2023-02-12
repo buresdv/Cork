@@ -166,7 +166,11 @@ struct AddFormulaView: View
                     Text("Installing \(installationProgressTracker.packageBeingCurrentlyInstalled)")
                 }
                 .onAppear
-                {}
+                {
+                    for requestedPackage in foundPackageSelection {
+                        //print(getPackageNamesFromUUID(selectionBinding: requestedPackage, tracker: searchResultTracker))
+                    }
+                }
 
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
