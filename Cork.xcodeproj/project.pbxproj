@@ -46,6 +46,9 @@
 		63A8746A2990127D009F9533 /* PillText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A874692990127D009F9533 /* PillText.swift */; };
 		63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746B2990477A009F9533 /* Uninstall Packages.swift */; };
 		63A8746E29904A7F009F9533 /* App State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746D29904A7F009F9533 /* App State.swift */; };
+		63C830BC29984B1A002D11BB /* Used Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BB29984B1A002D11BB /* Used Package.swift */; };
+		63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */; };
+		63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830C029984BA4002D11BB /* Button That Opens Websites.swift */; };
 		63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0275288B22D9004AE2EC /* View - New Windows.swift */; };
 		63CD0279288B2316004AE2EC /* Package Detail Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0278288B2316004AE2EC /* Package Detail Window.swift */; };
 		63D2B0882997F5340084E223 /* Load up Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2B0872997F5340084E223 /* Load up Formulae.swift */; };
@@ -94,6 +97,9 @@
 		63A874692990127D009F9533 /* PillText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillText.swift; sourceTree = "<group>"; };
 		63A8746B2990477A009F9533 /* Uninstall Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Packages.swift"; sourceTree = "<group>"; };
 		63A8746D29904A7F009F9533 /* App State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App State.swift"; sourceTree = "<group>"; };
+		63C830BB29984B1A002D11BB /* Used Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Used Package.swift"; sourceTree = "<group>"; };
+		63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Acknowledged Contributor.swift"; sourceTree = "<group>"; };
+		63C830C029984BA4002D11BB /* Button That Opens Websites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button That Opens Websites.swift"; sourceTree = "<group>"; };
 		63CD0275288B22D9004AE2EC /* View - New Windows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - New Windows.swift"; sourceTree = "<group>"; };
 		63CD0278288B2316004AE2EC /* Package Detail Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Detail Window.swift"; sourceTree = "<group>"; };
 		63D2B0872997F5340084E223 /* Load up Formulae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Formulae.swift"; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63C830BA29984B10002D11BB /* Misc */,
 				6340657C2871AC65001A2178 /* Brew Package.swift */,
 				637E00612872F1AF005C9890 /* Search Result.swift */,
 				637E00652872F629005C9890 /* Update Progress Tracker.swift */,
@@ -267,6 +274,7 @@
 		639A7D812871D07800B50280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63C830BF29984B96002D11BB /* Misc */,
 				6330531729966E9200F34F94 /* Start Page */,
 				632FD2932995A3870029FC49 /* Taps */,
 				63CD0277288B2307004AE2EC /* Package Details */,
@@ -296,6 +304,23 @@
 				63A87467298FE811009F9533 /* Package Types.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		63C830BA29984B10002D11BB /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				63C830BB29984B1A002D11BB /* Used Package.swift */,
+				63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		63C830BF29984B96002D11BB /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				63C830C029984BA4002D11BB /* Button That Opens Websites.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		63CD0274288B22C8004AE2EC /* Extensions */ = {
@@ -410,6 +435,7 @@
 				637E00622872F1AF005C9890 /* Search Result.swift in Sources */,
 				637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */,
 				6340657A2871AC27001A2178 /* Brew Data Storage.swift in Sources */,
+				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
 				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */,
@@ -424,7 +450,9 @@
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */,
 				6371EA2D287202F400300E1B /* Extract from JSON.swift in Sources */,
+				63C830BC29984B1A002D11BB /* Used Package.swift in Sources */,
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
+				63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */,
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,

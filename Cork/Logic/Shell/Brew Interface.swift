@@ -62,7 +62,5 @@ func tapAtap(tapName: String) async -> String
 {
     let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", tapName])!
     
-    print("Task inside function finished: \(tapResult)")
-    
     return tapResult
 }
