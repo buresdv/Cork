@@ -58,6 +58,7 @@
 		63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83102299928B400FA802F /* Headline with Subheadline.swift */; };
 		63D831052999331D00FA802F /* Sheet with Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D831042999331D00FA802F /* Sheet with Title.swift */; };
 		63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83106299935E900FA802F /* Dismiss Sheet Button.swift */; };
+		63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83109299982EA00FA802F /* Search Result Row.swift */; };
 		63D8C957287A1D0800483A52 /* Loading View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C956287A1D0800483A52 /* Loading View.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		63D83102299928B400FA802F /* Headline with Subheadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Headline with Subheadline.swift"; sourceTree = "<group>"; };
 		63D831042999331D00FA802F /* Sheet with Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sheet with Title.swift"; sourceTree = "<group>"; };
 		63D83106299935E900FA802F /* Dismiss Sheet Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dismiss Sheet Button.swift"; sourceTree = "<group>"; };
+		63D83109299982EA00FA802F /* Search Result Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Row.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +270,7 @@
 		637E006C28734189005C9890 /* Installation */ = {
 			isa = PBXGroup;
 			children = (
+				63D83108299982D300FA802F /* Reusables */,
 				639A7D822871D08200B50280 /* Install Package.swift */,
 				637E006D2873419B005C9890 /* Install Progress Tracker.swift */,
 			);
@@ -388,6 +391,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		63D83108299982D300FA802F /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				63D83109299982EA00FA802F /* Search Result Row.swift */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,6 +496,7 @@
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
 				632FD292299596790029FC49 /* HelpButton.swift in Sources */,
+				63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */,
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
 				63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */,

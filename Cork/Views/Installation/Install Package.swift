@@ -66,20 +66,20 @@ struct AddFormulaView: View
 
                             Spacer()
 
-                            Button {
+                            Button
+                            {
                                 installationSteps = .searching
                             } label: {
                                 Text("Search")
                             }
                             .keyboardShortcut(.defaultAction)
-
                         }
                     }
                 }
 
             case .searching:
                 ProgressView("Searching for \(packageRequested)...")
-                
+
             case .presentingSearchResults:
                 VStack
                 {
@@ -87,13 +87,31 @@ struct AddFormulaView: View
                     { _ in
                         foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                     }
-                    
+
+                    List(selection: $foundPackageSelection)
+                    {
+                        Section("Found Formulae")
+                        {
+                            ForEach(searchResultTracker.foundFormulae)
+                            { formula in
+                                SearchResultRow(packageName: formula.packageName, isCask: formula.isCask)
+                            }
+                        }
+                        Section("Found Casks")
+                        {
+                            ForEach(searchResultTracker.foundCasks)
+                            { cask in
+                                SearchResultRow(packageName: cask.packageName, isCask: cask.isCask)
+                            }
+                        }
+                    }
+
                     HStack
                     {
                         DismissSheetButton(isShowingSheet: $isShowingSheet)
-                        
+
                         Spacer()
-                        
+
                         Button
                         {
                             installationSteps = .installing
@@ -103,7 +121,7 @@ struct AddFormulaView: View
                         .keyboardShortcut(.defaultAction)
                     }
                 }
-                
+
             case .installing:
                 ProgressView(value: installationProgressTracker.progressNumber)
                 {
@@ -111,13 +129,12 @@ struct AddFormulaView: View
                 }
                 .onAppear
                 {}
-                
+
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
                 {
                     HeadlineWithSubheadline(headline: "Packages successfuly installed", subheadline: "There were no errors", alignment: .center)
                 }
-                
             }
         }
         .padding()
