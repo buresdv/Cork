@@ -116,7 +116,7 @@ struct ContentView: View
                 }
                 .listStyle(SidebarListStyle())
                 
-                StartPage(brewData: brewData, updateProgressTracker: updateProgressTracker)
+                StartPage(availableTaps: availableTaps, updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")

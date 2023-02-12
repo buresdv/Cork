@@ -28,11 +28,11 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
         print(error)
     }
 
-    let standardOutput = pipe.fileHandleForReading.readDataToEndOfFile()
-    let standardError = errorPipe.fileHandleForReading.readDataToEndOfFile()
+    let standardOutput = try! pipe.fileHandleForReading.readToEnd()
+    let standardError = try! errorPipe.fileHandleForReading.readToEnd()
     
-    let finalOutput = String(data: standardOutput, encoding: .utf8) ?? ""
-    let finalError = String(data: standardError, encoding: .utf8) ?? ""
+    let finalOutput = String(data: standardOutput ?? Data(), encoding: .utf8) ?? ""
+    let finalError = String(data: standardError ?? Data(), encoding: .utf8) ?? ""
     
     return TerminalOutput(standardOutput: finalOutput, standardError: finalError)
 }

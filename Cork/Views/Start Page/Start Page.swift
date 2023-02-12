@@ -9,7 +9,8 @@ import SwiftUI
 
 struct StartPage: View
 {
-    @StateObject var brewData: BrewDataStorage
+    @EnvironmentObject var brewData: BrewDataStorage
+    @StateObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var appState: AppState
 
@@ -125,6 +126,12 @@ struct StartPage: View
                                     GridRow(alignment: .firstTextBaseline)
                                     {
                                         GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks instaled", mainText: "Casks are usually graphical apps")
+                                    }
+                                    
+                                    Divider()
+                                    
+                                    GridRow(alignment: .firstTextBaseline) {
+                                        GroupBoxHeadlineGroup(title: "You have \(availableTaps.tappedTaps.count) Taps tapped", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
                                     }
                                 }
                             }
