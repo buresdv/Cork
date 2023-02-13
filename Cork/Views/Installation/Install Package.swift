@@ -40,10 +40,14 @@ struct AddFormulaView: View
     @ObservedObject var installationProgressTracker = InstallationProgressTracker()
 
     @State var installationSteps: InstallationSteps = .ready
-    
+
     @State var packageInstallTrackingNumber: Float = 0
 
+    @State private var willHaveToFetchPackageDependencies: Bool = false
+
     @FocusState var isSearchFieldFocused: Bool
+
+    @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
 
     var body: some View
     {
@@ -86,7 +90,7 @@ struct AddFormulaView: View
                         {
                             searchResultTracker.foundFormulae = []
                             searchResultTracker.foundCasks = []
-                            
+
                             async let foundFormulae = try searchForPackage(packageName: packageRequested, packageType: .formula)
                             async let foundCasks = try searchForPackage(packageName: packageRequested, packageType: .cask)
 
@@ -107,7 +111,7 @@ struct AddFormulaView: View
                 VStack
                 {
                     TextField("Search for packages...", text: $packageRequested)
-                    { focus in
+                    { _ in
                         foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                     }
                     .focused($isSearchFieldFocused)
@@ -162,55 +166,118 @@ struct AddFormulaView: View
                 }
 
             case .installing:
-                ProgressView(value: packageInstallTrackingNumber)
+                VStack(alignment: .leading)
                 {
+                    ProgressView(value: packageInstallTrackingNumber)
+                    {
+                        if willHaveToFetchPackageDependencies
+                        {
+                            HStack
+                            {
+                                Text("Fetching dependencies...")
+                                ProgressView()
+                                    .scaleEffect(0.5, anchor: .center)
+                            }
+                        }
+                        else
+                        {
+                            if installationProgressTracker.packagesStillLeftToInstall.count != 0
+                            {
+                                Text("Installing \(installationProgressTracker.packagesStillLeftToInstall.count) \(installationProgressTracker.packagesStillLeftToInstall.count >= 2 ? "packages" : "package")")
+                                    .onAppear
+                                    {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 1 ... 3))
+                                        { // If nothing happened after three seconds, the package install either got stuck or it's fetching dependencies. Let's be generous and say it's fetching dependencies. Make it seems like it's actually working
+                                            // Seriously, fuck the interface. It could throw me a bone, but no
+                                            if willHaveToFetchPackageDependencies == false
+                                            {
+                                                willHaveToFetchPackageDependencies = true
+                                                packageInstallTrackingNumber = packageInstallTrackingNumber + Float.random(in: 0 ... 0.2)
+                                            }
+                                        }
+                                    }
+                            }
+                            else
+                            {
+                                Text("Validating installations...") // This doesn't actually do anything, but it's better to make the user think something is happening instead of showing "Installing 0 packages"
+                            }
+                        }
+                    }
+
                     if installationProgressTracker.packagesStillLeftToInstall.count != 0
                     {
-                        Text("Installing \(installationProgressTracker.packagesStillLeftToInstall.count) \(installationProgressTracker.packagesStillLeftToInstall.count >= 2 ? "packages" : "package")")
-                    } else {
-                        Text("Validating installations...") // This doesn't actually do anything, but it's better to make the user think something is happening instead of showing "Installing 0 packages"
+                        if showPackagesStillLeftToInstall
+                        {
+                            Text("Packages currently being installed")
+                                .font(.headline)
+                            List(installationProgressTracker.packagesStillLeftToInstall, id: \.self)
+                            { packageName in
+                                Text(packageName)
+                            }
+                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                            .frame(height: 70)
+                        }
                     }
                 }
                 .onAppear
                 {
-                    for requestedPackage in foundPackageSelection {
+                    for requestedPackage in foundPackageSelection
+                    {
                         // print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
-                        
+
                         let packageToInstall: BrewPackage = getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
-                        
+
                         installationProgressTracker.packagesStillLeftToInstall.append(packageToInstall.name)
-                        
+
+                        print("Packages to install: \(installationProgressTracker.packagesStillLeftToInstall)")
+
                         installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
-                        
-                        Task(priority: .userInitiated) {
-                            do {
+
+                        Task(priority: .userInitiated)
+                        {
+                            do
+                            {
                                 // We have to do a little trolling to make the user feel like the program isn't frozen
                                 // After a random time up to 2s, move the progress line a little bit. I don't want them to think the program got stuck.
                                 // Slow-ass brew just doesn't install the packages fast enough
-                                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0...2)) {
-                                    packageInstallTrackingNumber = packageInstallTrackingNumber + Float.random(in: 0...0.1)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0 ... 2))
+                                {
+                                    packageInstallTrackingNumber = packageInstallTrackingNumber + Float.random(in: 0 ... 0.1)
                                 }
-                                
+
                                 async let installationResult = try await installPackage(package: packageToInstall, installationProgressTracker: installationProgressTracker, brewData: brewData)
-                                
+
                                 print("Installation result: \(try await installationResult)")
-                                
-                                if installationProgressTracker.packagesStillLeftToInstall.count == 0 {
-                                    packageInstallTrackingNumber = 1
+
+                                if try await installationResult.standardOutput.contains("Pouring")
+                                {
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+                                    if installationProgressTracker.packagesStillLeftToInstall.count == 0
                                     {
-                                        installationSteps = .finished
+                                        packageInstallTrackingNumber = 1
+
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+                                        {
+                                            willHaveToFetchPackageDependencies = false
+                                            installationSteps = .finished
+                                        }
                                     }
-                                } else {
-                                    packageInstallTrackingNumber = Float(1 / installationProgressTracker.packagesStillLeftToInstall.count)
+                                    else
+                                    {
+                                        packageInstallTrackingNumber = Float(1 / installationProgressTracker.packagesStillLeftToInstall.count)
+                                    }
                                 }
-                            } catch let error as NSError {
+                                else if try await installationResult.standardOutput.contains("Fetching dependencies")
+                                {
+                                    print("Will have to fetch some dependencies for \(packageToInstall)")
+                                    willHaveToFetchPackageDependencies = true
+                                }
+                            }
+                            catch let error as NSError
+                            {
                                 print("Error while installing package \(packageToInstall.name): \(error)")
                             }
-                                        
                         }
-                        
                     }
                 }
 
