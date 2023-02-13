@@ -159,7 +159,6 @@ struct AddTapView: View
                 }
             }
         }
-        .padding()
     }
 
     func checkIfTapNameIsValid(tapName: String)

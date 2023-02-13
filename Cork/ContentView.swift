@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View
 {
     @StateObject var appState = AppState()
-    
+
     @StateObject var brewData = BrewDataStorage()
 
     @StateObject var availableTaps = AvailableTaps()
@@ -40,7 +40,7 @@ struct ContentView: View
                             { package in
                                 NavigationLink
                                 {
-                                    PackageDetailView(package: package, isCask: false, brewData: brewData, packageInfo: selectedPackageInfo)
+                                    PackageDetailView(package: package, brewData: brewData, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
@@ -50,7 +50,7 @@ struct ContentView: View
                                     {
                                         Task
                                         {
-                                            await uninstallSelectedPackages(packages: [package.name], isCask: false, brewData: brewData)
+                                            await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                                         }
                                     } label: {
                                         Text("Uninstall Formula")
@@ -73,7 +73,7 @@ struct ContentView: View
                             { package in
                                 NavigationLink
                                 {
-                                    PackageDetailView(package: package, isCask: true, brewData: brewData, packageInfo: selectedPackageInfo)
+                                    PackageDetailView(package: package, brewData: brewData, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
@@ -83,7 +83,7 @@ struct ContentView: View
                                     {
                                         Task
                                         {
-                                            await uninstallSelectedPackages(packages: [package.name], isCask: true, brewData: brewData)
+                                            await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                                         }
                                     } label: {
                                         Text("Uninstall Cask")
@@ -115,7 +115,7 @@ struct ContentView: View
                     .collapsible(false)
                 }
                 .listStyle(SidebarListStyle())
-                
+
                 StartPage(availableTaps: availableTaps, updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
@@ -171,7 +171,7 @@ struct ContentView: View
             Task
             {
                 await loadUpTappedTaps(into: availableTaps)
-                
+
                 brewData.installedFormulae = await loadUpFormulae(appState: appState)
                 brewData.installedCasks = await loadUpCasks(appState: appState)
             }
@@ -194,6 +194,11 @@ struct ContentView: View
             }
             .padding()
         }
+        .alert(isPresented: $appState.isShowingUninstallationNotPossibleDueToDependencyAlert, content: {
+            Alert(title: Text("Could Not Uninstall"), message: Text("This package is a dependency of \(appState.offendingDependencyProhibitingUninstallation)"), dismissButton: .default(Text("Close"), action: {
+                appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
+            }))
+        })
         .environmentObject(appState)
     }
 }
