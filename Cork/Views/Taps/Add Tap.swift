@@ -40,32 +40,32 @@ struct AddTapView: View
                 SheetWithTitle(title: "Tap a tap") {
                     TextField("homebrew/core", text: $requestedTap)
                         .onSubmit
+                    {
+                        checkIfTapNameIsValid(tapName: requestedTap)
+                    }
+                    .popover(isPresented: $isShowingErrorPopover)
+                    {
+                        switch tapInputError
                         {
-                            checkIfTapNameIsValid(tapName: requestedTap)
-                        }
-                        .popover(isPresented: $isShowingErrorPopover)
-                        {
-                            switch tapInputError
+                        case .empty:
+                            VStack(alignment: .leading)
                             {
-                            case .empty:
-                                VStack(alignment: .leading)
-                                {
-                                    Text("Tap name empty")
-                                        .font(.headline)
-                                    Text("You didn't put in any tap name")
-                                }
-                                .padding()
-                            case .missingSlash:
-                                VStack(alignment: .leading)
-                                {
-                                    Text("Tap name needs a slash")
-                                        .font(.headline)
-                                    Text("Tap names always have to contain a slash")
-                                }
-                                .padding()
+                                Text("Tap name empty")
+                                    .font(.headline)
+                                Text("You didn't put in any tap name")
                             }
+                            .padding()
+                        case .missingSlash:
+                            VStack(alignment: .leading)
+                            {
+                                Text("Tap name needs a slash")
+                                    .font(.headline)
+                                Text("Tap names always have to contain a slash")
+                            }
+                            .padding()
                         }
-
+                    }
+                    
                     HStack
                     {
                         Button
@@ -75,13 +75,13 @@ struct AddTapView: View
                             Text("Cancel")
                         }
                         .keyboardShortcut(.cancelAction)
-
+                        
                         Spacer()
-
+                        
                         Button
                         {
                             checkIfTapNameIsValid(tapName: requestedTap)
-
+                            
                             if !isShowingErrorPopover
                             {
                                 progress = .tapping
@@ -93,7 +93,6 @@ struct AddTapView: View
                     }
                     .padding(.top)
                 }
-                .frame(width: 200)
 
             case .tapping:
                 ProgressView

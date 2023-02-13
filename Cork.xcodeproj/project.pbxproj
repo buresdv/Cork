@@ -51,6 +51,7 @@
 		63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0275288B22D9004AE2EC /* View - New Windows.swift */; };
 		63D2B0882997F5340084E223 /* Load up Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2B0872997F5340084E223 /* Load up Formulae.swift */; };
 		63D2B08A2997F53C0084E223 /* Load up Casks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2B0892997F53C0084E223 /* Load up Casks.swift */; };
+		63D51F62299A873000203F3F /* Extract Package Version from Terminal Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51F61299A873000203F3F /* Extract Package Version from Terminal Output.swift */; };
 		63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D830FB29990DD600FA802F /* Terminal Output.swift */; };
 		63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83100299927C800FA802F /* Disappearable Sheet.swift */; };
 		63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83102299928B400FA802F /* Headline with Subheadline.swift */; };
@@ -106,6 +107,7 @@
 		63CD0275288B22D9004AE2EC /* View - New Windows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - New Windows.swift"; sourceTree = "<group>"; };
 		63D2B0872997F5340084E223 /* Load up Formulae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Formulae.swift"; sourceTree = "<group>"; };
 		63D2B0892997F53C0084E223 /* Load up Casks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Casks.swift"; sourceTree = "<group>"; };
+		63D51F61299A873000203F3F /* Extract Package Version from Terminal Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extract Package Version from Terminal Output.swift"; sourceTree = "<group>"; };
 		63D830FB29990DD600FA802F /* Terminal Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terminal Output.swift"; sourceTree = "<group>"; };
 		63D83100299927C800FA802F /* Disappearable Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Disappearable Sheet.swift"; sourceTree = "<group>"; };
 		63D83102299928B400FA802F /* Headline with Subheadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Headline with Subheadline.swift"; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
+				63D51F61299A873000203F3F /* Extract Package Version from Terminal Output.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
 				63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */,
+				63D51F62299A873000203F3F /* Extract Package Version from Terminal Output.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,

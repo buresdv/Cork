@@ -164,7 +164,7 @@ struct AddFormulaView: View
             case .installing:
                 ProgressView(value: packageInstallTrackingNumber)
                 {
-                    Text("Installing \(installationProgressTracker.packageBeingCurrentlyInstalled)")
+                    Text("Installing \(installationProgressTracker.packagesStillLeftToInstall.count) \(installationProgressTracker.packagesStillLeftToInstall.count % 2 == 0 ? "packages" : "package")")
                 }
                 .onAppear
                 {

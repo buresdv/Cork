@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum InstallationError: Error
 {
@@ -32,6 +33,10 @@ func installPackage(package: BrewPackage, installationProgressTracker: Installat
         else
         {
             installationResult = await installationResultComplete
+            
+            withAnimation {
+                brewData.installedFormulae.append(BrewPackage(name: package.name, isCask: package.isCask, installedOn: package.installedOn, versions: [extractPackageVersionFromTerminalOutput(terminalOutput: installationResult, packageBeingInstalled: package)], sizeInBytes: package.sizeInBytes))
+            }
         }
     }
     else
@@ -46,6 +51,11 @@ func installPackage(package: BrewPackage, installationProgressTracker: Installat
         }
         else {
             installationResult = await installationResultComplete
+            
+            withAnimation {
+                #warning("This fails to get the version for some reason. Figure out why")
+                brewData.installedCasks.append(BrewPackage(name: package.name, isCask: package.isCask, installedOn: package.installedOn, versions: [extractPackageVersionFromTerminalOutput(terminalOutput: installationResult, packageBeingInstalled: package)], sizeInBytes: package.sizeInBytes))
+            }
         }
     }
 
