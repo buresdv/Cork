@@ -59,6 +59,8 @@ func installPackage(package: BrewPackage, installationProgressTracker: Installat
         }
     }
 
+    installationProgressTracker.packagesStillLeftToInstall.removeAll(where: { $0 == package.name })
+    
     return installationResult
 }
 

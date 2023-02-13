@@ -164,7 +164,12 @@ struct AddFormulaView: View
             case .installing:
                 ProgressView(value: packageInstallTrackingNumber)
                 {
-                    Text("Installing \(installationProgressTracker.packagesStillLeftToInstall.count) \(installationProgressTracker.packagesStillLeftToInstall.count % 2 == 0 ? "packages" : "package")")
+                    if installationProgressTracker.packagesStillLeftToInstall.count != 0
+                    {
+                        Text("Installing \(installationProgressTracker.packagesStillLeftToInstall.count) \(installationProgressTracker.packagesStillLeftToInstall.count >= 2 ? "packages" : "package")")
+                    } else {
+                        Text("Validating installations...") // This doesn't actually do anything, but it's better to make the user think something is happening instead of showing "Installing 0 packages"
+                    }
                 }
                 .onAppear
                 {
@@ -189,8 +194,6 @@ struct AddFormulaView: View
                                 async let installationResult = try await installPackage(package: packageToInstall, installationProgressTracker: installationProgressTracker, brewData: brewData)
                                 
                                 print("Installation result: \(try await installationResult)")
-                                
-                                installationProgressTracker.packagesStillLeftToInstall.removeAll(where: { $0 == packageToInstall.name })
                                 
                                 if installationProgressTracker.packagesStillLeftToInstall.count == 0 {
                                     packageInstallTrackingNumber = 1
