@@ -31,6 +31,7 @@
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
 		6371EA2D287202F400300E1B /* Extract from JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA2C287202F400300E1B /* Extract from JSON.swift */; };
+		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
 		637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Upgrade Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
@@ -92,6 +93,7 @@
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
 		6371EA2C287202F400300E1B /* Extract from JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extract from JSON.swift"; sourceTree = "<group>"; };
+		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Upgrade Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upgrade Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
@@ -267,6 +269,14 @@
 			path = Shell;
 			sourceTree = "<group>";
 		};
+		637402D8299BF86C001AB7B1 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				637402D9299BF878001AB7B1 /* Sidebar View.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
 		637E006928734032005C9890 /* Installation & Removal */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +307,7 @@
 		639A7D812871D07800B50280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				637402D8299BF86C001AB7B1 /* Sidebar */,
 				63D51F6C299AAFC600203F3F /* Maintenance */,
 				63D51F63299A98F800203F3F /* Settings */,
 				63D830FD2999279800FA802F /* Reusables */,
@@ -540,6 +551,7 @@
 				63D8C957287A1D0800483A52 /* Loading View.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
+				637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
 				632FD292299596790029FC49 /* HelpButton.swift in Sources */,
 				63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */,
