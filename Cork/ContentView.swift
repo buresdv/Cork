@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContentView: View
 {
-    @StateObject var appState = AppState()
+    @EnvironmentObject var appState: AppState
 
-    @StateObject var brewData = BrewDataStorage()
+    @EnvironmentObject var brewData: BrewDataStorage
 
     @StateObject var availableTaps = AvailableTaps()
 
-    @StateObject var selectedPackageInfo = SelectedPackageInfo()
+    @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
+    
     @StateObject var updateProgressTracker = UpdateProgressTracker()
 
     @State private var multiSelection = Set<UUID>()

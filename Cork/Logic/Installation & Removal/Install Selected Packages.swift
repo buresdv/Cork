@@ -49,7 +49,8 @@ func installPackage(package: BrewPackage, installationProgressTracker: Installat
         {
             throw InstallationError.outputHadErrors
         }
-        else {
+        else
+        {
             installationResult = await installationResultComplete
             
             withAnimation {
@@ -63,33 +64,3 @@ func installPackage(package: BrewPackage, installationProgressTracker: Installat
     
     return installationResult
 }
-
-/*@MainActor
-func installSelectedPackages(packageArray: [String], tracker: InstallationProgressTracker, brewData _: BrewDataStorage)
-{
-    let progressSteps = Float(1) / Float(packageArray.count)
-    print(progressSteps)
-
-    tracker.progressNumber = 0
-
-    for package in packageArray
-    {
-        Task
-        {
-            tracker.packageBeingCurrentlyInstalled = package
-            print("Trying to install \(tracker.packageBeingCurrentlyInstalled)")
-
-            let installCommandOutput = await shell("/opt/homebrew/bin/brew", ["install", package])
-
-            if installCommandOutput.standardOutput.contains("Pouring")
-            {
-                print("Installing \(tracker.packageBeingCurrentlyInstalled) at \(tracker.progressNumber)")
-                tracker.progressNumber += progressSteps
-            }
-            else
-            {
-                tracker.isShowingInstallationFailureAlert = true
-            }
-        }
-    }
-}*/

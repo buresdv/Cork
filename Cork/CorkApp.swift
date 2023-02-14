@@ -11,12 +11,19 @@ import SwiftUI
 struct CorkApp: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    @StateObject var appState = AppState()
+    @StateObject var brewData = BrewDataStorage()
+    @StateObject var selectedPackageInfo = SelectedPackageInfo()
 
     var body: some Scene
     {
         WindowGroup
         {
             ContentView()
+                .environmentObject(appState)
+                .environmentObject(brewData)
+                .environmentObject(selectedPackageInfo)
         }
         .commands(content: {
             CommandGroup(replacing: CommandGroupPlacement.appInfo)
