@@ -46,44 +46,13 @@ struct ContentView: View
             {
                 ToolbarItemGroup(placement: .primaryAction)
                 {
-                    Button
-                    {
-                        upgradeBrewPackages(updateProgressTracker)
-                    } label: {
-                        Label
-                        {
-                            Text("Upgrade Formulae")
-                        } icon: {
-                            Image(systemName: "arrow.clockwise")
-                        }
-                    }
-                    .keyboardShortcut("r")
-
+                    UpgradeButton()
+                    
                     Spacer()
 
-                    Button
-                    {
-                        isShowingTapSheet.toggle()
-                    } label: {
-                        Label
-                        {
-                            Text("Add Tap")
-                        } icon: {
-                            Image(systemName: "spigot.fill")
-                        }
-                    }
+                    AddTapButton()
 
-                    Button
-                    {
-                        isShowingInstallSheet.toggle()
-                    } label: {
-                        Label
-                        {
-                            Text("Add Formula")
-                        } icon: {
-                            Image(systemName: "plus")
-                        }
-                    }
+                    AddFormulaeButton()
                 }
             }
         }

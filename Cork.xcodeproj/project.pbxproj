@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32922DCE299BF15500D6C4BF /* Upgrade Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32922DCD299BF15500D6C4BF /* Upgrade Button.swift */; };
+		32922DD0299BF18D00D6C4BF /* Add Tap Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32922DCF299BF18D00D6C4BF /* Add Tap Button.swift */; };
+		32922DD2299BF1AE00D6C4BF /* AddFormulaeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32922DD1299BF1AE00D6C4BF /* AddFormulaeButton.swift */; };
 		32E7B711299951A800A40161 /* Installed Formulae List Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7B710299951A800A40161 /* Installed Formulae List Section.swift */; };
 		32E7B713299956C300A40161 /* Installed Cask List Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7B712299956C300A40161 /* Installed Cask List Section.swift */; };
 		32E7B715299957DE00A40161 /* Tapped Taps List Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7B714299957DE00A40161 /* Tapped Taps List Section.swift */; };
@@ -55,6 +58,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32922DCD299BF15500D6C4BF /* Upgrade Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upgrade Button.swift"; sourceTree = "<group>"; };
+		32922DCF299BF18D00D6C4BF /* Add Tap Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap Button.swift"; sourceTree = "<group>"; };
+		32922DD1299BF1AE00D6C4BF /* AddFormulaeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFormulaeButton.swift; sourceTree = "<group>"; };
 		32E7B710299951A800A40161 /* Installed Formulae List Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installed Formulae List Section.swift"; sourceTree = "<group>"; };
 		32E7B712299956C300A40161 /* Installed Cask List Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installed Cask List Section.swift"; sourceTree = "<group>"; };
 		32E7B714299957DE00A40161 /* Tapped Taps List Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tapped Taps List Section.swift"; sourceTree = "<group>"; };
@@ -138,6 +144,9 @@
 			children = (
 				32E7B7162999589C00A40161 /* Sidebar List */,
 				6330531829966E9F00F34F94 /* Start Page.swift */,
+				32922DCD299BF15500D6C4BF /* Upgrade Button.swift */,
+				32922DCF299BF18D00D6C4BF /* Add Tap Button.swift */,
+				32922DD1299BF1AE00D6C4BF /* AddFormulaeButton.swift */,
 			);
 			path = "Start Page";
 			sourceTree = "<group>";
@@ -416,11 +425,13 @@
 				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */,
+				32922DD0299BF18D00D6C4BF /* Add Tap Button.swift in Sources */,
 				63D8C957287A1D0800483A52 /* Loading View.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
 				632FD292299596790029FC49 /* HelpButton.swift in Sources */,
+				32922DCE299BF15500D6C4BF /* Upgrade Button.swift in Sources */,
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
@@ -438,6 +449,7 @@
 				63D8C955287A15C300483A52 /* Load up Installed Packages.swift in Sources */,
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
+				32922DD2299BF1AE00D6C4BF /* AddFormulaeButton.swift in Sources */,
 				63CD0279288B2316004AE2EC /* Package Detail Window.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
