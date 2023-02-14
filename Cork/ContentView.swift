@@ -30,87 +30,11 @@ struct ContentView: View
             {
                 List(selection: $multiSelection)
                 {
-                    Section("Installed Formulae")
-                    {
-                        if brewData.installedFormulae.count != 0
-                        {
-                            ForEach(brewData.installedFormulae)
-                            { package in
-                                NavigationLink
-                                {
-                                    PackageDetailView(package: package, isCask: false, brewData: brewData, packageInfo: selectedPackageInfo)
-                                } label: {
-                                    PackageListItem(packageItem: package)
-                                }
-                                .contextMenu
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await uninstallSelectedPackages(packages: [package.name], isCask: false, brewData: brewData)
-                                        }
-                                    } label: {
-                                        Text("Uninstall Formula")
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ProgressView()
-                        }
-                    }
-                    .collapsible(true)
+                    InstalledFormulaeListSection(brewData, selectedPackageInfo)
+                    
+                    InstalledCaskListSection(brewData, selectedPackageInfo)
 
-                    Section("Installed Casks")
-                    {
-                        if brewData.installedCasks.count != 0
-                        {
-                            ForEach(brewData.installedCasks)
-                            { package in
-                                NavigationLink
-                                {
-                                    PackageDetailView(package: package, isCask: true, brewData: brewData, packageInfo: selectedPackageInfo)
-                                } label: {
-                                    PackageListItem(packageItem: package)
-                                }
-                                .contextMenu
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await uninstallSelectedPackages(packages: [package.name], isCask: true, brewData: brewData)
-                                        }
-                                    } label: {
-                                        Text("Uninstall Cask")
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ProgressView()
-                        }
-                    }
-                    .collapsible(true)
-
-                    Section("Tapped Taps")
-                    {
-                        if availableTaps.tappedTaps.count != 0
-                        {
-                            ForEach(availableTaps.tappedTaps)
-                            { tap in
-                                Text(tap.name)
-                            }
-                        }
-                        else
-                        {
-                            ProgressView()
-                        }
-                    }
-                    .collapsible(false)
+                    TappedTapsListSection(tappedTaps: $availableTaps.tappedTaps)
                 }
                 .listStyle(SidebarListStyle())
                 
