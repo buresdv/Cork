@@ -152,14 +152,25 @@ struct PackageDetailView: View
                 HStack
                 {
                     Spacer()
-                    Button(role: .destructive)
+                    
+                    HStack(spacing: 15)
                     {
-                        Task
+                        if appState.isShowingUninstallationProgressView
                         {
-                            await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                            ProgressView()
+                                .scaleEffect(0.5, anchor: .center)
+                                .frame(width: 1, height: 1)
                         }
-                    } label: {
-                        Text("Uninstall \(package.isCask ? "Cask" : "Formula")") /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        
+                        Button(role: .destructive)
+                        {
+                            Task
+                            {
+                                await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                            }
+                        } label: {
+                            Text("Uninstall \(package.isCask ? "Cask" : "Formula")") // If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        }
                     }
                 }
             }

@@ -11,6 +11,8 @@ import SwiftUI
 @MainActor
 func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
 {
+    appState.isShowingUninstallationProgressView = true
+    
     print("Will try to remove package \(package.name)")
     let uninstallCommandOutput = await shell("/opt/homebrew/bin/brew", ["uninstall", package.name])
     
@@ -59,6 +61,8 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             }
         }
     }
+    
+    appState.isShowingUninstallationProgressView = false
 
     print(uninstallCommandOutput)
 }

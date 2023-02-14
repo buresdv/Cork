@@ -303,7 +303,6 @@
 				63C830BF29984B96002D11BB /* Misc */,
 				6330531729966E9200F34F94 /* Start Page */,
 				632FD2932995A3870029FC49 /* Taps */,
-				63CD0277288B2307004AE2EC /* Package Details */,
 				63958CFE287735ED00E0B807 /* About */,
 				637E006C28734189005C9890 /* Installation */,
 				6371EA1C2871D96800300E1B /* Packages */,
@@ -353,13 +352,6 @@
 				63CD0275288B22D9004AE2EC /* View - New Windows.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		63CD0277288B2307004AE2EC /* Package Details */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Package Details";
 			sourceTree = "<group>";
 		};
 		63D2B0862997F5240084E223 /* Package Loading */ = {

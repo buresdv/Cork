@@ -10,6 +10,7 @@ import Foundation
 class AppState: ObservableObject {
     @Published var isShowingUninstallSheet: Bool = false
     
+    @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingUninstallationNotPossibleDueToDependencyAlert: Bool = false
     @Published var offendingDependencyProhibitingUninstallation: String = ""
     
