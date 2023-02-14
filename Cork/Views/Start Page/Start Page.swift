@@ -137,7 +137,6 @@ struct StartPage: View
                                     }
                                 }
                             }
-                            .id(UUID()) // This hack has to be here to enable the view to update. If this isn't here, the counts of the packages don't update, even though the array gets updated correctly
                         }
                     }
 
