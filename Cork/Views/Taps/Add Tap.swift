@@ -37,38 +37,35 @@ struct AddTapView: View
             switch progress
             {
             case .ready:
-                VStack(alignment: .leading)
-                {
-                    Text("Tap a tap")
-                        .font(.headline)
+                SheetWithTitle(title: "Tap a tap") {
                     TextField("homebrew/core", text: $requestedTap)
                         .onSubmit
+                    {
+                        checkIfTapNameIsValid(tapName: requestedTap)
+                    }
+                    .popover(isPresented: $isShowingErrorPopover)
+                    {
+                        switch tapInputError
                         {
-                            checkIfTapNameIsValid(tapName: requestedTap)
-                        }
-                        .popover(isPresented: $isShowingErrorPopover)
-                        {
-                            switch tapInputError
+                        case .empty:
+                            VStack(alignment: .leading)
                             {
-                            case .empty:
-                                VStack(alignment: .leading)
-                                {
-                                    Text("Tap name empty")
-                                        .font(.headline)
-                                    Text("You didn't put in any tap name")
-                                }
-                                .padding()
-                            case .missingSlash:
-                                VStack(alignment: .leading)
-                                {
-                                    Text("Tap name needs a slash")
-                                        .font(.headline)
-                                    Text("Tap names always have to contain a slash")
-                                }
-                                .padding()
+                                Text("Tap name empty")
+                                    .font(.headline)
+                                Text("You didn't put in any tap name")
                             }
+                            .padding()
+                        case .missingSlash:
+                            VStack(alignment: .leading)
+                            {
+                                Text("Tap name needs a slash")
+                                    .font(.headline)
+                                Text("Tap names always have to contain a slash")
+                            }
+                            .padding()
                         }
-
+                    }
+                    
                     HStack
                     {
                         Button
@@ -78,13 +75,13 @@ struct AddTapView: View
                             Text("Cancel")
                         }
                         .keyboardShortcut(.cancelAction)
-
+                        
                         Spacer()
-
+                        
                         Button
                         {
                             checkIfTapNameIsValid(tapName: requestedTap)
-
+                            
                             if !isShowingErrorPopover
                             {
                                 progress = .tapping
@@ -96,7 +93,6 @@ struct AddTapView: View
                     }
                     .padding(.top)
                 }
-                .frame(width: 200)
 
             case .tapping:
                 ProgressView
@@ -124,20 +120,12 @@ struct AddTapView: View
                     }
                 }
             case .finished:
-                VStack
-                {
-                    Text("Successfully tapped \(requestedTap)")
-                        .font(.headline)
+                DisappearableSheet(isShowingSheet: $isShowingSheet) {
+                    HeadlineWithSubheadline(headline: "Successfully tapped \(requestedTap)", subheadline: "There were no errors", alignment: .center)
                         .onAppear
                         {
-                            
                             availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3)
-                            {
-                                isShowingSheet = false
-                            }
                         }
-                    Text("There were no errors")
                 }
 
             case .error:
@@ -171,7 +159,6 @@ struct AddTapView: View
                 }
             }
         }
-        .padding()
     }
 
     func checkIfTapNameIsValid(tapName: String)

@@ -50,7 +50,11 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
                 
                 //let installedOn: Date? = try? URL(string: item)!.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
                 
-                contentsOfFolder.append(BrewPackage(name: item, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                if targetFolder.path.contains("Cellar") {
+                    contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                } else {
+                    contentsOfFolder.append(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                }
 
                 temporaryVersionStorage = [String]()
             }

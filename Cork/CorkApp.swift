@@ -33,5 +33,9 @@ struct CorkApp: App
         .windowToolbarStyle(.automatic)
         // .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: true))
         // .windowStyle(HiddenTitleBarWindowStyle())
+        
+        Settings {
+            SettingsView()
+        }
     }
 }

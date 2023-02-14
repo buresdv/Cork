@@ -19,6 +19,8 @@ struct StartPage: View
     @State var upgradeablePackages: [BrewPackage] = .init()
 
     @State private var isDisclosureGroupExpanded: Bool = false
+    
+    @State private var isShowingMaintenanceSheet: Bool = false
 
     var body: some View
     {
@@ -139,6 +141,19 @@ struct StartPage: View
                     }
 
                     Spacer()
+                    
+                    HStack
+                    {
+                        Spacer()
+                        
+                        Button {
+                            print("Would perform maintenance")
+                            isShowingMaintenanceSheet.toggle()
+                        } label: {
+                            Text("Brew Maintenance")
+                        }
+
+                    }
                 }
             }
         }
@@ -149,6 +164,9 @@ struct StartPage: View
             {
                 upgradeablePackages = await getListOfUpgradeablePackages()
             }
+        }
+        .sheet(isPresented: $isShowingMaintenanceSheet) {
+            MaintenanceView(isShowingSheet: $isShowingMaintenanceSheet)
         }
     }
 }

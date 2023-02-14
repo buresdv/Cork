@@ -59,7 +59,6 @@ func installPackage(package: BrewPackage, installationProgressTracker: Installat
         }
     }
 
-    #warning("TODO: Put this somewhere where it actually works like it's supposed to. For now, it just removes all packages even if it's still stuck fetching dependencies")
     installationProgressTracker.packagesStillLeftToInstall.removeAll(where: { $0 == package.name })
     
     return installationResult

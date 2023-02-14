@@ -7,6 +7,31 @@
 
 import Foundation
 
+func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker) -> BrewPackage
+{
+    
+    var filteredPackage: BrewPackage?
+    
+    let foundFormulae: [BrewPackage] = tracker.foundFormulae
+    let foundCasks: [BrewPackage] = tracker.foundCasks
+    
+    for formula in foundFormulae {
+        if requestedPackageUUID == formula.id
+        {
+            filteredPackage = BrewPackage(name: formula.name, isCask: formula.isCask, installedOn: formula.installedOn, versions: formula.versions, sizeInBytes: formula.sizeInBytes)
+        }
+    }
+    
+    for cask in foundCasks {
+        if requestedPackageUUID == cask.id {
+            filteredPackage = BrewPackage(name: cask.name, isCask: cask.isCask, installedOn: cask.installedOn, versions: cask.versions, sizeInBytes: cask.sizeInBytes)
+        }
+    }
+    
+    return filteredPackage!
+}
+
+/*
 func getPackageNamesFromUUID(selectionBinding: Set<UUID>, tracker: SearchResultTracker) -> [String]
 {
     let foundFormulae: [SearchResult] = tracker.foundFormulae
@@ -37,3 +62,4 @@ func getPackageNamesFromUUID(selectionBinding: Set<UUID>, tracker: SearchResultT
 
     return resultArray
 }
+*/

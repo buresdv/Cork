@@ -15,12 +15,12 @@ class SelectedPackageInfo: ObservableObject
 struct PackageDetailView: View
 {
     @State var package: BrewPackage
-
-    @State var isCask: Bool
-
+    
     @State var brewData: BrewDataStorage
 
     @StateObject var packageInfo: SelectedPackageInfo
+    
+    @EnvironmentObject var appState: AppState
 
     @State private var description: String = ""
     @State private var homepage: String = ""
@@ -74,6 +74,21 @@ struct PackageDetailView: View
                             
                             GridRow(alignment: .top)
                             {
+                                Text("Type")
+                                if package.isCask
+                                {
+                                    Text("Cask")
+                                }
+                                else
+                                {
+                                    Text("Formula")
+                                }
+                            }
+                            
+                            Divider()
+                            
+                            GridRow(alignment: .top)
+                            {
                                 Text("Homepage")
                                 Text(.init(homepage))
                             }
@@ -104,7 +119,7 @@ struct PackageDetailView: View
                                         {
                                             Text(package.convertSizeToPresentableFormat(size: packageSize))
                                             
-                                            if isCask {
+                                            if package.isCask {
                                                 HelpButton {
                                                     isShowingPopover.toggle()
                                                 }
@@ -137,14 +152,25 @@ struct PackageDetailView: View
                 HStack
                 {
                     Spacer()
-                    Button(role: .destructive)
+                    
+                    HStack(spacing: 15)
                     {
-                        Task
+                        if appState.isShowingUninstallationProgressView
                         {
-                            await uninstallSelectedPackages(packages: [package.name], isCask: isCask, brewData: brewData)
+                            ProgressView()
+                                .scaleEffect(0.5, anchor: .center)
+                                .frame(width: 1, height: 1)
                         }
-                    } label: {
-                        Text("Uninstall \(isCask ? "Cask" : "Formula")") /// If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        
+                        Button(role: .destructive)
+                        {
+                            Task
+                            {
+                                await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                            }
+                        } label: {
+                            Text("Uninstall \(package.isCask ? "Cask" : "Formula")") // If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        }
                     }
                 }
             }
@@ -155,7 +181,7 @@ struct PackageDetailView: View
         {
             Task
             {
-                if !isCask
+                if !package.isCask
                 {
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package.name]).standardOutput
                 }

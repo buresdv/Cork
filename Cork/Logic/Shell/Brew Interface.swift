@@ -50,7 +50,7 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
     
     for package in outdatedPackages {
-        finalOutdatedPackages.append(BrewPackage(name: package, installedOn: nil, versions: [""], sizeInBytes: nil))
+        finalOutdatedPackages.append(BrewPackage(name: package, isCask: false, installedOn: nil, versions: [""], sizeInBytes: nil))
     }
     
     finalOutdatedPackages.removeLast()
