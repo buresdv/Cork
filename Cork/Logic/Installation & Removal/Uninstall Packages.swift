@@ -47,7 +47,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             {
                 withAnimation
                 {
-                    brewData.installedCasks.removeAll(where: { $0.name == package.name })
+                    brewData.installedFormulae.removeAll(where: { $0.name == package.name })
                 }
             }
 
@@ -56,7 +56,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             {
                 withAnimation
                 {
-                    brewData.installedFormulae.removeAll(where: { $0.name == package.name })
+                    brewData.installedCasks.removeAll(where: { $0.name == package.name })
                 }
             }
         }
