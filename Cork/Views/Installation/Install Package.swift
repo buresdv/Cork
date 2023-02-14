@@ -32,7 +32,7 @@ struct AddFormulaView: View
 
     @State private var packageRequested: String = ""
 
-    @State var brewData: BrewDataStorage
+    @EnvironmentObject var brewData: BrewDataStorage
 
     @State private var foundPackageSelection = Set<UUID>()
 
@@ -122,14 +122,14 @@ struct AddFormulaView: View
                         {
                             ForEach(searchResultTracker.foundFormulae)
                             { formula in
-                                SearchResultRow(brewData: brewData, packageName: formula.name, isCask: formula.isCask)
+                                SearchResultRow(packageName: formula.name, isCask: formula.isCask)
                             }
                         }
                         Section("Found Casks")
                         {
                             ForEach(searchResultTracker.foundCasks)
                             { cask in
-                                SearchResultRow(brewData: brewData, packageName: cask.name, isCask: cask.isCask)
+                                SearchResultRow(packageName: cask.name, isCask: cask.isCask)
                             }
                         }
                     }
