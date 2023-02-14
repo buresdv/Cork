@@ -284,7 +284,9 @@ struct AddFormulaView: View
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
                 {
-                    HeadlineWithSubheadline(headline: "Packages successfuly installed", subheadline: "There were no errors", alignment: .center)
+                    ComplexWithIcon(systemName: "checkmark.seal") {
+                        HeadlineWithSubheadline(headline: "Packages successfuly installed", subheadline: "There were no errors", alignment: .leading)
+                    }
                 }
             }
         }
