@@ -27,7 +27,7 @@ struct SidebarView: View
                     { formula in
                         NavigationLink
                         {
-                            PackageDetailView(package: formula, brewData: brewData, packageInfo: selectedPackageInfo)
+                            PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                         } label: {
                             PackageListItem(packageItem: formula)
                         }
@@ -57,7 +57,7 @@ struct SidebarView: View
                     ForEach(brewData.installedCasks)
                     { cask in
                         NavigationLink {
-                            PackageDetailView(package: cask, brewData: brewData, packageInfo: selectedPackageInfo)
+                            PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
                         } label: {
                             PackageListItem(packageItem: cask)
                         }
