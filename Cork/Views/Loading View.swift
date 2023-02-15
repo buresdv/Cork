@@ -20,11 +20,3 @@ struct LoadingView: View
         .foregroundColor(.gray)
     }
 }
-
-struct LoadingView_Previews: PreviewProvider
-{
-    static var previews: some View
-    {
-        LoadingView()
-    }
-}

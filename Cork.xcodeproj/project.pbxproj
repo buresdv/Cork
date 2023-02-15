@@ -211,7 +211,6 @@
 				6371EA242871EE6000300E1B /* Shell */,
 				6371EA1F2871E0EC00300E1B /* Helpers */,
 				634065802871B0A3001A2178 /* File Browser */,
-				634065792871AC27001A2178 /* Brew Data Storage.swift */,
 				6371EA2C287202F400300E1B /* Extract from JSON.swift */,
 				637E00632872F3CE005C9890 /* Upgrade Packages.swift */,
 				637E006728733C1C005C9890 /* Search for Package by ID.swift */,
@@ -229,6 +228,7 @@
 				637E00652872F629005C9890 /* Update Progress Tracker.swift */,
 				632FD29A2995C1C20029FC49 /* BrewTap.swift */,
 				63D830FB29990DD600FA802F /* Terminal Output.swift */,
+				634065792871AC27001A2178 /* Brew Data Storage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -728,7 +728,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -758,7 +758,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
