@@ -16,7 +16,7 @@ struct PackageDetailView: View
 {
     @State var package: BrewPackage
     
-    @State var brewData: BrewDataStorage
+    @EnvironmentObject var brewData: BrewDataStorage
 
     @StateObject var packageInfo: SelectedPackageInfo
     

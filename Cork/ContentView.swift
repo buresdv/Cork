@@ -40,7 +40,7 @@ struct ContentView: View
                             { package in
                                 NavigationLink
                                 {
-                                    PackageDetailView(package: package, brewData: brewData, packageInfo: selectedPackageInfo)
+                                    PackageDetailView(package: package, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
@@ -73,7 +73,7 @@ struct ContentView: View
                             { package in
                                 NavigationLink
                                 {
-                                    PackageDetailView(package: package, brewData: brewData, packageInfo: selectedPackageInfo)
+                                    PackageDetailView(package: package, packageInfo: selectedPackageInfo)
                                 } label: {
                                     PackageListItem(packageItem: package)
                                 }
@@ -165,7 +165,6 @@ struct ContentView: View
                 }
             }
         }
-        .environmentObject(brewData)
         .onAppear
         {
             Task
@@ -178,7 +177,7 @@ struct ContentView: View
         }
         .sheet(isPresented: $isShowingInstallSheet)
         {
-            AddFormulaView(isShowingSheet: $isShowingInstallSheet, brewData: brewData)
+            AddFormulaView(isShowingSheet: $isShowingInstallSheet)
         }
         .sheet(isPresented: $isShowingTapSheet)
         {
@@ -200,5 +199,6 @@ struct ContentView: View
             }))
         })
         .environmentObject(appState)
+        .environmentObject(brewData)
     }
 }

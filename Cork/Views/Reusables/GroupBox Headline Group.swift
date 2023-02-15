@@ -9,8 +9,8 @@ import SwiftUI
 
 struct GroupBoxHeadlineGroup: View {
     
-    @State var title: String
-    @State var mainText: String
+    var title: String
+    var mainText: String
     
     var body: some View {
         VStack(alignment: .leading)
