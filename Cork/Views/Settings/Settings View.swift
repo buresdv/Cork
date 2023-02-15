@@ -7,11 +7,21 @@
 
 import SwiftUI
 
-struct SettingsView: View {
-    var body: some View {
-        TabView {
+struct SettingsView: View
+{
+    var body: some View
+    {
+        TabView
+        {
+            GeneralPane()
+                .tabItem
+                {
+                    Label("General", systemImage: "gearshape")
+                }
+
             InstallationPane()
-                .tabItem {
+                .tabItem
+                {
                     Label("Package Installation", systemImage: "plus")
                 }
         }

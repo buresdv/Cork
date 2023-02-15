@@ -24,6 +24,8 @@ struct ContentView: View
     @State private var isShowingInstallSheet: Bool = false
     @State private var isShowingTapSheet: Bool = false
     @State private var isShowingAlert: Bool = false
+    
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
 
     var body: some View
     {
@@ -172,10 +174,26 @@ struct ContentView: View
             {
                 await loadUpTappedTaps(into: availableTaps)
 
-                brewData.installedFormulae = await loadUpFormulae(appState: appState)
-                brewData.installedCasks = await loadUpCasks(appState: appState)
+                brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
+                brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
             }
         }
+        .onChange(of: sortPackagesBy, perform: { newSortOption in
+            switch newSortOption {
+            case .none:
+                print("Chose NONE")
+                
+            case .alphabetically:
+                print("Chose ALPHABETICALLY")
+                brewData.installedFormulae = sortPackagesAlphabetically(brewData.installedFormulae)
+                brewData.installedCasks = sortPackagesAlphabetically(brewData.installedCasks)
+                
+            case .byInstallDate:
+                print("Chose BY INSTALL DATE")
+                brewData.installedFormulae = sortPackagesByInstallDate(brewData.installedFormulae)
+                brewData.installedCasks = sortPackagesByInstallDate(brewData.installedCasks)
+            }
+        })
         .sheet(isPresented: $isShowingInstallSheet)
         {
             AddFormulaView(isShowingSheet: $isShowingInstallSheet)

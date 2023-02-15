@@ -37,6 +37,10 @@
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
 		637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006A28734041005C9890 /* Install Selected Packages.swift */; };
 		637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006D2873419B005C9890 /* Install Progress Tracker.swift */; };
+		6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C8F8299D6C1D00354B19 /* Package Sorting.swift */; };
+		6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C8FA299D6E5D00354B19 /* General Pane.swift */; };
+		6382C8FE299D70F400354B19 /* Sort Alphabetically.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C8FD299D70F400354B19 /* Sort Alphabetically.swift */; };
+		6382C900299D71A300354B19 /* Sort by Install Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C8FF299D71A300354B19 /* Sort by Install Date.swift */; };
 		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
 		639A7D832871D08200B50280 /* Install Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D822871D08200B50280 /* Install Package.swift */; };
@@ -99,6 +103,10 @@
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
 		637E006A28734041005C9890 /* Install Selected Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Selected Packages.swift"; sourceTree = "<group>"; };
 		637E006D2873419B005C9890 /* Install Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Progress Tracker.swift"; sourceTree = "<group>"; };
+		6382C8F8299D6C1D00354B19 /* Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Sorting.swift"; sourceTree = "<group>"; };
+		6382C8FA299D6E5D00354B19 /* General Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General Pane.swift"; sourceTree = "<group>"; };
+		6382C8FD299D70F400354B19 /* Sort Alphabetically.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sort Alphabetically.swift"; sourceTree = "<group>"; };
+		6382C8FF299D71A300354B19 /* Sort by Install Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sort by Install Date.swift"; sourceTree = "<group>"; };
 		63958CFC2877341F00E0B807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63958CFF287735F800E0B807 /* About View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About View.swift"; sourceTree = "<group>"; };
 		639A7D822871D08200B50280 /* Install Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Package.swift"; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				6382C8FC299D70E300354B19 /* Sort */,
 				63D51F6F299ABA5100203F3F /* Maintenance */,
 				63D2B0862997F5240084E223 /* Package Loading */,
 				63A87463298FE7E4009F9533 /* Search */,
@@ -296,6 +305,15 @@
 			path = Installation;
 			sourceTree = "<group>";
 		};
+		6382C8FC299D70E300354B19 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				6382C8FD299D70F400354B19 /* Sort Alphabetically.swift */,
+				6382C8FF299D71A300354B19 /* Sort by Install Date.swift */,
+			);
+			path = Sort;
+			sourceTree = "<group>";
+		};
 		63958CFE287735ED00E0B807 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				63A87467298FE811009F9533 /* Package Types.swift */,
+				6382C8F8299D6C1D00354B19 /* Package Sorting.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -388,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				63D51F67299A9A6000203F3F /* Installation Pane.swift */,
+				6382C8FA299D6E5D00354B19 /* General Pane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -532,6 +552,7 @@
 			files = (
 				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
 				63D2B0882997F5340084E223 /* Load up Formulae.swift in Sources */,
+				6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */,
 				63D831052999331D00FA802F /* Sheet with Title.swift in Sources */,
 				634065782871AB3A001A2178 /* Shell Interface.swift in Sources */,
 				63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */,
@@ -558,11 +579,13 @@
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
 				63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */,
+				6382C8FE299D70F400354B19 /* Sort Alphabetically.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */,
 				6371EA2D287202F400300E1B /* Extract from JSON.swift in Sources */,
 				63C830BC29984B1A002D11BB /* Used Package.swift in Sources */,
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
+				6382C900299D71A300354B19 /* Sort by Install Date.swift in Sources */,
 				63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */,
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
@@ -579,6 +602,7 @@
 				63D51F62299A873000203F3F /* Extract Package Version from Terminal Output.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
+				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,

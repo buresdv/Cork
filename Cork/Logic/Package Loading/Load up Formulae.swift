@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-func loadUpFormulae(appState: AppState) async -> [BrewPackage]
+func loadUpFormulae(appState: AppState, sortBy: PackageSortingOptions) async -> [BrewPackage]
 {
     print("Started Cellar task at \(Date())")
     
@@ -24,6 +24,15 @@ func loadUpFormulae(appState: AppState) async -> [BrewPackage]
     }
 
     appState.isLoadingFormulae = false
+    
+    switch sortBy {
+    case .none:
+        break
+    case .alphabetically:
+        installedFormulae = sortPackagesAlphabetically(installedFormulae)
+    case .byInstallDate:
+        installedFormulae = sortPackagesByInstallDate(installedFormulae)
+    }
 
     return installedFormulae
 }

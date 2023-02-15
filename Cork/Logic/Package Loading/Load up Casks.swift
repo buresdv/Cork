@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-func loadUpCasks(appState: AppState) async -> [BrewPackage]
+func loadUpCasks(appState: AppState, sortBy: PackageSortingOptions) async -> [BrewPackage]
 {
     print("Started Cask task at \(Date())")
     
@@ -24,6 +24,15 @@ func loadUpCasks(appState: AppState) async -> [BrewPackage]
     }
 
     appState.isLoadingCasks = false
+    
+    switch sortBy {
+    case .none:
+        break
+    case .alphabetically:
+        installedCasks = sortPackagesAlphabetically(installedCasks)
+    case .byInstallDate:
+        installedCasks = sortPackagesByInstallDate(installedCasks)
+    }
     
     return installedCasks
 }
