@@ -32,6 +32,7 @@ struct MaintenanceView: View
     @State var numberOfOrphansRemoved: Int = 0
     
     @State var cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: Bool = false
+    @State var brewHealthCheckFoundNoProblems: Bool = false
 
     var body: some View
     {
@@ -145,6 +146,12 @@ struct MaintenanceView: View
                                     {
                                         let healthCheckOutput = try await performBrewHealthCheck()
                                         print("Health check output: \(healthCheckOutput)")
+                                        
+                                        if healthCheckOutput.standardOutput.contains("Your system is ready to brew.")
+                                        {
+                                            brewHealthCheckFoundNoProblems = true
+                                        }
+                                        
                                     }
                                     catch let healthCheckError as NSError
                                     {
@@ -188,7 +195,14 @@ struct MaintenanceView: View
 
                             if shouldPerformHealthCheck
                             {
-                                Text("No errors found")
+                                if brewHealthCheckFoundNoProblems
+                                {
+                                    Text("No problems with Homebrew found")
+                                }
+                                else
+                                {
+                                    Text("There were some problems with Homebrew")
+                                }
                             }
                         }
     
