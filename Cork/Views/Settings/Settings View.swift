@@ -19,7 +19,7 @@ struct SettingsView: View
                     Label("General", systemImage: "gearshape")
                 }
 
-            InstallationPane()
+            InstallationAndUninstallationPane()
                 .tabItem
                 {
                     Label("Install and Uninstall", systemImage: "plus")
