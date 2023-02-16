@@ -19,16 +19,26 @@ struct GeneralPane: View
             {
                 Picker(selection: $sortPackagesBy)
                 {
-                    Text("Do Not Sort")
-                        .tag(PackageSortingOptions.none)
                     Text("Alphabetically")
                         .tag(PackageSortingOptions.alphabetically)
                     Text("By Installation Date")
                         .tag(PackageSortingOptions.byInstallDate)
                     Text("By Size")
                         .tag(PackageSortingOptions.bySize)
+                    
+                    Divider()
+                    
+                    Text("Do Not Sort")
+                        .tag(PackageSortingOptions.none)
                 } label: {
                     Text("Sort packages:")
+                }
+                
+                if sortPackagesBy == .none
+                {
+                    Text("􀅴 Restart Cork for this sorting option to take effect")
+                        .font(.caption)
+                        .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
             }
         }

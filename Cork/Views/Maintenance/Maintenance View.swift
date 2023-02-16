@@ -173,7 +173,7 @@ struct MaintenanceView: View
                 {
                     VStack(alignment: .center)
                     {
-                        VStack(alignment: .leading)
+                        VStack(alignment: .leading, spacing: 5)
                         {
                             Text("Maintenance finished")
                                 .font(.headline)
@@ -188,10 +188,18 @@ struct MaintenanceView: View
                                 }
                             }
                             
-                            if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
+                            if shouldPurgeCache
                             {
-                                Text("Some package caches were not purged because they were held back by some packages not being updated")
+                                Text("Package cache purged")
+                                
+                                if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
+                                {
+                                    Text("Some package caches were not purged because they were held back by some packages not being updated")
+                                        .font(.caption)
+                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                }
                             }
+                            
 
                             if shouldPerformHealthCheck
                             {
@@ -228,6 +236,7 @@ struct MaintenanceView: View
                     }
                 }
                 .padding()
+                .frame(minWidth: 300, minHeight: 150)
             }
         }
     }
