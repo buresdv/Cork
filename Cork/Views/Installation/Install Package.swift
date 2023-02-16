@@ -172,11 +172,12 @@ struct AddFormulaView: View
                     {
                         if willHaveToFetchPackageDependencies
                         {
-                            HStack
+                            HStack(spacing: 15)
                             {
                                 Text("Fetching dependencies...")
                                 ProgressView()
                                     .scaleEffect(0.5, anchor: .center)
+                                    .frame(width: 1, height: 1)
                             }
                         }
                         else

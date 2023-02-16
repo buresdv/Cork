@@ -192,6 +192,11 @@ struct ContentView: View
                 print("Chose BY INSTALL DATE")
                 brewData.installedFormulae = sortPackagesByInstallDate(brewData.installedFormulae)
                 brewData.installedCasks = sortPackagesByInstallDate(brewData.installedCasks)
+                
+            case .bySize:
+                print("Chose BY SIZE")
+                brewData.installedFormulae = sortPackagesBySize(brewData.installedFormulae)
+                brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
             }
         })
         .sheet(isPresented: $isShowingInstallSheet)

@@ -9,20 +9,22 @@ import Foundation
 
 enum HealthCheckError: Error
 {
-    case standardErrorNotEmpty
+    case errorsThrownInStandardOutput
 }
 
 func performBrewHealthCheck() async throws -> TerminalOutput
 {
     async let commandResult = await shell("/opt/homebrew/bin/brew", ["doctor"])
     
-    if await commandResult.standardError != ""
+    await print(commandResult)
+    
+    if await commandResult.standardOutput == ""
     {
-        print("ERROR: \(await commandResult.standardError)")
-        throw HealthCheckError.standardErrorNotEmpty
+        return await commandResult
     }
     else
     {
-        return await commandResult
+        print("ERROR: \(await commandResult.standardOutput)")
+        throw HealthCheckError.errorsThrownInStandardOutput
     }
 }

@@ -25,6 +25,8 @@ struct GeneralPane: View
                         .tag(PackageSortingOptions.alphabetically)
                     Text("By Installation Date")
                         .tag(PackageSortingOptions.byInstallDate)
+                    Text("By Size")
+                        .tag(PackageSortingOptions.bySize)
                 } label: {
                     Text("Sort packages:")
                 }

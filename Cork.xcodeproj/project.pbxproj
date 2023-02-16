@@ -53,6 +53,8 @@
 		63A8746A2990127D009F9533 /* PillText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A874692990127D009F9533 /* PillText.swift */; };
 		63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746B2990477A009F9533 /* Uninstall Packages.swift */; };
 		63A8746E29904A7F009F9533 /* App State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746D29904A7F009F9533 /* App State.swift */; };
+		63B8D4F8299E3DAD00AA7CFA /* Sort By Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F7299E3DAD00AA7CFA /* Sort By Size.swift */; };
+		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
 		63C830BC29984B1A002D11BB /* Used Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BB29984B1A002D11BB /* Used Package.swift */; };
 		63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */; };
 		63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830C029984BA4002D11BB /* Button That Opens Websites.swift */; };
@@ -122,6 +124,8 @@
 		63A874692990127D009F9533 /* PillText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillText.swift; sourceTree = "<group>"; };
 		63A8746B2990477A009F9533 /* Uninstall Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Packages.swift"; sourceTree = "<group>"; };
 		63A8746D29904A7F009F9533 /* App State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App State.swift"; sourceTree = "<group>"; };
+		63B8D4F7299E3DAD00AA7CFA /* Sort By Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sort By Size.swift"; sourceTree = "<group>"; };
+		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
 		63C830BB29984B1A002D11BB /* Used Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Used Package.swift"; sourceTree = "<group>"; };
 		63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Acknowledged Contributor.swift"; sourceTree = "<group>"; };
 		63C830C029984BA4002D11BB /* Button That Opens Websites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button That Opens Websites.swift"; sourceTree = "<group>"; };
@@ -218,7 +222,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				6382C8FC299D70E300354B19 /* Sort */,
+				6382C8FC299D70E300354B19 /* Sorting */,
 				63D51F6F299ABA5100203F3F /* Maintenance */,
 				63D2B0862997F5240084E223 /* Package Loading */,
 				63A87463298FE7E4009F9533 /* Search */,
@@ -311,13 +315,14 @@
 			path = Installation;
 			sourceTree = "<group>";
 		};
-		6382C8FC299D70E300354B19 /* Sort */ = {
+		6382C8FC299D70E300354B19 /* Sorting */ = {
 			isa = PBXGroup;
 			children = (
 				6382C8FD299D70F400354B19 /* Sort Alphabetically.swift */,
 				6382C8FF299D71A300354B19 /* Sort by Install Date.swift */,
+				63B8D4F7299E3DAD00AA7CFA /* Sort By Size.swift */,
 			);
-			path = Sort;
+			path = Sorting;
 			sourceTree = "<group>";
 		};
 		6382C906299DA01A00354B19 /* Steps */ = {
@@ -396,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				63CD0275288B22D9004AE2EC /* View - New Windows.swift */,
+				63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -606,6 +612,7 @@
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
 				6382C900299D71A300354B19 /* Sort by Install Date.swift in Sources */,
 				63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */,
+				63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */,
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
@@ -621,6 +628,7 @@
 				63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */,
 				63D51F62299A873000203F3F /* Extract Package Version from Terminal Output.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
+				63B8D4F8299E3DAD00AA7CFA /* Sort By Size.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,

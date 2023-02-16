@@ -32,6 +32,8 @@ func loadUpCasks(appState: AppState, sortBy: PackageSortingOptions) async -> [Br
         installedCasks = sortPackagesAlphabetically(installedCasks)
     case .byInstallDate:
         installedCasks = sortPackagesByInstallDate(installedCasks)
+    case .bySize:
+        installedCasks = sortPackagesBySize(installedCasks)
     }
     
     return installedCasks

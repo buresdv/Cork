@@ -47,6 +47,8 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
     
     let outdatedPackagesRaw: String = await shell("/opt/homebrew/bin/brew", ["outdated"]).standardOutput
     
+    print("Outdated packages output: \(outdatedPackagesRaw)")
+    
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
     
     for package in outdatedPackages {

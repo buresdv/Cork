@@ -9,5 +9,5 @@ import Foundation
 
 enum PackageSortingOptions: String, Codable, CaseIterable
 {
-    case none, alphabetically, byInstallDate
+    case none, alphabetically, byInstallDate, bySize
 }

@@ -32,6 +32,8 @@ func loadUpFormulae(appState: AppState, sortBy: PackageSortingOptions) async -> 
         installedFormulae = sortPackagesAlphabetically(installedFormulae)
     case .byInstallDate:
         installedFormulae = sortPackagesByInstallDate(installedFormulae)
+    case .bySize:
+        installedFormulae = sortPackagesBySize(installedFormulae)
     }
 
     return installedFormulae

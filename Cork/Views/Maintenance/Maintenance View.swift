@@ -33,6 +33,8 @@ struct MaintenanceView: View
     
     @State var cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: Bool = false
     @State var brewHealthCheckFoundNoProblems: Bool = false
+    
+    @State var maintenanceFoundNoProblems: Bool = true
 
     var body: some View
     {
@@ -106,12 +108,13 @@ struct MaintenanceView: View
                                     {
                                         let orphanUninstallationOutput = try await uninstallOrphanedPackages()
                                         
+                                        print("Orphan removal output: \(orphanUninstallationOutput)")
+                                        
                                         let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
                                         guard let matchedRange = orphanUninstallationOutput.standardOutput.range(of: numberOfUninstalledOrphansRegex, options: .regularExpression) else { throw RegexError.foundNilRange }
                                         let numberOfUninstalledOrphansString = String(orphanUninstallationOutput.standardOutput[matchedRange])
                                         numberOfOrphansRemoved = Int(numberOfUninstalledOrphansString) ?? 0
                                         
-                                        print("Orphan removal output: \(orphanUninstallationOutput)")
                                     }
                                     catch let orphanUninstallatioError as NSError
                                     {
@@ -147,10 +150,7 @@ struct MaintenanceView: View
                                         let healthCheckOutput = try await performBrewHealthCheck()
                                         print("Health check output: \(healthCheckOutput)")
                                         
-                                        if healthCheckOutput.standardOutput.contains("Your system is ready to brew.")
-                                        {
-                                            brewHealthCheckFoundNoProblems = true
-                                        }
+                                        brewHealthCheckFoundNoProblems = true
                                         
                                     }
                                     catch let healthCheckError as NSError
@@ -202,9 +202,14 @@ struct MaintenanceView: View
                                 else
                                 {
                                     Text("There were some problems with Homebrew")
+                                        .onAppear
+                                        {
+                                        maintenanceFoundNoProblems = false
+                                        }
                                 }
                             }
                         }
+                        .frame(maxWidth: 200)
     
                         Spacer()
                         
