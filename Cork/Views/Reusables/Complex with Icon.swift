@@ -14,7 +14,7 @@ struct ComplexWithIcon<Content: View>: View {
     @ViewBuilder var content: Content
     
     var body: some View {
-        HStack(alignment: .center, spacing: 10) {
+        HStack(alignment: .top, spacing: 10) {
             Image(systemName: systemName)
                 .resizable()
                 .frame(width: 50, height: 50)

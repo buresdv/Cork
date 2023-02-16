@@ -22,7 +22,7 @@ struct SettingsView: View
             InstallationPane()
                 .tabItem
                 {
-                    Label("Package Installation", systemImage: "plus")
+                    Label("Install and Uninstall", systemImage: "plus")
                 }
         }
     }
