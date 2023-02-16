@@ -7,65 +7,201 @@
 
 import SwiftUI
 
+enum RegexError: Error
+{
+    case foundNilRange
+}
+
 enum MaintenanceSteps
 {
     case ready, maintenanceRunning, finished
 }
-enum MaintenanceProcessStages
-{
-    case standby, uninstallingOrphanedPackages, purgingCache
-}
 
-struct MaintenanceView: View {
-    
+struct MaintenanceView: View
+{
     @Binding var isShowingSheet: Bool
-    
+
     @State var maintenanceSteps: MaintenanceSteps = .ready
-    @State var maintenanceProgressStages: MaintenanceProcessStages = .standby
-    
+
+    @State var currentMaintenanceStepText: String = "Firing up..."
+
     @State var shouldPurgeCache: Bool = true
     @State var shouldUninstallOrphans: Bool = true
     @State var shouldPerformHealthCheck: Bool = false
     
-    var body: some View {
+    @State var numberOfOrphansRemoved: Int = 0
+    
+    @State var cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: Bool = false
+
+    var body: some View
+    {
         VStack(alignment: .leading, spacing: 10)
         {
-            switch maintenanceSteps {
+            switch maintenanceSteps
+            {
             case .ready:
-                SheetWithTitle(title: "Perform Brew maintenance") {
+                SheetWithTitle(title: "Perform Brew maintenance")
+                {
                     VStack(alignment: .leading, spacing: 10)
                     {
-                        Form {
-                            LabeledContent("Packages:") {
+                        Form
+                        {
+                            LabeledContent("Packages:")
+                            {
                                 VStack(alignment: .leading)
                                 {
-                                    Toggle(isOn: $shouldUninstallOrphans) {
+                                    Toggle(isOn: $shouldUninstallOrphans)
+                                    {
                                         Text("Uninstall orphaned packages")
                                     }
-                                    Toggle(isOn: $shouldPurgeCache) {
+                                    Toggle(isOn: $shouldPurgeCache)
+                                    {
                                         Text("Purge Brew cache")
                                     }
                                 }
                             }
-                            
-                            LabeledContent("Other:") {
-                                Toggle(isOn: $shouldPerformHealthCheck) {
+
+                            LabeledContent("Other:")
+                            {
+                                Toggle(isOn: $shouldPerformHealthCheck)
+                                {
                                     Text("Perform health check")
                                 }
                             }
                         }
-                        
+
                         HStack
                         {
                             DismissSheetButton(isShowingSheet: $isShowingSheet)
+
+                            Spacer()
+
+                            Button
+                            {
+                                print("Start")
+                                maintenanceSteps = .maintenanceRunning
+                            } label: {
+                                Text("Start Maintenance")
+                            }
+                            .keyboardShortcut(.defaultAction)
+                        }
+                    }
+                }
+                .padding()
+
+            case .maintenanceRunning:
+                ProgressView
+                {
+                    Text(currentMaintenanceStepText)
+                        .onAppear
+                        {
+                            Task
+                            {
+                                if shouldUninstallOrphans
+                                {
+                                    currentMaintenanceStepText = "Uninstalling Orphans..."
+                                    
+                                    do
+                                    {
+                                        let orphanUninstallationOutput = try await uninstallOrphanedPackages()
+                                        
+                                        let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
+                                        guard let matchedRange = orphanUninstallationOutput.standardOutput.range(of: numberOfUninstalledOrphansRegex, options: .regularExpression) else { throw RegexError.foundNilRange }
+                                        let numberOfUninstalledOrphansString = String(orphanUninstallationOutput.standardOutput[matchedRange])
+                                        numberOfOrphansRemoved = Int(numberOfUninstalledOrphansString) ?? 0
+                                        
+                                        print("Orphan removal output: \(orphanUninstallationOutput)")
+                                    }
+                                    catch let orphanUninstallatioError as NSError
+                                    {
+                                        print(orphanUninstallatioError)
+                                    }
+                                    
+                                } else {
+                                    print("Will not uninstall orphans")
+                                }
+
+                                if shouldPurgeCache
+                                {
+                                    currentMaintenanceStepText = "Purging Cache..."
+                                    
+                                    let cachePurgeOutput = try await purgeBrewCache()
+                                    print("Cache purge output: \(cachePurgeOutput)")
+                                    
+                                    if cachePurgeOutput.standardError.contains("Warning: Skipping")
+                                    {
+                                        cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled = true
+                                    }
+
+                                } else {
+                                    print("Will not purge cache")
+                                }
+
+                                if shouldPerformHealthCheck
+                                {
+                                    currentMaintenanceStepText = "Running Health Check..."
+                                    
+                                    do
+                                    {
+                                        let healthCheckOutput = try await performBrewHealthCheck()
+                                        print("Health check output: \(healthCheckOutput)")
+                                    }
+                                    catch let healthCheckError as NSError
+                                    {
+                                        print(healthCheckError)
+                                    }
+                                } else {
+                                    print("Will not perform health check")
+                                }
+                                
+                                maintenanceSteps = .finished
+                            }
+                        }
+                }
+                .padding()
+                .frame(width: 200)
+
+            case .finished:
+                ComplexWithIcon(systemName: "checkmark.seal")
+                {
+                    VStack(alignment: .center)
+                    {
+                        VStack(alignment: .leading)
+                        {
+                            Text("Maintenance finished")
+                                .font(.headline)
+
+                            if shouldUninstallOrphans
+                            {
+                                if numberOfOrphansRemoved == 0
+                                {
+                                    Text("No orphaned packages found")
+                                } else {
+                                    Text("\(numberOfOrphansRemoved) orphaned packages removed")
+                                }
+                            }
                             
+                            if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
+                            {
+                                Text("Some package caches were not purged because they were held back by some packages not being updated")
+                            }
+
+                            if shouldPerformHealthCheck
+                            {
+                                Text("No errors found")
+                            }
+                        }
+    
+                        Spacer()
+                        
+                        HStack
+                        {
                             Spacer()
                             
                             Button {
-                                print("Start")
-                                maintenanceSteps = .finished
+                                isShowingSheet.toggle()
                             } label: {
-                                Text("Start Maintenance")
+                                Text("Close")
                             }
                             .keyboardShortcut(.defaultAction)
 
@@ -73,65 +209,7 @@ struct MaintenanceView: View {
                     }
                 }
                 .padding()
-                
-            case .maintenanceRunning:
-                ProgressView {
-                    switch maintenanceProgressStages {
-                        
-                    case .standby:
-                        Text("Firing up...")
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    maintenanceProgressStages = .uninstallingOrphanedPackages
-                                }
-                            }
-                        
-                    case .uninstallingOrphanedPackages:
-                        Text("Unistalling orphaned packages...")
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    maintenanceProgressStages = .purgingCache
-                                }
-                            }
-                        
-                    case .purgingCache:
-                        Text("Purging cache...")
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    maintenanceProgressStages = .standby
-                                    maintenanceSteps = .finished
-                                }
-                            }
-                        
-                    }
-                }
-                .padding()
-                
-            case .finished:
-                DisappearableSheet(isShowingSheet: $isShowingSheet) {
-                    ComplexWithIcon(systemName: "checkmark.seal") {
-                        VStack(alignment: .leading)
-                        {
-                            Text("Maintenance finished")
-                                .font(.headline)
-                            
-                            if shouldUninstallOrphans
-                            {
-                                Text("24 orphaned packages removed")
-                            }
-                            
-                            if shouldPerformHealthCheck
-                            {
-                                Text("No errors found")
-                            }
-                            
-                        }
-                    }
-                }
-                .padding()
             }
-    
         }
-        
     }
 }
