@@ -23,26 +23,11 @@ struct SidebarView: View
             {
                 if !appState.isLoadingFormulae
                 {
-                    ForEach(brewData.installedFormulae)
-                    { formula in
-                        NavigationLink
-                        {
-                            PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
-                        } label: {
-                            PackageListItem(packageItem: formula)
-                        }
-                        .contextMenu
-                        {
-                            Button {
-                                Task{
-                                    await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
-                                }
-                            } label: {
-                                Text("Uninstall Formula")
-                            }
-
-                        }
-                    }
+                    InstalledFormulaeListSection(
+                        brewData: brewData,
+                        selectedPackageInfo: selectedPackageInfo,
+                        appState: appState
+                    )
                 }
                 else
                 {
