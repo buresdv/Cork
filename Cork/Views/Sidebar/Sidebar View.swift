@@ -39,27 +39,11 @@ struct SidebarView: View
             {
                 if !appState.isLoadingCasks
                 {
-                    ForEach(brewData.installedCasks)
-                    { cask in
-                        NavigationLink {
-                            PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
-                        } label: {
-                            PackageListItem(packageItem: cask)
-                        }
-                        .contextMenu
-                        {
-                            Button {
-                                Task
-                                {
-                                    await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
-                                }
-                            } label: {
-                                Text("Uninstall Cask")
-                            }
-
-                        }
-
-                    }
+                    InstalledCasksListSection(
+                        brewData: brewData,
+                        selectedPackageInfo: selectedPackageInfo,
+                        appState: appState
+                    )
                 }
                 else
                 {

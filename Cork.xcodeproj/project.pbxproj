@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32EB8D4329A031B40062C38D /* Installed Formulae List Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB8D4229A031B40062C38D /* Installed Formulae List Section.swift */; };
+		32EB8D4529A0337F0062C38D /* Installed Casks List Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB8D4429A0337F0062C38D /* Installed Casks List Section.swift */; };
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
@@ -79,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		32EB8D4229A031B40062C38D /* Installed Formulae List Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installed Formulae List Section.swift"; sourceTree = "<group>"; };
+		32EB8D4429A0337F0062C38D /* Installed Casks List Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installed Casks List Section.swift"; sourceTree = "<group>"; };
 		63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Installed Packages.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
 		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			children = (
 				637402D9299BF878001AB7B1 /* Sidebar View.swift */,
 				32EB8D4229A031B40062C38D /* Installed Formulae List Section.swift */,
+				32EB8D4429A0337F0062C38D /* Installed Casks List Section.swift */,
 			);
 			path = Sidebar;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
+				32EB8D4529A0337F0062C38D /* Installed Casks List Section.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
 				637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */,
 				634EB3972871C1F00009DFC2 /* Get Package Version.swift in Sources */,
