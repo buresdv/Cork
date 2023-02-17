@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InstallationPane: View {
+struct InstallationAndUninstallationPane: View {
     
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
     
