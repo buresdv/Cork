@@ -4,6 +4,21 @@ A fast GUI wrapper for Homebrew written in SwiftUI
 # WARNING: THIS APP IS STILL EARLY IN DEVELOPMENT
 ## You will encounter bugs, random crashes and updates that hang. There's minimal error checking for now. Use only at own risk for the time being!
 
+# What can I do?
+If you'd like to help develop Cork, there's one thing that is holding the app back: the shell interface.
+
+In short, it's the system by which Cork issues terminal commands and receives their outputs. As it is now, it has to wait for the entire command to finish and return an output. I cannot figure out how to get real-time output from a running command.
+
+If you'd like to have a crack at it, see the file `Logic -> Shell -> Shell Inteface.swift`. The function that issues terminal commands and receives their outputs is there.
+
+**The requirements for an improved shell interface are:**
+- It has to be somewhat integratable with the existing codebase. I'm not against changing the code a bit, but I will not be rewriting the app's entire logic to make a new interface work.
+- It has to have two modes: one that returns real-time output, and one that waits for the command to finish and only then returns its output.
+- It has to support getting outputs both from *standard output* and *standard error*.
+- It does not have to be written strictly in Swift, as long as it works with Swift. If you can somehow make this work in Objective C or C, more power to you. I just need the function to be able to issue commands from Swift, and to receive the outputs in Swift.
+
+If you think you have what it takes, feel free to try this challenge out. If you figure out, you will get my gratitude, along with a top stop in the contributors list and a special shoutout in the README.
+
 ## Screenshots
 ### Main Window
 ![Main Window](https://i.imgur.com/4gEYEuB.jpg)
