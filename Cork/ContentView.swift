@@ -222,7 +222,5 @@ struct ContentView: View
                 appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
             }))
         })
-        .environmentObject(appState)
-        .environmentObject(brewData)
     }
 }
