@@ -32,7 +32,7 @@ struct CorkApp: App
                 {
                     appDelegate.showAboutPanel()
                 } label: {
-                    Text("About \(AppConstantsLocal.appName)")
+                    Text("About \(NSApplication.appName!)")
                 }
             }
         })

@@ -28,12 +28,14 @@ struct MaintenanceView: View
     @State var shouldPurgeCache: Bool = true
     @State var shouldUninstallOrphans: Bool = true
     @State var shouldPerformHealthCheck: Bool = false
-    
+
     @State var numberOfOrphansRemoved: Int = 0
-    
+
     @State var cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: Bool = false
-    @State var brewHealthCheckFoundNoProblems: Bool = false
+    @State var packagesHoldingBackCachePurgeTracker: [String] = .init()
     
+    @State var brewHealthCheckFoundNoProblems: Bool = false
+
     @State var maintenanceFoundNoProblems: Bool = true
 
     var body: some View
@@ -103,64 +105,87 @@ struct MaintenanceView: View
                                 if shouldUninstallOrphans
                                 {
                                     currentMaintenanceStepText = "Uninstalling Orphans..."
-                                    
+
                                     do
                                     {
                                         let orphanUninstallationOutput = try await uninstallOrphanedPackages()
-                                        
+
                                         print("Orphan removal output: \(orphanUninstallationOutput)")
-                                        
+
                                         let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
                                         guard let matchedRange = orphanUninstallationOutput.standardOutput.range(of: numberOfUninstalledOrphansRegex, options: .regularExpression) else { throw RegexError.foundNilRange }
                                         let numberOfUninstalledOrphansString = String(orphanUninstallationOutput.standardOutput[matchedRange])
                                         numberOfOrphansRemoved = Int(numberOfUninstalledOrphansString) ?? 0
-                                        
                                     }
                                     catch let orphanUninstallatioError as NSError
                                     {
                                         print(orphanUninstallatioError)
                                     }
-                                    
-                                } else {
+                                }
+                                else
+                                {
                                     print("Will not uninstall orphans")
                                 }
 
                                 if shouldPurgeCache
                                 {
                                     currentMaintenanceStepText = "Purging Cache..."
-                                    
+
                                     let cachePurgeOutput = try await purgeBrewCache()
                                     print("Cache purge output: \(cachePurgeOutput)")
-                                    
+
                                     if cachePurgeOutput.standardError.contains("Warning: Skipping")
-                                    {
+                                    { // Here, we'll write out all the packages that are blocking updating
+                                        
+                                        var packagesHoldingBackCachePurgeInitialArray = cachePurgeOutput.standardError.components(separatedBy: "Warning:") // The output has these packages in one giant list. Split them into an array so we can iterate over them and extract their names
+                                        // I can't just try to regex-match on the raw output, because it will only match the first package in that case
+
+                                        packagesHoldingBackCachePurgeInitialArray.removeFirst() // The first element in this array is "" for some reason, remove that so we save some resources
+
+                                        for blockingPackageRaw in packagesHoldingBackCachePurgeInitialArray
+                                        {
+                                            print("Blocking package: \(blockingPackageRaw)")
+
+                                            let packageHoldingBackCachePurgeNameRegex = "(?<=Skipping ).*?(?=:)"
+
+                                            guard let matchedRange = blockingPackageRaw.range(of: packageHoldingBackCachePurgeNameRegex, options: .regularExpression) else { throw RegexError.foundNilRange }
+
+                                            let packageHoldingBackCachePurgeName = String(blockingPackageRaw[matchedRange])
+
+                                            packagesHoldingBackCachePurgeTracker.append(packageHoldingBackCachePurgeName)
+                                        }
+
+                                        print("These packages are holding back cache purge: \(packagesHoldingBackCachePurgeTracker)")
+
                                         cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled = true
                                     }
-
-                                } else {
+                                }
+                                else
+                                {
                                     print("Will not purge cache")
                                 }
 
                                 if shouldPerformHealthCheck
                                 {
                                     currentMaintenanceStepText = "Running Health Check..."
-                                    
+
                                     do
                                     {
                                         let healthCheckOutput = try await performBrewHealthCheck()
                                         print("Health check output: \(healthCheckOutput)")
-                                        
+
                                         brewHealthCheckFoundNoProblems = true
-                                        
                                     }
                                     catch let healthCheckError as NSError
                                     {
                                         print(healthCheckError)
                                     }
-                                } else {
+                                }
+                                else
+                                {
                                     print("Will not perform health check")
                                 }
-                                
+
                                 maintenanceSteps = .finished
                             }
                         }
@@ -183,23 +208,24 @@ struct MaintenanceView: View
                                 if numberOfOrphansRemoved == 0
                                 {
                                     Text("No orphaned packages found")
-                                } else {
+                                }
+                                else
+                                {
                                     Text("\(numberOfOrphansRemoved) orphaned packages removed")
                                 }
                             }
-                            
+
                             if shouldPurgeCache
                             {
                                 Text("Package cache purged")
-                                
+
                                 if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
                                 {
-                                    Text("Some package caches were not purged because they were held back by some packages not being updated")
+                                    Text("Some package caches were not purged because they were held back by \(packagesHoldingBackCachePurgeTracker.joined(separator: ", ")) not being updated")
                                         .font(.caption)
                                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                                 }
                             }
-                            
 
                             if shouldPerformHealthCheck
                             {
@@ -212,26 +238,26 @@ struct MaintenanceView: View
                                     Text("There were some problems with Homebrew")
                                         .onAppear
                                         {
-                                        maintenanceFoundNoProblems = false
+                                            maintenanceFoundNoProblems = false
                                         }
                                 }
                             }
                         }
                         .frame(maxWidth: 200)
-    
+
                         Spacer()
-                        
+
                         HStack
                         {
                             Spacer()
-                            
-                            Button {
+
+                            Button
+                            {
                                 isShowingSheet.toggle()
                             } label: {
                                 Text("Close")
                             }
                             .keyboardShortcut(.defaultAction)
-
                         }
                     }
                 }

@@ -14,7 +14,7 @@ func loadUpCasks(appState: AppState, sortBy: PackageSortingOptions) async -> [Br
     
     appState.isLoadingCasks = true
     
-    let contentsOfCaskFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCaskPath)
+    let contentsOfCaskFolder = await getContentsOfFolder(targetFolder: AppConstants.brewCaskPath)
 
     var installedCasks = [BrewPackage]() // Empty the tracker in case there is already something in it
 

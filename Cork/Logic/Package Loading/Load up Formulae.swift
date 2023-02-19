@@ -14,7 +14,7 @@ func loadUpFormulae(appState: AppState, sortBy: PackageSortingOptions) async -> 
     
     appState.isLoadingFormulae = true
 
-    let contentsOfCellarFolder = await getContentsOfFolder(targetFolder: AppConstantsLocal.brewCellarPath)
+    let contentsOfCellarFolder = await getContentsOfFolder(targetFolder: AppConstants.brewCellarPath)
 
     var installedFormulae = [BrewPackage]() // Empty the tracker in case there is already something in it
 
