@@ -9,6 +9,27 @@ import Foundation
 
 func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
 {
+    var allOutput: [String] = .init()
+    var allErrors: [String] = .init()
+    for await streamedOutput in shell(launchPath, arguments)
+    {
+        switch streamedOutput
+        {
+        case let .standardOutput(output):
+            allOutput.append(output)
+        case let .standardError(error):
+            allErrors.append(error)
+        }
+    }
+
+    return .init(
+        standardOutput: allOutput.joined(),
+        standardError: allErrors.joined()
+    )
+}
+
+func shell(_ launchPath: String, _ arguments: [String]) -> AsyncStream<StreamedTerminalOutput>
+{
     let task = Process()
     task.launchPath = launchPath
     task.arguments = arguments
@@ -28,11 +49,31 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
         print(error)
     }
 
-    let standardOutput = try! pipe.fileHandleForReading.readToEnd()
-    let standardError = try! errorPipe.fileHandleForReading.readToEnd()
-    
-    let finalOutput = String(data: standardOutput ?? Data(), encoding: .utf8) ?? ""
-    let finalError = String(data: standardError ?? Data(), encoding: .utf8) ?? ""
-    
-    return TerminalOutput(standardOutput: finalOutput, standardError: finalError)
+    return AsyncStream { continuation in
+        pipe.fileHandleForReading.readabilityHandler = { handler in
+            guard let standardOutput = String(data: handler.availableData, encoding: .utf8) else
+            {
+                return
+            }
+
+            guard !standardOutput.isEmpty else { return }
+
+            continuation.yield(.standardOutput(standardOutput))
+        }
+
+        errorPipe.fileHandleForReading.readabilityHandler = { handler in
+            guard let errorOutput = String(data: handler.availableData, encoding: .utf8) else
+            {
+                return
+            }
+
+            guard !errorOutput.isEmpty else { return }
+
+            continuation.yield(.standardError(errorOutput))
+        }
+
+        task.terminationHandler = { _ in
+            continuation.finish()
+        }
+    }
 }
