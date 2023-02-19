@@ -16,7 +16,8 @@ struct StartPage: View
 
     @State var updateProgressTracker: UpdateProgressTracker
 
-    @State var upgradeablePackages: [BrewPackage] = .init()
+    @State private var isLoadingUpgradeablePackages = true
+    @State private var upgradeablePackages: [BrewPackage] = .init()
 
     @State private var isDisclosureGroupExpanded: Bool = false
     
@@ -26,7 +27,7 @@ struct StartPage: View
     {
         VStack
         {
-            if upgradeablePackages.isEmpty
+            if isLoadingUpgradeablePackages
             {
                 ProgressView
                 {
@@ -160,9 +161,11 @@ struct StartPage: View
         .padding()
         .onAppear
         {
-            Task
+            Task(priority: .high)
             {
+                isLoadingUpgradeablePackages = true
                 upgradeablePackages = await getListOfUpgradeablePackages()
+                isLoadingUpgradeablePackages = false
             }
         }
         .sheet(isPresented: $isShowingMaintenanceSheet) {
