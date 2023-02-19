@@ -8,7 +8,7 @@
 import Foundation
 
 #warning("This has to exist because I don't yet have the system to dynamically get versions from newly-installed packages. Make that whole system more elegant, then remove this")
-func extractPackageVersionFromTerminalOutput(terminalOutput: TerminalOutput, packageBeingInstalled: BrewPackage) -> String
+func extractPackageVersionFromTerminalOutput(terminalOutput: TerminalOutput, packageBeingInstalled: BrewPackage) throws -> String
 {
     var regex: String
     
@@ -20,9 +20,7 @@ func extractPackageVersionFromTerminalOutput(terminalOutput: TerminalOutput, pac
         regex = "(?<=Caskroom\\/\(packageBeingInstalled.name)\\/).*?(?=\\:)"
     }
     
-    guard let matchedRange = terminalOutput.standardOutput.range(of: regex, options: .regularExpression) else { return "FAILED TO GET VERSION" }
+    let matchedString = try regexMatch(from: terminalOutput.standardOutput, regex: regex)
     
-    let matchedString = String(terminalOutput.standardOutput[matchedRange])
-    
-    return matchedString
+    return "I don't work yet"
 }

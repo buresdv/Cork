@@ -166,7 +166,7 @@ struct PackageDetailView: View
                         {
                             Task
                             {
-                                await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                                try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                             }
                         } label: {
                             Text("Uninstall \(package.isCask ? "Cask" : "Formula")") // If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
@@ -190,9 +190,9 @@ struct PackageDetailView: View
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name]).standardOutput
                 }
 
-                description = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .description)
-                homepage = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .homepage)
-                tap = extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .tap)
+                description = try extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .description)
+                homepage = try extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .homepage)
+                tap = try extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .tap)
             }
         }
         .onDisappear

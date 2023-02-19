@@ -113,9 +113,8 @@ struct MaintenanceView: View
                                         print("Orphan removal output: \(orphanUninstallationOutput)")
 
                                         let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
-                                        guard let matchedRange = orphanUninstallationOutput.standardOutput.range(of: numberOfUninstalledOrphansRegex, options: .regularExpression) else { throw RegexError.foundNilRange }
-                                        let numberOfUninstalledOrphansString = String(orphanUninstallationOutput.standardOutput[matchedRange])
-                                        numberOfOrphansRemoved = Int(numberOfUninstalledOrphansString) ?? 0
+    
+                                        numberOfOrphansRemoved = Int(try regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex)) ?? 0
                                     }
                                     catch let orphanUninstallatioError as NSError
                                     {
@@ -146,11 +145,11 @@ struct MaintenanceView: View
                                         {
                                             print("Blocking package: \(blockingPackageRaw)")
 
+                                            
+                                            
                                             let packageHoldingBackCachePurgeNameRegex = "(?<=Skipping ).*?(?=:)"
 
-                                            guard let matchedRange = blockingPackageRaw.range(of: packageHoldingBackCachePurgeNameRegex, options: .regularExpression) else { throw RegexError.foundNilRange }
-
-                                            let packageHoldingBackCachePurgeName = String(blockingPackageRaw[matchedRange])
+                                            let packageHoldingBackCachePurgeName = try regexMatch(from: blockingPackageRaw, regex: packageHoldingBackCachePurgeNameRegex)
 
                                             packagesHoldingBackCachePurgeTracker.append(packageHoldingBackCachePurgeName)
                                         }
@@ -217,13 +216,16 @@ struct MaintenanceView: View
 
                             if shouldPurgeCache
                             {
-                                Text("Package cache purged")
-
-                                if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
+                                VStack(alignment: .leading)
                                 {
-                                    Text("Some package caches were not purged because they were held back by \(packagesHoldingBackCachePurgeTracker.joined(separator: ", ")) not being updated")
-                                        .font(.caption)
-                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                    Text("Package cache purged")
+
+                                    if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
+                                    {
+                                        Text("Some package caches were not purged because they were held back by \(packagesHoldingBackCachePurgeTracker.joined(separator: ", ")) not being updated")
+                                            .font(.caption)
+                                            .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                    }
                                 }
                             }
 

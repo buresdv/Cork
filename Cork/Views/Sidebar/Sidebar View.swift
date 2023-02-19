@@ -35,7 +35,7 @@ struct SidebarView: View
                         {
                             Button {
                                 Task{
-                                    await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
+                                    try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
                                 }
                             } label: {
                                 Text("Uninstall Formula")
@@ -66,7 +66,7 @@ struct SidebarView: View
                             Button {
                                 Task
                                 {
-                                    await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
+                                    try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
                                 }
                             } label: {
                                 Text("Uninstall Cask")

@@ -9,37 +9,42 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
+func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async throws
 {
     appState.isShowingUninstallationProgressView = true
-    
+
     print("Will try to remove package \(package.name)")
     let uninstallCommandOutput = await shell("/opt/homebrew/bin/brew", ["uninstall", package.name])
-    
+
     print(uninstallCommandOutput.standardError)
-    
+
     if uninstallCommandOutput.standardError.contains("because it is required by")
     {
         print("Could not uninstall this package because it's a dependency")
-        
-        let dependencyNameExtractionRegex: String = "(?<=required by ).*?(?=,)"
-        
-        var dependencyName: String
-        
-        guard let matchedRange = uninstallCommandOutput.standardError.range(of: dependencyNameExtractionRegex, options: .regularExpression) else { dependencyName = "FAILED TO GET DEPENDENCY NAME"; return }
-        
-        dependencyName = String(uninstallCommandOutput.standardError[matchedRange])
-        
-        appState.offendingDependencyProhibitingUninstallation = dependencyName
-        appState.isShowingUninstallationNotPossibleDueToDependencyAlert = true
-        
-        print("Name of offending dependency: \(dependencyName)")
-        
+
+        do
+        {
+            let dependencyNameExtractionRegex: String = "(?<=required by ).*?(?=,)"
+
+            var dependencyName: String
+
+            dependencyName = String(try regexMatch(from: uninstallCommandOutput.standardError, regex: dependencyNameExtractionRegex))
+
+            appState.offendingDependencyProhibitingUninstallation = dependencyName
+            appState.isShowingUninstallationNotPossibleDueToDependencyAlert = true
+
+            print("Name of offending dependency: \(dependencyName)")
+        }
+        catch let regexError as NSError
+        {
+            print("Failed to extract dependency name from output: \(regexError)")
+            throw RegexError.foundNilRange
+        }
     }
     else
     {
         print("Uninstalling can proceed")
-        
+
         switch package.isCask
         {
         case false:
@@ -61,7 +66,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             }
         }
     }
-    
+
     appState.isShowingUninstallationProgressView = false
 
     print(uninstallCommandOutput)

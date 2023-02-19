@@ -53,7 +53,7 @@ struct ContentView: View
                                     {
                                         Task
                                         {
-                                            await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                                            try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                                         }
                                     } label: {
                                         Text("Uninstall Formula")
@@ -86,7 +86,7 @@ struct ContentView: View
                                     {
                                         Task
                                         {
-                                            await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                                            try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                                         }
                                     } label: {
                                         Text("Uninstall Cask")
