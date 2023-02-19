@@ -20,7 +20,7 @@ struct StartPage: View
     @State private var upgradeablePackages: [BrewPackage] = .init()
 
     @State private var isDisclosureGroupExpanded: Bool = false
-    
+
     @State private var isShowingMaintenanceSheet: Bool = false
 
     var body: some View
@@ -130,10 +130,11 @@ struct StartPage: View
                                     {
                                         GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks instaled", mainText: "Casks are usually graphical apps")
                                     }
-                                    
+
                                     Divider()
-                                    
-                                    GridRow(alignment: .firstTextBaseline) {
+
+                                    GridRow(alignment: .firstTextBaseline)
+                                    {
                                         GroupBoxHeadlineGroup(title: "You have \(availableTaps.tappedTaps.count) Taps tapped", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
                                     }
                                 }
@@ -142,18 +143,18 @@ struct StartPage: View
                     }
 
                     Spacer()
-                    
+
                     HStack
                     {
                         Spacer()
-                        
-                        Button {
+
+                        Button
+                        {
                             print("Would perform maintenance")
                             isShowingMaintenanceSheet.toggle()
                         } label: {
                             Text("Brew Maintenance")
                         }
-
                     }
                 }
             }
@@ -168,7 +169,8 @@ struct StartPage: View
                 isLoadingUpgradeablePackages = false
             }
         }
-        .sheet(isPresented: $isShowingMaintenanceSheet) {
+        .sheet(isPresented: $isShowingMaintenanceSheet)
+        {
             MaintenanceView(isShowingSheet: $isShowingMaintenanceSheet)
         }
     }
