@@ -262,6 +262,7 @@ struct MaintenanceView: View
                             .keyboardShortcut(.defaultAction)
                         }
                     }
+                    .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding()
                 .frame(minWidth: 300, minHeight: 150)

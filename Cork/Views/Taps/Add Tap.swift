@@ -17,6 +17,12 @@ enum TapInputErrors
     case empty, missingSlash
 }
 
+enum TappingError: String
+{
+    case repositoryNotFound = "Repository not found"
+    case other = "An error occured while tapping"
+}
+
 struct AddTapView: View
 {
     @Binding var isShowingSheet: Bool
@@ -28,6 +34,8 @@ struct AddTapView: View
 
     @State private var isShowingErrorPopover: Bool = false
     
+    @State private var tappingError: TappingError = .other
+
     @StateObject var availableTaps: AvailableTaps
 
     var body: some View
@@ -37,35 +45,32 @@ struct AddTapView: View
             switch progress
             {
             case .ready:
-                SheetWithTitle(title: "Tap a tap") {
+                SheetWithTitle(title: "Tap a tap")
+                {
                     TextField("homebrew/core", text: $requestedTap)
                         .onSubmit
-                    {
-                        checkIfTapNameIsValid(tapName: requestedTap)
-                    }
-                    .popover(isPresented: $isShowingErrorPopover)
-                    {
-                        switch tapInputError
                         {
-                        case .empty:
+                            checkIfTapNameIsValid(tapName: requestedTap)
+                        }
+                        .popover(isPresented: $isShowingErrorPopover)
+                        {
                             VStack(alignment: .leading)
                             {
-                                Text("Tap name empty")
-                                    .font(.headline)
-                                Text("You didn't put in any tap name")
-                            }
-                            .padding()
-                        case .missingSlash:
-                            VStack(alignment: .leading)
-                            {
-                                Text("Tap name needs a slash")
-                                    .font(.headline)
-                                Text("Tap names always have to contain a slash")
+                                switch tapInputError
+                                {
+                                case .empty:
+                                    Text("Tap name empty")
+                                        .font(.headline)
+                                    Text("You didn't put in any tap name")
+                                case .missingSlash:
+                                    Text("Tap name needs a slash")
+                                        .font(.headline)
+                                    Text("Tap names always have to contain a slash")
+                                }
                             }
                             .padding()
                         }
-                    }
-                    
+
                     HStack
                     {
                         Button
@@ -75,13 +80,13 @@ struct AddTapView: View
                             Text("Cancel")
                         }
                         .keyboardShortcut(.cancelAction)
-                        
+
                         Spacer()
-                        
+
                         Button
                         {
                             checkIfTapNameIsValid(tapName: requestedTap)
-                            
+
                             if !isShowingErrorPopover
                             {
                                 progress = .tapping
@@ -91,7 +96,6 @@ struct AddTapView: View
                         }
                         .keyboardShortcut(.defaultAction)
                     }
-                    .padding(.top)
                 }
 
             case .tapping:
@@ -105,60 +109,74 @@ struct AddTapView: View
                     {
                         let tapResult = await tapAtap(tapName: requestedTap)
 
-                        print("The task finished")
+                        print("Result: \(tapResult)")
 
-                        print("Result: \(tapResult)") // Why does this shit not FUCKING WORK
-                        
-                        let debugResult = await shell("/opt/homebrew/bin/brew", ["outdated"]).standardOutput
-                        print("Sanity debug result: \(debugResult)")
-
-                        #warning("Remove this in production. It untaps the tap right after")
-                        let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", requestedTap]).standardOutput
-                        print("Untap Result: \(untapResult)")
-
-                        progress = .finished // TODO: Make this actually check if it successfully tapped the tap
+                        if tapResult.contains("Tapped")
+                        {
+                            print("Tapping was successful!")
+                            progress = .finished
+                        }
+                        else
+                        {
+                            progress = .error
+                            tappingError = .other
+                            
+                            if tapResult.contains("Repository not found")
+                            {
+                                print("Repository was not found")
+                                
+                                tappingError = .repositoryNotFound
+                            }
+                        }
                     }
                 }
             case .finished:
-                DisappearableSheet(isShowingSheet: $isShowingSheet) {
-                    HeadlineWithSubheadline(headline: "Successfully tapped \(requestedTap)", subheadline: "There were no errors", alignment: .center)
-                        .onAppear
-                        {
-                            availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
-                        }
+                ComplexWithIcon(systemName: "checkmark.seal") {
+                    DisappearableSheet(isShowingSheet: $isShowingSheet)
+                    {
+                        HeadlineWithSubheadline(headline: "Successfully tapped \(requestedTap)", subheadline: "There were no errors", alignment: .leading)
+                            .fixedSize(horizontal: true, vertical: true)
+                            .onAppear
+                            {
+                                availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
+                            }
+                    }
                 }
 
             case .error:
-                VStack
-                {
-                    HStack(spacing: 10)
+                ComplexWithIcon(systemName: "xmark.seal") {
+                    VStack(alignment: .leading, spacing: 5)
                     {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-
-                        VStack(alignment: .leading)
-                        {
+                        switch tappingError {
+                        case .repositoryNotFound:
+                                Text("\(requestedTap) doesn't exist")
+                                    .font(.headline)
+                                Text("Double-check that you wrote the name right")
+                        
+                        case .other:
                             Text("An error occured while tapping \(requestedTap)")
                                 .font(.headline)
-                            Text("Make sure you got the tap name right")
+                            Text("Try tapping it again in a few minutes")
                         }
-                    }
 
-                    HStack
-                    {
-                        Spacer()
-
-                        Button
+                        HStack
                         {
-                            isShowingSheet.toggle()
-                        } label: {
-                            Text("Close")
+                            Spacer()
+
+                            Button
+                            {
+                                isShowingSheet.toggle()
+                            } label: {
+                                Text("Close")
+                            }
                         }
                     }
+                    .frame(width: 200)
+                    .fixedSize(horizontal: false, vertical: true)
                 }
             }
         }
+        .padding()
     }
 
     func checkIfTapNameIsValid(tapName: String)
