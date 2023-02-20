@@ -155,12 +155,7 @@ struct PackageDetailView: View
                     
                     HStack(spacing: 15)
                     {
-                        if appState.isShowingUninstallationProgressView
-                        {
-                            ProgressView()
-                                .scaleEffect(0.5, anchor: .center)
-                                .frame(width: 1, height: 1)
-                        }
+                        UninstallationProgressWheel()
                         
                         Button(role: .destructive)
                         {

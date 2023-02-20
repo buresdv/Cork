@@ -147,6 +147,8 @@ struct StartPage: View
                     HStack
                     {
                         Spacer()
+                        
+                        UninstallationProgressWheel()
 
                         Button
                         {

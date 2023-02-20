@@ -45,6 +45,7 @@
 		6382C90A299DA11F00354B19 /* Purge Brew Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C909299DA11F00354B19 /* Purge Brew Cache.swift */; };
 		6382C90C299DA46100354B19 /* Perform Brew Health Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C90B299DA46100354B19 /* Perform Brew Health Check.swift */; };
 		639246E529A26BB4008149E2 /* REGEX Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639246E429A26BB4008149E2 /* REGEX Match.swift */; };
+		639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */; };
 		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
 		639A7D832871D08200B50280 /* Install Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D822871D08200B50280 /* Install Package.swift */; };
@@ -117,6 +118,7 @@
 		6382C909299DA11F00354B19 /* Purge Brew Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purge Brew Cache.swift"; sourceTree = "<group>"; };
 		6382C90B299DA46100354B19 /* Perform Brew Health Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Perform Brew Health Check.swift"; sourceTree = "<group>"; };
 		639246E429A26BB4008149E2 /* REGEX Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "REGEX Match.swift"; sourceTree = "<group>"; };
+		639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstallation Progress Wheel.swift"; sourceTree = "<group>"; };
 		63958CFC2877341F00E0B807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63958CFF287735F800E0B807 /* About View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About View.swift"; sourceTree = "<group>"; };
 		639A7D822871D08200B50280 /* Install Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Package.swift"; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				6330531A2996A16600F34F94 /* GroupBox Headline Group.swift */,
 				63D83102299928B400FA802F /* Headline with Subheadline.swift */,
 				63D51F70299AEE5100203F3F /* Complex with Icon.swift */,
+				639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */,
 				63D8C957287A1D0800483A52 /* Loading View.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
+				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
 				637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
