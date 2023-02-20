@@ -14,6 +14,9 @@ struct SidebarView: View
     @EnvironmentObject var availableTaps: AvailableTaps
     
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
+    
+    @State private var isShowingSearchField: Bool = false
+    @State private var searchText: String = ""
 
     var body: some View
     {
@@ -23,7 +26,7 @@ struct SidebarView: View
             {
                 if !appState.isLoadingFormulae
                 {
-                    ForEach(brewData.installedFormulae)
+                    ForEach(searchText.isEmpty ? brewData.installedFormulae : brewData.installedFormulae.filter({ $0.name.contains(searchText) }))
                     { formula in
                         NavigationLink
                         {
@@ -54,7 +57,7 @@ struct SidebarView: View
             {
                 if !appState.isLoadingCasks
                 {
-                    ForEach(brewData.installedCasks)
+                    ForEach(searchText.isEmpty ? brewData.installedCasks : brewData.installedCasks.filter({ $0.name.contains(searchText) }))
                     { cask in
                         NavigationLink {
                             PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
@@ -98,5 +101,6 @@ struct SidebarView: View
             }
         }
         .listStyle(.sidebar)
+        .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
     }
 }
