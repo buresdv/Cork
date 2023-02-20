@@ -12,3 +12,9 @@ struct TerminalOutput
     let standardOutput: String
     let standardError: String
 }
+
+enum StreamedTerminalOutput
+{
+    case standardOutput(String)
+    case standardError(String)
+}
