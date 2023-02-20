@@ -13,6 +13,10 @@ struct AboutView: View
     @State private var usedPackages: [UsedPackage] = [
         UsedPackage(name: "DavidFoundation", whyIsItUsed: "My own package that provides some basic convenience features", packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!)
     ]
+    
+    @State private var specialThanks: [AcknowledgedContributor] = [
+        AcknowledgedContributor(name: "Seb Jachec", reasonForAcknowledgement: "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster", profileService: "GitHub", profileURL: URL(string: "https://github.com/sebj")!)
+    ]
     @State private var acknowledgedContributors: [AcknowledgedContributor] = [
         AcknowledgedContributor(name: "Rob Napier", reasonForAcknowledgement: "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@cocoaphony@mastodon.social")!),
         AcknowledgedContributor(name: "Łukasz Rutkowski", reasonForAcknowledgement: "Fixed many async and SwiftUI problems", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@luckkerr@mastodon.world")!),
@@ -79,28 +83,55 @@ struct AboutView: View
                     
                     DisclosureGroup
                     {
-                        List(acknowledgedContributors)
-                        { contributor in
-                            HStack
+                        List
+                        {
+                            Section("Special Thanks")
                             {
-                                VStack(alignment: .leading)
-                                {
-                                    Text(contributor.name)
-                                        .font(.headline)
-                                    Text(contributor.reasonForAcknowledgement)
-                                        .font(.subheadline)
+                                ForEach(specialThanks)
+                                { contributor in
+                                    HStack(spacing: 10)
+                                    {
+                                        VStack(alignment: .leading)
+                                        {
+                                            Text(contributor.name)
+                                                .font(.headline)
+                                            Text(contributor.reasonForAcknowledgement)
+                                                .font(.subheadline)
+                                        }
+
+                                        Spacer()
+
+                                        ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService)
+                                    }
                                 }
+                            }
+                            
+                            Section("Acknowledged Contributors")
+                            {
+                                ForEach(acknowledgedContributors)
+                                { contributor in
+                                    HStack(spacing: 10)
+                                    {
+                                        VStack(alignment: .leading)
+                                        {
+                                            Text(contributor.name)
+                                                .font(.headline)
+                                            Text(contributor.reasonForAcknowledgement)
+                                                .font(.subheadline)
+                                        }
 
-                                Spacer()
+                                        Spacer()
 
-                                ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService)
+                                        ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService)
+                                    }
+                                }
                             }
                         }
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
                         .frame(
                             minWidth: 0,
                             maxWidth: .infinity,
-                            idealHeight: 100
+                            idealHeight: 200
                         )
                     } label: {
                         Text("Acknowledged Contributors")
@@ -126,7 +157,7 @@ struct AboutView: View
                     }
                 }
             }
-            .frame(width: 300, alignment: .topLeading)
+            .frame(width: 350, alignment: .topLeading)
             .animation(.none)
         }
         .padding()
