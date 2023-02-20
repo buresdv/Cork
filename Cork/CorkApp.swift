@@ -14,6 +14,8 @@ struct CorkApp: App
     
     @StateObject var appState = AppState()
     @StateObject var brewData = BrewDataStorage()
+    @StateObject var availableTaps = AvailableTaps()
+    
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
 
     var body: some Scene
@@ -23,6 +25,7 @@ struct CorkApp: App
             ContentView()
                 .environmentObject(appState)
                 .environmentObject(brewData)
+                .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
         }
         .commands(content: {

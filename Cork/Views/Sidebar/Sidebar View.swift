@@ -11,9 +11,9 @@ struct SidebarView: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
+    @EnvironmentObject var availableTaps: AvailableTaps
     
-    @ObservedObject var availableTaps: AvailableTaps
+    @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
 
     var body: some View
     {

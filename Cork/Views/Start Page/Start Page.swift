@@ -10,7 +10,7 @@ import SwiftUI
 struct StartPage: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
-    @StateObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var appState: AppState
 

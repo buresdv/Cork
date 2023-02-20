@@ -12,8 +12,7 @@ struct ContentView: View
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
-
-    @StateObject var availableTaps = AvailableTaps()
+    @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     
@@ -33,93 +32,9 @@ struct ContentView: View
         {
             NavigationView
             {
-                List(selection: $multiSelection)
-                {
-                    Section("Installed Formulae")
-                    {
-                        if !appState.isLoadingFormulae
-                        {
-                            ForEach(brewData.installedFormulae)
-                            { package in
-                                NavigationLink
-                                {
-                                    PackageDetailView(package: package, packageInfo: selectedPackageInfo)
-                                } label: {
-                                    PackageListItem(packageItem: package)
-                                }
-                                .contextMenu
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("Uninstall Formula")
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ProgressView()
-                        }
-                    }
-                    .collapsible(true)
+                SidebarView()
 
-                    Section("Installed Casks")
-                    {
-                        if !appState.isLoadingCasks
-                        {
-                            ForEach(brewData.installedCasks)
-                            { package in
-                                NavigationLink
-                                {
-                                    PackageDetailView(package: package, packageInfo: selectedPackageInfo)
-                                } label: {
-                                    PackageListItem(packageItem: package)
-                                }
-                                .contextMenu
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("Uninstall Cask")
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ProgressView()
-                        }
-                    }
-                    .collapsible(true)
-
-                    Section("Tapped Taps")
-                    {
-                        if availableTaps.tappedTaps.count != 0
-                        {
-                            ForEach(availableTaps.tappedTaps)
-                            { tap in
-                                Text(tap.name)
-                            }
-                        }
-                        else
-                        {
-                            ProgressView()
-                        }
-                    }
-                    .collapsible(false)
-                }
-                .listStyle(SidebarListStyle())
-
-                StartPage(availableTaps: availableTaps, updateProgressTracker: updateProgressTracker)
+                StartPage(updateProgressTracker: updateProgressTracker)
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
