@@ -4,7 +4,8 @@ A fast GUI wrapper for Homebrew written in SwiftUI
 # WARNING: THIS APP IS STILL EARLY IN DEVELOPMENT
 ## You will encounter bugs, random crashes and updates that hang. There's minimal error checking for now. Use only at own risk for the time being!
 
-#Special Thanks
+# Special Thanks
+
 I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implementing a system for getting real-time outputs of Brew commands. 
 
 Without his contribution, many of the processes that depend on real-time outputs, such as installation, uninstallation and updating of packages, would be impossible.
