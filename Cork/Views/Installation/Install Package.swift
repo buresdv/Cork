@@ -241,23 +241,24 @@ struct AddFormulaView: View
                                 // We have to do a little trolling to make the user feel like the program isn't frozen
                                 // After a random time up to 2s, move the progress line a little bit. I don't want them to think the program got stuck.
                                 // Slow-ass brew just doesn't install the packages fast enough
-                                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0 ... 2))
+                                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 1 ... 3))
                                 {
                                     packageInstallTrackingNumber = packageInstallTrackingNumber + Float.random(in: 0 ... 0.1)
                                 }
 
-                                async let installationResult = try await installPackage(package: packageToInstall, installationProgressTracker: installationProgressTracker, brewData: brewData)
+                                let installationResult = try await installPackage(package: packageToInstall, installationProgressTracker: installationProgressTracker, brewData: brewData) // I had to remove the async-let declaration here because it was causing problems with the if condition below (I couldn't compare it to two strings). If it causes problems, revert it and use this solution instead: https://elk.zone/mstdn.social/@ctietze@mastodon.social/109896906687849242
 
-                                print("Installation result: \(try await installationResult)")
+                                print("Installation result: \(installationResult)")
 
-                                if try await installationResult.standardOutput.contains("Pouring")
+                                
+                                if installationResult.standardOutput.contains("Pouring") || installationResult.standardOutput.contains("was successfully installed!")
                                 {
                                     
                                     if installationProgressTracker.packagesStillLeftToInstall.count == 0
                                     {
                                         packageInstallTrackingNumber = 1
 
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) // Pause for a second when the package is installed so the user realizes it
                                         {
                                             willHaveToFetchPackageDependencies = false
                                             installationSteps = .finished
@@ -268,7 +269,7 @@ struct AddFormulaView: View
                                         packageInstallTrackingNumber = Float(1 / installationProgressTracker.packagesStillLeftToInstall.count)
                                     }
                                 }
-                                else if try await installationResult.standardOutput.contains("Fetching dependencies")
+                                else if installationResult.standardOutput.contains("Fetching dependencies")
                                 {
                                     print("Will have to fetch some dependencies for \(packageToInstall)")
                                     willHaveToFetchPackageDependencies = true

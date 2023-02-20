@@ -161,14 +161,17 @@ struct AddTapView: View
 
                         HStack
                         {
+                            DismissSheetButton(isShowingSheet: $isShowingSheet)
+                            
                             Spacer()
 
                             Button
                             {
-                                isShowingSheet.toggle()
+                                progress = .ready
                             } label: {
-                                Text("Close")
+                                Text("Try Again")
                             }
+                            .keyboardShortcut(.defaultAction)
                         }
                     }
                     .frame(width: 200)
