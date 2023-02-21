@@ -41,11 +41,19 @@ struct CorkApp: App
                     Text("About \(NSApplication.appName!)")
                 }
             }
+            
+            CommandGroup(after: .sidebar) {
+                Button
+                {
+                    toggleSidebar()
+                } label: {
+                    Text("Toggle Sidebar")
+                }
+                .keyboardShortcut("s", modifiers: [.command, .control])
+            }
         })
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
-        // .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: true))
-        // .windowStyle(HiddenTitleBarWindowStyle())
         
         Settings {
             SettingsView()

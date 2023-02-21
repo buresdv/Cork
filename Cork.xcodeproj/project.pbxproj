@@ -16,6 +16,7 @@
 		632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD29A2995C1C20029FC49 /* BrewTap.swift */; };
 		6330531929966E9F00F34F94 /* Start Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6330531829966E9F00F34F94 /* Start Page.swift */; };
 		6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6330531A2996A16600F34F94 /* GroupBox Headline Group.swift */; };
+		633A861C29A525F0006EA952 /* Toggle Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A861B29A525F0006EA952 /* Toggle Sidebar.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
 		634065692871AA42001A2178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634065682871AA42001A2178 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		632FD29A2995C1C20029FC49 /* BrewTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTap.swift; sourceTree = "<group>"; };
 		6330531829966E9F00F34F94 /* Start Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start Page.swift"; sourceTree = "<group>"; };
 		6330531A2996A16600F34F94 /* GroupBox Headline Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupBox Headline Group.swift"; sourceTree = "<group>"; };
+		633A861B29A525F0006EA952 /* Toggle Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle Sidebar.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634065642871AA42001A2178 /* CorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorkApp.swift; sourceTree = "<group>"; };
 		634065662871AA42001A2178 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
 				63D51F61299A873000203F3F /* Extract Package Version from Terminal Output.swift */,
 				639246E429A26BB4008149E2 /* REGEX Match.swift */,
+				633A861B29A525F0006EA952 /* Toggle Sidebar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */,
 				63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */,
+				633A861C29A525F0006EA952 /* Toggle Sidebar.swift in Sources */,
 				63D2B08A2997F53C0084E223 /* Load up Casks.swift in Sources */,
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
