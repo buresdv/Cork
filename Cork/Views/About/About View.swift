@@ -5,25 +5,25 @@
 //  Created by David Bureš on 07.07.2022.
 //
 
-import SwiftUI
 import DavidFoundation
+import SwiftUI
 
 struct AboutView: View
 {
     @State private var usedPackages: [UsedPackage] = [
-        UsedPackage(name: "DavidFoundation", whyIsItUsed: "My own package that provides some basic convenience features", packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!)
+        UsedPackage(name: "DavidFoundation", whyIsItUsed: "My own package that provides some basic convenience features", packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!),
     ]
-    
+
     @State private var specialThanks: [AcknowledgedContributor] = [
-        AcknowledgedContributor(name: "Seb Jachec", reasonForAcknowledgement: "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster", profileService: "GitHub", profileURL: URL(string: "https://github.com/sebj")!)
+        AcknowledgedContributor(name: "Seb Jachec", reasonForAcknowledgement: "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster", profileService: "GitHub", profileURL: URL(string: "https://github.com/sebj")!),
     ]
     @State private var acknowledgedContributors: [AcknowledgedContributor] = [
         AcknowledgedContributor(name: "Rob Napier", reasonForAcknowledgement: "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@cocoaphony@mastodon.social")!),
         AcknowledgedContributor(name: "Łukasz Rutkowski", reasonForAcknowledgement: "Fixed many async and SwiftUI problems", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@luckkerr@mastodon.world")!),
         AcknowledgedContributor(name: "Jierong Li", reasonForAcknowledgement: "Fixed package counts on the start page not updating", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@jierongli@mastodon.social")!),
-        AcknowledgedContributor(name: "Oscar Bazaldua", reasonForAcknowledgement: "Made the first approved pull request; fixed package counts, along with Jierong Li", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@oscb@hachyderm.io")!)
+        AcknowledgedContributor(name: "Oscar Bazaldua", reasonForAcknowledgement: "Made the first approved pull request; fixed package counts, along with Jierong Li", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@oscb@hachyderm.io")!),
     ]
-    
+
     @State private var isPackageGroupExpanded: Bool = false
     @State private var isContributorGroupExpanded: Bool = false
 
@@ -80,7 +80,7 @@ struct AboutView: View
                         Text("Packages Used")
                     }
                     .animation(.none, value: isPackageGroupExpanded)
-                    
+
                     DisclosureGroup
                     {
                         List
@@ -105,7 +105,7 @@ struct AboutView: View
                                     }
                                 }
                             }
-                            
+
                             Section("Acknowledged Contributors")
                             {
                                 ForEach(acknowledgedContributors)
@@ -141,14 +141,15 @@ struct AboutView: View
 
                 HStack
                 {
-                    Button {
+                    Button
+                    {
                         NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork")!)
                     } label: {
                         Label("Contribute", systemImage: "curlybraces")
                     }
 
                     Spacer()
-                    
+
                     Button
                     {
                         NSWorkspace.shared.open(URL(string: "https://elk.zone/mstdn.social/@davidbures")!)

@@ -27,6 +27,9 @@ struct CorkApp: App
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
+                .onAppear {
+                    NSWindow.allowsAutomaticWindowTabbing = false
+                }
         }
         .commands(content: {
             CommandGroup(replacing: CommandGroupPlacement.appInfo)
