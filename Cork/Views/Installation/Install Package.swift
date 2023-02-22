@@ -7,25 +7,6 @@
 
 import SwiftUI
 
-class SearchResultTracker: ObservableObject
-{
-    @Published var foundFormulae: [BrewPackage] = .init()
-    @Published var foundCasks: [BrewPackage] = .init()
-    @Published var selectedPackagesForInstallation: [String] = .init()
-}
-
-class InstallationProgressTracker: ObservableObject
-{
-    @Published var packageBeingCurrentlyInstalled: String = ""
-
-    @Published var packagesStillLeftToInstall: [String] = .init()
-}
-
-enum InstallationSteps
-{
-    case ready, searching, presentingSearchResults, installing, finished
-}
-
 struct AddFormulaView: View
 {
     @Binding var isShowingSheet: Bool

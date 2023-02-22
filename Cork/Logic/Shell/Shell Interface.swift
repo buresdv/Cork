@@ -28,6 +28,18 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
     )
 }
 
+
+/// # Usage:
+/// for await output in shell("/opt/homebrew/bin/brew", ["install", package.name])
+/// {
+///    switch output
+///    {
+///    case let .output(outputLine):
+///        // Do something with `outputLine`
+///    case let .error(errorLine):
+///        // Do something with `errorLine`
+///    }
+///}
 func shell(_ launchPath: String, _ arguments: [String]) -> AsyncStream<StreamedTerminalOutput>
 {
     let task = Process()
