@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PackageInstallationStatus
+enum PackageInstallationStage
 {
     case ready, loadingDependencies, fetchingDependencies, installingDependencies, installingPackage, finished
 }

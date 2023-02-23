@@ -20,11 +20,9 @@ struct AddFormulaView: View
     @ObservedObject var searchResultTracker = SearchResultTracker()
     @ObservedObject var installationProgressTracker = InstallationProgressTracker()
 
-    @State var installationSteps: InstallationSteps = .ready
+    @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
 
     @State var packageInstallTrackingNumber: Float = 0
-
-    @State private var willHaveToFetchPackageDependencies: Bool = false
 
     @FocusState var isSearchFieldFocused: Bool
 
@@ -34,7 +32,7 @@ struct AddFormulaView: View
     {
         VStack(alignment: .leading, spacing: 10)
         {
-            switch installationSteps
+            switch packageInstallationProcessStep
             {
             case .ready:
                 SheetWithTitle(title: "Install packages")
@@ -54,7 +52,7 @@ struct AddFormulaView: View
 
                             Button
                             {
-                                installationSteps = .searching
+                                packageInstallationProcessStep = .searching
                             } label: {
                                 Text("Search")
                             }
@@ -84,7 +82,7 @@ struct AddFormulaView: View
                                 searchResultTracker.foundCasks.append(BrewPackage(name: cask, isCask: true, installedOn: nil, versions: [], sizeInBytes: nil))
                             }
 
-                            installationSteps = .presentingSearchResults
+                            packageInstallationProcessStep = .presentingSearchResults
                         }
                     }
 
@@ -127,7 +125,7 @@ struct AddFormulaView: View
                         {
                             Button
                             {
-                                installationSteps = .searching
+                                packageInstallationProcessStep = .searching
                             } label: {
                                 Text("Search")
                             }
@@ -137,7 +135,23 @@ struct AddFormulaView: View
                         {
                             Button
                             {
-                                installationSteps = .installing
+                                for requestedPackage in foundPackageSelection
+                                {
+                                    print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
+
+                                    let packageToInstall: BrewPackage = getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
+
+                                    installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
+                                    
+                                    print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
+                                    
+                                    installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
+                                    
+                                }
+                                
+                                print(installationProgressTracker.packagesBeingInstalled)
+                                
+                                packageInstallationProcessStep = .installing
                             } label: {
                                 Text("Install")
                             }
@@ -149,117 +163,42 @@ struct AddFormulaView: View
             case .installing:
                 VStack(alignment: .leading)
                 {
-                    ProgressView(value: packageInstallTrackingNumber)
-                    {
-                        if willHaveToFetchPackageDependencies
+                    
+                    ForEach(installationProgressTracker.packagesBeingInstalled)
+                    { packageBeingInstalled in
+                        switch packageBeingInstalled.installationStage
                         {
-                            HStack(spacing: 15)
-                            {
-                                Text("Fetching dependencies...")
-                                ProgressView()
-                                    .scaleEffect(0.5, anchor: .center)
-                                    .frame(width: 1, height: 1)
-                            }
+                            case .ready:
+                                Text("Ready")
+                                
+                            case .loadingDependencies:
+                                Text("Loading Dependencies")
+                                
+                            case .fetchingDependencies:
+                                Text("Fetching Dependencies")
+                                
+                            case .installingDependencies:
+                                Text("Installing Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)/\(installationProgressTracker.numberOfPackageDependencies)")
+                                
+                            case .installingPackage:
+                                Text("Installing Package")
+                                
+                            case .finished:
+                                Text("Done!")
                         }
-                        else
-                        {
-                            if installationProgressTracker.packagesStillLeftToInstall.count != 0
-                            {
-                                Text("Installing \(installationProgressTracker.packagesStillLeftToInstall.count) \(installationProgressTracker.packagesStillLeftToInstall.count >= 2 ? "packages" : "package")")
-                                    .onAppear
-                                    {
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 1 ... 3))
-                                        { // If nothing happened after three seconds, the package install either got stuck or it's fetching dependencies. Let's be generous and say it's fetching dependencies. Make it seems like it's actually working
-                                            // Seriously, fuck the interface. It could throw me a bone, but no
-                                            if willHaveToFetchPackageDependencies == false
-                                            {
-                                                willHaveToFetchPackageDependencies = true
-                                                packageInstallTrackingNumber = packageInstallTrackingNumber + Float.random(in: 0 ... 0.2)
-                                            }
-                                        }
-                                    }
-                            }
-                            else
-                            {
-                                Text("Validating installations...") // This doesn't actually do anything, but it's better to make the user think something is happening instead of showing "Installing 0 packages"
-                            }
-                        }
+                        
+                        ProgressView(value: installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress, total: 10)
                     }
-
-                    if installationProgressTracker.packagesStillLeftToInstall.count != 0
-                    {
-                        if showPackagesStillLeftToInstall
-                        {
-                            Text("Packages currently being installed")
-                                .font(.headline)
-                            List(installationProgressTracker.packagesStillLeftToInstall, id: \.self)
-                            { packageName in
-                                Text(packageName)
-                            }
-                            .listStyle(.bordered(alternatesRowBackgrounds: true))
-                            .frame(height: 70)
-                        }
-                    }
+                    
                 }
                 .onAppear
                 {
-                    for requestedPackage in foundPackageSelection
+                    for var packageToInstall in installationProgressTracker.packagesBeingInstalled
                     {
-                        // print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
-
-                        let packageToInstall: BrewPackage = getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
-
-                        installationProgressTracker.packagesStillLeftToInstall.append(packageToInstall.name)
-
-                        print("Packages to install: \(installationProgressTracker.packagesStillLeftToInstall)")
-
-                        installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
-
                         Task(priority: .userInitiated)
                         {
-                            do
-                            {
-                                // We have to do a little trolling to make the user feel like the program isn't frozen
-                                // After a random time up to 2s, move the progress line a little bit. I don't want them to think the program got stuck.
-                                // Slow-ass brew just doesn't install the packages fast enough
-                                DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 1 ... 3))
-                                {
-                                    packageInstallTrackingNumber = packageInstallTrackingNumber + Float.random(in: 0 ... 0.1)
-                                }
-
-                                let installationResult = try await installPackage(package: packageToInstall, installationProgressTracker: installationProgressTracker, brewData: brewData) // I had to remove the async-let declaration here because it was causing problems with the if condition below (I couldn't compare it to two strings). If it causes problems, revert it and use this solution instead: https://elk.zone/mstdn.social/@ctietze@mastodon.social/109896906687849242
-
-                                print("Installation result: \(installationResult)")
-
-                                
-                                if installationResult.standardOutput.contains("Pouring") || installationResult.standardOutput.contains("was successfully installed!")
-                                {
-                                    
-                                    if installationProgressTracker.packagesStillLeftToInstall.count == 0
-                                    {
-                                        packageInstallTrackingNumber = 1
-
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) // Pause for a second when the package is installed so the user realizes it
-                                        {
-                                            willHaveToFetchPackageDependencies = false
-                                            installationSteps = .finished
-                                        }
-                                    }
-                                    else
-                                    {
-                                        packageInstallTrackingNumber = Float(1 / installationProgressTracker.packagesStillLeftToInstall.count)
-                                    }
-                                }
-                                else if installationResult.standardOutput.contains("Fetching dependencies")
-                                {
-                                    print("Will have to fetch some dependencies for \(packageToInstall)")
-                                    willHaveToFetchPackageDependencies = true
-                                }
-                            }
-                            catch let error as NSError
-                            {
-                                print("Error while installing package \(packageToInstall.name): \(error)")
-                            }
+                            let installationResult = try! await installPackage(installationProgressTracker: installationProgressTracker, brewData: brewData)
+                            print("Installation result: \(installationResult)")
                         }
                     }
                 }

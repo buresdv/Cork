@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum InstallationSteps
+enum PackageInstallationProcessSteps
 {
     case ready, searching, presentingSearchResults, installing, finished
 }

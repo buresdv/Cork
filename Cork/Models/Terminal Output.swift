@@ -9,8 +9,8 @@ import Foundation
 
 struct TerminalOutput
 {
-    let standardOutput: String
-    let standardError: String
+    var standardOutput: String
+    var standardError: String
 }
 
 enum StreamedTerminalOutput
