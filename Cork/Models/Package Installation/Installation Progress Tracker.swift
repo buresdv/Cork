@@ -14,5 +14,6 @@ class InstallationProgressTracker: ObservableObject
     @Published var packagesBeingInstalled: [PackageInProgressOfBeingInstalled] = .init()
     
     @Published var numberOfPackageDependencies: Int = 0
+    @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
 }

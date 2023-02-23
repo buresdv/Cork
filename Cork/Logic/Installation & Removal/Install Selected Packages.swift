@@ -19,7 +19,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
     print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
     var installationResult = TerminalOutput(standardOutput: "", standardError: "")
-    
+
     var packageDependencies: [String] = .init()
 
     if !installationProgressTracker.packagesBeingInstalled[0].package.isCask
@@ -32,7 +32,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 print("Line out: \(outputLine)")
 
-                    installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput?.append(outputLine)
+                installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput?.append(outputLine)
 
                 if outputLine.contains("Fetching dependencies")
                 {
@@ -40,59 +40,68 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                     let dependencyMatchingRegex: String = "(?<=\(installationProgressTracker.packagesBeingInstalled[0].package.name): ).*?(.*)"
                     var matchedDependencies = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
-                    
+
                     print("Matched Dependencies: \(matchedDependencies)")
-                    
+
                     packageDependencies = matchedDependencies.components(separatedBy: ", ") // Make the dependency list into an array
-                    
+
                     print("Package Dependencies: \(packageDependencies)")
-                    
+
                     print("Will fetch \(packageDependencies.count) dependencies!")
-                    
+
                     installationProgressTracker.numberOfPackageDependencies = packageDependencies.count // Assign the number of dependencies to the tracker for the user to see
-                    
+
+                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 1
+                }
+                else if outputLine.contains("Already downloaded") || outputLine.contains("Fetching \(outputLine.containsElementFromArray(packageDependencies))")
+                {
+                    print("Will fetch dependencies!")
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .fetchingDependencies
                     
-                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 1
+                    installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched = installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched + 1
+                    
+                    print("Fetching dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
+                    
+                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(installationProgressTracker.numberOfPackageDependencies) * Double(5))))
                 }
                 else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name) dependency")
                 {
                     print("Will install dependencies!")
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingDependencies
-                    
+
                     // Increment by 1 for each package that finished installing
                     installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled = installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled + 1
                     print("Installing dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
-                    
+
                     // TODO: Add a math formula for advancing the stepper
-                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(( Double(10) / ( Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))
+                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies)))
                 }
                 else if outputLine.contains("Fetching \(installationProgressTracker.packagesBeingInstalled[0].package.name)") || outputLine.contains("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
                 {
                     print("Will install the package itself!")
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingPackage
-                    
+
                     // TODO: Add a math formula for advancing the stepper
-                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(( Double(10) / ( Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))
-                    
-                    print("Stepper value: \(Double(( Double(10) / ( Double(3) * Double(installationProgressTracker.numberOfPackageDependencies)))))")
+                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress) + Double( ( Double(10) - Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress)) / Double(2))
+
+                    print("Stepper value: \(Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))")
                 }
 
                 installationResult.standardOutput.append(outputLine)
-                    
-                    print("Current installation stage: \(installationProgressTracker.packagesBeingInstalled[0].installationStage)")
+
+                print("Current installation stage: \(installationProgressTracker.packagesBeingInstalled[0].installationStage)")
 
             case let .standardError(errorLine):
                 print("Errored out: \(errorLine)")
             }
         }
 
+        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 10
         
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2)
+        {
             installationProgressTracker.packagesBeingInstalled[0].installationStage = .finished
         }
-        
     }
     else
     {

@@ -166,28 +166,41 @@ struct AddFormulaView: View
                     
                     ForEach(installationProgressTracker.packagesBeingInstalled)
                     { packageBeingInstalled in
-                        switch packageBeingInstalled.installationStage
-                        {
-                            case .ready:
-                                Text("Ready")
-                                
-                            case .loadingDependencies:
-                                Text("Loading Dependencies")
-                                
-                            case .fetchingDependencies:
-                                Text("Fetching Dependencies")
-                                
-                            case .installingDependencies:
-                                Text("Installing Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)/\(installationProgressTracker.numberOfPackageDependencies)")
-                                
-                            case .installingPackage:
-                                Text("Installing Package")
-                                
-                            case .finished:
-                                Text("Done!")
-                        }
                         
-                        ProgressView(value: installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress, total: 10)
+                        if packageBeingInstalled.installationStage != .finished
+                        {
+                            ProgressView(value: installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress, total: 10)
+                            {
+                                switch packageBeingInstalled.installationStage
+                                {
+                                    case .ready:
+                                        Text("Firing up...")
+                                        
+                                    case .loadingDependencies:
+                                        Text("Loading Dependencies...")
+                                        
+                                    case .fetchingDependencies:
+                                        Text("Fetching Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched)...")
+                                        
+                                    case .installingDependencies:
+                                        Text("Installing Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)/\(installationProgressTracker.numberOfPackageDependencies)...")
+                                        
+                                    case .installingPackage:
+                                        Text("Installing Package...")
+                                        
+                                    case .finished:
+                                        Text("Done!")
+                                }
+                            }
+                        }
+                        else
+                        { // Show this when the installation is finished
+                            Text("Done")
+                                .onAppear
+                            {
+                                packageInstallationProcessStep = .finished
+                            }
+                        }
                     }
                     
                 }
