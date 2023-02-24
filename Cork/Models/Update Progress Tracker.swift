@@ -19,5 +19,4 @@ class UpdateProgressTracker: ObservableObject
 {
     @Published var updateProgress: Float = 0
     @Published var updateStage: UpdateStages = .notDoingAnything
-    @Published var showUpdateSheet: Bool = false
 }

@@ -21,8 +21,6 @@ struct StartPage: View
 
     @State private var isDisclosureGroupExpanded: Bool = false
 
-    @State private var isShowingMaintenanceSheet: Bool = false
-
     var body: some View
     {
         VStack
@@ -104,7 +102,7 @@ struct StartPage: View
 
                                         Button
                                         {
-                                            upgradeBrewPackages(updateProgressTracker)
+                                            updateBrewPackages(updateProgressTracker, appState: appState)
                                         } label: {
                                             Text("Update")
                                         }
@@ -153,7 +151,7 @@ struct StartPage: View
                         Button
                         {
                             print("Would perform maintenance")
-                            isShowingMaintenanceSheet.toggle()
+                            appState.isShowingMaintenanceSheet.toggle()
                         } label: {
                             Text("Brew Maintenance")
                         }
@@ -171,9 +169,9 @@ struct StartPage: View
                 isLoadingUpgradeablePackages = false
             }
         }
-        .sheet(isPresented: $isShowingMaintenanceSheet)
+        .sheet(isPresented: $appState.isShowingMaintenanceSheet)
         {
-            MaintenanceView(isShowingSheet: $isShowingMaintenanceSheet)
+            MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)
         }
     }
 }

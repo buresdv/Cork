@@ -36,7 +36,7 @@ struct AddTapView: View
     
     @State private var tappingError: TappingError = .other
 
-    @StateObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: AvailableTaps
 
     var body: some View
     {

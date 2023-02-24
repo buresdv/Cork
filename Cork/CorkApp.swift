@@ -11,11 +11,13 @@ import SwiftUI
 struct CorkApp: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     @StateObject var appState = AppState()
     @StateObject var brewData = BrewDataStorage()
     @StateObject var availableTaps = AvailableTaps()
-    
+
+    @StateObject var updateProgressTracker = UpdateProgressTracker()
+
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
 
     var body: some Scene
@@ -27,11 +29,13 @@ struct CorkApp: App
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
-                .onAppear {
+                .onAppear
+                {
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
         }
-        .commands(content: {
+        .commands
+        {
             CommandGroup(replacing: CommandGroupPlacement.appInfo)
             {
                 Button
@@ -41,8 +45,9 @@ struct CorkApp: App
                     Text("About \(NSApplication.appName!)")
                 }
             }
-            
-            CommandGroup(after: .sidebar) {
+
+            CommandGroup(after: .sidebar)
+            {
                 Button
                 {
                     toggleSidebar()
@@ -51,11 +56,61 @@ struct CorkApp: App
                 }
                 .keyboardShortcut("s", modifiers: [.command, .control])
             }
-        })
+
+            CommandMenu("Packages")
+            {
+                Button
+                {
+                    appState.isShowingInstallationSheet.toggle()
+                } label: {
+                    Text("Install Packages")
+                }
+                .keyboardShortcut("n")
+
+                Button
+                {
+                    appState.isShowingTapATapSheet.toggle()
+                } label: {
+                    Text("Tap a tap")
+                }
+                .keyboardShortcut("n", modifiers: [.command, .option])
+
+                Divider()
+
+                Button
+                {
+                    updateBrewPackages(updateProgressTracker, appState: appState)
+                } label: {
+                    Text("Update Packages")
+                }
+                .keyboardShortcut("r")
+
+                /* Divider()
+
+                 Button {
+                     print("Will uninstall packages")
+                 } label: {
+                     Text("Uninstall Package")
+                 }
+                  */
+            }
+
+            CommandMenu("Maintenance")
+            {
+                Button
+                {
+                    appState.isShowingMaintenanceSheet.toggle()
+                } label: {
+                    Text("Perform Brew Maintenance")
+                }
+                .keyboardShortcut("m")
+            }
+        }
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
-        
-        Settings {
+
+        Settings
+        {
             SettingsView()
         }
     }

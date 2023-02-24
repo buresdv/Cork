@@ -20,8 +20,6 @@ struct ContentView: View
 
     @State private var multiSelection = Set<UUID>()
 
-    @State private var isShowingInstallSheet: Bool = false
-    @State private var isShowingTapSheet: Bool = false
     @State private var isShowingAlert: Bool = false
     
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
@@ -44,7 +42,7 @@ struct ContentView: View
                 {
                     Button
                     {
-                        upgradeBrewPackages(updateProgressTracker)
+                        updateBrewPackages(updateProgressTracker, appState: appState)
                     } label: {
                         Label
                         {
@@ -53,13 +51,12 @@ struct ContentView: View
                             Image(systemName: "arrow.clockwise")
                         }
                     }
-                    .keyboardShortcut("r")
 
                     Spacer()
 
                     Button
                     {
-                        isShowingTapSheet.toggle()
+                        appState.isShowingTapATapSheet.toggle()
                     } label: {
                         Label
                         {
@@ -71,7 +68,7 @@ struct ContentView: View
 
                     Button
                     {
-                        isShowingInstallSheet.toggle()
+                        appState.isShowingInstallationSheet.toggle()
                     } label: {
                         Label
                         {
@@ -114,15 +111,15 @@ struct ContentView: View
                 brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
             }
         })
-        .sheet(isPresented: $isShowingInstallSheet)
+        .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
-            AddFormulaView(isShowingSheet: $isShowingInstallSheet)
+            AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet)
         }
-        .sheet(isPresented: $isShowingTapSheet)
+        .sheet(isPresented: $appState.isShowingTapATapSheet)
         {
-            AddTapView(isShowingSheet: $isShowingTapSheet, availableTaps: availableTaps)
+            AddTapView(isShowingSheet: $appState.isShowingTapATapSheet)
         }
-        .sheet(isPresented: $updateProgressTracker.showUpdateSheet)
+        .sheet(isPresented: $appState.isShowingUpdateSheet)
         {
             VStack
             {
