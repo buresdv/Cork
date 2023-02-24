@@ -14,7 +14,7 @@ enum InstallationError: Error
 }
 
 @MainActor
-func installPackage(installationProgressTracker: InstallationProgressTracker, brewData _: BrewDataStorage) async throws -> TerminalOutput
+func installPackage(installationProgressTracker: InstallationProgressTracker, brewData: BrewDataStorage) async throws -> TerminalOutput
 {
     print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
@@ -98,10 +98,9 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
         installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 10
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2)
-        {
-            installationProgressTracker.packagesBeingInstalled[0].installationStage = .finished
-        }
+        installationProgressTracker.packagesBeingInstalled[0].installationStage = .finished
+        
+        await synchronizeInstalledPackages(brewData: brewData)
     }
     else
     {

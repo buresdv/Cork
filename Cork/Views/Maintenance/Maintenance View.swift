@@ -20,6 +20,8 @@ enum MaintenanceSteps
 struct MaintenanceView: View
 {
     @Binding var isShowingSheet: Bool
+    
+    @EnvironmentObject var brewData: BrewDataStorage
 
     @State var maintenanceSteps: MaintenanceSteps = .ready
 
@@ -266,6 +268,13 @@ struct MaintenanceView: View
                 }
                 .padding()
                 .frame(minWidth: 300, minHeight: 150)
+                .onAppear
+                    {
+                        Task
+                        {
+                            await synchronizeInstalledPackages(brewData: brewData)
+                        }
+                    }
             }
         }
     }

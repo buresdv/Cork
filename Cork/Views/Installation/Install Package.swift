@@ -174,13 +174,13 @@ struct AddFormulaView: View
                                 switch packageBeingInstalled.installationStage
                                 {
                                     case .ready:
-                                        Text("Firing up...")
+                                        Text("Building Dependency Graph...")
                                         
                                     case .loadingDependencies:
                                         Text("Loading Dependencies...")
                                         
                                     case .fetchingDependencies:
-                                        Text("Fetching Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched)...")
+                                        Text("Fetching Dependencies...")
                                         
                                     case .installingDependencies:
                                         Text("Installing Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)/\(installationProgressTracker.numberOfPackageDependencies)...")
