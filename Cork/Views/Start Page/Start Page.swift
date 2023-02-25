@@ -120,6 +120,7 @@ struct StartPage: View
                                     GridRow(alignment: .firstTextBaseline)
                                     {
                                         GroupBoxHeadlineGroup(title: "You have \(brewData.installedFormulae.count) Formulae installed", mainText: "Formulae are usually apps that you run in a terminal")
+                                            .animation(.none, value: brewData.installedFormulae.count)
                                     }
 
                                     Divider()
@@ -127,6 +128,7 @@ struct StartPage: View
                                     GridRow(alignment: .firstTextBaseline)
                                     {
                                         GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks instaled", mainText: "Casks are usually graphical apps")
+                                            .animation(.none, value: brewData.installedCasks.count)
                                     }
 
                                     Divider()
@@ -134,6 +136,7 @@ struct StartPage: View
                                     GridRow(alignment: .firstTextBaseline)
                                     {
                                         GroupBoxHeadlineGroup(title: "You have \(availableTaps.tappedTaps.count) Taps tapped", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
+                                            .animation(.none, value: availableTaps.tappedTaps.count)
                                     }
                                 }
                             }

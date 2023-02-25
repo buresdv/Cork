@@ -12,9 +12,9 @@ struct SidebarView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
-    
+
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
-    
+
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
 
@@ -26,7 +26,7 @@ struct SidebarView: View
             {
                 if !appState.isLoadingFormulae
                 {
-                    ForEach(searchText.isEmpty ? brewData.installedFormulae : brewData.installedFormulae.filter({ $0.name.contains(searchText) }))
+                    ForEach(searchText.isEmpty ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
                     { formula in
                         NavigationLink
                         {
@@ -36,14 +36,15 @@ struct SidebarView: View
                         }
                         .contextMenu
                         {
-                            Button {
-                                Task{
+                            Button
+                            {
+                                Task
+                                {
                                     try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
                                 }
                             } label: {
-                                Text("Uninstall Formula")
+                                Text("Uninstall \(formula.name)")
                             }
-
                         }
                     }
                 }
@@ -52,31 +53,31 @@ struct SidebarView: View
                     ProgressView()
                 }
             }
-            
+
             Section("Installed Casks")
             {
                 if !appState.isLoadingCasks
                 {
-                    ForEach(searchText.isEmpty ? brewData.installedCasks : brewData.installedCasks.filter({ $0.name.contains(searchText) }))
+                    ForEach(searchText.isEmpty ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
                     { cask in
-                        NavigationLink {
+                        NavigationLink
+                        {
                             PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
                         } label: {
                             PackageListItem(packageItem: cask)
                         }
                         .contextMenu
                         {
-                            Button {
+                            Button
+                            {
                                 Task
                                 {
                                     try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
                                 }
                             } label: {
-                                Text("Uninstall Cask")
+                                Text("Uninstall \(cask.name)")
                             }
-
                         }
-
                     }
                 }
                 else
@@ -84,7 +85,7 @@ struct SidebarView: View
                     ProgressView()
                 }
             }
-            
+
             Section("Tapped Taps")
             {
                 if availableTaps.tappedTaps.count != 0
@@ -92,6 +93,19 @@ struct SidebarView: View
                     ForEach(availableTaps.tappedTaps)
                     { tap in
                         Text(tap.name)
+                            .contextMenu
+                            {
+                                Button {
+                                    Task(priority: .userInitiated)
+                                    {
+                                        print("Would untap \(tap.name)")
+                                        try await untapATap(tapName: tap.name, availableTaps: availableTaps)
+                                    }
+                                } label: {
+                                    Text("Untap \(tap.name)")
+                                }
+
+                            }
                     }
                 }
                 else

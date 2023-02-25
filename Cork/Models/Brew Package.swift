@@ -22,7 +22,7 @@ struct BrewPackage: Identifiable, Equatable
     func convertDateToPresentableFormat(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm E, d MMM y"
+        dateFormatter.dateFormat = "d MMM y (E), HH:mm"
 
         return dateFormatter.string(from: date)
     }

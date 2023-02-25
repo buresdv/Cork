@@ -6,26 +6,7 @@
 //
 
 import Foundation
-
-enum BrewCommands
-{
-    case search, info, install, delete
-}
-
-/*
- func executeBrewCommand(commandType: BrewCommands, argument: String? = nil) -> String {
-     switch commandType {
-     case .search:
-         <#code#>
-     case .info:
-         <#code#>
-     case .install:
-         <#code#>
-     case .delete:
-         <#code#>
-     }
- }
- */
+import SwiftUI
 
 struct SearchResults
 {
@@ -67,4 +48,30 @@ func tapAtap(tapName: String) async -> String
     print("Tapping result: \(tapResult)")
     
     return tapResult
+}
+
+enum UntapError: Error
+{
+    case couldNotUntap
+}
+
+func untapATap(tapName: String, availableTaps: AvailableTaps) async throws -> Void
+{
+    let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", tapName]).standardError
+    print("Untapping result: \(untapResult)")
+    
+    if untapResult.contains("Untapped")
+    {
+        print("Untapping was successful")
+        DispatchQueue.main.async {
+            withAnimation {
+                availableTaps.tappedTaps.removeAll(where: { $0.name == tapName })
+            }
+        }
+    }
+    else
+    {
+        print("Untapping failed")
+        throw UntapError.couldNotUntap
+    }
 }

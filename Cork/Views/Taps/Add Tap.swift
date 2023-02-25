@@ -139,6 +139,11 @@ struct AddTapView: View
                             .onAppear
                             {
                                 availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
+                                
+                                /// Remove that one element of the array that's empty for some reason
+                                availableTaps.tappedTaps.removeAll(where: { $0.name == "" })
+                                
+                                print("Available taps: \(availableTaps.tappedTaps)")
                             }
                     }
                 }
