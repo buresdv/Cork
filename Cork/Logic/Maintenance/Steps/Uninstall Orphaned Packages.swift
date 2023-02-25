@@ -9,20 +9,19 @@ import Foundation
 
 enum OrphanUninstallationError: Error
 {
-    case standardErrorNotEmpty
+    case unexpectedCommandOutput
 }
 
 func uninstallOrphanedPackages() async throws -> TerminalOutput
 {
-    async let commandResult: TerminalOutput = await shell("/opt/homebrew/bin/brew", ["autoremove"])
+    let commandResult: TerminalOutput = await shell("/opt/homebrew/bin/brew", ["autoremove"])
     
-    if await commandResult.standardError != ""
+    if !commandResult.standardOutput.contains("Autoremoving")
     {
-        print("ERROR: \(await commandResult.standardError)")
-        throw OrphanUninstallationError.standardErrorNotEmpty
+        throw OrphanUninstallationError.unexpectedCommandOutput
     }
     else
     {
-        return await commandResult
+        return commandResult
     }
 }

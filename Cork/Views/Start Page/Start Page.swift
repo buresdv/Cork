@@ -151,7 +151,7 @@ struct StartPage: View
                                         GridRow(alignment: .center) {
                                             HStack
                                             {
-                                                GroupBoxHeadlineGroup(title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads", mainText: "These files were used for installing packages.")
+                                                GroupBoxHeadlineGroup(title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads", mainText: "These files were used for installing packages.\nThey are safe to remove.")
                                                 
                                                 Spacer()
                                                 

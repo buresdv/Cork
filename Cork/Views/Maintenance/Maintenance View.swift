@@ -53,61 +53,7 @@ struct MaintenanceView: View
             case .ready:
                 SheetWithTitle(title: "Perform Brew maintenance")
                 {
-                    VStack(alignment: .leading, spacing: 10)
-                    {
-                        Form
-                        {
-                            LabeledContent("Packages:")
-                            {
-                                VStack(alignment: .leading)
-                                {
-                                    Toggle(isOn: $shouldUninstallOrphans)
-                                    {
-                                        Text("Uninstall orphaned packages")
-                                    }
-                                }
-                            }
-
-                            LabeledContent("Downloads:")
-                            {
-                                VStack(alignment: .leading)
-                                {
-                                    Toggle(isOn: $shouldPurgeCache)
-                                    {
-                                        Text("Purge Brew cache")
-                                    }
-                                    Toggle(isOn: $shouldDeleteDownloads)
-                                    {
-                                        Text("Delete cached downloads")
-                                    }
-                                }
-                            }
-
-                            LabeledContent("Other:")
-                            {
-                                Toggle(isOn: $shouldPerformHealthCheck)
-                                {
-                                    Text("Perform health check")
-                                }
-                            }
-                        }
-
-                        HStack
-                        {
-                            DismissSheetButton(isShowingSheet: $isShowingSheet)
-
-                            Spacer()
-
-                            Button
-                            {
-                                print("Start")
-                                maintenanceSteps = .maintenanceRunning
-                            } label: {
-                                Text("Start Maintenance")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                        }
-                    }
+                    MaintenanceReadyView(shouldUninstallOrphans: $shouldUninstallOrphans, shouldPurgeCache: $shouldPurgeCache, shouldDeleteDownloads: $shouldDeleteDownloads, shouldPerformHealthCheck: $shouldPerformHealthCheck, isShowingSheet: $isShowingSheet, maintenanceSteps: $maintenanceSteps, isShowingControlButtons: true)
                 }
                 .padding()
 

@@ -19,6 +19,12 @@ struct SettingsView: View
                     Label("General", systemImage: "gearshape")
                 }
 
+            MaintenancePane()
+                .tabItem
+                {
+                    Label("Maintenance", systemImage: "arrow.3.trianglepath")
+                }
+
             InstallationAndUninstallationPane()
                 .tabItem
                 {

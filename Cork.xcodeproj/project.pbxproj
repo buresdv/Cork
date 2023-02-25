@@ -36,6 +36,8 @@
 		6342117A29AA52B900E2563B /* Delete Cached Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117929AA52B900E2563B /* Delete Cached Downloads.swift */; };
 		6342117C29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117B29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift */; };
 		6342117E29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117D29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift */; };
+		6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */; };
+		6342118329AA9CF100E2563B /* Ready View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342118229AA9CF100E2563B /* Ready View.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -120,6 +122,8 @@
 		6342117929AA52B900E2563B /* Delete Cached Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete Cached Downloads.swift"; sourceTree = "<group>"; };
 		6342117B29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Convert Folder Size to Presentable Format.swift"; sourceTree = "<group>"; };
 		6342117D29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64 - Convert Sirectory Size to Presentable Format.swift"; sourceTree = "<group>"; };
+		6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance Pane.swift"; sourceTree = "<group>"; };
+		6342118229AA9CF100E2563B /* Ready View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ready View.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -306,6 +310,14 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
+		6342118129AA9CE300E2563B /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				6342118229AA9CF100E2563B /* Ready View.swift */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
 		6371EA1C2871D96800300E1B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +496,7 @@
 			children = (
 				63D51F67299A9A6000203F3F /* Installation Pane.swift */,
 				6382C8FA299D6E5D00354B19 /* General Pane.swift */,
+				6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -499,6 +512,7 @@
 		63D51F6C299AAFC600203F3F /* Maintenance */ = {
 			isa = PBXGroup;
 			children = (
+				6342118129AA9CE300E2563B /* Sub-Views */,
 				63D51F6D299AAFE500203F3F /* Maintenance View.swift */,
 			);
 			path = Maintenance;
@@ -658,6 +672,7 @@
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,
 				6342117829AA500300E2563B /* Check if URL is Symlink.swift in Sources */,
+				6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
 				637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
@@ -689,6 +704,7 @@
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
 				63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */,
+				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				63D51F62299A873000203F3F /* Extract Package Version from Terminal Output.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
