@@ -99,11 +99,16 @@ struct SidebarView: View
                                     Task(priority: .userInitiated)
                                     {
                                         print("Would untap \(tap.name)")
-                                        try await untapATap(tapName: tap.name, availableTaps: availableTaps)
+                                        try await untapATap(tapName: tap.name, availableTaps: availableTaps, appState: appState)
                                     }
                                 } label: {
                                     Text("Untap \(tap.name)")
                                 }
+                                .alert(isPresented: $appState.isShowingUntappingFailedAlert, content: {
+                                    Alert(title: Text("Cound not untap \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
+                                        appState.isShowingUntappingFailedAlert = false
+                                    }))
+                                })
 
                             }
                     }

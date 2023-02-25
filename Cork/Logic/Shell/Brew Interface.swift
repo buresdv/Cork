@@ -55,7 +55,7 @@ enum UntapError: Error
     case couldNotUntap
 }
 
-func untapATap(tapName: String, availableTaps: AvailableTaps) async throws -> Void
+func untapATap(tapName: String, availableTaps: AvailableTaps, appState: AppState) async throws -> Void
 {
     let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", tapName]).standardError
     print("Untapping result: \(untapResult)")
@@ -72,6 +72,9 @@ func untapATap(tapName: String, availableTaps: AvailableTaps) async throws -> Vo
     else
     {
         print("Untapping failed")
+        
+        appState.isShowingUntappingFailedAlert = true
+        
         throw UntapError.couldNotUntap
     }
 }
