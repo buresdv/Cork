@@ -28,8 +28,6 @@ struct BrewPackage: Identifiable, Equatable
     }
     func convertSizeToPresentableFormat(size: Int64) -> String
     {
-        let byteFormatter = ByteCountFormatter()
-        
-        return byteFormatter.string(fromByteCount: size)
+        return convertDirectorySizeToPresentableFormat(size: size)
     }
 }

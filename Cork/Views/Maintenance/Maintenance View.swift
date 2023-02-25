@@ -20,14 +20,16 @@ enum MaintenanceSteps
 struct MaintenanceView: View
 {
     @Binding var isShowingSheet: Bool
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var appState: AppState
 
     @State var maintenanceSteps: MaintenanceSteps = .ready
 
     @State var currentMaintenanceStepText: String = "Firing up..."
 
     @State var shouldPurgeCache: Bool = true
+    @State var shouldDeleteDownloads: Bool = true
     @State var shouldUninstallOrphans: Bool = true
     @State var shouldPerformHealthCheck: Bool = false
 
@@ -40,6 +42,8 @@ struct MaintenanceView: View
 
     @State var maintenanceFoundNoProblems: Bool = true
 
+    @State var reclaimedSpaceAfterCachePurge: String = ""
+    
     var body: some View
     {
         VStack(alignment: .leading, spacing: 10)
@@ -61,9 +65,20 @@ struct MaintenanceView: View
                                     {
                                         Text("Uninstall orphaned packages")
                                     }
+                                }
+                            }
+
+                            LabeledContent("Downloads:")
+                            {
+                                VStack(alignment: .leading)
+                                {
                                     Toggle(isOn: $shouldPurgeCache)
                                     {
                                         Text("Purge Brew cache")
+                                    }
+                                    Toggle(isOn: $shouldDeleteDownloads)
+                                    {
+                                        Text("Delete cached downloads")
                                     }
                                 }
                             }
@@ -115,7 +130,7 @@ struct MaintenanceView: View
                                         print("Orphan removal output: \(orphanUninstallationOutput)")
 
                                         let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
-    
+
                                         numberOfOrphansRemoved = Int(try regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex)) ?? 0
                                     }
                                     catch let orphanUninstallatioError as NSError
@@ -137,7 +152,6 @@ struct MaintenanceView: View
 
                                     if cachePurgeOutput.standardError.contains("Warning: Skipping")
                                     { // Here, we'll write out all the packages that are blocking updating
-                                        
                                         var packagesHoldingBackCachePurgeInitialArray = cachePurgeOutput.standardError.components(separatedBy: "Warning:") // The output has these packages in one giant list. Split them into an array so we can iterate over them and extract their names
                                         // I can't just try to regex-match on the raw output, because it will only match the first package in that case
 
@@ -147,8 +161,6 @@ struct MaintenanceView: View
                                         {
                                             print("Blocking package: \(blockingPackageRaw)")
 
-                                            
-                                            
                                             let packageHoldingBackCachePurgeNameRegex = "(?<=Skipping ).*?(?=:)"
 
                                             let packageHoldingBackCachePurgeName = try regexMatch(from: blockingPackageRaw, regex: packageHoldingBackCachePurgeNameRegex)
@@ -164,6 +176,22 @@ struct MaintenanceView: View
                                 else
                                 {
                                     print("Will not purge cache")
+                                }
+
+                                if shouldDeleteDownloads
+                                {
+                                    print("Will delete downloads")
+                                    
+                                    currentMaintenanceStepText = "Deleting cached downloads..."
+                                    
+                                    deleteCachedDownloads()
+                                    
+                                    /// I have to assign the original value of the appState variable to a different variable, because when it updates at the end of the process, I don't want it to update in the result overview
+                                    reclaimedSpaceAfterCachePurge = appState.cachedDownloadsFolderSize
+                                }
+                                else
+                                {
+                                    print("Will not delete downloads")
                                 }
 
                                 if shouldPerformHealthCheck
@@ -230,6 +258,16 @@ struct MaintenanceView: View
                                     }
                                 }
                             }
+                            
+                            if shouldDeleteDownloads
+                            {
+                                VStack(alignment: .leading) {
+                                    Text("Cached downloads deleted")
+                                    Text("You reclaimed about \(reclaimedSpaceAfterCachePurge)")
+                                        .font(.caption)
+                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                }
+                            }
 
                             if shouldPerformHealthCheck
                             {
@@ -269,12 +307,14 @@ struct MaintenanceView: View
                 .padding()
                 .frame(minWidth: 300, minHeight: 150)
                 .onAppear
+                {
+                    appState.cachedDownloadsFolderSize = convertDirectorySizeToPresentableFormat(size: directorySize(url: AppConstants.brewCachePath))
+                    
+                    Task
                     {
-                        Task
-                        {
-                            await synchronizeInstalledPackages(brewData: brewData)
-                        }
+                        await synchronizeInstalledPackages(brewData: brewData)
                     }
+                }
             }
         }
     }

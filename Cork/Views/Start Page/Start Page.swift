@@ -140,6 +140,21 @@ struct StartPage: View
                                     }
                                 }
                             }
+                            
+                            GroupBox
+                            {
+                                Grid(alignment: .leading) {
+                                    GridRow(alignment: .center) {
+                                        GroupBoxHeadlineGroup(title: "You have about \(appState.cachedDownloadsFolderSize) of cached downloads", mainText: "These files were used for installing packages.\nYou can delete them by performing Brew maintenance.")
+                                        Button {
+                                            appState.isShowingMaintenanceSheet = true
+                                        } label: {
+                                            Text("Delete Cached Downloads")
+                                        }
+
+                                    }
+                                }
+                            }
                         }
                     }
 

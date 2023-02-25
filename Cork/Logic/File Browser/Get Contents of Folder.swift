@@ -40,19 +40,22 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
                 }
 
                 print("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
-                
+
                 /// What the fuck?
                 let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
-                
+
                 let folderSizeRaw: Int64? = directorySize(url: targetFolder.appendingPathComponent(item, conformingTo: .directory))
-                
+
                 print("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn) \n")
-                
-                //let installedOn: Date? = try? URL(string: item)!.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
-                
-                if targetFolder.path.contains("Cellar") {
+
+                // let installedOn: Date? = try? URL(string: item)!.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
+
+                if targetFolder.path.contains("Cellar")
+                {
                     contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
-                } else {
+                }
+                else
+                {
                     contentsOfFolder.append(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
                 }
 
@@ -67,6 +70,22 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
     catch let error as NSError
     {
         print("Failed while accessing foldeR: \(error)")
+    }
+
+    return contentsOfFolder
+}
+
+func getContentsOfFolder(targetFolder: URL) -> [URL]
+{
+    var contentsOfFolder: [URL] = .init()
+
+    do
+    {
+        contentsOfFolder = try FileManager.default.contentsOfDirectory(at: targetFolder, includingPropertiesForKeys: nil)
+    }
+    catch let folderReadingError as NSError
+    {
+        print(folderReadingError.localizedDescription)
     }
 
     return contentsOfFolder

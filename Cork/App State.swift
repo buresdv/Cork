@@ -22,4 +22,6 @@ class AppState: ObservableObject {
     
     @Published var isLoadingFormulae: Bool = true
     @Published var isLoadingCasks: Bool = true
+    
+    @Published var cachedDownloadsFolderSize: String = convertDirectorySizeToPresentableFormat(size: directorySize(url: AppConstants.brewCachePath))
 }
