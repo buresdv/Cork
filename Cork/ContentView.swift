@@ -32,7 +32,7 @@ struct ContentView: View
             {
                 SidebarView()
 
-                StartPage(updateProgressTracker: updateProgressTracker)
+                StartPage()
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")

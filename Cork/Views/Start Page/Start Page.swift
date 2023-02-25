@@ -13,8 +13,8 @@ struct StartPage: View
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var appState: AppState
-
-    @State var updateProgressTracker: UpdateProgressTracker
+    
+    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @State private var isLoadingUpgradeablePackages = true
     @State private var upgradeablePackages: [BrewPackage] = .init()
