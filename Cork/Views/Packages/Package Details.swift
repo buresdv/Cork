@@ -15,17 +15,20 @@ class SelectedPackageInfo: ObservableObject
 struct PackageDetailView: View
 {
     @State var package: BrewPackage
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
 
     @StateObject var packageInfo: SelectedPackageInfo
-    
+
     @EnvironmentObject var appState: AppState
 
     @State private var description: String = ""
     @State private var homepage: String = ""
     @State private var tap: String = ""
-    
+
+    @State private var dependencies: [String] = .init()
+
+    @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
 
     var body: some View
@@ -34,14 +37,15 @@ struct PackageDetailView: View
         {
             VStack(alignment: .leading, spacing: 5)
             {
-                HStack(alignment: .firstTextBaseline, spacing: 5) {
+                HStack(alignment: .firstTextBaseline, spacing: 5)
+                {
                     Text(package.name)
                         .font(.title)
                     Text("v. \(returnFormattedVersions(package.versions))")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
-                
+
                 if packageInfo.contents != nil
                 {
                     Text(description)
@@ -59,7 +63,7 @@ struct PackageDetailView: View
                 {
                     Text("Package Info")
                         .font(.title2)
-                    
+
                     GroupBox
                     {
                         Grid(alignment: .leading)
@@ -69,9 +73,9 @@ struct PackageDetailView: View
                                 Text("Tap")
                                 Text(tap)
                             }
-                            
+
                             Divider()
-                            
+
                             GridRow(alignment: .top)
                             {
                                 Text("Type")
@@ -84,21 +88,21 @@ struct PackageDetailView: View
                                     Text("Formula")
                                 }
                             }
-                            
+
                             Divider()
-                            
+
                             GridRow(alignment: .top)
                             {
                                 Text("Homepage")
                                 Text(.init(homepage))
                             }
                         }
-
                     }
-                    
+
                     if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
                     {
-                        GroupBox {
+                        GroupBox
+                        {
                             Grid(alignment: .leading)
                             {
                                 GridRow(alignment: .top)
@@ -106,25 +110,28 @@ struct PackageDetailView: View
                                     Text("Installed On")
                                     Text(package.convertDateToPresentableFormat(date: installedOnDate))
                                 }
-                                
+
                                 if let packageSize = package.sizeInBytes
                                 {
                                     Divider()
-                                    
+
                                     GridRow(alignment: .top)
                                     {
                                         Text("Size")
-                                        
+
                                         HStack
                                         {
                                             Text(package.convertSizeToPresentableFormat(size: packageSize))
-                                            
-                                            if package.isCask {
-                                                HelpButton {
+
+                                            if package.isCask
+                                            {
+                                                HelpButton
+                                                {
                                                     isShowingPopover.toggle()
                                                 }
                                                 .help("Why is the size so small?")
-                                                .popover(isPresented: $isShowingPopover) {
+                                                .popover(isPresented: $isShowingPopover)
+                                                {
                                                     VStack(alignment: .leading, spacing: 10)
                                                     {
                                                         Text("Why is the size so small?")
@@ -143,6 +150,28 @@ struct PackageDetailView: View
                         }
                     }
                 }
+
+                if dependencies != []
+                {
+                    VStack(alignment: .leading)
+                    {
+                        DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
+                        {}
+
+                        if isShowingDependencies
+                        {
+                            List
+                            {
+                                ForEach(dependencies, id: \.self)
+                                { dependency in
+                                    Text(dependency)
+                                }
+                            }
+                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                            .frame(height: 100)
+                        }
+                    }
+                }
             }
 
             Spacer()
@@ -152,11 +181,11 @@ struct PackageDetailView: View
                 HStack
                 {
                     Spacer()
-                    
+
                     HStack(spacing: 15)
                     {
                         UninstallationProgressWheel()
-                        
+
                         Button(role: .destructive)
                         {
                             Task
@@ -176,6 +205,10 @@ struct PackageDetailView: View
         {
             Task
             {
+                let dependenciesRaw = await shell("/opt/homebrew/bin/brew", ["deps", "--installed", package.name]).standardOutput
+                dependencies = dependenciesRaw.components(separatedBy: "\n")
+                dependencies.removeLast()
+
                 if !package.isCask
                 {
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package.name]).standardOutput
