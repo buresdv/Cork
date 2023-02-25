@@ -151,7 +151,7 @@ struct StartPage: View
                                         GridRow(alignment: .center) {
                                             HStack
                                             {
-                                                GroupBoxHeadlineGroup(title: "You have about \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads", mainText: "These files were used for installing packages.")
+                                                GroupBoxHeadlineGroup(title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads", mainText: "These files were used for installing packages.")
                                                 
                                                 Spacer()
                                                 
@@ -159,9 +159,6 @@ struct StartPage: View
                                                     appState.isShowingFastCacheDeletionMaintenanceView = true
                                                 } label: {
                                                     Text("Delete Cached Downloads")
-                                                }
-                                                .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView) {
-                                                    MaintenanceView(isShowingSheet: $appState.isShowingFastCacheDeletionMaintenanceView, shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false)
                                                 }
                                             }
 
@@ -201,10 +198,6 @@ struct StartPage: View
                 upgradeablePackages = await getListOfUpgradeablePackages()
                 isLoadingUpgradeablePackages = false
             }
-        }
-        .sheet(isPresented: $appState.isShowingMaintenanceSheet)
-        {
-            MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)
         }
     }
 }

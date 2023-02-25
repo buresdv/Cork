@@ -125,5 +125,12 @@ struct SidebarView: View
         .listStyle(.sidebar)
         .frame(minWidth: 200)
         .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
+        .sheet(isPresented: $appState.isShowingMaintenanceSheet)
+        {
+            MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)
+        }
+        .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView) {
+            MaintenanceView(isShowingSheet: $appState.isShowingFastCacheDeletionMaintenanceView, shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false)
+        }
     }
 }
