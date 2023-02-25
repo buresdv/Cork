@@ -86,36 +86,39 @@ struct SidebarView: View
                 }
             }
 
-            Section("Tapped Taps")
+            if searchText.isEmpty
             {
-                if availableTaps.tappedTaps.count != 0
+                Section("Tapped Taps")
                 {
-                    ForEach(availableTaps.tappedTaps)
-                    { tap in
-                        Text(tap.name)
-                            .contextMenu
-                            {
-                                Button {
-                                    Task(priority: .userInitiated)
-                                    {
-                                        print("Would untap \(tap.name)")
-                                        try await untapATap(tapName: tap.name, availableTaps: availableTaps, appState: appState)
+                    if availableTaps.tappedTaps.count != 0
+                    {
+                        ForEach(availableTaps.tappedTaps)
+                        { tap in
+                            Text(tap.name)
+                                .contextMenu
+                                {
+                                    Button {
+                                        Task(priority: .userInitiated)
+                                        {
+                                            print("Would untap \(tap.name)")
+                                            try await untapATap(tapName: tap.name, availableTaps: availableTaps, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("Untap \(tap.name)")
                                     }
-                                } label: {
-                                    Text("Untap \(tap.name)")
-                                }
-                                .alert(isPresented: $appState.isShowingUntappingFailedAlert, content: {
-                                    Alert(title: Text("Cound not untap \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
-                                        appState.isShowingUntappingFailedAlert = false
-                                    }))
-                                })
+                                    .alert(isPresented: $appState.isShowingUntappingFailedAlert, content: {
+                                        Alert(title: Text("Cound not untap \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
+                                            appState.isShowingUntappingFailedAlert = false
+                                        }))
+                                    })
 
-                            }
+                                }
+                        }
                     }
-                }
-                else
-                {
-                    ProgressView()
+                    else
+                    {
+                        ProgressView()
+                    }
                 }
             }
         }
