@@ -98,6 +98,28 @@ struct PackageDetailView: View
                             }
                         }
                     }
+                    
+                    if dependencies != []
+                    {
+                        GroupBox
+                        {
+                            DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
+                            {}
+
+                            if isShowingDependencies
+                            {
+                                List
+                                {
+                                    ForEach(dependencies, id: \.self)
+                                    { dependency in
+                                        Text(dependency)
+                                    }
+                                }
+                                .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                .frame(height: 100)
+                            }
+                        }
+                    }
 
                     if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
                     {
@@ -147,28 +169,6 @@ struct PackageDetailView: View
                                     }
                                 }
                             }
-                        }
-                    }
-                }
-
-                if dependencies != []
-                {
-                    VStack(alignment: .leading)
-                    {
-                        DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
-                        {}
-
-                        if isShowingDependencies
-                        {
-                            List
-                            {
-                                ForEach(dependencies, id: \.self)
-                                { dependency in
-                                    Text(dependency)
-                                }
-                            }
-                            .listStyle(.bordered(alternatesRowBackgrounds: true))
-                            .frame(height: 100)
                         }
                     }
                 }
