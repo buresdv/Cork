@@ -35,6 +35,7 @@
 		6342117829AA500300E2563B /* Check if URL is Symlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117729AA500300E2563B /* Check if URL is Symlink.swift */; };
 		6342117A29AA52B900E2563B /* Delete Cached Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117929AA52B900E2563B /* Delete Cached Downloads.swift */; };
 		6342117C29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117B29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift */; };
+		6342117E29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117D29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -118,6 +119,7 @@
 		6342117729AA500300E2563B /* Check if URL is Symlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check if URL is Symlink.swift"; sourceTree = "<group>"; };
 		6342117929AA52B900E2563B /* Delete Cached Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete Cached Downloads.swift"; sourceTree = "<group>"; };
 		6342117B29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Convert Folder Size to Presentable Format.swift"; sourceTree = "<group>"; };
+		6342117D29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64 - Convert Sirectory Size to Presentable Format.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				63CD0275288B22D9004AE2EC /* View - New Windows.swift */,
 				63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */,
 				63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */,
+				6342117D29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				63958D00287735F800E0B807 /* About View.swift in Sources */,
 				639A7D862871D78C00B50280 /* Package Details.swift in Sources */,
 				634065652871AA42001A2178 /* CorkApp.swift in Sources */,
+				6342117E29AA667500E2563B /* Int64 - Convert Sirectory Size to Presentable Format.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

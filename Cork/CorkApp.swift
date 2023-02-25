@@ -104,6 +104,17 @@ struct CorkApp: App
                     Text("Perform Brew Maintenance")
                 }
                 .keyboardShortcut("m")
+                
+                if appState.cachedDownloadsFolderSize != 0
+                {
+                    Button {
+                        appState.isShowingFastCacheDeletionMaintenanceView.toggle()
+                    } label: {
+                        Text("Delete Cached Downloads")
+                    }
+                    .keyboardShortcut("m", modifiers: [.command, .option])
+                }
+
             }
         }
         .windowStyle(.automatic)

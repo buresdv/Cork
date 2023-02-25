@@ -12,6 +12,7 @@ class AppState: ObservableObject {
     @Published var isShowingInstallationSheet: Bool = false
     @Published var isShowingUninstallationSheet: Bool = false
     @Published var isShowingMaintenanceSheet: Bool = false
+    @Published var isShowingFastCacheDeletionMaintenanceView: Bool = false
     @Published var isShowingTapATapSheet: Bool = false
     @Published var isShowingUpdateSheet: Bool = false
     
@@ -23,5 +24,5 @@ class AppState: ObservableObject {
     @Published var isLoadingFormulae: Bool = true
     @Published var isLoadingCasks: Bool = true
     
-    @Published var cachedDownloadsFolderSize: String = convertDirectorySizeToPresentableFormat(size: directorySize(url: AppConstants.brewCachePath))
+    @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
 }

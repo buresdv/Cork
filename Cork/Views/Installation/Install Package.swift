@@ -14,6 +14,7 @@ struct AddFormulaView: View
     @State private var packageRequested: String = ""
 
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var appState: AppState
 
     @State private var foundPackageSelection = Set<UUID>()
 
@@ -237,6 +238,10 @@ struct AddFormulaView: View
                         HeadlineWithSubheadline(headline: "Packages successfuly installed", subheadline: "There were no errors", alignment: .leading)
                     }
                 }
+                .onAppear
+                    {
+                        appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
+                    }
             }
         }
         .padding()

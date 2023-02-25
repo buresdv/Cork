@@ -42,7 +42,7 @@ struct MaintenanceView: View
 
     @State var maintenanceFoundNoProblems: Bool = true
 
-    @State var reclaimedSpaceAfterCachePurge: String = ""
+    @State var reclaimedSpaceAfterCachePurge: Int64 = 0
     
     var body: some View
     {
@@ -263,7 +263,7 @@ struct MaintenanceView: View
                             {
                                 VStack(alignment: .leading) {
                                     Text("Cached downloads deleted")
-                                    Text("You reclaimed about \(reclaimedSpaceAfterCachePurge)")
+                                    Text("You reclaimed about \(convertDirectorySizeToPresentableFormat(size: reclaimedSpaceAfterCachePurge))")
                                         .font(.caption)
                                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                                 }
@@ -285,7 +285,7 @@ struct MaintenanceView: View
                                 }
                             }
                         }
-                        .frame(maxWidth: 200)
+                        //.frame(maxWidth: 200)
 
                         Spacer()
 
@@ -296,20 +296,20 @@ struct MaintenanceView: View
                             Button
                             {
                                 isShowingSheet.toggle()
+                                
+                                appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
                             } label: {
                                 Text("Close")
                             }
                             .keyboardShortcut(.defaultAction)
                         }
                     }
-                    .fixedSize(horizontal: false, vertical: true)
+                    //.fixedSize(horizontal: false, vertical: true)
                 }
                 .padding()
-                .frame(minWidth: 300, minHeight: 150)
+                //.frame(minWidth: 300, minHeight: 150)
                 .onAppear
                 {
-                    appState.cachedDownloadsFolderSize = convertDirectorySizeToPresentableFormat(size: directorySize(url: AppConstants.brewCachePath))
-                    
                     Task
                     {
                         await synchronizeInstalledPackages(brewData: brewData)

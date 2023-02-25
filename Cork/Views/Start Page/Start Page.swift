@@ -18,6 +18,8 @@ struct StartPage: View
 
     @State private var isLoadingUpgradeablePackages = true
     @State private var upgradeablePackages: [BrewPackage] = .init()
+    
+    @State private var isShowingFastCacheDeletionMaintenanceView: Bool = false
 
     @State private var isDisclosureGroupExpanded: Bool = false
 
@@ -127,7 +129,7 @@ struct StartPage: View
 
                                     GridRow(alignment: .firstTextBaseline)
                                     {
-                                        GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks instaled", mainText: "Casks are usually graphical apps")
+                                        GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks installed", mainText: "Casks are usually graphical apps")
                                             .animation(.none, value: brewData.installedCasks.count)
                                     }
 
@@ -141,17 +143,30 @@ struct StartPage: View
                                 }
                             }
                             
-                            GroupBox
+                            if appState.cachedDownloadsFolderSize != 0
                             {
-                                Grid(alignment: .leading) {
-                                    GridRow(alignment: .center) {
-                                        GroupBoxHeadlineGroup(title: "You have about \(appState.cachedDownloadsFolderSize) of cached downloads", mainText: "These files were used for installing packages.\nYou can delete them by performing Brew maintenance.")
-                                        Button {
-                                            appState.isShowingMaintenanceSheet = true
-                                        } label: {
-                                            Text("Delete Cached Downloads")
-                                        }
+                                GroupBox
+                                {
+                                    Grid(alignment: .leading) {
+                                        GridRow(alignment: .center) {
+                                            HStack
+                                            {
+                                                GroupBoxHeadlineGroup(title: "You have about \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads", mainText: "These files were used for installing packages.")
+                                                
+                                                Spacer()
+                                                
+                                                Button {
+                                                    appState.isShowingFastCacheDeletionMaintenanceView = true
+                                                } label: {
+                                                    Text("Delete Cached Downloads")
+                                                }
+                                                .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView) {
+                                                    MaintenanceView(isShowingSheet: $appState.isShowingFastCacheDeletionMaintenanceView, shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false)
+                                                }
+                                            }
 
+                                        }
+                                        
                                     }
                                 }
                             }
