@@ -24,6 +24,9 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
     if !installationProgressTracker.packagesBeingInstalled[0].package.isCask
     {
+        
+        print("Package is Formula")
+        
         for await output in shell("/opt/homebrew/bin/brew", ["install", installationProgressTracker.packagesBeingInstalled[0].package.name])
         {
             switch output
@@ -99,30 +102,71 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
         installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 10
         
         installationProgressTracker.packagesBeingInstalled[0].installationStage = .finished
-        
-        await synchronizeInstalledPackages(brewData: brewData)
+    
     }
     else
     {
-        /* async let installationResultComplete: TerminalOutput = await shell("/opt/homebrew/bin/brew", ["install", "--cask", package.name])
-
-         print("Result for installing Cask \(package.name): \(await installationResultComplete)")
-
-         if await installationResultComplete.standardError.contains("error")
-         {
-             throw InstallationError.outputHadErrors
-         }
-         else
-         {
-             installationResult = await installationResultComplete
-
-             try withAnimation
-             {
-                 #warning("This fails to get the version for some reason. Figure out why")
-                 brewData.installedCasks.append(BrewPackage(name: package.name, isCask: package.isCask, installedOn: package.installedOn, versions: [try extractPackageVersionFromTerminalOutput(terminalOutput: installationResult, packageBeingInstalled: package)], sizeInBytes: package.sizeInBytes))
-             }
-         } */
+        print("Package is Cask")
+        print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+        
+        for await output in shell("/opt/homebrew/bin/brew", ["install", "--no-quarantine", installationProgressTracker.packagesBeingInstalled[0].package.name])
+        {
+            switch output
+            {
+                case let .standardOutput(outputLine):
+                    print("Output line: \(outputLine)")
+                    
+                    if outputLine.contains("Downloading")
+                    {
+                        print("Will download Cask")
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].installationStage = .downloadingCask
+                        
+                        
+                    } else if outputLine.contains("Installing Cask")
+                    {
+                        print("Will install Cask")
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingCask
+                        
+                        
+                    } else if outputLine.contains("Moving App")
+                    {
+                        print("Moving App")
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].installationStage = .movingCask
+                    } else if outputLine.contains("Linking binary") {
+                        
+                        print("Linking Binary")
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].installationStage = .linkingCaskBinary
+                        
+                    } else if outputLine.contains("\(installationProgressTracker.packagesBeingInstalled[0].package.name) was successfully installed")
+                    {
+                        print("Finished installing app")
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].installationStage = .finished
+                        
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 10
+                        
+                    }
+                    
+                case let .standardError(errorLine):
+                    print("Line had error: \(errorLine)")
+            }
+        }
+        
     }
+    
+    await synchronizeInstalledPackages(brewData: brewData)
 
     return installationResult
 }

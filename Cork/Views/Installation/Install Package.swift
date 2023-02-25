@@ -176,6 +176,7 @@ struct AddFormulaView: View
                                     case .ready:
                                         Text("Building Dependency Graph...")
                                         
+                                    // FORMULAE
                                     case .loadingDependencies:
                                         Text("Loading Dependencies...")
                                         
@@ -190,6 +191,19 @@ struct AddFormulaView: View
                                         
                                     case .finished:
                                         Text("Done!")
+                                        
+                                    // CASKS
+                                    case .downloadingCask:
+                                        Text("Downloading \(installationProgressTracker.packagesBeingInstalled[0].package.name)...")
+                                        
+                                    case .installingCask:
+                                        Text("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name)...")
+                                        
+                                    case .linkingCaskBinary:
+                                        Text("Linking Binaries...")
+                                        
+                                    case .movingCask:
+                                        Text("Moving \(installationProgressTracker.packagesBeingInstalled[0].package.name) into the Applications Directory...")
                                 }
                             }
                         }
