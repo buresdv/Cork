@@ -8,6 +8,15 @@
         "branch" : "main",
         "revision" : "689acd5965a72ead24fafe692b7345aaeb4bea69"
       }
+    },
+    {
+      "identity" : "swiftyjson#why-is-the-typical-json-handling-in-swift-not-good",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON#why-is-the-typical-json-handling-in-swift-not-good",
+      "state" : {
+        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
+        "version" : "5.0.1"
+      }
     }
   ],
   "version" : 2

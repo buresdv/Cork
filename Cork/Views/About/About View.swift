@@ -12,6 +12,7 @@ struct AboutView: View
 {
     @State private var usedPackages: [UsedPackage] = [
         UsedPackage(name: "DavidFoundation", whyIsItUsed: "My own package that provides some basic convenience features", packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!),
+        UsedPackage(name: "SwiftyJSON", whyIsItUsed: "I hate default JSON parsing in Swift. Why reinvent the wheel when you can just use a library to make it bearable?", packageURL: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!)
     ]
 
     @State private var specialThanks: [AcknowledgedContributor] = [

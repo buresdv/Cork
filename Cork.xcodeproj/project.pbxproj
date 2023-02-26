@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */; };
+		63006DFE29AC05AF00243E29 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 63006DFD29AC05AF00243E29 /* SwiftyJSON */; };
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
@@ -184,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63006DFE29AC05AF00243E29 /* SwiftyJSON in Frameworks */,
 				634065752871AB22001A2178 /* DavidFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +597,7 @@
 			name = Cork;
 			packageProductDependencies = (
 				634065742871AB22001A2178 /* DavidFoundation */,
+				63006DFD29AC05AF00243E29 /* SwiftyJSON */,
 			);
 			productName = Cork;
 			productReference = 634065612871AA42001A2178 /* Cork.app */;
@@ -626,6 +629,7 @@
 			mainGroup = 634065582871AA42001A2178;
 			packageReferences = (
 				634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */,
+				63006DFC29AC05AF00243E29 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 634065622871AA42001A2178 /* Products */;
 			projectDirPath = "";
@@ -938,6 +942,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		63006DFC29AC05AF00243E29 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON#why-is-the-typical-json-handling-in-swift-not-good";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/buresdv/DavidFoundation";
@@ -949,6 +961,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		63006DFD29AC05AF00243E29 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63006DFC29AC05AF00243E29 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		634065742871AB22001A2178 /* DavidFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */;

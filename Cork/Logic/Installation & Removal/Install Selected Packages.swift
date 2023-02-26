@@ -37,6 +37,8 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput?.append(outputLine)
 
+                    print("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies))")
+                    
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
@@ -56,6 +58,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 1
                 }
+                    
                 else if outputLine.contains("Already downloaded") || outputLine.contains("Fetching \(outputLine.containsElementFromArray(packageDependencies))")
                 {
                     print("Will fetch dependencies!")
@@ -67,6 +70,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                     
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(installationProgressTracker.numberOfPackageDependencies) * Double(5))))
                 }
+                    
                 else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name) dependency")
                 {
                     print("Will install dependencies!")
@@ -79,6 +83,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                     // TODO: Add a math formula for advancing the stepper
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies)))
                 }
+                    
                 else if outputLine.contains("Fetching \(installationProgressTracker.packagesBeingInstalled[0].package.name)") || outputLine.contains("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
                 {
                     print("Will install the package itself!")
