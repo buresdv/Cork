@@ -9,21 +9,24 @@ import SwiftUI
 
 struct NoPadding: DisclosureGroupStyle
 {
-    func makeBody(configuration: Configuration) -> some View {
+    func makeBody(configuration: Configuration) -> some View
+    {
         Button
         {
-            withAnimation {
+            withAnimation
+            {
                 configuration.isExpanded.toggle()
             }
         } label: {
-            HStack(alignment: .center, spacing: 4) {
+            HStack(alignment: .center, spacing: 4)
+            {
                 Image(systemName: configuration.isExpanded ? "chevron.down" : "chevron.right")
                     .scaleEffect(0.8)
                     .foregroundColor(.gray)
                     .symbolVariant(.fill)
-                
+
                 configuration.label
-                
+
                 Spacer()
             }
             .contentShape(Rectangle())

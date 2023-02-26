@@ -24,7 +24,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
 
         do
         {
-            let dependencyNameExtractionRegex: String = "(?<=required by ).*?(?=,)"
+            let dependencyNameExtractionRegex: String = "(?<=required by ).*?(?=, which)"
 
             var dependencyName: String
 

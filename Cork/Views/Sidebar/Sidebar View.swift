@@ -97,7 +97,8 @@ struct SidebarView: View
                             Text(tap.name)
                                 .contextMenu
                                 {
-                                    Button {
+                                    Button
+                                    {
                                         Task(priority: .userInitiated)
                                         {
                                             print("Would untap \(tap.name)")
@@ -111,7 +112,6 @@ struct SidebarView: View
                                             appState.isShowingUntappingFailedAlert = false
                                         }))
                                     })
-
                                 }
                         }
                     }
@@ -129,7 +129,8 @@ struct SidebarView: View
         {
             MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)
         }
-        .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView) {
+        .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView)
+        {
             MaintenanceView(isShowingSheet: $appState.isShowingFastCacheDeletionMaintenanceView, shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
         }
     }
