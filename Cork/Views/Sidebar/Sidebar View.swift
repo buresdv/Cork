@@ -108,7 +108,7 @@ struct SidebarView: View
                                         Text("Untap \(tap.name)")
                                     }
                                     .alert(isPresented: $appState.isShowingUntappingFailedAlert, content: {
-                                        Alert(title: Text("Cound not untap \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
+                                        Alert(title: Text("Couldn't untap \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
                                             appState.isShowingUntappingFailedAlert = false
                                         }))
                                     })

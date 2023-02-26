@@ -200,7 +200,7 @@ struct MaintenanceView: View
 
                                     if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
                                     {
-                                        Text("Some package caches were not purged because they were held back by \(packagesHoldingBackCachePurgeTracker.joined(separator: ", ")) not being updated")
+                                        Text("Some package caches weren't purged because they were held back by \(packagesHoldingBackCachePurgeTracker.joined(separator: ", ")) not being updated")
                                             .font(.caption)
                                             .foregroundColor(Color(nsColor: NSColor.systemGray))
                                     }
