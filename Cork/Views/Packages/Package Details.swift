@@ -215,7 +215,7 @@ struct PackageDetailView: View
 
                 if !package.isCask
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json", package.name]).standardOutput
+                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", package.name]).standardOutput
                 }
                 else
                 {
