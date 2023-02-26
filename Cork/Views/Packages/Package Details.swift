@@ -103,20 +103,24 @@ struct PackageDetailView: View
                     {
                         GroupBox
                         {
-                            DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
-                            {}
-
-                            if isShowingDependencies
+                            VStack
                             {
-                                List
+                                DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
+                                {}
+                                    .disclosureGroupStyle(NoPadding())
+
+                                if isShowingDependencies
                                 {
-                                    ForEach(dependencies, id: \.self)
-                                    { dependency in
-                                        Text(dependency)
+                                    List
+                                    {
+                                        ForEach(dependencies, id: \.self)
+                                        { dependency in
+                                            Text(dependency)
+                                        }
                                     }
+                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                    .frame(height: 100)
                                 }
-                                .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                .frame(height: 100)
                             }
                         }
                     }
