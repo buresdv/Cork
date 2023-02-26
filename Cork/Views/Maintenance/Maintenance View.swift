@@ -44,6 +44,8 @@ struct MaintenanceView: View
 
     @State var reclaimedSpaceAfterCachePurge: Int64 = 0
     
+    @State var forcedOptions: Bool? = false
+    
     var body: some View
     {
         VStack(alignment: .leading, spacing: 10)
@@ -53,7 +55,7 @@ struct MaintenanceView: View
             case .ready:
                 SheetWithTitle(title: "Perform Brew maintenance")
                 {
-                    MaintenanceReadyView(shouldUninstallOrphans: $shouldUninstallOrphans, shouldPurgeCache: $shouldPurgeCache, shouldDeleteDownloads: $shouldDeleteDownloads, shouldPerformHealthCheck: $shouldPerformHealthCheck, isShowingSheet: $isShowingSheet, maintenanceSteps: $maintenanceSteps, isShowingControlButtons: true)
+                    MaintenanceReadyView(shouldUninstallOrphans: $shouldUninstallOrphans, shouldPurgeCache: $shouldPurgeCache, shouldDeleteDownloads: $shouldDeleteDownloads, shouldPerformHealthCheck: $shouldPerformHealthCheck, isShowingSheet: $isShowingSheet, maintenanceSteps: $maintenanceSteps, isShowingControlButtons: true, forcedOptions: forcedOptions!)
                 }
                 .padding()
 

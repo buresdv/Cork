@@ -25,7 +25,7 @@ struct MaintenancePane: View
             {
                 Text("Set default maintenance steps")
                     .font(.headline)
-                MaintenanceReadyView(shouldUninstallOrphans: $default_shouldUninstallOrphans, shouldPurgeCache: $default_shouldPurgeCache, shouldDeleteDownloads: $default_shouldDeleteDownloads, shouldPerformHealthCheck: $default_shouldPerformHealthCheck, isShowingSheet: $isShowingSheetDummy, maintenanceSteps: $maintenanceStepsDummy, isShowingControlButtons: false)
+                MaintenanceReadyView(shouldUninstallOrphans: $default_shouldUninstallOrphans, shouldPurgeCache: $default_shouldPurgeCache, shouldDeleteDownloads: $default_shouldDeleteDownloads, shouldPerformHealthCheck: $default_shouldPerformHealthCheck, isShowingSheet: $isShowingSheetDummy, maintenanceSteps: $maintenanceStepsDummy, isShowingControlButtons: false, forcedOptions: false)
             }
         }
     }

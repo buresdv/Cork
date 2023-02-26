@@ -130,7 +130,7 @@ struct SidebarView: View
             MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)
         }
         .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView) {
-            MaintenanceView(isShowingSheet: $appState.isShowingFastCacheDeletionMaintenanceView, shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false)
+            MaintenanceView(isShowingSheet: $appState.isShowingFastCacheDeletionMaintenanceView, shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
         }
     }
 }

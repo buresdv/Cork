@@ -25,6 +25,8 @@ struct MaintenanceReadyView: View {
     
     @State var isShowingControlButtons: Bool
     
+    @State var forcedOptions: Bool
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10)
         {
@@ -86,12 +88,16 @@ struct MaintenanceReadyView: View {
         }
         .onAppear
         {
-            /// Replace the provided values with those from AppStorage
-            /// I have to do this because I don't want the settings in the sheet itself to affect those in the defaults
-            shouldUninstallOrphans = default_shouldUninstallOrphans
-            shouldPurgeCache = default_shouldPurgeCache
-            shouldDeleteDownloads = default_shouldDeleteDownloads
-            shouldPerformHealthCheck = default_shouldPerformHealthCheck
+            if !forcedOptions
+            {
+                /// Replace the provided values with those from AppStorage
+                /// I have to do this because I don't want the settings in the sheet itself to affect those in the defaults
+                shouldUninstallOrphans = default_shouldUninstallOrphans
+                shouldPurgeCache = default_shouldPurgeCache
+                shouldDeleteDownloads = default_shouldDeleteDownloads
+                shouldPerformHealthCheck = default_shouldPerformHealthCheck
+            }
+            
         }
     }
 }
