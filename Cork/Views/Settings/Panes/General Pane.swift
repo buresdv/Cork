@@ -10,6 +10,7 @@ import SwiftUI
 struct GeneralPane: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+    @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
 
     var body: some View
     {
@@ -40,6 +41,15 @@ struct GeneralPane: View
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
+                
+                LabeledContent {
+                    Toggle(isOn: $displayAdvancedDependencies) {
+                        Text("Show more info about dependecies")
+                    }
+                } label: {
+                    Text("Interface:")
+                }
+
             }
         }
     }

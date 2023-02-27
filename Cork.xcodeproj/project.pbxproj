@@ -17,6 +17,7 @@
 		63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0E29ACCBA400243E29 /* Get Package Tap.swift */; };
 		63006E1129ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */; };
 		63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */; };
+		63006E1729AD143D00243E29 /* Dependency List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1629AD143D00243E29 /* Dependency List.swift */; };
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
@@ -110,6 +111,7 @@
 		63006E0E29ACCBA400243E29 /* Get Package Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Tap.swift"; sourceTree = "<group>"; };
 		63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get If Package Was Installed as Dependency.swift"; sourceTree = "<group>"; };
 		63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get If Package Is Outdated.swift"; sourceTree = "<group>"; };
+		63006E1629AD143D00243E29 /* Dependency List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency List.swift"; sourceTree = "<group>"; };
 		63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Installed Packages.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
 		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
@@ -246,6 +248,23 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		63006E1429AD142000243E29 /* Package Details */ = {
+			isa = PBXGroup;
+			children = (
+				63006E1529AD142B00243E29 /* Sub-Views */,
+				639A7D852871D78C00B50280 /* Package Details.swift */,
+			);
+			path = "Package Details";
+			sourceTree = "<group>";
+		};
+		63006E1529AD142B00243E29 /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				63006E1629AD143D00243E29 /* Dependency List.swift */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
 		632FD2932995A3870029FC49 /* Taps */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +399,7 @@
 		6371EA1C2871D96800300E1B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				639A7D852871D78C00B50280 /* Package Details.swift */,
+				63006E1429AD142000243E29 /* Package Details */,
 				6371EA1D2871D98100300E1B /* Package List Item.swift */,
 			);
 			path = Packages;
@@ -761,6 +780,7 @@
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
+				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
 				637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */,

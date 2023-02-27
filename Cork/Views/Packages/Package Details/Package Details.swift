@@ -27,8 +27,7 @@ struct PackageDetailView: View
     @State private var homepage: URL = .init(string: "https://google.com")!
     @State private var tap: String = ""
     @State private var installedAsDependency: Bool = false
-
-    @State private var dependencies: [String] = .init()
+    @State private var dependencies: [BrewPackageDependency]? = nil
 
     @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
@@ -109,7 +108,7 @@ struct PackageDetailView: View
                         }
                     }
 
-                    if dependencies != []
+                    if let dependencies
                     {
                         GroupBox
                         {
@@ -121,15 +120,7 @@ struct PackageDetailView: View
 
                                 if isShowingDependencies
                                 {
-                                    List
-                                    {
-                                        ForEach(dependencies, id: \.self)
-                                        { dependency in
-                                            Text(dependency)
-                                        }
-                                    }
-                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                    .frame(height: 100)
+                                    DependencyList(dependencies: dependencies)
                                 }
                             }
                         }
@@ -219,9 +210,6 @@ struct PackageDetailView: View
         {
             Task
             {
-                let dependenciesRaw = await shell("/opt/homebrew/bin/brew", ["deps", "--installed", package.name]).standardOutput
-                dependencies = dependenciesRaw.components(separatedBy: "\n")
-                dependencies.removeLast()
 
                 if !package.isCask
                 {
@@ -238,6 +226,11 @@ struct PackageDetailView: View
                 homepage = getPackageHomepageFromJSON(json: parsedJSON, package: package)
                 tap = getPackageTapFromJSON(json: parsedJSON, package: package)
                 installedAsDependency = getIfPackageWasInstalledAsDependencyFromJSON(json: parsedJSON, package: package) ?? false
+                
+                if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
+                {
+                    dependencies = packageDependencies
+                }
 
                 let superCoolDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
                 print("Advanced dependencies: \(superCoolDependencies)")
