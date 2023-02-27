@@ -28,6 +28,7 @@ struct PackageDetailView: View
     @State private var tap: String = ""
     @State private var installedAsDependency: Bool = false
     @State private var dependencies: [BrewPackageDependency]? = nil
+    @State private var outdated: Bool = false
 
     @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
@@ -49,9 +50,15 @@ struct PackageDetailView: View
 
                 VStack(alignment: .leading, spacing: 5)
                 {
-                    if installedAsDependency
-                    {
-                        OutlinedPillText(text: "Installed as a Dependency", color: .gray)
+                    HStack(alignment: .center, spacing: 5) {
+                        if installedAsDependency
+                        {
+                            OutlinedPillText(text: "Installed as a Dependency", color: .gray)
+                        }
+                        if outdated
+                        {
+                            OutlinedPillText(text: "Outdated", color: .orange)
+                        }
                     }
 
                     Text(description)
@@ -226,17 +233,12 @@ struct PackageDetailView: View
                 homepage = getPackageHomepageFromJSON(json: parsedJSON, package: package)
                 tap = getPackageTapFromJSON(json: parsedJSON, package: package)
                 installedAsDependency = getIfPackageWasInstalledAsDependencyFromJSON(json: parsedJSON, package: package) ?? false
+                outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
                 
                 if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
                 {
                     dependencies = packageDependencies
                 }
-
-                let superCoolDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
-                print("Advanced dependencies: \(superCoolDependencies)")
-
-                let isPackageOutdatedFromJSON = getIfPackageIsOutdated(json: parsedJSON, package: package)
-                print("Is the package outdated? \(isPackageOutdatedFromJSON)")
             }
         }
         .onDisappear
