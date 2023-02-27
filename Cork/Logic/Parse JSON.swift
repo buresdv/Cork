@@ -1,0 +1,28 @@
+//
+//  Parse JSON.swift
+//  Cork
+//
+//  Created by David Bureš on 26.02.2023.
+//
+
+import Foundation
+import SwiftyJSON
+
+enum JSONError: Error
+{
+    case parsingFailed
+}
+
+func parseJSON(from string: String) throws -> JSON
+{
+    let data: Data = string.data(using: .utf8, allowLossyConversion: false)!
+    
+    do
+    {
+        return try JSON(data: data)
+    } catch let JSONParsingError as NSError
+    {
+        print("JSON parsing failed: \(JSONParsingError.localizedDescription)")
+        throw JSONError.parsingFailed
+    }
+}

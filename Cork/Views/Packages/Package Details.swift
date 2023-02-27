@@ -25,6 +25,7 @@ struct PackageDetailView: View
     @State private var description: String = ""
     @State private var homepage: String = ""
     @State private var tap: String = ""
+    @State private var installedAsDependency: Bool = false
 
     @State private var dependencies: [String] = .init()
 
@@ -48,8 +49,12 @@ struct PackageDetailView: View
 
                 if packageInfo.contents != nil
                 {
-                    Text(description)
-                        .font(.subheadline)
+                    VStack(alignment: .leading, spacing: 5) {
+                        OutlinedPillText(text: "Installed as a Dependency", color: .gray)
+                        
+                        Text(description)
+                            .font(.subheadline)
+                    }
                 }
             }
 
@@ -216,6 +221,25 @@ struct PackageDetailView: View
                 if !package.isCask
                 {
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", package.name]).standardOutput
+                    
+                    let parsedJSON = try parseJSON(from: packageInfo.contents!)
+                    
+                    let descriptionFromJSON = parsedJSON["formulae", 0, "desc"].stringValue
+                    print("Description from JSON: \(descriptionFromJSON)")
+                    
+                    let installationInfos = parsedJSON["formulae", 0, "installed"].arrayValue
+                    for installationInfo in installationInfos
+                    {
+                        print(installationInfo["installed_as_dependency"].boolValue)
+                        
+                        installedAsDependency = installationInfo["installed_as_dependency"].boolValue
+                    }
+                    
+                    let dependenciesFromJSON = parsedJSON["formulae", 0, "dependencies"].arrayValue
+                    for dependency in dependenciesFromJSON
+                    {
+                        print(dependency.stringValue)
+                    }
                 }
                 else
                 {

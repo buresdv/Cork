@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct AppConstants { // Had to add "local" because my package already has a struct called "AppConstants"
     static let brewCellarPath: URL = URL(string: "/opt/homebrew/Cellar")!

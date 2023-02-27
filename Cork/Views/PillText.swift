@@ -20,3 +20,18 @@ struct PillText: View
             .clipShape(Capsule())
     }
 }
+
+struct OutlinedPillText: View
+{
+    @State var text: String
+    @State var color: Color
+    
+    var body: some View
+    {
+        Text(text)
+            .font(.caption2)
+            .padding(.horizontal, 4)
+            .foregroundColor(color)
+            .overlay(Capsule().stroke(color, lineWidth: 1))
+    }
+}
