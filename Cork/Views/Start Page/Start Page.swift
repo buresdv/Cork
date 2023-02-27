@@ -43,13 +43,9 @@ struct StartPage: View
                         Text("Homebrew Status")
                             .font(.title)
 
-                        GroupBox
+                        if upgradeablePackages.count != 0
                         {
-                            if upgradeablePackages.count == 0
-                            {
-                                GroupBoxHeadlineGroup(title: "You are all up-to-date", mainText: "There are no packages to update")
-                            }
-                            else
+                            GroupBox
                             {
                                 Grid
                                 {

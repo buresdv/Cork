@@ -10,6 +10,13 @@
 		63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */; };
 		63006DFE29AC05AF00243E29 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 63006DFD29AC05AF00243E29 /* SwiftyJSON */; };
 		63006E0029AC073D00243E29 /* Parse JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFF29AC073D00243E29 /* Parse JSON.swift */; };
+		63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0529ACC56800243E29 /* Get Package Description.swift */; };
+		63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0729ACC60F00243E29 /* Get Package Homepage.swift */; };
+		63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */; };
+		63006E0D29ACC78400243E29 /* Package Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0C29ACC78400243E29 /* Package Dependency.swift */; };
+		63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0E29ACCBA400243E29 /* Get Package Tap.swift */; };
+		63006E1129ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */; };
+		63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */; };
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
@@ -96,6 +103,13 @@
 /* Begin PBXFileReference section */
 		63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisclosureGroup - No Padding.swift"; sourceTree = "<group>"; };
 		63006DFF29AC073D00243E29 /* Parse JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse JSON.swift"; sourceTree = "<group>"; };
+		63006E0529ACC56800243E29 /* Get Package Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Description.swift"; sourceTree = "<group>"; };
+		63006E0729ACC60F00243E29 /* Get Package Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Homepage.swift"; sourceTree = "<group>"; };
+		63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Dependencies.swift"; sourceTree = "<group>"; };
+		63006E0C29ACC78400243E29 /* Package Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Dependency.swift"; sourceTree = "<group>"; };
+		63006E0E29ACCBA400243E29 /* Get Package Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Tap.swift"; sourceTree = "<group>"; };
+		63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get If Package Was Installed as Dependency.swift"; sourceTree = "<group>"; };
+		63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get If Package Is Outdated.swift"; sourceTree = "<group>"; };
 		63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Installed Packages.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
 		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
@@ -201,6 +215,37 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		63006E0329ACC54900243E29 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				63006E0429ACC55400243E29 /* Get Various Package Info From JSON */,
+				63006DFF29AC073D00243E29 /* Parse JSON.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		63006E0429ACC55400243E29 /* Get Various Package Info From JSON */ = {
+			isa = PBXGroup;
+			children = (
+				63006E0529ACC56800243E29 /* Get Package Description.swift */,
+				63006E0729ACC60F00243E29 /* Get Package Homepage.swift */,
+				63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */,
+				63006E0E29ACCBA400243E29 /* Get Package Tap.swift */,
+				63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */,
+				63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */,
+			);
+			path = "Get Various Package Info From JSON";
+			sourceTree = "<group>";
+		};
+		63006E0B29ACC76F00243E29 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6340657C2871AC65001A2178 /* Brew Package.swift */,
+				63006E0C29ACC78400243E29 /* Package Dependency.swift */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		632FD2932995A3870029FC49 /* Taps */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +319,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				63006E0329ACC54900243E29 /* JSON */,
 				6382C8FC299D70E300354B19 /* Sorting */,
 				63D51F6F299ABA5100203F3F /* Maintenance */,
 				63D2B0862997F5240084E223 /* Package Loading */,
@@ -287,7 +333,6 @@
 				637E006728733C1C005C9890 /* Search for Package by ID.swift */,
 				632FD28F299591C10029FC49 /* Get Folder Size.swift */,
 				632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */,
-				63006DFF29AC073D00243E29 /* Parse JSON.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -295,9 +340,9 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63006E0B29ACC76F00243E29 /* Packages */,
 				633289EB29A68B09004B2930 /* Package Installation */,
 				63C830BA29984B10002D11BB /* Misc */,
-				6340657C2871AC65001A2178 /* Brew Package.swift */,
 				637E00652872F629005C9890 /* Update Progress Tracker.swift */,
 				632FD29A2995C1C20029FC49 /* BrewTap.swift */,
 				63D830FB29990DD600FA802F /* Terminal Output.swift */,
@@ -659,9 +704,11 @@
 			files = (
 				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
 				63D2B0882997F5340084E223 /* Load up Formulae.swift in Sources */,
+				63006E0D29ACC78400243E29 /* Package Dependency.swift in Sources */,
 				6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */,
 				63D831052999331D00FA802F /* Sheet with Title.swift in Sources */,
 				6382C90A299DA11F00354B19 /* Purge Brew Cache.swift in Sources */,
+				63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */,
 				634065782871AB3A001A2178 /* Shell Interface.swift in Sources */,
 				63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */,
 				632FD2952995A3920029FC49 /* Add Tap.swift in Sources */,
@@ -678,6 +725,7 @@
 				6340657A2871AC27001A2178 /* Brew Data Storage.swift in Sources */,
 				633289E729A68A61004B2930 /* Package Installation Steps.swift in Sources */,
 				63D51F6B299A9AC500203F3F /* Settings Pane Template.swift in Sources */,
+				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
 				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
 				6342117C29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift in Sources */,
@@ -696,11 +744,13 @@
 				63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */,
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
+				63006E1129ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift in Sources */,
 				63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */,
 				63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */,
 				6382C8FE299D70F400354B19 /* Sort Alphabetically.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */,
+				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				6371EA2D287202F400300E1B /* Extract from JSON.swift in Sources */,
 				63C830BC29984B1A002D11BB /* Used Package.swift in Sources */,
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
@@ -712,6 +762,7 @@
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
+				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
 				637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */,
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */,
@@ -721,6 +772,7 @@
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
 				63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */,
+				63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,

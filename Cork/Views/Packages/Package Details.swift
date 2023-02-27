@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyJSON
 
 class SelectedPackageInfo: ObservableObject
 {
@@ -23,7 +24,7 @@ struct PackageDetailView: View
     @EnvironmentObject var appState: AppState
 
     @State private var description: String = ""
-    @State private var homepage: String = ""
+    @State private var homepage: URL = .init(string: "https://google.com")!
     @State private var tap: String = ""
     @State private var installedAsDependency: Bool = false
 
@@ -47,14 +48,15 @@ struct PackageDetailView: View
                         .foregroundColor(.gray)
                 }
 
-                if packageInfo.contents != nil
+                VStack(alignment: .leading, spacing: 5)
                 {
-                    VStack(alignment: .leading, spacing: 5) {
+                    if installedAsDependency
+                    {
                         OutlinedPillText(text: "Installed as a Dependency", color: .gray)
-                        
-                        Text(description)
-                            .font(.subheadline)
                     }
+
+                    Text(description)
+                        .font(.subheadline)
                 }
             }
 
@@ -99,11 +101,14 @@ struct PackageDetailView: View
                             GridRow(alignment: .top)
                             {
                                 Text("Homepage")
-                                Text(.init(homepage))
+                                Link(destination: homepage)
+                                {
+                                    Text(homepage.absoluteString)
+                                }
                             }
                         }
                     }
-                    
+
                     if dependencies != []
                     {
                         GroupBox
@@ -112,7 +117,7 @@ struct PackageDetailView: View
                             {
                                 DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
                                 {}
-                                    .disclosureGroupStyle(NoPadding())
+                                .disclosureGroupStyle(NoPadding())
 
                                 if isShowingDependencies
                                 {
@@ -221,34 +226,24 @@ struct PackageDetailView: View
                 if !package.isCask
                 {
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", package.name]).standardOutput
-                    
-                    let parsedJSON = try parseJSON(from: packageInfo.contents!)
-                    
-                    let descriptionFromJSON = parsedJSON["formulae", 0, "desc"].stringValue
-                    print("Description from JSON: \(descriptionFromJSON)")
-                    
-                    let installationInfos = parsedJSON["formulae", 0, "installed"].arrayValue
-                    for installationInfo in installationInfos
-                    {
-                        print(installationInfo["installed_as_dependency"].boolValue)
-                        
-                        installedAsDependency = installationInfo["installed_as_dependency"].boolValue
-                    }
-                    
-                    let dependenciesFromJSON = parsedJSON["formulae", 0, "dependencies"].arrayValue
-                    for dependency in dependenciesFromJSON
-                    {
-                        print(dependency.stringValue)
-                    }
                 }
                 else
                 {
                     packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name]).standardOutput
                 }
 
-                description = try extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .description)
-                homepage = try extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .homepage)
-                tap = try extractPackageInfo(rawJSON: packageInfo.contents!, whatToExtract: .tap)
+                let parsedJSON: JSON = try parseJSON(from: packageInfo.contents!)
+
+                description = getPackageDescriptionFromJSON(json: parsedJSON, package: package)
+                homepage = getPackageHomepageFromJSON(json: parsedJSON, package: package)
+                tap = getPackageTapFromJSON(json: parsedJSON, package: package)
+                installedAsDependency = getIfPackageWasInstalledAsDependencyFromJSON(json: parsedJSON, package: package) ?? false
+
+                let superCoolDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
+                print("Advanced dependencies: \(superCoolDependencies)")
+
+                let isPackageOutdatedFromJSON = getIfPackageIsOutdated(json: parsedJSON, package: package)
+                print("Is the package outdated? \(isPackageOutdatedFromJSON)")
             }
         }
         .onDisappear
