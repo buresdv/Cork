@@ -29,6 +29,7 @@ struct PackageDetailView: View
     @State private var installedAsDependency: Bool = false
     @State private var dependencies: [BrewPackageDependency]? = nil
     @State private var outdated: Bool = false
+    @State private var caveats: String? = nil
 
     @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
@@ -77,6 +78,29 @@ struct PackageDetailView: View
                     Text("Package Info")
                         .font(.title2)
 
+                    if let caveats
+                    {
+                        if !caveats.isEmpty
+                        {
+                            GroupBox
+                            {
+                                HStack(alignment: .top, spacing: 10) {
+                                    /*Image(systemName: "exclamationmark.triangle.fill")
+                                        .resizable()
+                                        .frame(width: 50)
+                                        .scaledToFit()
+                                        .foregroundColor(Color(nsColor: NSColor.tertiaryLabelColor))*/
+                                    
+                                    /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
+                                    Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
+                                        .textSelection(.enabled)
+                                        .lineSpacing(5)
+                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                }
+                            }
+                        }
+                    }
+                    
                     GroupBox
                     {
                         Grid(alignment: .leading)
@@ -234,6 +258,7 @@ struct PackageDetailView: View
                 tap = getPackageTapFromJSON(json: parsedJSON, package: package)
                 installedAsDependency = getIfPackageWasInstalledAsDependencyFromJSON(json: parsedJSON, package: package) ?? false
                 outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
+                caveats = getCaveatsFromJSON(json: parsedJSON, package: package)
                 
                 if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
                 {
