@@ -15,6 +15,8 @@ class SelectedPackageInfo: ObservableObject
 
 struct PackageDetailView: View
 {
+    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    
     @State var package: BrewPackage
 
     @EnvironmentObject var brewData: BrewDataStorage
@@ -32,6 +34,7 @@ struct PackageDetailView: View
     @State private var caveats: String? = nil
 
     @State private var isShowingExpandedCaveats: Bool = false
+    @State private var isShowingCaveatPopover: Bool = false
     @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
 
@@ -61,6 +64,26 @@ struct PackageDetailView: View
                         {
                             OutlinedPillText(text: "Outdated", color: .orange)
                         }
+                        if let caveats
+                        {
+                            if !caveats.isEmpty
+                            {
+                                if caveatDisplayOptions == .mini
+                                {
+                                    OutlinedPillText(text: "Has caveats 􀅴", color: .indigo)
+                                        .onTapGesture {
+                                            isShowingCaveatPopover.toggle()
+                                        }
+                                        .popover(isPresented: $isShowingCaveatPopover) {
+                                            Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
+                                                .textSelection(.enabled)
+                                                .lineSpacing(5)
+                                                .padding()
+                                                .help("Click to see caveats")
+                                        }
+                                }
+                            }
+                        }
                     }
 
                     Text(description)
@@ -83,33 +106,36 @@ struct PackageDetailView: View
                     {
                         if !caveats.isEmpty
                         {
-                            GroupBox
+                            if caveatDisplayOptions == .full
                             {
-                                HStack(alignment: .top, spacing: 10) {
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                        .resizable()
-                                        .frame(width: 15, height: 15)
-                                        .foregroundColor(.yellow)
-                                    
-                                    /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
-                                    VStack(alignment: .leading, spacing: 5) {
-                                        Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
-                                            .textSelection(.enabled)
-                                            .lineSpacing(5)
-                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                            .lineLimit(isShowingExpandedCaveats ? nil : 2)
+                                GroupBox
+                                {
+                                    HStack(alignment: .top, spacing: 10) {
+                                        Image(systemName: "exclamationmark.triangle.fill")
+                                            .resizable()
+                                            .frame(width: 15, height: 15)
+                                            .foregroundColor(.yellow)
                                         
-                                        Button {
-                                            withAnimation {
-                                                isShowingExpandedCaveats.toggle()
+                                        /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
+                                        VStack(alignment: .leading, spacing: 5) {
+                                            Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
+                                                .textSelection(.enabled)
+                                                .lineSpacing(5)
+                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                                .lineLimit(isShowingExpandedCaveats ? nil : 2)
+                                            
+                                            Button {
+                                                withAnimation {
+                                                    isShowingExpandedCaveats.toggle()
+                                                }
+                                            } label: {
+                                                Text(isShowingExpandedCaveats ? "Collapse" : "Expand")
                                             }
-                                        } label: {
-                                            Text(isShowingExpandedCaveats ? "Collapse" : "Expand")
-                                        }
 
+                                        }
                                     }
+                                    .padding(2)
                                 }
-                                .padding(2)
                             }
                         }
                     }

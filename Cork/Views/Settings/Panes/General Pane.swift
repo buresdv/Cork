@@ -11,6 +11,8 @@ struct GeneralPane: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
+    
+    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
 
     var body: some View
     {
@@ -43,11 +45,31 @@ struct GeneralPane: View
                 }
                 
                 LabeledContent {
-                    Toggle(isOn: $displayAdvancedDependencies) {
-                        Text("Show more info about dependecies")
+                    VStack(alignment: .leading)
+                    {
+                        Toggle(isOn: $displayAdvancedDependencies) {
+                            Text("Show more info about dependecies")
+                        }
+
                     }
                 } label: {
-                    Text("Interface:")
+                    Text("Dependencies:")
+                }
+                
+                Picker(selection: $caveatDisplayOptions) {
+                    Text("Full display")
+                        .tag(PackageCaveatDisplay.full)
+                    Text("Minified display")
+                        .tag(PackageCaveatDisplay.mini)
+                } label: {
+                    Text("Package Caveats:")
+                }
+                .pickerStyle(.radioGroup)
+                if caveatDisplayOptions == .mini
+                {
+                    Text("􀅴 Click on the \"Has caveats\" pill to see the caveats")
+                        .font(.caption)
+                        .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
 
             }
