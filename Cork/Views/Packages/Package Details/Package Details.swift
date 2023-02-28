@@ -31,6 +31,7 @@ struct PackageDetailView: View
     @State private var outdated: Bool = false
     @State private var caveats: String? = nil
 
+    @State private var isShowingExpandedCaveats: Bool = false
     @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
 
@@ -85,18 +86,30 @@ struct PackageDetailView: View
                             GroupBox
                             {
                                 HStack(alignment: .top, spacing: 10) {
-                                    /*Image(systemName: "exclamationmark.triangle.fill")
+                                    Image(systemName: "exclamationmark.triangle.fill")
                                         .resizable()
-                                        .frame(width: 50)
-                                        .scaledToFit()
-                                        .foregroundColor(Color(nsColor: NSColor.tertiaryLabelColor))*/
+                                        .frame(width: 15, height: 15)
+                                        .foregroundColor(.yellow)
                                     
                                     /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
-                                    Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
-                                        .textSelection(.enabled)
-                                        .lineSpacing(5)
-                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
+                                            .textSelection(.enabled)
+                                            .lineSpacing(5)
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                            .lineLimit(isShowingExpandedCaveats ? nil : 2)
+                                        
+                                        Button {
+                                            withAnimation {
+                                                isShowingExpandedCaveats.toggle()
+                                            }
+                                        } label: {
+                                            Text(isShowingExpandedCaveats ? "Collapse" : "Expand")
+                                        }
+
+                                    }
                                 }
+                                .padding(2)
                             }
                         }
                     }
