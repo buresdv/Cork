@@ -16,7 +16,7 @@ struct ContentView: View
 
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     
-    @StateObject var updateProgressTracker = UpdateProgressTracker()
+    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @State private var multiSelection = Set<UUID>()
 

@@ -29,6 +29,7 @@ struct CorkApp: App
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
+                .environmentObject(updateProgressTracker)
                 .onAppear
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
