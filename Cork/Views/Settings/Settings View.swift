@@ -25,11 +25,11 @@ struct SettingsView: View
                     Label("Maintenance", systemImage: "arrow.3.trianglepath")
                 }
 
-            InstallationAndUninstallationPane()
+            /*InstallationAndUninstallationPane()
                 .tabItem
                 {
                     Label("Install and Uninstall", systemImage: "plus")
-                }
+                }*/
         }
     }
 }
