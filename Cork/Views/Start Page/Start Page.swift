@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StartPage: View
 {
+    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
@@ -135,6 +137,18 @@ struct StartPage: View
                                     {
                                         GroupBoxHeadlineGroup(title: "You have \(availableTaps.tappedTaps.count) Taps tapped", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
                                             .animation(.none, value: availableTaps.tappedTaps.count)
+                                    }
+                                }
+                            }
+                            
+                            GroupBox
+                            {
+                                Grid(alignment: .leading)
+                                {
+                                    GridRow(alignment: .firstTextBaseline)
+                                    {
+                                        GroupBoxHeadlineGroup(title: "Brew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")", mainText: "\(allowBrewAnalytics ? "Brew is collecting various anonymized data, such as which packages you have installed" : "Brew is not collecting any data about how you use it")")
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                     }
                                 }
                             }

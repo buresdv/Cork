@@ -25,6 +25,10 @@ struct SettingsView: View
                     Label("Maintenance", systemImage: "arrow.3.trianglepath")
                 }
 
+            BrewPane()
+                .tabItem {
+                    Label("Brew", systemImage: "cup.and.saucer")
+                }
             /*InstallationAndUninstallationPane()
                 .tabItem
                 {

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View
 {
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
@@ -21,8 +24,6 @@ struct ContentView: View
     @State private var multiSelection = Set<UUID>()
 
     @State private var isShowingAlert: Bool = false
-    
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
 
     var body: some View
     {
@@ -62,7 +63,7 @@ struct ContentView: View
                         {
                             Text("Add Tap")
                         } icon: {
-                            Image(systemName: "spigot.fill")
+                            Image(systemName: "spigot")
                         }
                     }
 
@@ -85,9 +86,21 @@ struct ContentView: View
             Task
             {
                 await loadUpTappedTaps(into: availableTaps)
+                async let analyticsQueryCommand = await shell("/opt/homebrew/bin/brew", ["analytics"])
 
                 brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
                 brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
+                
+                if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
+                {
+                    allowBrewAnalytics = true
+                    print("Analytics are ENABLED")
+                }
+                else
+                {
+                    allowBrewAnalytics = false
+                    print("Analytics are DISABLED")
+                }
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
