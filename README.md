@@ -45,7 +45,7 @@ Prerequisites:
 Instructions:
 
 0. Before you begin, you need to add your Developer account to Xcode. To do so, in the Menu bar, click `Xcode → Settings`, and in the window that opens, click `Accounts`. You can add your account there.
-1. Glone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open .`
+1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open .`
 2. Double-click `Cork.xcodeproj`. Xcode should open the project
 3. Wait until all the dependencies are resolved. It should take a couple minutes at most
 4. In the Menu Bar, click `Product → Archive` and wait for the building to finish

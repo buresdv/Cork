@@ -34,7 +34,8 @@ struct AboutView: View
         {
             Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
                 .resizable()
-                .frame(width: 100, height: 100)
+                .frame(width: 150, height: 150)
+                .animation(.none)
 
             VStack(alignment: .leading, spacing: 20)
             {
