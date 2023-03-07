@@ -32,6 +32,7 @@ struct PackageDetailView: View
     @State private var dependencies: [BrewPackageDependency]? = nil
     @State private var outdated: Bool = false
     @State private var caveats: String? = nil
+    @State private var pinned: Bool = false
 
     @State private var isShowingExpandedCaveats: Bool = false
     @State private var isShowingCaveatPopover: Bool = false
@@ -51,6 +52,12 @@ struct PackageDetailView: View
                     Text("v. \(returnFormattedVersions(package.versions))")
                         .font(.subheadline)
                         .foregroundColor(.gray)
+                    
+                    if pinned
+                    {
+                        Image(systemName: "pin.fill")
+                            .help("\(package.name) is pinned. It will not be updated.")
+                    }
                 }
 
                 VStack(alignment: .leading, spacing: 5)
@@ -253,22 +260,40 @@ struct PackageDetailView: View
 
             if let _ = package.installedOn // Only show the uninstall button for packages that are actually installed
             {
-                HStack
+                if packageInfo.contents != nil
                 {
-                    Spacer()
-
-                    HStack(spacing: 15)
+                    HStack
                     {
-                        UninstallationProgressWheel()
-
-                        Button(role: .destructive)
+                        
+                        if !package.isCask
                         {
-                            Task
-                            {
-                                try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                            Button {
+                                Task
+                                {
+                                    pinned.toggle()
+                                    
+                                    await pinAndUnpinPackage(package: package, pinned: pinned)
+                                }
+                            } label: {
+                                Text(pinned ? "Unpin \(package.name)" : "Pin \(package.name)")
                             }
-                        } label: {
-                            Text("Uninstall \(package.isCask ? "Cask" : "Formula")") // If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                        }
+                        
+                        Spacer()
+
+                        HStack(spacing: 15)
+                        {
+                            UninstallationProgressWheel()
+
+                            Button(role: .destructive)
+                            {
+                                Task
+                                {
+                                    try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                                }
+                            } label: {
+                                Text("Uninstall \(package.isCask ? "Cask" : "Formula")") // If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                            }
                         }
                     }
                 }
@@ -298,6 +323,7 @@ struct PackageDetailView: View
                 installedAsDependency = getIfPackageWasInstalledAsDependencyFromJSON(json: parsedJSON, package: package) ?? false
                 outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
                 caveats = getCaveatsFromJSON(json: parsedJSON, package: package)
+                pinned = getPinStatusFromJSON(json: parsedJSON, package: package)
                 
                 if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
                 {
