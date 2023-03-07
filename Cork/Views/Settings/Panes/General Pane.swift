@@ -13,6 +13,7 @@ struct GeneralPane: View
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
     
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
 
     var body: some View
     {
@@ -71,9 +72,18 @@ struct GeneralPane: View
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
+                
+                LabeledContent {
+                    Toggle(isOn: $showDescriptionsInSearchResults) {
+                        Text("Show descriptions in search results")
+                    }
+                } label: {
+                    Text("Search Results:")
+                }
+
 
             }
         }
-        .frame(width: 400, height: 150, alignment: .leading)
+        .frame(width: 400, height: 170, alignment: .leading)
     }
 }
