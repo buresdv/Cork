@@ -53,50 +53,24 @@ struct StartPage: View
                                 {
                                     GridRow(alignment: .firstTextBaseline)
                                     {
-                                        if upgradeablePackages.count == 1
+                                        VStack(alignment: .leading)
                                         {
-                                            VStack(alignment: .leading)
-                                            {
-                                                Text("There is 1 outdated package")
-                                                    .font(.headline)
-                                                DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
-                                                {} label: {
-                                                    Text("Outdated packages")
-                                                        .font(.subheadline)
-                                                }
-
-                                                if isDisclosureGroupExpanded
-                                                {
-                                                    List(upgradeablePackages)
-                                                    { package in
-                                                        Text(package.name)
-                                                    }
-                                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                                    .frame(maxHeight: 100)
-                                                }
+                                            Text(upgradeablePackages.count == 1 ? "There is 1 outdated package" : "There are \(upgradeablePackages.count) outdated packages")
+                                                .font(.headline)
+                                            DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
+                                            {} label: {
+                                                Text("Outdated packages")
+                                                    .font(.subheadline)
                                             }
-                                        }
-                                        else
-                                        {
-                                            VStack(alignment: .leading)
+                                            
+                                            if isDisclosureGroupExpanded
                                             {
-                                                Text("There are \(upgradeablePackages.count) outdated packages")
-                                                    .font(.headline)
-                                                DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
-                                                {} label: {
-                                                    Text("Outdated packages")
-                                                        .font(.subheadline)
+                                                List(upgradeablePackages)
+                                                { package in
+                                                    Text(package.name)
                                                 }
-
-                                                if isDisclosureGroupExpanded
-                                                {
-                                                    List(upgradeablePackages)
-                                                    { package in
-                                                        Text(package.name)
-                                                    }
-                                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                                    .frame(maxHeight: 100)
-                                                }
+                                                .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                                .frame(height: 100)
                                             }
                                         }
 

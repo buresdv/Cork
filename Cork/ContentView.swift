@@ -34,6 +34,7 @@ struct ContentView: View
                 SidebarView()
 
                 StartPage()
+                    .frame(minWidth: 600, minHeight: 500)
             }
             .navigationTitle("Cork")
             .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
