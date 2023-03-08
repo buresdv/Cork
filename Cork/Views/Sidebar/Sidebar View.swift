@@ -53,6 +53,7 @@ struct SidebarView: View
                     ProgressView()
                 }
             }
+            .collapsible(false)
 
             Section("Installed Casks")
             {
@@ -85,6 +86,7 @@ struct SidebarView: View
                     ProgressView()
                 }
             }
+            .collapsible(false)
 
             if searchText.isEmpty
             {
