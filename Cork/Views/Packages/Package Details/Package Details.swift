@@ -275,7 +275,7 @@ struct PackageDetailView: View
                                     await pinAndUnpinPackage(package: package, pinned: pinned)
                                 }
                             } label: {
-                                Text(pinned ? "Unpin \(package.name)" : "Pin \(package.name)")
+                                Text(pinned ? "Unpin \(package.name)" : "Pin \(package.name) to version \(package.versions.joined())")
                             }
                         }
                         
