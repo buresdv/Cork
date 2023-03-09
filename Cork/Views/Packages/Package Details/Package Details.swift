@@ -145,7 +145,11 @@ struct PackageDetailView: View
                                         /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
                                         VStack(alignment: .leading, spacing: 5) {
                                             let text = Text(
-                                                caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")
+                                                .init(
+                                                    caveats
+                                                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                                                        .replacingOccurrences(of: "\n\n", with: "\n")
+                                                )
                                             )
                                             .lineSpacing(5)
 
