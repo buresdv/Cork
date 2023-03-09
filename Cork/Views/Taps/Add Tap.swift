@@ -92,9 +92,10 @@ struct AddTapView: View
                                 progress = .tapping
                             }
                         } label: {
-                            Text("Tap")
+                            Text("Add")
                         }
                         .keyboardShortcut(.defaultAction)
+                        .disabled(validateTapName(tapName: requestedTap) != nil)
                     }
                 }
 
@@ -187,16 +188,24 @@ struct AddTapView: View
         .padding()
     }
 
-    func checkIfTapNameIsValid(tapName: String)
-    {
+    private func validateTapName(tapName: String) -> TapInputErrors? {
         if tapName.isEmpty
         {
-            tapInputError = .empty
-            isShowingErrorPopover = true
+            return .empty
         }
         else if !tapName.contains("/")
         {
-            tapInputError = .missingSlash
+            return .missingSlash
+        }
+
+        return nil
+    }
+
+    private func checkIfTapNameIsValid(tapName: String)
+    {
+        if let error = validateTapName(tapName: tapName)
+        {
+            tapInputError = error
             isShowingErrorPopover = true
         }
     }

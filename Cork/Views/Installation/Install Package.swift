@@ -58,6 +58,7 @@ struct AddFormulaView: View
                                 Text("Search")
                             }
                             .keyboardShortcut(.defaultAction)
+                            .disabled(packageRequested.isEmpty)
                         }
                     }
                 }
@@ -157,6 +158,7 @@ struct AddFormulaView: View
                                 Text("Install")
                             }
                             .keyboardShortcut(.defaultAction)
+                            .disabled(foundPackageSelection.isEmpty)
                         }
                     }
                 }
