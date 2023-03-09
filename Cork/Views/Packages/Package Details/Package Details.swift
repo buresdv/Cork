@@ -35,6 +35,8 @@ struct PackageDetailView: View
     @State private var pinned: Bool = false
 
     @State private var isShowingExpandedCaveats: Bool = false
+    @State private var canExpandCaveats: Bool = false
+
     @State private var isShowingCaveatPopover: Bool = false
     @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
@@ -139,23 +141,35 @@ struct PackageDetailView: View
                                             .resizable()
                                             .frame(width: 15, height: 15)
                                             .foregroundColor(.yellow)
-                                        
+
                                         /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
                                         VStack(alignment: .leading, spacing: 5) {
-                                            Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
+                                            let text = Text(
+                                                caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")
+                                            )
+                                            .lineSpacing(5)
+
+                                            text
                                                 .textSelection(.enabled)
-                                                .lineSpacing(5)
                                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                                 .lineLimit(isShowingExpandedCaveats ? nil : 2)
-                                            
-                                            Button {
-                                                withAnimation {
-                                                    isShowingExpandedCaveats.toggle()
+                                                .background {
+                                                    ViewThatFits(in: .vertical) {
+                                                        text.hidden()
+                                                        Color.clear.onAppear { canExpandCaveats = true }
+                                                    }
                                                 }
-                                            } label: {
-                                                Text(isShowingExpandedCaveats ? "Collapse" : "Expand")
-                                            }
 
+                                            if canExpandCaveats {
+                                                Button {
+                                                    withAnimation {
+                                                        isShowingExpandedCaveats.toggle()
+                                                    }
+                                                } label: {
+                                                    Text(isShowingExpandedCaveats ? "Collapse" : "Expand")
+                                                }
+                                                .padding(.top, 5)
+                                            }
                                         }
                                     }
                                     .padding(2)
