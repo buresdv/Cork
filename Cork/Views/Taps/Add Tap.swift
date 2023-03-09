@@ -45,7 +45,7 @@ struct AddTapView: View
             switch progress
             {
             case .ready:
-                SheetWithTitle(title: "Tap a tap")
+                SheetWithTitle(title: "Add a tap")
                 {
                     TextField("homebrew/core", text: $requestedTap)
                         .onSubmit
@@ -107,7 +107,7 @@ struct AddTapView: View
                 {
                     Task
                     {
-                        let tapResult = await tapAtap(tapName: requestedTap)
+                        let tapResult = await addTap(name: requestedTap)
 
                         print("Result: \(tapResult)")
 
@@ -134,16 +134,16 @@ struct AddTapView: View
                 ComplexWithIcon(systemName: "checkmark.seal") {
                     DisappearableSheet(isShowingSheet: $isShowingSheet)
                     {
-                        HeadlineWithSubheadline(headline: "Successfully tapped \(requestedTap)", subheadline: "There were no errors", alignment: .leading)
+                        HeadlineWithSubheadline(headline: "Successfully added \(requestedTap)", subheadline: "There were no errors", alignment: .leading)
                             .fixedSize(horizontal: true, vertical: true)
                             .onAppear
                             {
-                                availableTaps.tappedTaps.append(BrewTap(name: requestedTap))
+                                availableTaps.addedTaps.append(BrewTap(name: requestedTap))
                                 
                                 /// Remove that one element of the array that's empty for some reason
-                                availableTaps.tappedTaps.removeAll(where: { $0.name == "" })
+                                availableTaps.addedTaps.removeAll(where: { $0.name == "" })
                                 
-                                print("Available taps: \(availableTaps.tappedTaps)")
+                                print("Available taps: \(availableTaps.addedTaps)")
                             }
                     }
                 }

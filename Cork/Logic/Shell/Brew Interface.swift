@@ -41,9 +41,9 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
     return finalOutdatedPackages
 }
 
-func tapAtap(tapName: String) async -> String
+func addTap(name: String) async -> String
 {
-    let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", tapName]).standardError
+    let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", name]).standardError
     
     print("Tapping result: \(tapResult)")
     
@@ -55,9 +55,9 @@ enum UntapError: Error
     case couldNotUntap
 }
 
-func untapATap(tapName: String, availableTaps: AvailableTaps, appState: AppState) async throws -> Void
+func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) async throws -> Void
 {
-    let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", tapName]).standardError
+    let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", name]).standardError
     print("Untapping result: \(untapResult)")
     
     if untapResult.contains("Untapped")
@@ -65,7 +65,7 @@ func untapATap(tapName: String, availableTaps: AvailableTaps, appState: AppState
         print("Untapping was successful")
         DispatchQueue.main.async {
             withAnimation {
-                availableTaps.tappedTaps.removeAll(where: { $0.name == tapName })
+                availableTaps.addedTaps.removeAll(where: { $0.name == name })
             }
         }
     }
@@ -73,7 +73,7 @@ func untapATap(tapName: String, availableTaps: AvailableTaps, appState: AppState
     {
         print("Untapping failed")
         
-        appState.isShowingUntappingFailedAlert = true
+        appState.isShowingRemoveTapFailedAlert = true
         
         throw UntapError.couldNotUntap
     }

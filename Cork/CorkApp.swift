@@ -70,9 +70,9 @@ struct CorkApp: App
 
                 Button
                 {
-                    appState.isShowingTapATapSheet.toggle()
+                    appState.isShowingAddTapSheet.toggle()
                 } label: {
-                    Text("Tap a tap")
+                    Text("Add a Tap")
                 }
                 .keyboardShortcut("n", modifiers: [.command, .option])
 

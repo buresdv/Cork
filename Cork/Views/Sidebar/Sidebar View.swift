@@ -90,11 +90,11 @@ struct SidebarView: View
 
             if searchText.isEmpty
             {
-                Section("Tapped Taps")
+                Section("Added Taps")
                 {
-                    if availableTaps.tappedTaps.count != 0
+                    if availableTaps.addedTaps.count != 0
                     {
-                        ForEach(availableTaps.tappedTaps)
+                        ForEach(availableTaps.addedTaps)
                         { tap in
                             Text(tap.name)
                                 .contextMenu
@@ -103,15 +103,15 @@ struct SidebarView: View
                                     {
                                         Task(priority: .userInitiated)
                                         {
-                                            print("Would untap \(tap.name)")
-                                            try await untapATap(tapName: tap.name, availableTaps: availableTaps, appState: appState)
+                                            print("Would remove \(tap.name)")
+                                            try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
                                         }
                                     } label: {
-                                        Text("Untap \(tap.name)")
+                                        Text("Remove \(tap.name)")
                                     }
-                                    .alert(isPresented: $appState.isShowingUntappingFailedAlert, content: {
-                                        Alert(title: Text("Couldn't untap \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
-                                            appState.isShowingUntappingFailedAlert = false
+                                    .alert(isPresented: $appState.isShowingRemoveTapFailedAlert, content: {
+                                        Alert(title: Text("Couldn't remove \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
+                                            appState.isShowingRemoveTapFailedAlert = false
                                         }))
                                     })
                                 }
