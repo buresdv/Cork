@@ -8,6 +8,23 @@
 import Foundation
 import SwiftUI
 
+func upgradePackages() async -> Void
+{
+    for await output in shell("/opt/homebrew/bin/brew", ["upgrade"])
+    {
+        switch output
+        {
+            case let .standardOutput(outputLine):
+                print("Upgrade function output: \(outputLine)")
+                
+            case let .standardError(errorLine):
+                print("Upgrade function error: \(errorLine)")
+                
+        }
+    }
+}
+
+/*
 @MainActor
 func updateBrewPackages(_ updateProgressTracker: UpdateProgressTracker, appState: AppState)
 {
@@ -33,3 +50,4 @@ func updateBrewPackages(_ updateProgressTracker: UpdateProgressTracker, appState
         appState.isShowingUpdateSheet = false
     }
 }
+*/

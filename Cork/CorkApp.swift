@@ -73,7 +73,7 @@ struct CorkApp: App
 
                 Button
                 {
-                    updateBrewPackages(updateProgressTracker, appState: appState)
+                    appState.isShowingUpdateSheet = true
                 } label: {
                     Text("Update Packages")
                 }
