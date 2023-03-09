@@ -93,8 +93,25 @@ struct PackageDetailView: View
                         }
                     }
 
-                    Text(description)
-                        .font(.subheadline)
+                    if packageInfo.contents != nil
+                    {
+                        if !description.isEmpty
+                        {
+                            Text(description)
+                                .font(.subheadline)
+                        }
+                        else
+                        {
+                            HStack(alignment: .center, spacing: 10) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .resizable()
+                                    .frame(width: 15, height: 15)
+                                    .foregroundColor(.yellow)
+                                Text("This package has no description")
+                                    .font(.subheadline)
+                            }
+                        }
+                    }
                 }
             }
 

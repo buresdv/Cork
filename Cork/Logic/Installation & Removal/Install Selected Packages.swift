@@ -154,7 +154,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                         
                         installationProgressTracker.packagesBeingInstalled[0].installationStage = .linkingCaskBinary
                         
-                    } else if outputLine.contains("\(installationProgressTracker.packagesBeingInstalled[0].package.name) was successfully installed")
+                    } else if outputLine.contains("was successfully installed")
                     {
                         print("Finished installing app")
                         
