@@ -59,7 +59,7 @@ struct ContentView: View
 
                     Button
                     {
-                        appState.isShowingTapATapSheet.toggle()
+                        appState.isShowingAddTapSheet.toggle()
                     } label: {
                         Label
                         {
@@ -68,7 +68,7 @@ struct ContentView: View
                             Image(systemName: "spigot")
                         }
                     }
-                    .help("Tap a new tap")
+                    .help("Add a new tap")
 
                     Button
                     {
@@ -132,9 +132,9 @@ struct ContentView: View
         {
             AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet)
         }
-        .sheet(isPresented: $appState.isShowingTapATapSheet)
+        .sheet(isPresented: $appState.isShowingAddTapSheet)
         {
-            AddTapView(isShowingSheet: $appState.isShowingTapATapSheet)
+            AddTapView(isShowingSheet: $appState.isShowingAddTapSheet)
         }
         .sheet(isPresented: $appState.isShowingUpdateSheet)
         {

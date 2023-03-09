@@ -109,8 +109,8 @@ struct StartPage: View
 
                                     GridRow(alignment: .firstTextBaseline)
                                     {
-                                        GroupBoxHeadlineGroup(title: "You have \(availableTaps.tappedTaps.count) Taps tapped", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
-                                            .animation(.none, value: availableTaps.tappedTaps.count)
+                                        GroupBoxHeadlineGroup(title: "You have \(availableTaps.addedTaps.count) Taps added", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
+                                            .animation(.none, value: availableTaps.addedTaps.count)
                                     }
                                 }
                             }

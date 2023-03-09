@@ -16,5 +16,5 @@ class BrewDataStorage: ObservableObject
 
 class AvailableTaps: ObservableObject
 {
-    @Published var tappedTaps = [BrewTap]()
+    @Published var addedTaps = [BrewTap]()
 }

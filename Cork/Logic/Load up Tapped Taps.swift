@@ -15,6 +15,6 @@ func loadUpTappedTaps(into tracker: AvailableTaps) async -> Void
     let availableTaps = availableTapsRaw.standardOutput.components(separatedBy: "\n")
     
     for tap in availableTaps {
-        tracker.tappedTaps.append(BrewTap(name: tap))
+        tracker.addedTaps.append(BrewTap(name: tap))
     }
 }

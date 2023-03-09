@@ -13,13 +13,13 @@ class AppState: ObservableObject {
     @Published var isShowingUninstallationSheet: Bool = false
     @Published var isShowingMaintenanceSheet: Bool = false
     @Published var isShowingFastCacheDeletionMaintenanceView: Bool = false
-    @Published var isShowingTapATapSheet: Bool = false
+    @Published var isShowingAddTapSheet: Bool = false
     @Published var isShowingUpdateSheet: Bool = false
     
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingUninstallationNotPossibleDueToDependencyAlert: Bool = false
     @Published var offendingDependencyProhibitingUninstallation: String = ""
-    @Published var isShowingUntappingFailedAlert: Bool = false
+    @Published var isShowingRemoveTapFailedAlert: Bool = false
     
     @Published var isLoadingFormulae: Bool = true
     @Published var isLoadingCasks: Bool = true
