@@ -83,6 +83,7 @@ struct MaintenanceReadyView: View {
                         Text("Start Maintenance")
                     }
                     .keyboardShortcut(.defaultAction)
+                    .disabled(isStartDisabled)
                 }
             }
         }
@@ -99,5 +100,9 @@ struct MaintenanceReadyView: View {
             }
             
         }
+    }
+
+    private var isStartDisabled: Bool {
+        [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy { !$0 }
     }
 }
