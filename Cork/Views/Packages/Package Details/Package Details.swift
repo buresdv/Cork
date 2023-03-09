@@ -107,7 +107,7 @@ struct PackageDetailView: View
                                     .resizable()
                                     .frame(width: 15, height: 15)
                                     .foregroundColor(.yellow)
-                                Text("This package has no description")
+                                Text("\(package.name) has no description")
                                     .font(.subheadline)
                             }
                         }

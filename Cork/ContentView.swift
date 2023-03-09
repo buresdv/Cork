@@ -48,11 +48,12 @@ struct ContentView: View
                     } label: {
                         Label
                         {
-                            Text("Upgrade Formulae")
+                            Text("Upgrade Packages")
                         } icon: {
                             Image(systemName: "arrow.clockwise")
                         }
                     }
+                    .help("Upgrade installed packages")
 
                     Spacer()
 
@@ -67,6 +68,7 @@ struct ContentView: View
                             Image(systemName: "spigot")
                         }
                     }
+                    .help("Tap a new tap")
 
                     Button
                     {
@@ -74,11 +76,12 @@ struct ContentView: View
                     } label: {
                         Label
                         {
-                            Text("Add Formula")
+                            Text("Install package")
                         } icon: {
                             Image(systemName: "plus")
                         }
                     }
+                    .help("Install a new package")
                 }
             }
         }
