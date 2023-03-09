@@ -15,14 +15,14 @@ However, as Cork is open source, you can always compile it from source for free.
 
 ## Screenshots
 ### Main Window
-![Main Window](https://i.imgur.com/4gEYEuB.jpg)
+![Main Window](https://i.imgur.com/sIHrjbP.jpg)
 
 ### Package Info
 ![Package Info](https://i.imgur.com/L7LyzmS.jpg)
 ![Package Info](https://i.imgur.com/ZHaEcOA.jpg)
 
 ### Install Package
-![Install Package](https://i.imgur.com/sWt6xlw.jpg)
+![Install Package](https://i.imgur.com/CtqSCUu.jpg)
 ![Install Package](https://i.imgur.com/Agc7zxX.jpg)
 
 ### Tap Taps
