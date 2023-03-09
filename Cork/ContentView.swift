@@ -44,7 +44,7 @@ struct ContentView: View
                 {
                     Button
                     {
-                        updateBrewPackages(updateProgressTracker, appState: appState)
+                        appState.isShowingUpdateSheet = true
                     } label: {
                         Label
                         {
@@ -135,13 +135,7 @@ struct ContentView: View
         }
         .sheet(isPresented: $appState.isShowingUpdateSheet)
         {
-            VStack
-            {
-                ProgressView(value: updateProgressTracker.updateProgress)
-                    .frame(width: 200)
-                Text(updateProgressTracker.updateStage.rawValue)
-            }
-            .padding()
+            UpdatePackagesView(isShowingSheet: $appState.isShowingUpdateSheet)
         }
         .alert(isPresented: $appState.isShowingUninstallationNotPossibleDueToDependencyAlert, content: {
             Alert(title: Text("Could Not Uninstall"), message: Text("This package is a dependency of \(appState.offendingDependencyProhibitingUninstallation)"), dismissButton: .default(Text("Close"), action: {
