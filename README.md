@@ -44,12 +44,22 @@ Prerequisites:
 
 Instructions:
 
-0. Before you begin, you need to add your Developer account to Xcode. To do so, in the Menu bar, click `Xcode → Settings`, and in the window that opens, click `Accounts`. You can add your account there.
+**Before you begin**
+
+0. Enroll your account in the developer program at [https://developer.apple.com/](https://developer.apple.com/)
+1. Install Xcode
+2. Add your Developer account to Xcode. To do so, in the Menu bar, click `Xcode → Settings`, and in the window that opens, click `Accounts`. You can add your account there
+3. After you add your account, it will appear in the list of Apple IDs on the left od the screen. Select your account there
+4. At the bottom of the screen, click `Manage Certificates...`
+5. On the bottom left, click the **+** icon and select `Apple Development`
+6. When a new item appears in the list called `Apple Development Certificates`, you can press `Done` to close the account manager
+
+**Compiling Cork**
+
 1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open .`
 2. Double-click `Cork.xcodeproj`. Xcode should open the project
 3. Wait until all the dependencies are resolved. It should take a couple minutes at most
 4. In the Menu Bar, click `Product → Archive` and wait for the building to finish
 5. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
-6. Click `Developer ID`, `Export`, choose your account from the *Development Team* dropdown, and select `Automatically manage signing`. After Xcode finishes, click `Export`
+6. Click `Development`, choose your account from the *Development Team* dropdown, and select `Automatically manage signing`. After Xcode finishes, click `Export`
 7. Open the resulting folder. You'll see a few files, and an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
-
