@@ -61,5 +61,5 @@ Instructions:
 3. Wait until all the dependencies are resolved. It should take a couple minutes at most
 4. In the Menu Bar, click `Product → Archive` and wait for the building to finish
 5. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
-6. Click `Development`, choose your account from the *Development Team* dropdown, and select `Automatically manage signing`. After Xcode finishes, click `Export`
-7. Open the resulting folder. You'll see a few files, and an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
+6. Click `Copy App`
+7. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
