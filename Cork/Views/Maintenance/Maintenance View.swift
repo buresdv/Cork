@@ -233,7 +233,6 @@ struct MaintenanceView: View
                                 }
                             }
                         }
-                        //.frame(maxWidth: 200)
 
                         Spacer()
 
@@ -253,6 +252,8 @@ struct MaintenanceView: View
                         }
                     }
                     //.fixedSize(horizontal: false, vertical: true)
+                    .frame(width: 220, alignment: .leading)
+                    #warning("This is temporary, because it still cuts off some text. When I figure out a way to calculate the frame dynamically, change this")
                 }
                 .padding()
                 //.frame(minWidth: 300, minHeight: 150)
