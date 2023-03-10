@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 struct AppConstants {
-    static var brewExecutablePath: URL
+    static let brewExecutablePath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/bin/brew")
         { // Apple Sillicon
@@ -19,8 +19,8 @@ struct AppConstants {
         { // Intel
             return URL(string: "/usr/local/bin/brew")!
         }
-    }
-    static var brewCellarPath: URL
+    }()
+    static let brewCellarPath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Cellar")
         { // Apple Sillicon
@@ -30,8 +30,8 @@ struct AppConstants {
         { // Intel
             return URL(string: "/usr/local/Cellar")!
         }
-    }
-    static var brewCaskPath: URL
+    }()
+    static let brewCaskPath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Caskroom")
         { // Apple Sillicon
@@ -41,7 +41,7 @@ struct AppConstants {
         { // Intel
             return URL(string: "/usr/local/Caskroom")!
         }
-    }
+    }()
     
     static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
     
