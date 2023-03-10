@@ -14,7 +14,7 @@ enum HealthCheckError: Error
 
 func performBrewHealthCheck() async throws -> TerminalOutput
 {
-    async let commandResult = await shell("/opt/homebrew/bin/brew", ["doctor"])
+    async let commandResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["doctor"])
     
     await print(commandResult)
     

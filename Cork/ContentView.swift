@@ -87,10 +87,11 @@ struct ContentView: View
         }
         .onAppear
         {
+            print("Brew executable path: \(AppConstants.brewExecutablePath.absoluteString)")
             Task
             {
                 await loadUpTappedTaps(into: availableTaps)
-                async let analyticsQueryCommand = await shell("/opt/homebrew/bin/brew", ["analytics"])
+                async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
 
                 brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
                 brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)

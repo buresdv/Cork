@@ -71,7 +71,7 @@ struct SearchResultRow: View
                         
                         print("\(packageName) does not have its description loaded")
                         
-                        async let descriptionRaw = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", packageName]).standardOutput
+                        async let descriptionRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", packageName]).standardOutput
                         
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)
                         

@@ -30,7 +30,7 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
 
 
 /// # Usage:
-/// for await output in shell("/opt/homebrew/bin/brew", ["install", package.name])
+/// for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["install", package.name])
 /// {
 ///    switch output
 ///    {

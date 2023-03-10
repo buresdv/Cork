@@ -343,11 +343,11 @@ struct PackageDetailView: View
 
                 if !package.isCask
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", package.name]).standardOutput
+                    packageInfo.contents = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", package.name]).standardOutput
                 }
                 else
                 {
-                    packageInfo.contents = await shell("/opt/homebrew/bin/brew", ["info", "--json=v2", "--cask", package.name]).standardOutput
+                    packageInfo.contents = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", "--cask", package.name]).standardOutput
                 }
 
                 let parsedJSON: JSON = try parseJSON(from: packageInfo.contents!)

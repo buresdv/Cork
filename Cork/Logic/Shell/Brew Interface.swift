@@ -17,7 +17,7 @@ struct SearchResults
 func getListOfFoundPackages(searchWord: String) async -> String
 {
     var parsedResponse: String?
-    parsedResponse = await shell("/opt/homebrew/bin/brew", ["search", searchWord]).standardOutput
+    parsedResponse = await shell(AppConstants.brewExecutablePath.absoluteString, ["search", searchWord]).standardOutput
 
     return parsedResponse!
 }
@@ -26,7 +26,7 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
 {
     var finalOutdatedPackages = [BrewPackage]()
     
-    let outdatedPackagesRaw: String = await shell("/opt/homebrew/bin/brew", ["outdated"]).standardOutput
+    let outdatedPackagesRaw: String = await shell(AppConstants.brewExecutablePath.absoluteString, ["outdated"]).standardOutput
     
     print("Outdated packages output: \(outdatedPackagesRaw)")
     
@@ -43,7 +43,7 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
 
 func addTap(name: String) async -> String
 {
-    let tapResult = await shell("/opt/homebrew/bin/brew", ["tap", name]).standardError
+    let tapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap", name]).standardError
     
     print("Tapping result: \(tapResult)")
     
@@ -57,7 +57,7 @@ enum UntapError: Error
 
 func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) async throws -> Void
 {
-    let untapResult = await shell("/opt/homebrew/bin/brew", ["untap", name]).standardError
+    let untapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["untap", name]).standardError
     print("Untapping result: \(untapResult)")
     
     if untapResult.contains("Untapped")

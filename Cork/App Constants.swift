@@ -8,9 +8,40 @@
 import Foundation
 import SwiftyJSON
 
-struct AppConstants { // Had to add "local" because my package already has a struct called "AppConstants"
-    static let brewCellarPath: URL = URL(string: "/opt/homebrew/Cellar")!
-    static let brewCaskPath: URL = URL(string: "/opt/homebrew/Caskroom")!
+struct AppConstants {
+    static var brewExecutablePath: URL
+    {
+        if FileManager.default.fileExists(atPath: "/opt/homebrew/bin/brew")
+        { // Apple Sillicon
+            return URL(string: "/opt/homebrew/bin/brew")!
+        }
+        else
+        { // Intel
+            return URL(string: "/usr/local/bin/brew")!
+        }
+    }
+    static var brewCellarPath: URL
+    {
+        if FileManager.default.fileExists(atPath: "/opt/homebrew/Cellar")
+        { // Apple Sillicon
+            return URL(string: "/opt/homebrew/Cellar")!
+        }
+        else
+        { // Intel
+            return URL(string: "/usr/local/Cellar")!
+        }
+    }
+    static var brewCaskPath: URL
+    {
+        if FileManager.default.fileExists(atPath: "/opt/homebrew/Caskroom")
+        { // Apple Sillicon
+            return URL(string: "/opt/homebrew/Caskroom")!
+        }
+        else
+        { // Intel
+            return URL(string: "/usr/local/Caskroom")!
+        }
+    }
     
     static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
     

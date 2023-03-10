@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 func loadUpTappedTaps(into tracker: AvailableTaps) async -> Void
 {
-    let availableTapsRaw = await shell("/opt/homebrew/bin/brew", ["tap"])
+    let availableTapsRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap"])
     
     let availableTaps = availableTapsRaw.standardOutput.components(separatedBy: "\n")
     

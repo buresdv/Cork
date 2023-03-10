@@ -14,7 +14,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     appState.isShowingUninstallationProgressView = true
 
     print("Will try to remove package \(package.name)")
-    let uninstallCommandOutput = await shell("/opt/homebrew/bin/brew", ["uninstall", package.name])
+    let uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", package.name])
 
     print(uninstallCommandOutput.standardError)
 
