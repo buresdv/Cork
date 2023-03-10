@@ -59,7 +59,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = 1
                 }
                     
-                else if outputLine.contains("Already downloaded") || outputLine.contains("Fetching \(outputLine.containsElementFromArray(packageDependencies))")
+                    else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
                 {
                     print("Will fetch dependencies!")
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .fetchingDependencies
