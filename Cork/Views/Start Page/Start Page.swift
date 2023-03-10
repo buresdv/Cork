@@ -89,41 +89,45 @@ struct StartPage: View
                         {
                             GroupBox
                             {
-                                Grid(alignment: .leading)
+                                VStack(alignment: .leading)
                                 {
-                                    GridRow(alignment: .firstTextBaseline)
-                                    {
-                                        GroupBoxHeadlineGroup(title: "You have \(brewData.installedFormulae.count) Formulae installed", mainText: "Formulae are usually apps that you run in a terminal")
-                                            .animation(.none, value: brewData.installedFormulae.count)
-                                    }
+                                    GroupBoxHeadlineGroup(
+                                        image: "terminal",
+                                        title: "You have \(brewData.installedFormulae.count) Formulae installed",
+                                        mainText: "Formulae are usually apps that you run in a terminal"
+                                    )
+                                    .animation(.none, value: brewData.installedFormulae.count)
 
                                     Divider()
 
-                                    GridRow(alignment: .firstTextBaseline)
-                                    {
-                                        GroupBoxHeadlineGroup(title: "You have \(brewData.installedCasks.count) Casks installed", mainText: "Casks are usually graphical apps")
-                                            .animation(.none, value: brewData.installedCasks.count)
-                                    }
+                                    GroupBoxHeadlineGroup(
+                                        image: "macwindow",
+                                        title: "You have \(brewData.installedCasks.count) Casks installed",
+                                        mainText: "Casks are usually graphical apps"
+                                    )
+                                    .animation(.none, value: brewData.installedCasks.count)
 
                                     Divider()
 
-                                    GridRow(alignment: .firstTextBaseline)
-                                    {
-                                        GroupBoxHeadlineGroup(title: "You have \(availableTaps.addedTaps.count) Taps added", mainText: "Taps are sources of packages that are not provided by Homebrew itself")
-                                            .animation(.none, value: availableTaps.addedTaps.count)
-                                    }
+                                    GroupBoxHeadlineGroup(
+                                        image: "spigot",
+                                        title: "You have \(availableTaps.addedTaps.count) Taps added",
+                                        mainText: "Taps are sources of packages that are not provided by Homebrew itself"
+                                    )
+                                    .animation(.none, value: availableTaps.addedTaps.count)
                                 }
                             }
                             
                             GroupBox
                             {
-                                Grid(alignment: .leading)
+                                VStack(alignment: .leading)
                                 {
-                                    GridRow(alignment: .firstTextBaseline)
-                                    {
-                                        GroupBoxHeadlineGroup(title: "Brew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")", mainText: "\(allowBrewAnalytics ? "Brew is collecting various anonymized data, such as which packages you have installed" : "Brew is not collecting any data about how you use it")")
-                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                    }
+                                    GroupBoxHeadlineGroup(
+                                        image: "chart.bar",
+                                        title: "Brew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
+                                        mainText: "\(allowBrewAnalytics ? "Brew is collecting various anonymized data, such as which packages you have installed" : "Brew is not collecting any data about how you use it")"
+                                    )
+                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 }
                             }
                             
@@ -131,23 +135,24 @@ struct StartPage: View
                             {
                                 GroupBox
                                 {
-                                    Grid(alignment: .leading) {
-                                        GridRow(alignment: .center) {
-                                            HStack
-                                            {
-                                                GroupBoxHeadlineGroup(title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads", mainText: "These files were used for installing packages.\nThey are safe to remove.")
-                                                
-                                                Spacer()
-                                                
-                                                Button {
-                                                    appState.isShowingFastCacheDeletionMaintenanceView = true
-                                                } label: {
-                                                    Text("Delete Cached Downloads")
-                                                }
-                                            }
+                                    VStack
+                                    {
+                                        HStack
+                                        {
+                                            GroupBoxHeadlineGroup(
+                                                image: "square.and.arrow.down.on.square",
+                                                title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
+                                                mainText: "These files were used for installing packages.\nThey are safe to remove."
+                                            )
 
+                                            Spacer()
+
+                                            Button {
+                                                appState.isShowingFastCacheDeletionMaintenanceView = true
+                                            } label: {
+                                                Text("Delete Cached Downloads")
+                                            }
                                         }
-                                        
                                     }
                                 }
                             }
