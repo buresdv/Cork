@@ -38,6 +38,7 @@ Compiling Cork is simple, as it does not have many dependencies.
 
 Prerequisites:
 
+* macOS Ventura or newer
 * Xcode 14.2 or newer
 * Git
 * An Apple Developer accout. **You don't need a paid one! Even a free one works perfectly**
