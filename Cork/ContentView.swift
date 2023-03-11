@@ -40,6 +40,21 @@ struct ContentView: View
             .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
             .toolbar
             {
+                ToolbarItem(placement: .navigation) {
+                  Button
+                  {
+                    toggleSidebar()
+                  } label: {
+                    Label
+                    {
+                      Text("Toggle Sidebar")
+                    } icon: {
+                      Image(systemName: "sidebar.leading")
+                    }
+                  }
+                  .help("Toggle sidebar")
+                }
+
                 ToolbarItemGroup(placement: .primaryAction)
                 {
                     Button

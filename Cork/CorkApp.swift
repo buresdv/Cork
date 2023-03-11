@@ -47,16 +47,7 @@ struct CorkApp: App
                 }
             }
 
-            CommandGroup(after: .sidebar)
-            {
-                Button
-                {
-                    toggleSidebar()
-                } label: {
-                    Text("Toggle Sidebar")
-                }
-                .keyboardShortcut("s", modifiers: [.command, .control])
-            }
+            SidebarCommands()
 
             CommandMenu("Packages")
             {
