@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct GroupBoxHeadlineGroup: View {
-
+struct GroupBoxHeadlineGroup: View
+{
     var image: String?
     let title: String
     let mainText: String
-    
-    var body: some View {
+
+    var body: some View
+    {
         HStack(spacing: 15)
         {
             if let image

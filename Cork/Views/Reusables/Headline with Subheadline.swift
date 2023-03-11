@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct HeadlineWithSubheadline: View {
-    
+struct HeadlineWithSubheadline: View
+{
     @State var headline: String
     @State var subheadline: String
-    
+
     @State var alignment: HorizontalAlignment
-    
-    var body: some View {
+
+    var body: some View
+    {
         VStack(alignment: alignment)
         {
             Text(headline)

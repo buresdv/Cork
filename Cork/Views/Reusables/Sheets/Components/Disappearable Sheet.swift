@@ -7,16 +7,19 @@
 
 import SwiftUI
 
-struct DisappearableSheet<Content: View>: View {
-    
+struct DisappearableSheet<Content: View>: View
+{
     @Binding var isShowingSheet: Bool
-    
+
     @ViewBuilder var sheetContent: Content
-    
-    var body: some View {
+
+    var body: some View
+    {
         sheetContent
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            .onAppear
+            {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3)
+                {
                     isShowingSheet = false
                 }
             }
