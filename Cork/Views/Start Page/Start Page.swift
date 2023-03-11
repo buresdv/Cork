@@ -150,7 +150,7 @@ struct StartPage: View
                                             Button {
                                                 appState.isShowingFastCacheDeletionMaintenanceView = true
                                             } label: {
-                                                Text("Delete Cached Downloads")
+                                                Text("Delete Cached Downloads…")
                                             }
                                         }
                                     }
@@ -172,7 +172,7 @@ struct StartPage: View
                             print("Would perform maintenance")
                             appState.isShowingMaintenanceSheet.toggle()
                         } label: {
-                            Text("Brew Maintenance")
+                            Text("Brew Maintenance…")
                         }
                     }
                 }

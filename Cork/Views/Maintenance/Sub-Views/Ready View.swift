@@ -80,7 +80,7 @@ struct MaintenanceReadyView: View {
                         print("Start")
                         maintenanceSteps = .maintenanceRunning
                     } label: {
-                        Text("Start Maintenance")
+                        Text("Start")
                     }
                     .keyboardShortcut(.defaultAction)
                     .disabled(isStartDisabled)
