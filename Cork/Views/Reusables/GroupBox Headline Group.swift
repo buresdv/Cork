@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GroupBoxHeadlineGroup: View {
 
-    let image: String
+    var image: String?
     let title: String
     let mainText: String
     
