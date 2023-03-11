@@ -93,8 +93,8 @@ struct StartPage: View
                                 {
                                     GroupBoxHeadlineGroup(
                                         image: "terminal",
-                                        title: "\(brewData.installedFormulae.count) Formulae installed",
-                                        mainText: "Formulae are packages containing command-line tools"
+                                        title: "You have \(brewData.installedFormulae.count) Formulae installed",
+                                        mainText: "Formulae are packages that you use through a terminal"
                                     )
                                     .animation(.none, value: brewData.installedFormulae.count)
 
@@ -102,8 +102,8 @@ struct StartPage: View
 
                                     GroupBoxHeadlineGroup(
                                         image: "macwindow",
-                                        title: "\(brewData.installedCasks.count) Casks installed",
-                                        mainText: "Casks are packages containing graphical (GUI) apps"
+                                        title: "You have \(brewData.installedCasks.count) Casks installed",
+                                        mainText: "Casks are packages that have graphical windows"
                                     )
                                     .animation(.none, value: brewData.installedCasks.count)
 
@@ -111,8 +111,8 @@ struct StartPage: View
 
                                     GroupBoxHeadlineGroup(
                                         image: "spigot",
-                                        title: "\(availableTaps.addedTaps.count) Taps added",
-                                        mainText: "Taps are sources of packages that are not provided by Homebrew"
+                                        title: "You have \(availableTaps.addedTaps.count) Taps added",
+                                        mainText: "Taps provide additional packages"
                                     )
                                     .animation(.none, value: availableTaps.addedTaps.count)
                                 }
@@ -141,8 +141,8 @@ struct StartPage: View
                                         {
                                             GroupBoxHeadlineGroup(
                                                 image: "square.and.arrow.down.on.square",
-                                                title: "\(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
-                                                mainText: "These files were leftover from installing packages, and are safe to remove"
+                                                title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
+                                                mainText: "These files are leftovers from completed package installations. They're safe to remove."
                                             )
 
                                             Spacer()

@@ -23,7 +23,7 @@ struct MaintenancePane: View
         {
             VStack(alignment: .leading, spacing: 10)
             {
-                Text("Default steps")
+                Text("Set default steps")
                     .font(.headline)
                 MaintenanceReadyView(shouldUninstallOrphans: $default_shouldUninstallOrphans, shouldPurgeCache: $default_shouldPurgeCache, shouldDeleteDownloads: $default_shouldDeleteDownloads, shouldPerformHealthCheck: $default_shouldPerformHealthCheck, isShowingSheet: $isShowingSheetDummy, maintenanceSteps: $maintenanceStepsDummy, isShowingControlButtons: false, forcedOptions: false)
             }

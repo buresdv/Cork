@@ -43,7 +43,7 @@ struct SidebarView: View
                                     try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
                                 }
                             } label: {
-                                Text("Uninstall")
+                                Text("Uninstall \(formula.name)")
                             }
                         }
                     }
@@ -76,7 +76,7 @@ struct SidebarView: View
                                     try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
                                 }
                             } label: {
-                                Text("Uninstall")
+                                Text("Uninstall \(cask.name)")
                             }
                         }
                     }

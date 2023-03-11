@@ -75,7 +75,7 @@ struct GeneralPane: View
                 
                 LabeledContent {
                     Toggle(isOn: $showDescriptionsInSearchResults) {
-                        Text("Show descriptions")
+                        Text("Show package descriptions")
                     }
                 } label: {
                     Text("Search results:")
