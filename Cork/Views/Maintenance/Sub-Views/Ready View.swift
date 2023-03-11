@@ -49,7 +49,7 @@ struct MaintenanceReadyView: View {
                     {
                         Toggle(isOn: $shouldPurgeCache)
                         {
-                            Text("Purge Brew cache")
+                            Text("Purge Homebrew cache")
                         }
                         Toggle(isOn: $shouldDeleteDownloads)
                         {
@@ -85,6 +85,7 @@ struct MaintenanceReadyView: View {
                     .keyboardShortcut(.defaultAction)
                     .disabled(isStartDisabled)
                 }
+                .padding(.top)
             }
         }
         .onAppear

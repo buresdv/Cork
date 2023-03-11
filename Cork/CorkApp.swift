@@ -102,7 +102,7 @@ struct CorkApp: App
                 {
                     appState.isShowingMaintenanceSheet.toggle()
                 } label: {
-                    Text("Perform Brew Maintenance…")
+                    Text("Perform Maintenance…")
                 }
                 .keyboardShortcut("m")
                 

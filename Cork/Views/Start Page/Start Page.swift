@@ -93,8 +93,8 @@ struct StartPage: View
                                 {
                                     GroupBoxHeadlineGroup(
                                         image: "terminal",
-                                        title: "You have \(brewData.installedFormulae.count) Formulae installed",
-                                        mainText: "Formulae are usually apps that you run in a terminal"
+                                        title: "\(brewData.installedFormulae.count) Formulae installed",
+                                        mainText: "Formulae are packages containing command-line tools"
                                     )
                                     .animation(.none, value: brewData.installedFormulae.count)
 
@@ -102,8 +102,8 @@ struct StartPage: View
 
                                     GroupBoxHeadlineGroup(
                                         image: "macwindow",
-                                        title: "You have \(brewData.installedCasks.count) Casks installed",
-                                        mainText: "Casks are usually graphical apps"
+                                        title: "\(brewData.installedCasks.count) Casks installed",
+                                        mainText: "Casks are packages containing graphical (GUI) apps"
                                     )
                                     .animation(.none, value: brewData.installedCasks.count)
 
@@ -111,8 +111,8 @@ struct StartPage: View
 
                                     GroupBoxHeadlineGroup(
                                         image: "spigot",
-                                        title: "You have \(availableTaps.addedTaps.count) Taps added",
-                                        mainText: "Taps are sources of packages that are not provided by Homebrew itself"
+                                        title: "\(availableTaps.addedTaps.count) Taps added",
+                                        mainText: "Taps are sources of packages that are not provided by Homebrew"
                                     )
                                     .animation(.none, value: availableTaps.addedTaps.count)
                                 }
@@ -124,8 +124,8 @@ struct StartPage: View
                                 {
                                     GroupBoxHeadlineGroup(
                                         image: "chart.bar",
-                                        title: "Brew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
-                                        mainText: "\(allowBrewAnalytics ? "Brew is collecting various anonymized data, such as which packages you have installed" : "Brew is not collecting any data about how you use it")"
+                                        title: "Homebrew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
+                                        mainText: "\(allowBrewAnalytics ? "Homebrew is collecting various anonymized data, such as which packages you have installed" : "Homebrew is not collecting any data about how you use it")"
                                     )
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 }
@@ -141,8 +141,8 @@ struct StartPage: View
                                         {
                                             GroupBoxHeadlineGroup(
                                                 image: "square.and.arrow.down.on.square",
-                                                title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
-                                                mainText: "These files were used for installing packages.\nThey are safe to remove."
+                                                title: "\(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
+                                                mainText: "These files were leftover from installing packages, and are safe to remove"
                                             )
 
                                             Spacer()
