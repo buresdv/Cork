@@ -15,7 +15,7 @@ However, as Cork is open source, you can always compile it from source for free.
 
 ## Screenshots
 ### Main Window
-![Main Window](https://i.imgur.com/sIHrjbP.jpg)
+![Start Page](https://i.imgur.com/N8HQtcL.jpg)
 
 ### Package Info
 ![Package Info](https://i.imgur.com/L7LyzmS.jpg)
