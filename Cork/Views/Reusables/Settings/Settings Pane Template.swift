@@ -15,5 +15,6 @@ struct SettingsPaneTemplate<Content: View>: View {
         paneContent
             .padding()
             .frame(minWidth: 300, minHeight: 50)
+            .fixedSize()
     }
 }

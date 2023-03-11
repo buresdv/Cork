@@ -28,6 +28,5 @@ struct MaintenancePane: View
                 MaintenanceReadyView(shouldUninstallOrphans: $default_shouldUninstallOrphans, shouldPurgeCache: $default_shouldPurgeCache, shouldDeleteDownloads: $default_shouldDeleteDownloads, shouldPerformHealthCheck: $default_shouldPerformHealthCheck, isShowingSheet: $isShowingSheetDummy, maintenanceSteps: $maintenanceStepsDummy, isShowingControlButtons: false, forcedOptions: false)
             }
         }
-        .frame(width: 320, height: 150, alignment: .center)
     }
 }

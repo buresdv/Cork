@@ -84,6 +84,5 @@ struct GeneralPane: View
 
             }
         }
-        .frame(width: 400, height: 170, alignment: .leading)
     }
 }
