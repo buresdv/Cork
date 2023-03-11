@@ -64,7 +64,7 @@ struct CorkApp: App
                 {
                     appState.isShowingInstallationSheet.toggle()
                 } label: {
-                    Text("Install Packages")
+                    Text("Install Packages…")
                 }
                 .keyboardShortcut("n")
 
@@ -72,7 +72,7 @@ struct CorkApp: App
                 {
                     appState.isShowingAddTapSheet.toggle()
                 } label: {
-                    Text("Add a Tap")
+                    Text("Add a Tap…")
                 }
                 .keyboardShortcut("n", modifiers: [.command, .option])
 
@@ -102,7 +102,7 @@ struct CorkApp: App
                 {
                     appState.isShowingMaintenanceSheet.toggle()
                 } label: {
-                    Text("Perform Brew Maintenance")
+                    Text("Perform Brew Maintenance…")
                 }
                 .keyboardShortcut("m")
                 
