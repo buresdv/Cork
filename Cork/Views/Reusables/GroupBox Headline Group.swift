@@ -16,10 +16,13 @@ struct GroupBoxHeadlineGroup: View {
     var body: some View {
         HStack(spacing: 15)
         {
-            Image(systemName: image)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 26, height: 26)
+            if let image
+            {
+                Image(systemName: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 26, height: 26)
+            }
 
             VStack(alignment: .leading, spacing: 2)
             {
