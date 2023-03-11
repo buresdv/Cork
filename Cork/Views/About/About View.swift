@@ -35,7 +35,7 @@ struct AboutView: View
             Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
                 .resizable()
                 .frame(width: 150, height: 150)
-                .animation(.none)
+                .animation(.none, value: isPackageGroupExpanded)
 
             VStack(alignment: .leading, spacing: 20)
             {
@@ -161,7 +161,7 @@ struct AboutView: View
                 }
             }
             .frame(width: 350, alignment: .topLeading)
-            .animation(.none)
+            .animation(.none, value: isPackageGroupExpanded)
         }
         .padding()
     }

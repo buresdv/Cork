@@ -17,7 +17,7 @@ func isSymlink(at url: URL) -> Bool
         let fileAttributes = try url.resourceValues(forKeys: [.isSymbolicLinkKey])
         
         isSymlink = fileAttributes.isSymbolicLink
-        print(isSymlink)
+        print(isSymlink ?? false)
     }
     catch let symlinkCheckingError as NSError
     {

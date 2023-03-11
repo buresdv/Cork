@@ -223,7 +223,7 @@ struct AddFormulaView: View
                 }
                 .onAppear
                 {
-                    for var packageToInstall in installationProgressTracker.packagesBeingInstalled
+                    for _ in installationProgressTracker.packagesBeingInstalled
                     {
                         Task(priority: .userInitiated)
                         {
