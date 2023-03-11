@@ -23,11 +23,11 @@ struct GeneralPane: View
             {
                 Picker(selection: $sortPackagesBy)
                 {
-                    Text("Alphabetically")
+                    Text("Name")
                         .tag(PackageSortingOptions.alphabetically)
-                    Text("By Installation Date")
+                    Text("Installation Date")
                         .tag(PackageSortingOptions.byInstallDate)
-                    Text("By Size")
+                    Text("Size")
                         .tag(PackageSortingOptions.bySize)
                     
                     Divider()
@@ -35,7 +35,7 @@ struct GeneralPane: View
                     Text("Do Not Sort")
                         .tag(PackageSortingOptions.none)
                 } label: {
-                    Text("Sort packages:")
+                    Text("Sort packages by:")
                 }
                 
                 if sortPackagesBy == .none
@@ -58,12 +58,12 @@ struct GeneralPane: View
                 }
                 
                 Picker(selection: $caveatDisplayOptions) {
-                    Text("Full display")
+                    Text("Full")
                         .tag(PackageCaveatDisplay.full)
-                    Text("Minified display")
+                    Text("Minified")
                         .tag(PackageCaveatDisplay.mini)
                 } label: {
-                    Text("Package Caveats:")
+                    Text("Package caveats:")
                 }
                 .pickerStyle(.radioGroup)
                 if caveatDisplayOptions == .mini
@@ -75,10 +75,10 @@ struct GeneralPane: View
                 
                 LabeledContent {
                     Toggle(isOn: $showDescriptionsInSearchResults) {
-                        Text("Show descriptions in search results")
+                        Text("Show package descriptions")
                     }
                 } label: {
-                    Text("Search Results:")
+                    Text("Search results:")
                 }
 
 

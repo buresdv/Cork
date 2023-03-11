@@ -15,7 +15,7 @@ struct LoadingView: View
         {
             ProgressView()
                 .scaleEffect(0.5)
-            Text("Loading package info...")
+            Text("Loading info...")
         }
         .foregroundColor(.gray)
     }

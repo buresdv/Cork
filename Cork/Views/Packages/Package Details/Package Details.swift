@@ -125,7 +125,7 @@ struct PackageDetailView: View
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("Package Info")
+                    Text("Info")
                         .font(.title2)
 
                     if let caveats
@@ -310,7 +310,7 @@ struct PackageDetailView: View
                                     await pinAndUnpinPackage(package: package, pinned: pinned)
                                 }
                             } label: {
-                                Text(pinned ? "Unpin \(package.name)" : "Pin \(package.name) to version \(package.versions.joined())")
+                                Text(pinned ? "Unpin from version \(package.versions.joined())" : "Pin to version \(package.versions.joined())")
                             }
                         }
                         
