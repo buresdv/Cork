@@ -68,3 +68,9 @@ Instructions:
 5. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
 6. Click `Copy App`
 7. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
+
+## License
+
+Cork is licensed under [Commons Clause](https://commonsclause.com).
+
+This means that Cork open-source and you can do whatever you want with Cork's source, like modifying it, contributing to it etc., but you can't sell Cork or modified versions of it.
