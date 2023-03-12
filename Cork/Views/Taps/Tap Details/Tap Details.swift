@@ -20,11 +20,11 @@ struct TapDetailView: View
 
     @State private var isLoadingTapInfo: Bool = true
 
-    @State private var numberOfPackages: Int = 0
     @State private var homepage: URL = .init(string: "https://google.com")!
     @State private var isOfficial: Bool = false
     @State private var includedFormulae: [String]?
     @State private var includedCasks: [String]?
+    @State private var numberOfPackages: Int = 0
 
     @State private var isShowingIncludedFormulae: Bool = false
     @State private var isShowingIncludedCasks: Bool = false
@@ -105,6 +105,13 @@ struct TapDetailView: View
                                     Text("Mostly Casks")
                                 }
                             }
+                            
+                            Divider()
+                            
+                            GridRow(alignment: .firstTextBaseline) {
+                                Text("Number of Packages")
+                                Text(String(numberOfPackages))
+                            }
                         }
                     }
 
@@ -164,6 +171,8 @@ struct TapDetailView: View
                 includedFormulae = getFormulaeAvailableFromTap(json: parsedJSON, tap: tap)
                 includedCasks = getCasksAvailableFromTap(json: parsedJSON, tap: tap)
 
+                numberOfPackages = Int(includedFormulae?.count ?? 0) + Int(includedCasks?.count ?? 0)
+                
                 isLoadingTapInfo = false
             }
         }
