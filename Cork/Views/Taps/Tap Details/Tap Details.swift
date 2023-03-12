@@ -70,17 +70,6 @@ struct TapDetailView: View
                     {
                         Grid(alignment: .leading)
                         {
-                            GridRow(alignment: .firstTextBaseline)
-                            {
-                                Text("Homepage")
-                                Link(destination: homepage)
-                                {
-                                    Text(homepage.absoluteString)
-                                }
-                            }
-                            
-                            Divider()
-                            
                             GridRow(alignment: .firstTextBaseline) {
                                 Text("Contents")
                                 
@@ -111,6 +100,17 @@ struct TapDetailView: View
                             GridRow(alignment: .firstTextBaseline) {
                                 Text("Number of Packages")
                                 Text(String(numberOfPackages))
+                            }
+                            
+                            Divider()
+                            
+                            GridRow(alignment: .firstTextBaseline)
+                            {
+                                Text("Homepage")
+                                Link(destination: homepage)
+                                {
+                                    Text(homepage.absoluteString)
+                                }
                             }
                         }
                     }
