@@ -53,6 +53,7 @@
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpit Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */; };
 		6360355829BDE7BF00CC0760 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
+		6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355929BDF67A00CC0760 /* Update Availability.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -158,6 +159,7 @@
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpit Package.swift"; sourceTree = "<group>"; };
 		6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Stages.swift"; sourceTree = "<group>"; };
+		6360355929BDF67A00CC0760 /* Update Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Availability.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			children = (
 				63A38B9729BA0B910080158C /* Package Updating Steps.swift */,
 				6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */,
+				6360355929BDF67A00CC0760 /* Update Availability.swift */,
 			);
 			path = "Package Updating";
 			sourceTree = "<group>";
@@ -820,6 +823,7 @@
 				6342117829AA500300E2563B /* Check if URL is Symlink.swift in Sources */,
 				6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
+				6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */,
 				637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
 				6382C90C299DA46100354B19 /* Perform Brew Health Check.swift in Sources */,
