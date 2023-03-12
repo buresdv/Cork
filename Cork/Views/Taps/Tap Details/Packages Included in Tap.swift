@@ -7,19 +7,22 @@
 
 import SwiftUI
 
-struct PackagesIncludedInTapList: View {
-    
+struct PackagesIncludedInTapList: View
+{
     @State var packages: [String]
-    
+
     @State private var searchString: String = ""
-    
-    var body: some View {
-        VStack(spacing: 0)
+
+    var body: some View
+    {
+        VStack(spacing: 5)
         {
-            TextField("Search...", text: $searchString)
-            ScrollView {
-                LazyVStack(spacing: 0) {
-                    ForEach(Array( searchString.isEmpty ? packages.enumerated() : packages.filter({ $0.contains(searchString) }).enumerated()), id: \.offset)
+            CustomSearchField(search: $searchString)
+            ScrollView
+            {
+                LazyVStack(spacing: 0)
+                {
+                    ForEach(Array(searchString.isEmpty ? packages.enumerated() : packages.filter { $0.contains(searchString) }.enumerated()), id: \.offset)
                     { index, package in
                         Text(package)
                             .padding(6)
@@ -28,8 +31,8 @@ struct PackagesIncludedInTapList: View {
                     }
                 }
             }
-            .frame(height: 150)
+            .frame(maxHeight: 150)
+            .border(Color(nsColor: .lightGray))
         }
-        .border(Color(nsColor: .lightGray))
     }
 }

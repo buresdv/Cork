@@ -34,6 +34,7 @@
 		633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289EE29A68B36004B2930 /* Search Result Tracker.swift */; };
 		633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */; };
 		633A861C29A525F0006EA952 /* Toggle Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A861B29A525F0006EA952 /* Toggle Sidebar.swift */; };
+		633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB30529BE65EB006CB872 /* Custom Search Field.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
 		634065692871AA42001A2178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634065682871AA42001A2178 /* Assets.xcassets */; };
@@ -140,6 +141,7 @@
 		633289EE29A68B36004B2930 /* Search Result Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Tracker.swift"; sourceTree = "<group>"; };
 		633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package in Progress of Being Installed.swift"; sourceTree = "<group>"; };
 		633A861B29A525F0006EA952 /* Toggle Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle Sidebar.swift"; sourceTree = "<group>"; };
+		633EB30529BE65EB006CB872 /* Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Search Field.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634065642871AA42001A2178 /* CorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorkApp.swift; sourceTree = "<group>"; };
 		634065662871AA42001A2178 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 				63D83102299928B400FA802F /* Headline with Subheadline.swift */,
 				63D51F70299AEE5100203F3F /* Complex with Icon.swift */,
 				639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */,
+				633EB30529BE65EB006CB872 /* Custom Search Field.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
+				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
