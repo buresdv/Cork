@@ -50,10 +50,14 @@ struct TapDetailView: View
 
             if isLoadingTapInfo
             {
-                ProgressView
-                {
-                    Text("Loading tap info...")
+                HStack(alignment: .center) {
+                    VStack(alignment: .center) {
+                        ProgressView {
+                            Text("Loading tap info...")
+                        }
+                    }
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
             else
             {
@@ -142,6 +146,7 @@ struct TapDetailView: View
             }
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .onAppear
         {
             Task(priority: .userInitiated)

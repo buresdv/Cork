@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PackagesIncludedInTapList: View
 {
+    @EnvironmentObject var brewData: BrewDataStorage
+
     @State var packages: [String]
 
     @State private var searchString: String = ""
@@ -24,10 +26,18 @@ struct PackagesIncludedInTapList: View
                 {
                     ForEach(Array(searchString.isEmpty ? packages.enumerated() : packages.filter { $0.contains(searchString) }.enumerated()), id: \.offset)
                     { index, package in
-                        Text(package)
-                            .padding(6)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .background(index % 2 == 0 ? Color(nsColor: NSColor.alternatingContentBackgroundColors[0]) : Color(nsColor: NSColor.alternatingContentBackgroundColors[1]))
+                        HStack(alignment: .center)
+                        {
+                            Text(package)
+
+                            if brewData.installedFormulae.contains(where: { $0.name == package }) || brewData.installedCasks.contains(where: { $0.name == package })
+                            {
+                                PillText(text: "Installed")
+                            }
+                        }
+                        .padding(6)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .background(index % 2 == 0 ? Color(nsColor: NSColor.alternatingContentBackgroundColors[0]) : Color(nsColor: NSColor.alternatingContentBackgroundColors[1]))
                     }
                 }
             }

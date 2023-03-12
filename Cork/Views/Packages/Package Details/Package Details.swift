@@ -119,7 +119,14 @@ struct PackageDetailView: View
 
             if packageInfo.contents == nil
             {
-                LoadingView()
+                HStack(alignment: .center) {
+                    VStack(alignment: .center) {
+                        ProgressView {
+                            Text("Loading package info...")
+                        }
+                    }
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
             else
             {
