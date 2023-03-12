@@ -40,9 +40,16 @@ struct UpdatePackagesView: View
                             {
                                 Task(priority: .userInitiated)
                                 {
-                                    await updatePackages(updateProgressTracker, appState: appState)
-
-                                    packageUpdatingStep = .updatingPackages
+                                    let updateAvailability = await updatePackages(updateProgressTracker, appState: appState)
+                                    
+                                    if updateAvailability == .noUpdatesAvailable
+                                    {
+                                        packageUpdatingStage = .noUpdatesAvailable
+                                    }
+                                    else
+                                    {
+                                        packageUpdatingStep = .updatingPackages
+                                    }
                                 }
                             }
                     case .updatingPackages:
@@ -55,11 +62,11 @@ struct UpdatePackagesView: View
 
                                     if updateProgressTracker.errors.isEmpty
                                     {
-                                        packageUpdatingStage = .erroredOut
+                                        packageUpdatingStage = .finished
                                     }
                                     else
                                     {
-                                        packageUpdatingStage = .finished
+                                        packageUpdatingStage = .erroredOut
                                     }
                                 }
                             }
@@ -72,6 +79,16 @@ struct UpdatePackagesView: View
                     }
                 }
                 .fixedSize()
+
+            case .noUpdatesAvailable:
+                DisappearableSheet(isShowingSheet: $isShowingSheet)
+                {
+                    ComplexWithIcon(systemName: "checkmark.seal")
+                    {
+                        HeadlineWithSubheadline(headline: "No updates available", subheadline: "You're all up to date", alignment: .leading)
+                            .fixedSize()
+                    }
+                }
 
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
@@ -88,14 +105,16 @@ struct UpdatePackagesView: View
                 {
                     VStack(alignment: .leading, spacing: 5)
                     {
-                        HeadlineWithSubheadline(headline: "Packages updated with errors", subheadline: "There were some errors during updating. Check below for more information", alignment: .leading)
-                        List {
+                        HeadlineWithSubheadline(headline: "Packages updated with errors", subheadline: "There were some errors during updating.\nCheck below for more information", alignment: .leading)
+                        List
+                        {
                             ForEach(updateProgressTracker.errors, id: \.self)
                             { error in
                                 Text(error)
                             }
                         }
-                        HStack {
+                        HStack
+                        {
                             Spacer()
                             DismissSheetButton(isShowingSheet: $appState.isShowingUpdateSheet)
                         }

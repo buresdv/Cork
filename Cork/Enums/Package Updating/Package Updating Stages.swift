@@ -9,5 +9,5 @@ import Foundation
 
 enum PackageUpdatingStage
 {
-    case updating, finished, erroredOut
+    case updating, finished, erroredOut, noUpdatesAvailable
 }
