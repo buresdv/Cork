@@ -35,7 +35,7 @@ struct TapDetailView: View
         {
             VStack(alignment: .leading, spacing: 5)
             {
-                HStack(alignment: .firstTextBaseline, spacing: 5)
+                HStack(alignment: .center, spacing: 5)
                 {
                     Text(tap.name)
                         .font(.title)
@@ -43,7 +43,7 @@ struct TapDetailView: View
                     if isOfficial
                     {
                         Image(systemName: "checkmark.shield")
-                            .help("\(tap.name) an official tap.\nPackages installed from it are audited to make sure they are.")
+                            .help("\(tap.name) an official tap.\nPackages installed from it are audited to make sure they are safe.")
                     }
                 }
             }
@@ -74,7 +74,33 @@ struct TapDetailView: View
                                     Text(homepage.absoluteString)
                                 }
                             }
+                            
                             Divider()
+                            
+                            GridRow(alignment: .firstTextBaseline) {
+                                Text("Contents")
+                                
+                                if includedFormulae == nil && includedCasks == nil
+                                {
+                                    Text("None")
+                                }
+                                else if includedFormulae != nil && includedCasks == nil
+                                {
+                                    Text("Only Formulae")
+                                }
+                                else if includedCasks != nil && includedFormulae == nil
+                                {
+                                    Text("Only Casks")
+                                }
+                                else if includedFormulae?.count ?? 0 > includedCasks?.count ?? 0
+                                {
+                                    Text("Mostly Formulae")
+                                }
+                                else if includedFormulae?.count ?? 0 < includedCasks?.count ?? 0
+                                {
+                                    Text("Mostly Casks")
+                                }
+                            }
                         }
                     }
 
