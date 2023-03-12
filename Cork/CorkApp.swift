@@ -19,6 +19,7 @@ struct CorkApp: App
     @StateObject var updateProgressTracker = UpdateProgressTracker()
 
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
+    @StateObject var selectedTapInfo = SelectedTapInfo()
 
     var body: some Scene
     {
@@ -29,6 +30,7 @@ struct CorkApp: App
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
+                .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
                 .onAppear
                 {
