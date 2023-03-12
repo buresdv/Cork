@@ -108,34 +108,37 @@ struct TapDetailView: View
                         }
                     }
 
-                    GroupBox
+                    if includedFormulae != nil || includedCasks != nil
                     {
-                        VStack
+                        GroupBox
                         {
-                            if let includedFormulae
+                            VStack
                             {
-                                DisclosureGroup("Formulae Included", isExpanded: $isShowingIncludedFormulae)
-                                {}
-                                .disclosureGroupStyle(NoPadding())
-                                if isShowingIncludedFormulae
+                                if let includedFormulae
                                 {
-                                    PackagesIncludedInTapList(packages: includedFormulae)
+                                    DisclosureGroup("Formulae Included", isExpanded: $isShowingIncludedFormulae)
+                                    {}
+                                    .disclosureGroupStyle(NoPadding())
+                                    if isShowingIncludedFormulae
+                                    {
+                                        PackagesIncludedInTapList(packages: includedFormulae)
+                                    }
                                 }
-                            }
 
-                            if includedFormulae != nil && includedCasks != nil
-                            {
-                                Divider()
-                            }
-                            
-                            if let includedCasks
-                            {
-                                DisclosureGroup("Casks Included", isExpanded: $isShowingIncludedCasks)
-                                {}
-                                .disclosureGroupStyle(NoPadding())
-                                if isShowingIncludedCasks
+                                if includedFormulae != nil && includedCasks != nil
                                 {
-                                    PackagesIncludedInTapList(packages: includedCasks)
+                                    Divider()
+                                }
+                                
+                                if let includedCasks
+                                {
+                                    DisclosureGroup("Casks Included", isExpanded: $isShowingIncludedCasks)
+                                    {}
+                                    .disclosureGroupStyle(NoPadding())
+                                    if isShowingIncludedCasks
+                                    {
+                                        PackagesIncludedInTapList(packages: includedCasks)
+                                    }
                                 }
                             }
                         }
