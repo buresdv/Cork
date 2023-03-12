@@ -15,6 +15,9 @@ class SelectedTapInfo: ObservableObject
 struct TapDetailView: View
 {
     @State var tap: BrewTap
+    
+    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var availableTaps: AvailableTaps
 
     @StateObject var selectedTapInfo: SelectedTapInfo
 
@@ -43,7 +46,7 @@ struct TapDetailView: View
                     if isOfficial
                     {
                         Image(systemName: "checkmark.shield")
-                            .help("\(tap.name) an official tap.\nPackages installed from it are audited to make sure they are safe.")
+                            .help("\(tap.name) an official tap.\nPackages included in it are audited to make sure they are safe.")
                     }
                 }
             }
@@ -152,6 +155,23 @@ struct TapDetailView: View
                     }
 
                     Spacer()
+                    
+                    HStack
+                    {
+                        Spacer()
+                        
+                        UninstallationProgressWheel()
+                        
+                        Button {
+                            Task(priority: .userInitiated)
+                            {
+                                try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                            }
+                        } label: {
+                            Text("Remove \(tap.name)")
+                        }
+
+                    }
                 }
             }
         }
@@ -161,10 +181,9 @@ struct TapDetailView: View
         {
             Task(priority: .userInitiated)
             {
-                async let tapInfoShort = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", tap.name]).standardOutput
-                async let tapInfoComplete = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput
+                async let tapInfo = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput
 
-                let parsedJSON = try await parseJSON(from: tapInfoComplete)
+                let parsedJSON = try await parseJSON(from: tapInfo)
 
                 homepage = getTapHomepageFromJSON(json: parsedJSON)
                 isOfficial = getTapOfficialStatusFromJSON(json: parsedJSON)
