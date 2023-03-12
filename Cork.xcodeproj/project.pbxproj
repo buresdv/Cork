@@ -53,6 +53,7 @@
 		6342118329AA9CF100E2563B /* Ready View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342118229AA9CF100E2563B /* Ready View.swift */; };
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpit Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */; };
+		6360355829BDE7BF00CC0760 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -164,6 +165,7 @@
 		6342118229AA9CF100E2563B /* Ready View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ready View.swift"; sourceTree = "<group>"; };
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpit Package.swift"; sourceTree = "<group>"; };
+		6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Stages.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -431,6 +433,24 @@
 			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
+		6360355529BDE79D00CC0760 /* Package Updating */ = {
+			isa = PBXGroup;
+			children = (
+				63A38B9729BA0B910080158C /* Package Updating Steps.swift */,
+				6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */,
+			);
+			path = "Package Updating";
+			sourceTree = "<group>";
+		};
+		6360355629BDE7A700CC0760 /* Package Installation */ = {
+			isa = PBXGroup;
+			children = (
+				633289E829A68A8A004B2930 /* Package Installation Stage.swift */,
+				633289E629A68A61004B2930 /* Package Installation Steps.swift */,
+			);
+			path = "Package Installation";
+			sourceTree = "<group>";
+		};
 		6371EA1C2871D96800300E1B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,12 +606,11 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				6360355629BDE7A700CC0760 /* Package Installation */,
+				6360355529BDE79D00CC0760 /* Package Updating */,
 				63A87467298FE811009F9533 /* Package Types.swift */,
 				6382C8F8299D6C1D00354B19 /* Package Sorting.swift */,
-				633289E629A68A61004B2930 /* Package Installation Steps.swift */,
-				633289E829A68A8A004B2930 /* Package Installation Stage.swift */,
 				63936A4C29AE6D710069C988 /* Package Caveats.swift */,
-				63A38B9729BA0B910080158C /* Package Updating Steps.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -830,6 +849,7 @@
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
 				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
 				6342117C29AA55B700E2563B /* Convert Folder Size to Presentable Format.swift in Sources */,
+				6360355829BDE7BF00CC0760 /* Package Updating Stages.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */,
 				63D8C957287A1D0800483A52 /* Loading View.swift in Sources */,

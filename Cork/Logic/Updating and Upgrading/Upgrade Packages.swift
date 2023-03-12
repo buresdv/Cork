@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-func upgradePackages() async -> Void
+@MainActor
+func upgradePackages(_ updateProgressTracker: UpdateProgressTracker, appState: AppState) async -> Void
 {
     for await output in shell("/opt/homebrew/bin/brew", ["upgrade"])
     {
@@ -16,12 +17,15 @@ func upgradePackages() async -> Void
         {
             case let .standardOutput(outputLine):
                 print("Upgrade function output: \(outputLine)")
+                updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
                 
             case let .standardError(errorLine):
                 print("Upgrade function error: \(errorLine)")
-                
+                updateProgressTracker.errors.append("⚠️ Upgrade error: \(errorLine)")
         }
     }
+    
+    updateProgressTracker.updateProgress = 10
 }
 
 /*

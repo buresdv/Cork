@@ -76,7 +76,10 @@ struct StartPage: View
 
                                         Button
                                         {
-                                            updateBrewPackages(updateProgressTracker, appState: appState)
+                                            Task
+                                            {
+                                                await updatePackages(updateProgressTracker, appState: appState)
+                                            }
                                         } label: {
                                             Text("Update")
                                         }
