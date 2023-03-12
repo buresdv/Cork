@@ -11,19 +11,20 @@ import SwiftyJSON
 func getCasksAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
 {
     var availableCasks: [String]? = nil
-    let numberOfCharactersInTapName: Int = tap.name.count + 1
     
     let availableCasksFromTap = json[0, "cask_tokens"].arrayValue
     
     for availableCask in availableCasksFromTap
     {
+        let availableCaskFinal = availableCask.stringValue.replacingOccurrences(of: "\(tap.name)/", with: "")
+        
         if availableCasks == nil
         {
-            availableCasks = [availableCask.stringValue]
+            availableCasks = [availableCaskFinal]
         }
         else
         {
-            availableCasks?.append(availableCask.stringValue)
+            availableCasks?.append(availableCaskFinal)
         }
     }
     
