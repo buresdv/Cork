@@ -20,7 +20,7 @@ struct ComplexWithIcon<Content: View>: View
             Image(systemName: systemName)
                 .resizable()
                 .frame(width: 50, height: 50)
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
 
             content
         }
