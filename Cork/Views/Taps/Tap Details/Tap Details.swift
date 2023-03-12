@@ -1,0 +1,89 @@
+//
+//  Tap Details.swift
+//  Cork
+//
+//  Created by David Bureš on 12.03.2023.
+//
+
+import SwiftUI
+
+class SelectedTapInfo: ObservableObject
+{
+    @Published var contents: String = .init()
+}
+
+struct TapDetailView: View
+{
+    @State var tap: BrewTap
+
+    @StateObject var selectedTapInfo: SelectedTapInfo
+
+    @State private var numberOfPackages: Int = 0
+    @State private var homepage: URL = .init(string: "https://google.com")!
+    @State private var isOfficial: Bool = false
+
+    var body: some View
+    {
+        VStack(alignment: .leading, spacing: 15)
+        {
+            VStack(alignment: .leading, spacing: 5)
+            {
+                HStack(alignment: .firstTextBaseline, spacing: 5)
+                {
+                    Text(tap.name)
+                        .font(.title)
+
+                    if isOfficial
+                    {
+                        Image(systemName: "checkmark.shield")
+                            .help("\(tap.name) an official tap.\nPackages installed from it are always safe.")
+                    }
+                }
+            }
+
+            if selectedTapInfo.contents.isEmpty
+            {
+                ProgressView
+                {
+                    Text("Loading tap info...")
+                }
+            }
+            else
+            {
+                VStack(alignment: .leading, spacing: 10)
+                {
+                    Text("Info")
+                        .font(.title2)
+                    
+                    GroupBox
+                    {
+                        Grid(alignment: .leading) {
+                            GridRow(alignment: .firstTextBaseline) {
+                                Text("Homepage")
+                                Link(destination: homepage) {
+                                    Text(homepage.absoluteString)
+                                }
+                            }
+                        }
+                    }
+
+                    Spacer()
+                }
+            }
+        }
+        .padding()
+        .onAppear
+        {
+            Task(priority: .userInitiated)
+            {
+                async let tapInfoShort = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", tap.name]).standardOutput
+                async let tapInfoComplete = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput
+
+                let parsedJSON = try await parseJSON(from: tapInfoComplete)
+
+                homepage = getTapHomepageFromJSON(json: parsedJSON)
+                isOfficial = getTapOfficialStatusFromJSON(json: parsedJSON)
+            }
+        }
+    }
+}
