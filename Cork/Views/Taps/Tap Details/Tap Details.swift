@@ -18,9 +18,16 @@ struct TapDetailView: View
 
     @StateObject var selectedTapInfo: SelectedTapInfo
 
+    @State private var isLoadingTapInfo: Bool = true
+
     @State private var numberOfPackages: Int = 0
     @State private var homepage: URL = .init(string: "https://google.com")!
     @State private var isOfficial: Bool = false
+    @State private var includedFormulae: [String]?
+    @State private var includedCasks: [String]?
+
+    @State private var isShowingIncludedFormulae: Bool = false
+    @State private var isShowingIncludedCasks: Bool = false
 
     var body: some View
     {
@@ -36,12 +43,12 @@ struct TapDetailView: View
                     if isOfficial
                     {
                         Image(systemName: "checkmark.shield")
-                            .help("\(tap.name) an official tap.\nPackages installed from it are always safe.")
+                            .help("\(tap.name) an official tap.\nPackages installed from it are audited to make sure they are.")
                     }
                 }
             }
 
-            if selectedTapInfo.contents.isEmpty
+            if isLoadingTapInfo
             {
                 ProgressView
                 {
@@ -54,14 +61,51 @@ struct TapDetailView: View
                 {
                     Text("Info")
                         .font(.title2)
-                    
+
                     GroupBox
                     {
-                        Grid(alignment: .leading) {
-                            GridRow(alignment: .firstTextBaseline) {
+                        Grid(alignment: .leading)
+                        {
+                            GridRow(alignment: .firstTextBaseline)
+                            {
                                 Text("Homepage")
-                                Link(destination: homepage) {
+                                Link(destination: homepage)
+                                {
                                     Text(homepage.absoluteString)
+                                }
+                            }
+                            Divider()
+                        }
+                    }
+
+                    GroupBox
+                    {
+                        VStack
+                        {
+                            if let includedFormulae
+                            {
+                                DisclosureGroup("Formulae Included", isExpanded: $isShowingIncludedFormulae)
+                                {}
+                                .disclosureGroupStyle(NoPadding())
+                                if isShowingIncludedFormulae
+                                {
+                                    PackagesIncludedInTapList(packages: includedFormulae)
+                                }
+                            }
+
+                            if includedFormulae != nil && includedCasks != nil
+                            {
+                                Divider()
+                            }
+                            
+                            if let includedCasks
+                            {
+                                DisclosureGroup("Casks Included", isExpanded: $isShowingIncludedCasks)
+                                {}
+                                .disclosureGroupStyle(NoPadding())
+                                if isShowingIncludedCasks
+                                {
+                                    PackagesIncludedInTapList(packages: includedCasks)
                                 }
                             }
                         }
@@ -83,6 +127,10 @@ struct TapDetailView: View
 
                 homepage = getTapHomepageFromJSON(json: parsedJSON)
                 isOfficial = getTapOfficialStatusFromJSON(json: parsedJSON)
+                includedFormulae = getFormulaeAvailableFromTap(json: parsedJSON, tap: tap)
+                includedCasks = getCasksAvailableFromTap(json: parsedJSON, tap: tap)
+
+                isLoadingTapInfo = false
             }
         }
     }
