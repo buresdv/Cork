@@ -20,7 +20,7 @@ struct PackageListItem: View
                 Text(packageItem.name)
                 Text(returnFormattedVersions(packageItem.versions))
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
             }
         }
     }

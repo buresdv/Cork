@@ -30,7 +30,7 @@ struct GroupBoxHeadlineGroup: View
                 Text(title)
                 Text(mainText)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
             }
         }
         .padding(10)

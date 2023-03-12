@@ -17,6 +17,6 @@ struct LoadingView: View
                 .scaleEffect(0.5)
             Text("Loading info...")
         }
-        .foregroundColor(.gray)
+        .foregroundColor(.secondary)
     }
 }

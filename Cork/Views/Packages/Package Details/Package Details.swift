@@ -53,7 +53,7 @@ struct PackageDetailView: View
                         .font(.title)
                     Text("v. \(returnFormattedVersions(package.versions))")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                     
                     if pinned
                     {
@@ -67,7 +67,7 @@ struct PackageDetailView: View
                     HStack(alignment: .center, spacing: 5) {
                         if installedAsDependency
                         {
-                            OutlinedPillText(text: "Installed as a Dependency", color: .gray)
+                            OutlinedPillText(text: "Installed as a Dependency", color: .secondary)
                         }
                         if outdated
                         {
