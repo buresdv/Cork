@@ -53,7 +53,7 @@ struct PackageDetailView: View
                         .font(.title)
                     Text("v. \(returnFormattedVersions(package.versions))")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                     
                     if pinned
                     {
@@ -67,7 +67,7 @@ struct PackageDetailView: View
                     HStack(alignment: .center, spacing: 5) {
                         if installedAsDependency
                         {
-                            OutlinedPillText(text: "Installed as a Dependency", color: .gray)
+                            OutlinedPillText(text: "Installed as a Dependency", color: .secondary)
                         }
                         if outdated
                         {
@@ -119,13 +119,20 @@ struct PackageDetailView: View
 
             if packageInfo.contents == nil
             {
-                LoadingView()
+                HStack(alignment: .center) {
+                    VStack(alignment: .center) {
+                        ProgressView {
+                            Text("Loading package info...")
+                        }
+                    }
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
             else
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("Package Info")
+                    Text("Info")
                         .font(.title2)
 
                     if let caveats
@@ -310,7 +317,7 @@ struct PackageDetailView: View
                                     await pinAndUnpinPackage(package: package, pinned: pinned)
                                 }
                             } label: {
-                                Text(pinned ? "Unpin \(package.name)" : "Pin \(package.name) to version \(package.versions.joined())")
+                                Text(pinned ? "Unpin from version \(package.versions.joined())" : "Pin to version \(package.versions.joined())")
                             }
                         }
                         

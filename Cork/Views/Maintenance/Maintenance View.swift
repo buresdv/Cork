@@ -53,7 +53,7 @@ struct MaintenanceView: View
             switch maintenanceSteps
             {
             case .ready:
-                SheetWithTitle(title: "Perform Brew maintenance")
+                SheetWithTitle(title: "Maintenance")
                 {
                     MaintenanceReadyView(shouldUninstallOrphans: $shouldUninstallOrphans, shouldPurgeCache: $shouldPurgeCache, shouldDeleteDownloads: $shouldDeleteDownloads, shouldPerformHealthCheck: $shouldPerformHealthCheck, isShowingSheet: $isShowingSheet, maintenanceSteps: $maintenanceSteps, isShowingControlButtons: true, forcedOptions: forcedOptions!)
                 }
@@ -225,7 +225,7 @@ struct MaintenanceView: View
                                 }
                                 else
                                 {
-                                    Text("There were some problems with Homebrew")
+                                    Text("Found some problems with Homebrew")
                                         .onAppear
                                         {
                                             maintenanceFoundNoProblems = false
@@ -251,7 +251,7 @@ struct MaintenanceView: View
                             .keyboardShortcut(.defaultAction)
                         }
                     }
-                    .fixedSize(horizontal: true, vertical: true)
+                    .fixedSize()
                 }
                 .padding()
                 //.frame(minWidth: 300, minHeight: 150)

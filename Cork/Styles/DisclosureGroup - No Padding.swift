@@ -22,7 +22,7 @@ struct NoPadding: DisclosureGroupStyle
             {
                 Image(systemName: configuration.isExpanded ? "chevron.down" : "chevron.right")
                     .scaleEffect(0.8)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
                     .symbolVariant(.fill)
 
                 configuration.label

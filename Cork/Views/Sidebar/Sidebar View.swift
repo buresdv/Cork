@@ -14,6 +14,7 @@ struct SidebarView: View
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
+    @EnvironmentObject var selectedTapInfo: SelectedTapInfo
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
@@ -96,25 +97,31 @@ struct SidebarView: View
                     {
                         ForEach(availableTaps.addedTaps)
                         { tap in
-                            Text(tap.name)
-                                .contextMenu
+                            
+                            NavigationLink {
+                                TapDetailView(tap: tap, selectedTapInfo: selectedTapInfo)
+                            } label: {
+                                Text(tap.name)
+                            }
+                            .contextMenu
+                            {
+                                Button
                                 {
-                                    Button
+                                    Task(priority: .userInitiated)
                                     {
-                                        Task(priority: .userInitiated)
-                                        {
-                                            print("Would remove \(tap.name)")
-                                            try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("Remove \(tap.name)")
+                                        print("Would remove \(tap.name)")
+                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
                                     }
-                                    .alert(isPresented: $appState.isShowingRemoveTapFailedAlert, content: {
-                                        Alert(title: Text("Couldn't remove \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
-                                            appState.isShowingRemoveTapFailedAlert = false
-                                        }))
-                                    })
+                                } label: {
+                                    Text("Remove \(tap.name)")
                                 }
+                                .alert(isPresented: $appState.isShowingRemoveTapFailedAlert, content: {
+                                    Alert(title: Text("Couldn't remove \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
+                                        appState.isShowingRemoveTapFailedAlert = false
+                                    }))
+                                })
+                            }
+                            
                         }
                     }
                     else

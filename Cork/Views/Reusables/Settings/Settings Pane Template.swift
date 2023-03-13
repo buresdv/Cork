@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct SettingsPaneTemplate<Content: View>: View {
-    
+struct SettingsPaneTemplate<Content: View>: View
+{
     @ViewBuilder var paneContent: Content
-    
-    var body: some View {
+
+    var body: some View
+    {
         paneContent
             .padding()
             .frame(minWidth: 300, minHeight: 50)
+            .fixedSize()
     }
 }

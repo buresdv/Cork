@@ -1,5 +1,9 @@
 # Cork
+
 A fast GUI for Homebrew written in SwiftUI
+
+[![Mastodon Link](https://img.shields.io/mastodon/follow/108939255808776594?domain=https%3A%2F%2Fmstdn.social&label=Follow%20me%20for%20updates&style=flat)](https://elk.zone/mstdn.social/@davidbures)
+[![Mastodon Link](https://img.shields.io/discord/1083475351260377119?label=Tak%20to%20me%20on%20Discord&style=flat)](https://discord.gg/kUHg8uGHpG)
 
 ## Special Thanks
 
@@ -15,7 +19,7 @@ However, as Cork is open source, you can always compile it from source for free.
 
 ## Screenshots
 ### Main Window
-![Main Window](https://i.imgur.com/sIHrjbP.jpg)
+![Start Page](https://i.imgur.com/N8HQtcL.jpg)
 
 ### Package Info
 ![Package Info](https://i.imgur.com/L7LyzmS.jpg)
@@ -64,3 +68,9 @@ Instructions:
 5. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
 6. Click `Copy App`
 7. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
+
+## License
+
+Cork is licensed under [Commons Clause](https://commonsclause.com).
+
+This means that Cork open-source and you can do whatever you want with Cork's source, like modifying it, contributing to it etc., but you can't sell Cork or modified versions of it.

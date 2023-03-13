@@ -8,13 +8,20 @@
 import Foundation
 
 @MainActor
-func loadUpTappedTaps(into tracker: AvailableTaps) async -> Void
+func loadUpTappedTaps() async -> [BrewTap]
 {
+    var finalAvailableTaps: [BrewTap] = .init()
+    
     let availableTapsRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap"])
     
     let availableTaps = availableTapsRaw.standardOutput.components(separatedBy: "\n")
     
     for tap in availableTaps {
-        tracker.addedTaps.append(BrewTap(name: tap))
+        if !tap.isEmpty
+        {
+            finalAvailableTaps.append(BrewTap(name: tap))
+        }
     }
+    
+    return finalAvailableTaps
 }

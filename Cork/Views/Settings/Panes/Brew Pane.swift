@@ -21,7 +21,7 @@ struct BrewPane: View
             {
                 LabeledContent {
                     Toggle(isOn: $allowBrewAnalytics) {
-                        Text("Collect Analytics")
+                        Text("Collect analytics")
                     }
                     .disabled(isPerformingBrewAnalyticsChangeCommand)
                 } label: {

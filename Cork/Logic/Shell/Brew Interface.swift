@@ -55,8 +55,11 @@ enum UntapError: Error
     case couldNotUntap
 }
 
+@MainActor
 func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) async throws -> Void
 {
+    appState.isShowingUninstallationProgressView = true
+    
     let untapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["untap", name]).standardError
     print("Untapping result: \(untapResult)")
     
@@ -77,4 +80,6 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) a
         
         throw UntapError.couldNotUntap
     }
+    
+    appState.isShowingUninstallationProgressView = false
 }

@@ -19,6 +19,7 @@ struct CorkApp: App
     @StateObject var updateProgressTracker = UpdateProgressTracker()
 
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
+    @StateObject var selectedTapInfo = SelectedTapInfo()
 
     var body: some Scene
     {
@@ -29,6 +30,7 @@ struct CorkApp: App
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
+                .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
                 .onAppear
                 {
@@ -55,7 +57,7 @@ struct CorkApp: App
                 {
                     appState.isShowingInstallationSheet.toggle()
                 } label: {
-                    Text("Install Packages")
+                    Text("Install Packages…")
                 }
                 .keyboardShortcut("n")
 
@@ -63,7 +65,7 @@ struct CorkApp: App
                 {
                     appState.isShowingAddTapSheet.toggle()
                 } label: {
-                    Text("Add a Tap")
+                    Text("Add a Tap…")
                 }
                 .keyboardShortcut("n", modifiers: [.command, .option])
 
@@ -93,7 +95,7 @@ struct CorkApp: App
                 {
                     appState.isShowingMaintenanceSheet.toggle()
                 } label: {
-                    Text("Perform Brew Maintenance")
+                    Text("Perform Maintenance…")
                 }
                 .keyboardShortcut("m")
                 

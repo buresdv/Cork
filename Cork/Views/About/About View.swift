@@ -49,7 +49,7 @@ struct AboutView: View
 
                 Text("© 2022 David Bureš and contributors.")
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
 
                 VStack
                 {

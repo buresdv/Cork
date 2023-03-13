@@ -7,18 +7,32 @@
 
 import SwiftUI
 
-struct GroupBoxHeadlineGroup: View {
-    
-    var title: String
-    var mainText: String
-    
-    var body: some View {
-        VStack(alignment: .leading)
+struct GroupBoxHeadlineGroup: View
+{
+    var image: String?
+    let title: String
+    let mainText: String
+
+    var body: some View
+    {
+        HStack(spacing: 15)
         {
-            Text(title)
-            Text(mainText)
-                .font(.subheadline)
-                .foregroundColor(.gray)
+            if let image
+            {
+                Image(systemName: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 26, height: 26)
+            }
+
+            VStack(alignment: .leading, spacing: 2)
+            {
+                Text(title)
+                Text(mainText)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
         }
+        .padding(10)
     }
 }
