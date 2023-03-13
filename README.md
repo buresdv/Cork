@@ -45,11 +45,12 @@ Prerequisites:
 * macOS Ventura or newer
 * Xcode 14.2 or newer
 * Git
-* An Apple Developer accout. **You don't need a paid one! Even a free one works perfectly**
 
-Instructions:
+### Instructions:
 
 **Before you begin**
+
+*Skip if you already have an Apple Developer account*
 
 0. Enroll your account in the developer program at [https://developer.apple.com/](https://developer.apple.com/)
 1. Install Xcode
