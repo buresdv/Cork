@@ -10,17 +10,17 @@ import SwiftUI
 struct StartPage: View
 {
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var appState: AppState
-    
+
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @State private var isLoadingUpgradeablePackages = true
     @State private var upgradeablePackages: [BrewPackage] = .init()
-    
+
     @State private var isShowingFastCacheDeletionMaintenanceView: Bool = false
 
     @State private var isDisclosureGroupExpanded: Bool = false
@@ -55,33 +55,36 @@ struct StartPage: View
                                     {
                                         VStack(alignment: .leading)
                                         {
-                                            Text(upgradeablePackages.count == 1 ? "There is 1 outdated package" : "There are \(upgradeablePackages.count) outdated packages")
-                                                .font(.headline)
-                                            DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
-                                            {} label: {
-                                                Text("Outdated packages")
-                                                    .font(.subheadline)
-                                            }
-                                            
-                                            if isDisclosureGroupExpanded
+                                            GroupBoxHeadlineGroupWithArbitraryContent(image: upgradeablePackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                                             {
-                                                List(upgradeablePackages)
-                                                { package in
-                                                    Text(package.name)
+                                                Text(upgradeablePackages.count == 1 ? "There is 1 outdated package" : "There are \(upgradeablePackages.count) outdated packages")
+                                                    .font(.headline)
+                                                DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
+                                                {} label: {
+                                                    Text("Outdated packages")
+                                                        .font(.subheadline)
                                                 }
-                                                .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                                .frame(height: 100)
-                                            }
-                                        }
 
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                await updatePackages(updateProgressTracker, appState: appState)
+                                                if isDisclosureGroupExpanded
+                                                {
+                                                    List(upgradeablePackages)
+                                                    { package in
+                                                        Text(package.name)
+                                                    }
+                                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                                    .frame(height: 100)
+                                                }
                                             }
-                                        } label: {
-                                            Text("Update")
+
+                                            Button
+                                            {
+                                                Task
+                                                {
+                                                    await updatePackages(updateProgressTracker, appState: appState)
+                                                }
+                                            } label: {
+                                                Text("Update")
+                                            }
                                         }
                                     }
                                 }
@@ -120,7 +123,7 @@ struct StartPage: View
                                     .animation(.none, value: availableTaps.addedTaps.count)
                                 }
                             }
-                            
+
                             GroupBox
                             {
                                 VStack(alignment: .leading)
@@ -133,7 +136,7 @@ struct StartPage: View
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 }
                             }
-                            
+
                             if appState.cachedDownloadsFolderSize != 0
                             {
                                 GroupBox
@@ -150,7 +153,8 @@ struct StartPage: View
 
                                             Spacer()
 
-                                            Button {
+                                            Button
+                                            {
                                                 appState.isShowingFastCacheDeletionMaintenanceView = true
                                             } label: {
                                                 Text("Delete Cached Downloads…")
