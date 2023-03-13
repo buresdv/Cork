@@ -16,7 +16,7 @@ class SelectedPackageInfo: ObservableObject
 struct PackageDetailView: View
 {
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    
+
     @State var package: BrewPackage
 
     @EnvironmentObject var brewData: BrewDataStorage
@@ -29,6 +29,7 @@ struct PackageDetailView: View
     @State private var homepage: URL = .init(string: "https://google.com")!
     @State private var tap: String = ""
     @State private var installedAsDependency: Bool = false
+    @State private var packageDependents: [String]? = nil
     @State private var dependencies: [BrewPackageDependency]? = nil
     @State private var outdated: Bool = false
     @State private var caveats: String? = nil
@@ -54,7 +55,7 @@ struct PackageDetailView: View
                     Text("v. \(returnFormattedVersions(package.versions))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                    
+
                     if pinned
                     {
                         Image(systemName: "pin.fill")
@@ -64,10 +65,27 @@ struct PackageDetailView: View
 
                 VStack(alignment: .leading, spacing: 5)
                 {
-                    HStack(alignment: .center, spacing: 5) {
+                    HStack(alignment: .center, spacing: 5)
+                    {
                         if installedAsDependency
                         {
-                            OutlinedPillText(text: "Installed as a Dependency", color: .secondary)
+                            if let packageDependents
+                            {
+                                OutlinedPillText(text: "Dependency of \(packageDependents.joined(separator: ", "))", color: .secondary)
+                            }
+                            else
+                            {
+                                OutlinedPill(content: {
+                                    HStack(alignment: .center, spacing: 5)
+                                    {
+                                        ProgressView()
+                                            .scaleEffect(0.3, anchor: .center)
+                                            .frame(width: 5, height: 5)
+
+                                        Text("Loading Dependants...")
+                                    }
+                                }, color: Color(nsColor: NSColor.tertiaryLabelColor))
+                            }
                         }
                         if outdated
                         {
@@ -80,10 +98,12 @@ struct PackageDetailView: View
                                 if caveatDisplayOptions == .mini
                                 {
                                     OutlinedPillText(text: "Has caveats 􀅴", color: .indigo)
-                                        .onTapGesture {
+                                        .onTapGesture
+                                        {
                                             isShowingCaveatPopover.toggle()
                                         }
-                                        .popover(isPresented: $isShowingCaveatPopover) {
+                                        .popover(isPresented: $isShowingCaveatPopover)
+                                        {
                                             Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
                                                 .textSelection(.enabled)
                                                 .lineSpacing(5)
@@ -104,7 +124,8 @@ struct PackageDetailView: View
                         }
                         else
                         {
-                            HStack(alignment: .center, spacing: 10) {
+                            HStack(alignment: .center, spacing: 10)
+                            {
                                 Image(systemName: "exclamationmark.triangle.fill")
                                     .resizable()
                                     .frame(width: 15, height: 15)
@@ -119,9 +140,12 @@ struct PackageDetailView: View
 
             if packageInfo.contents == nil
             {
-                HStack(alignment: .center) {
-                    VStack(alignment: .center) {
-                        ProgressView {
+                HStack(alignment: .center)
+                {
+                    VStack(alignment: .center)
+                    {
+                        ProgressView
+                        {
                             Text("Loading package info...")
                         }
                     }
@@ -143,14 +167,16 @@ struct PackageDetailView: View
                             {
                                 GroupBox
                                 {
-                                    HStack(alignment: .top, spacing: 10) {
+                                    HStack(alignment: .top, spacing: 10)
+                                    {
                                         Image(systemName: "exclamationmark.triangle.fill")
                                             .resizable()
                                             .frame(width: 15, height: 15)
                                             .foregroundColor(.yellow)
 
                                         /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
-                                        VStack(alignment: .leading, spacing: 5) {
+                                        VStack(alignment: .leading, spacing: 5)
+                                        {
                                             let text = Text(
                                                 .init(
                                                     caveats
@@ -164,16 +190,21 @@ struct PackageDetailView: View
                                                 .textSelection(.enabled)
                                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                                 .lineLimit(isShowingExpandedCaveats ? nil : 2)
-                                                .background {
-                                                    ViewThatFits(in: .vertical) {
+                                                .background
+                                                {
+                                                    ViewThatFits(in: .vertical)
+                                                    {
                                                         text.hidden()
                                                         Color.clear.onAppear { canExpandCaveats = true }
                                                     }
                                                 }
 
-                                            if canExpandCaveats {
-                                                Button {
-                                                    withAnimation {
+                                            if canExpandCaveats
+                                            {
+                                                Button
+                                                {
+                                                    withAnimation
+                                                    {
                                                         isShowingExpandedCaveats.toggle()
                                                     }
                                                 } label: {
@@ -188,7 +219,7 @@ struct PackageDetailView: View
                             }
                         }
                     }
-                    
+
                     GroupBox
                     {
                         Grid(alignment: .leading)
@@ -306,21 +337,21 @@ struct PackageDetailView: View
                 {
                     HStack
                     {
-                        
                         if !package.isCask
                         {
-                            Button {
+                            Button
+                            {
                                 Task
                                 {
                                     pinned.toggle()
-                                    
+
                                     await pinAndUnpinPackage(package: package, pinned: pinned)
                                 }
                             } label: {
                                 Text(pinned ? "Unpin from version \(package.versions.joined())" : "Pin to version \(package.versions.joined())")
                             }
                         }
-                        
+
                         Spacer()
 
                         HStack(spacing: 15)
@@ -347,7 +378,6 @@ struct PackageDetailView: View
         {
             Task
             {
-
                 if !package.isCask
                 {
                     packageInfo.contents = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", package.name]).standardOutput
@@ -366,7 +396,16 @@ struct PackageDetailView: View
                 outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
                 caveats = getCaveatsFromJSON(json: parsedJSON, package: package)
                 pinned = getPinStatusFromJSON(json: parsedJSON, package: package)
-                
+
+                if installedAsDependency
+                {
+                    async let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath.absoluteString, ["uses", "--installed", package.name]).standardOutput
+
+                    packageDependents = await packageDependentsRaw.components(separatedBy: "\n").dropLast()
+
+                    print("Package dependents: \(packageDependents)")
+                }
+
                 if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
                 {
                     dependencies = packageDependencies

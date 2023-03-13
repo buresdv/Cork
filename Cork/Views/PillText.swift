@@ -35,3 +35,18 @@ struct OutlinedPillText: View
             .overlay(Capsule().stroke(color, lineWidth: 1))
     }
 }
+
+struct OutlinedPill<Content: View>: View
+{
+    @ViewBuilder var content: Content
+    @State var color: Color
+    
+    var body: some View
+    {
+        content
+            .font(.caption2)
+            .padding(.horizontal, 4)
+            .foregroundColor(color)
+            .overlay(Capsule().stroke(color, lineWidth: 1))
+    }
+}
