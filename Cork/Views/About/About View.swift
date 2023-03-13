@@ -35,7 +35,7 @@ struct AboutView: View
             Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
                 .resizable()
                 .frame(width: 150, height: 150)
-                .animation(.none)
+                .animation(.none) // Has to be written this way to disable animations for when either of the dropdowns are disabled. If a value is provided, the animation will still play when the not-defined dropdown is toggled
 
             VStack(alignment: .leading, spacing: 20)
             {
@@ -161,7 +161,7 @@ struct AboutView: View
                 }
             }
             .frame(width: 350, alignment: .topLeading)
-            .animation(.none)
+            .animation(.none) // See above
         }
         .padding()
     }

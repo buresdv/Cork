@@ -7,6 +7,7 @@
 
 import Foundation
 
+@discardableResult
 func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
 {
     var allOutput: [String] = .init()

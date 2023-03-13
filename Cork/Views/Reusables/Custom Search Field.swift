@@ -21,7 +21,6 @@ struct CustomSearchField: NSViewRepresentable {
         
         func controlTextDidChange(_ notification: Notification) {
             guard let searchField = notification.object as? NSSearchField else {
-                
                 return
             }
             self.parent.search = searchField.stringValue

@@ -46,7 +46,7 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
 
                 let folderSizeRaw: Int64? = directorySize(url: targetFolder.appendingPathComponent(item, conformingTo: .directory))
 
-                print("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn) \n")
+                print("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
 
                 // let installedOn: Date? = try? URL(string: item)!.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
 
