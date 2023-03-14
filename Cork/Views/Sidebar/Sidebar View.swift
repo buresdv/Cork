@@ -18,9 +18,9 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
-    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula"), PackageSearchToken(name: "Cask")]
+    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula"), PackageSearchToken(name: "Cask"), PackageSearchToken(name: "Tap")]
     @State private var currentTokens: [PackageSearchToken] = .init()
-    
+
     var suggestedTokens: [PackageSearchToken]
     {
         if searchText.starts(with: "#")
@@ -43,7 +43,7 @@ struct SidebarView: View
                 {
                     if !appState.isLoadingFormulae
                     {
-                        ForEach(searchText.isEmpty ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
+                        ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
                         { formula in
                             NavigationLink
                             {
@@ -79,7 +79,7 @@ struct SidebarView: View
                 {
                     if !appState.isLoadingCasks
                     {
-                        ForEach(searchText.isEmpty ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
+                        ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
                         { cask in
                             NavigationLink
                             {
@@ -109,16 +109,17 @@ struct SidebarView: View
                 .collapsible(false)
             }
 
-            if searchText.isEmpty
+            if searchText.isEmpty || currentTokens.contains(where: { $0.name == "Tap" })
             {
                 Section("Added Taps")
                 {
                     if availableTaps.addedTaps.count != 0
                     {
-                        ForEach(availableTaps.addedTaps)
+                        ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter({ $0.name.contains(searchText) }))
                         { tap in
-                            
-                            NavigationLink {
+
+                            NavigationLink
+                            {
                                 TapDetailView(tap: tap, selectedTapInfo: selectedTapInfo)
                             } label: {
                                 Text(tap.name)
@@ -141,7 +142,6 @@ struct SidebarView: View
                                     }))
                                 })
                             }
-                            
                         }
                     }
                     else
@@ -153,7 +153,7 @@ struct SidebarView: View
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
-        //.searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
+        // .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
         .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages"), token: { token in
             Text(token.name)
         })
