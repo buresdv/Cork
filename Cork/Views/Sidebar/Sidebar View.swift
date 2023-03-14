@@ -18,7 +18,7 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
-    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula"), PackageSearchToken(name: "Cask"), PackageSearchToken(name: "Tap")]
+    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula", tokenSearchResultType: .formula), PackageSearchToken(name: "Cask", tokenSearchResultType: .cask), PackageSearchToken(name: "Tap", tokenSearchResultType: .tap)]
     @State private var currentTokens: [PackageSearchToken] = .init()
 
     var suggestedTokens: [PackageSearchToken]
@@ -37,7 +37,7 @@ struct SidebarView: View
     {
         List
         {
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.name == "Formula" })
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .formula })
             {
                 Section("Installed Formulae")
                 {
@@ -73,7 +73,7 @@ struct SidebarView: View
                 .collapsible(false)
             }
 
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.name == "Cask" })
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask })
             {
                 Section("Installed Casks")
                 {
@@ -109,7 +109,7 @@ struct SidebarView: View
                 .collapsible(false)
             }
 
-            if searchText.isEmpty || currentTokens.contains(where: { $0.name == "Tap" })
+            if searchText.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
             {
                 Section("Added Taps")
                 {
@@ -154,9 +154,9 @@ struct SidebarView: View
         .listStyle(.sidebar)
         .frame(minWidth: 200)
         // .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
-        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages"), token: { token in
+        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages")) { token in
             Text(token.name)
-        })
+        }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
         {
             MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)

@@ -7,8 +7,14 @@
 
 import Foundation
 
+enum TokenSearchType
+{
+    case formula, cask, tap
+}
+
 struct PackageSearchToken: Identifiable
 {
     var id: String { name }
     var name: String
+    var tokenSearchResultType: TokenSearchType
 }
