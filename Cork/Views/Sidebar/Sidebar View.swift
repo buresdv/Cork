@@ -18,7 +18,7 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
-    @State private var availableTokens: [PackageSearchToken] = AppConstants.packageSearchTokens
+    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula"), PackageSearchToken(name: "Cask")]
     @State private var currentTokens: [PackageSearchToken] = .init()
     
     var suggestedTokens: [PackageSearchToken]
@@ -37,71 +37,77 @@ struct SidebarView: View
     {
         List
         {
-            Section("Installed Formulae")
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.name == "Formula" })
             {
-                if !appState.isLoadingFormulae
+                Section("Installed Formulae")
                 {
-                    ForEach(searchText.isEmpty ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
-                    { formula in
-                        NavigationLink
-                        {
-                            PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
-                        } label: {
-                            PackageListItem(packageItem: formula)
-                        }
-                        .contextMenu
-                        {
-                            Button
+                    if !appState.isLoadingFormulae
+                    {
+                        ForEach(searchText.isEmpty ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
+                        { formula in
+                            NavigationLink
                             {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
-                                }
+                                PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                             } label: {
-                                Text("Uninstall \(formula.name)")
+                                PackageListItem(packageItem: formula)
+                            }
+                            .contextMenu
+                            {
+                                Button
+                                {
+                                    Task
+                                    {
+                                        try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
+                                    }
+                                } label: {
+                                    Text("Uninstall \(formula.name)")
+                                }
                             }
                         }
                     }
+                    else
+                    {
+                        ProgressView()
+                    }
                 }
-                else
-                {
-                    ProgressView()
-                }
+                .collapsible(false)
             }
-            .collapsible(false)
 
-            Section("Installed Casks")
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.name == "Cask" })
             {
-                if !appState.isLoadingCasks
+                Section("Installed Casks")
                 {
-                    ForEach(searchText.isEmpty ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
-                    { cask in
-                        NavigationLink
-                        {
-                            PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
-                        } label: {
-                            PackageListItem(packageItem: cask)
-                        }
-                        .contextMenu
-                        {
-                            Button
+                    if !appState.isLoadingCasks
+                    {
+                        ForEach(searchText.isEmpty ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
+                        { cask in
+                            NavigationLink
                             {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
-                                }
+                                PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
                             } label: {
-                                Text("Uninstall \(cask.name)")
+                                PackageListItem(packageItem: cask)
+                            }
+                            .contextMenu
+                            {
+                                Button
+                                {
+                                    Task
+                                    {
+                                        try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
+                                    }
+                                } label: {
+                                    Text("Uninstall \(cask.name)")
+                                }
                             }
                         }
                     }
+                    else
+                    {
+                        ProgressView()
+                    }
                 }
-                else
-                {
-                    ProgressView()
-                }
+                .collapsible(false)
             }
-            .collapsible(false)
 
             if searchText.isEmpty
             {

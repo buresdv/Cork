@@ -51,10 +51,4 @@ struct AppConstants {
     
     /// This one has all the downloaded files themselves
     static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)
-    
-    /// Search Tokens
-    static let packageSearchTokens: [PackageSearchToken] = [
-        PackageSearchToken(name: "Formula"),
-        PackageSearchToken(name: "Cask")
-    ]
 }
