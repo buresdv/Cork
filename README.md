@@ -22,19 +22,25 @@ However, as Cork is open source, you can always compile it from source for free.
 ![Start Page](https://i.imgur.com/N8HQtcL.jpg)
 
 ### Package Info
-![Package Info](https://i.imgur.com/L7LyzmS.jpg)
-![Package Info](https://i.imgur.com/ZHaEcOA.jpg)
+![Package Info](https://i.imgur.com/jQLTlOc.jpg)
+![Package Info - Full-size Caveats](https://i.imgur.com/ysoa3Hs.jpg)
+![Package Info - Minimized Caveats](https://i.imgur.com/vNwRUng.jpg)
+
+### Tap Info
+![Tap Info - Casks Only](https://i.imgur.com/Jn5BpuS.jpg)
+![Tap Info - Formulae and Casks](https://i.imgur.com/9FghOAy.jpg)
 
 ### Install Package
 ![Install Package](https://i.imgur.com/CtqSCUu.jpg)
-![Install Package](https://i.imgur.com/Agc7zxX.jpg)
+![Install Package - Fetching Dependencies](https://i.imgur.com/GuniTJH.jpg)
+![Install Package - Installing Dependencies](https://i.imgur.com/EMmaSLA.jpg)
 
 ### Tap Taps
 ![Tap Taps](https://i.imgur.com/Dya1SkM.jpg)
 
 ### Brew Maintenance
-![Brew Maintenance](https://i.imgur.com/LGkDErZ.jpg)
-![Brew Maintenance Results](https://i.imgur.com/GbTerQX.jpg)
+![Brew Maintenance](https://i.imgur.com/TNYXFZQ.jpg)
+![Brew Maintenance Results](https://i.imgur.com/UDNMz0i.jpg)
 
 ## Compiling Cork
 
