@@ -18,6 +18,20 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
+    @State private var availableTokens: [PackageSearchToken] = AppConstants.packageSearchTokens
+    @State private var currentTokens: [PackageSearchToken] = .init()
+    
+    var suggestedTokens: [PackageSearchToken]
+    {
+        if searchText.starts(with: "#")
+        {
+            return availableTokens
+        }
+        else
+        {
+            return []
+        }
+    }
 
     var body: some View
     {
@@ -133,7 +147,10 @@ struct SidebarView: View
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
-        .searchable(text: $searchText, placement: .sidebar, prompt: Text("Installed Packages"))
+        //.searchable(text: $searchText, placement: .sidebar, prompt: Text("Installed Packages"))
+        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages"), token: { token in
+            Text(token.name)
+        })
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
         {
             MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)

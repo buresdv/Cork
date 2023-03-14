@@ -108,6 +108,7 @@
 		63D831052999331D00FA802F /* Sheet with Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D831042999331D00FA802F /* Sheet with Title.swift */; };
 		63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83106299935E900FA802F /* Dismiss Sheet Button.swift */; };
 		63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83109299982EA00FA802F /* Search Result Row.swift */; };
+		63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D86EB129C0972A00AD64D2 /* Package Search Token.swift */; };
 		63D8C957287A1D0800483A52 /* Loading View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C956287A1D0800483A52 /* Loading View.swift */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +214,7 @@
 		63D831042999331D00FA802F /* Sheet with Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sheet with Title.swift"; sourceTree = "<group>"; };
 		63D83106299935E900FA802F /* Dismiss Sheet Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dismiss Sheet Button.swift"; sourceTree = "<group>"; };
 		63D83109299982EA00FA802F /* Search Result Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Row.swift"; sourceTree = "<group>"; };
+		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -384,6 +386,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63D86EB029C0971600AD64D2 /* Searching */,
 				63006E0B29ACC76F00243E29 /* Packages */,
 				633289EB29A68B09004B2930 /* Package Installation */,
 				63C830BA29984B10002D11BB /* Misc */,
@@ -689,6 +692,14 @@
 			path = Reusables;
 			sourceTree = "<group>";
 		};
+		63D86EB029C0971600AD64D2 /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				63D86EB129C0972A00AD64D2 /* Package Search Token.swift */,
+			);
+			path = Searching;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -830,6 +841,7 @@
 				63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */,
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
+				63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */,
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
