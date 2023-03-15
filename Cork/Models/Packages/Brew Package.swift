@@ -18,16 +18,12 @@ struct BrewPackage: Identifiable, Equatable
     let versions: [String]
     
     let sizeInBytes: Int64?
-    
-    func convertDateToPresentableFormat(date: Date) -> String
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM y (E), HH:mm"
+}
 
-        return dateFormatter.string(from: date)
-    }
-    func convertSizeToPresentableFormat(size: Int64) -> String
+extension FormatStyle where Self == Date.FormatStyle
+{
+    static var packageInstallationStyle: Self
     {
-        return convertDirectorySizeToPresentableFormat(size: size)
+        Self.dateTime.day().month(.wide).year().weekday(.wide).hour().minute()
     }
 }

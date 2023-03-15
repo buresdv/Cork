@@ -286,7 +286,7 @@ struct PackageDetailView: View
                                 GridRow(alignment: .top)
                                 {
                                     Text("Installed On")
-                                    Text(package.convertDateToPresentableFormat(date: installedOnDate))
+                                    Text(installedOnDate.formatted(.packageInstallationStyle))
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
 
@@ -300,7 +300,7 @@ struct PackageDetailView: View
 
                                         HStack
                                         {
-                                            Text(package.convertSizeToPresentableFormat(size: packageSize))
+                                            Text(packageSize.formatted(.byteCount(style: .file)))
 
                                             if package.isCask
                                             {

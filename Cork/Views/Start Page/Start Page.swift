@@ -141,7 +141,7 @@ struct StartPage: View
                                         {
                                             GroupBoxHeadlineGroup(
                                                 image: "square.and.arrow.down.on.square",
-                                                title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
+                                                title: "You have \(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file))) of cached downloads",
                                                 mainText: "These files are leftovers from completed package installations. They're safe to remove."
                                             )
 
