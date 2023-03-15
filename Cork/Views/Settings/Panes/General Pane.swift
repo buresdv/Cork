@@ -11,9 +11,11 @@ struct GeneralPane: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
-    
+
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
+    
+    @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
     var body: some View
     {
@@ -29,35 +31,37 @@ struct GeneralPane: View
                         .tag(PackageSortingOptions.byInstallDate)
                     Text("Size")
                         .tag(PackageSortingOptions.bySize)
-                    
+
                     Divider()
-                    
+
                     Text("Do Not Sort")
                         .tag(PackageSortingOptions.none)
                 } label: {
                     Text("Sort packages by:")
                 }
-                
+
                 if sortPackagesBy == .none
                 {
                     Text("􀅴 Restart Cork for this sorting option to take effect")
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
-                
-                LabeledContent {
+
+                LabeledContent
+                {
                     VStack(alignment: .leading)
                     {
-                        Toggle(isOn: $displayAdvancedDependencies) {
+                        Toggle(isOn: $displayAdvancedDependencies)
+                        {
                             Text("Show more info about dependecies")
                         }
-
                     }
                 } label: {
                     Text("Dependencies:")
                 }
-                
-                Picker(selection: $caveatDisplayOptions) {
+
+                Picker(selection: $caveatDisplayOptions)
+                {
                     Text("Full")
                         .tag(PackageCaveatDisplay.full)
                     Text("Minified")
@@ -72,16 +76,25 @@ struct GeneralPane: View
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
-                
-                LabeledContent {
-                    Toggle(isOn: $showDescriptionsInSearchResults) {
+
+                LabeledContent
+                {
+                    Toggle(isOn: $showDescriptionsInSearchResults)
+                    {
                         Text("Show package descriptions")
                     }
                 } label: {
                     Text("Search results:")
                 }
 
-
+                LabeledContent
+                {
+                    Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails) {
+                        Text("Show search field for dependencies")
+                    }
+                } label: {
+                    Text("Package details:")
+                }
             }
         }
     }
