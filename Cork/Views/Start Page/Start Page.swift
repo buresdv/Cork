@@ -17,9 +17,9 @@ struct StartPage: View
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var isLoadingUpgradeablePackages = true
-    @State private var upgradeablePackages: [BrewPackage] = .init()
 
     @State private var isShowingFastCacheDeletionMaintenanceView: Bool = false
 
@@ -45,7 +45,7 @@ struct StartPage: View
                         Text("Homebrew Status")
                             .font(.title)
 
-                        if upgradeablePackages.count != 0
+                        if outdatedPackageTracker.outdatedPackageNames.count != 0
                         {
                             GroupBox
                             {
@@ -55,35 +55,44 @@ struct StartPage: View
                                     {
                                         VStack(alignment: .leading)
                                         {
-                                            GroupBoxHeadlineGroupWithArbitraryContent(image: upgradeablePackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                                            GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackageNames.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                                             {
-                                                Text(upgradeablePackages.count == 1 ? "There is 1 outdated package" : "There are \(upgradeablePackages.count) outdated packages")
-                                                    .font(.headline)
-                                                DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
-                                                {} label: {
-                                                    Text("Outdated packages")
-                                                        .font(.subheadline)
-                                                }
-
-                                                if isDisclosureGroupExpanded
+                                                HStack(alignment: .firstTextBaseline)
                                                 {
-                                                    List(upgradeablePackages)
-                                                    { package in
-                                                        Text(package.name)
+                                                    VStack(alignment: .leading, spacing: 2) {
+                                                        Text(outdatedPackageTracker.outdatedPackageNames.count == 1 ? "There is 1 outdated package" : "There are \(outdatedPackageTracker.outdatedPackageNames.count) outdated packages")
+                                                            .font(.headline)
+                                                        DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
+                                                        {} label: {
+                                                            Text("Outdated packages")
+                                                                .font(.subheadline)
+                                                        }
+
+                                                        if isDisclosureGroupExpanded
+                                                        {
+                                                            List
+                                                            {
+                                                                ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self) { outdatedPackageName in
+                                                                    Text(outdatedPackageName)
+                                                                }
+                                                            }
+                                                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                                            .frame(height: 100)
+                                                        }
                                                     }
-                                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                                    .frame(height: 100)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Button
+                                                    {
+                                                        Task
+                                                        {
+                                                            await updatePackages(updateProgressTracker, appState: appState)
+                                                        }
+                                                    } label: {
+                                                        Text("Update")
+                                                    }
                                                 }
-                                            }
-
-                                            Button
-                                            {
-                                                Task
-                                                {
-                                                    await updatePackages(updateProgressTracker, appState: appState)
-                                                }
-                                            } label: {
-                                                Text("Update")
                                             }
                                         }
                                     }
@@ -191,7 +200,7 @@ struct StartPage: View
             Task(priority: .high)
             {
                 isLoadingUpgradeablePackages = true
-                upgradeablePackages = await getListOfUpgradeablePackages()
+                outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
                 isLoadingUpgradeablePackages = false
             }
         }

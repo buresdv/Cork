@@ -46,7 +46,7 @@ struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
 
     var body: some View
     {
-        HStack(spacing: 15)
+        HStack(alignment: .top, spacing: 15)
         {
             if let image
             {

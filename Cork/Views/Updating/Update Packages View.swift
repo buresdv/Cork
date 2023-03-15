@@ -16,6 +16,7 @@ struct UpdatePackagesView: View
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     var body: some View
     {
@@ -58,7 +59,7 @@ struct UpdatePackagesView: View
                             {
                                 Task(priority: .userInitiated)
                                 {
-                                    await upgradePackages(updateProgressTracker, appState: appState)
+                                    await upgradePackages(updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker)
 
                                     if updateProgressTracker.errors.isEmpty
                                     {
