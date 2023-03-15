@@ -133,7 +133,7 @@ struct SidebarView: View
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
-        .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
+        .searchable(text: $searchText, placement: .sidebar, prompt: Text("Installed Packages"))
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
         {
             MaintenanceView(isShowingSheet: $appState.isShowingMaintenanceSheet)

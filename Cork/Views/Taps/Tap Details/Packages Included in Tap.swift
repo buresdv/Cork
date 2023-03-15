@@ -19,7 +19,7 @@ struct PackagesIncludedInTapList: View
     {
         VStack(spacing: 5)
         {
-            CustomSearchField(search: $searchString)
+            CustomSearchField(search: $searchString, customPromptText: "Included Packages")
             ScrollView
             {
                 LazyVStack(spacing: 0)

@@ -8,37 +8,52 @@
 import Foundation
 import SwiftUI
 
-struct CustomSearchField: NSViewRepresentable {
-    
+struct CustomSearchField: NSViewRepresentable
+{
     @Binding var search: String
-    
-    class Coordinator: NSObject, NSSearchFieldDelegate {
+
+    @State var customPromptText: String?
+
+    class Coordinator: NSObject, NSSearchFieldDelegate
+    {
         var parent: CustomSearchField
-        
-        init(_ parent: CustomSearchField) {
+
+        init(_ parent: CustomSearchField)
+        {
             self.parent = parent
         }
-        
-        func controlTextDidChange(_ notification: Notification) {
-            guard let searchField = notification.object as? NSSearchField else {
+
+        func controlTextDidChange(_ notification: Notification)
+        {
+            guard let searchField = notification.object as? NSSearchField
+            else
+            {
                 return
             }
-            self.parent.search = searchField.stringValue
+            parent.search = searchField.stringValue
         }
     }
-    
-    func makeNSView(context: Context) -> NSSearchField {
+
+    func makeNSView(context _: Context) -> NSSearchField
+    {
         let searchField = NSSearchField(frame: .zero)
+
+        if let customPromptText
+        {
+            searchField.placeholderString = customPromptText
+        }
+
         return searchField
     }
-    
-    
-    func updateNSView(_ searchField: NSSearchField, context: Context) {
+
+    func updateNSView(_ searchField: NSSearchField, context: Context)
+    {
         searchField.stringValue = search
         searchField.delegate = context.coordinator
     }
-    
-    func makeCoordinator() -> Coordinator {
+
+    func makeCoordinator() -> Coordinator
+    {
         return Coordinator(self)
     }
 }
