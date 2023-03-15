@@ -367,7 +367,7 @@ struct PackageDetailView: View
                                     try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                                 }
                             } label: {
-                                Text("Uninstall \(package.isCask ? "Cask" : "Formula")") // If the package is cask, show "Uninstall Cask". If it's not, show "Uninstall Formula"
+                                Text("Uninstall \(package.name)")
                             }
                         }
                     }
