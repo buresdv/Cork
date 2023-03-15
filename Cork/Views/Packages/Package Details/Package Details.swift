@@ -396,6 +396,11 @@ struct PackageDetailView: View
                 outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
                 caveats = getCaveatsFromJSON(json: parsedJSON, package: package)
                 pinned = getPinStatusFromJSON(json: parsedJSON, package: package)
+                
+                if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
+                {
+                    dependencies = packageDependencies
+                }
 
                 if installedAsDependency
                 {
@@ -404,11 +409,6 @@ struct PackageDetailView: View
                     packageDependents = await packageDependentsRaw.components(separatedBy: "\n").dropLast()
 
                     print("Package dependents: \(packageDependents)")
-                }
-
-                if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
-                {
-                    dependencies = packageDependencies
                 }
             }
         }
