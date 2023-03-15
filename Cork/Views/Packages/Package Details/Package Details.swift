@@ -222,12 +222,13 @@ struct PackageDetailView: View
 
                     GroupBox
                     {
-                        Grid(alignment: .leading)
+                        Grid(alignment: .leading, horizontalSpacing: 20)
                         {
-                            GridRow(alignment: .top)
+                            GridRow(alignment: .firstTextBaseline)
                             {
                                 Text("Tap")
                                 Text(tap)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
 
                             Divider()
@@ -280,12 +281,13 @@ struct PackageDetailView: View
                     {
                         GroupBox
                         {
-                            Grid(alignment: .leading)
+                            Grid(alignment: .leading, horizontalSpacing: 20)
                             {
                                 GridRow(alignment: .top)
                                 {
                                     Text("Installed On")
                                     Text(package.convertDateToPresentableFormat(date: installedOnDate))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 }
 
                                 if let packageSize = package.sizeInBytes
@@ -408,7 +410,7 @@ struct PackageDetailView: View
 
                     packageDependents = await packageDependentsRaw.components(separatedBy: "\n").dropLast()
 
-                    print("Package dependents: \(packageDependents)")
+                    print("Package dependents: \(String(describing: packageDependents))")
                 }
             }
         }

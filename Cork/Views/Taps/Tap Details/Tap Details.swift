@@ -71,7 +71,7 @@ struct TapDetailView: View
 
                     GroupBox
                     {
-                        Grid(alignment: .leading)
+                        Grid(alignment: .leading, horizontalSpacing: 20)
                         {
                             GridRow(alignment: .firstTextBaseline) {
                                 Text("Contents")
@@ -103,6 +103,7 @@ struct TapDetailView: View
                             GridRow(alignment: .firstTextBaseline) {
                                 Text("Number of Packages")
                                 Text(String(numberOfPackages))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             
                             Divider()
