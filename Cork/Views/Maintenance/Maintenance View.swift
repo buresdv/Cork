@@ -213,7 +213,7 @@ struct MaintenanceView: View
                             {
                                 VStack(alignment: .leading) {
                                     Text("Cached downloads deleted")
-                                    Text("You reclaimed \(convertDirectorySizeToPresentableFormat(size: reclaimedSpaceAfterCachePurge))")
+                                    Text("You reclaimed \(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))")
                                         .font(.caption)
                                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                                 }
