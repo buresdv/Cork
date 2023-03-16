@@ -29,7 +29,7 @@ struct SidebarView: View
         }
         else
         {
-            return []
+            return .init()
         }
     }
 
@@ -109,13 +109,13 @@ struct SidebarView: View
                 .collapsible(false)
             }
 
-            if searchText.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
             {
                 Section("Added Taps")
                 {
                     if availableTaps.addedTaps.count != 0
                     {
-                        ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter({ $0.name.contains(searchText) }))
+                        ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
                         { tap in
 
                             NavigationLink
@@ -154,7 +154,8 @@ struct SidebarView: View
         .listStyle(.sidebar)
         .frame(minWidth: 200)
         // .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
-        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages")) { token in
+        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages"))
+        { token in
             Text(token.name)
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
