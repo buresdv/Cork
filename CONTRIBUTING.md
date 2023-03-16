@@ -4,6 +4,7 @@ If you want to make your commit messages stand out, you can use my syntax for ma
 - **-** for **removals**. When you remove something, mark it with -
 - **^** for **fixes**. When you fix a bug, mark what the bug was with ^
 - **~** for **adjustments**. When you change something, but it still works the same, mark it with ~
+- **\*** for **bugs**. When something you change introduces a bug, or a known bug is present, describe what the bug is and mark it with *
 
 When you're using this system, you no longer have to say *Removed old parsing function*, you can just write *- Old parsing function*. Or instead of *Fixed infinite loading bug*, you can say *^ Infinite loading bug*.
 
