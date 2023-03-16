@@ -29,8 +29,15 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState: Ap
             }
 
         case let .standardError(errorLine):
-            print("Update function error: \(errorLine)")
-            updateProgressTracker.errors.append("⚠️ Update error: \(errorLine)")
+            if !errorLine.contains("Another active Homebrew update process is already in progress")
+            {
+                print("Update function error: \(errorLine)")
+                updateProgressTracker.errors.append("⚠️ Update error: \(errorLine)")
+            }
+            else
+            {
+                print("Ignorable update function erro: \(errorLine)")
+            }
         }
     }
     updateProgressTracker.updateProgress = Float(10) / Float(2)

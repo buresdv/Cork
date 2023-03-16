@@ -27,7 +27,7 @@ func getFormulaeAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
         }
     }
     
-    print(availableFormulae)
+    print(availableFormulae as Any)
     
     return availableFormulae
 }

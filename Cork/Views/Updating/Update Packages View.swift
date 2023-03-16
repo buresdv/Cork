@@ -35,6 +35,7 @@ struct UpdatePackagesView: View
                             {
                                 packageUpdatingStep = .checkingForUpdates
                             }
+                            
                     case .checkingForUpdates:
                         Text("Fetching updates...")
                             .onAppear
@@ -42,7 +43,7 @@ struct UpdatePackagesView: View
                                 Task(priority: .userInitiated)
                                 {
                                     let updateAvailability = await updatePackages(updateProgressTracker, appState: appState)
-                                    
+
                                     if updateAvailability == .noUpdatesAvailable
                                     {
                                         packageUpdatingStage = .noUpdatesAvailable
@@ -53,6 +54,7 @@ struct UpdatePackagesView: View
                                     }
                                 }
                             }
+                            
                     case .updatingPackages:
                         Text("Updating packages...")
                             .onAppear
@@ -71,12 +73,14 @@ struct UpdatePackagesView: View
                                     }
                                 }
                             }
+                            
                     case .finished:
                         Text("Done")
                             .onAppear
                             {
                                 packageUpdatingStep = .finished
                             }
+                            
                     }
                 }
                 .fixedSize()

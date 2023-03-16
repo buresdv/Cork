@@ -27,6 +27,7 @@ func upgradePackages(_ updateProgressTracker: UpdateProgressTracker, appState _:
 
                     if packageBeingUpgraded != "FAILED TO FIND MATCH"
                     {
+                        print("Package being upgraded: \(packageBeingUpgraded)")
                         outdatedPackageTracker.outdatedPackageNames = outdatedPackageTracker.outdatedPackageNames.filter({ $0 != packageBeingUpgraded })
                     }
                 }
