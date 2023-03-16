@@ -28,7 +28,7 @@ func upgradePackages(_ updateProgressTracker: UpdateProgressTracker, appState _:
                     if packageBeingUpgraded != "FAILED TO FIND MATCH"
                     {
                         print("Package being upgraded: \(packageBeingUpgraded)")
-                        outdatedPackageTracker.outdatedPackageNames = outdatedPackageTracker.outdatedPackageNames.filter({ $0 != packageBeingUpgraded })
+                        outdatedPackageTracker.outdatedPackageNames = outdatedPackageTracker.outdatedPackageNames.filter { $0 != packageBeingUpgraded }
                     }
                 }
                 catch let regexMatchError as NSError
@@ -38,8 +38,15 @@ func upgradePackages(_ updateProgressTracker: UpdateProgressTracker, appState _:
             }
 
         case let .standardError(errorLine):
-            print("Upgrade function error: \(errorLine)")
-            updateProgressTracker.errors.append("⚠️ Upgrade error: \(errorLine)")
+            if !errorLine.contains("tap") || !errorLine.contains("No checksum defined for")
+            {
+                print("Upgrade function error: \(errorLine)")
+                updateProgressTracker.errors.append("Upgrade error: \(errorLine)")
+            }
+            else
+            {
+                print("Ignorable upgrade function error: \(errorLine)")
+            }
         }
     }
 

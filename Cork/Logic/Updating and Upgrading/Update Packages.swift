@@ -23,20 +23,21 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState: Ap
             print("Update function output: \(outputLine)")
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-            if outputLine.contains("Already up-to-date")
+            if outputLine.starts(with: "Already up-to-date")
             {
+                print("Inside update function: No updates available")
                 updateAvailability = .noUpdatesAvailable
             }
 
         case let .standardError(errorLine):
-            if !errorLine.contains("Another active Homebrew update process is already in progress")
+            if errorLine.starts(with: "Another active Homebrew update process is already in progress") || errorLine == "Error: "
             {
-                print("Update function error: \(errorLine)")
-                updateProgressTracker.errors.append("⚠️ Update error: \(errorLine)")
+                print("Ignorable update function error: \(errorLine)")
             }
             else
             {
-                print("Ignorable update function erro: \(errorLine)")
+                print("Update function error: \(errorLine)")
+                updateProgressTracker.errors.append("Update error: \(errorLine)")
             }
         }
     }

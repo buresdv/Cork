@@ -44,7 +44,10 @@ struct ContentView: View
                 {
                     Button
                     {
-                        appState.isShowingUpdateSheet = true
+                        Task(priority: .userInitiated)
+                        {
+                            await updatePackages(updateProgressTracker, appState: appState)
+                        }
                     } label: {
                         Label
                         {

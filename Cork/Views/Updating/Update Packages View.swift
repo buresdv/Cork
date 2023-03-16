@@ -44,12 +44,16 @@ struct UpdatePackagesView: View
                                 {
                                     let updateAvailability = await updatePackages(updateProgressTracker, appState: appState)
 
+                                    print("Update availability result: \(updateAvailability)")
+                                    
                                     if updateAvailability == .noUpdatesAvailable
                                     {
+                                        print("Outside update function: No updates available")
                                         packageUpdatingStage = .noUpdatesAvailable
                                     }
                                     else
                                     {
+                                        print("Outside update function: Updates available")
                                         packageUpdatingStep = .updatingPackages
                                     }
                                 }
@@ -115,9 +119,15 @@ struct UpdatePackagesView: View
                         {
                             ForEach(updateProgressTracker.errors, id: \.self)
                             { error in
-                                Text(error)
+                                HStack(alignment: .firstTextBaseline, spacing: 5)
+                                {
+                                    Text("⚠️")
+                                    Text(error)
+                                }
                             }
                         }
+                        .listStyle(.bordered(alternatesRowBackgrounds: false))
+                        .frame(height: 100, alignment: .leading)
                         HStack
                         {
                             Spacer()
@@ -125,6 +135,10 @@ struct UpdatePackagesView: View
                         }
                     }
                     .fixedSize()
+                    .onAppear
+                    {
+                        print("Update errors: \(updateProgressTracker.errors)")
+                    }
                 }
             }
         }
