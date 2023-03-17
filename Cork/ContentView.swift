@@ -37,7 +37,7 @@ struct ContentView: View
                     .frame(minWidth: 600, minHeight: 500)
             }
             .navigationTitle("Cork")
-            .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
+            .navigationSubtitle("^[\(brewData.installedFormulae.count + brewData.installedCasks.count) package](inflect: true) installed")
             .toolbar
             {
                 ToolbarItemGroup(placement: .primaryAction)

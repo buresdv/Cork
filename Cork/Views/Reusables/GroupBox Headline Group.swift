@@ -11,7 +11,7 @@ import SwiftUI
 struct GroupBoxHeadlineGroup: View
 {
     var image: String?
-    let title: String
+    let title: LocalizedStringKey
     let mainText: String
 
     var body: some View

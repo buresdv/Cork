@@ -131,7 +131,7 @@ struct StartPage: View
 
                                 GroupBoxHeadlineGroup(
                                     image: "macwindow",
-                                    title: "You have \(brewData.installedCasks.count) Casks installed",
+                                    title: "You have ^[\(brewData.installedCasks.count) Cask](inflect: true) installed",
                                     mainText: "Casks are packages that have graphical windows"
                                 )
                                 .animation(.none, value: brewData.installedCasks.count)
@@ -140,7 +140,7 @@ struct StartPage: View
 
                                 GroupBoxHeadlineGroup(
                                     image: "spigot",
-                                    title: "You have \(availableTaps.addedTaps.count) Taps added",
+                                    title: "You have ^[\(availableTaps.addedTaps.count) Tap](inflect: true) added",
                                     mainText: "Taps provide additional packages"
                                 )
                                 .animation(.none, value: availableTaps.addedTaps.count)
