@@ -29,12 +29,9 @@ struct StartPage: View
     {
         VStack
         {
-            if isLoadingUpgradeablePackages
+            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
             {
-                ProgressView
-                {
-                    Text("Checking for Package Updates...")
-                }
+                ProgressView("Loading Packages...")
             }
             else
             {
@@ -44,7 +41,29 @@ struct StartPage: View
                     {
                         Text("Homebrew Status")
                             .font(.title)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
+                        if isLoadingUpgradeablePackages
+                        {
+                            GroupBox
+                            {
+                                Grid
+                                {
+                                    GridRow(alignment: .firstTextBaseline) {
+                                        HStack(alignment: .center, spacing: 15)
+                                        {
+                                            ProgressView()
+
+                                            Text("Checking for package updates...")
+                                        }
+                                        .padding(10)
+                                    }
+                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                }
+                            }
+                        }
+                        
+                        
                         if outdatedPackageTracker.outdatedPackageNames.count != 0
                         {
                             GroupBox
@@ -97,74 +116,71 @@ struct StartPage: View
                             }
                         }
 
-                        if !appState.isLoadingFormulae && !appState.isLoadingCasks
+                        GroupBox
+                        {
+                            VStack(alignment: .leading)
+                            {
+                                GroupBoxHeadlineGroup(
+                                    image: "terminal",
+                                    title: "You have \(brewData.installedFormulae.count) Formulae installed",
+                                    mainText: "Formulae are packages that you use through a terminal"
+                                )
+                                .animation(.none, value: brewData.installedFormulae.count)
+
+                                Divider()
+
+                                GroupBoxHeadlineGroup(
+                                    image: "macwindow",
+                                    title: "You have \(brewData.installedCasks.count) Casks installed",
+                                    mainText: "Casks are packages that have graphical windows"
+                                )
+                                .animation(.none, value: brewData.installedCasks.count)
+
+                                Divider()
+
+                                GroupBoxHeadlineGroup(
+                                    image: "spigot",
+                                    title: "You have \(availableTaps.addedTaps.count) Taps added",
+                                    mainText: "Taps provide additional packages"
+                                )
+                                .animation(.none, value: availableTaps.addedTaps.count)
+                            }
+                        }
+
+                        GroupBox
+                        {
+                            VStack(alignment: .leading)
+                            {
+                                GroupBoxHeadlineGroup(
+                                    image: "chart.bar",
+                                    title: "Homebrew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
+                                    mainText: "\(allowBrewAnalytics ? "Homebrew is collecting various anonymized data, such as which packages you have installed" : "Homebrew is not collecting any data about how you use it")"
+                                )
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+
+                        if appState.cachedDownloadsFolderSize != 0
                         {
                             GroupBox
                             {
-                                VStack(alignment: .leading)
+                                VStack
                                 {
-                                    GroupBoxHeadlineGroup(
-                                        image: "terminal",
-                                        title: "You have \(brewData.installedFormulae.count) Formulae installed",
-                                        mainText: "Formulae are packages that you use through a terminal"
-                                    )
-                                    .animation(.none, value: brewData.installedFormulae.count)
-
-                                    Divider()
-
-                                    GroupBoxHeadlineGroup(
-                                        image: "macwindow",
-                                        title: "You have \(brewData.installedCasks.count) Casks installed",
-                                        mainText: "Casks are packages that have graphical windows"
-                                    )
-                                    .animation(.none, value: brewData.installedCasks.count)
-
-                                    Divider()
-
-                                    GroupBoxHeadlineGroup(
-                                        image: "spigot",
-                                        title: "You have \(availableTaps.addedTaps.count) Taps added",
-                                        mainText: "Taps provide additional packages"
-                                    )
-                                    .animation(.none, value: availableTaps.addedTaps.count)
-                                }
-                            }
-
-                            GroupBox
-                            {
-                                VStack(alignment: .leading)
-                                {
-                                    GroupBoxHeadlineGroup(
-                                        image: "chart.bar",
-                                        title: "Homebrew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
-                                        mainText: "\(allowBrewAnalytics ? "Homebrew is collecting various anonymized data, such as which packages you have installed" : "Homebrew is not collecting any data about how you use it")"
-                                    )
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-
-                            if appState.cachedDownloadsFolderSize != 0
-                            {
-                                GroupBox
-                                {
-                                    VStack
+                                    HStack
                                     {
-                                        HStack
+                                        GroupBoxHeadlineGroup(
+                                            image: "square.and.arrow.down.on.square",
+                                            title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
+                                            mainText: "These files are leftovers from completed package installations. They're safe to remove."
+                                        )
+
+                                        Spacer()
+
+                                        Button
                                         {
-                                            GroupBoxHeadlineGroup(
-                                                image: "square.and.arrow.down.on.square",
-                                                title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
-                                                mainText: "These files are leftovers from completed package installations. They're safe to remove."
-                                            )
-
-                                            Spacer()
-
-                                            Button
-                                            {
-                                                appState.isShowingFastCacheDeletionMaintenanceView = true
-                                            } label: {
-                                                Text("Delete Cached Downloads…")
-                                            }
+                                            appState.isShowingFastCacheDeletionMaintenanceView = true
+                                        } label: {
+                                            Text("Delete Cached Downloads…")
                                         }
                                     }
                                 }
@@ -197,6 +213,9 @@ struct StartPage: View
             Task(priority: .background)
             {
                 isLoadingUpgradeablePackages = true
+                
+                await shell("/opt/homebrew/bin/brew", ["update"])
+                            
                 outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
                 isLoadingUpgradeablePackages = false
             }

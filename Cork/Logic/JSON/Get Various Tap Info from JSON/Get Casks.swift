@@ -28,7 +28,7 @@ func getCasksAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
         }
     }
     
-    print(availableCasks)
+    print(availableCasks as Any)
     
     return availableCasks
 }
