@@ -116,6 +116,7 @@
 		63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D86EB129C0972A00AD64D2 /* Package Search Token.swift */; };
 		63D8C957287A1D0800483A52 /* Loading View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C956287A1D0800483A52 /* Loading View.swift */; };
 		63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
+		63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,6 +229,7 @@
 		63D83109299982EA00FA802F /* Search Result Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Row.swift"; sourceTree = "<group>"; };
 		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
+		63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Second to Last Element.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -642,6 +644,7 @@
 				63CD0275288B22D9004AE2EC /* View - New Windows.swift */,
 				63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */,
 				63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */,
+				63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
+				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
 				639246E529A26BB4008149E2 /* REGEX Match.swift in Sources */,
 				63006E1929AD215000243E29 /* Get Caveats.swift in Sources */,
