@@ -197,7 +197,7 @@ struct StartPage: View
         .padding()
         .onAppear
         {
-            Task(priority: .high)
+            Task(priority: .background)
             {
                 isLoadingUpgradeablePackages = true
                 outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()

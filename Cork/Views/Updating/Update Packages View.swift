@@ -35,6 +35,7 @@ struct UpdatePackagesView: View
                         Text("Ready")
                             .onAppear
                             {
+                                updateProgressTracker.updateProgress = 0
                                 packageUpdatingStep = .checkingForUpdates
                             }
 
@@ -74,11 +75,13 @@ struct UpdatePackagesView: View
                             }
 
                     case .updatingOutdatedPackageTracker:
-                        Text("Updating package tracker...")
+                        Text("Updating package caches...")
                             .onAppear
                             {
                                 Task(priority: .userInitiated) {
                                     outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
+                                    
+                                    updateProgressTracker.updateProgress = 10
                                     
                                     if updateProgressTracker.errors.isEmpty
                                     {
@@ -122,7 +125,7 @@ struct UpdatePackagesView: View
                 }
 
             case .erroredOut:
-                ComplexWithIcon(systemName: "xmark.seal")
+                ComplexWithIcon(systemName: "checkmark.seal")
                 {
                     VStack(alignment: .leading, spacing: 5)
                     {
