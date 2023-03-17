@@ -75,13 +75,20 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
     return contentsOfFolder
 }
 
-func getContentsOfFolder(targetFolder: URL) -> [URL]
+func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> [URL]
 {
     var contentsOfFolder: [URL] = .init()
 
     do
     {
-        contentsOfFolder = try FileManager.default.contentsOfDirectory(at: targetFolder, includingPropertiesForKeys: nil)
+        if let options
+        {
+            contentsOfFolder = try FileManager.default.contentsOfDirectory(at: targetFolder, includingPropertiesForKeys: nil, options: options)
+        }
+        else
+        {
+            contentsOfFolder = try FileManager.default.contentsOfDirectory(at: targetFolder, includingPropertiesForKeys: nil)
+        }
     }
     catch let folderReadingError as NSError
     {

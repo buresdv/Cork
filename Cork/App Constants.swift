@@ -42,6 +42,17 @@ struct AppConstants {
             return URL(string: "/usr/local/Caskroom")!
         }
     }()
+    static let tapPath: URL =
+    {
+        if FileManager.default.fileExists(atPath: "/opt/homebrew/Library/Taps")
+        { // Apple Sillicon
+            return URL(string: "/opt/homebrew/Library/Taps")!
+        }
+        else
+        { // Intel
+            return URL(string: "/usr/local/Homebrew/Library/Taps")!
+        }
+    }()
     
     static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
     

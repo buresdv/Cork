@@ -12,14 +12,31 @@ func loadUpTappedTaps() async -> [BrewTap]
 {
     var finalAvailableTaps: [BrewTap] = .init()
     
-    let availableTapsRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap"])
+    let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.tapPath, options: .skipsHiddenFiles)
     
-    let availableTaps = availableTapsRaw.standardOutput.components(separatedBy: "\n")
+    print("Contents of tap folder: \(contentsOfTapFolder)")
     
-    for tap in availableTaps {
-        if !tap.isEmpty
-        {
-            finalAvailableTaps.append(BrewTap(name: tap))
+    for tapRepoParentURL in contentsOfTapFolder
+    {
+        
+        print("Tap repo: \(tapRepoParentURL)")
+        
+        let contentsOfTapRepoParent: [URL] = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
+        
+        for repoURL in contentsOfTapRepoParent {
+            
+            let repoParentComponents: [String] = repoURL.pathComponents
+            
+            let repoParentName: String = repoParentComponents.penultimate()!
+            
+            let repoNameRaw: String = repoParentComponents.last!
+            let repoName: String = String(repoNameRaw.dropFirst(9))
+            
+            let fullTapName: String = "\(repoParentName)/\(repoName)"
+            
+            print("Full tap name: \(fullTapName)")
+            
+            finalAvailableTaps.append(BrewTap(name: fullTapName))
         }
     }
     
