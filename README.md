@@ -35,8 +35,8 @@ However, as Cork is open source, you can always compile it from source for free.
 ![Install Package - Fetching Dependencies](https://i.imgur.com/GuniTJH.jpg)
 ![Install Package - Installing Dependencies](https://i.imgur.com/EMmaSLA.jpg)
 
-### Tap Taps
-![Tap Taps](https://i.imgur.com/Dya1SkM.jpg)
+### Add Taps
+![Tap Taps](https://i.imgur.com/bywcxaX.jpg)
 
 ### Brew Maintenance
 ![Brew Maintenance](https://i.imgur.com/TNYXFZQ.jpg)
