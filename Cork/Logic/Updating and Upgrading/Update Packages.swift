@@ -9,12 +9,8 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState: AppState) async -> PackageUpdateAvailability
+func updatePackages(_ updateProgressTracker: UpdateProgressTracker) async -> PackageUpdateAvailability
 {
-    appState.isShowingUpdateSheet = true
-
-    var updateAvailability: PackageUpdateAvailability = .updatesAvailable
-
     for await output in shell("/opt/homebrew/bin/brew", ["update"])
     {
         switch output
@@ -26,7 +22,7 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState: Ap
             if outputLine.starts(with: "Already up-to-date")
             {
                 print("Inside update function: No updates available")
-                updateAvailability = .noUpdatesAvailable
+                return .noUpdatesAvailable
             }
 
         case let .standardError(errorLine):
@@ -44,5 +40,5 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState: Ap
     }
     updateProgressTracker.updateProgress = Float(10) / Float(2)
 
-    return updateAvailability
+    return .updatesAvailable
 }

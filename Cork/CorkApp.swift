@@ -75,10 +75,7 @@ struct CorkApp: App
 
                 Button
                 {
-                    Task(priority: .userInitiated)
-                    {
-                        await updatePackages(updateProgressTracker, appState: appState)
-                    }
+                    appState.isShowingUpdateSheet = true
                 } label: {
                     Text("Update Packages")
                 }

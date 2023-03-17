@@ -45,7 +45,7 @@ struct UpdatePackagesView: View
                             {
                                 Task(priority: .userInitiated)
                                 {
-                                    updateAvailability = await updatePackages(updateProgressTracker, appState: appState)
+                                    updateAvailability = await updatePackages(updateProgressTracker)
 
                                     print("Update availability result: \(updateAvailability)")
 

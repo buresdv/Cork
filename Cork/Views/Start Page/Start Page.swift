@@ -85,10 +85,7 @@ struct StartPage: View
                                                     
                                                     Button
                                                     {
-                                                        Task
-                                                        {
-                                                            await updatePackages(updateProgressTracker, appState: appState)
-                                                        }
+                                                        appState.isShowingUpdateSheet = true
                                                     } label: {
                                                         Text("Update")
                                                     }
