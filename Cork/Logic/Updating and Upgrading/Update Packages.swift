@@ -11,7 +11,7 @@ import SwiftUI
 @MainActor
 func updatePackages(_ updateProgressTracker: UpdateProgressTracker) async -> PackageUpdateAvailability
 {
-    for await output in shell("/opt/homebrew/bin/brew", ["update"])
+    for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
     {
         switch output
         {

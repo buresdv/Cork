@@ -214,13 +214,21 @@ struct StartPage: View
             {
                 isLoadingUpgradeablePackages = true
                 
-                await shell("/opt/homebrew/bin/brew", ["update"])
+                await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
                             
                 outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
                 
-                withAnimation {
+                if outdatedPackageTracker.outdatedPackageNames.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
+                {
+                    withAnimation {
+                        isLoadingUpgradeablePackages = false
+                    }
+                }
+                else
+                {
                     isLoadingUpgradeablePackages = false
                 }
+                
             }
         }
     }
