@@ -9,5 +9,5 @@ import Foundation
 
 enum PackageUpdatingProcessSteps
 {
-    case ready, checkingForUpdates, updatingPackages, finished
+    case ready, checkingForUpdates, updatingPackages, updatingOutdatedPackageTracker, finished
 }

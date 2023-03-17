@@ -13,6 +13,8 @@ struct UpdatePackagesView: View
 
     @State var packageUpdatingStage: PackageUpdatingStage = .updating
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
+    
+    @State var updateAvailability: PackageUpdateAvailability = .updatesAvailable
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -35,17 +37,17 @@ struct UpdatePackagesView: View
                             {
                                 packageUpdatingStep = .checkingForUpdates
                             }
-                            
+
                     case .checkingForUpdates:
                         Text("Fetching updates...")
                             .onAppear
                             {
                                 Task(priority: .userInitiated)
                                 {
-                                    let updateAvailability = await updatePackages(updateProgressTracker, appState: appState)
+                                    updateAvailability = await updatePackages(updateProgressTracker, appState: appState)
 
                                     print("Update availability result: \(updateAvailability)")
-                                    
+
                                     if updateAvailability == .noUpdatesAvailable
                                     {
                                         print("Outside update function: No updates available")
@@ -58,7 +60,7 @@ struct UpdatePackagesView: View
                                     }
                                 }
                             }
-                            
+
                     case .updatingPackages:
                         Text("Updating packages...")
                             .onAppear
@@ -66,7 +68,18 @@ struct UpdatePackagesView: View
                                 Task(priority: .userInitiated)
                                 {
                                     await upgradePackages(updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker)
+                                    
+                                    packageUpdatingStep = .updatingOutdatedPackageTracker
+                                }
+                            }
 
+                    case .updatingOutdatedPackageTracker:
+                        Text("Updating package tracker...")
+                            .onAppear
+                            {
+                                Task(priority: .userInitiated) {
+                                    outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
+                                    
                                     if updateProgressTracker.errors.isEmpty
                                     {
                                         packageUpdatingStage = .finished
@@ -77,14 +90,13 @@ struct UpdatePackagesView: View
                                     }
                                 }
                             }
-                            
+
                     case .finished:
                         Text("Done")
                             .onAppear
                             {
                                 packageUpdatingStep = .finished
                             }
-                            
                     }
                 }
                 .fixedSize()
