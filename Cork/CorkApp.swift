@@ -50,6 +50,10 @@ struct CorkApp: App
             }
 
             SidebarCommands()
+            CommandGroup(replacing: .newItem) // Disables "New Window"
+            {
+                
+            }
 
             CommandMenu("Packages")
             {
