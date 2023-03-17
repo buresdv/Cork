@@ -71,7 +71,10 @@ struct PackageDetailView: View
                         {
                             if let packageDependents
                             {
-                                OutlinedPillText(text: "Dependency of \(packageDependents.joined(separator: ", "))", color: .secondary)
+                                if packageDependents.count != 0 // This happens when the package was originally installed as a dependency, but the parent is no longer installed
+                                {
+                                    OutlinedPillText(text: "Dependency of \(packageDependents.joined(separator: ", "))", color: .secondary)
+                                }
                             }
                             else
                             {
