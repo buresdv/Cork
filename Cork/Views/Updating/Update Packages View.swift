@@ -102,6 +102,7 @@ struct UpdatePackagesView: View
                             }
                     }
                 }
+                .frame(width: 200)
                 .fixedSize()
 
             case .noUpdatesAvailable:

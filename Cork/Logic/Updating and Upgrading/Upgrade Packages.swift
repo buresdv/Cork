@@ -27,6 +27,8 @@ func upgradePackages(_ updateProgressTracker: UpdateProgressTracker, appState _:
             }
             else
             {
+                updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
+                
                 print("Ignorable upgrade function error: \(errorLine)")
             }
         }
