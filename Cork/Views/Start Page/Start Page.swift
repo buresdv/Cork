@@ -217,7 +217,10 @@ struct StartPage: View
                 await shell("/opt/homebrew/bin/brew", ["update"])
                             
                 outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
-                isLoadingUpgradeablePackages = false
+                
+                withAnimation {
+                    isLoadingUpgradeablePackages = false
+                }
             }
         }
     }
