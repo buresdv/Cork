@@ -17,6 +17,7 @@ struct CorkApp: App
     @StateObject var availableTaps = AvailableTaps()
 
     @StateObject var updateProgressTracker = UpdateProgressTracker()
+    @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
     @StateObject var selectedPackageInfo = SelectedPackageInfo()
     @StateObject var selectedTapInfo = SelectedTapInfo()
@@ -32,6 +33,7 @@ struct CorkApp: App
                 .environmentObject(selectedPackageInfo)
                 .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
+                .environmentObject(outdatedPackageTracker)
                 .onAppear
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
@@ -77,7 +79,7 @@ struct CorkApp: App
 
                 Button
                 {
-                    updateBrewPackages(updateProgressTracker, appState: appState)
+                    appState.isShowingUpdateSheet = true
                 } label: {
                     Text("Update Packages")
                 }

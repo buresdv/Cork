@@ -10,6 +10,7 @@ import SwiftUI
 struct DismissSheetButton: View
 {
     @Binding var isShowingSheet: Bool
+    @State var customButtonText: String?
 
     var body: some View
     {
@@ -17,7 +18,14 @@ struct DismissSheetButton: View
         {
             isShowingSheet.toggle()
         } label: {
-            Text("Cancel")
+            if let customButtonText
+            {
+                Text(customButtonText)
+            }
+            else
+            {
+                Text("Cancel")
+            }
         }
         .keyboardShortcut(.cancelAction)
     }

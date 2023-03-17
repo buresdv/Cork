@@ -22,9 +22,8 @@ func getListOfFoundPackages(searchWord: String) async -> String
     return parsedResponse!
 }
 
-func getListOfUpgradeablePackages() async -> [BrewPackage]
+func getListOfUpgradeablePackages() async -> [String]
 {
-    var finalOutdatedPackages = [BrewPackage]()
     
     let outdatedPackagesRaw: String = await shell(AppConstants.brewExecutablePath.absoluteString, ["outdated"]).standardOutput
     
@@ -32,13 +31,7 @@ func getListOfUpgradeablePackages() async -> [BrewPackage]
     
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
     
-    for package in outdatedPackages {
-        finalOutdatedPackages.append(BrewPackage(name: package, isCask: false, installedOn: nil, versions: [""], sizeInBytes: nil))
-    }
-    
-    finalOutdatedPackages.removeLast()
-    
-    return finalOutdatedPackages
+    return outdatedPackages.dropLast()
 }
 
 func addTap(name: String) async -> String

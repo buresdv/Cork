@@ -10,17 +10,17 @@ import SwiftUI
 struct StartPage: View
 {
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var appState: AppState
-    
+
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var isLoadingUpgradeablePackages = true
-    @State private var upgradeablePackages: [BrewPackage] = .init()
-    
+
     @State private var isShowingFastCacheDeletionMaintenanceView: Bool = false
 
     @State private var isDisclosureGroupExpanded: Bool = false
@@ -29,12 +29,9 @@ struct StartPage: View
     {
         VStack
         {
-            if isLoadingUpgradeablePackages
+            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
             {
-                ProgressView
-                {
-                    Text("Checking for Package Updates...")
-                }
+                ProgressView("Loading Packages...")
             }
             else
             {
@@ -44,8 +41,30 @@ struct StartPage: View
                     {
                         Text("Homebrew Status")
                             .font(.title)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
-                        if upgradeablePackages.count != 0
+                        if isLoadingUpgradeablePackages
+                        {
+                            GroupBox
+                            {
+                                Grid
+                                {
+                                    GridRow(alignment: .firstTextBaseline) {
+                                        HStack(alignment: .center, spacing: 15)
+                                        {
+                                            ProgressView()
+
+                                            Text("Checking for package updates...")
+                                        }
+                                        .padding(10)
+                                    }
+                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                }
+                            }
+                        }
+                        
+                        
+                        if outdatedPackageTracker.outdatedPackageNames.count != 0
                         {
                             GroupBox
                             {
@@ -55,103 +74,113 @@ struct StartPage: View
                                     {
                                         VStack(alignment: .leading)
                                         {
-                                            Text(upgradeablePackages.count == 1 ? "There is 1 outdated package" : "There are \(upgradeablePackages.count) outdated packages")
-                                                .font(.headline)
-                                            DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
-                                            {} label: {
-                                                Text("Outdated packages")
-                                                    .font(.subheadline)
-                                            }
-                                            
-                                            if isDisclosureGroupExpanded
+                                            GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackageNames.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                                             {
-                                                List(upgradeablePackages)
-                                                { package in
-                                                    Text(package.name)
-                                                }
-                                                .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                                .frame(height: 100)
-                                            }
-                                        }
+                                                HStack(alignment: .firstTextBaseline)
+                                                {
+                                                    VStack(alignment: .leading, spacing: 2) {
+                                                        Text(outdatedPackageTracker.outdatedPackageNames.count == 1 ? "There is 1 outdated package" : "There are \(outdatedPackageTracker.outdatedPackageNames.count) outdated packages")
+                                                            .font(.headline)
+                                                        DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
+                                                        {} label: {
+                                                            Text("Outdated packages")
+                                                                .font(.subheadline)
+                                                        }
 
-                                        Button
-                                        {
-                                            updateBrewPackages(updateProgressTracker, appState: appState)
-                                        } label: {
-                                            Text("Update")
+                                                        if isDisclosureGroupExpanded
+                                                        {
+                                                            List
+                                                            {
+                                                                ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self) { outdatedPackageName in
+                                                                    Text(outdatedPackageName)
+                                                                }
+                                                            }
+                                                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                                            .frame(height: 100)
+                                                        }
+                                                    }
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Button
+                                                    {
+                                                        appState.isShowingUpdateSheet = true
+                                                    } label: {
+                                                        Text("Update")
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
 
-                        if !appState.isLoadingFormulae && !appState.isLoadingCasks
+                        GroupBox
+                        {
+                            VStack(alignment: .leading)
+                            {
+                                GroupBoxHeadlineGroup(
+                                    image: "terminal",
+                                    title: "You have \(brewData.installedFormulae.count) Formulae installed",
+                                    mainText: "Formulae are packages that you use through a terminal"
+                                )
+                                .animation(.none, value: brewData.installedFormulae.count)
+
+                                Divider()
+
+                                GroupBoxHeadlineGroup(
+                                    image: "macwindow",
+                                    title: "You have \(brewData.installedCasks.count) Casks installed",
+                                    mainText: "Casks are packages that have graphical windows"
+                                )
+                                .animation(.none, value: brewData.installedCasks.count)
+
+                                Divider()
+
+                                GroupBoxHeadlineGroup(
+                                    image: "spigot",
+                                    title: "You have \(availableTaps.addedTaps.count) Taps added",
+                                    mainText: "Taps provide additional packages"
+                                )
+                                .animation(.none, value: availableTaps.addedTaps.count)
+                            }
+                        }
+
+                        GroupBox
+                        {
+                            VStack(alignment: .leading)
+                            {
+                                GroupBoxHeadlineGroup(
+                                    image: "chart.bar",
+                                    title: "Homebrew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
+                                    mainText: "\(allowBrewAnalytics ? "Homebrew is collecting various anonymized data, such as which packages you have installed" : "Homebrew is not collecting any data about how you use it")"
+                                )
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+
+                        if appState.cachedDownloadsFolderSize != 0
                         {
                             GroupBox
                             {
-                                VStack(alignment: .leading)
+                                VStack
                                 {
-                                    GroupBoxHeadlineGroup(
-                                        image: "terminal",
-                                        title: "You have \(brewData.installedFormulae.count) Formulae installed",
-                                        mainText: "Formulae are packages that you use through a terminal"
-                                    )
-                                    .animation(.none, value: brewData.installedFormulae.count)
-
-                                    Divider()
-
-                                    GroupBoxHeadlineGroup(
-                                        image: "macwindow",
-                                        title: "You have \(brewData.installedCasks.count) Casks installed",
-                                        mainText: "Casks are packages that have graphical windows"
-                                    )
-                                    .animation(.none, value: brewData.installedCasks.count)
-
-                                    Divider()
-
-                                    GroupBoxHeadlineGroup(
-                                        image: "spigot",
-                                        title: "You have \(availableTaps.addedTaps.count) Taps added",
-                                        mainText: "Taps provide additional packages"
-                                    )
-                                    .animation(.none, value: availableTaps.addedTaps.count)
-                                }
-                            }
-                            
-                            GroupBox
-                            {
-                                VStack(alignment: .leading)
-                                {
-                                    GroupBoxHeadlineGroup(
-                                        image: "chart.bar",
-                                        title: "Homebrew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
-                                        mainText: "\(allowBrewAnalytics ? "Homebrew is collecting various anonymized data, such as which packages you have installed" : "Homebrew is not collecting any data about how you use it")"
-                                    )
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-                            
-                            if appState.cachedDownloadsFolderSize != 0
-                            {
-                                GroupBox
-                                {
-                                    VStack
+                                    HStack
                                     {
-                                        HStack
+                                        GroupBoxHeadlineGroup(
+                                            image: "square.and.arrow.down.on.square",
+                                            title: "You have \(appState.cachedDownloadsFolderSize.convertDirectorySizeToPresentableFormat(size: appState.cachedDownloadsFolderSize)) of cached downloads",
+                                            mainText: "These files are leftovers from completed package installations. They're safe to remove."
+                                        )
+
+                                        Spacer()
+
+                                        Button
                                         {
-                                            GroupBoxHeadlineGroup(
-                                                image: "square.and.arrow.down.on.square",
-                                                title: "You have \(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file))) of cached downloads",
-                                                mainText: "These files are leftovers from completed package installations. They're safe to remove."
-                                            )
-
-                                            Spacer()
-
-                                            Button {
-                                                appState.isShowingFastCacheDeletionMaintenanceView = true
-                                            } label: {
-                                                Text("Delete Cached Downloads…")
-                                            }
+                                            appState.isShowingFastCacheDeletionMaintenanceView = true
+                                        } label: {
+                                            Text("Delete Cached Downloads…")
                                         }
                                     }
                                 }
@@ -181,11 +210,17 @@ struct StartPage: View
         .padding()
         .onAppear
         {
-            Task(priority: .high)
+            Task(priority: .background)
             {
                 isLoadingUpgradeablePackages = true
-                upgradeablePackages = await getListOfUpgradeablePackages()
-                isLoadingUpgradeablePackages = false
+                
+                await shell("/opt/homebrew/bin/brew", ["update"])
+                            
+                outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
+                
+                withAnimation {
+                    isLoadingUpgradeablePackages = false
+                }
             }
         }
     }
