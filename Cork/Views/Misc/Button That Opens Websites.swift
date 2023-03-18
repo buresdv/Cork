@@ -12,7 +12,7 @@ import SwiftUI
 struct ButtonThatOpensWebsites: View
 {
     @State var websiteURL: URL
-    @State var buttonText: String
+    @State var buttonText: LocalizedStringKey
 
     var body: some View
     {

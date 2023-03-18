@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct UsedPackage: Identifiable
 {
     var id: UUID = .init()
 
-    let name: String
-    let whyIsItUsed: String
+    let name: LocalizedStringKey
+    let whyIsItUsed: LocalizedStringKey
     let packageURL: URL
 }
 

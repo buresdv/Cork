@@ -45,7 +45,7 @@ struct AddTapView: View
             switch progress
             {
             case .ready:
-                SheetWithTitle(title: "Add a tap")
+                SheetWithTitle(title: "add-tap")
                 {
                     TextField("homebrew/core", text: $requestedTap)
                         .onSubmit
@@ -59,13 +59,13 @@ struct AddTapView: View
                                 switch tapInputError
                                 {
                                 case .empty:
-                                    Text("Tap name empty")
+                                    Text("add-tap.typing.error.error")
                                         .font(.headline)
-                                    Text("You didn't put in any tap name")
+                                    Text("add-tap.typing.error.error")
                                 case .missingSlash:
-                                    Text("Tap name needs a slash")
+                                    Text("add-tap.typing.error.slash")
                                         .font(.headline)
-                                    Text("Tap names always have to contain a slash")
+                                    Text("add-tap.typing.error.slash.description")
                                 }
                             }
                             .padding()
@@ -77,7 +77,7 @@ struct AddTapView: View
                         {
                             isShowingSheet.toggle()
                         } label: {
-                            Text("Cancel")
+                            Text("action.cancel")
                         }
                         .keyboardShortcut(.cancelAction)
 
@@ -92,7 +92,7 @@ struct AddTapView: View
                                 progress = .tapping
                             }
                         } label: {
-                            Text("Add")
+                            Text("add-tap.action")
                         }
                         .keyboardShortcut(.defaultAction)
                         .disabled(validateTapName(tapName: requestedTap) != nil)
@@ -102,7 +102,7 @@ struct AddTapView: View
             case .tapping:
                 ProgressView
                 {
-                    Text("Tapping \(requestedTap)")
+                    Text("add-tap.progress-\(requestedTap)")
                 }
                 .onAppear
                 {
@@ -135,17 +135,21 @@ struct AddTapView: View
                 ComplexWithIcon(systemName: "checkmark.seal") {
                     DisappearableSheet(isShowingSheet: $isShowingSheet)
                     {
-                        HeadlineWithSubheadline(headline: "Successfully added \(requestedTap)", subheadline: "There were no errors", alignment: .leading)
-                            .fixedSize(horizontal: true, vertical: true)
-                            .onAppear
-                            {
-                                availableTaps.addedTaps.append(BrewTap(name: requestedTap))
-                                
-                                /// Remove that one element of the array that's empty for some reason
-                                availableTaps.addedTaps.removeAll(where: { $0.name == "" })
-                                
-                                print("Available taps: \(availableTaps.addedTaps)")
-                            }
+                        HeadlineWithSubheadline(
+                            headline: "add-tap.complete-\(requestedTap)",
+                            subheadline: "add-tap.complete.description",
+                            alignment: .leading
+                        )
+                        .fixedSize(horizontal: true, vertical: true)
+                        .onAppear
+                        {
+                            availableTaps.addedTaps.append(BrewTap(name: requestedTap))
+
+                            /// Remove that one element of the array that's empty for some reason
+                            availableTaps.addedTaps.removeAll(where: { $0.name == "" })
+
+                            print("Available taps: \(availableTaps.addedTaps)")
+                        }
                     }
                 }
 
@@ -155,14 +159,14 @@ struct AddTapView: View
                     {
                         switch tappingError {
                         case .repositoryNotFound:
-                                Text("\(requestedTap) doesn't exist")
+                                Text("add-tap.error.repository-not-found-\(requestedTap)")
                                     .font(.headline)
-                                Text("Double-check that you wrote the name right")
+                                Text("add-tap.error.repository-not-found.description")
                         
                         case .other:
-                            Text("An error occured while tapping \(requestedTap)")
+                            Text("add-tap.error.other-\(requestedTap)")
                                 .font(.headline)
-                            Text("Try tapping it again in a few minutes")
+                            Text("add-tap.error.other.description")
                         }
 
                         HStack
@@ -175,7 +179,7 @@ struct AddTapView: View
                             {
                                 progress = .ready
                             } label: {
-                                Text("Try Again")
+                                Text("add-tap.error.action")
                             }
                             .keyboardShortcut(.defaultAction)
                         }

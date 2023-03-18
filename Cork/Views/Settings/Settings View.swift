@@ -16,23 +16,23 @@ struct SettingsView: View
             GeneralPane()
                 .tabItem
                 {
-                    Label("General", systemImage: "gearshape")
+                    Label("settings.general", systemImage: "gearshape")
                 }
 
             MaintenancePane()
                 .tabItem
                 {
-                    Label("Maintenance", systemImage: "arrow.3.trianglepath")
+                    Label("settings.maintenance", systemImage: "arrow.3.trianglepath")
                 }
 
             BrewPane()
                 .tabItem {
-                    Label("Homebrew", systemImage: "cup.and.saucer")
+                    Label("settings.homebrew", systemImage: "cup.and.saucer")
                 }
             /*InstallationAndUninstallationPane()
                 .tabItem
                 {
-                    Label("Install and Uninstall", systemImage: "plus")
+                    Label("settings.install-uninstall", systemImage: "plus")
                 }*/
         }
     }

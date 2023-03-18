@@ -40,7 +40,7 @@ struct CustomSearchField: NSViewRepresentable
 
         if let customPromptText
         {
-            searchField.placeholderString = customPromptText
+            searchField.placeholderString = NSLocalizedString(customPromptText, comment: "")
         }
 
         return searchField

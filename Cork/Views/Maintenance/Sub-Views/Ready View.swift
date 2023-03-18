@@ -32,37 +32,37 @@ struct MaintenanceReadyView: View {
         {
             Form
             {
-                LabeledContent("Packages:")
+                LabeledContent("maintenance.steps.packages")
                 {
                     VStack(alignment: .leading)
                     {
                         Toggle(isOn: $shouldUninstallOrphans)
                         {
-                            Text("Uninstall orphaned packages")
+                            Text("maintenance.steps.packages.uninstall-orphans")
                         }
                     }
                 }
 
-                LabeledContent("Downloads:")
+                LabeledContent("maintenance.steps.downloads")
                 {
                     VStack(alignment: .leading)
                     {
                         Toggle(isOn: $shouldPurgeCache)
                         {
-                            Text("Purge Homebrew cache")
+                            Text("maintenance.steps.downloads.purge-cache")
                         }
                         Toggle(isOn: $shouldDeleteDownloads)
                         {
-                            Text("Delete cached downloads")
+                            Text("maintenance.steps.downloads.delete-cached-downloads")
                         }
                     }
                 }
 
-                LabeledContent("Other:")
+                LabeledContent("maintenance.steps.other")
                 {
                     Toggle(isOn: $shouldPerformHealthCheck)
                     {
-                        Text("Perform health check")
+                        Text("maintenance.steps.other.health-check")
                     }
                 }
             }
@@ -80,7 +80,7 @@ struct MaintenanceReadyView: View {
                         print("Start")
                         maintenanceSteps = .maintenanceRunning
                     } label: {
-                        Text("Start")
+                        Text("maintenance.steps.start")
                     }
                     .keyboardShortcut(.defaultAction)
                     .disabled(isStartDisabled)

@@ -1,0 +1,160 @@
+// MARK: - Common
+
+"action.close" = "Close";
+"action.cancel" = "Cancel";
+
+// MARK: - Sidebar
+"sidebar.search.prompt" = "Installed Packages";
+"sidebar.section.installed-formulae" = "Installed Formulae";
+"sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "Uninstall %@";
+"sidebar.section.installed-casks" = "Installed Casks";
+"sidebar.section.installed-casks.contextmenu.uninstall-%@" = "Uninstall %@";
+"sidebar.section.added-taps" = "Added Taps";
+"sidebar.section.added-taps.contextmenu.remove-%@" = "Remove %@";
+"sidebar.section.added-taps.remove.title-%@" = "Couldn't remove %@";
+"sidebar.section.added-taps.remove.message" = "Try again in a few minutes, or restart Cork";
+
+// MARK: - Start Page
+"start-page.loading" = "Loading Packages…";
+"start-page.status" = "Homebrew Status";
+"start-page.updates.loading" = "Checking for package updates…";
+"start-page.updates.list" = "Outdated packages";
+"start-page.updates.action" = "Update";
+"start-page.installed-formulae.description" = "Formulae are packages that you use through a terminal";
+"start-page.installed-casks.description" = "Casks are packages that have graphical windows";
+"start-page.added-taps.description" = "Taps provide additional packages";
+"start-page.analytics.disabled" = "Homebrew analytics are disabled";
+"start-page.analytics.disabled.description" = "Homebrew is not collecting any data about how you use it";
+"start-page.analytics.enabled" = "Homebrew analytics are enabled";
+"start-page.analytics.enabled.description" = "Homebrew is collecting various anonymized data, such as which packages you have installed";
+"start-page.cached-downloads-%@" = "You have %@ of cached downloads";
+"start-page.cached-downloads.description" = "These files are leftovers from completed package installations. They're safe to remove.";
+"start-page.cached-downloads.action" = "Delete Cached Downloads…";
+"start-page.open-maintenance" = "Brew Maintenance…";
+
+// MARK: - Add Tap
+"add-tap" = "Add a tap";
+"add-tap.typing.error.empty" = "Tap name empty";
+"add-tap.typing.error.empty.description" = "You didn't put in any tap name";
+"add-tap.typing.error.slash" = "Tap name needs a slash";
+"add-tap.typing.error.slash.description" = "Tap names always have to contain a slash";
+"add-tap.action" = "Add";
+"add-tap.progress-%@" = "Tapping %@";
+"add-tap.complete-%@" = "Successfully added %@";
+"add-tap.complete.description" = "There were no errors";
+"add-tap.error.repository-not-found-%@" = "%@ doesn't exist";
+"add-tap.error.repository-not-found.description" = "Double-check that you wrote the name right";
+"add-tap.error.other-%@" = "An error occured while tapping %@";
+"add-tap.error.other.description" = "Try tapping it again in a few minutes";
+"add-tap.error.action" = "Try Again";
+
+// MARK: - Tap Details
+"tap-details.official-%@" = "%@ is an official tap.\nPackages included in it are audited to make sure they are safe.";
+"tap-details.loading" = "Loading tap info…";
+"tap-details.info" = "Info";
+"tap-details.contents" = "Contents";
+"tap-details.contents.none" = "None";
+"tap-details.contents.formulae-only" = "Only Formulae";
+"tap-details.contents.casks-only" = "Only Casks";
+"tap-details.contents.formulae-mostly" = "Mostly Formulae";
+"tap-details.contents.casks-mostly" = "Mostly Casks";
+"tap-details.package-count" = "Number of Packages";
+"tap-details.homepage" = "Homepage";
+"tap-details.included-formulae" = "Formulae Included";
+"tap-details.included-casks" = "Casks Included";
+"tap-details.remove-%@" = "Remove %@";
+"tap-details.included-packages.search.prompt" = "Included Packages";
+
+// MARK: - Maintenance Steps
+"maintenance.title" = "Maintenance";
+"maintenance.steps.packages" = "Packages:";
+"maintenance.steps.packages.uninstall-orphans" = "Uninstall orphaned packages";
+"maintenance.steps.downloads" = "Downloads:";
+"maintenance.steps.downloads.purge-cache" = "Purge Homebrew cache";
+"maintenance.steps.downloads.delete-cached-downloads" = "Delete cached downloads";
+"maintenance.steps.other" = "Other:";
+"maintenance.steps.other.health-check" = "Perform health check";
+"maintenance.steps.start" = "Start";
+
+// MARK: - Maintenance Progress
+"maintenance.step.initial" = "Firing up…";
+"maintenance.step.removing-orphans" = "Uninstalling orphans…";
+"maintenance.step.purging-cache" = "Purging cache…";
+"maintenance.step.deleting-cached-downloads" = "Deleting cached downloads…";
+"maintenance.step.running-health-check" = "Running health check…";
+"maintenance.finished" = "Maintenance finished";
+"maintenance.results.orphans-none" =  "No orphaned packages found";
+"maintenance.results.orphans-count-%lld" =  "%lld orphaned packages removed";
+"maintenance.results.package-cache" = "Package cache purged";
+"maintenance.results.cached-downloads" = "Cached downloads deleted";
+"maintenance.results.cached-downloads.summary-%@" = "You reclaimed %@";
+"maintenance.results.health-check.problems-none" = "No problems with Homebrew found";
+"maintenance.results.health-check.problems" = "Found some problems with Homebrew";
+"maintenance.results.package-cache.skipped-%@" = "Some caches weren't purged because of %@ not being updated";
+// TODO: Move to plural strings
+"maintenance.results.package-cache.skipped-%@-and-%lld-others" = "Some caches weren't purged because of %@ and %lld others not being updated";
+
+// MARK: - Settings
+"settings.general" = "General";
+"settings.maintenance" = "Maintenance";
+"settings.homebrew" = "Homebrew";
+"settings.install-uninstall" = "Install and Uninstall";
+
+// MARK: - Settings: General
+"settings.general.sort-packages" = "Sort packages by:";
+"settings.general.sort-packages.alphabetically" = "Name";
+"settings.general.sort-packages.install-date" = "Installation Date";
+"settings.general.sort-packages.size" = "Size";
+"settings.general.sort-packages.none" = "Do Not Sort";
+"settings.general.sort-packages.restart" = "􀅴 Restart Cork for this sorting option to take effect";
+"settings.general.dependencies" = "Dependencies:";
+"settings.general.dependencies.toggle" = "Show more info about dependencies";
+"settings.general.package-caveats" = "Package caveats:";
+"settings.general.package-caveats.full" = "Full";
+"settings.general.package-caveats.minified" = "Minified";
+"settings.general.package-caveats.minified.info" = "􀅴 Click on the \"Has caveats\" pill to see the caveats";
+"settings.general.search-results" = "Search results:";
+"settings.general.search-results.toggle" = "Show package descriptions";
+"settings.general.package-details" = "Package details:";
+"settings.general.package-details.toggle" = "Show search field for dependencies";
+
+// MARK: - Settings: Maintenance
+"settings.maintenance.default-steps" = "Set default steps";
+
+// MARK: - Settings: Install/Uninstall
+"settings.install-uninstall.installation" = "Installation:";
+"settings.install-uninstall.installation.toggle" = "Show list of packages currently being installed";
+
+"settings.install-uninstall.uninstallation" = "Uninstallation:";
+"settings.install-uninstall.uninstallation.purge-cache" = "Purge cache after uninstalling packages";
+"settings.install-uninstall.uninstallation.remove-orphans" = "Remove orphans after uninstalling packages";
+
+// MARK: - About
+"about.packages" = "Packages Used";
+"about.packages.1.name" = "DavidFoundation";
+"about.packages.1.purpose" = "My own package that provides some basic convenience features";
+"about.packages.2.name" = "SwiftyJSON";
+"about.packages.2.purpose" = "I hate default JSON parsing in Swift. Why reinvent the wheel when you can just use a library to make it bearable?";
+
+"about.contributor.service.github" = "GitHub";
+"about.contributor.service.mastodon" = "Mastodon";
+
+"about.thanks" = "Special Thanks";
+"about.thanks.1.name" = "Seb Jachec";
+"about.thanks.1.purpose" = "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster";
+
+"about.contributors" = "Acknowledged Contributors";
+"about.contributors.1.name" = "Rob Napier";
+"about.contributors.1.purpose" = "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations";
+"about.contributors.2.name" = "Łukasz Rutkowski";
+"about.contributors.2.purpose" = "Fixed many async and SwiftUI problems";
+"about.contributors.3.name" = "Jierong Li";
+"about.contributors.3.purpose" = "Fixed package counts on the start page not updating";
+"about.contributors.4.name" = "Oscar Bazaldua";
+"about.contributors.4.purpose" = "Made the first approved pull request; fixed package counts, along with Jierong Li";
+
+"about.contribute" = "Contribute";
+"about.contact" = "Contact Me";
+
+"about.version-%@-%@" = "Version %@ (%@)";
+"about.copyright" = "© 2022 David Bureš and contributors.";

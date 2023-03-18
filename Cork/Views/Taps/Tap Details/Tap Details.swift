@@ -46,7 +46,7 @@ struct TapDetailView: View
                     if isOfficial
                     {
                         Image(systemName: "checkmark.shield")
-                            .help("\(tap.name) an official tap.\nPackages included in it are audited to make sure they are safe.")
+                            .help("tap-details.official-\(tap.name)")
                     }
                 }
             }
@@ -56,7 +56,7 @@ struct TapDetailView: View
                 HStack(alignment: .center) {
                     VStack(alignment: .center) {
                         ProgressView {
-                            Text("Loading tap info...")
+                            Text("tap-details.loading")
                         }
                     }
                 }
@@ -66,7 +66,7 @@ struct TapDetailView: View
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("Info")
+                    Text("tap-details.info")
                         .font(.title2)
 
                     GroupBox
@@ -74,34 +74,34 @@ struct TapDetailView: View
                         Grid(alignment: .leading, horizontalSpacing: 20)
                         {
                             GridRow(alignment: .firstTextBaseline) {
-                                Text("Contents")
+                                Text("tap-details.contents")
                                 
                                 if includedFormulae == nil && includedCasks == nil
                                 {
-                                    Text("None")
+                                    Text("tap-details.contents.none")
                                 }
                                 else if includedFormulae != nil && includedCasks == nil
                                 {
-                                    Text("Only Formulae")
+                                    Text("tap-details.contents.formulae-only")
                                 }
                                 else if includedCasks != nil && includedFormulae == nil
                                 {
-                                    Text("Only Casks")
+                                    Text("tap-details.contents.casks-only")
                                 }
                                 else if includedFormulae?.count ?? 0 > includedCasks?.count ?? 0
                                 {
-                                    Text("Mostly Formulae")
+                                    Text("tap-details.contents.formulae-mostly")
                                 }
                                 else if includedFormulae?.count ?? 0 < includedCasks?.count ?? 0
                                 {
-                                    Text("Mostly Casks")
+                                    Text("tap-details.contents.casks-mostly")
                                 }
                             }
                             
                             Divider()
                             
                             GridRow(alignment: .firstTextBaseline) {
-                                Text("Number of Packages")
+                                Text("tap-details.package-count")
                                 Text(String(numberOfPackages))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -110,7 +110,7 @@ struct TapDetailView: View
                             
                             GridRow(alignment: .firstTextBaseline)
                             {
-                                Text("Homepage")
+                                Text("tap-details.homepage")
                                 Link(destination: homepage)
                                 {
                                     Text(homepage.absoluteString)
@@ -127,7 +127,7 @@ struct TapDetailView: View
                             {
                                 if let includedFormulae
                                 {
-                                    DisclosureGroup("Formulae Included", isExpanded: $isShowingIncludedFormulae)
+                                    DisclosureGroup("tap-details.included-formulae", isExpanded: $isShowingIncludedFormulae)
                                     {}
                                     .disclosureGroupStyle(NoPadding())
                                     if isShowingIncludedFormulae
@@ -143,7 +143,7 @@ struct TapDetailView: View
                                 
                                 if let includedCasks
                                 {
-                                    DisclosureGroup("Casks Included", isExpanded: $isShowingIncludedCasks)
+                                    DisclosureGroup("tap-details.included-casks", isExpanded: $isShowingIncludedCasks)
                                     {}
                                     .disclosureGroupStyle(NoPadding())
                                     if isShowingIncludedCasks
@@ -169,7 +169,7 @@ struct TapDetailView: View
                                 try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
                             }
                         } label: {
-                            Text("Remove \(tap.name)")
+                            Text("tap-details.remove-\(tap.name)")
                         }
 
                     }
