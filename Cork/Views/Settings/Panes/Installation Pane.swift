@@ -24,10 +24,10 @@ struct InstallationAndUninstallationPane: View
                 {
                     Toggle(isOn: $showPackagesStillLeftToInstall)
                     {
-                        Text("Show list of packages currently being installed")
+                        Text("settings.install-uninstall.installation.toggle")
                     }
                 } label: {
-                    Text("Installation:")
+                    Text("settings.install-uninstall.installation")
                 }
 
                 LabeledContent
@@ -36,15 +36,15 @@ struct InstallationAndUninstallationPane: View
                     {
                         Toggle(isOn: $purgeCacheAfterEveryUninstallation)
                         {
-                            Text("Purge cache after uninstalling packages")
+                            Text("settings.install-uninstall.uninstallation.purge-cache")
                         }
                         Toggle(isOn: $removeOrphansAfterEveryUninstallation)
                         {
-                            Text("Remove orphans after uninstalling packages")
+                            Text("settings.install-uninstall.uninstallation.remove-orphans")
                         }
                     }
                 } label: {
-                    Text("Uninstallation:")
+                    Text("settings.install-uninstall.uninstallation")
                 }
             }
         }

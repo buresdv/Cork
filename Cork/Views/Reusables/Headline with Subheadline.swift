@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HeadlineWithSubheadline: View
 {
-    @State var headline: String
-    @State var subheadline: String
+    @State var headline: LocalizedStringKey
+    @State var subheadline: LocalizedStringKey
 
     @State var alignment: HorizontalAlignment
 

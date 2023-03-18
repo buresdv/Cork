@@ -39,7 +39,7 @@ struct SidebarView: View
         {
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .formula })
             {
-                Section("Installed Formulae")
+                Section("sidebar.section.installed-formulae")
                 {
                     if !appState.isLoadingFormulae
                     {
@@ -60,7 +60,7 @@ struct SidebarView: View
                                         try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
                                     }
                                 } label: {
-                                    Text("Uninstall \(formula.name)")
+                                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
                                 }
                             }
                         }
@@ -75,7 +75,7 @@ struct SidebarView: View
 
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask })
             {
-                Section("Installed Casks")
+                Section("sidebar.section.installed-casks")
                 {
                     if !appState.isLoadingCasks
                     {
@@ -96,7 +96,7 @@ struct SidebarView: View
                                         try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
                                     }
                                 } label: {
-                                    Text("Uninstall \(cask.name)")
+                                    Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
                                 }
                             }
                         }
@@ -111,7 +111,7 @@ struct SidebarView: View
 
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
             {
-                Section("Added Taps")
+                Section("sidebar.section.added-taps")
                 {
                     if availableTaps.addedTaps.count != 0
                     {
@@ -134,10 +134,10 @@ struct SidebarView: View
                                         try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
                                     }
                                 } label: {
-                                    Text("Remove \(tap.name)")
+                                    Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name)")
                                 }
                                 .alert(isPresented: $appState.isShowingRemoveTapFailedAlert, content: {
-                                    Alert(title: Text("Couldn't remove \(tap.name)"), message: Text("Try again in a few minutes, or restart Cork"), dismissButton: .default(Text("Close"), action: {
+                                    Alert(title: Text("sidebar.section.added-taps.remove.title-\(tap.name)"), message: Text("sidebar.section.added-taps.remove.message"), dismissButton: .default(Text("action.close"), action: {
                                         appState.isShowingRemoveTapFailedAlert = false
                                     }))
                                 })
@@ -153,7 +153,7 @@ struct SidebarView: View
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
-        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Installed Packages"))
+        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("sidebar.search.prompt"))
         { token in
             Text(token.name)
         }

@@ -11,18 +11,51 @@ import SwiftUI
 struct AboutView: View
 {
     @State private var usedPackages: [UsedPackage] = [
-        UsedPackage(name: "DavidFoundation", whyIsItUsed: "My own package that provides some basic convenience features", packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!),
-        UsedPackage(name: "SwiftyJSON", whyIsItUsed: "I hate default JSON parsing in Swift. Why reinvent the wheel when you can just use a library to make it bearable?", packageURL: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!)
+        UsedPackage(
+            name: "about.packages.1.name",
+            whyIsItUsed: "about.packages.1.purpose",
+            packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!
+        ),
+        UsedPackage(
+            name: "about.packages.2.name",
+            whyIsItUsed: "about.packages.2.purpose",
+            packageURL: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!
+        )
     ]
 
     @State private var specialThanks: [AcknowledgedContributor] = [
-        AcknowledgedContributor(name: "Seb Jachec", reasonForAcknowledgement: "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster", profileService: "GitHub", profileURL: URL(string: "https://github.com/sebj")!),
+        AcknowledgedContributor(
+            name: "about.thanks.1.name",
+            reasonForAcknowledgement: "about.thanks.1.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/sebj")!)
+        ,
     ]
     @State private var acknowledgedContributors: [AcknowledgedContributor] = [
-        AcknowledgedContributor(name: "Rob Napier", reasonForAcknowledgement: "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@cocoaphony@mastodon.social")!),
-        AcknowledgedContributor(name: "Łukasz Rutkowski", reasonForAcknowledgement: "Fixed many async and SwiftUI problems", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@luckkerr@mastodon.world")!),
-        AcknowledgedContributor(name: "Jierong Li", reasonForAcknowledgement: "Fixed package counts on the start page not updating", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@jierongli@mastodon.social")!),
-        AcknowledgedContributor(name: "Oscar Bazaldua", reasonForAcknowledgement: "Made the first approved pull request; fixed package counts, along with Jierong Li", profileService: "Mastodon", profileURL: URL(string: "https://elk.zone/mstdn.social/@oscb@hachyderm.io")!),
+        AcknowledgedContributor(
+            name: "about.contributors.1.name",
+            reasonForAcknowledgement: "about.contributors.1.purpose",
+            profileService: .mastodon,
+            profileURL: URL(string: "https://elk.zone/mstdn.social/@cocoaphony@mastodon.social")!
+        ),
+        AcknowledgedContributor(
+            name: "about.contributors.2.name",
+            reasonForAcknowledgement: "about.contributors.2.purpose",
+            profileService: .mastodon,
+            profileURL: URL(string: "https://elk.zone/mstdn.social/@luckkerr@mastodon.world")!
+        ),
+        AcknowledgedContributor(
+            name: "about.contributors.3.name",
+            reasonForAcknowledgement: "about.contributors.3.purpose",
+            profileService: .mastodon,
+            profileURL: URL(string: "https://elk.zone/mstdn.social/@jierongli@mastodon.social")!
+        ),
+        AcknowledgedContributor(
+            name: "about.contributors.4.name",
+            reasonForAcknowledgement: "about.contributors.4.purpose",
+            profileService: .mastodon,
+            profileURL: URL(string: "https://elk.zone/mstdn.social/@oscb@hachyderm.io")!
+        ),
     ]
 
     @State private var isPackageGroupExpanded: Bool = false
@@ -43,11 +76,11 @@ struct AboutView: View
                 {
                     Text(NSApplication.appName!)
                         .font(.title)
-                    Text("Version \(NSApplication.appVersion!) (\(NSApplication.buildVersion!))")
+                    Text("about.version-\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)")
                         .font(.caption)
                 }
 
-                Text("© 2022 David Bureš and contributors.")
+                Text("about.copyright")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
@@ -79,7 +112,7 @@ struct AboutView: View
                             idealHeight: 100
                         )
                     } label: {
-                        Text("Packages Used")
+                        Text("about.packages")
                     }
                     .animation(.none, value: isPackageGroupExpanded)
 
@@ -87,7 +120,7 @@ struct AboutView: View
                     {
                         List
                         {
-                            Section("Special Thanks")
+                            Section("about.thanks")
                             {
                                 ForEach(specialThanks)
                                 { contributor in
@@ -103,12 +136,12 @@ struct AboutView: View
 
                                         Spacer()
 
-                                        ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService)
+                                        ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService.key)
                                     }
                                 }
                             }
 
-                            Section("Acknowledged Contributors")
+                            Section("about.contributors")
                             {
                                 ForEach(acknowledgedContributors)
                                 { contributor in
@@ -124,7 +157,7 @@ struct AboutView: View
 
                                         Spacer()
 
-                                        ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService)
+                                        ButtonThatOpensWebsites(websiteURL: contributor.profileURL, buttonText: contributor.profileService.key)
                                     }
                                 }
                             }
@@ -136,7 +169,7 @@ struct AboutView: View
                             idealHeight: 200
                         )
                     } label: {
-                        Text("Acknowledged Contributors")
+                        Text("about.contributors")
                     }
                     .animation(.none, value: isContributorGroupExpanded)
                 }
@@ -147,7 +180,7 @@ struct AboutView: View
                     {
                         NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork")!)
                     } label: {
-                        Label("Contribute", systemImage: "curlybraces")
+                        Label("about.contribute", systemImage: "curlybraces")
                     }
 
                     Spacer()
@@ -156,7 +189,7 @@ struct AboutView: View
                     {
                         NSWorkspace.shared.open(URL(string: "https://elk.zone/mstdn.social/@davidbures")!)
                     } label: {
-                        Label("Contact Me", systemImage: "paperplane")
+                        Label("about.contact", systemImage: "paperplane")
                     }
                 }
             }

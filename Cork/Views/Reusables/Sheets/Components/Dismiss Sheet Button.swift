@@ -24,7 +24,7 @@ struct DismissSheetButton: View
             }
             else
             {
-                Text("Cancel")
+                Text("action.cancel")
             }
         }
         .keyboardShortcut(.cancelAction)
