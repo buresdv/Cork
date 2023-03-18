@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func updatePackages(_ updateProgressTracker: UpdateProgressTracker) async -> PackageUpdateAvailability
+func updatePackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability
 {
     for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
     {
@@ -19,10 +19,13 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker) async -> Pac
             print("Update function output: \(outputLine)")
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-            if outputLine.starts(with: "Already up-to-date")
+            if outdatedPackageTracker.outdatedPackageNames.isEmpty
             {
-                print("Inside update function: No updates available")
-                return .noUpdatesAvailable
+                if outputLine.starts(with: "Already up-to-date")
+                {
+                    print("Inside update function: No updates available")
+                    return .noUpdatesAvailable
+                }
             }
 
         case let .standardError(errorLine):
