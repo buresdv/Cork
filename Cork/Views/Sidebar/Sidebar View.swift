@@ -153,8 +153,7 @@ struct SidebarView: View
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
-        // .searchable(text: $searchText, placement: .sidebar, prompt: Text("Search Packages"))
-        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Search Packages"))
+        .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("Installed Packages"))
         { token in
             Text(token.name)
         }
