@@ -8,11 +8,11 @@
 import Foundation
 
 @discardableResult
-func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
+func shell(_ launchPath: String, _ arguments: [String], environment: [String: String]? = nil) async -> TerminalOutput
 {
     var allOutput: [String] = .init()
     var allErrors: [String] = .init()
-    for await streamedOutput in shell(launchPath, arguments)
+    for await streamedOutput in shell(launchPath, arguments, environment: environment)
     {
         switch streamedOutput
         {
@@ -41,9 +41,13 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
 ///        // Do something with `errorLine`
 ///    }
 ///}
-func shell(_ launchPath: String, _ arguments: [String]) -> AsyncStream<StreamedTerminalOutput>
-{
+func shell(
+    _ launchPath: String,
+    _ arguments: [String],
+    environment: [String: String]? = nil
+) -> AsyncStream<StreamedTerminalOutput> {
     let task = Process()
+    task.environment = environment
     task.launchPath = launchPath
     task.arguments = arguments
 
