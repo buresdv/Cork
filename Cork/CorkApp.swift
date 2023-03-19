@@ -47,7 +47,7 @@ struct CorkApp: App
                 {
                     appDelegate.showAboutPanel()
                 } label: {
-                    Text("About \(NSApplication.appName!)")
+                    Text("navigation.about")
                 }
             }
 
@@ -57,13 +57,13 @@ struct CorkApp: App
                 
             }
 
-            CommandMenu("Packages")
+            CommandMenu("navigation.menu.packages")
             {
                 Button
                 {
                     appState.isShowingInstallationSheet.toggle()
                 } label: {
-                    Text("Install Packages…")
+                    Text("navigation.menu.packages.install")
                 }
                 .keyboardShortcut("n")
 
@@ -71,7 +71,7 @@ struct CorkApp: App
                 {
                     appState.isShowingAddTapSheet.toggle()
                 } label: {
-                    Text("Add a Tap…")
+                    Text("navigation.menu.packages.add-tap")
                 }
                 .keyboardShortcut("n", modifiers: [.command, .option])
 
@@ -81,7 +81,7 @@ struct CorkApp: App
                 {
                     appState.isShowingUpdateSheet = true
                 } label: {
-                    Text("Update Packages")
+                    Text("navigation.menu.packages.update")
                 }
                 .keyboardShortcut("r")
 
@@ -95,13 +95,13 @@ struct CorkApp: App
                   */
             }
 
-            CommandMenu("Maintenance")
+            CommandMenu("navigation.menu.maintenance")
             {
                 Button
                 {
                     appState.isShowingMaintenanceSheet.toggle()
                 } label: {
-                    Text("Perform Maintenance…")
+                    Text("navigation.menu.maintenance.perform")
                 }
                 .keyboardShortcut("m")
                 
@@ -110,7 +110,7 @@ struct CorkApp: App
                     Button {
                         appState.isShowingFastCacheDeletionMaintenanceView.toggle()
                     } label: {
-                        Text("Delete Cached Downloads")
+                        Text("navigation.menu.maintenance.delete-cached-downloads")
                     }
                     .keyboardShortcut("m", modifiers: [.command, .option])
                 }
