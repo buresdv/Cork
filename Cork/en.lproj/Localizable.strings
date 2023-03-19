@@ -183,8 +183,6 @@
 "maintenance.results.health-check.problems-none" = "No problems with Homebrew found";
 "maintenance.results.health-check.problems" = "Found some problems with Homebrew";
 "maintenance.results.package-cache.skipped-%@" = "Some caches weren't purged because of %@ not being updated";
-// TODO: Move to plural strings
-"maintenance.results.package-cache.skipped-%@-and-%lld-others" = "Some caches weren't purged because of %@ and %lld others not being updated";
 
 // MARK: - Settings
 "settings.general" = "General";

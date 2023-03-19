@@ -18,6 +18,31 @@
 			<string>%lld packages installed</string>
 		</dict>
 	</dict>
+	<key>maintenance.results.package-cache.skipped-%@-and-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@name@%#@count@</string>
+		<key>name</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Some caches weren&apos;t purged because of %1$@ and %2$lld other not being updated</string>
+			<key>other</key>
+			<string>Some caches weren&apos;t purged because of %1$@ and %2$lld others not being updated</string>
+		</dict>
+	</dict>
 	<key>start-page.added-taps.count-%lld</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
