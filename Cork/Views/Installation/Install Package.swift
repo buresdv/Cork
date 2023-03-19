@@ -36,11 +36,11 @@ struct AddFormulaView: View
             switch packageInstallationProcessStep
             {
             case .ready:
-                SheetWithTitle(title: "Install packages")
+                SheetWithTitle(title: "add-package.title")
                 {
                     VStack
                     {
-                        TextField("Search for packages...", text: $packageRequested)
+                        TextField("add-package.search.prompt", text: $packageRequested)
                         { _ in
                             foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                         }
@@ -55,7 +55,7 @@ struct AddFormulaView: View
                             {
                                 packageInstallationProcessStep = .searching
                             } label: {
-                                Text("Search")
+                                Text("add-package.search.action")
                             }
                             .keyboardShortcut(.defaultAction)
                             .disabled(packageRequested.isEmpty)
@@ -64,7 +64,7 @@ struct AddFormulaView: View
                 }
 
             case .searching:
-                ProgressView("Searching for \(packageRequested)...")
+                ProgressView("add-package.searching-\(packageRequested)")
                     .onAppear
                     {
                         Task
@@ -91,7 +91,7 @@ struct AddFormulaView: View
             case .presentingSearchResults:
                 VStack
                 {
-                    TextField("Search for packages...", text: $packageRequested)
+                    TextField("add-package.search.prompt", text: $packageRequested)
                     { _ in
                         foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                     }
@@ -99,14 +99,14 @@ struct AddFormulaView: View
 
                     List(selection: $foundPackageSelection)
                     {
-                        Section("Found Formulae")
+                        Section("add-package.search.results.formulae")
                         {
                             ForEach(searchResultTracker.foundFormulae)
                             { formula in
                                 SearchResultRow(packageName: formula.name, isCask: formula.isCask)
                             }
                         }
-                        Section("Found Casks")
+                        Section("add-package.search.results.casks")
                         {
                             ForEach(searchResultTracker.foundCasks)
                             { cask in
@@ -129,7 +129,7 @@ struct AddFormulaView: View
                             {
                                 packageInstallationProcessStep = .searching
                             } label: {
-                                Text("Search")
+                                Text("add-package.search.action")
                             }
                             .keyboardShortcut(.defaultAction)
                         }
@@ -155,7 +155,7 @@ struct AddFormulaView: View
                                 
                                 packageInstallationProcessStep = .installing
                             } label: {
-                                Text("Install")
+                                Text("add-package.install.action")
                             }
                             .keyboardShortcut(.defaultAction)
                             .disabled(foundPackageSelection.isEmpty)
@@ -177,42 +177,42 @@ struct AddFormulaView: View
                                 switch packageBeingInstalled.installationStage
                                 {
                                     case .ready:
-                                        Text("Building Dependency Graph...")
+                                        Text("add-package.install.ready")
                                         
                                     // FORMULAE
                                     case .loadingDependencies:
-                                        Text("Loading Dependencies...")
+                                        Text("add-package.install.loading-dependencies")
                                         
                                     case .fetchingDependencies:
-                                        Text("Fetching Dependencies...")
+                                        Text("add-package.install.fetching-dependencies")
                                         
                                     case .installingDependencies:
-                                        Text("Installing Dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)/\(installationProgressTracker.numberOfPackageDependencies)...")
+                                        Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-\(installationProgressTracker.numberOfPackageDependencies)")
                                         
                                     case .installingPackage:
-                                        Text("Installing Package...")
+                                        Text("add-package.install.installing-package")
                                         
                                     case .finished:
-                                        Text("Done!")
+                                        Text("add-package.install.finished")
                                         
                                     // CASKS
                                     case .downloadingCask:
-                                        Text("Downloading \(installationProgressTracker.packagesBeingInstalled[0].package.name)...")
+                                        Text("add-package.install.downloading-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
                                         
                                     case .installingCask:
-                                        Text("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name)...")
+                                        Text("add-package.install.installing-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
                                         
                                     case .linkingCaskBinary:
-                                        Text("Linking Binaries...")
+                                        Text("add-package.install.linking-cask-binary")
                                         
                                     case .movingCask:
-                                        Text("Moving \(installationProgressTracker.packagesBeingInstalled[0].package.name) into the Applications Directory...")
+                                        Text("add-package.install.moving-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
                                 }
                             }
                         }
                         else
                         { // Show this when the installation is finished
-                            Text("Done")
+                            Text("add-package.install.finished")
                                 .onAppear
                             {
                                 packageInstallationProcessStep = .finished
@@ -237,7 +237,11 @@ struct AddFormulaView: View
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
                 {
                     ComplexWithIcon(systemName: "checkmark.seal") {
-                        HeadlineWithSubheadline(headline: "Packages successfuly installed", subheadline: "There were no errors", alignment: .leading)
+                        HeadlineWithSubheadline(
+                            headline: "add-package.finished",
+                            subheadline: "add-package.finished.description",
+                            alignment: .leading
+                        )
                     }
                 }
                 .onAppear

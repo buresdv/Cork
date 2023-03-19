@@ -6,13 +6,28 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct AcknowledgedContributor: Identifiable
 {
     var id: UUID = .init()
 
-    let name: String
-    let reasonForAcknowledgement: String
-    let profileService: String
+    let name: LocalizedStringKey
+    let reasonForAcknowledgement: LocalizedStringKey
+    let profileService: ProfileService
     let profileURL: URL
+
+    enum ProfileService
+    {
+        case github, mastodon
+
+        var key: LocalizedStringKey
+        {
+            switch self
+            {
+            case .github: return "about.contributor.service.github"
+            case .mastodon: return "about.contributor.service.mastodon"
+            }
+        }
+    }
 }

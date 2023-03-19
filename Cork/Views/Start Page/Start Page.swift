@@ -31,7 +31,7 @@ struct StartPage: View
         {
             if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
             {
-                ProgressView("Loading Packages...")
+                ProgressView("start-page.loading")
             }
             else
             {
@@ -39,7 +39,7 @@ struct StartPage: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Text("Homebrew Status")
+                        Text("start-page.status")
                             .font(.title)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
@@ -54,7 +54,7 @@ struct StartPage: View
                                         {
                                             ProgressView()
 
-                                            Text("Checking for package updates...")
+                                            Text("start-page.updates.loading")
                                         }
                                         .padding(10)
                                     }
@@ -79,11 +79,11 @@ struct StartPage: View
                                                 HStack(alignment: .firstTextBaseline)
                                                 {
                                                     VStack(alignment: .leading, spacing: 2) {
-                                                        Text(outdatedPackageTracker.outdatedPackageNames.count == 1 ? "There is 1 outdated package" : "There are \(outdatedPackageTracker.outdatedPackageNames.count) outdated packages")
+                                                        Text("start-page.updates.count-\(outdatedPackageTracker.outdatedPackageNames.count)")
                                                             .font(.headline)
                                                         DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
                                                         {} label: {
-                                                            Text("Outdated packages")
+                                                            Text("start-page.updates.list")
                                                                 .font(.subheadline)
                                                         }
 
@@ -106,7 +106,7 @@ struct StartPage: View
                                                     {
                                                         appState.isShowingUpdateSheet = true
                                                     } label: {
-                                                        Text("Update")
+                                                        Text("start-page.updates.action")
                                                     }
                                                 }
                                             }
@@ -122,8 +122,8 @@ struct StartPage: View
                             {
                                 GroupBoxHeadlineGroup(
                                     image: "terminal",
-                                    title: "You have \(brewData.installedFormulae.count) Formulae installed",
-                                    mainText: "Formulae are packages that you use through a terminal"
+                                    title: "start-page.installed-formulae.count-\(brewData.installedFormulae.count)",
+                                    mainText: "start-page.installed-formulae.description"
                                 )
                                 .animation(.none, value: brewData.installedFormulae.count)
 
@@ -131,8 +131,8 @@ struct StartPage: View
 
                                 GroupBoxHeadlineGroup(
                                     image: "macwindow",
-                                    title: "You have \(brewData.installedCasks.count) Casks installed",
-                                    mainText: "Casks are packages that have graphical windows"
+                                    title: "start-page.installed-casks.count-\(brewData.installedCasks.count)",
+                                    mainText: "start-page.installed-casks.description"
                                 )
                                 .animation(.none, value: brewData.installedCasks.count)
 
@@ -140,8 +140,8 @@ struct StartPage: View
 
                                 GroupBoxHeadlineGroup(
                                     image: "spigot",
-                                    title: "You have \(availableTaps.addedTaps.count) Taps added",
-                                    mainText: "Taps provide additional packages"
+                                    title: "start-page.added-taps.count-\(availableTaps.addedTaps.count)",
+                                    mainText: "start-page.added-taps.description"
                                 )
                                 .animation(.none, value: availableTaps.addedTaps.count)
                             }
@@ -153,8 +153,8 @@ struct StartPage: View
                             {
                                 GroupBoxHeadlineGroup(
                                     image: "chart.bar",
-                                    title: "Homebrew analytics are \(allowBrewAnalytics ? "enabled" : "disabled")",
-                                    mainText: "\(allowBrewAnalytics ? "Homebrew is collecting various anonymized data, such as which packages you have installed" : "Homebrew is not collecting any data about how you use it")"
+                                    title: allowBrewAnalytics ? "start-page.analytics.enabled" : "start-page.analytics.disabled",
+                                    mainText: allowBrewAnalytics ? "start-page.analytics.enabled.description" : "start-page.analytics.disabled.description"
                                 )
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             }
@@ -170,8 +170,8 @@ struct StartPage: View
                                     {
                                         GroupBoxHeadlineGroup(
                                             image: "square.and.arrow.down.on.square",
-                                            title: "You have \(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file))) of cached downloads",
-                                            mainText: "These files are leftovers from completed package installations. They're safe to remove."
+                                            title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
+                                            mainText: "start-page.cached-downloads.description"
                                         )
 
                                         Spacer()
@@ -180,7 +180,7 @@ struct StartPage: View
                                         {
                                             appState.isShowingFastCacheDeletionMaintenanceView = true
                                         } label: {
-                                            Text("Delete Cached Downloads…")
+                                            Text("start-page.cached-downloads.action")
                                         }
                                     }
                                 }
@@ -201,7 +201,7 @@ struct StartPage: View
                             print("Would perform maintenance")
                             appState.isShowingMaintenanceSheet.toggle()
                         } label: {
-                            Text("Brew Maintenance…")
+                            Text("start-page.open-maintenance")
                         }
                     }
                 }

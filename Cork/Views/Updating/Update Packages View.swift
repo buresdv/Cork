@@ -32,7 +32,7 @@ struct UpdatePackagesView: View
                     switch packageUpdatingStep
                     {
                     case .ready:
-                        Text("Ready")
+                        Text("update-packages.updating.ready")
                             .onAppear
                             {
                                 updateProgressTracker.updateProgress = 0
@@ -40,7 +40,7 @@ struct UpdatePackagesView: View
                             }
 
                     case .checkingForUpdates:
-                        Text("Fetching updates...")
+                        Text("update-packages.updating.checking")
                             .onAppear
                             {
                                 Task(priority: .userInitiated)
@@ -63,7 +63,7 @@ struct UpdatePackagesView: View
                             }
 
                     case .updatingPackages:
-                        Text("Updating packages...")
+                        Text("update-packages.updating.updating")
                             .onAppear
                             {
                                 Task(priority: .userInitiated)
@@ -75,7 +75,7 @@ struct UpdatePackagesView: View
                             }
 
                     case .updatingOutdatedPackageTracker:
-                        Text("Updating package caches...")
+                        Text("update-packages.updating.updating-outdated-package")
                             .onAppear
                             {
                                 Task(priority: .userInitiated) {
@@ -95,7 +95,7 @@ struct UpdatePackagesView: View
                             }
 
                     case .finished:
-                        Text("Done")
+                        Text("update-packages.updating.finished")
                             .onAppear
                             {
                                 packageUpdatingStep = .finished
@@ -110,8 +110,12 @@ struct UpdatePackagesView: View
                 {
                     ComplexWithIcon(systemName: "checkmark.seal")
                     {
-                        HeadlineWithSubheadline(headline: "No updates available", subheadline: "You're all up to date", alignment: .leading)
-                            .fixedSize()
+                        HeadlineWithSubheadline(
+                            headline: "update-packages.no-updates",
+                            subheadline: "update-packages.no-updates.description",
+                            alignment: .leading
+                        )
+                        .fixedSize()
                     }
                 }
 
@@ -120,8 +124,12 @@ struct UpdatePackagesView: View
                 {
                     ComplexWithIcon(systemName: "checkmark.seal")
                     {
-                        HeadlineWithSubheadline(headline: "Sucessfully upgraded packages", subheadline: "There were no errors", alignment: .leading)
-                            .fixedSize()
+                        HeadlineWithSubheadline(
+                            headline: "update-packages.finished",
+                            subheadline: "update-packages.finished.description",
+                            alignment: .leading
+                        )
+                        .fixedSize()
                     }
                 }
 
@@ -130,7 +138,11 @@ struct UpdatePackagesView: View
                 {
                     VStack(alignment: .leading, spacing: 5)
                     {
-                        HeadlineWithSubheadline(headline: "Packages updated with errors", subheadline: "There were some errors during updating.\nCheck below for more information", alignment: .leading)
+                        HeadlineWithSubheadline(
+                            headline: "update-packages.error",
+                            subheadline: "update-packages.error.description",
+                            alignment: .leading
+                        )
                         List
                         {
                             ForEach(updateProgressTracker.errors, id: \.self)

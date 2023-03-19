@@ -59,7 +59,7 @@ struct PackageDetailView: View
                     if pinned
                     {
                         Image(systemName: "pin.fill")
-                            .help("\(package.name) is pinned. It will not be updated.")
+                            .help("package-details.pinned.help-\(package.name)")
                     }
                 }
 
@@ -73,7 +73,7 @@ struct PackageDetailView: View
                             {
                                 if packageDependents.count != 0 // This happens when the package was originally installed as a dependency, but the parent is no longer installed
                                 {
-                                    OutlinedPillText(text: "Dependency of \(packageDependents.joined(separator: ", "))", color: .secondary)
+                                    OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.joined(separator: ", "))", color: .secondary)
                                 }
                             }
                             else
@@ -85,14 +85,14 @@ struct PackageDetailView: View
                                             .scaleEffect(0.3, anchor: .center)
                                             .frame(width: 5, height: 5)
 
-                                        Text("Loading Dependants...")
+                                        Text("package-details.dependants.loading")
                                     }
                                 }, color: Color(nsColor: NSColor.tertiaryLabelColor))
                             }
                         }
                         if outdated
                         {
-                            OutlinedPillText(text: "Outdated", color: .orange)
+                            OutlinedPillText(text: "package-details.outdated", color: .orange)
                         }
                         if let caveats
                         {
@@ -100,7 +100,7 @@ struct PackageDetailView: View
                             {
                                 if caveatDisplayOptions == .mini
                                 {
-                                    OutlinedPillText(text: "Has caveats 􀅴", color: .indigo)
+                                    OutlinedPillText(text: "package-details.caveats.available", color: .indigo)
                                         .onTapGesture
                                         {
                                             isShowingCaveatPopover.toggle()
@@ -111,7 +111,7 @@ struct PackageDetailView: View
                                                 .textSelection(.enabled)
                                                 .lineSpacing(5)
                                                 .padding()
-                                                .help("Click to see caveats")
+                                                .help("package-details.caveats.help")
                                         }
                                 }
                             }
@@ -133,7 +133,7 @@ struct PackageDetailView: View
                                     .resizable()
                                     .frame(width: 15, height: 15)
                                     .foregroundColor(.yellow)
-                                Text("\(package.name) has no description")
+                                Text("package-details.description-none-\(package.name)")
                                     .font(.subheadline)
                             }
                         }
@@ -149,7 +149,7 @@ struct PackageDetailView: View
                     {
                         ProgressView
                         {
-                            Text("Loading package info...")
+                            Text("package-details.contents.loading")
                         }
                     }
                 }
@@ -159,7 +159,7 @@ struct PackageDetailView: View
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("Info")
+                    Text("package-details.info")
                         .font(.title2)
 
                     if let caveats
@@ -211,7 +211,7 @@ struct PackageDetailView: View
                                                         isShowingExpandedCaveats.toggle()
                                                     }
                                                 } label: {
-                                                    Text(isShowingExpandedCaveats ? "Collapse" : "Expand")
+                                                    Text(isShowingExpandedCaveats ? "package-details.caveats.collapse" : "package-details.caveats.expand")
                                                 }
                                                 .padding(.top, 5)
                                             }
@@ -238,14 +238,14 @@ struct PackageDetailView: View
 
                             GridRow(alignment: .top)
                             {
-                                Text("Type")
+                                Text("package-details.type")
                                 if package.isCask
                                 {
-                                    Text("Cask")
+                                    Text("package-details.type.cask")
                                 }
                                 else
                                 {
-                                    Text("Formula")
+                                    Text("package-details.type.formula")
                                 }
                             }
 
@@ -253,7 +253,7 @@ struct PackageDetailView: View
 
                             GridRow(alignment: .top)
                             {
-                                Text("Homepage")
+                                Text("package-details.homepage")
                                 Link(destination: homepage)
                                 {
                                     Text(homepage.absoluteString)
@@ -268,7 +268,7 @@ struct PackageDetailView: View
                         {
                             VStack
                             {
-                                DisclosureGroup("Dependencies", isExpanded: $isShowingDependencies)
+                                DisclosureGroup("package-details.dependencies", isExpanded: $isShowingDependencies)
                                 {}
                                 .disclosureGroupStyle(NoPadding())
 
@@ -288,7 +288,7 @@ struct PackageDetailView: View
                             {
                                 GridRow(alignment: .top)
                                 {
-                                    Text("Installed On")
+                                    Text("package-details.install-date")
                                     Text(installedOnDate.formatted(.packageInstallationStyle))
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
@@ -299,7 +299,7 @@ struct PackageDetailView: View
 
                                     GridRow(alignment: .top)
                                     {
-                                        Text("Size")
+                                        Text("package-details.size")
 
                                         HStack
                                         {
@@ -311,15 +311,15 @@ struct PackageDetailView: View
                                                 {
                                                     isShowingPopover.toggle()
                                                 }
-                                                .help("Why is the size so small?")
+                                                .help("package-details.size.help")
                                                 .popover(isPresented: $isShowingPopover)
                                                 {
                                                     VStack(alignment: .leading, spacing: 10)
                                                     {
-                                                        Text("Why is the size so small?")
+                                                        Text("package-details.size.help.title")
                                                             .font(.headline)
-                                                        Text("Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory.")
-                                                        Text("Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask.")
+                                                        Text("package-details.size.help.body-1")
+                                                        Text("package-details.size.help.body-2")
                                                     }
                                                     .padding()
                                                     .frame(width: 300, alignment: .center)
@@ -353,7 +353,7 @@ struct PackageDetailView: View
                                     await pinAndUnpinPackage(package: package, pinned: pinned)
                                 }
                             } label: {
-                                Text(pinned ? "Unpin from version \(package.versions.joined())" : "Pin to version \(package.versions.joined())")
+                                Text(pinned ? "package-details.action.unpin-version-\(package.versions.joined())" : "package-details.action.pin-version-\(package.versions.joined())")
                             }
                         }
 
@@ -370,7 +370,7 @@ struct PackageDetailView: View
                                     try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
                                 }
                             } label: {
-                                Text("Uninstall \(package.name)")
+                                Text("package-details.action.uninstall-\(package.name)")
                             }
                         }
                     }

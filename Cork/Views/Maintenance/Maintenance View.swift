@@ -26,7 +26,7 @@ struct MaintenanceView: View
 
     @State var maintenanceSteps: MaintenanceSteps = .ready
 
-    @State var currentMaintenanceStepText: String = "Firing up..."
+    @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
 
     @State var shouldPurgeCache: Bool = true
     @State var shouldDeleteDownloads: Bool = true
@@ -37,7 +37,7 @@ struct MaintenanceView: View
 
     @State var cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: Bool = false
     @State var packagesHoldingBackCachePurgeTracker: [String] = .init()
-    
+
     @State var brewHealthCheckFoundNoProblems: Bool = false
 
     @State var maintenanceFoundNoProblems: Bool = true
@@ -53,7 +53,7 @@ struct MaintenanceView: View
             switch maintenanceSteps
             {
             case .ready:
-                SheetWithTitle(title: "Maintenance")
+                SheetWithTitle(title: "maintenance.title")
                 {
                     MaintenanceReadyView(shouldUninstallOrphans: $shouldUninstallOrphans, shouldPurgeCache: $shouldPurgeCache, shouldDeleteDownloads: $shouldDeleteDownloads, shouldPerformHealthCheck: $shouldPerformHealthCheck, isShowingSheet: $isShowingSheet, maintenanceSteps: $maintenanceSteps, isShowingControlButtons: true, forcedOptions: forcedOptions!)
                 }
@@ -69,7 +69,7 @@ struct MaintenanceView: View
                             {
                                 if shouldUninstallOrphans
                                 {
-                                    currentMaintenanceStepText = "Uninstalling Orphans..."
+                                    currentMaintenanceStepText = "maintenance.step.removing-orphans"
 
                                     do
                                     {
@@ -93,7 +93,7 @@ struct MaintenanceView: View
 
                                 if shouldPurgeCache
                                 {
-                                    currentMaintenanceStepText = "Purging Cache..."
+                                    currentMaintenanceStepText = "maintenance.step.purging-cache"
 
                                     let cachePurgeOutput = try await purgeBrewCache()
                                     print("Cache purge output: \(cachePurgeOutput)")
@@ -130,7 +130,7 @@ struct MaintenanceView: View
                                 {
                                     print("Will delete downloads")
                                     
-                                    currentMaintenanceStepText = "Deleting cached downloads..."
+                                    currentMaintenanceStepText = "maintenance.step.deleting-cached-downloads"
                                     
                                     deleteCachedDownloads()
                                     
@@ -144,7 +144,7 @@ struct MaintenanceView: View
 
                                 if shouldPerformHealthCheck
                                 {
-                                    currentMaintenanceStepText = "Running Health Check..."
+                                    currentMaintenanceStepText = "maintenance.step.running-health-check"
 
                                     do
                                     {
@@ -177,18 +177,18 @@ struct MaintenanceView: View
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
-                            Text("Maintenance finished")
+                            Text("maintenance.finished")
                                 .font(.headline)
 
                             if shouldUninstallOrphans
                             {
                                 if numberOfOrphansRemoved == 0
                                 {
-                                    Text("No orphaned packages found")
+                                    Text("maintenance.results.orphans-none")
                                 }
                                 else
                                 {
-                                    Text("\(numberOfOrphansRemoved) orphaned packages removed")
+                                    Text("maintenance.results.orphans-\(numberOfOrphansRemoved)")
                                 }
                             }
 
@@ -196,13 +196,13 @@ struct MaintenanceView: View
                             {
                                 VStack(alignment: .leading)
                                 {
-                                    Text("Package cache purged")
+                                    Text("maintenance.results.package-cache")
 
                                     if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
                                     {
                                         Text(packagesHoldingBackCachePurgeTracker.count > 2 ?
-                                             "Some caches weren't purged because of \(packagesHoldingBackCachePurgeTracker[0...1].joined(separator: ", ")) and \(packagesHoldingBackCachePurgeTracker.count - 2) others not being updated" :
-                                                "Some caches weren't purged because of \(packagesHoldingBackCachePurgeTracker.joined(separator: ", ")) not being updated")
+                                             "maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker[0...1].joined(separator: ", "))-and-\(packagesHoldingBackCachePurgeTracker.count - 2)-others" :
+                                                "maintenance.results.package-cache.skipped- \(packagesHoldingBackCachePurgeTracker.joined(separator: ", "))")
                                             .font(.caption)
                                             .foregroundColor(Color(nsColor: NSColor.systemGray))
                                     }
@@ -212,8 +212,8 @@ struct MaintenanceView: View
                             if shouldDeleteDownloads
                             {
                                 VStack(alignment: .leading) {
-                                    Text("Cached downloads deleted")
-                                    Text("You reclaimed \(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))")
+                                    Text("maintenance.results.cached-downloads")
+                                    Text("maintenance.results.cached-downloads.summary-\(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))")
                                         .font(.caption)
                                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                                 }
@@ -223,11 +223,11 @@ struct MaintenanceView: View
                             {
                                 if brewHealthCheckFoundNoProblems
                                 {
-                                    Text("No problems with Homebrew found")
+                                    Text("maintenance.results.health-check.problems-none")
                                 }
                                 else
                                 {
-                                    Text("Found some problems with Homebrew")
+                                    Text("maintenance.results.health-check.problems")
                                         .onAppear
                                         {
                                             maintenanceFoundNoProblems = false
@@ -248,7 +248,7 @@ struct MaintenanceView: View
                                 
                                 appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
                             } label: {
-                                Text("Close")
+                                Text("action.close")
                             }
                             .keyboardShortcut(.defaultAction)
                         }

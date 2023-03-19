@@ -25,24 +25,24 @@ struct GeneralPane: View
             {
                 Picker(selection: $sortPackagesBy)
                 {
-                    Text("Name")
+                    Text("settings.general.sort-packages.alphabetically")
                         .tag(PackageSortingOptions.alphabetically)
-                    Text("Installation Date")
+                    Text("settings.general.sort-packages.install-date")
                         .tag(PackageSortingOptions.byInstallDate)
-                    Text("Size")
+                    Text("settings.general.sort-packages.size")
                         .tag(PackageSortingOptions.bySize)
 
                     Divider()
 
-                    Text("Do Not Sort")
+                    Text("settings.general.sort-packages.none")
                         .tag(PackageSortingOptions.none)
                 } label: {
-                    Text("Sort packages by:")
+                    Text("settings.general.sort-packages")
                 }
 
                 if sortPackagesBy == .none
                 {
-                    Text("􀅴 Restart Cork for this sorting option to take effect")
+                    Text("settings.general.sort-packages.restart")
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
@@ -53,18 +53,18 @@ struct GeneralPane: View
                     {
                         Toggle(isOn: $displayAdvancedDependencies)
                         {
-                            Text("Show more info about dependecies")
+                            Text("settings.general.dependencies.toggle")
                         }
                     }
                 } label: {
-                    Text("Dependencies:")
+                    Text("settings.general.dependencies")
                 }
 
                 Picker(selection: $caveatDisplayOptions)
                 {
-                    Text("Full")
+                    Text("settings.general.package-caveats.full")
                         .tag(PackageCaveatDisplay.full)
-                    Text("Minified")
+                    Text("settings.general.package-caveats.minified")
                         .tag(PackageCaveatDisplay.mini)
                 } label: {
                     Text("Package caveats:")
@@ -72,7 +72,7 @@ struct GeneralPane: View
                 .pickerStyle(.radioGroup)
                 if caveatDisplayOptions == .mini
                 {
-                    Text("􀅴 Click on the \"Has caveats\" pill to see the caveats")
+                    Text("settings.general.package-caveats.minified.info")
                         .font(.caption)
                         .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
@@ -81,16 +81,16 @@ struct GeneralPane: View
                 {
                     Toggle(isOn: $showDescriptionsInSearchResults)
                     {
-                        Text("Show package descriptions")
+                        Text("settings.general.search-results.toggle")
                     }
                 } label: {
-                    Text("Search results:")
+                    Text("settings.general.search-results")
                 }
 
                 LabeledContent
                 {
                     Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails) {
-                        Text("Show search field for dependencies")
+                        Text("settings.general.package-details.toggle")
                     }
                 } label: {
                     Text("Package details:")

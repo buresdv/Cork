@@ -36,8 +36,8 @@ struct ContentView: View
                 StartPage()
                     .frame(minWidth: 600, minHeight: 500)
             }
-            .navigationTitle("Cork")
-            .navigationSubtitle("\(brewData.installedFormulae.count + brewData.installedCasks.count) packages installed")
+            .navigationTitle("app-name")
+            .navigationSubtitle("navigation.installed-packages.count-\(brewData.installedFormulae.count + brewData.installedCasks.count)")
             .toolbar
             {
                 ToolbarItemGroup(placement: .primaryAction)
@@ -48,12 +48,12 @@ struct ContentView: View
                     } label: {
                         Label
                         {
-                            Text("Upgrade Packages")
+                            Text("navigation.upgrade-packages")
                         } icon: {
                             Image(systemName: "arrow.clockwise")
                         }
                     }
-                    .help("Upgrade installed packages")
+                    .help("navigation.upgrade-packages.help")
 
                     Spacer()
 
@@ -63,12 +63,12 @@ struct ContentView: View
                     } label: {
                         Label
                         {
-                            Text("Add Tap")
+                            Text("navigation.add-tap")
                         } icon: {
                             Image(systemName: "spigot")
                         }
                     }
-                    .help("Add a new tap")
+                    .help("navigation.add-tap.help")
 
                     Button
                     {
@@ -76,12 +76,12 @@ struct ContentView: View
                     } label: {
                         Label
                         {
-                            Text("Install package")
+                            Text("navigation.install-package")
                         } icon: {
                             Image(systemName: "plus")
                         }
                     }
-                    .help("Install a new package")
+                    .help("navigation.install-package.help")
                 }
             }
         }
@@ -143,7 +143,7 @@ struct ContentView: View
             UpdatePackagesView(isShowingSheet: $appState.isShowingUpdateSheet)
         }
         .alert(isPresented: $appState.isShowingUninstallationNotPossibleDueToDependencyAlert, content: {
-            Alert(title: Text("Could Not Uninstall"), message: Text("This package is a dependency of \(appState.offendingDependencyProhibitingUninstallation)"), dismissButton: .default(Text("Close"), action: {
+            Alert(title: Text("alert.unable-to-uninstall-dependency.title"), message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)"), dismissButton: .default(Text("action.close"), action: {
                 appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
             }))
         })

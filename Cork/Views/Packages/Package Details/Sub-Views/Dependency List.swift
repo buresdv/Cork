@@ -34,30 +34,30 @@ struct DependencyList: View
         {
             if showSearchFieldForDependenciesInPackageDetails
             {
-                CustomSearchField(search: $dependencySearchText, customPromptText: "Dependencies")
+                CustomSearchField(search: $dependencySearchText, customPromptText: "package-details.dependencies.search.prompt")
             }
 
             if displayAdvancedDependencies
             {
                 Table(foundDependencies)
                 {
-                    TableColumn("Name")
+                    TableColumn("package-details.dependencies.results.name")
                     { dependency in
                         Text(dependency.name)
                     }
-                    TableColumn("Version")
+                    TableColumn("package-details.dependencies.results.version")
                     { dependency in
                         Text(dependency.version)
                     }
-                    TableColumn("Declaration Type")
+                    TableColumn("package-details.dependencies.results.declaration")
                     { dependency in
                         if dependency.directlyDeclared
                         {
-                            Text("Direct")
+                            Text("package-details.dependencies.results.declaration.direct")
                         }
                         else
                         {
-                            Text("Indirect")
+                            Text("package-details.dependencies.results.declaration.indirect")
                         }
                     }
                 }

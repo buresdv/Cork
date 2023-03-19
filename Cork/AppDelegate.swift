@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let window = NSWindow()
 
             window.styleMask = styleMask
-            window.title = "About \(NSApplication.appName!)"
+            window.title = NSLocalizedString("about.title", comment: "")
             window.contentView = NSHostingView(rootView: AboutView())
 
             aboutWindowController = NSWindowController(window: window)
