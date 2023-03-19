@@ -1,7 +1,28 @@
 // MARK: - Common
 
+"app-name" = "Cork";
 "action.close" = "Close";
 "action.cancel" = "Cancel";
+
+// MARK: - Navigation
+"navigation.about" = "About Cork";
+"navigation.menu.packages" = "Packages";
+"navigation.menu.packages.install" = "Install Packages…";
+"navigation.menu.packages.add-tap" = "Add a Tap…";
+"navigation.menu.packages.update" = "Update Packages…";
+"navigation.menu.maintenance" = "Maintenance";
+"navigation.menu.maintenance.perform" = "Perform Maintenance…";
+"navigation.menu.maintenance.delete-cached-downloads" = "Delete Cached Downloads";
+
+"navigation.upgrade-packages" = "Upgrade Packages";
+"navigation.upgrade-packages.help" = "Upgrade installed packages";
+"navigation.add-tap" = "Add Tap";
+"navigation.add-tap.help" = "Add a new tap";
+"navigation.install-package" = "Install Package";
+"navigation.install-package.help" = "Add a new package";
+
+"alert.unable-to-uninstall-dependency.title" = "Could Not Uninstall";
+"alert.unable-to-uninstall-dependency.message-%@" = "This package is a dependency of %@";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";
@@ -64,6 +85,77 @@
 "tap-details.included-casks" = "Casks Included";
 "tap-details.remove-%@" = "Remove %@";
 "tap-details.included-packages.search.prompt" = "Included Packages";
+
+// MARK: - Update Packages
+"update-packages.updating.ready" = "Ready";
+"update-packages.updating.checking" = "Fetching updates…";
+"update-packages.updating.updating" = "Updating packages…";
+"update-packages.updating.updating-outdated-package" = "Updating package caches";
+"update-packages.updating.finished" = "Done";
+"update-packages.no-updates" = "No updates available";
+"update-packages.no-updates.description" = "You're all up to date";
+"update-packages.finished" = "Sucessfully upgraded packages";
+"update-packages.finished.description" = "There were no errors";
+"update-packages.error" = "Packages updated with errors";
+"update-packages.error.description" = "There were some errors during updating.\nCheck below for more information";
+
+// MARK: - Install Package
+"add-package.title" = "Install packages";
+"add-package.search.prompt" = "Search for packages…";
+"add-package.search.action" = "Search";
+"add-package.searching-%@" = "Searching for %@…";
+"add-package.search.results.formulae" = "Found Formulae";
+"add-package.search.results.casks" = "Found Casks";
+"add-package.result.already-installed" = "Already Installed";
+"add-package.result.loading-description" = "Loading description…";
+"add-package.install.action" = "Install";
+"add-package.install.ready" = "Building Dependency Graph…";
+"add-package.install.loading-dependencies" = "Loading Dependencies…";
+"add-package.install.fetching-dependencies" = "Fetching Dependencies…";
+"add-package.install.installing-dependencies-%lld-of-%lld" = "Installing Dependency %lld/%lld";
+"add-package.install.installing-package" = "Installing Package…";
+"add-package.install.finished" = "Done!";
+"add-package.install.downloading-cask-%@" = "Downloading %@…";
+"add-package.install.installing-cask-%@" = "Installing %@…";
+"add-package.install.linking-cask-binary" = "Linking Binaries…";
+"add-package.install.moving-cask-%@" = "Moving %@ into the Applications Directory…";
+"add-package.install.finished" = "Done";
+"add-package.finished" = "Packages successfully installed";
+"add-package.finished.description" = "There were no errors";
+
+// MARK: - Package Details
+"package-details.pinned.help-%@" = "%@ is pinned. It will not be updated.";
+"package-details.dependants.dependency-of-%@" = "Dependency of %@";
+"package-details.dependants.loading" = "Loading Dependants…";
+"package-details.outdated" = "Outdated";
+"package-details.caveats.available" = "Has caveats 􀅴";
+"package-details.caveats.help" = "Click to see caveats";
+"package-details.caveats.collapse" = "Collapse";
+"package-details.caveats.expand" = "Expand";
+"package-details.description-none-%@" = "%@ has no description";
+"package-details.contents.loading" = "Loading package info…";
+"package-details.info" = "Info";
+"package-details.type" = "Type";
+"package-details.type.cask" = "Cask";
+"package-details.type.formula" = "Formula";
+"package-details.homepage" = "Homepage";
+"package-details.dependencies" = "Dependencies";
+"package-details.install-date" = "Installed On";
+"package-details.size" = "Size";
+"package-details.size.help" = "Why is the size so small?";
+"package-details.size.help.title" = "Why is the size so small?";
+"package-details.size.help.body-1" = "Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory.";
+"package-details.size.help.body-2" = "Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask.";
+"package-details.action.pin-version-%@" = "Pin to version %@";
+"package-details.action.unpin-version-%@" = "Unpin from version %@";
+"package-details.action.uninstall-%@" = "Uninstall %@";
+
+"package-details.dependencies.search.prompt" = "Dependencies";
+"package-details.dependencies.results.name" = "Name";
+"package-details.dependencies.results.version" = "Version";
+"package-details.dependencies.results.declaration" = "Declaration Type";
+"package-details.dependencies.results.declaration.direct" = "Direct";
+"package-details.dependencies.results.declaration.indirect" = "Indirect";
 
 // MARK: - Maintenance Steps
 "maintenance.title" = "Maintenance";
@@ -130,6 +222,7 @@
 "settings.install-uninstall.uninstallation.remove-orphans" = "Remove orphans after uninstalling packages";
 
 // MARK: - About
+"about.title" = "About Cork";
 "about.packages" = "Packages Used";
 "about.packages.1.name" = "DavidFoundation";
 "about.packages.1.purpose" = "My own package that provides some basic convenience features";

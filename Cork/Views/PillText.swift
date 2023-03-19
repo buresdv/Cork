@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PillText: View
 {
-    @State var text: String
+    @State var text: LocalizedStringKey
     var body: some View
     {
         Text(text)
@@ -23,7 +23,7 @@ struct PillText: View
 
 struct OutlinedPillText: View
 {
-    @State var text: String
+    @State var text: LocalizedStringKey
     @State var color: Color
     
     var body: some View
