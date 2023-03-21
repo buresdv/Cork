@@ -13,6 +13,7 @@ struct BrewPackage: Identifiable, Equatable
     let name: String
     
     let isCask: Bool
+    var isTagged: Bool = false
     
     let installedOn: Date?
     let versions: [String]
