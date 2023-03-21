@@ -32,7 +32,7 @@ struct PackagesIncludedInTapList: View
 
                             if brewData.installedFormulae.contains(where: { $0.name == package }) || brewData.installedCasks.contains(where: { $0.name == package })
                             {
-                                PillText(text: "Installed")
+                                PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }
                         }
                         .padding(6)
