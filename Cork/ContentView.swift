@@ -118,6 +118,8 @@ struct ContentView: View
                 brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
                 brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
                 
+                availableTaps.addedTaps = await loadUpTappedTaps()
+                
                 do
                 {
                     appState.taggedPackageIDs = try loadTaggedIDsFromDisk()
@@ -137,8 +139,6 @@ struct ContentView: View
                 {
                     print("Failed while loading UUIDs from file: \(uuidLoadingError)")
                 }
-
-                availableTaps.addedTaps = await loadUpTappedTaps()
 
                 if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
                 {
