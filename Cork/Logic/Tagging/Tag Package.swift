@@ -26,7 +26,9 @@ func tagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppSt
         }
     }
     
-    appState.taggedPackageIDs.append(package.id)
+    appState.taggedPackageIDs.insert(package.id)
+    
+    print("Tagged package with ID \(package)")
     
     print("Tagged packages: \(appState.taggedPackageIDs)")
 }

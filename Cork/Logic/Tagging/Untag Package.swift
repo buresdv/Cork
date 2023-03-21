@@ -26,8 +26,10 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
         }
     }
     
-    appState.taggedPackageIDs = appState.taggedPackageIDs.filter({ $0 == package.id }) // Remove the ID
+    let indexOfPackageToRemove = appState.taggedPackageIDs.firstIndex(of: package.id)
     
-    print("Tagged packages: \(appState.taggedPackageIDs)")
+    print(package.id)
+    
+    print("Tagged packages: \(appState.taggedPackageIDs) (\(appState.taggedPackageIDs.count))")
     
 }
