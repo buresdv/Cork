@@ -25,4 +25,6 @@ class AppState: ObservableObject {
     @Published var isLoadingCasks: Bool = true
     
     @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
+    
+    @Published var taggedPackageIDs: [UUID] = .init()
 }

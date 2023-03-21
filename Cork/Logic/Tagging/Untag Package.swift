@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-func untagPackage(package: BrewPackage, brewData: BrewDataStorage) async -> Void
+func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
 {
     if !package.isCask
     {
@@ -25,4 +25,9 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage) async -> Void
             brewData.installedCasks[indextoReplace] = BrewPackage(name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
     }
+    
+    appState.taggedPackageIDs = appState.taggedPackageIDs.filter({ $0 == package.id }) // Remove the ID
+    
+    print("Tagged packages: \(appState.taggedPackageIDs)")
+    
 }
