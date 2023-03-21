@@ -9,7 +9,7 @@ import Foundation
 
 enum TokenSearchType
 {
-    case formula, cask, tap
+    case formula, cask, tap, tag
 }
 
 struct PackageSearchToken: Identifiable
