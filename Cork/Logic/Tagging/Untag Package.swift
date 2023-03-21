@@ -14,7 +14,7 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
     {
         if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.id == package.id })
         {
-            brewData.installedFormulae[indexToReplace] = BrewPackage(name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
+            brewData.installedFormulae[indexToReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
         
     }
@@ -22,13 +22,14 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
     {
         if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.id == package.id })
         {
-            brewData.installedCasks[indextoReplace] = BrewPackage(name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
+            brewData.installedCasks[indextoReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
     }
     
-    let indexOfPackageToRemove = appState.taggedPackageIDs.firstIndex(of: package.id)
-    
-    print(package.id)
+    if let indexOfPackageToRemove = appState.taggedPackageIDs.firstIndex(of: package.id)
+    {
+        appState.taggedPackageIDs.remove(at: indexOfPackageToRemove)
+    }
     
     print("Tagged packages: \(appState.taggedPackageIDs) (\(appState.taggedPackageIDs.count))")
     
