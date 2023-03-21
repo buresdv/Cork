@@ -62,6 +62,34 @@ struct SidebarView: View
                                 } label: {
                                     Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
                                 }
+
+                                Divider()
+
+                                if !formula.isTagged
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await tagPackage(package: formula, brewData: brewData)
+                                        }
+                                    } label: {
+                                        Text("Tag \(formula.name)")
+                                    }
+                                }
+                                else
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await untagPackage(package: formula, brewData: brewData)
+                                        }
+                                    } label: {
+                                        Text("Untag \(formula.name)")
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -97,6 +125,18 @@ struct SidebarView: View
                                     }
                                 } label: {
                                     Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
+                                }
+
+                                Divider()
+
+                                Button
+                                {
+                                    Task
+                                    {
+                                        await tagPackage(package: cask, brewData: brewData)
+                                    }
+                                } label: {
+                                    Text("Tag \(cask.name)")
                                 }
                             }
                         }

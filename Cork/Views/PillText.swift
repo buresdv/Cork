@@ -9,15 +9,29 @@ import SwiftUI
 
 struct PillText: View
 {
-    @State var text: LocalizedStringKey
+    @State var text: String
+    @State var color: NSColor?
+    
     var body: some View
     {
-        Text(text)
-            .font(.caption2)
-            .padding(.horizontal, 4)
-            .background(Color(NSColor.tertiaryLabelColor))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
+        if let color
+        {
+            Text(text)
+                .font(.caption2)
+                .padding(.horizontal, 4)
+                .background(Color(color))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+        }
+        else
+        {
+            Text(text)
+                .font(.caption2)
+                .padding(.horizontal, 4)
+                .background(Color(NSColor.tertiaryLabelColor))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+        }
     }
 }
 

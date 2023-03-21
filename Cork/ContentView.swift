@@ -109,16 +109,16 @@ struct ContentView: View
                 }
             }
             
-            print("Application Support directory: \(AppConstants.applicationSupportPath.path)")
+            print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
             
-            if !FileManager.default.fileExists(atPath: AppConstants.applicationSupportPath.path)
+            if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
             {
-                print("Application Support directory does not exist, creating it...")
-                try! FileManager.default.createDirectory(at: AppConstants.applicationSupportPath, withIntermediateDirectories: true)
+                print("Documents directory does not exist, creating it...")
+                try! FileManager.default.createDirectory(at: AppConstants.documentsDirectoryPath, withIntermediateDirectories: true)
             }
             else
             {
-                print("Application Support directory exists")
+                print("Documents directory exists")
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
