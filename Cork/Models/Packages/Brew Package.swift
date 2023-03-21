@@ -9,7 +9,7 @@ import Foundation
 
 struct BrewPackage: Identifiable, Equatable
 {
-    let id = UUID()
+    var id = UUID()
     let name: String
     
     let isCask: Bool
