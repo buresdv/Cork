@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-func tagPackage(package: BrewPackage, brewData: BrewDataStorage) async -> Void
+func tagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
 {
     if !package.isCask
     {
@@ -25,4 +25,8 @@ func tagPackage(package: BrewPackage, brewData: BrewDataStorage) async -> Void
             brewData.installedCasks[indextoReplace] = BrewPackage(name: package.name, isCask: package.isCask, isTagged: true, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
     }
+    
+    appState.taggedPackageIDs.append(package.id)
+    
+    print("Tagged packages: \(appState.taggedPackageIDs)")
 }
