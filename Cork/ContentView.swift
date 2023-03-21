@@ -11,14 +11,14 @@ struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    
+
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
-    
+
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @State private var multiSelection = Set<UUID>()
@@ -94,9 +94,9 @@ struct ContentView: View
 
                 brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
                 brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
-                
+
                 availableTaps.addedTaps = await loadUpTappedTaps()
-                
+
                 if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
                 {
                     allowBrewAnalytics = true
@@ -108,9 +108,9 @@ struct ContentView: View
                     print("Analytics are DISABLED")
                 }
             }
-            
+
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
-            
+
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
             {
                 print("Documents directory does not exist, creating it...")
@@ -120,28 +120,63 @@ struct ContentView: View
             {
                 print("Documents directory exists")
             }
+
+            if !FileManager.default.fileExists(atPath: AppConstants.metadataFilePath.path)
+            {
+                print("Metadata file does not exist, creating it...")
+                try! Data().write(to: AppConstants.metadataFilePath, options: .atomic)
+            }
+            else
+            {
+                print("Metadata file exists")
+            }
+
+            do
+            {
+                appState.taggedPackageIDs = try loadTaggedIDsFromDisk()
+                
+                print("Tagged packages in appState: \(appState.taggedPackageIDs)")
+            }
+            catch let uuidLoadingError as NSError
+            {
+                print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+            }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
-            switch newSortOption {
+            switch newSortOption
+            {
             case .none:
                 print("Chose NONE")
-                
+
             case .alphabetically:
                 print("Chose ALPHABETICALLY")
                 brewData.installedFormulae = sortPackagesAlphabetically(brewData.installedFormulae)
                 brewData.installedCasks = sortPackagesAlphabetically(brewData.installedCasks)
-                
+
             case .byInstallDate:
                 print("Chose BY INSTALL DATE")
                 brewData.installedFormulae = sortPackagesByInstallDate(brewData.installedFormulae)
                 brewData.installedCasks = sortPackagesByInstallDate(brewData.installedCasks)
-                
+
             case .bySize:
                 print("Chose BY SIZE")
                 brewData.installedFormulae = sortPackagesBySize(brewData.installedFormulae)
                 brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
             }
         })
+        .onDisappear
+        {
+            print("Will die...")
+            do
+            {
+                try saveTaggedIDsToDisk(appState: appState)
+            }
+            catch let dataSavingError as NSError
+            {
+                print("Failed while trying to save data to disk: \(dataSavingError)")
+            }
+            print("Died")
+        }
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
             AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet)

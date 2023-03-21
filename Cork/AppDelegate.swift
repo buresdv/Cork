@@ -5,18 +5,20 @@
 //  Created by David Bureš on 07.07.2022.
 //
 
-import Foundation
 import AppKit
-import SwiftUI
 import DavidFoundation
+import Foundation
+import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+class AppDelegate: NSObject, NSApplicationDelegate
+{
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
+    {
         return true
     }
-    
+
     private var aboutWindowController: NSWindowController?
-    
+
     func showAboutPanel()
     {
         if aboutWindowController == nil
