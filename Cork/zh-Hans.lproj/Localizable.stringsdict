@@ -13,9 +13,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>%lld package installed</string>
+			<string>已安装 %lld 个软件包</string>
 			<key>other</key>
-			<string>%lld packages installed</string>
+			<string>已安装 %lld 个软件包</string>
 		</dict>
 	</dict>
 	<key>maintenance.results.package-cache.skipped-%@-and-%lld</key>
@@ -38,9 +38,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>Some caches weren&apos;t purged because of %1$@ and %2$lld other not being updated</string>
+			<string>由于 %1$@ 和 %2$lld 未更新，某些缓存未被清除</string>
 			<key>other</key>
-			<string>Some caches weren&apos;t purged because of %1$@ and %2$lld others not being updated</string>
+			<string>由于 %1$@ 和 %2$lld 未更新，某些缓存未被清除</string>
 		</dict>
 	</dict>
 	<key>start-page.added-taps.count-%lld</key>
@@ -54,9 +54,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %lld Tap added</string>
+			<string>你已添加 %lld 个 Tap</string>
 			<key>other</key>
-			<string>You have %lld Taps added</string>
+			<string>你已添加 %lld 个 Tap</string>
 		</dict>
 	</dict>
 	<key>start-page.installed-casks.count-%lld</key>
@@ -70,9 +70,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %lld Cask installed</string>
+			<string>你已安装 %lld 个 Cask</string>
 			<key>other</key>
-			<string>You have %lld Casks installed</string>
+			<string>你已安装 %lld 个 Cask</string>
 		</dict>
 	</dict>
 	<key>start-page.installed-formulae.count-%lld</key>
@@ -86,9 +86,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %lld Formula installed</string>
+			<string>你已安装 %lld 个 Formula</string>
 			<key>other</key>
-			<string>You have %lld Formulae installed</string>
+			<string>你已安装 %lld 个 Formula</string>
 		</dict>
 	</dict>
 	<key>start-page.updates.count-%lld</key>
@@ -102,9 +102,9 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>one</key>
-			<string>There is %lld outdated package</string>
+			<string>现有 %lld 个软件包有可用更新</string>
 			<key>other</key>
-			<string>There are %lld outdated packages</string>
+			<string>现有 %lld 个软件包有可用更新</string>
 		</dict>
 	</dict>
 </dict>
