@@ -12,7 +12,7 @@ func tagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppSt
 {
     if !package.isCask
     {
-        if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.id == package.id })
+        if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
         {
             brewData.installedFormulae[indexToReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: true, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
@@ -20,13 +20,13 @@ func tagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppSt
     }
     else
     {
-        if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.id == package.id })
+        if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
         {
             brewData.installedCasks[indextoReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: true, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
     }
     
-    appState.taggedPackageIDs.insert(package.id)
+    appState.taggedPackageIDs.insert(package.name)
     
     print("Tagged package with ID \(package)")
     

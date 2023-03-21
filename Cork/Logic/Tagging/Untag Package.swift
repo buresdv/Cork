@@ -12,7 +12,7 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
 {
     if !package.isCask
     {
-        if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.id == package.id })
+        if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
         {
             brewData.installedFormulae[indexToReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
@@ -20,13 +20,13 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
     }
     else
     {
-        if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.id == package.id })
+        if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
         {
             brewData.installedCasks[indextoReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
         }
     }
     
-    if let indexOfPackageToRemove = appState.taggedPackageIDs.firstIndex(of: package.id)
+    if let indexOfPackageToRemove = appState.taggedPackageIDs.firstIndex(of: package.name)
     {
         appState.taggedPackageIDs.remove(at: indexOfPackageToRemove)
     }
