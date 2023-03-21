@@ -88,27 +88,7 @@ struct ContentView: View
         .onAppear
         {
             print("Brew executable path: \(AppConstants.brewExecutablePath.absoluteString)")
-            Task
-            {
-                async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
-
-                brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
-                brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
-
-                availableTaps.addedTaps = await loadUpTappedTaps()
-
-                if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
-                {
-                    allowBrewAnalytics = true
-                    print("Analytics are ENABLED")
-                }
-                else
-                {
-                    allowBrewAnalytics = false
-                    print("Analytics are DISABLED")
-                }
-            }
-
+            
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
 
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
@@ -130,16 +110,47 @@ struct ContentView: View
             {
                 print("Metadata file exists")
             }
+            
+            Task
+            {
+                async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
 
-            do
-            {
-                appState.taggedPackageIDs = try loadTaggedIDsFromDisk()
+                brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
+                brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
                 
-                print("Tagged packages in appState: \(appState.taggedPackageIDs)")
-            }
-            catch let uuidLoadingError as NSError
-            {
-                print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                do
+                {
+                    appState.taggedPackageIDs = try loadTaggedIDsFromDisk()
+
+                    print("Tagged packages in appState: \(appState.taggedPackageIDs)")
+
+                    do
+                    {
+                        try await applyTagsToPackageTrackingArray(appState: appState, brewData: brewData)
+                    }
+                    catch let taggedStateApplicationError as NSError
+                    {
+                        print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
+                    }
+                }
+                catch let uuidLoadingError as NSError
+                {
+                    print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                }
+
+                availableTaps.addedTaps = await loadUpTappedTaps()
+
+                if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
+                {
+                    allowBrewAnalytics = true
+                    print("Analytics are ENABLED")
+                }
+                else
+                {
+                    allowBrewAnalytics = false
+                    print("Analytics are DISABLED")
+                }
+                
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in

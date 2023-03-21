@@ -9,12 +9,12 @@ import Foundation
 
 func saveTaggedIDsToDisk(appState: AppState) throws
 {
-    let uuidsAsString: String = appState.taggedPackageIDs.compactMap { $0.uuidString }.joined(separator: ":")
-    print("UUIDS as string: \(uuidsAsString)")
+    let namesAsString: String = appState.taggedPackageIDs.compactMap { $0 }.joined(separator: ":")
+    print("Names as string: \(namesAsString)")
 
     do
     {
-        try uuidsAsString.write(to: AppConstants.metadataFilePath, atomically: true, encoding: .utf8)
+        try namesAsString.write(to: AppConstants.metadataFilePath, atomically: true, encoding: .utf8)
     }
     catch let writingError as NSError
     {

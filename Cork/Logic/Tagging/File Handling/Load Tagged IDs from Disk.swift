@@ -7,18 +7,18 @@
 
 import Foundation
 
-func loadTaggedIDsFromDisk() throws -> Set<UUID>
+func loadTaggedIDsFromDisk() throws -> Set<String>
 {
-    var uuidSet: Set<UUID> = .init()
+    var nameSet: Set<String> = .init()
     
     do
     {
-        let rawuuidStringFromFile: String = try String(contentsOf: AppConstants.metadataFilePath, encoding: .utf8)
-        let uuidsAsStringsArray: [String] = rawuuidStringFromFile.components(separatedBy: ":")
+        let rawPackageNamesFromFile: String = try String(contentsOf: AppConstants.metadataFilePath, encoding: .utf8)
+        let packageNamesAsArray: [String] = rawPackageNamesFromFile.components(separatedBy: ":")
         
-        for uuidAsString in uuidsAsStringsArray
+        for packageNameAsString in packageNamesAsArray
         {
-            uuidSet.insert(UUID(uuidString: uuidAsString)!)
+            nameSet.insert(packageNameAsString)
         }
         
     }
@@ -27,7 +27,7 @@ func loadTaggedIDsFromDisk() throws -> Set<UUID>
         print("Failed while reading data from disk: \(dataReadingError)")
     }
     
-    print("Loaded UUID set: \(uuidSet)")
+    print("Loaded name set: \(nameSet)")
     
-    return uuidSet
+    return nameSet
 }
