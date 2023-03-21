@@ -108,6 +108,18 @@ struct ContentView: View
                     print("Analytics are DISABLED")
                 }
             }
+            
+            print("Application Support directory: \(AppConstants.applicationSupportPath.path)")
+            
+            if !FileManager.default.fileExists(atPath: AppConstants.applicationSupportPath.path)
+            {
+                print("Application Support directory does not exist, creating it...")
+                try! FileManager.default.createDirectory(at: AppConstants.applicationSupportPath, withIntermediateDirectories: true)
+            }
+            else
+            {
+                print("Application Support directory exists")
+            }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
             switch newSortOption {

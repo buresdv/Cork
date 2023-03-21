@@ -54,6 +54,8 @@ struct AppConstants {
         }
     }()
     
+    static let applicationSupportPath: URL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("com.davidbures.Cork", conformingTo: .directory)
+    
     static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
     
     /// These two have the symlinks to the actual downloads
