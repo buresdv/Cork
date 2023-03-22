@@ -3,6 +3,10 @@
 "app-name" = "Cork";
 "action.close" = "Close";
 "action.cancel" = "Cancel";
+"action.quit" = "Quit Cork";
+"action.restart" = "Restart Cork";
+"action.reveal-in-finder" = "Reveal in Finder";
+"action.clear-metadata" = "Clear metadata";
 
 // MARK: - Navigation
 "navigation.about" = "About Cork";
@@ -21,8 +25,18 @@
 "navigation.install-package" = "Install Package";
 "navigation.install-package.help" = "Add a new package";
 
+// MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "Could Not Uninstall";
 "alert.unable-to-uninstall-dependency.message-%@" = "This package is a dependency of %@";
+"alert.could-not-apply-tags.title" = "Could not apply tagged state to packages";
+"alert.could-not-apply-tags.message" = "Try restarting Cork. If the problem persists, clear Cork metadata";
+"alert.could-not-clear-metadata.title" = "Could not clear metadata";
+"alert.could-not-clear-metadata.message" = "Delete the metadata folder manually, or try restarting Cork";
+"alert.metadata-folder-does-not-exist.title" = "Could not find metadata folder";
+"alert.metadata-folder-does-not-exist.message" = "Reinstall Cork and try again";
+"alert.could-not-create-metadata-directory.title" = "Could not create Metadata folder";
+"alert.could-not-create-metadata-directory-or-folder.message" = "Make sure you've given Cork permission to access your Documents folder";
+"alert.could-not-create-metadata-file.title" = "Could not create metadata file";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";

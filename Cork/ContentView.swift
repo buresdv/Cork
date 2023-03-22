@@ -202,12 +202,12 @@ struct ContentView: View
 
             case .couldNotApplyTaggedStateToPackages:
                 return Alert(
-                    title: Text("Could not apply tagged state to packages"),
-                    message: Text("Try restarting Cork. If the problem persists, clear Cork metadata."),
+                    title: Text("alert.could-not-apply-tags.title"),
+                    message: Text("alert.could-not-apply-tags.message"),
                     primaryButton: .cancel(Text("action.close"), action: {
                         appState.isShowingFatalError = false
                     }),
-                    secondaryButton: .destructive(Text("Clear Metadata"), action: {
+                    secondaryButton: .destructive(Text("action.clear-metadata"), action: {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
                         {
                             do
@@ -229,10 +229,10 @@ struct ContentView: View
 
             case .couldNotClearMetadata:
                 return Alert(
-                    title: Text("Could not clear metadata"),
-                    message: Text("Delete the metadata folder manually, or try restarting Cork."),
+                    title: Text("alert.could-not-clear-metadata.title"),
+                    message: Text("alert.could-not-clear-metadata.message"),
                     primaryButton: .cancel(Text("action.close"), action: {}),
-                    secondaryButton: .default(Text("Reveal Metadata in Finder"), action: {
+                    secondaryButton: .default(Text("action.reveal-in-finder"), action: {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
                         {
                             NSWorkspace.shared.open(AppConstants.documentsDirectoryPath)
@@ -246,23 +246,25 @@ struct ContentView: View
 
             case .metadataFolderDoesNotExist:
                 return Alert(
-                    title: Text("Could not find metadata folder"),
-                    message: Text("Reinstall Cork and try again"),
-                    dismissButton: .default(Text("action.close"), action: {})
+                    title: Text("alert.metadata-folder-does-not-exist.title"),
+                    message: Text("alert.metadata-folder-does-not-exist.message"),
+                    dismissButton: .default(Text("action.quit"), action: {
+                        NSApplication.shared.terminate(self)
+                    })
                 )
 
             case .couldNotCreateCorkMetadataDirectory:
                     return Alert(
-                        title: Text("Could not create Metadata folder"),
-                        message: Text("Make sure you've given Cork permission to access your Documents folder"),
-                        dismissButton: .default(Text("Restart Cork"), action: {
+                        title: Text("alert.could-not-create-metadata-directory.title"),
+                        message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
+                        dismissButton: .default(Text("action.restart"), action: {
                         restartApp()
                     }))
             case .couldNotCreateCorkMetadataFile:
                     return Alert(
-                        title: Text("Could not create Metadata file"),
-                        message: Text("Make sure you've given Cork permission to access your Documents folder"),
-                        dismissButton: .default(Text("Restart Cork"), action: {
+                        title: Text("alert.could-not-create-metadata-file.title"),
+                        message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
+                        dismissButton: .default(Text("action.restart"), action: {
                         restartApp()
                     }))
             }
