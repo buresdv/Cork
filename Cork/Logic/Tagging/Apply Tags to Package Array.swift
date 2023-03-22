@@ -10,9 +10,6 @@ import Foundation
 @MainActor
 func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStorage) async throws -> Void
 {
-    
-    print("Will work with array consisting of \(brewData.installedFormulae)")
-    
     for taggedName in appState.taggedPackageIDs
     {
         print("Will attempt to place package name \(taggedName)")
