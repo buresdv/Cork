@@ -122,9 +122,9 @@ struct ContentView: View
                 
                 do
                 {
-                    appState.taggedPackageIDs = try loadTaggedIDsFromDisk()
+                    appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
-                    print("Tagged packages in appState: \(appState.taggedPackageIDs)")
+                    print("Tagged packages in appState: \(appState.taggedPackageNames)")
 
                     do
                     {

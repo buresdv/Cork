@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStorage) async throws -> Void
 {
-    for taggedName in appState.taggedPackageIDs
+    for taggedName in appState.taggedPackageNames
     {
         print("Will attempt to place package name \(taggedName)")
         if let formulaIndexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == taggedName })

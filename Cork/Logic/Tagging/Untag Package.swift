@@ -26,11 +26,11 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
         }
     }
     
-    if let indexOfPackageToRemove = appState.taggedPackageIDs.firstIndex(of: package.name)
+    if let indexOfPackageToRemove = appState.taggedPackageNames.firstIndex(of: package.name)
     {
-        appState.taggedPackageIDs.remove(at: indexOfPackageToRemove)
+        appState.taggedPackageNames.remove(at: indexOfPackageToRemove)
     }
     
-    print("Tagged packages: \(appState.taggedPackageIDs) (\(appState.taggedPackageIDs.count))")
+    print("Tagged packages: \(appState.taggedPackageNames) (\(appState.taggedPackageNames.count))")
     
 }

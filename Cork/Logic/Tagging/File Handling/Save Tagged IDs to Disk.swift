@@ -9,7 +9,7 @@ import Foundation
 
 func saveTaggedIDsToDisk(appState: AppState) throws
 {
-    let namesAsString: String = appState.taggedPackageIDs.compactMap { $0 }.joined(separator: ":")
+    let namesAsString: String = appState.taggedPackageNames.compactMap { $0 }.joined(separator: ":")
     print("Names as string: \(namesAsString)")
 
     do
