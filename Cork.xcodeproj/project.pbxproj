@@ -124,6 +124,7 @@
 		63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
 		63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
+		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
 		96B86AFD29C66E6D00844DF4 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AFF29C66E6D00844DF4 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
@@ -246,6 +247,7 @@
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
 		63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Second to Last Element.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
+		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		96B86AFE29C66E6D00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		C4F430F329C93B500070489B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -661,6 +663,7 @@
 				63A87467298FE811009F9533 /* Package Types.swift */,
 				6382C8F8299D6C1D00354B19 /* Package Sorting.swift */,
 				63936A4C29AE6D710069C988 /* Package Caveats.swift */,
+				63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */,
 				63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */,
 				63D51F65299A992900203F3F /* Settings View.swift in Sources */,
+				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,

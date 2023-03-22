@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-#warning("TODO: Implement these different alerts")
-private enum AlertType
-{
-    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile
-}
-
 struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
@@ -28,8 +22,6 @@ struct ContentView: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @State private var multiSelection = Set<UUID>()
-
-    @State private var alertType: AlertType = .uninstallationNotPossibleDueToDependency
 
     var body: some View
     {
@@ -139,11 +131,15 @@ struct ContentView: View
                     catch let taggedStateApplicationError as NSError
                     {
                         print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
+                        appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
+                        appState.isShowingFatalError = true
                     }
                 }
                 catch let uuidLoadingError as NSError
                 {
                     print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                    appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
+                    appState.isShowingFatalError = true
                 }
 
                 if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
@@ -205,15 +201,15 @@ struct ContentView: View
         {
             UpdatePackagesView(isShowingSheet: $appState.isShowingUpdateSheet)
         }
-        .alert(isPresented: $appState.isShowingUninstallationNotPossibleDueToDependencyAlert, content: {
-            switch alertType
+        .alert(isPresented: $appState.isShowingFatalError, content: {
+            switch appState.fatalAlertType
             {
             case .uninstallationNotPossibleDueToDependency:
                 return Alert(
                     title: Text("alert.unable-to-uninstall-dependency.title"),
                     message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
+                        appState.isShowingFatalError = false
                     })
                 )
 
@@ -222,7 +218,7 @@ struct ContentView: View
                     title: Text("Could not apply tagged state to packages"),
                     message: Text("Try restarting Cork. If the problem persists, clear Cork metadata."),
                     primaryButton: .cancel(Text("action.close"), action: {
-                        appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
+                        appState.isShowingFatalError = false
                     }),
                     secondaryButton: .destructive(Text("Clear Metadata"), action: {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
@@ -234,12 +230,12 @@ struct ContentView: View
                             }
                             catch
                             {
-                                alertType = .couldNotClearMetadata
+                                appState.fatalAlertType = .couldNotClearMetadata
                             }
                         }
                         else
                         {
-                            alertType = .metadataFolderDoesNotExist
+                            appState.fatalAlertType = .metadataFolderDoesNotExist
                         }
                     })
                 )
@@ -256,7 +252,7 @@ struct ContentView: View
                         }
                         else
                         {
-                            alertType = .metadataFolderDoesNotExist
+                            appState.fatalAlertType = .metadataFolderDoesNotExist
                         }
                     })
                 )
