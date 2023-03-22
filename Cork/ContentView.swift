@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+#warning("TODO: Implement these different alerts")
+fileprivate enum AlertType
+{
+    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile
+}
+
 struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
