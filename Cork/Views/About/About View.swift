@@ -57,9 +57,19 @@ struct AboutView: View
             profileURL: URL(string: "https://elk.zone/mstdn.social/@oscb@hachyderm.io")!
         ),
     ]
+    
+    @State private var translators: [AcknowledgedContributor] = [
+        AcknowledgedContributor(
+            name: "about.translator.1.name",
+            reasonForAcknowledgement: "about.translator.1.purpose",
+            profileService: .mastodon,
+            profileURL: URL(string: "https://elk.zone/mstdn.social/@Jerry23011@mastodon.social")!
+        ),
+    ]
 
     @State private var isPackageGroupExpanded: Bool = false
     @State private var isContributorGroupExpanded: Bool = false
+    @State private var isTranslatorGroupExpanded: Bool = false
 
     var body: some View
     {
@@ -172,6 +182,39 @@ struct AboutView: View
                         Text("about.contributors")
                     }
                     .animation(.none, value: isContributorGroupExpanded)
+                    
+                    DisclosureGroup
+                    {
+                        List
+                        {
+                            ForEach(translators)
+                            { translator in
+                                HStack(spacing: 10)
+                                {
+                                    VStack(alignment: .leading)
+                                    {
+                                        Text(translator.name)
+                                            .font(.headline)
+                                        Text(translator.reasonForAcknowledgement)
+                                            .font(.subheadline)
+                                    }
+
+                                    Spacer()
+
+                                    ButtonThatOpensWebsites(websiteURL: translator.profileURL, buttonText: translator.profileService.key)
+                                }
+                            }
+                        }
+                        .listStyle(.bordered(alternatesRowBackgrounds: true))
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: .infinity,
+                            idealHeight: 200
+                        )
+                    } label: {
+                        Text("about.translators")
+                    }
+                    .animation(.none, value: isTranslatorGroupExpanded)
                 }
 
                 HStack

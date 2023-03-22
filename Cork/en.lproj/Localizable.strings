@@ -244,6 +244,10 @@
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "Made the first approved pull request; fixed package counts, along with Jierong Li";
 
+"about.translators" = "Translators";
+"about.translator.1.name" = "Jerry23011";
+"about.translator.1.purpose" = "Translated Cork into Chinese";
+
 "about.contribute" = "Contribute";
 "about.contact" = "Contact Me";
 
