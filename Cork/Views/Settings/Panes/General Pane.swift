@@ -67,7 +67,7 @@ struct GeneralPane: View
                     Text("settings.general.package-caveats.minified")
                         .tag(PackageCaveatDisplay.mini)
                 } label: {
-                    Text("Package caveats:")
+                    Text("settings.general.package-caveats")
                 }
                 .pickerStyle(.radioGroup)
                 if caveatDisplayOptions == .mini
@@ -93,7 +93,7 @@ struct GeneralPane: View
                         Text("settings.general.package-details.toggle")
                     }
                 } label: {
-                    Text("Package details:")
+                    Text("settings.general.package-details")
                 }
             }
         }
