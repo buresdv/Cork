@@ -8,9 +8,9 @@
 import SwiftUI
 
 #warning("TODO: Implement these different alerts")
-fileprivate enum AlertType
+private enum AlertType
 {
-    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile
+    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile
 }
 
 struct ContentView: View
@@ -29,7 +29,7 @@ struct ContentView: View
 
     @State private var multiSelection = Set<UUID>()
 
-    @State private var isShowingAlert: Bool = false
+    @State private var alertType: AlertType = .uninstallationNotPossibleDueToDependency
 
     var body: some View
     {
@@ -94,7 +94,7 @@ struct ContentView: View
         .onAppear
         {
             print("Brew executable path: \(AppConstants.brewExecutablePath.absoluteString)")
-            
+
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
 
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
@@ -116,16 +116,16 @@ struct ContentView: View
             {
                 print("Metadata file exists")
             }
-            
+
             Task
             {
                 async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
 
                 brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
                 brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
-                
+
                 availableTaps.addedTaps = await loadUpTappedTaps()
-                
+
                 do
                 {
                     appState.taggedPackageNames = try loadTaggedIDsFromDisk()
@@ -156,7 +156,6 @@ struct ContentView: View
                     allowBrewAnalytics = false
                     print("Analytics are DISABLED")
                 }
-                
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
@@ -207,9 +206,83 @@ struct ContentView: View
             UpdatePackagesView(isShowingSheet: $appState.isShowingUpdateSheet)
         }
         .alert(isPresented: $appState.isShowingUninstallationNotPossibleDueToDependencyAlert, content: {
-            Alert(title: Text("alert.unable-to-uninstall-dependency.title"), message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)"), dismissButton: .default(Text("action.close"), action: {
-                appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
-            }))
+            switch alertType
+            {
+            case .uninstallationNotPossibleDueToDependency:
+                return Alert(
+                    title: Text("alert.unable-to-uninstall-dependency.title"),
+                    message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
+                    })
+                )
+
+            case .couldNotApplyTaggedStateToPackages:
+                return Alert(
+                    title: Text("Could not apply tagged state to packages"),
+                    message: Text("Try restarting Cork. If the problem persists, clear Cork metadata."),
+                    primaryButton: .cancel(Text("action.close"), action: {
+                        appState.isShowingUninstallationNotPossibleDueToDependencyAlert = false
+                    }),
+                    secondaryButton: .destructive(Text("Clear Metadata"), action: {
+                        if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
+                        {
+                            do
+                            {
+                                try FileManager.default.removeItem(atPath: AppConstants.documentsDirectoryPath.path)
+                                restartApp()
+                            }
+                            catch
+                            {
+                                alertType = .couldNotClearMetadata
+                            }
+                        }
+                        else
+                        {
+                            alertType = .metadataFolderDoesNotExist
+                        }
+                    })
+                )
+
+            case .couldNotClearMetadata:
+                return Alert(
+                    title: Text("Could not clear metadata"),
+                    message: Text("Delete the metadata folder manually, or try restarting Cork."),
+                    primaryButton: .cancel(Text("action.close"), action: {}),
+                    secondaryButton: .default(Text("Reveal Metadata in Finder"), action: {
+                        if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
+                        {
+                            NSWorkspace.shared.open(AppConstants.documentsDirectoryPath)
+                        }
+                        else
+                        {
+                            alertType = .metadataFolderDoesNotExist
+                        }
+                    })
+                )
+
+            case .metadataFolderDoesNotExist:
+                return Alert(
+                    title: Text("Could not find metadata folder"),
+                    message: Text("Reinstall Cork and try again"),
+                    dismissButton: .default(Text("action.close"), action: {})
+                )
+
+            case .couldNotCreateCorkMetadataDirectory:
+                    return Alert(
+                        title: Text("Could not create Metadata folder"),
+                        message: Text("Make sure you've given Cork permission to access your Documents folder"),
+                        dismissButton: .default(Text("Restart Cork"), action: {
+                        restartApp()
+                    }))
+            case .couldNotCreateCorkMetadataFile:
+                    return Alert(
+                        title: Text("Could not create Metadata file"),
+                        message: Text("Make sure you've given Cork permission to access your Documents folder"),
+                        dismissButton: .default(Text("Restart Cork"), action: {
+                        restartApp()
+                    }))
+            }
         })
     }
 }
