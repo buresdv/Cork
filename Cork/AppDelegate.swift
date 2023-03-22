@@ -12,11 +12,27 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate
 {
+    
+    var appState = AppState()
+    
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
         return true
     }
 
+    func applicationWillTerminate(_ notification: Notification) {
+        print("Will die...")
+        do
+        {
+            try saveTaggedIDsToDisk(appState: appState)
+        }
+        catch let dataSavingError as NSError
+        {
+            print("Failed while trying to save data to disk: \(dataSavingError)")
+        }
+        print("Died")
+    }
+    
     private var aboutWindowController: NSWindowController?
 
     func showAboutPanel()

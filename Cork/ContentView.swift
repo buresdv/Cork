@@ -181,19 +181,6 @@ struct ContentView: View
                 brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
             }
         })
-        .onDisappear
-        {
-            print("Will die...")
-            do
-            {
-                try saveTaggedIDsToDisk(appState: appState)
-            }
-            catch let dataSavingError as NSError
-            {
-                print("Failed while trying to save data to disk: \(dataSavingError)")
-            }
-            print("Died")
-        }
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
             AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet)
