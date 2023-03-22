@@ -41,7 +41,7 @@ struct GroupBoxHeadlineGroup: View
 /// For any artitrary content
 struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
 {
-    var image: String
+    var image: String?
     @ViewBuilder var content: Content
 
     var body: some View
