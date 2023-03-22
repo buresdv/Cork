@@ -17,7 +17,8 @@ class AppState: ObservableObject {
     @Published var isShowingUpdateSheet: Bool = false
     
     @Published var isShowingUninstallationProgressView: Bool = false
-    @Published var isShowingUninstallationNotPossibleDueToDependencyAlert: Bool = false
+    @Published var isShowingFatalError: Bool = false
+    @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
     @Published var offendingDependencyProhibitingUninstallation: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false
     
