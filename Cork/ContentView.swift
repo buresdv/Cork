@@ -217,8 +217,8 @@ struct ContentView: View
                 return Alert(
                     title: Text("alert.could-not-apply-tags.title"),
                     message: Text("alert.could-not-apply-tags.message"),
-                    primaryButton: .cancel(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                    primaryButton: .cancel(Text("action.quit"), action: {
+                        NSApplication.shared.terminate(self)
                     }),
                     secondaryButton: .destructive(Text("action.clear-metadata"), action: {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
@@ -244,7 +244,9 @@ struct ContentView: View
                 return Alert(
                     title: Text("alert.could-not-clear-metadata.title"),
                     message: Text("alert.could-not-clear-metadata.message"),
-                    primaryButton: .cancel(Text("action.close"), action: {}),
+                    primaryButton: .cancel(Text("action.restart"), action: {
+                        restartApp()
+                    }),
                     secondaryButton: .default(Text("action.reveal-in-finder"), action: {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
                         {

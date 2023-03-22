@@ -9,11 +9,14 @@ import Foundation
 
 func restartApp()
 {
-    let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
-    let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
-    let task = Process()
-    task.launchPath = "/usr/bin/open"
-    task.arguments = [path]
-    task.launch()
-    exit(0)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+    {
+        let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
+        let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
+        let task = Process()
+        task.launchPath = "/usr/bin/open"
+        task.arguments = [path]
+        task.launch()
+        exit(0)
+    }
 }
