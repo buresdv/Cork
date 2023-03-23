@@ -258,6 +258,10 @@
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "发起了第一个通过审核的拉取请求；与 Jierong Li 一起修复了软件包计数功能";
 
+"about.translators" = "Translators";
+"about.translator.1.name" = "Jerry";
+"about.translator.1.purpose" = "Translated Cork into Chinese";
+
 "about.contribute" = "贡献";
 "about.contact" = "联系我";
 
