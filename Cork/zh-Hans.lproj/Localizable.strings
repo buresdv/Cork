@@ -3,6 +3,10 @@
 "app-name" = "Cork";
 "action.close" = "关闭";
 "action.cancel" = "取消";
+"action.quit" = "退出 Cork";
+"action.restart" = "重启 Cork";
+"action.reveal-in-finder" = "在访达中显示";
+"action.clear-metadata" = "清除元数据";
 
 // MARK: - Navigation
 "navigation.about" = "关于 Cork";
@@ -21,8 +25,18 @@
 "navigation.install-package" = "安装软件包";
 "navigation.install-package.help" = "添加新软件包";
 
+// MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "无法卸载";
 "alert.unable-to-uninstall-dependency.message-%@" = "该软件包是 %@ 的依赖";
+"alert.could-not-apply-tags.title" = "无法将标签状态应用于软件包";
+"alert.could-not-apply-tags.message" = "请尝试重启 Cork。 如果问题仍然存在，清除 Cork 的元数据";
+"alert.could-not-clear-metadata.title" = "无法清除元数据";
+"alert.could-not-clear-metadata.message" = "请手动删除元数据文件夹，或尝试重启 Cork。";
+"alert.metadata-folder-does-not-exist.title" = "无法找到元数据文件夹";
+"alert.metadata-folder-does-not-exist.message" = "请重新安装 Cork 后再尝试";
+"alert.could-not-create-metadata-directory.title" = "无法创建元数据文件夹";
+"alert.could-not-create-metadata-directory-or-folder.message" = "请确保你已允许 Cork 访问文稿文件夹";
+"alert.could-not-create-metadata-file.title" = "无法创建元数据文件";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
@@ -243,6 +257,10 @@
 "about.contributors.3.purpose" = "修复了主页软件包数量无法更新的问题。";
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "发起了第一个通过审核的拉取请求；与 Jierong Li 一起修复了软件包计数功能";
+
+"about.translators" = "翻译";
+"about.translator.1.name" = "Jerry";
+"about.translator.1.purpose" = "为 Cork 提供了中文翻译";
 
 "about.contribute" = "贡献";
 "about.contact" = "联系我";
