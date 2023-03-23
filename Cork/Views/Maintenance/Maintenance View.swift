@@ -188,7 +188,7 @@ struct MaintenanceView: View
                                 }
                                 else
                                 {
-                                    Text("maintenance.results.orphans-\(numberOfOrphansRemoved)")
+                                    Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
                                 }
                             }
 
@@ -202,7 +202,7 @@ struct MaintenanceView: View
                                     {
                                         Text(packagesHoldingBackCachePurgeTracker.count > 2 ?
                                              "maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker[0...1].joined(separator: ", "))-and-\(packagesHoldingBackCachePurgeTracker.count - 2)-others" :
-                                                "maintenance.results.package-cache.skipped- \(packagesHoldingBackCachePurgeTracker.joined(separator: ", "))")
+                                                "maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker.joined(separator: ", "))")
                                             .font(.caption)
                                             .foregroundColor(Color(nsColor: NSColor.systemGray))
                                     }

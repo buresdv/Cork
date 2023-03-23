@@ -9,10 +9,11 @@ import Foundation
 
 struct BrewPackage: Identifiable, Equatable
 {
-    let id = UUID()
+    var id = UUID()
     let name: String
     
     let isCask: Bool
+    var isTagged: Bool = false
     
     let installedOn: Date?
     let versions: [String]

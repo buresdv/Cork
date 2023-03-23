@@ -187,7 +187,7 @@ struct AddFormulaView: View
                                         Text("add-package.install.fetching-dependencies")
                                         
                                     case .installingDependencies:
-                                        Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-\(installationProgressTracker.numberOfPackageDependencies)")
+                                        Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-of-\(installationProgressTracker.numberOfPackageDependencies)")
                                         
                                     case .installingPackage:
                                         Text("add-package.install.installing-package")

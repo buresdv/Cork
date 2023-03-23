@@ -17,7 +17,16 @@ struct PackageListItem: View
         {
             HStack(alignment: .firstTextBaseline)
             {
-                Text(packageItem.name)
+                
+                if packageItem.isTagged
+                {
+                    PillText(text: packageItem.name, color: .red)
+                }
+                else
+                {
+                    Text(packageItem.name)
+                }
+                
                 Text(returnFormattedVersions(packageItem.versions))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
