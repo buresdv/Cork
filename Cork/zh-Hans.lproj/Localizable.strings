@@ -3,10 +3,10 @@
 "app-name" = "Cork";
 "action.close" = "关闭";
 "action.cancel" = "取消";
-"action.quit" = "Quit Cork";
-"action.restart" = "Restart Cork";
-"action.reveal-in-finder" = "Reveal in Finder";
-"action.clear-metadata" = "Clear metadata";
+"action.quit" = "退出 Cork";
+"action.restart" = "重启 Cork";
+"action.reveal-in-finder" = "在访达中显示";
+"action.clear-metadata" = "清除元数据";
 
 // MARK: - Navigation
 "navigation.about" = "关于 Cork";
@@ -28,15 +28,15 @@
 // MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "无法卸载";
 "alert.unable-to-uninstall-dependency.message-%@" = "该软件包是 %@ 的依赖";
-"alert.could-not-apply-tags.title" = "Could not apply tagged state to packages";
- "alert.could-not-apply-tags.message" = "Try restarting Cork. If the problem persists, clear Cork metadata";
- "alert.could-not-clear-metadata.title" = "Could not clear metadata";
- "alert.could-not-clear-metadata.message" = "Delete the metadata folder manually, or try restarting Cork";
- "alert.metadata-folder-does-not-exist.title" = "Could not find metadata folder";
- "alert.metadata-folder-does-not-exist.message" = "Reinstall Cork and try again";
- "alert.could-not-create-metadata-directory.title" = "Could not create Metadata folder";
- "alert.could-not-create-metadata-directory-or-folder.message" = "Make sure you've given Cork permission to access your Documents folder";
- "alert.could-not-create-metadata-file.title" = "Could not create metadata file";
+"alert.could-not-apply-tags.title" = "无法将标签状态应用于软件包";
+"alert.could-not-apply-tags.message" = "请尝试重启 Cork。 如果问题仍然存在，清除 Cork 的元数据";
+"alert.could-not-clear-metadata.title" = "无法清除元数据";
+"alert.could-not-clear-metadata.message" = "请手动删除元数据文件夹，或尝试重启 Cork。";
+"alert.metadata-folder-does-not-exist.title" = "无法找到元数据文件夹";
+"alert.metadata-folder-does-not-exist.message" = "请重新安装 Cork 后再尝试";
+"alert.could-not-create-metadata-directory.title" = "无法创建元数据文件夹";
+"alert.could-not-create-metadata-directory-or-folder.message" = "请确保你已允许 Cork 访问文稿文件夹";
+"alert.could-not-create-metadata-file.title" = "无法创建元数据文件";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
