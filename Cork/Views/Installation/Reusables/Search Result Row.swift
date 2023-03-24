@@ -53,7 +53,7 @@ struct SearchResultRow: View
                 {
                     Text("add-package.result.loading-description")
                         .font(.caption)
-                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                        .foregroundColor(.secondary)
                 }
             }
             
