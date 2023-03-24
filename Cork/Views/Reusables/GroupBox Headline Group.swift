@@ -34,7 +34,7 @@ struct GroupBoxHeadlineGroup: View
                     .foregroundColor(.secondary)
             }
         }
-        .padding(10)
+        .padding(7)
     }
 }
 
@@ -58,6 +58,6 @@ struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
 
             content
         }
-        .padding(10)
+        .padding(7)
     }
 }
