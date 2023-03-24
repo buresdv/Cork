@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
 {
@@ -50,7 +51,13 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
 
                 if targetFolder.path.contains("Cellar")
                 {
-                    contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, url: temporaryURLStorage, sizeInBytes: folderSizeRaw))
+                    let localPackageInfoJSONPath: URL = temporaryURLStorage.first!.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
+                    async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
+                    let wasPackageInstalledIntentionally: Bool = try! await localPackageInfoJSON["installed_on_request"].boolValue
+                    
+                    print("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
+                    
+                    contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, url: temporaryURLStorage, sizeInBytes: folderSizeRaw))
                 }
                 else
                 {

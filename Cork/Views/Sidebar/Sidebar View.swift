@@ -18,7 +18,7 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
-    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula", tokenSearchResultType: .formula), PackageSearchToken(name: "Cask", tokenSearchResultType: .cask), PackageSearchToken(name: "Tap", tokenSearchResultType: .tap)]
+    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula", tokenSearchResultType: .formula), PackageSearchToken(name: "Cask", tokenSearchResultType: .cask), PackageSearchToken(name: "Tap", tokenSearchResultType: .tap), PackageSearchToken(name: "Manually Installed", tokenSearchResultType: .intentionallyInstalledPackage)]
     @State private var currentTokens: [PackageSearchToken] = .init()
 
     var suggestedTokens: [PackageSearchToken]
@@ -37,59 +37,113 @@ struct SidebarView: View
     {
         List
         {
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .formula })
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .formula }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
             {
                 Section("sidebar.section.installed-formulae")
                 {
                     if !appState.isLoadingFormulae
                     {
-                        ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
-                        { formula in
-                            NavigationLink
-                            {
-                                PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
-                            } label: {
-                                PackageListItem(packageItem: formula)
-                            }
-                            .contextMenu
-                            {
-                                if !formula.isTagged
+                        
+                        if currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
+                        {
+                            ForEach(searchText.isEmpty ? brewData.installedFormulae.filter({ $0.installedIntentionally == true }) : brewData.installedFormulae.filter({ $0.installedIntentionally == true && $0.name.contains(searchText)}))
+                            { formula in
+                                NavigationLink
                                 {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("Tag \(formula.name)")
-                                    }
-                                }
-                                else
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("Untag \(formula.name)")
-                                    }
-                                }
-                                
-                                Divider()
-                                
-                                Button
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
+                                    PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                                 } label: {
-                                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
+                                    PackageListItem(packageItem: formula)
                                 }
+                                .contextMenu
+                                {
+                                    if !formula.isTagged
+                                    {
+                                        Button
+                                        {
+                                            Task
+                                            {
+                                                await tagPackage(package: formula, brewData: brewData, appState: appState)
+                                            }
+                                        } label: {
+                                            Text("Tag \(formula.name)")
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Button
+                                        {
+                                            Task
+                                            {
+                                                await untagPackage(package: formula, brewData: brewData, appState: appState)
+                                            }
+                                        } label: {
+                                            Text("Untag \(formula.name)")
+                                        }
+                                    }
 
+                                    Divider()
+
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
+                            { formula in
+                                NavigationLink
+                                {
+                                    PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
+                                } label: {
+                                    PackageListItem(packageItem: formula)
+                                }
+                                .contextMenu
+                                {
+                                    if !formula.isTagged
+                                    {
+                                        Button
+                                        {
+                                            Task
+                                            {
+                                                await tagPackage(package: formula, brewData: brewData, appState: appState)
+                                            }
+                                        } label: {
+                                            Text("Tag \(formula.name)")
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Button
+                                        {
+                                            Task
+                                            {
+                                                await untagPackage(package: formula, brewData: brewData, appState: appState)
+                                            }
+                                        } label: {
+                                            Text("Untag \(formula.name)")
+                                        }
+                                    }
+
+                                    Divider()
+
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
+                                    }
+                                }
                             }
                         }
                     }
@@ -101,7 +155,7 @@ struct SidebarView: View
                 .collapsible(false)
             }
 
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask })
+            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
             {
                 Section("sidebar.section.installed-casks")
                 {
@@ -141,9 +195,9 @@ struct SidebarView: View
                                         Text("Tag \(cask.name)")
                                     }
                                 }
-                                
+
                                 Divider()
-                                
+
                                 Button
                                 {
                                     Task
@@ -153,7 +207,6 @@ struct SidebarView: View
                                 } label: {
                                     Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
                                 }
-                                
                             }
                         }
                     }
