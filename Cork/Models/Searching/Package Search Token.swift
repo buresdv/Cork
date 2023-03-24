@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum TokenSearchType
 {
@@ -14,7 +15,7 @@ enum TokenSearchType
 
 struct PackageSearchToken: Identifiable
 {
-    var id: String { name }
-    var name: String
+    var id = UUID()
+    var name: LocalizedStringKey
     var tokenSearchResultType: TokenSearchType
 }

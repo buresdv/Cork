@@ -18,7 +18,7 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
-    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "Formula", tokenSearchResultType: .formula), PackageSearchToken(name: "Cask", tokenSearchResultType: .cask), PackageSearchToken(name: "Tap", tokenSearchResultType: .tap), PackageSearchToken(name: "Manually Installed", tokenSearchResultType: .intentionallyInstalledPackage)]
+    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "search.token.filter-formulae", tokenSearchResultType: .formula), PackageSearchToken(name: "search.token.filter-casks", tokenSearchResultType: .cask), PackageSearchToken(name: "search.token.filter-taps", tokenSearchResultType: .tap), PackageSearchToken(name: "search.token.filter-manually-installed-packages", tokenSearchResultType: .intentionallyInstalledPackage)]
     @State private var currentTokens: [PackageSearchToken] = .init()
 
     var suggestedTokens: [PackageSearchToken]
@@ -65,7 +65,7 @@ struct SidebarView: View
                                                 await tagPackage(package: formula, brewData: brewData, appState: appState)
                                             }
                                         } label: {
-                                            Text("Tag \(formula.name)")
+                                            Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
                                         }
                                     }
                                     else
@@ -77,7 +77,7 @@ struct SidebarView: View
                                                 await untagPackage(package: formula, brewData: brewData, appState: appState)
                                             }
                                         } label: {
-                                            Text("Untag \(formula.name)")
+                                            Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
                                         }
                                     }
 
@@ -116,7 +116,7 @@ struct SidebarView: View
                                                 await tagPackage(package: formula, brewData: brewData, appState: appState)
                                             }
                                         } label: {
-                                            Text("Tag \(formula.name)")
+                                            Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
                                         }
                                     }
                                     else
@@ -128,7 +128,7 @@ struct SidebarView: View
                                                 await untagPackage(package: formula, brewData: brewData, appState: appState)
                                             }
                                         } label: {
-                                            Text("Untag \(formula.name)")
+                                            Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
                                         }
                                     }
 
@@ -180,7 +180,7 @@ struct SidebarView: View
                                             await untagPackage(package: cask, brewData: brewData, appState: appState)
                                         }
                                     } label: {
-                                        Text("Untag \(cask.name)")
+                                        Text("sidebar.section.all.contextmenu.untag-\(cask.name)")
                                     }
                                 }
                                 else
@@ -192,7 +192,7 @@ struct SidebarView: View
                                             await tagPackage(package: cask, brewData: brewData, appState: appState)
                                         }
                                     } label: {
-                                        Text("Tag \(cask.name)")
+                                        Text("sidebar.section.all.contextmenu.tag-\(cask.name)")
                                     }
                                 }
 

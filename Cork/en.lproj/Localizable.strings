@@ -48,6 +48,14 @@
 "sidebar.section.added-taps.contextmenu.remove-%@" = "Remove %@";
 "sidebar.section.added-taps.remove.title-%@" = "Couldn't remove %@";
 "sidebar.section.added-taps.remove.message" = "Try again in a few minutes, or restart Cork";
+"sidebar.section.all.contextmenu.tag-%@" = "Tag %@";
+"sidebar.section.all.contextmenu.untag-%@" = "Untag %@";
+
+// MARK: - Searching
+"search.token.filter-formulae" = "Formula";
+"search.token.filter-casks" = "Cask";
+"search.token.filter-taps" = "Tap";
+"search.token.filter-manually-installed-packages" = "Manually Installed";
 
 // MARK: - Start Page
 "start-page.loading" = "Loading Packages…";
