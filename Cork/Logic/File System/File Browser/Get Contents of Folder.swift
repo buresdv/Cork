@@ -11,7 +11,8 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
 {
     var contentsOfFolder = [BrewPackage]()
 
-    var temporaryVersionStorage = [String]()
+    var temporaryVersionStorage: [String] = .init()
+    var temporaryURLStorage: [URL] = .init()
 
     do
     {
@@ -21,22 +22,19 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
         {
             do
             {
-                let versions = try FileManager.default.contentsOfDirectory(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path)
+                let versions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
 
                 for version in versions
                 { // Check if what we're about to add are actual versions or just some supporting folders
                     print("Scanned version: \(version)")
 
-                    if version != ".metadata"
-                    {
-                        print("Found desirable version: \(version). Appending to temporary package list")
+                    print("Found desirable version: \(version). Appending to temporary package list")
+                    
+                    temporaryURLStorage.append(targetFolder.appendingPathComponent(item, conformingTo: .folder).appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
+                    
+                    print("URL to package \(item) is \(temporaryURLStorage)")
 
-                        temporaryVersionStorage.append(version)
-                    }
-                    else
-                    {
-                        print("Found non-desirable version: \(version). Ignoring")
-                    }
+                    temporaryVersionStorage.append(version.lastPathComponent)
                 }
 
                 print("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
@@ -52,14 +50,15 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
 
                 if targetFolder.path.contains("Cellar")
                 {
-                    contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                    contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, url: temporaryURLStorage, sizeInBytes: folderSizeRaw))
                 }
                 else
                 {
-                    contentsOfFolder.append(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                    contentsOfFolder.append(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, url: temporaryURLStorage, sizeInBytes: folderSizeRaw))
                 }
 
                 temporaryVersionStorage = [String]()
+                temporaryURLStorage = [URL]()
             }
             catch let error as NSError
             {

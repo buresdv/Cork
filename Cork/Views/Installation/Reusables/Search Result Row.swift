@@ -75,7 +75,7 @@ struct SearchResultRow: View
                         
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)
                         
-                        description = getPackageDescriptionFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
+                        description = getPackageDescriptionFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], url: [], sizeInBytes: nil))
                     }
                     else
                     {
