@@ -77,11 +77,11 @@ struct AddFormulaView: View
 
                             for formula in try await foundFormulae
                             {
-                                searchResultTracker.foundFormulae.append(BrewPackage(name: formula, isCask: false, installedOn: nil, versions: [], url: [], sizeInBytes: nil))
+                                searchResultTracker.foundFormulae.append(BrewPackage(name: formula, isCask: false, installedOn: nil, versions: [], sizeInBytes: nil))
                             }
                             for cask in try await foundCasks
                             {
-                                searchResultTracker.foundCasks.append(BrewPackage(name: cask, isCask: true, installedOn: nil, versions: [], url: [], sizeInBytes: nil))
+                                searchResultTracker.foundCasks.append(BrewPackage(name: cask, isCask: true, installedOn: nil, versions: [], sizeInBytes: nil))
                             }
 
                             packageInstallationProcessStep = .presentingSearchResults

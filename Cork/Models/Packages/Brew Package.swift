@@ -20,8 +20,6 @@ struct BrewPackage: Identifiable, Equatable
     
     var installedIntentionally: Bool = true
     
-    let url: [URL]
-    
     let sizeInBytes: Int64?
 }
 

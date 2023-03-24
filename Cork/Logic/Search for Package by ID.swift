@@ -18,13 +18,13 @@ func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker
     for formula in foundFormulae {
         if requestedPackageUUID == formula.id
         {
-            filteredPackage = BrewPackage(name: formula.name, isCask: formula.isCask, installedOn: formula.installedOn, versions: formula.versions, url: formula.url, sizeInBytes: formula.sizeInBytes)
+            filteredPackage = BrewPackage(name: formula.name, isCask: formula.isCask, installedOn: formula.installedOn, versions: formula.versions, sizeInBytes: formula.sizeInBytes)
         }
     }
     
     for cask in foundCasks {
         if requestedPackageUUID == cask.id {
-            filteredPackage = BrewPackage(name: cask.name, isCask: cask.isCask, installedOn: cask.installedOn, versions: cask.versions, url: cask.url, sizeInBytes: cask.sizeInBytes)
+            filteredPackage = BrewPackage(name: cask.name, isCask: cask.isCask, installedOn: cask.installedOn, versions: cask.versions, sizeInBytes: cask.sizeInBytes)
         }
     }
     
