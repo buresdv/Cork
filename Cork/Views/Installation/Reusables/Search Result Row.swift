@@ -30,14 +30,14 @@ struct SearchResultRow: View
                 {
                     if brewData.installedFormulae.contains(where: { $0.name == packageName })
                     {
-                        PillText(text: "add-package.result.already-installed")
+                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
                 }
                 else
                 {
                     if brewData.installedCasks.contains(where: { $0.name == packageName })
                     {
-                        PillText(text: "add-package.result.already-installed")
+                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
                 }
             }
@@ -53,7 +53,7 @@ struct SearchResultRow: View
                 {
                     Text("add-package.result.loading-description")
                         .font(.caption)
-                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                        .foregroundColor(.secondary)
                 }
             }
             

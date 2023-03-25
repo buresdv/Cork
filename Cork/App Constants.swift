@@ -9,6 +9,7 @@ import Foundation
 import SwiftyJSON
 
 struct AppConstants {
+    /// **Basic executables and file locations**
     static let brewExecutablePath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/bin/brew")
@@ -54,6 +55,11 @@ struct AppConstants {
         }
     }()
     
+    /// **Storage for tagging**
+    static let documentsDirectoryPath: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cork", conformingTo: .directory)
+    static let metadataFilePath: URL = documentsDirectoryPath.appendingPathComponent("Metadata", conformingTo: .data)
+    
+    /// **Brew cache**
     static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
     
     /// These two have the symlinks to the actual downloads

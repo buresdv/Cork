@@ -12,7 +12,6 @@ struct CorkApp: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @StateObject var appState = AppState()
     @StateObject var brewData = BrewDataStorage()
     @StateObject var availableTaps = AvailableTaps()
 
@@ -27,7 +26,7 @@ struct CorkApp: App
         WindowGroup
         {
             ContentView()
-                .environmentObject(appState)
+                .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(selectedPackageInfo)
@@ -61,7 +60,7 @@ struct CorkApp: App
             {
                 Button
                 {
-                    appState.isShowingInstallationSheet.toggle()
+                    appDelegate.appState.isShowingInstallationSheet.toggle()
                 } label: {
                     Text("navigation.menu.packages.install")
                 }
@@ -69,7 +68,7 @@ struct CorkApp: App
 
                 Button
                 {
-                    appState.isShowingAddTapSheet.toggle()
+                    appDelegate.appState.isShowingAddTapSheet.toggle()
                 } label: {
                     Text("navigation.menu.packages.add-tap")
                 }
@@ -79,7 +78,7 @@ struct CorkApp: App
 
                 Button
                 {
-                    appState.isShowingUpdateSheet = true
+                    appDelegate.appState.isShowingUpdateSheet = true
                 } label: {
                     Text("navigation.menu.packages.update")
                 }
@@ -99,16 +98,16 @@ struct CorkApp: App
             {
                 Button
                 {
-                    appState.isShowingMaintenanceSheet.toggle()
+                    appDelegate.appState.isShowingMaintenanceSheet.toggle()
                 } label: {
                     Text("navigation.menu.maintenance.perform")
                 }
                 .keyboardShortcut("m")
                 
-                if appState.cachedDownloadsFolderSize != 0
+                if appDelegate.appState.cachedDownloadsFolderSize != 0
                 {
                     Button {
-                        appState.isShowingFastCacheDeletionMaintenanceView.toggle()
+                        appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
                     } label: {
                         Text("navigation.menu.maintenance.delete-cached-downloads")
                     }

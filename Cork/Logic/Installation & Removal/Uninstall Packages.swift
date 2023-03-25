@@ -31,7 +31,8 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             dependencyName = String(try regexMatch(from: uninstallCommandOutput.standardError, regex: dependencyNameExtractionRegex))
 
             appState.offendingDependencyProhibitingUninstallation = dependencyName
-            appState.isShowingUninstallationNotPossibleDueToDependencyAlert = true
+            appState.fatalAlertType = .uninstallationNotPossibleDueToDependency
+            appState.isShowingFatalError = true
 
             print("Name of offending dependency: \(dependencyName)")
         }

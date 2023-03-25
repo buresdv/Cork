@@ -17,7 +17,8 @@ class AppState: ObservableObject {
     @Published var isShowingUpdateSheet: Bool = false
     
     @Published var isShowingUninstallationProgressView: Bool = false
-    @Published var isShowingUninstallationNotPossibleDueToDependencyAlert: Bool = false
+    @Published var isShowingFatalError: Bool = false
+    @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
     @Published var offendingDependencyProhibitingUninstallation: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false
     
@@ -25,4 +26,6 @@ class AppState: ObservableObject {
     @Published var isLoadingCasks: Bool = true
     
     @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
+    
+    @Published var taggedPackageNames: Set<String> = .init()
 }

@@ -53,6 +53,33 @@ struct SidebarView: View
                             }
                             .contextMenu
                             {
+                                if !formula.isTagged
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await tagPackage(package: formula, brewData: brewData, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("Tag \(formula.name)")
+                                    }
+                                }
+                                else
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await untagPackage(package: formula, brewData: brewData, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("Untag \(formula.name)")
+                                    }
+                                }
+                                
+                                Divider()
+                                
                                 Button
                                 {
                                     Task
@@ -62,6 +89,7 @@ struct SidebarView: View
                                 } label: {
                                     Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
                                 }
+
                             }
                         }
                     }
@@ -89,6 +117,33 @@ struct SidebarView: View
                             }
                             .contextMenu
                             {
+                                if cask.isTagged
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await untagPackage(package: cask, brewData: brewData, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("Untag \(cask.name)")
+                                    }
+                                }
+                                else
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            await tagPackage(package: cask, brewData: brewData, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("Tag \(cask.name)")
+                                    }
+                                }
+                                
+                                Divider()
+                                
                                 Button
                                 {
                                     Task
@@ -98,6 +153,7 @@ struct SidebarView: View
                                 } label: {
                                     Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
                                 }
+                                
                             }
                         }
                     }
