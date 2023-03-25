@@ -94,7 +94,7 @@
 "update-packages.updating.finished" = "Done";
 "update-packages.no-updates" = "No updates available";
 "update-packages.no-updates.description" = "You're all up to date";
-"update-packages.finished" = "Sucessfully upgraded packages";
+"update-packages.finished" = "Successfully upgraded packages";
 "update-packages.finished.description" = "There were no errors";
 "update-packages.error" = "Packages updated with errors";
 "update-packages.error.description" = "There were some errors during updating.\nCheck below for more information";
