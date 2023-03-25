@@ -48,6 +48,14 @@
 "sidebar.section.added-taps.contextmenu.remove-%@" = "移除 %@";
 "sidebar.section.added-taps.remove.title-%@" = "无法移动 %@";
 "sidebar.section.added-taps.remove.message" = "请在几分钟后再试，或重启 Cork";
+"sidebar.section.all.contextmenu.tag-%@" = "为 %@ 添加标签";
+"sidebar.section.all.contextmenu.untag-%@" = "取消 %@ 的标签";
+
+// MARK: - Searching
+"search.token.filter-formulae" = "Formula";
+"search.token.filter-casks" = "Cask";
+"search.token.filter-taps" = "Tap";
+"search.token.filter-manually-installed-packages" = "手动安装";
 
 // MARK: - Start Page
 "start-page.loading" = "加载软件包…";
