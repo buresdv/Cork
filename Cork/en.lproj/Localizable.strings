@@ -233,6 +233,10 @@
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "Set default steps";
 
+// MARK: - Settings: Brew
+"settings.analytics.analytics" = "Analytics:";
+"settings.analytics.collect-analytics" = "Collect analytics";
+
 // MARK: - Settings: Install/Uninstall
 "settings.install-uninstall.installation" = "Installation:";
 "settings.install-uninstall.installation.toggle" = "Show list of packages currently being installed";

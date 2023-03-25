@@ -50,7 +50,7 @@
 "sidebar.section.added-taps.remove.message" = "请在几分钟后再试，或重启 Cork";
 
 // MARK: - Start Page
-"start-page.loading" = "正在加载软件包…";
+"start-page.loading" = "加载软件包…";
 "start-page.status" = "Homebrew 状态";
 "start-page.updates.loading" = "检查软件包更新…";
 "start-page.updates.list" = "有新版本可用";
@@ -120,7 +120,7 @@
 "add-package.searching-%@" = "正在搜索 %@…";
 "add-package.search.results.formulae" = "找到以下 Formulae";
 "add-package.search.results.casks" = "找到以下 Casks";
-"add-package.result.already-installed" = "已被安装";
+"add-package.result.already-installed" = "已安装";
 "add-package.result.loading-description" = "加载简介…";
 "add-package.install.action" = "安装";
 "add-package.install.ready" = "构建依赖关系图…";
@@ -180,7 +180,7 @@
 "maintenance.steps.downloads.delete-cached-downloads" = "删除下载缓存";
 "maintenance.steps.other" = "其它：";
 "maintenance.steps.other.health-check" = "平台状态检查";
-"maintenance.steps.start" = "Start";
+"maintenance.steps.start" = "开始";
 
 // MARK: - Maintenance Progress
 "maintenance.step.initial" = "启动…";
@@ -224,6 +224,10 @@
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "设置默认步骤";
+
+// MARK: - Settings: Brew
+"settings.analytics.analytics" = "分析：";
+"settings.analytics.collect-analytics" = "收集分析数据";
 
 // MARK: - Settings: Install/Uninstall
 "settings.install-uninstall.installation" = "安装：";
