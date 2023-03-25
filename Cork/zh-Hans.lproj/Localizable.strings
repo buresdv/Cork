@@ -226,8 +226,8 @@
 "settings.maintenance.default-steps" = "设置默认步骤";
 
 // MARK: - Settings: Brew
-"settings.analytics.analytics" = "分析：";
-"settings.analytics.collect-analytics" = "收集分析数据";
+"settings.brew.analytics" = "分析：";
+"settings.brew.collect-analytics" = "收集分析数据";
 
 // MARK: - Settings: Install/Uninstall
 "settings.install-uninstall.installation" = "安装：";
