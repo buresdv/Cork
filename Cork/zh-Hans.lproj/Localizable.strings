@@ -17,7 +17,7 @@
 "navigation.upgrade-packages" = "更新软件包";
 "navigation.upgrade-packages.help" = "更新已安装软件包";
 "navigation.add-tap" = "添加 Tap";
-"navigation.add-tap.help" = "添加新 tap";
+"navigation.add-tap.help" = "添加新 Tap";
 "navigation.install-package" = "安装软件包";
 "navigation.install-package.help" = "添加新软件包";
 
@@ -26,11 +26,11 @@
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
-"sidebar.section.installed-formulae" = "已安装 Formulae";
+"sidebar.section.installed-formulae" = "已安装 Formula";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "卸载 %@";
-"sidebar.section.installed-casks" = "已安装 Casks";
+"sidebar.section.installed-casks" = "已安装 Cask";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "卸载 %@";
-"sidebar.section.added-taps" = "已安装 Taps";
+"sidebar.section.added-taps" = "已安装 Tap";
 "sidebar.section.added-taps.contextmenu.remove-%@" = "移除 %@";
 "sidebar.section.added-taps.remove.title-%@" = "无法移动 %@";
 "sidebar.section.added-taps.remove.message" = "请在几分钟后再试，或重启 Cork";
@@ -41,9 +41,9 @@
 "start-page.updates.loading" = "检查软件包更新…";
 "start-page.updates.list" = "有新版本可用";
 "start-page.updates.action" = "更新";
-"start-page.installed-formulae.description" = "Formulae 是你通过终端使用的软件包";
-"start-page.installed-casks.description" = "Casks 是有图形界面的软件包";
-"start-page.added-taps.description" = "Taps 提供额外的软件包";
+"start-page.installed-formulae.description" = "Formula 是你通过终端使用的软件包";
+"start-page.installed-casks.description" = "Cask 是有图形界面的软件包";
+"start-page.added-taps.description" = "Tap 提供额外的软件包";
 "start-page.analytics.disabled" = "Homebrew 分析已禁用";
 "start-page.analytics.disabled.description" = "Homebrew 不会采集任何使用数据";
 "start-page.analytics.enabled" = "Homebrew 分析已启用";
@@ -54,7 +54,7 @@
 "start-page.open-maintenance" = "Brew 维护…";
 
 // MARK: - Add Tap
-"add-tap" = "添加 tap";
+"add-tap" = "添加 Tap";
 "add-tap.typing.error.empty" = "未输入 Tap 名称";
 "add-tap.typing.error.empty.description" = "你未输入任何 Tap 名称";
 "add-tap.typing.error.slash" = "Tap 名称需要包含斜杠";
@@ -75,14 +75,14 @@
 "tap-details.info" = "信息";
 "tap-details.contents" = "内容";
 "tap-details.contents.none" = "无内容";
-"tap-details.contents.formulae-only" = "仅 Formulae";
-"tap-details.contents.casks-only" = "仅 Casks";
-"tap-details.contents.formulae-mostly" = "大多数为 Formulae";
-"tap-details.contents.casks-mostly" = "大多数为 Casks";
+"tap-details.contents.formulae-only" = "仅 Formula";
+"tap-details.contents.casks-only" = "仅 Cask";
+"tap-details.contents.formulae-mostly" = "大多数为 Formula";
+"tap-details.contents.casks-mostly" = "大多数为 Cask";
 "tap-details.package-count" = "软件包数量";
 "tap-details.homepage" = "主页";
-"tap-details.included-formulae" = "包括 Formulae";
-"tap-details.included-casks" = "包括 Casks";
+"tap-details.included-formulae" = "包括 Formula";
+"tap-details.included-casks" = "包括 Cask";
 "tap-details.remove-%@" = "移除 %@";
 "tap-details.included-packages.search.prompt" = "包括软件包";
 
@@ -104,8 +104,8 @@
 "add-package.search.prompt" = "搜索软件包…";
 "add-package.search.action" = "搜索";
 "add-package.searching-%@" = "正在搜索 %@…";
-"add-package.search.results.formulae" = "找到以下 Formulae";
-"add-package.search.results.casks" = "找到以下 Casks";
+"add-package.search.results.formulae" = "找到以下 Formula";
+"add-package.search.results.casks" = "找到以下 Cask";
 "add-package.result.already-installed" = "已安装";
 "add-package.result.loading-description" = "加载简介…";
 "add-package.install.action" = "安装";
@@ -144,7 +144,7 @@
 "package-details.size" = "大小";
 "package-details.size.help" = "为什么它这么小？";
 "package-details.size.help.title" = "为什么软件包这么小？";
-"package-details.size.help.body-1" = "Cask 安装路径和 Formulae 不同。Cask 会被安装到“应用程序”文件夹中。";
+"package-details.size.help.body-1" = "Cask 安装路径和 Formula 不同。Cask 会被安装到“应用程序”文件夹中。";
 "package-details.size.help.body-2" = "由于 Cork 没有权限访问你的应用程序文件夹，它无法获取应用程序的实际大小，只能获取与 Cask 相关联的元数据大小。";
 "package-details.action.pin-version-%@" = "锁定版本为 %@";
 "package-details.action.unpin-version-%@" = "解除锁定版本 %@";
