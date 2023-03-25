@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum TokenSearchType
 {
-    case formula, cask, tap, tag
+    case formula, cask, tap, tag, intentionallyInstalledPackage
 }
 
 struct PackageSearchToken: Identifiable
 {
-    var id: String { name }
-    var name: String
+    var id = UUID()
+    var name: LocalizedStringKey
     var tokenSearchResultType: TokenSearchType
 }

@@ -182,6 +182,7 @@ struct StartPage: View
                                         } label: {
                                             Text("start-page.cached-downloads.action")
                                         }
+                                        .padding(.trailing, 7)
                                     }
                                 }
                             }

@@ -18,6 +18,8 @@ struct BrewPackage: Identifiable, Equatable
     let installedOn: Date?
     let versions: [String]
     
+    var installedIntentionally: Bool = true
+    
     let sizeInBytes: Int64?
 }
 
