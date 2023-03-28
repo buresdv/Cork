@@ -27,7 +27,7 @@ struct SettingsView: View
 
             BrewPane()
                 .tabItem {
-                    Label("settings.homebrew", systemImage: "cup.and.saucer")
+                    Label("settings.homebrew", systemImage: "mug")
                 }
             /*InstallationAndUninstallationPane()
                 .tabItem
