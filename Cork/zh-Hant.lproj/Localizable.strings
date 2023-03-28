@@ -16,7 +16,7 @@
 "navigation.menu.packages.update" = "更新套件⋯";
 "navigation.menu.maintenance" = "維護";
 "navigation.menu.maintenance.perform" = "進行維護⋯";
-"navigation.menu.maintenance.delete-cached-downloads" = "刪除下載暫存";
+"navigation.menu.maintenance.delete-cached-downloads" = "刪除下載快取";
 
 "navigation.upgrade-packages" = "更新套件";
 "navigation.upgrade-packages.help" = "更新已安裝的套件";
@@ -48,8 +48,8 @@
 "sidebar.section.added-taps.contextmenu.remove-%@" = "移除 %@";
 "sidebar.section.added-taps.remove.title-%@" = "移除 %@ 失敗";
 "sidebar.section.added-taps.remove.message" = "請稍等幾分鐘後再重試，或重啟 Cork。";
-"sidebar.section.all.contextmenu.tag-%@" = "貼上 %@ 標籤";
-"sidebar.section.all.contextmenu.untag-%@" = "移除 %@ 標籤";
+"sidebar.section.all.contextmenu.tag-%@" = "為 %@ 貼上標籤";
+"sidebar.section.all.contextmenu.untag-%@" = "為 %@ 移除標籤";
 
 // MARK: - Searching
 "search.token.filter-formulae" = "Formula";
@@ -70,9 +70,9 @@
 "start-page.analytics.disabled.description" = "Homebrew 不收集您使用方式的任何資訊";
 "start-page.analytics.enabled" = "Homebrew 分析功能啟用中";
 "start-page.analytics.enabled.description" = "Homebrew 會收集匿名化的使用方式，包括您安裝的套件。";
-"start-page.cached-downloads-%@" = "您的下載暫存使用了 %@ 的空間";
+"start-page.cached-downloads-%@" = "您的下載快取使用了 %@ 的空間";
 "start-page.cached-downloads.description" = "這些檔案是套件安裝完成後所遺留，可以安全刪除。";
-"start-page.cached-downloads.action" = "刪除下載暫存⋯";
+"start-page.cached-downloads.action" = "刪除下載快取⋯";
 "start-page.open-maintenance" = "Brew 維護⋯";
 
 // MARK: - Add Tap
@@ -112,7 +112,7 @@
 "update-packages.updating.ready" = "準備妥當";
 "update-packages.updating.checking" = "查詢更新⋯";
 "update-packages.updating.updating" = "更新套件⋯";
-"update-packages.updating.updating-outdated-package" = "更新套件暫存";
+"update-packages.updating.updating-outdated-package" = "更新套件快取";
 "update-packages.updating.finished" = "完畢";
 "update-packages.no-updates" = "無更新必要";
 "update-packages.no-updates.description" = "您已有最新版本";
@@ -182,29 +182,29 @@
 // MARK: - Maintenance Steps
 "maintenance.title" = "維護";
 "maintenance.steps.packages" = "套件：";
-"maintenance.steps.packages.uninstall-orphans" = "卸載孤兒套件";
+"maintenance.steps.packages.uninstall-orphans" = "卸載遺孤套件";
 "maintenance.steps.downloads" = "下載：";
-"maintenance.steps.downloads.purge-cache" = "清除 Homebrew 暫存";
-"maintenance.steps.downloads.delete-cached-downloads" = "移除下載暫存";
+"maintenance.steps.downloads.purge-cache" = "清除 Homebrew 快取";
+"maintenance.steps.downloads.delete-cached-downloads" = "移除下載快取";
 "maintenance.steps.other" = "其他：";
 "maintenance.steps.other.health-check" = "執行健康檢查";
 "maintenance.steps.start" = "開始";
 
 // MARK: - Maintenance Progress
 "maintenance.step.initial" = "開始了⋯";
-"maintenance.step.removing-orphans" = "卸載孤兒套件⋯";
-"maintenance.step.purging-cache" = "移除暫存⋯";
-"maintenance.step.deleting-cached-downloads" = "移除下載暫存⋯";
+"maintenance.step.removing-orphans" = "卸載遺孤套件⋯";
+"maintenance.step.purging-cache" = "移除快取⋯";
+"maintenance.step.deleting-cached-downloads" = "移除下載快取⋯";
 "maintenance.step.running-health-check" = "執行健康檢查⋯";
 "maintenance.finished" = "維護完畢";
-"maintenance.results.orphans-none" =  "無孤兒套件";
-"maintenance.results.orphans-count-%lld" =  "移除了 %lld 個孤兒套件";
-"maintenance.results.package-cache" = "清除了套件暫存";
-"maintenance.results.cached-downloads" = "移除了下載暫存";
+"maintenance.results.orphans-none" =  "無遺孤套件";
+"maintenance.results.orphans-count-%lld" =  "移除了 %lld 個遺孤套件";
+"maintenance.results.package-cache" = "清除了套件快取";
+"maintenance.results.cached-downloads" = "移除了下載快取";
 "maintenance.results.cached-downloads.summary-%@" = "您回收了 %@";
 "maintenance.results.health-check.problems-none" = "未發現 Homebrew 任何問題";
 "maintenance.results.health-check.problems" = "發現了 Homebrew 的一些問題";
-"maintenance.results.package-cache.skipped-%@" = "有些暫存因為 %@ 未更新而未清除";
+"maintenance.results.package-cache.skipped-%@" = "有些快取因為 %@ 未更新而未清除";
 
 // MARK: - Settings
 "settings.general" = "一般";
@@ -242,8 +242,8 @@
 "settings.install-uninstall.installation.toggle" = "顯示安裝中的套件";
 
 "settings.install-uninstall.uninstallation" = "卸載：";
-"settings.install-uninstall.uninstallation.purge-cache" = "卸載套件後清除暫存";
-"settings.install-uninstall.uninstallation.remove-orphans" = "卸載套件後清除孤兒套件";
+"settings.install-uninstall.uninstallation.purge-cache" = "卸載套件後清除快取";
+"settings.install-uninstall.uninstallation.remove-orphans" = "卸載套件後清除遺孤套件";
 
 // MARK: - About
 "about.title" = "關於 Cork";
