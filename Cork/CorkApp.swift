@@ -40,7 +40,7 @@ struct CorkApp: App
         }
         .commands
         {
-            CommandGroup(replacing: CommandGroupPlacement.appInfo)
+            CommandGroup(replacing: .appInfo)
             {
                 Button
                 {
@@ -48,6 +48,35 @@ struct CorkApp: App
                 } label: {
                     Text("navigation.about")
                 }
+            }
+            CommandGroup(before: .systemServices) // The "Report Bugs" section
+            {
+                Menu {
+                    Button {
+                        NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new")!)
+                    } label: {
+                        Text("action.report-bugs.git-hub")
+                    }
+
+                    Button {
+                        let emailSubject: String = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
+                        let emailBody: String = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
+                        
+                        let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
+                        emailService?.recipients = ["vsedni_zelenina.0y@icloud.com"]
+                        emailService?.subject = emailSubject
+                        emailService?.perform(withItems: [emailBody])
+                        
+                    } label: {
+                        Text("action.report-bugs.email")
+                    }
+
+                } label: {
+                    Text("action.report-bugs.menu-category")
+                }
+                
+                Divider()
+
             }
 
             SidebarCommands()

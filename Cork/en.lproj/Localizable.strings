@@ -8,6 +8,11 @@
 "action.reveal-in-finder" = "Reveal in Finder";
 "action.clear-metadata" = "Clear metadata";
 
+// MARK: - Bug Reporting
+"action.report-bugs.menu-category" = "Report Bugs";
+"action.report-bugs.git-hub" = "Report on GitHub…";
+"action.report-bugs.email" = "Send an Email…";
+
 // MARK: - Navigation
 "navigation.about" = "About Cork";
 "navigation.menu.packages" = "Packages";
