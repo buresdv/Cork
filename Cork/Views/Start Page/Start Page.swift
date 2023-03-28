@@ -79,7 +79,7 @@ struct StartPage: View
                                                 HStack(alignment: .firstTextBaseline)
                                                 {
                                                     VStack(alignment: .leading, spacing: 2) {
-                                                        Text("start-page.updates.count-\(outdatedPackageTracker.outdatedPackageNames.count)")
+                                                        Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackageNames.count))
                                                             .font(.headline)
                                                         DisclosureGroup(isExpanded: $isDisclosureGroupExpanded)
                                                         {} label: {
@@ -122,7 +122,7 @@ struct StartPage: View
                             {
                                 GroupBoxHeadlineGroup(
                                     image: "terminal",
-                                    title: "start-page.installed-formulae.count-\(brewData.installedFormulae.count)",
+                                    title: LocalizedStringKey(String.localizedPluralString("start-page.installed-formulae.count", brewData.installedFormulae.count)),
                                     mainText: "start-page.installed-formulae.description"
                                 )
                                 .animation(.none, value: brewData.installedFormulae.count)
@@ -131,7 +131,7 @@ struct StartPage: View
 
                                 GroupBoxHeadlineGroup(
                                     image: "macwindow",
-                                    title: "start-page.installed-casks.count-\(brewData.installedCasks.count)",
+                                    title: LocalizedStringKey(String.localizedPluralString("start-page.installed-casks.count", brewData.installedCasks.count)),
                                     mainText: "start-page.installed-casks.description"
                                 )
                                 .animation(.none, value: brewData.installedCasks.count)
@@ -140,7 +140,7 @@ struct StartPage: View
 
                                 GroupBoxHeadlineGroup(
                                     image: "spigot",
-                                    title: "start-page.added-taps.count-\(availableTaps.addedTaps.count)",
+                                    title: LocalizedStringKey(String.localizedPluralString("start-page.added-taps.count", availableTaps.addedTaps.count)),
                                     mainText: "start-page.added-taps.description"
                                 )
                                 .animation(.none, value: availableTaps.addedTaps.count)

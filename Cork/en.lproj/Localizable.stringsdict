@@ -2,20 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>navigation.installed-packages.count-%lld</key>
+	<key>navigation.installed-packages.count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@count@</string>
+		<string>%1#@count@</string>
 		<key>count</key>
 		<dict>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
+			<string>@</string>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>%lld package installed</string>
+			<string>%2$@ package installed</string>
 			<key>other</key>
-			<string>%lld packages installed</string>
+			<string>%2$@ packages installed</string>
 		</dict>
 	</dict>
 	<key>maintenance.results.package-cache.skipped-%@-and-%lld</key>
@@ -43,68 +43,68 @@
 			<string>Some caches weren&apos;t purged because of %1$@ and %2$lld others not being updated</string>
 		</dict>
 	</dict>
-	<key>start-page.added-taps.count-%lld</key>
+	<key>start-page.added-taps.count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@count@</string>
+		<string>%#1@count@</string>
 		<key>count</key>
 		<dict>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
+			<string>@</string>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %lld Tap added</string>
+			<string>You have %2$@ Tap added</string>
 			<key>other</key>
-			<string>You have %lld Taps added</string>
+			<string>You have %2$@ Taps added</string>
 		</dict>
 	</dict>
-	<key>start-page.installed-casks.count-%lld</key>
+	<key>start-page.installed-casks.count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@count@</string>
+		<string>%#1@count@</string>
 		<key>count</key>
 		<dict>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
+			<string>@</string>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %lld Cask installed</string>
+			<string>You have %2$@ Cask installed</string>
 			<key>other</key>
-			<string>You have %lld Casks installed</string>
+			<string>You have %2$@ Casks installed</string>
 		</dict>
 	</dict>
-	<key>start-page.installed-formulae.count-%lld</key>
+	<key>start-page.installed-formulae.count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@count@</string>
+		<string>%#1@count@</string>
 		<key>count</key>
 		<dict>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
+			<string>@</string>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %lld Formula installed</string>
+			<string>You have %2$@ Formula installed</string>
 			<key>other</key>
-			<string>You have %lld Formulae installed</string>
+			<string>You have %2$@ Formulae installed</string>
 		</dict>
 	</dict>
-	<key>start-page.updates.count-%lld</key>
+	<key>start-page.updates.count</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@count@</string>
+		<string>%#1@count@</string>
 		<key>count</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>lld</string>
+			<string>@</string>
 			<key>one</key>
-			<string>There is %lld outdated package</string>
+			<string>There is %2$@ outdated package</string>
 			<key>other</key>
-			<string>There are %lld outdated packages</string>
+			<string>There are %2$@ outdated packages</string>
 		</dict>
 	</dict>
 </dict>
