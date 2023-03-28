@@ -39,12 +39,12 @@
 "alert.could-not-create-metadata-file.title" = "Could not create metadata file";
 
 // MARK: - Sidebar
-"sidebar.search.prompt" = "Installed Packages";
-"sidebar.section.installed-formulae" = "Installed Formulae";
+"sidebar.search.prompt" = "Packages";
+"sidebar.section.installed-formulae" = "Formulae";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "Uninstall %@";
-"sidebar.section.installed-casks" = "Installed Casks";
+"sidebar.section.installed-casks" = "Casks";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "Uninstall %@";
-"sidebar.section.added-taps" = "Added Taps";
+"sidebar.section.added-taps" = "Taps";
 "sidebar.section.added-taps.contextmenu.remove-%@" = "Remove %@";
 "sidebar.section.added-taps.remove.title-%@" = "Couldn't remove %@";
 "sidebar.section.added-taps.remove.message" = "Try again in a few minutes, or restart Cork";
