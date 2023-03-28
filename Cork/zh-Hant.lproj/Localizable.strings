@@ -198,7 +198,7 @@
 "maintenance.step.running-health-check" = "執行健康檢查⋯";
 "maintenance.finished" = "維護完畢";
 "maintenance.results.orphans-none" =  "無孤兒套件";
-"maintenance.results.orphans-count-%lld" =  "移除了 %lld 個孤兒套件";
+"maintenance.results.orphans-count-%@" =  "移除了 %@ 個孤兒套件";
 "maintenance.results.package-cache" = "清除了套件暫存";
 "maintenance.results.cached-downloads" = "移除了下載暫存";
 "maintenance.results.cached-downloads.summary-%@" = "您回收了 %@";
