@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>navigation.installed-packages.count-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>zero</key>
+			<string>未安裝任何套件</string>
+			<key>one</key>
+			<string>已安裝 %lld 個套件</string>
+			<key>other</key>
+			<string>已安裝 %lld 個套件</string>
+		</dict>
+	</dict>
+	<key>maintenance.results.package-cache.skipped-%@-and-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@name@%#@count@</string>
+		<key>name</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>由於 %1$@ 和另 %2$lld 個未能更新，某些暫存無法清除。</string>
+			<key>other</key>
+			<string>由於 %1$@ 和另 %2$lld 個未能更新，某些暫存無法清除。</string>
+		</dict>
+	</dict>
+	<key>start-page.added-taps.count-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>zero</key>
+			<string>未安裝任何 tap</string>
+			<key>one</key>
+			<string>您加入了 %lld 個 tap</string>
+			<key>other</key>
+			<string>您加入了 %lld 個 tap</string>
+		</dict>
+	</dict>
+	<key>start-page.installed-casks.count-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>zero</key>
+			<string>未安裝任何 cask</string>
+			<key>one</key>
+			<string>您安裝了 %lld 個 cask</string>
+			<key>other</key>
+			<string>您安裝了 %lld 個 cask</string>
+		</dict>
+	</dict>
+	<key>start-page.installed-formulae.count-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>zero</key>
+			<string>未安裝任何 formula</string>
+			<key>one</key>
+			<string>您安裝了 %lld 個 formula</string>
+			<key>other</key>
+			<string>您安裝了 %lld 個 formula</string>
+		</dict>
+	</dict>
+	<key>start-page.updates.count-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>有 %lld 個套件已落伍</string>
+			<key>other</key>
+			<string>有 %lld 個套件已落伍</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
