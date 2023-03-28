@@ -1,0 +1,281 @@
+// MARK: - Common
+
+"app-name" = "Cork";
+"action.close" = "關閉";
+"action.cancel" = "取消";
+"action.quit" = "結束 Cork";
+"action.restart" = "重啟 Cork";
+"action.reveal-in-finder" = "在 Finder 裡顯示";
+"action.clear-metadata" = "清除元資料";
+
+// MARK: - Navigation
+"navigation.about" = "關於 Cork";
+"navigation.menu.packages" = "套件";
+"navigation.menu.packages.install" = "安裝套件⋯";
+"navigation.menu.packages.add-tap" = "新增 Tap⋯";
+"navigation.menu.packages.update" = "更新套件⋯";
+"navigation.menu.maintenance" = "維護";
+"navigation.menu.maintenance.perform" = "進行維護⋯";
+"navigation.menu.maintenance.delete-cached-downloads" = "刪除下載暫存";
+
+"navigation.upgrade-packages" = "更新套件";
+"navigation.upgrade-packages.help" = "更新已安裝的套件";
+"navigation.add-tap" = "新增 Tap";
+"navigation.add-tap.help" = "加入新的 tap";
+"navigation.install-package" = "安裝套件";
+"navigation.install-package.help" = "安裝新套件";
+
+// MARK: - Alerts
+"alert.unable-to-uninstall-dependency.title" = "卸載失敗";
+"alert.unable-to-uninstall-dependency.message-%@" = "本套件受 %@ 依存";
+"alert.could-not-apply-tags.title" = "無法為套件加上標籤";
+"alert.could-not-apply-tags.message" = "請嘗試重啟 Cork。如果無法解決問題，請嘗試清除 Cork 的元資料。";
+"alert.could-not-clear-metadata.title" = "無法清除元資料";
+"alert.could-not-clear-metadata.message" = "請手動刪除元資料的檔案夾，或重啟 Cork。";
+"alert.metadata-folder-does-not-exist.title" = "查無元資料檔案夾";
+"alert.metadata-folder-does-not-exist.message" = "請重新安裝 Cork 再重試。";
+"alert.could-not-create-metadata-directory.title" = "無法創建元資料檔案夾";
+"alert.could-not-create-metadata-directory-or-folder.message" = "請確認您有允許 Cork 使用文件檔案夾。";
+"alert.could-not-create-metadata-file.title" = "無法創建元資料檔案";
+
+// MARK: - Sidebar
+"sidebar.search.prompt" = "已安裝的套件";
+"sidebar.section.installed-formulae" = "已安裝的 formula";
+"sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "卸載 %@";
+"sidebar.section.installed-casks" = "已安裝的 cask";
+"sidebar.section.installed-casks.contextmenu.uninstall-%@" = "卸載 %@";
+"sidebar.section.added-taps" = "已安裝的 tap";
+"sidebar.section.added-taps.contextmenu.remove-%@" = "移除 %@";
+"sidebar.section.added-taps.remove.title-%@" = "移除 %@ 失敗";
+"sidebar.section.added-taps.remove.message" = "請稍等幾分鐘後再重試，或重啟 Cork。";
+"sidebar.section.all.contextmenu.tag-%@" = "貼上 %@ 標籤";
+"sidebar.section.all.contextmenu.untag-%@" = "移除 %@ 標籤";
+
+// MARK: - Searching
+"search.token.filter-formulae" = "Formula";
+"search.token.filter-casks" = "Cask";
+"search.token.filter-taps" = "Tap";
+"search.token.filter-manually-installed-packages" = "手動安裝";
+
+// MARK: - Start Page
+"start-page.loading" = "套件下載中⋯";
+"start-page.status" = "Homebrew 狀態";
+"start-page.updates.loading" = "查看套件更新⋯";
+"start-page.updates.list" = "落伍套件";
+"start-page.updates.action" = "更新";
+"start-page.installed-formulae.description" = "Formula 是在終端機裡使用的套件";
+"start-page.installed-casks.description" = "Cask 是有圖形介面的套件";
+"start-page.added-taps.description" = "Tap 提供額外的套件";
+"start-page.analytics.disabled" = "Homebrew 分析功能停用中";
+"start-page.analytics.disabled.description" = "Homebrew 不收集您使用方式的任何資訊";
+"start-page.analytics.enabled" = "Homebrew 分析功能啟用中";
+"start-page.analytics.enabled.description" = "Homebrew 會收集匿名化的使用方式，包括您安裝的套件。";
+"start-page.cached-downloads-%@" = "您的下載暫存使用了 %@ 的空間";
+"start-page.cached-downloads.description" = "這些檔案是套件安裝完成後所遺留，可以安全刪除。";
+"start-page.cached-downloads.action" = "刪除下載暫存⋯";
+"start-page.open-maintenance" = "Brew 維護⋯";
+
+// MARK: - Add Tap
+"add-tap" = "新增 tap";
+"add-tap.typing.error.empty" = "未輸入 tap 名稱";
+"add-tap.typing.error.empty.description" = "您未輸入任何 tap 的名稱";
+"add-tap.typing.error.slash" = "Tap 名稱裡需有斜線號";
+"add-tap.typing.error.slash.description" = "Tap 名稱裡都必需要有個斜線號。";
+"add-tap.action" = "新增";
+"add-tap.progress-%@" = "新增 tap %@";
+"add-tap.complete-%@" = "新增 %@ 成功";
+"add-tap.complete.description" = "未發生任何錯誤";
+"add-tap.error.repository-not-found-%@" = "%@ 並不存在";
+"add-tap.error.repository-not-found.description" = "請確認名稱無誤。";
+"add-tap.error.other-%@" = "新增 tap %@ 時發生錯誤";
+"add-tap.error.other.description" = "請稍等幾分鐘後再重試新增。";
+"add-tap.error.action" = "重試";
+
+// MARK: - Tap Details
+"tap-details.official-%@" = "%@ 是個官方的 tap。\n內含套件都經過審查以確保安全。";
+"tap-details.loading" = "下載 tap 資訊⋯";
+"tap-details.info" = "資訊";
+"tap-details.contents" = "內容";
+"tap-details.contents.none" = "無";
+"tap-details.contents.formulae-only" = "僅含 formula";
+"tap-details.contents.casks-only" = "僅含 cask";
+"tap-details.contents.formulae-mostly" = "大多為 formula";
+"tap-details.contents.casks-mostly" = "大多為 cask";
+"tap-details.package-count" = "套件數量";
+"tap-details.homepage" = "首頁";
+"tap-details.included-formulae" = "內含 formula";
+"tap-details.included-casks" = "內含 cask";
+"tap-details.remove-%@" = "移除 %@";
+"tap-details.included-packages.search.prompt" = "內含套件";
+
+// MARK: - Update Packages
+"update-packages.updating.ready" = "準備妥當";
+"update-packages.updating.checking" = "查詢更新⋯";
+"update-packages.updating.updating" = "更新套件⋯";
+"update-packages.updating.updating-outdated-package" = "更新套件暫存";
+"update-packages.updating.finished" = "完畢";
+"update-packages.no-updates" = "無更新必要";
+"update-packages.no-updates.description" = "您已有最新版本";
+"update-packages.finished" = "成功更新套件";
+"update-packages.finished.description" = "未發生任何錯誤";
+"update-packages.error" = "套件更新時發生錯誤";
+"update-packages.error.description" = "請詳查下方資訊";
+
+// MARK: - Install Package
+"add-package.title" = "安裝套件";
+"add-package.search.prompt" = "搜尋套件⋯";
+"add-package.search.action" = "搜尋";
+"add-package.searching-%@" = "搜尋 %@ 中⋯";
+"add-package.search.results.formulae" = "尋獲 formula";
+"add-package.search.results.casks" = "尋獲 cask";
+"add-package.result.already-installed" = "已安裝";
+"add-package.result.loading-description" = "下載簡介⋯";
+"add-package.install.action" = "安裝";
+"add-package.install.ready" = "建立依存關係圖⋯";
+"add-package.install.loading-dependencies" = "下載依存關係⋯";
+"add-package.install.fetching-dependencies" = "查詢依存關係⋯";
+"add-package.install.installing-dependencies-%lld-of-%lld" = "安裝依存的 %lld/%lld";
+"add-package.install.installing-package" = "安裝套件⋯";
+"add-package.install.finished" = "完畢！";
+"add-package.install.downloading-cask-%@" = "下載 %@⋯";
+"add-package.install.installing-cask-%@" = "安裝 %@⋯";
+"add-package.install.linking-cask-binary" = "鏈結程式碼⋯";
+"add-package.install.moving-cask-%@" = "將 %@ 移至應用程式檔案夾⋯";
+"add-package.install.finished" = "完畢";
+"add-package.finished" = "套件成功安裝";
+"add-package.finished.description" = "未發生任何錯誤";
+
+// MARK: - Package Details
+"package-details.pinned.help-%@" = "%@ 已被釘選，無法更新。";
+"package-details.dependants.dependency-of-%@" = "由 %@ 所依存";
+"package-details.dependants.loading" = "計算依存⋯";
+"package-details.outdated" = "落伍";
+"package-details.caveats.available" = "含警訊 􀅴";
+"package-details.caveats.help" = "點擊以查閱警訊";
+"package-details.caveats.collapse" = "縮限";
+"package-details.caveats.expand" = "顯示全部";
+"package-details.description-none-%@" = "%@ 未含簡介";
+"package-details.contents.loading" = "下載套件資訊⋯";
+"package-details.info" = "資訊";
+"package-details.type" = "類型";
+"package-details.type.cask" = "Cask";
+"package-details.type.formula" = "Formula";
+"package-details.homepage" = "首頁";
+"package-details.dependencies" = "依存關係";
+"package-details.install-date" = "安裝於";
+"package-details.size" = "大小";
+"package-details.size.help" = "為什麼這麼小？";
+"package-details.size.help.title" = "套件為什麼會這麼小？";
+"package-details.size.help.body-1" = "Cask 並不和 Formula 一起安裝在同一個檔案夾，而是另外安裝在應用程式檔案夾。";
+"package-details.size.help.body-2" = "由於 Cork 並不能檢視您的應用程式檔案夾，所以它無法獲取程式的真正大小，只能依靠 cask 裡的元資料。";
+"package-details.action.pin-version-%@" = "釘選 %@ 版本";
+"package-details.action.unpin-version-%@" = "取消釘選 %@ 版本";
+"package-details.action.uninstall-%@" = "卸載 %@";
+
+"package-details.dependencies.search.prompt" = "依存關係";
+"package-details.dependencies.results.name" = "名稱";
+"package-details.dependencies.results.version" = "版本";
+"package-details.dependencies.results.declaration" = "宣告類型";
+"package-details.dependencies.results.declaration.direct" = "直接";
+"package-details.dependencies.results.declaration.indirect" = "間接";
+
+// MARK: - Maintenance Steps
+"maintenance.title" = "維護";
+"maintenance.steps.packages" = "套件：";
+"maintenance.steps.packages.uninstall-orphans" = "卸載孤兒套件";
+"maintenance.steps.downloads" = "下載：";
+"maintenance.steps.downloads.purge-cache" = "清除 Homebrew 暫存";
+"maintenance.steps.downloads.delete-cached-downloads" = "移除下載暫存";
+"maintenance.steps.other" = "其他：";
+"maintenance.steps.other.health-check" = "執行健康檢查";
+"maintenance.steps.start" = "開始";
+
+// MARK: - Maintenance Progress
+"maintenance.step.initial" = "開始了⋯";
+"maintenance.step.removing-orphans" = "卸載孤兒套件⋯";
+"maintenance.step.purging-cache" = "移除暫存⋯";
+"maintenance.step.deleting-cached-downloads" = "移除下載暫存⋯";
+"maintenance.step.running-health-check" = "執行健康檢查⋯";
+"maintenance.finished" = "維護完畢";
+"maintenance.results.orphans-none" =  "無孤兒套件";
+"maintenance.results.orphans-count-%lld" =  "移除了 %lld 個孤兒套件";
+"maintenance.results.package-cache" = "清除了套件暫存";
+"maintenance.results.cached-downloads" = "移除了下載暫存";
+"maintenance.results.cached-downloads.summary-%@" = "您回收了 %@";
+"maintenance.results.health-check.problems-none" = "未發現 Homebrew 任何問題";
+"maintenance.results.health-check.problems" = "發現了 Homebrew 的一些問題";
+"maintenance.results.package-cache.skipped-%@" = "有些暫存因為 %@ 未更新而未清除";
+
+// MARK: - Settings
+"settings.general" = "一般";
+"settings.maintenance" = "維護";
+"settings.homebrew" = "Homebrew";
+"settings.install-uninstall" = "安裝與卸載";
+
+// MARK: - Settings: General
+"settings.general.sort-packages" = "套件排序：";
+"settings.general.sort-packages.alphabetically" = "名稱";
+"settings.general.sort-packages.install-date" = "安裝日期";
+"settings.general.sort-packages.size" = "大小";
+"settings.general.sort-packages.none" = "勿排序";
+"settings.general.sort-packages.restart" = "􀅴 此排序需重啟 Cork 才能生效";
+"settings.general.dependencies" = "依存關係：";
+"settings.general.dependencies.toggle" = "顯示更多依存關係的資訊";
+"settings.general.package-caveats" = "套件警訊：";
+"settings.general.package-caveats.full" = "完整";
+"settings.general.package-caveats.minified" = "精簡";
+"settings.general.package-caveats.minified.info" = "􀅴 點擊「含警訊」紐來檢視警訊";
+"settings.general.search-results" = "搜尋結果：";
+"settings.general.search-results.toggle" = "顯示套件簡介";
+"settings.general.package-details" = "套件簡介：";
+"settings.general.package-details.toggle" = "顯示依存關係搜尋欄";
+
+// MARK: - Settings: Maintenance
+"settings.maintenance.default-steps" = "設定預設步驟";
+
+// MARK: - Settings: Brew
+"settings.brew.analytics" = "分析：";
+"settings.brew.collect-analytics" = "收集分析資料";
+
+// MARK: - Settings: Install/Uninstall
+"settings.install-uninstall.installation" = "安裝：";
+"settings.install-uninstall.installation.toggle" = "顯示安裝中的套件";
+
+"settings.install-uninstall.uninstallation" = "卸載：";
+"settings.install-uninstall.uninstallation.purge-cache" = "卸載套件後清除暫存";
+"settings.install-uninstall.uninstallation.remove-orphans" = "卸載套件後清除孤兒套件";
+
+// MARK: - About
+"about.title" = "關於 Cork";
+"about.packages" = "運用套件";
+"about.packages.1.name" = "DavidFoundation";
+"about.packages.1.purpose" = "我自用一些基本便利功能的套件";
+"about.packages.2.name" = "SwiftyJSON";
+"about.packages.2.purpose" = "我痛恨 Swift 內建的 JSON 語法剖析。有堪用的程式庫，何必另起爐灶？";
+
+"about.contributor.service.github" = "GitHub";
+"about.contributor.service.mastodon" = "Mastodon";
+
+"about.thanks" = "特別銘謝";
+"about.thanks.1.name" = "Seb Jachec";
+"about.thanks.1.purpose" = "寫了一個能實時取得指令回應的函數，使 Cork 大半的功能都更加迅速。";
+
+"about.contributors" = "感謝貢獻";
+"about.contributors.1.name" = "Rob Napier";
+"about.contributors.1.purpose" = "從異步 Swift 到阻礙套件安裝等多種問題提供了寶貴的協助。";
+"about.contributors.2.name" = "Łukasz Rutkowski";
+"about.contributors.2.purpose" = "修理了許多異步和 SwiftUI 問題";
+"about.contributors.3.name" = "Jierong Li";
+"about.contributors.3.purpose" = "修理了套件數量和起始頁面未更新的問題";
+"about.contributors.4.name" = "Oscar Bazaldua";
+"about.contributors.4.purpose" = "貢獻了第一個通過的拉取請求，與 Jierong Li 一同修理套件數量";
+
+"about.translators" = "翻譯";
+"about.translator.1.name" = "Jerry";
+"about.translator.1.purpose" = "為 Cork 提供簡體中文翻譯";
+
+"about.contribute" = "捐助";
+"about.contact" = "聯繫我";
+
+"about.version-%@-%@" = "版本 %@ (%@)";
+"about.copyright" = "© 2022 David Bureš 等貢獻者";
