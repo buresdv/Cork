@@ -102,7 +102,7 @@ struct TapDetailView: View
                             
                             GridRow(alignment: .firstTextBaseline) {
                                 Text("tap-details.package-count")
-                                Text(String(numberOfPackages))
+                                Text(numberOfPackages.formatted())
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             
