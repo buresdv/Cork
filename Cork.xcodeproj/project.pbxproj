@@ -59,7 +59,6 @@
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
-		6371EA2D287202F400300E1B /* Extract from JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA2C287202F400300E1B /* Extract from JSON.swift */; };
 		637260C029BE388F00E6E81C /* Tap Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260BF29BE388F00E6E81C /* Tap Details.swift */; };
 		637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C229BE40FC00E6E81C /* Get Homepage.swift */; };
 		637260C529BE42FB00E6E81C /* Get Official Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C429BE42FB00E6E81C /* Get Official Status.swift */; };
@@ -184,7 +183,6 @@
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
-		6371EA2C287202F400300E1B /* Extract from JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extract from JSON.swift"; sourceTree = "<group>"; };
 		637260BF29BE388F00E6E81C /* Tap Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap Details.swift"; sourceTree = "<group>"; };
 		637260C229BE40FC00E6E81C /* Get Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Homepage.swift"; sourceTree = "<group>"; };
 		637260C429BE42FB00E6E81C /* Get Official Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Official Status.swift"; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 				637E006928734032005C9890 /* Installation & Removal */,
 				6371EA242871EE6000300E1B /* Shell */,
 				6371EA1F2871E0EC00300E1B /* Helpers */,
-				6371EA2C287202F400300E1B /* Extract from JSON.swift */,
 				637E006728733C1C005C9890 /* Search for Package by ID.swift */,
 				632FD28F299591C10029FC49 /* Get Folder Size.swift */,
 				632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */,
@@ -955,7 +952,6 @@
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */,
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
-				6371EA2D287202F400300E1B /* Extract from JSON.swift in Sources */,
 				63C830BC29984B1A002D11BB /* Used Package.swift in Sources */,
 				637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */,
 				63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */,
