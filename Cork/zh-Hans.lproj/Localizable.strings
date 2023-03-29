@@ -8,6 +8,11 @@
 "action.reveal-in-finder" = "在访达中显示";
 "action.clear-metadata" = "清除元数据";
 
+// MARK: - Bug Reporting
+"action.report-bugs.menu-category" = "反馈问题";
+"action.report-bugs.git-hub" = "在 GitHub 上反馈…";
+"action.report-bugs.email" = "发送邮件反馈…";
+
 // MARK: - Navigation
 "navigation.about" = "关于 Cork";
 "navigation.menu.packages" = "软件包";
@@ -278,4 +283,4 @@
 "about.contact" = "联系我";
 
 "about.version-%@-%@" = "版本 %@ (%@)";
-"about.copyright" = "© 2022 David Bureš 和其它贡献者。";
+"about.copyright" = "© 2023 David Bureš 及其它贡献者。";
