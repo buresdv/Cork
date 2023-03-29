@@ -35,7 +35,7 @@ struct ContentView: View
                     .frame(minWidth: 600, minHeight: 500)
             }
             .navigationTitle("app-name")
-            .navigationSubtitle("navigation.installed-packages.count-\(brewData.installedFormulae.count + brewData.installedCasks.count)")
+            .navigationSubtitle(String.localizedPluralString("navigation.installed-packages.count", brewData.installedFormulae.count + brewData.installedCasks.count))
             .toolbar
             {
                 ToolbarItemGroup(placement: .primaryAction)

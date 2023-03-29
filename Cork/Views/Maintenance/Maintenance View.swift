@@ -188,7 +188,7 @@ struct MaintenanceView: View
                                 }
                                 else
                                 {
-                                    Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
+                                    Text(String.localizedPluralString("maintenance.results.orphans-count-%@", numberOfOrphansRemoved))
                                 }
                             }
 

@@ -203,7 +203,7 @@
 "maintenance.step.running-health-check" = "Running health check…";
 "maintenance.finished" = "Maintenance finished";
 "maintenance.results.orphans-none" =  "No orphaned packages found";
-"maintenance.results.orphans-count-%lld" =  "%lld orphaned packages removed";
+"maintenance.results.orphans-count-%@" =  "%@ orphaned packages removed";
 "maintenance.results.package-cache" = "Package cache purged";
 "maintenance.results.cached-downloads" = "Cached downloads deleted";
 "maintenance.results.cached-downloads.summary-%@" = "You reclaimed %@";

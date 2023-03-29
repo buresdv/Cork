@@ -203,7 +203,7 @@
 "maintenance.step.running-health-check" = "執行健康檢查⋯";
 "maintenance.finished" = "維護完畢";
 "maintenance.results.orphans-none" =  "無遺孤套件";
-"maintenance.results.orphans-count-%lld" =  "移除了 %lld 個遺孤套件";
+"maintenance.results.orphans-count-%@" =  "移除了 %@ 個遺孤套件";
 "maintenance.results.package-cache" = "清除了套件快取";
 "maintenance.results.cached-downloads" = "移除了下載快取";
 "maintenance.results.cached-downloads.summary-%@" = "您回收了 %@";

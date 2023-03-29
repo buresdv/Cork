@@ -203,7 +203,7 @@
 "maintenance.step.running-health-check" = "运行状态检查…";
 "maintenance.finished" = "维护完成";
 "maintenance.results.orphans-none" =  "未发现孤立包 ";
-"maintenance.results.orphans-count-%lld" =  "已移除 %lld 个孤立包";
+"maintenance.results.orphans-count-%@" =  "已移除 %@ 个孤立包";
 "maintenance.results.package-cache" = "软件包缓存已清除";
 "maintenance.results.cached-downloads" = "下载缓存已删除";
 "maintenance.results.cached-downloads.summary-%@" = "你释放了 %@";
