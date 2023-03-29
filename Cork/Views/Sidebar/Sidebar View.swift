@@ -18,7 +18,12 @@ struct SidebarView: View
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
-    @State private var availableTokens: [PackageSearchToken] = [PackageSearchToken(name: "search.token.filter-formulae", tokenSearchResultType: .formula), PackageSearchToken(name: "search.token.filter-casks", tokenSearchResultType: .cask), PackageSearchToken(name: "search.token.filter-taps", tokenSearchResultType: .tap), PackageSearchToken(name: "search.token.filter-manually-installed-packages", tokenSearchResultType: .intentionallyInstalledPackage)]
+    @State private var availableTokens: [PackageSearchToken] = [
+        PackageSearchToken(name: "search.token.filter-formulae", icon: "terminal", tokenSearchResultType: .formula),
+        PackageSearchToken(name: "search.token.filter-casks", icon: "macwindow", tokenSearchResultType: .cask),
+        PackageSearchToken(name: "search.token.filter-taps", icon: "spigot", tokenSearchResultType: .tap),
+        PackageSearchToken(name: "search.token.filter-manually-installed-packages", icon: "hand.tap", tokenSearchResultType: .intentionallyInstalledPackage)
+    ]
     @State private var currentTokens: [PackageSearchToken] = .init()
 
     var suggestedTokens: [PackageSearchToken]
@@ -264,7 +269,13 @@ struct SidebarView: View
         .frame(minWidth: 200)
         .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("sidebar.search.prompt"))
         { token in
-            Text(token.name)
+            Label {
+                Text(token.name)
+            } icon: {
+                Image(systemName: token.icon)
+                    .foregroundColor(Color.blue)
+            }
+
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
         {

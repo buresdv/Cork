@@ -17,5 +17,6 @@ struct PackageSearchToken: Identifiable
 {
     var id = UUID()
     var name: LocalizedStringKey
+    var icon: String
     var tokenSearchResultType: TokenSearchType
 }
