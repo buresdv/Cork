@@ -8,6 +8,11 @@
 "action.reveal-in-finder" = "在 Finder 裡顯示";
 "action.clear-metadata" = "清除元資料";
 
+// MARK: - Bug Reporting
+"action.report-bugs.menu-category" = "反映程式缺陷";
+"action.report-bugs.git-hub" = "在 GitHub 上反映⋯";
+"action.report-bugs.email" = "寄送電子郵件⋯";
+
 // MARK: - Navigation
 "navigation.about" = "關於 Cork";
 "navigation.menu.packages" = "套件";
