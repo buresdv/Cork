@@ -150,7 +150,7 @@
 "add-package.finished" = "套件成功安裝";
 "add-package.finished.description" = "未發生任何錯誤";
 "add-package.network-error" = "網路連線不穩定";
-"add-package.network-error.description" = "您的網路連線不穩定，無法保證安裝成功"
+"add-package.network-error.description" = "您的網路連線不穩定，無法保證安裝成功";
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ 已被釘選，無法更新。";
