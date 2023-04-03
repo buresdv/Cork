@@ -149,6 +149,8 @@
 "add-package.install.finished" = "完成";
 "add-package.finished" = "软件包已成功安装";
 "add-package.finished.description" = "未发生任何错误";
+"add-package.network-error" = "网络连接不稳定";
+"add-package.network-error.description" = "您的网络连接不稳定，无法保证安装成功"
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ 已被锁定。它将不会更新";
