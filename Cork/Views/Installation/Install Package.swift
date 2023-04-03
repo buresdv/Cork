@@ -248,6 +248,24 @@ struct AddFormulaView: View
                     {
                         appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
                     }
+                    
+                default:
+                    VStack(alignment: .leading) {
+                        ComplexWithIcon(systemName: "wifi.exclamationmark") {
+                            HeadlineWithSubheadline(
+                                headline: "add-package.network-error",
+                                subheadline: "add-package.network-error.description",
+                                alignment: .leading
+                            )
+                        }
+                        
+                        HStack {
+                            Spacer()
+                            
+                            DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        }
+                    }
+                    
             }
         }
         .padding()

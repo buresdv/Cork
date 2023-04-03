@@ -149,6 +149,8 @@
 "add-package.install.finished" = "Done";
 "add-package.finished" = "Packages successfully installed";
 "add-package.finished.description" = "There were no errors";
+"add-package.network-error" = "Network Connection Not Sufficient";
+"add-package.network-error.description" = "Your network connection is not stable enough to guarantee a successful installation"
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ is pinned. It will not be updated.";
