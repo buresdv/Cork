@@ -262,6 +262,7 @@
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
+"about.contributor.service.website" = "Website";
 
 "about.thanks" = "Special Thanks";
 "about.thanks.1.name" = "Seb Jachec";
