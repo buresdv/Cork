@@ -13,6 +13,9 @@
 "action.report-bugs.git-hub" = "Report on GitHub…";
 "action.report-bugs.email" = "Send an Email…";
 
+// MARK: - Misc Actions
+"action.go-to-status-page" = "Go to Homebrew status page";
+
 // MARK: - Navigation
 "navigation.about" = "About Cork";
 "navigation.menu.packages" = "Packages";

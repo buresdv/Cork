@@ -284,8 +284,9 @@ struct SidebarView: View
                 Button {
                     selection = nil
                 } label: {
-                    Label("Go to Start Page", systemImage: "house")
+                    Label("action.go-to-status-page", systemImage: "house")
                 }
+                .help("action.go-to-status-page")
 
             }
         }
