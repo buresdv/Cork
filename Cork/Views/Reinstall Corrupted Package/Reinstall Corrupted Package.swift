@@ -24,7 +24,7 @@ struct ReinstallCorruptedPackageView: View
         case .installing:
             ProgressView
             {
-                Text("Repairing \(corruptedPackageToReinstall)…")
+                Text("repair-package.repair-process-\(corruptedPackageToReinstall)")
             }
             .progressViewStyle(.linear)
             .padding()
@@ -42,8 +42,8 @@ struct ReinstallCorruptedPackageView: View
                 ComplexWithIcon(systemName: "checkmark.seal")
                 {
                     HeadlineWithSubheadline(
-                        headline: "\(corruptedPackageToReinstall) was repaired",
-                        subheadline: "No problems were found",
+                        headline: "repair-package.repairing-finished.headline-\(corruptedPackageToReinstall)",
+                        subheadline: "repair-package.repairing-finished.subheadline",
                         alignment: .leading
                     )
                 }
