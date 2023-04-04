@@ -256,19 +256,29 @@ struct ContentView: View
                 )
 
             case .couldNotCreateCorkMetadataDirectory:
-                    return Alert(
-                        title: Text("alert.could-not-create-metadata-directory.title"),
-                        message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
-                        dismissButton: .default(Text("action.restart"), action: {
+                return Alert(
+                    title: Text("alert.could-not-create-metadata-directory.title"),
+                    message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
+                    dismissButton: .default(Text("action.restart"), action: {
                         restartApp()
-                    }))
+                    })
+                )
             case .couldNotCreateCorkMetadataFile:
-                    return Alert(
-                        title: Text("alert.could-not-create-metadata-file.title"),
-                        message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
-                        dismissButton: .default(Text("action.restart"), action: {
+                return Alert(
+                    title: Text("alert.could-not-create-metadata-file.title"),
+                    message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
+                    dismissButton: .default(Text("action.restart"), action: {
                         restartApp()
-                    }))
+                    })
+                )
+            case .installedPackageHasNoVersions:
+                return Alert(
+                    title: Text("Package PACKAGE is corrupted"),
+                    message: Text("This package needs to be uninstalled"),
+                    dismissButton: .destructive(Text("Uninstall"), action: {
+                        print("Ahoj")
+                    })
+                )
             }
         })
     }
