@@ -178,7 +178,11 @@ struct ContentView: View
         })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
-            AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet)
+            AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet, packageInstallationProcessStep: .ready)
+        }
+        .sheet(isPresented: $appState.isShowingPackageReinstallationSheet)
+        {
+            ReinstallCorruptedPackageView(corruptedPackageToReinstall: appState.corruptedPackage)
         }
         .sheet(isPresented: $appState.isShowingAddTapSheet)
         {
@@ -274,9 +278,9 @@ struct ContentView: View
             case .installedPackageHasNoVersions:
                 return Alert(
                     title: Text("\(appState.corruptedPackage) is corrupted"),
-                    message: Text("This package needs to be reinstalled"),
-                    dismissButton: .default(Text("Reinstall \(appState.corruptedPackage)"), action: {
-                        appState.isShowingInstallationSheet = true
+                    message: Text("This package needs to be repaired"),
+                    dismissButton: .default(Text("Repair \(appState.corruptedPackage)"), action: {
+                        appState.isShowingPackageReinstallationSheet = true
                     })
                 )
             }

@@ -51,7 +51,7 @@
 		6342118329AA9CF100E2563B /* Ready View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342118229AA9CF100E2563B /* Ready View.swift */; };
 		634838A629C1D69F00D3C692 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634838A529C1D69F00D3C692 /* Outdated Package.swift */; };
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
-		635A50EB29B7740000164FBA /* Pin an Unpit Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */; };
+		635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */; };
 		6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355929BDF67A00CC0760 /* Update Availability.swift */; };
 		63690F7B29C9FBF5008F952C /* Tag Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7A29C9FBF5008F952C /* Tag Package.swift */; };
 		63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */; };
@@ -65,6 +65,8 @@
 		637260C729BE466700E6E81C /* Get Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C629BE466700E6E81C /* Get Formulae.swift */; };
 		637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C829BE4D8700E6E81C /* Get Casks.swift */; };
 		637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */; };
+		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
+		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
 		637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Upgrade Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
@@ -174,7 +176,7 @@
 		6342118229AA9CF100E2563B /* Ready View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ready View.swift"; sourceTree = "<group>"; };
 		634838A529C1D69F00D3C692 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
-		635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpit Package.swift"; sourceTree = "<group>"; };
+		635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpin Package.swift"; sourceTree = "<group>"; };
 		6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Stages.swift"; sourceTree = "<group>"; };
 		6360355929BDF67A00CC0760 /* Update Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Availability.swift"; sourceTree = "<group>"; };
 		63690F7A29C9FBF5008F952C /* Tag Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag Package.swift"; sourceTree = "<group>"; };
@@ -189,6 +191,8 @@
 		637260C629BE466700E6E81C /* Get Formulae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Formulae.swift"; sourceTree = "<group>"; };
 		637260C829BE4D8700E6E81C /* Get Casks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Casks.swift"; sourceTree = "<group>"; };
 		637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Packages Included in Tap.swift"; sourceTree = "<group>"; };
+		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
+		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Upgrade Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upgrade Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
@@ -416,7 +420,7 @@
 				637E006728733C1C005C9890 /* Search for Package by ID.swift */,
 				632FD28F299591C10029FC49 /* Get Folder Size.swift */,
 				632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */,
-				635A50EA29B7740000164FBA /* Pin an Unpit Package.swift */,
+				635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -551,6 +555,22 @@
 			path = "Get Various Tap Info from JSON";
 			sourceTree = "<group>";
 		};
+		6373D9C929DC60B700D98607 /* Reinstall Corrupted Package */ = {
+			isa = PBXGroup;
+			children = (
+				6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */,
+			);
+			path = "Reinstall Corrupted Package";
+			sourceTree = "<group>";
+		};
+		6373D9CC29DC622B00D98607 /* Package Reinstallation */ = {
+			isa = PBXGroup;
+			children = (
+				6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */,
+			);
+			path = "Package Reinstallation";
+			sourceTree = "<group>";
+		};
 		637402D8299BF86C001AB7B1 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +640,7 @@
 				632FD2932995A3870029FC49 /* Taps */,
 				63958CFE287735ED00E0B807 /* About */,
 				63A38B9429BA0B5D0080158C /* Updating */,
+				6373D9C929DC60B700D98607 /* Reinstall Corrupted Package */,
 				637E006C28734189005C9890 /* Installation */,
 				6371EA1C2871D96800300E1B /* Packages */,
 				63D8C956287A1D0800483A52 /* Loading View.swift */,
@@ -657,6 +678,7 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				6373D9CC29DC622B00D98607 /* Package Reinstallation */,
 				6360355629BDE7A700CC0760 /* Package Installation */,
 				6360355529BDE79D00CC0760 /* Package Updating */,
 				63A87467298FE811009F9533 /* Package Types.swift */,
@@ -952,6 +974,7 @@
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */,
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
+				6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */,
 				63C830BC29984B1A002D11BB /* Used Package.swift in Sources */,
 				637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */,
 				63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */,
@@ -970,7 +993,7 @@
 				63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
-				635A50EB29B7740000164FBA /* Pin an Unpit Package.swift in Sources */,
+				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
 				637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */,
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
@@ -980,6 +1003,7 @@
 				63D2B08A2997F53C0084E223 /* Load up Casks.swift in Sources */,
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
+				6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */,
 				63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */,
 				63A8D2F329CA346400E892FB /* Load Tagged IDs from Disk.swift in Sources */,
 				63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */,
