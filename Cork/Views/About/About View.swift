@@ -71,6 +71,11 @@ struct AboutView: View
             profileService: .mastodon,
             profileURL: URL(string: "https://elk.zone/mstdn.social/@Jerry23011@mastodon.social")!
         ),
+        AcknowledgedContributor(
+            name: "about.translator.2.name",
+            reasonForAcknowledgement: "about.translator.2.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/sh95014")!)
     ]
 
     @State private var isPackageGroupExpanded: Bool = false
@@ -215,7 +220,7 @@ struct AboutView: View
                         .frame(
                             minWidth: 0,
                             maxWidth: .infinity,
-                            idealHeight: 200
+                            idealHeight: 150
                         )
                     } label: {
                         Text("about.translators")
