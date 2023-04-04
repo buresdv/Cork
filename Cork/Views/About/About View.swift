@@ -39,6 +39,12 @@ struct AboutView: View
             profileURL: URL(string: "https://elk.zone/mstdn.social/@cocoaphony@mastodon.social")!
         ),
         AcknowledgedContributor(
+            name: "about.contributors.5.name",
+            reasonForAcknowledgement: "about.contributors.5.purpose",
+            profileService: .website,
+            profileURL: URL(string: "https://andreyrd.com")!
+        ),
+        AcknowledgedContributor(
             name: "about.contributors.2.name",
             reasonForAcknowledgement: "about.contributors.2.purpose",
             profileService: .mastodon,
