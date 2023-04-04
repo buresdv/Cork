@@ -16,6 +16,7 @@ struct SidebarView: View
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     @EnvironmentObject var selectedTapInfo: SelectedTapInfo
 
+    @State private var selection: UUID? = nil
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
     @State private var availableTokens: [PackageSearchToken] = [
@@ -53,7 +54,7 @@ struct SidebarView: View
                         {
                             ForEach(searchText.isEmpty ? brewData.installedFormulae.filter({ $0.installedIntentionally == true }) : brewData.installedFormulae.filter({ $0.installedIntentionally == true && $0.name.contains(searchText)}))
                             { formula in
-                                NavigationLink
+                                NavigationLink(tag: formula.id, selection: $selection)
                                 {
                                     PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                                 } label: {
@@ -104,7 +105,7 @@ struct SidebarView: View
                         {
                             ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
                             { formula in
-                                NavigationLink
+                                NavigationLink(tag: formula.id, selection: $selection)
                                 {
                                     PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                                 } label: {
@@ -168,7 +169,7 @@ struct SidebarView: View
                     {
                         ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
                         { cask in
-                            NavigationLink
+                            NavigationLink(tag: cask.id, selection: $selection)
                             {
                                 PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
                             } label: {
@@ -232,7 +233,7 @@ struct SidebarView: View
                         ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
                         { tap in
 
-                            NavigationLink
+                            NavigationLink(tag: tap.id, selection: $selection)
                             {
                                 TapDetailView(tap: tap, selectedTapInfo: selectedTapInfo)
                             } label: {
@@ -281,7 +282,7 @@ struct SidebarView: View
         {
             ToolbarItem(placement: .automatic) {
                 Button {
-                    print("Would go to start page")
+                    selection = nil
                 } label: {
                     Label("Go to Start Page", systemImage: "house")
                 }
