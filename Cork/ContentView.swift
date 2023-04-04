@@ -273,10 +273,10 @@ struct ContentView: View
                 )
             case .installedPackageHasNoVersions:
                 return Alert(
-                    title: Text("Package PACKAGE is corrupted"),
-                    message: Text("This package needs to be uninstalled"),
-                    dismissButton: .destructive(Text("Uninstall"), action: {
-                        print("Ahoj")
+                    title: Text("\(appState.corruptedPackage) is corrupted"),
+                    message: Text("This package needs to be reinstalled"),
+                    dismissButton: .default(Text("Reinstall \(appState.corruptedPackage)"), action: {
+                        appState.isShowingInstallationSheet = true
                     })
                 )
             }

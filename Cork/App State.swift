@@ -28,4 +28,6 @@ class AppState: ObservableObject {
     @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
     
     @Published var taggedPackageNames: Set<String> = .init()
+    
+    @Published var corruptedPackage: String = ""
 }

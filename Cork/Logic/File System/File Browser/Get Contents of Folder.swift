@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
+func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPackage]
 {
     var contentsOfFolder = [BrewPackage]()
 
@@ -71,6 +71,9 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
                     else
                     {
                         print("\(item) does not have any versions installed")
+                        appState.corruptedPackage = item
+                        appState.fatalAlertType = .installedPackageHasNoVersions
+                        appState.isShowingFatalError = true
                     }
                 }
                 else
