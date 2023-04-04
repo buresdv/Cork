@@ -10,6 +10,7 @@ import Foundation
 class AppState: ObservableObject {
     /// Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
+    @Published var isShowingPackageReinstallationSheet: Bool = false
     @Published var isShowingUninstallationSheet: Bool = false
     @Published var isShowingMaintenanceSheet: Bool = false
     @Published var isShowingFastCacheDeletionMaintenanceView: Bool = false
