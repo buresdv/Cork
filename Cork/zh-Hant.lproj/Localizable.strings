@@ -7,6 +7,7 @@
 "action.restart" = "重啟 Cork";
 "action.reveal-in-finder" = "在 Finder 裡顯示";
 "action.clear-metadata" = "清除元資料";
+"action.repair-%@" = "Repair %@";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反映程式缺陷";
@@ -42,6 +43,8 @@
 "alert.could-not-create-metadata-directory.title" = "無法創建元資料檔案夾";
 "alert.could-not-create-metadata-directory-or-folder.message" = "請確認您有允許 Cork 使用文件檔案夾。";
 "alert.could-not-create-metadata-file.title" = "無法創建元資料檔案";
+"alert.package-corrupted.title-%@" = "%@ is corrupted";
+"alert.package-corrupted.message" = "This package needs to be repaired";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
@@ -151,6 +154,11 @@
 "add-package.finished.description" = "未發生任何錯誤";
 "add-package.network-error" = "網路連線不穩定";
 "add-package.network-error.description" = "您的網路連線不穩定，無法保證安裝成功";
+
+// MARK: - Package Repairing
+"repair-package.repair-process-%@" = "Repairing %@…";
+"repair-package.repairing-finished.headline-%@" = "%@ was repaired";
+"repair-package.repairing-finished.subheadline" = "No further problems were found";
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ 已被釘選，無法更新。";

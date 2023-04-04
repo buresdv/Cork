@@ -7,6 +7,7 @@
 "action.restart" = "重启 Cork";
 "action.reveal-in-finder" = "在访达中显示";
 "action.clear-metadata" = "清除元数据";
+"action.repair-%@" = "修复 %@";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反馈问题";
@@ -42,6 +43,8 @@
 "alert.could-not-create-metadata-directory.title" = "无法创建元数据文件夹";
 "alert.could-not-create-metadata-directory-or-folder.message" = "请确保你已允许 Cork 访问文稿文件夹";
 "alert.could-not-create-metadata-file.title" = "无法创建元数据文件";
+"alert.package-corrupted.title-%@" = "%@ 已损坏";
+"alert.package-corrupted.message" = "该软件包需要修复";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
@@ -151,6 +154,11 @@
 "add-package.finished.description" = "未发生任何错误";
 "add-package.network-error" = "网络连接不稳定";
 "add-package.network-error.description" = "您的网络连接不稳定，无法保证安装成功";
+
+// MARK: - Package Repairing
+"repair-package.repair-process-%@" = "正在修复 %@…";
+"repair-package.repairing-finished.headline-%@" = "%@ 已修复";
+"repair-package.repairing-finished.subheadline" = "未发现其它问题";
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ 已被锁定。它将不会更新";
