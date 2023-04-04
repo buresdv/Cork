@@ -14,6 +14,9 @@
 "action.report-bugs.git-hub" = "Report on GitHub…";
 "action.report-bugs.email" = "Send an Email…";
 
+// MARK: - Misc Actions
+"action.go-to-status-page" = "Go to Homebrew status page";
+
 // MARK: - Navigation
 "navigation.about" = "About Cork";
 "navigation.menu.packages" = "Packages";
@@ -270,6 +273,7 @@
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
+"about.contributor.service.website" = "Website";
 
 "about.thanks" = "Special Thanks";
 "about.thanks.1.name" = "Seb Jachec";
@@ -284,6 +288,8 @@
 "about.contributors.3.purpose" = "Fixed package counts on the start page not updating";
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "Made the first approved pull request; fixed package counts, along with Jierong Li";
+"about.contributors.5.name" = "Andrey Radchishin";
+"about.contributors.5.purpose" = "Added a way of going back to the Homebrew Status page";
 
 "about.translators" = "Translators";
 "about.translator.1.name" = "Jerry";

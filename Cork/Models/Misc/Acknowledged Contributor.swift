@@ -19,7 +19,7 @@ struct AcknowledgedContributor: Identifiable
 
     enum ProfileService
     {
-        case github, mastodon
+        case github, mastodon, website
 
         var key: LocalizedStringKey
         {
@@ -27,6 +27,7 @@ struct AcknowledgedContributor: Identifiable
             {
             case .github: return "about.contributor.service.github"
             case .mastodon: return "about.contributor.service.mastodon"
+            case .website: return "about.contributor.service.website"
             }
         }
     }
