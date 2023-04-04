@@ -20,7 +20,7 @@
 "navigation.menu.packages.add-tap" = "添加 Tap…";
 "navigation.menu.packages.update" = "更新软件包…";
 "navigation.menu.maintenance" = "维护";
-"navigation.menu.maintenance.perform" = "开启维护…";
+"navigation.menu.maintenance.perform" = "运行维护…";
 "navigation.menu.maintenance.delete-cached-downloads" = "清除下载缓存";
 
 "navigation.upgrade-packages" = "更新软件包";
@@ -102,16 +102,16 @@
 "tap-details.info" = "信息";
 "tap-details.contents" = "内容";
 "tap-details.contents.none" = "无内容";
-"tap-details.contents.formulae-only" = "仅 Formula";
-"tap-details.contents.casks-only" = "仅 Cask";
+"tap-details.contents.formulae-only" = "仅含 Formula";
+"tap-details.contents.casks-only" = "仅含 Cask";
 "tap-details.contents.formulae-mostly" = "大多数为 Formula";
 "tap-details.contents.casks-mostly" = "大多数为 Cask";
 "tap-details.package-count" = "软件包数量";
 "tap-details.homepage" = "主页";
-"tap-details.included-formulae" = "包括 Formula";
-"tap-details.included-casks" = "包括 Cask";
+"tap-details.included-formulae" = "包含 Formula";
+"tap-details.included-casks" = "包含 Cask";
 "tap-details.remove-%@" = "移除 %@";
-"tap-details.included-packages.search.prompt" = "包括软件包";
+"tap-details.included-packages.search.prompt" = "包含软件包";
 
 // MARK: - Update Packages
 "update-packages.updating.ready" = "就绪";
@@ -121,7 +121,7 @@
 "update-packages.updating.finished" = "完成";
 "update-packages.no-updates" = "无可用更新";
 "update-packages.no-updates.description" = "已是最新版本";
-"update-packages.finished" = "成功升级软件包";
+"update-packages.finished" = "成功更新软件包";
 "update-packages.finished.description" = "未发生任何错误";
 "update-packages.error" = "软件包更新失败";
 "update-packages.error.description" = "更新过程中出现了一些错误。\n请查看下方信息获取详情";
@@ -258,12 +258,12 @@
 "about.packages.1.name" = "DavidFoundation";
 "about.packages.1.purpose" = "我自己的软件包提供了一些基本功能";
 "about.packages.2.name" = "SwiftyJSON";
-"about.packages.2.purpose" = "我讨厌 Swift 的默认 JSON 解析方式。当你可以直接用一个库让它变得可接受时，为什么还要重新发明呢？";
+"about.packages.2.purpose" = "我很不喜欢 Swift 默认的 JSON 解析方式。明明有好用的库，何必另起炉灶？";
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
 
-"about.thanks" = "特别感谢";
+"about.thanks" = "特别鸣谢";
 "about.thanks.1.name" = "Seb Jachec";
 "about.thanks.1.purpose" = "实现了实时获取命令输出的功能，使 Cork 超一半功能的性能大幅提升";
 
