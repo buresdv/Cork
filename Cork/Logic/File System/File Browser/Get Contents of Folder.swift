@@ -51,19 +51,27 @@ func getContentsOfFolder(targetFolder: URL) async -> [BrewPackage]
 
                 if targetFolder.path.contains("Cellar")
                 {
-                    /// Find out whether the packages have been installed intentionally
-                    let localPackageInfoJSONPath: URL = temporaryURLStorage.first!.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
-                    async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
-                    
-                    var wasPackageInstalledIntentionally: Bool = false
-                    if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
+                    /// Check if the package has any versions installed
+                    if let localPackagePath: URL = temporaryURLStorage.first
                     {
-                        wasPackageInstalledIntentionally = try! await localPackageInfoJSON["installed_on_request"].boolValue
-                    }
+                        /// Find out whether the packages have been installed intentionally
+                        let localPackageInfoJSONPath: URL = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
+                        async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
+                        
+                        var wasPackageInstalledIntentionally: Bool = false
+                        if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
+                        {
+                            wasPackageInstalledIntentionally = try! await localPackageInfoJSON["installed_on_request"].boolValue
+                        }
 
-                    print("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
-                    
-                    contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw))
+                        print("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
+                        
+                        contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw))
+                    }
+                    else
+                    {
+                        print("\(item) does not have any versions installed")
+                    }
                 }
                 else
                 {
