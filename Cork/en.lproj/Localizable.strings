@@ -7,6 +7,7 @@
 "action.restart" = "Restart Cork";
 "action.reveal-in-finder" = "Reveal in Finder";
 "action.clear-metadata" = "Clear metadata";
+"action.repair-%@" = "Repair %@";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "Report Bugs";
@@ -42,6 +43,8 @@
 "alert.could-not-create-metadata-directory.title" = "Could not create Metadata folder";
 "alert.could-not-create-metadata-directory-or-folder.message" = "Make sure you've given Cork permission to access your Documents folder";
 "alert.could-not-create-metadata-file.title" = "Could not create metadata file";
+"alert.package-corrupted.title-%@" = "%@ is corrupted";
+"alert.package-corrupted.message" = "This package needs to be repaired";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";
@@ -151,6 +154,11 @@
 "add-package.finished.description" = "There were no errors";
 "add-package.network-error" = "Network Connection Not Sufficient";
 "add-package.network-error.description" = "Your network connection is not stable enough to guarantee a successful installation";
+
+// MARK: - Package Repairing
+"repair-package.repair-process-%@" = "Repairing %@…";
+"repair-package.repairing-finished.headline-%@" = "%@ was repaired";
+"repair-package.repairing-finished.subheadline" = "No further problems were found";
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ is pinned. It will not be updated.";
