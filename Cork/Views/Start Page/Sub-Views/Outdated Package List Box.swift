@@ -12,8 +12,6 @@ struct OutdatedPackageListBox: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
-    @State private var isOutdatedPackageListExpanded: Bool = false
-
     var body: some View
     {
         GroupBox
@@ -32,13 +30,7 @@ struct OutdatedPackageListBox: View
                                 {
                                     Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackageNames.count))
                                         .font(.headline)
-                                    DisclosureGroup(isExpanded: $isOutdatedPackageListExpanded)
-                                    {} label: {
-                                        Text("start-page.updates.list")
-                                            .font(.subheadline)
-                                    }
-
-                                    if isOutdatedPackageListExpanded
+                                    DisclosureGroup
                                     {
                                         List
                                         {
@@ -49,6 +41,9 @@ struct OutdatedPackageListBox: View
                                         }
                                         .listStyle(.bordered(alternatesRowBackgrounds: true))
                                         .frame(height: 100)
+                                    } label: {
+                                        Text("start-page.updates.list")
+                                            .font(.subheadline)
                                     }
                                 }
 
