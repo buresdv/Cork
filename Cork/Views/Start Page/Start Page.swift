@@ -9,8 +9,6 @@ import SwiftUI
 
 struct StartPage: View
 {
-    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
@@ -54,18 +52,7 @@ struct StartPage: View
 
                         PackageAndTapOverviewBox()
 
-                        GroupBox
-                        {
-                            VStack(alignment: .leading)
-                            {
-                                GroupBoxHeadlineGroup(
-                                    image: "chart.bar",
-                                    title: allowBrewAnalytics ? "start-page.analytics.enabled" : "start-page.analytics.disabled",
-                                    mainText: allowBrewAnalytics ? "start-page.analytics.enabled.description" : "start-page.analytics.disabled.description"
-                                )
-                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            }
-                        }
+                        AnalyticsStatusBox()
 
                         if appState.cachedDownloadsFolderSize != 0
                         {
