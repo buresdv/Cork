@@ -19,8 +19,6 @@ struct StartPage: View
 
     @State private var isLoadingUpgradeablePackages = true
 
-    @State private var isShowingFastCacheDeletionMaintenanceView: Bool = false
-
     var body: some View
     {
         VStack
@@ -56,30 +54,7 @@ struct StartPage: View
 
                         if appState.cachedDownloadsFolderSize != 0
                         {
-                            GroupBox
-                            {
-                                VStack
-                                {
-                                    HStack
-                                    {
-                                        GroupBoxHeadlineGroup(
-                                            image: "square.and.arrow.down.on.square",
-                                            title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
-                                            mainText: "start-page.cached-downloads.description"
-                                        )
-
-                                        Spacer()
-
-                                        Button
-                                        {
-                                            appState.isShowingFastCacheDeletionMaintenanceView = true
-                                        } label: {
-                                            Text("start-page.cached-downloads.action")
-                                        }
-                                        .padding(.trailing, 7)
-                                    }
-                                }
-                            }
+                            CachedDownloadsFolderInfoBox()
                         }
                     }
 
