@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct PackageAndTapOverviewBox: View {
-    
+struct PackageAndTapOverviewBox: View
+{
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
-    
-    var body: some View {
+
+    var body: some View
+    {
         GroupBox
         {
             VStack(alignment: .leading)

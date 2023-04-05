@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-struct OutdatedPackageLoaderBox: View {
-    var body: some View {
+struct OutdatedPackageLoaderBox: View
+{
+    var body: some View
+    {
         GroupBox
         {
             Grid
             {
-                GridRow(alignment: .firstTextBaseline) {
+                GridRow(alignment: .firstTextBaseline)
+                {
                     HStack(alignment: .center, spacing: 15)
                     {
                         ProgressView()

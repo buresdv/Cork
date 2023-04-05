@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct OutdatedPackageListBox: View {
-    
+struct OutdatedPackageListBox: View
+{
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     @State private var isOutdatedPackageListExpanded: Bool = false
-    
-    var body: some View {
+
+    var body: some View
+    {
         GroupBox
         {
             Grid
@@ -27,7 +28,8 @@ struct OutdatedPackageListBox: View {
                         {
                             HStack(alignment: .firstTextBaseline)
                             {
-                                VStack(alignment: .leading, spacing: 2) {
+                                VStack(alignment: .leading, spacing: 2)
+                                {
                                     Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackageNames.count))
                                         .font(.headline)
                                     DisclosureGroup(isExpanded: $isOutdatedPackageListExpanded)
@@ -40,7 +42,8 @@ struct OutdatedPackageListBox: View {
                                     {
                                         List
                                         {
-                                            ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self) { outdatedPackageName in
+                                            ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self)
+                                            { outdatedPackageName in
                                                 Text(outdatedPackageName)
                                             }
                                         }
@@ -48,9 +51,9 @@ struct OutdatedPackageListBox: View {
                                         .frame(height: 100)
                                     }
                                 }
-                                
+
                                 Spacer()
-                                
+
                                 Button
                                 {
                                     appState.isShowingUpdateSheet = true

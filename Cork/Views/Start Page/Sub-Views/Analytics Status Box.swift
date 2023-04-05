@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct AnalyticsStatusBox: View {
-    
+struct AnalyticsStatusBox: View
+{
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    
-    var body: some View {
+
+    var body: some View
+    {
         GroupBox
         {
             VStack(alignment: .leading)
@@ -26,4 +27,3 @@ struct AnalyticsStatusBox: View {
         }
     }
 }
-

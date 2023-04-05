@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct CachedDownloadsFolderInfoBox: View {
-    
+struct CachedDownloadsFolderInfoBox: View
+{
     @EnvironmentObject var appState: AppState
-    
-    var body: some View {
+
+    var body: some View
+    {
         GroupBox
         {
             VStack
