@@ -24,36 +24,35 @@ struct OutdatedPackageListBox: View
                     {
                         GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackageNames.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                         {
-                            HStack(alignment: .firstTextBaseline)
-                            {
-                                VStack(alignment: .leading, spacing: 2)
-                                {
+                            VStack(alignment: .leading, spacing: 0) {
+                                HStack(alignment: .firstTextBaseline) {
                                     Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackageNames.count))
                                         .font(.headline)
-                                    DisclosureGroup
+                                    
+                                    Spacer()
+                                    
+                                    Button
                                     {
-                                        List
-                                        {
-                                            ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self)
-                                            { outdatedPackageName in
-                                                Text(outdatedPackageName)
-                                            }
-                                        }
-                                        .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                        .frame(height: 100)
+                                        appState.isShowingUpdateSheet = true
                                     } label: {
-                                        Text("start-page.updates.list")
-                                            .font(.subheadline)
+                                        Text("start-page.updates.action")
                                     }
                                 }
-
-                                Spacer()
-
-                                Button
+                                
+                                DisclosureGroup
                                 {
-                                    appState.isShowingUpdateSheet = true
+                                    List
+                                    {
+                                        ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self)
+                                        { outdatedPackageName in
+                                            Text(outdatedPackageName)
+                                        }
+                                    }
+                                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                                    .frame(height: 100)
                                 } label: {
-                                    Text("start-page.updates.action")
+                                    Text("start-page.updates.list")
+                                        .font(.subheadline)
                                 }
                             }
                         }
