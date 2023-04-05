@@ -280,17 +280,14 @@ struct SidebarView: View
         }
         .toolbar
         {
-            if selection != nil
-            {
-                ToolbarItem(placement: .automatic) {
-                    Button {
-                        selection = nil
-                    } label: {
-                        Label("action.go-to-status-page", systemImage: "house")
-                    }
-                    .help("action.go-to-status-page")
-
+            ToolbarItem(placement: .automatic) {
+                Button {
+                    selection = nil
+                } label: {
+                    Label("action.go-to-status-page", systemImage: "house")
                 }
+                .help("action.go-to-status-page")
+                .disabled(selection == nil)
             }
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)

@@ -211,25 +211,28 @@ struct StartPage: View
         .padding()
         .onAppear
         {
-            Task(priority: .background)
+            if outdatedPackageTracker.outdatedPackageNames.isEmpty
             {
-                isLoadingUpgradeablePackages = true
-                
-                await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
-                            
-                outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
-                
-                if outdatedPackageTracker.outdatedPackageNames.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
+                Task(priority: .background)
                 {
-                    withAnimation {
+                    isLoadingUpgradeablePackages = true
+                    
+                    await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+                                
+                    outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
+                    
+                    if outdatedPackageTracker.outdatedPackageNames.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
+                    {
+                        withAnimation {
+                            isLoadingUpgradeablePackages = false
+                        }
+                    }
+                    else
+                    {
                         isLoadingUpgradeablePackages = false
                     }
+                    
                 }
-                else
-                {
-                    isLoadingUpgradeablePackages = false
-                }
-                
             }
         }
     }
