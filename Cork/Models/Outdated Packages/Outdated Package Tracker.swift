@@ -9,5 +9,5 @@ import Foundation
 
 class OutdatedPackageTracker: ObservableObject
 {
-    @Published var outdatedPackageNames: [String] = .init()
+    @Published var outdatedPackages: [OutdatedPackage] = .init()
 }

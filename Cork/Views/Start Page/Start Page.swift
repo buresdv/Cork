@@ -43,7 +43,7 @@ struct StartPage: View
                         }
                         
                         
-                        if outdatedPackageTracker.outdatedPackageNames.count != 0
+                        if outdatedPackageTracker.outdatedPackages.count != 0
                         {
                             OutdatedPackageListBox()
                         }
@@ -80,7 +80,7 @@ struct StartPage: View
         .padding()
         .onAppear
         {
-            if outdatedPackageTracker.outdatedPackageNames.isEmpty
+            if outdatedPackageTracker.outdatedPackages.isEmpty
             {
                 Task(priority: .background)
                 {
@@ -88,9 +88,9 @@ struct StartPage: View
                     
                     await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
                                 
-                    outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
+                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages()
                     
-                    if outdatedPackageTracker.outdatedPackageNames.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
+                    if outdatedPackageTracker.outdatedPackages.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
                     {
                         withAnimation {
                             isLoadingUpgradeablePackages = false
