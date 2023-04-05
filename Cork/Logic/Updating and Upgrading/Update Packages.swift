@@ -19,7 +19,7 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPack
             print("Update function output: \(outputLine)")
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-            if outdatedPackageTracker.outdatedPackageNames.isEmpty
+            if outdatedPackageTracker.outdatedPackages.isEmpty
             {
                 if outputLine.starts(with: "Already up-to-date")
                 {

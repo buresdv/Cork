@@ -22,11 +22,11 @@ struct OutdatedPackageListBox: View
                 {
                     VStack(alignment: .leading)
                     {
-                        GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackageNames.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                        GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                         {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack(alignment: .firstTextBaseline) {
-                                    Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackageNames.count))
+                                    Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackages.count))
                                         .font(.headline)
                                     
                                     Spacer()
@@ -43,9 +43,18 @@ struct OutdatedPackageListBox: View
                                 {
                                     List
                                     {
-                                        ForEach(outdatedPackageTracker.outdatedPackageNames, id: \.self)
-                                        { outdatedPackageName in
-                                            Text(outdatedPackageName)
+                                        ForEach(outdatedPackageTracker.outdatedPackages, id: \.self)
+                                        { outdatedPackage in
+                                            Toggle(outdatedPackage.packageName, isOn: Binding<Bool>(
+                                                get: {
+                                                    return outdatedPackage.isMarkedForUpdating
+                                                }, set: {
+                                                    if let index = outdatedPackageTracker.outdatedPackages.firstIndex(where: { $0.id == outdatedPackage.id })
+                                                    {
+                                                        outdatedPackageTracker.outdatedPackages[index].isMarkedForUpdating = $0
+                                                    }
+                                                }
+                                            ))
                                         }
                                     }
                                     .listStyle(.bordered(alternatesRowBackgrounds: true))
