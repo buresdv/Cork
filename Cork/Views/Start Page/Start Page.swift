@@ -43,28 +43,13 @@ struct StartPage: View
 
                         if isLoadingUpgradeablePackages
                         {
-                            GroupBox
-                            {
-                                Grid
-                                {
-                                    GridRow(alignment: .firstTextBaseline) {
-                                        HStack(alignment: .center, spacing: 15)
-                                        {
-                                            ProgressView()
-
-                                            Text("start-page.updates.loading")
-                                        }
-                                        .padding(10)
-                                    }
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
+                            OutdatedPackageLoaderBox()
                         }
                         
                         
                         if outdatedPackageTracker.outdatedPackageNames.count != 0
                         {
-                            UpdaterBox()
+                            OutdatedPackageListBox()
                         }
 
                         GroupBox
