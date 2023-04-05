@@ -127,6 +127,7 @@
 		63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */; };
 		63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */; };
 		63E716D929DDB918004FD2B4 /* Package And Tap Overview Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */; };
+		63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DA29DDB9D0004FD2B4 /* Analytics Status Box.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
@@ -254,6 +255,7 @@
 		63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package List Box.swift"; sourceTree = "<group>"; };
 		63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Loader Box.swift"; sourceTree = "<group>"; };
 		63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package And Tap Overview Box.swift"; sourceTree = "<group>"; };
+		63E716DA29DDB9D0004FD2B4 /* Analytics Status Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Status Box.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -843,6 +845,7 @@
 				63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */,
 				63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */,
 				63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */,
+				63E716DA29DDB9D0004FD2B4 /* Analytics Status Box.swift */,
 			);
 			path = "Sub-Views";
 			sourceTree = "<group>";
@@ -1036,6 +1039,7 @@
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				63690F7F29CA013E008F952C /* Untag Package.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
+				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
 				633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */,
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
