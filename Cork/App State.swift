@@ -23,6 +23,8 @@ class AppState: ObservableObject {
     @Published var offendingDependencyProhibitingUninstallation: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false
     
+    @Published var isShowingIncrementalUpdateSheet: Bool = false
+    
     @Published var isLoadingFormulae: Bool = true
     @Published var isLoadingCasks: Bool = true
     
