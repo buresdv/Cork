@@ -130,6 +130,7 @@
 		63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DA29DDB9D0004FD2B4 /* Analytics Status Box.swift */; };
 		63E716DD29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */; };
 		63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */; };
+		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
@@ -260,6 +261,7 @@
 		63E716DA29DDB9D0004FD2B4 /* Analytics Status Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Status Box.swift"; sourceTree = "<group>"; };
 		63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Downloads Folder Info Box.swift"; sourceTree = "<group>"; };
 		63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
+		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -675,7 +677,8 @@
 		63A38B9429BA0B5D0080158C /* Updating */ = {
 			isa = PBXGroup;
 			children = (
-				63A38B9529BA0B6E0080158C /* Update Packages View.swift */,
+				63E716E229DDCECD004FD2B4 /* Incremental Updating */,
+				63E716E129DDCEC0004FD2B4 /* Complete Updating */,
 			);
 			path = Updating;
 			sourceTree = "<group>";
@@ -864,6 +867,22 @@
 			path = "Outdated Packages";
 			sourceTree = "<group>";
 		};
+		63E716E129DDCEC0004FD2B4 /* Complete Updating */ = {
+			isa = PBXGroup;
+			children = (
+				63A38B9529BA0B6E0080158C /* Update Packages View.swift */,
+			);
+			path = "Complete Updating";
+			sourceTree = "<group>";
+		};
+		63E716E229DDCECD004FD2B4 /* Incremental Updating */ = {
+			isa = PBXGroup;
+			children = (
+				63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */,
+			);
+			path = "Incremental Updating";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1027,6 +1046,7 @@
 				63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */,
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
+				63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,

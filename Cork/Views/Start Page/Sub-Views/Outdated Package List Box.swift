@@ -31,12 +31,24 @@ struct OutdatedPackageListBox: View
                                     
                                     Spacer()
                                     
-                                    Button
+                                    if outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating }).count == outdatedPackageTracker.outdatedPackages.count
                                     {
-                                        appState.isShowingUpdateSheet = true
-                                    } label: {
-                                        Text("start-page.updates.action")
+                                        Button
+                                        {
+                                            appState.isShowingUpdateSheet = true
+                                        } label: {
+                                            Text("start-page.updates.action")
+                                        }
+                                    } else {
+                                        Button {
+                                            appState.isShowingIncrementalUpdateSheet = true
+                                        } label: {
+                                            Text("Update \(outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating }).count) Packages")
+                                        }
+                                        .disabled(outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating }).count == 0)
+
                                     }
+                                    
                                 }
                                 
                                 DisclosureGroup
