@@ -15,7 +15,7 @@
 "action.report-bugs.email" = "寄送電子郵件⋯";
 
 // MARK: - Misc Actions
-"action.go-to-status-page" = "Go to Homebrew status page";
+"action.go-to-status-page" = "返回主頁";
 
 // MARK: - Navigation
 "navigation.about" = "關於 Cork";
@@ -30,7 +30,7 @@
 "navigation.upgrade-packages" = "更新套件";
 "navigation.upgrade-packages.help" = "更新已安裝的套件";
 "navigation.add-tap" = "新增 Tap";
-"navigation.add-tap.help" = "加入新的 tap";
+"navigation.add-tap.help" = "加入新的 Tap";
 "navigation.install-package" = "安裝套件";
 "navigation.install-package.help" = "安裝新套件";
 
@@ -51,11 +51,11 @@
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
-"sidebar.section.installed-formulae" = "已安裝的 formula";
+"sidebar.section.installed-formulae" = "已安裝的 Formula";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "卸載 %@";
-"sidebar.section.installed-casks" = "已安裝的 cask";
+"sidebar.section.installed-casks" = "已安裝的 Cask";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "卸載 %@";
-"sidebar.section.added-taps" = "已安裝的 tap";
+"sidebar.section.added-taps" = "已安裝的 Tap";
 "sidebar.section.added-taps.contextmenu.remove-%@" = "移除 %@";
 "sidebar.section.added-taps.remove.title-%@" = "移除 %@ 失敗";
 "sidebar.section.added-taps.remove.message" = "請稍等幾分鐘後再重試，或重啟 Cork。";
@@ -84,38 +84,38 @@
 "start-page.cached-downloads-%@" = "您的下載快取使用了 %@ 的空間";
 "start-page.cached-downloads.description" = "這些檔案是套件安裝完成後所遺留，可以安全刪除。";
 "start-page.cached-downloads.action" = "刪除下載快取⋯";
-"start-page.open-maintenance" = "Brew 維護⋯";
+"start-page.open-maintenance" = "Homebrew 維護⋯";
 
 // MARK: - Add Tap
 "add-tap" = "新增 tap";
-"add-tap.typing.error.empty" = "未輸入 tap 名稱";
-"add-tap.typing.error.empty.description" = "您未輸入任何 tap 的名稱";
+"add-tap.typing.error.empty" = "未輸入 Tap 名稱";
+"add-tap.typing.error.empty.description" = "您未輸入任何 Tap 的名稱";
 "add-tap.typing.error.slash" = "Tap 名稱裡需有斜線號";
 "add-tap.typing.error.slash.description" = "Tap 名稱裡都必需要有個斜線號。";
 "add-tap.action" = "新增";
-"add-tap.progress-%@" = "新增 tap %@";
+"add-tap.progress-%@" = "新增 Tap %@";
 "add-tap.complete-%@" = "新增 %@ 成功";
 "add-tap.complete.description" = "未發生任何錯誤";
 "add-tap.error.repository-not-found-%@" = "%@ 並不存在";
 "add-tap.error.repository-not-found.description" = "請確認名稱無誤。";
-"add-tap.error.other-%@" = "新增 tap %@ 時發生錯誤";
+"add-tap.error.other-%@" = "新增 Tap %@ 時發生錯誤";
 "add-tap.error.other.description" = "請稍等幾分鐘後再重試新增。";
 "add-tap.error.action" = "重試";
 
 // MARK: - Tap Details
-"tap-details.official-%@" = "%@ 是個官方的 tap。\n內含套件都經過審查以確保安全。";
-"tap-details.loading" = "下載 tap 資訊⋯";
+"tap-details.official-%@" = "%@ 是個官方的 Tap。\n內含套件都經過審查以確保安全。";
+"tap-details.loading" = "下載 Tap 資訊⋯";
 "tap-details.info" = "資訊";
 "tap-details.contents" = "內容";
 "tap-details.contents.none" = "無";
-"tap-details.contents.formulae-only" = "僅含 formula";
-"tap-details.contents.casks-only" = "僅含 cask";
-"tap-details.contents.formulae-mostly" = "大多為 formula";
-"tap-details.contents.casks-mostly" = "大多為 cask";
+"tap-details.contents.formulae-only" = "僅含 Formula";
+"tap-details.contents.casks-only" = "僅含 Cask";
+"tap-details.contents.formulae-mostly" = "大多為 Formula";
+"tap-details.contents.casks-mostly" = "大多為 Cask";
 "tap-details.package-count" = "套件數量";
 "tap-details.homepage" = "首頁";
-"tap-details.included-formulae" = "內含 formula";
-"tap-details.included-casks" = "內含 cask";
+"tap-details.included-formulae" = "內含 Formula";
+"tap-details.included-casks" = "內含 Cask";
 "tap-details.remove-%@" = "移除 %@";
 "tap-details.included-packages.search.prompt" = "內含套件";
 
@@ -137,8 +137,8 @@
 "add-package.search.prompt" = "搜尋套件⋯";
 "add-package.search.action" = "搜尋";
 "add-package.searching-%@" = "搜尋 %@ 中⋯";
-"add-package.search.results.formulae" = "尋獲 formula";
-"add-package.search.results.casks" = "尋獲 cask";
+"add-package.search.results.formulae" = "尋獲 Formula";
+"add-package.search.results.casks" = "尋獲 Cask";
 "add-package.result.already-installed" = "已安裝";
 "add-package.result.loading-description" = "下載簡介⋯";
 "add-package.install.action" = "安裝";
@@ -185,7 +185,7 @@
 "package-details.size.help" = "為什麼這麼小？";
 "package-details.size.help.title" = "套件為什麼會這麼小？";
 "package-details.size.help.body-1" = "Cask 並不和 Formula 一起安裝在同一個檔案夾，而是另外安裝在應用程式檔案夾。";
-"package-details.size.help.body-2" = "由於 Cork 並不能檢視您的應用程式檔案夾，所以它無法獲取程式的真正大小，只能依靠 cask 裡的元資料。";
+"package-details.size.help.body-2" = "由於 Cork 並不能檢視您的應用程式檔案夾，所以它無法獲取程式的真正大小，只能依靠 Cask 裡的元資料。";
 "package-details.action.pin-version-%@" = "釘選 %@ 版本";
 "package-details.action.unpin-version-%@" = "取消釘選 %@ 版本";
 "package-details.action.uninstall-%@" = "卸載 %@";
@@ -269,7 +269,7 @@
 "about.packages.1.name" = "DavidFoundation";
 "about.packages.1.purpose" = "我自用一些基本便利功能的套件";
 "about.packages.2.name" = "SwiftyJSON";
-"about.packages.2.purpose" = "我痛恨 Swift 內建的 JSON 語法剖析。有堪用的程式庫，何必另起爐灶？";
+"about.packages.2.purpose" = "我討厭 Swift 內建的 JSON 語法剖析。有堪用的程式庫，何必另起爐灶？";
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
@@ -289,13 +289,13 @@
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "貢獻了第一個通過的拉取請求，與 Jierong Li 一同修理套件數量";
 "about.contributors.5.name" = "Andrey Radchishin";
-"about.contributors.5.purpose" = "Added a way of going back to the Homebrew Status page";
+"about.contributors.5.purpose" = "加入返回主頁功能";
 
 "about.translators" = "翻譯";
 "about.translator.1.name" = "Jerry";
 "about.translator.1.purpose" = "為 Cork 提供簡體中文翻譯";
 "about.translator.2.name" = "sh95014";
-"about.translator.2.purpose" = "Translated Cork into Traditional Chinese";
+"about.translator.2.purpose" = "為 Cork 提供繁體中文翻譯";
 
 "about.contribute" = "捐助";
 "about.contact" = "聯繫我";
