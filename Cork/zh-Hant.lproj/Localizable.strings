@@ -14,6 +14,9 @@
 "action.report-bugs.git-hub" = "在 GitHub 上反映⋯";
 "action.report-bugs.email" = "寄送電子郵件⋯";
 
+// MARK: - Misc Actions
+"action.go-to-status-page" = "Go to Homebrew status page";
+
 // MARK: - Navigation
 "navigation.about" = "關於 Cork";
 "navigation.menu.packages" = "套件";
@@ -270,6 +273,7 @@
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
+"about.contributor.service.website" = "Website";
 
 "about.thanks" = "特別銘謝";
 "about.thanks.1.name" = "Seb Jachec";
@@ -284,10 +288,14 @@
 "about.contributors.3.purpose" = "修理了套件數量和起始頁面未更新的問題";
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "貢獻了第一個通過的拉取請求，與 Jierong Li 一同修理套件數量";
+"about.contributors.5.name" = "Andrey Radchishin";
+"about.contributors.5.purpose" = "Added a way of going back to the Homebrew Status page";
 
 "about.translators" = "翻譯";
 "about.translator.1.name" = "Jerry";
 "about.translator.1.purpose" = "為 Cork 提供簡體中文翻譯";
+"about.translator.2.name" = "sh95014";
+"about.translator.2.purpose" = "Translated Cork into Traditional Chinese";
 
 "about.contribute" = "捐助";
 "about.contact" = "聯繫我";

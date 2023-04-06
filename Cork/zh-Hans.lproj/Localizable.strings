@@ -14,6 +14,9 @@
 "action.report-bugs.git-hub" = "在 GitHub 上反馈…";
 "action.report-bugs.email" = "发送邮件反馈…";
 
+// MARK: - Misc Actions
+"action.go-to-status-page" = "返回主页";
+
 // MARK: - Navigation
 "navigation.about" = "关于 Cork";
 "navigation.menu.packages" = "软件包";
@@ -270,6 +273,7 @@
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
+"about.contributor.service.website" = "网站";
 
 "about.thanks" = "特别鸣谢";
 "about.thanks.1.name" = "Seb Jachec";
@@ -284,10 +288,14 @@
 "about.contributors.3.purpose" = "修复了主页软件包数量无法更新的问题。";
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "发起了第一个通过审核的拉取请求；与 Jierong Li 一起修复了软件包计数功能";
+"about.contributors.5.name" = "Andrey Radchishin";
+"about.contributors.5.purpose" = "添加了返回主页的功能";
 
 "about.translators" = "翻译";
 "about.translator.1.name" = "Jerry";
-"about.translator.1.purpose" = "为 Cork 提供了中文翻译";
+"about.translator.1.purpose" = "为 Cork 提供了简体中文翻译";
+"about.translator.2.name" = "sh95014";
+"about.translator.2.purpose" = "为 Cork 提供了繁体中文翻译";
 
 "about.contribute" = "贡献";
 "about.contact" = "联系我";
