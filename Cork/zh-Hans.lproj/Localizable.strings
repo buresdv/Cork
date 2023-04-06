@@ -289,7 +289,7 @@
 "about.contributors.4.name" = "Oscar Bazaldua";
 "about.contributors.4.purpose" = "发起了第一个通过审核的拉取请求；与 Jierong Li 一起修复了软件包计数功能";
 "about.contributors.5.name" = "Andrey Radchishin";
-"about.contributors.5.purpose" = "添加了返回主页功能";
+"about.contributors.5.purpose" = "添加了返回主页的功能";
 
 "about.translators" = "翻译";
 "about.translator.1.name" = "Jerry";
