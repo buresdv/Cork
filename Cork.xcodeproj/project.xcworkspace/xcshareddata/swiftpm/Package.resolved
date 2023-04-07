@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "davidfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/buresdv/DavidFoundation",
+      "state" : {
+        "branch" : "main",
+        "revision" : "689acd5965a72ead24fafe692b7345aaeb4bea69"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
+      "state" : {
+        "revision" : "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
+        "version" : "5.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
