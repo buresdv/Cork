@@ -131,7 +131,7 @@ struct CorkApp: App
                 } label: {
                     Text("navigation.menu.maintenance.perform")
                 }
-                .keyboardShortcut("m")
+                .keyboardShortcut("m", modifiers: [.command, .shift])
                 
                 if appDelegate.appState.cachedDownloadsFolderSize != 0
                 {
