@@ -247,6 +247,8 @@
 "settings.general.search-results.toggle" = "显示软件包简介";
 "settings.general.package-details" = "软件包详情：";
 "settings.general.package-details.toggle" = "显示依赖搜索框 ";
+"settings.general.menubar" = "Menu Bar:";
+"settings.general.menubar.toggle" = "Show in Menu Bar";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "设置默认步骤";
@@ -302,3 +304,6 @@
 
 "about.version-%@-%@" = "版本 %@ (%@)";
 "about.copyright" = "© 2023 David Bureš 及其它贡献者。";
+
+// MARK: - Menu Bar
+"menubar.open.cork" = "Open Cork";

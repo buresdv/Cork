@@ -247,6 +247,8 @@
 "settings.general.search-results.toggle" = "Show package descriptions";
 "settings.general.package-details" = "Package details:";
 "settings.general.package-details.toggle" = "Show search field for dependencies";
+"settings.general.menubar" = "Menu Bar:";
+"settings.general.menubar.toggle" = "Show in Menu Bar";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "Set default steps";
@@ -302,3 +304,6 @@
 
 "about.version-%@-%@" = "Version %@ (%@)";
 "about.copyright" = "© 2023 David Bureš and contributors.";
+
+// MARK: - Menu Bar
+"menubar.open.cork" = "Open Cork";

@@ -22,6 +22,7 @@ struct CorkApp: App
     @StateObject var selectedTapInfo = SelectedTapInfo()
 
     @Environment(\.openWindow) private var openWindow
+    @AppStorage("showInMenuBar") var showInMenuBar = false
 
     var body: some Scene
     {
@@ -157,17 +158,23 @@ struct CorkApp: App
 
         let outdatedCount = outdatedPackageTracker.outdatedPackageNames.count
         let outdatedCountString = String.localizedPluralString("start-page.updates.count", outdatedCount)
-        MenuBarExtra(outdatedCountString, systemImage: outdatedCount == 0 ? "mug" : "mug.fill")
+        MenuBarExtra(outdatedCountString, systemImage: outdatedCount == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             Text(outdatedCountString)
-            Button("navigation.upgrade-packages") {
-                appDelegate.appState.isShowingUpdateSheet = true
+            if outdatedCount > 0
+            {
+                Button("navigation.upgrade-packages")
+                {
+                    appDelegate.appState.isShowingUpdateSheet = true
+                }
             }
-            Button("navigation.install-package") {
+            Button("navigation.install-package")
+            {
                 appDelegate.appState.isShowingInstallationSheet.toggle()
             }
             Divider()
-            Button("Open Cork") {
+            Button("menubar.open.cork")
+            {
                 openWindow(id: "main")
             }
         }

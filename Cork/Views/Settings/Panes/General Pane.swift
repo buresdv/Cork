@@ -17,6 +17,8 @@ struct GeneralPane: View
     
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
+    @AppStorage("showInMenuBar") var showInMenuBar = false
+
     var body: some View
     {
         SettingsPaneTemplate
@@ -94,6 +96,16 @@ struct GeneralPane: View
                     }
                 } label: {
                     Text("settings.general.package-details")
+                }
+
+                LabeledContent
+                {
+                    Toggle(isOn: $showInMenuBar)
+                    {
+                        Text("settings.general.menubar.toggle")
+                    }
+                } label: {
+                    Text("settings.general.menubar")
                 }
             }
         }
