@@ -247,6 +247,8 @@
 "settings.general.search-results.toggle" = "顯示套件簡介";
 "settings.general.package-details" = "套件簡介：";
 "settings.general.package-details.toggle" = "顯示依存關係搜尋欄";
+"settings.general.menubar" = "選單列：";
+"settings.general.menubar.toggle" = "在選單列中顯示";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "設定預設步驟";
@@ -302,3 +304,6 @@
 
 "about.version-%@-%@" = "版本 %@ (%@)";
 "about.copyright" = "© 2023 David Bureš 等貢獻者";
+
+// MARK: - Menu Bar
+"menubar.open.cork" = "開啟 Cork";

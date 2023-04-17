@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
     
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
-        return true
+        return false
     }
 
     func applicationWillTerminate(_ notification: Notification) {
