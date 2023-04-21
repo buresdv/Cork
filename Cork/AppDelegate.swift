@@ -12,12 +12,20 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate
 {
+    @AppStorage("showInMenuBar") var showInMenuBar = false
     
     var appState = AppState()
     
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
-        return false
+        if showInMenuBar
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
