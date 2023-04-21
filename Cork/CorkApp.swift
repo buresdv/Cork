@@ -156,12 +156,11 @@ struct CorkApp: App
             SettingsView()
         }
 
-        let outdatedCount = outdatedPackageTracker.outdatedPackageNames.count
-        let outdatedCountString = String.localizedPluralString("start-page.updates.count", outdatedCount)
-        MenuBarExtra(outdatedCountString, systemImage: outdatedCount == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        let outdatedCountString = String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackages.count)
+        MenuBarExtra(outdatedCountString, systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             Text(outdatedCountString)
-            if outdatedCount > 0
+            if outdatedPackageTracker.outdatedPackages.count > 0
             {
                 Button("navigation.upgrade-packages")
                 {
