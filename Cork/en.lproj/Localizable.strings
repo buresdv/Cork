@@ -73,6 +73,8 @@
 "start-page.status" = "Homebrew Status";
 "start-page.updates.loading" = "Checking for package updates…";
 "start-page.updates.list" = "Outdated packages";
+"start-page.updated.action.select-all" = "Select All";
+"start-page.updated.action.deselect-all" = "Deselect All";
 "start-page.updates.action" = "Update";
 "start-page.installed-formulae.description" = "Formulae are packages that you use through a terminal";
 "start-page.installed-casks.description" = "Casks are packages that have graphical windows";
