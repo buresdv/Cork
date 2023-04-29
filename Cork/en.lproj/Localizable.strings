@@ -134,6 +134,9 @@
 "update-packages.error" = "Packages updated with errors";
 "update-packages.error.description" = "There were some errors during updating.\nCheck below for more information";
 
+"update-packages.incremental.finished" = "Successfully upgraded selected packages";
+"update-packages.incremental.impossible-case" = "I don't know what you did to make this appear";
+
 // MARK: - Install Package
 "add-package.title" = "Install packages";
 "add-package.search.prompt" = "Search for packages…";
