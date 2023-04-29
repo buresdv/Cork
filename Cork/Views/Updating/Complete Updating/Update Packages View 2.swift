@@ -19,7 +19,6 @@ struct UpdatePackagesView: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var brewData: BrewDataStorage
 
     var body: some View
     {
@@ -80,7 +79,7 @@ struct UpdatePackagesView: View
                             .onAppear
                             {
                                 Task(priority: .userInitiated) {
-                                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages(brewData: brewData)
+                                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages()
                                     
                                     updateProgressTracker.updateProgress = 10
                                     

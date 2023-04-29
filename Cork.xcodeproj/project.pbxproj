@@ -371,6 +371,22 @@
 			path = "Package Installation";
 			sourceTree = "<group>";
 		};
+		6339B0F929F921AA00DC4C80 /* Complete */ = {
+			isa = PBXGroup;
+			children = (
+				6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */,
+				63A38B9729BA0B910080158C /* Package Updating Steps.swift */,
+			);
+			path = Complete;
+			sourceTree = "<group>";
+		};
+		6339B0FA29F921B200DC4C80 /* Incremental */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Incremental;
+			sourceTree = "<group>";
+		};
 		634065582871AA42001A2178 = {
 			isa = PBXGroup;
 			children = (
@@ -485,8 +501,8 @@
 		6360355529BDE79D00CC0760 /* Package Updating */ = {
 			isa = PBXGroup;
 			children = (
-				63A38B9729BA0B910080158C /* Package Updating Steps.swift */,
-				6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */,
+				6339B0FA29F921B200DC4C80 /* Incremental */,
+				6339B0F929F921AA00DC4C80 /* Complete */,
 				6360355929BDF67A00CC0760 /* Update Availability.swift */,
 			);
 			path = "Package Updating";

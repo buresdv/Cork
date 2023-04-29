@@ -88,7 +88,7 @@ struct StartPage: View
                     
                     await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
                                 
-                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages()
+                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages(brewData: brewData)
                     
                     if outdatedPackageTracker.outdatedPackages.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
                     {

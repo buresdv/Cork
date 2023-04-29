@@ -11,7 +11,7 @@ struct OutdatedPackage: Identifiable, Hashable
 {
     let id: UUID = UUID()
     
-    let package: BrewPackage
+    let packageName: String
     
     var isMarkedForUpdating: Bool = true
 }

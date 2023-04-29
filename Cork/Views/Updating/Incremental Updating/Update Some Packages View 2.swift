@@ -13,18 +13,12 @@ struct UpdateSomePackagesView: View {
     
     @Binding var isShowingSheet: Bool
     
-    @State private var packageUpdatingStage: PackageUpdatingStage = .updating
-    
-    var selectedPackages: [OutdatedPackage] {
-        return outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating })
-    }
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 10)
         {
             Text("Would update:")
-            ForEach(selectedPackages) { outdatedPackage in
-                Text("\(outdatedPackage.package.name) - \(outdatedPackage.package.isCask ? "Cask" : "Formula")")
+            ForEach(outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating })) { outdatedPackage in
+                Text(outdatedPackage.packageName)
             }
         }
         .padding()

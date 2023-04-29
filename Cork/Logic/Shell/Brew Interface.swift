@@ -22,7 +22,7 @@ func getListOfFoundPackages(searchWord: String) async -> String
     return parsedResponse!
 }
 
-func getListOfUpgradeablePackages() async -> [OutdatedPackage]
+func getListOfUpgradeablePackages(brewData: BrewDataStorage) async -> [OutdatedPackage]
 {
     var outdatedPackageTracker: [OutdatedPackage] = .init()
     
@@ -33,7 +33,14 @@ func getListOfUpgradeablePackages() async -> [OutdatedPackage]
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
     
     for outdatedPackage in outdatedPackages {
-        outdatedPackageTracker.append(OutdatedPackage(packageName: outdatedPackage))
+        if let foundOutdatedFormula = await brewData.installedFormulae.filter({ $0.name == outdatedPackage }).first
+        {
+            outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedFormula))
+        }
+        if let foundOutdatedCask = await brewData.installedCasks.filter({ $0.name == outdatedPackage }).first
+        {
+            outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedCask))
+        }
     }
     
     return outdatedPackageTracker.dropLast()

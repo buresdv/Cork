@@ -57,7 +57,7 @@ struct OutdatedPackageListBox: View
                                     {
                                         ForEach(outdatedPackageTracker.outdatedPackages, id: \.self)
                                         { outdatedPackage in
-                                            Toggle(outdatedPackage.package.name, isOn: Binding<Bool>(
+                                            Toggle(outdatedPackage.packageName, isOn: Binding<Bool>(
                                                 get: {
                                                     return outdatedPackage.isMarkedForUpdating
                                                 }, set: {
