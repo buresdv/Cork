@@ -48,7 +48,7 @@ struct OutdatedPackageListBox: View
                                         {
                                             appState.isShowingIncrementalUpdateSheet = true
                                         } label: {
-                                            Text("Update \(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count) Packages")
+                                            Text(String.localizedPluralString("start-page.update-incremental.package-count", outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count))
                                         }
                                         .disabled(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count == 0)
                                     }

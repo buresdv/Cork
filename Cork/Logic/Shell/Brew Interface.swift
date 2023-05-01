@@ -35,11 +35,17 @@ func getListOfUpgradeablePackages(brewData: BrewDataStorage) async -> [OutdatedP
     for outdatedPackage in outdatedPackages {
         if let foundOutdatedFormula = await brewData.installedFormulae.filter({ $0.name == outdatedPackage }).first
         {
-            outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedFormula))
+            if foundOutdatedFormula.installedIntentionally /// Only show the intentionally-installed packages. The users don't care about dependencies
+            {
+                outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedFormula))
+            }
         }
         if let foundOutdatedCask = await brewData.installedCasks.filter({ $0.name == outdatedPackage }).first
         {
-            outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedCask))
+            if foundOutdatedCask.installedIntentionally
+            {
+                outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedCask))
+            }
         }
     }
     

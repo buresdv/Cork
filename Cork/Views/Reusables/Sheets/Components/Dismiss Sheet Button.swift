@@ -10,7 +10,7 @@ import SwiftUI
 struct DismissSheetButton: View
 {
     @Binding var isShowingSheet: Bool
-    @State var customButtonText: String?
+    @State var customButtonText: LocalizedStringKey?
 
     var body: some View
     {

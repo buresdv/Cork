@@ -160,7 +160,7 @@ struct UpdatePackagesView: View
                         HStack
                         {
                             Spacer()
-                            DismissSheetButton(isShowingSheet: $appState.isShowingUpdateSheet, customButtonText: "Close")
+                            DismissSheetButton(isShowingSheet: $appState.isShowingUpdateSheet, customButtonText: "action.close")
                         }
                     }
                     .fixedSize()
