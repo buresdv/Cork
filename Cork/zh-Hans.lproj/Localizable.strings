@@ -86,7 +86,7 @@
 "start-page.cached-downloads-%@" = "你有 %@ 的下载缓存";
 "start-page.cached-downloads.description" = "这些文件是已完成安装软件包的残留。它们可以被安全地移除";
 "start-page.cached-downloads.action" = "删除下载缓存…";
-"start-page.open-maintenance" = "Brew 维护…";
+"start-page.open-maintenance" = "Homebrew 维护…";
 
 // MARK: - Add Tap
 "add-tap" = "添加 Tap";
