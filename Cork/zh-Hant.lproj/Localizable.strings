@@ -74,6 +74,8 @@
 "start-page.updates.loading" = "查看套件更新⋯";
 "start-page.updates.list" = "落伍套件";
 "start-page.updates.action" = "更新";
+"start-page.updated.action.select-all" = "Select All";
+"start-page.updated.action.deselect-all" = "Deselect All";
 "start-page.installed-formulae.description" = "Formula 是在終端機裡使用的套件";
 "start-page.installed-casks.description" = "Cask 是有圖形介面的套件";
 "start-page.added-taps.description" = "Tap 提供額外的套件";
@@ -131,6 +133,10 @@
 "update-packages.finished.description" = "未發生任何錯誤";
 "update-packages.error" = "套件更新時發生錯誤";
 "update-packages.error.description" = "請詳查下方資訊";
+
+"update-packages.incremental.finished" = "Successfully upgraded selected packages";
+"update-packages.incremental.update-in-progress-%@" = "Updating %@…";
+"update-packages.incremental.impossible-case" = "I don't know what you did to make this appear";
 
 // MARK: - Install Package
 "add-package.title" = "安裝套件";

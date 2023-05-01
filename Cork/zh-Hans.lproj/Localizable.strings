@@ -74,6 +74,8 @@
 "start-page.updates.loading" = "检查软件包更新…";
 "start-page.updates.list" = "有新版本可用";
 "start-page.updates.action" = "更新";
+"start-page.updated.action.select-all" = "全选";
+"start-page.updated.action.deselect-all" = "取消选择";
 "start-page.installed-formulae.description" = "Formula 是你通过终端使用的软件包";
 "start-page.installed-casks.description" = "Cask 是有图形界面的软件包";
 "start-page.added-taps.description" = "Tap 提供额外的软件包";
@@ -84,7 +86,7 @@
 "start-page.cached-downloads-%@" = "你有 %@ 的下载缓存";
 "start-page.cached-downloads.description" = "这些文件是已完成安装软件包的残留。它们可以被安全地移除";
 "start-page.cached-downloads.action" = "删除下载缓存…";
-"start-page.open-maintenance" = "Brew 维护…";
+"start-page.open-maintenance" = "Homebrew 维护…";
 
 // MARK: - Add Tap
 "add-tap" = "添加 Tap";
@@ -131,6 +133,10 @@
 "update-packages.finished.description" = "未发生任何错误";
 "update-packages.error" = "软件包更新失败";
 "update-packages.error.description" = "更新过程中出现了一些错误。\n请查看下方信息获取详情";
+
+"update-packages.incremental.finished" = "已成功更新选定的软件包";
+"update-packages.incremental.update-in-progress-%@" = "更新 %@…";
+"update-packages.incremental.impossible-case" = "我不知道为什么它会出现";
 
 // MARK: - Install Package
 "add-package.title" = "安装软件包";
