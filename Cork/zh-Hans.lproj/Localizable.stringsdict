@@ -13,9 +13,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>Update %2$@ package</string>
+			<string>更新 %2$@ 个软件包</string>
 			<key>other</key>
-			<string>Update %2$@ packages</string>
+			<string>更新 %2$@ 个软件包</string>
 		</dict>
 	</dict>
 	<key>navigation.installed-packages.count</key>
