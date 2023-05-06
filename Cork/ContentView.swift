@@ -192,6 +192,10 @@ struct ContentView: View
         {
             UpdatePackagesView(isShowingSheet: $appState.isShowingUpdateSheet)
         }
+        .sheet(isPresented: $appState.isShowingIncrementalUpdateSheet)
+        {
+            UpdateSomePackagesView(isShowingSheet: $appState.isShowingIncrementalUpdateSheet)
+        }
         .alert(isPresented: $appState.isShowingFatalError, content: {
             switch appState.fatalAlertType
             {

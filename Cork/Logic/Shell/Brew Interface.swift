@@ -22,8 +22,9 @@ func getListOfFoundPackages(searchWord: String) async -> String
     return parsedResponse!
 }
 
-func getListOfUpgradeablePackages() async -> [String]
+func getListOfUpgradeablePackages(brewData: BrewDataStorage) async -> [OutdatedPackage]
 {
+    var outdatedPackageTracker: [OutdatedPackage] = .init()
     
     let outdatedPackagesRaw: String = await shell(AppConstants.brewExecutablePath.absoluteString, ["outdated"]).standardOutput
     
@@ -31,7 +32,24 @@ func getListOfUpgradeablePackages() async -> [String]
     
     let outdatedPackages = outdatedPackagesRaw.components(separatedBy: "\n")
     
-    return outdatedPackages.dropLast()
+    for outdatedPackage in outdatedPackages {
+        if let foundOutdatedFormula = await brewData.installedFormulae.filter({ $0.name == outdatedPackage }).first
+        {
+            if foundOutdatedFormula.installedIntentionally /// Only show the intentionally-installed packages. The users don't care about dependencies
+            {
+                outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedFormula))
+            }
+        }
+        if let foundOutdatedCask = await brewData.installedCasks.filter({ $0.name == outdatedPackage }).first
+        {
+            if foundOutdatedCask.installedIntentionally
+            {
+                outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedCask))
+            }
+        }
+    }
+    
+    return outdatedPackageTracker.dropLast()
 }
 
 func addTap(name: String) async -> String

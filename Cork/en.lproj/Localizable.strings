@@ -73,6 +73,8 @@
 "start-page.status" = "Homebrew Status";
 "start-page.updates.loading" = "Checking for package updates…";
 "start-page.updates.list" = "Outdated packages";
+"start-page.updated.action.select-all" = "Select All";
+"start-page.updated.action.deselect-all" = "Deselect All";
 "start-page.updates.action" = "Update";
 "start-page.installed-formulae.description" = "Formulae are packages that you use through a terminal";
 "start-page.installed-casks.description" = "Casks are packages that have graphical windows";
@@ -131,6 +133,10 @@
 "update-packages.finished.description" = "There were no errors";
 "update-packages.error" = "Packages updated with errors";
 "update-packages.error.description" = "There were some errors during updating.\nCheck below for more information";
+
+"update-packages.incremental.finished" = "Successfully upgraded selected packages";
+"update-packages.incremental.update-in-progress-%@" = "Updating %@…";
+"update-packages.incremental.impossible-case" = "I don't know what you did to make this appear";
 
 // MARK: - Install Package
 "add-package.title" = "Install packages";

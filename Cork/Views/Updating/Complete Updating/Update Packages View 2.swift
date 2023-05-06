@@ -79,7 +79,7 @@ struct UpdatePackagesView: View
                             .onAppear
                             {
                                 Task(priority: .userInitiated) {
-                                    outdatedPackageTracker.outdatedPackageNames = await getListOfUpgradeablePackages()
+                                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages()
                                     
                                     updateProgressTracker.updateProgress = 10
                                     
