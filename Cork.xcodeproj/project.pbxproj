@@ -25,7 +25,7 @@
 		632FD2952995A3920029FC49 /* Add Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap.swift */; };
 		632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2962995A7E50029FC49 /* Nicer Text Editor.swift */; };
 		632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */; };
-		632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD29A2995C1C20029FC49 /* BrewTap.swift */; };
+		632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD29A2995C1C20029FC49 /* Brew Tap.swift */; };
 		6330531929966E9F00F34F94 /* Start Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6330531829966E9F00F34F94 /* Start Page.swift */; };
 		6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6330531A2996A16600F34F94 /* GroupBox Headline Group.swift */; };
 		633289E729A68A61004B2930 /* Package Installation Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289E629A68A61004B2930 /* Package Installation Steps.swift */; };
@@ -156,7 +156,7 @@
 		632FD2942995A3920029FC49 /* Add Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap.swift"; sourceTree = "<group>"; };
 		632FD2962995A7E50029FC49 /* Nicer Text Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nicer Text Editor.swift"; sourceTree = "<group>"; };
 		632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Tapped Taps.swift"; sourceTree = "<group>"; };
-		632FD29A2995C1C20029FC49 /* BrewTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTap.swift; sourceTree = "<group>"; };
+		632FD29A2995C1C20029FC49 /* Brew Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Tap.swift"; sourceTree = "<group>"; };
 		6330531829966E9F00F34F94 /* Start Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start Page.swift"; sourceTree = "<group>"; };
 		6330531A2996A16600F34F94 /* GroupBox Headline Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupBox Headline Group.swift"; sourceTree = "<group>"; };
 		633289E629A68A61004B2930 /* Package Installation Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Installation Steps.swift"; sourceTree = "<group>"; };
@@ -465,7 +465,7 @@
 				633289EB29A68B09004B2930 /* Package Installation */,
 				63C830BA29984B10002D11BB /* Misc */,
 				637E00652872F629005C9890 /* Update Progress Tracker.swift */,
-				632FD29A2995C1C20029FC49 /* BrewTap.swift */,
+				632FD29A2995C1C20029FC49 /* Brew Tap.swift */,
 				63D830FB29990DD600FA802F /* Terminal Output.swift */,
 				634065792871AC27001A2178 /* Brew Data Storage.swift */,
 				633289EE29A68B36004B2930 /* Search Result Tracker.swift */,
@@ -1083,7 +1083,7 @@
 				63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */,
 				630D08B929B67E4300802201 /* Brew Pane.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
-				632FD29B2995C1C20029FC49 /* BrewTap.swift in Sources */,
+				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				63B8D4F8299E3DAD00AA7CFA /* Sort By Size.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
@@ -1258,7 +1258,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -1271,7 +1271,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.10;
+				MARKETING_VERSION = 0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1288,7 +1288,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -1301,7 +1301,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.10;
+				MARKETING_VERSION = 0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
