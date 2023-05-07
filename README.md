@@ -11,6 +11,25 @@ I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implement
 
 Without his contribution, many of the processes that depend on real-time outputs, such as installation, uninstallation and updating of packages, would be impossible.
 
+## Advantages of Cork
+
+Cork is not just an interface for Homebrew. It has many features that are either very hard to accomplish using Homebrew alone, or straight-up not possible.
+
+**Things that Cork makes easier**
+
+- [x] Listing of installed packages. Cork has its own way of loading packages, which is around 10 times faster than the Homebrew implementation.
+- [x] Knowing which packages you installed intentionally, and which packages wwere installed only as dependencies. While somewhat possible with the `brew leaves` command, it is often unreliable, often not listing packages that should be included.
+- [x] Updating of only selected packages. Again, while possible with Homebrew alone, Cork makes it so easy you wouldn't believe it is not this simple in Homebrew itself.
+- [x] Showing you exactly which packages a package is a dependency of. Super annoying in Homebrew, effortless with Cork.
+- [x] And many other features! Just try Cork out and try finding them all 😉
+
+**Things that are not possible without Cork**
+
+- [x] Clearing of cached downloads.
+- [x] Updating packages from the Menu Bar without having Cork open.
+- [x] Seeing this much info about a package in one convenient location.
+- [x] Tagging packages. This is a Cork-only feature that lets you mark any number of packages you'd like to keep track of.
+
 ## Getting Cork
 
 Pre-compiled, always up-to-date versions are available from my Homebrew tap, which you get access to by donating 5€/month. You can donate through [Ko-Fi](https://ko-fi.com/buresdv) or [GitHub Sponsors](https://github.com/sponsors/buresdv).
