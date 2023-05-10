@@ -367,7 +367,7 @@ struct PackageDetailView: View
                             {
                                 Task
                                 {
-                                    try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                                    try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
                                 }
                             } label: {
                                 Text("package-details.action.uninstall-\(package.name)")

@@ -93,11 +93,12 @@ struct SidebarView: View
                                     {
                                         Task
                                         {
-                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
+                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
                                         }
                                     } label: {
                                         Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
                                     }
+                                    
                                 }
                             }
                         }
@@ -144,7 +145,7 @@ struct SidebarView: View
                                     {
                                         Task
                                         {
-                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState)
+                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
                                         }
                                     } label: {
                                         Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
@@ -208,7 +209,7 @@ struct SidebarView: View
                                 {
                                     Task
                                     {
-                                        try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState)
+                                        try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
                                     }
                                 } label: {
                                     Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")

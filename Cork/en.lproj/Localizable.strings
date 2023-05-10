@@ -236,6 +236,8 @@
 "settings.homebrew" = "Homebrew";
 "settings.install-uninstall" = "Install and Uninstall";
 
+"settings.dangerous" = "Advanced:";
+
 // MARK: - Settings: General
 "settings.general.sort-packages" = "Sort packages by:";
 "settings.general.sort-packages.alphabetically" = "Name";
@@ -270,6 +272,11 @@
 "settings.install-uninstall.uninstallation" = "Uninstallation:";
 "settings.install-uninstall.uninstallation.purge-cache" = "Purge cache after uninstalling packages";
 "settings.install-uninstall.uninstallation.remove-orphans" = "Remove orphans after uninstalling packages";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Allow deep uninstallations";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "Deep uninstallation removes all files associated with a package.\nThis can remove shared files and break your other packages";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow deep uninstallations?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Performing deep uninstallations may break your other packages\nAre you sure you want to continue?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Deep Uninstallations";
 
 // MARK: - About
 "about.title" = "About Cork";

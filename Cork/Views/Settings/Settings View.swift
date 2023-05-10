@@ -25,15 +25,15 @@ struct SettingsView: View
                     Label("settings.maintenance", systemImage: "arrow.3.trianglepath")
                 }
 
+            InstallationAndUninstallationPane()
+                .tabItem {
+                    Label("settings.install-uninstall", systemImage: "plus")
+                }
+            
             BrewPane()
                 .tabItem {
                     Label("settings.homebrew", systemImage: "mug")
                 }
-            /*InstallationAndUninstallationPane()
-                .tabItem
-                {
-                    Label("settings.install-uninstall", systemImage: "plus")
-                }*/
         }
     }
 }
