@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SidebarView: View
 {
+    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
@@ -98,6 +100,18 @@ struct SidebarView: View
                                     } label: {
                                         Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
                                     }
+                                    if allowMoreCompleteUninstallations
+                                    {
+                                        Button
+                                        {
+                                            Task
+                                            {
+                                                try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
+                                            }
+                                        } label: {
+                                            Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
+                                        }
+                                    }
                                     
                                 }
                             }
@@ -149,6 +163,19 @@ struct SidebarView: View
                                         }
                                     } label: {
                                         Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
+                                    }
+                                    
+                                    if allowMoreCompleteUninstallations
+                                    {
+                                        Button
+                                        {
+                                            Task
+                                            {
+                                                try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
+                                            }
+                                        } label: {
+                                            Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
+                                        }
                                     }
                                 }
                             }
@@ -213,6 +240,19 @@ struct SidebarView: View
                                     }
                                 } label: {
                                     Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
+                                }
+                                
+                                if allowMoreCompleteUninstallations
+                                {
+                                    Button
+                                    {
+                                        Task
+                                        {
+                                            try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
+                                        }
+                                    } label: {
+                                        Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(cask.name)")
+                                    }
                                 }
                             }
                         }

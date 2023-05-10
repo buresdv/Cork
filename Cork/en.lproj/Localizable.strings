@@ -53,6 +53,7 @@
 "sidebar.search.prompt" = "Installed Packages";
 "sidebar.section.installed-formulae" = "Installed Formulae";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "Uninstall %@";
+"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "Completely uninstall %@";
 "sidebar.section.installed-casks" = "Installed Casks";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "Uninstall %@";
 "sidebar.section.added-taps" = "Added Taps";
@@ -195,6 +196,7 @@
 "package-details.action.pin-version-%@" = "Pin to version %@";
 "package-details.action.unpin-version-%@" = "Unpin from version %@";
 "package-details.action.uninstall-%@" = "Uninstall %@";
+"package-details.action.uninstall-deep-%@" = "Completely uninstall %@";
 
 "package-details.dependencies.search.prompt" = "Dependencies";
 "package-details.dependencies.results.name" = "Name";
