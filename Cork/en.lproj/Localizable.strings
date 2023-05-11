@@ -53,7 +53,7 @@
 "sidebar.search.prompt" = "Installed Packages";
 "sidebar.section.installed-formulae" = "Installed Formulae";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "Uninstall %@";
-"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "Completely uninstall %@";
+"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "Purge %@";
 "sidebar.section.installed-casks" = "Installed Casks";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "Uninstall %@";
 "sidebar.section.added-taps" = "Added Taps";
@@ -196,7 +196,7 @@
 "package-details.action.pin-version-%@" = "Pin to version %@";
 "package-details.action.unpin-version-%@" = "Unpin from version %@";
 "package-details.action.uninstall-%@" = "Uninstall %@";
-"package-details.action.uninstall-deep-%@" = "Completely uninstall %@";
+"package-details.action.uninstall-deep-%@" = "Purge %@";
 
 "package-details.dependencies.search.prompt" = "Dependencies";
 "package-details.dependencies.results.name" = "Name";
@@ -274,11 +274,11 @@
 "settings.install-uninstall.uninstallation" = "Uninstallation:";
 "settings.install-uninstall.uninstallation.purge-cache" = "Purge cache after uninstalling packages";
 "settings.install-uninstall.uninstallation.remove-orphans" = "Remove orphans after uninstalling packages";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Allow deep uninstallations";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "Deep uninstallation removes all files associated with a package.\nThis can remove shared files and break your other packages";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow deep uninstallations?";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Performing deep uninstallations may break your other packages\nAre you sure you want to continue?";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Deep Uninstallations";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Enable package purging?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow purging packages?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Purging may break your other packages\nAre you sure you want to continue?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Package Purging";
 
 // MARK: - About
 "about.title" = "About Cork";
