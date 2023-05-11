@@ -53,6 +53,7 @@
 "sidebar.search.prompt" = "已安裝的套件";
 "sidebar.section.installed-formulae" = "已安裝的 Formula";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "卸載 %@";
+"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "Purge %@";
 "sidebar.section.installed-casks" = "已安裝的 Cask";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "卸載 %@";
 "sidebar.section.added-taps" = "已安裝的 Tap";
@@ -195,6 +196,7 @@
 "package-details.action.pin-version-%@" = "釘選 %@ 版本";
 "package-details.action.unpin-version-%@" = "取消釘選 %@ 版本";
 "package-details.action.uninstall-%@" = "卸載 %@";
+"package-details.action.uninstall-deep-%@" = "Purge %@";
 
 "package-details.dependencies.search.prompt" = "依存關係";
 "package-details.dependencies.results.name" = "名稱";
@@ -236,6 +238,8 @@
 "settings.homebrew" = "Homebrew";
 "settings.install-uninstall" = "安裝與卸載";
 
+"settings.dangerous" = "Advanced:";
+
 // MARK: - Settings: General
 "settings.general.sort-packages" = "套件排序：";
 "settings.general.sort-packages.alphabetically" = "名稱";
@@ -270,6 +274,11 @@
 "settings.install-uninstall.uninstallation" = "卸載：";
 "settings.install-uninstall.uninstallation.purge-cache" = "卸載套件後清除快取";
 "settings.install-uninstall.uninstallation.remove-orphans" = "卸載套件後清除遺孤套件";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Enable package purging";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow purging packages?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Purging may break your other packages\nAre you sure you want to continue?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Package Purging";
 
 // MARK: - About
 "about.title" = "關於 Cork";
