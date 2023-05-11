@@ -16,6 +16,7 @@ class SelectedPackageInfo: ObservableObject
 struct PackageDetailView: View
 {
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
     @State var package: BrewPackage
 
@@ -362,15 +363,45 @@ struct PackageDetailView: View
                         HStack(spacing: 15)
                         {
                             UninstallationProgressWheel()
-
-                            Button(role: .destructive)
+                            
+                            if allowMoreCompleteUninstallations
                             {
-                                Task
+                                Spacer()
+                            }
+
+                            if !allowMoreCompleteUninstallations
+                            {
+                                Button(role: .destructive)
                                 {
-                                    try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState)
+                                    Task
+                                    {
+                                        try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
+                                    }
+                                } label: {
+                                    Text("package-details.action.uninstall-\(package.name)")
                                 }
-                            } label: {
-                                Text("package-details.action.uninstall-\(package.name)")
+                            }
+                            else
+                            {
+                                Menu {
+                                    Button(role: .destructive)
+                                    {
+                                        Task
+                                        {
+                                            try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
+                                        }
+                                    } label: {
+                                        Text("package-details.action.uninstall-deep-\(package.name)")
+                                    }
+                                } label: {
+                                    Text("package-details.action.uninstall-\(package.name)")
+                                } primaryAction: {
+                                    Task(priority: .userInitiated)
+                                    {
+                                        try! await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
+                                    }
+                                }
+                                .fixedSize()
                             }
                         }
                     }

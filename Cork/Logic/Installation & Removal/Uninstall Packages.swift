@@ -9,12 +9,21 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async throws
+func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, shouldRemoveAllAssociatedFiles: Bool) async throws
 {
     appState.isShowingUninstallationProgressView = true
 
     print("Will try to remove package \(package.name)")
-    let uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", package.name])
+    var uninstallCommandOutput: TerminalOutput
+    
+    if !shouldRemoveAllAssociatedFiles
+    {
+        uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", package.name])
+    }
+    else
+    {
+        uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", "--zap", package.name])
+    }
 
     print(uninstallCommandOutput.standardError)
 
@@ -69,6 +78,11 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     }
 
     appState.isShowingUninstallationProgressView = false
+    
+    if appState.navigationSelection != nil
+    {
+        appState.navigationSelection = nil
+    }
 
     print(uninstallCommandOutput)
 }

@@ -69,7 +69,7 @@ struct AboutView: View
             name: "about.translator.1.name",
             reasonForAcknowledgement: "about.translator.1.purpose",
             profileService: .mastodon,
-            profileURL: URL(string: "https://elk.zone/mstdn.social/@Jerry23011@mastodon.social")!
+            profileURL: URL(string: "https://mastodon.social/@Jerry23011")!
         ),
         AcknowledgedContributor(
             name: "about.translator.2.name",
