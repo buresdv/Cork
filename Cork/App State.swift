@@ -8,6 +8,8 @@
 import Foundation
 
 class AppState: ObservableObject {
+    @Published var navigationSelection: UUID?
+    
     /// Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
     @Published var isShowingPackageReinstallationSheet: Bool = false

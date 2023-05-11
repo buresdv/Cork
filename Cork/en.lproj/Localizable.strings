@@ -274,7 +274,7 @@
 "settings.install-uninstall.uninstallation" = "Uninstallation:";
 "settings.install-uninstall.uninstallation.purge-cache" = "Purge cache after uninstalling packages";
 "settings.install-uninstall.uninstallation.remove-orphans" = "Remove orphans after uninstalling packages";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Enable package purging?";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Enable package purging";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow purging packages?";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Purging may break your other packages\nAre you sure you want to continue?";

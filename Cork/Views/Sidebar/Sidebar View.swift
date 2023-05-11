@@ -17,8 +17,7 @@ struct SidebarView: View
 
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     @EnvironmentObject var selectedTapInfo: SelectedTapInfo
-
-    @State private var selection: UUID? = nil
+    
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
     @State private var availableTokens: [PackageSearchToken] = [
@@ -56,7 +55,7 @@ struct SidebarView: View
                         {
                             ForEach(searchText.isEmpty ? brewData.installedFormulae.filter({ $0.installedIntentionally == true }) : brewData.installedFormulae.filter({ $0.installedIntentionally == true && $0.name.contains(searchText)}))
                             { formula in
-                                NavigationLink(tag: formula.id, selection: $selection)
+                                NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
                                 {
                                     PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                                 } label: {
@@ -120,7 +119,7 @@ struct SidebarView: View
                         {
                             ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
                             { formula in
-                                NavigationLink(tag: formula.id, selection: $selection)
+                                NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
                                 {
                                     PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
                                 } label: {
@@ -197,7 +196,7 @@ struct SidebarView: View
                     {
                         ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
                         { cask in
-                            NavigationLink(tag: cask.id, selection: $selection)
+                            NavigationLink(tag: cask.id, selection: $appState.navigationSelection)
                             {
                                 PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
                             } label: {
@@ -274,7 +273,7 @@ struct SidebarView: View
                         ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
                         { tap in
 
-                            NavigationLink(tag: tap.id, selection: $selection)
+                            NavigationLink(tag: tap.id, selection: $appState.navigationSelection)
                             {
                                 TapDetailView(tap: tap, selectedTapInfo: selectedTapInfo)
                             } label: {
@@ -323,12 +322,12 @@ struct SidebarView: View
         {
             ToolbarItem(placement: .automatic) {
                 Button {
-                    selection = nil
+                    appState.navigationSelection = nil
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(selection == nil)
+                .disabled(appState.navigationSelection == nil)
             }
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)

@@ -78,6 +78,11 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     }
 
     appState.isShowingUninstallationProgressView = false
+    
+    if appState.navigationSelection != nil
+    {
+        appState.navigationSelection = nil
+    }
 
     print(uninstallCommandOutput)
 }
