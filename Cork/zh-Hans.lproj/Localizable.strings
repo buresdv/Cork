@@ -53,6 +53,7 @@
 "sidebar.search.prompt" = "已安装软件包";
 "sidebar.section.installed-formulae" = "已安装 Formula";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "卸载 %@";
+"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "清除 %@";
 "sidebar.section.installed-casks" = "已安装 Cask";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "卸载 %@";
 "sidebar.section.added-taps" = "已安装 Tap";
@@ -167,7 +168,7 @@
 // MARK: - Package Repairing
 "repair-package.repair-process-%@" = "正在修复 %@…";
 "repair-package.repairing-finished.headline-%@" = "%@ 已修复";
-"repair-package.repairing-finished.subheadline" = "未发现其它问题";
+"repair-package.repairing-finished.subheadline" = "未发现其他问题";
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ 已被锁定。它将不会更新";
@@ -195,6 +196,7 @@
 "package-details.action.pin-version-%@" = "锁定版本为 %@";
 "package-details.action.unpin-version-%@" = "解除锁定版本 %@";
 "package-details.action.uninstall-%@" = "卸载 %@";
+"package-details.action.uninstall-deep-%@" = "清除 %@";
 
 "package-details.dependencies.search.prompt" = "依赖";
 "package-details.dependencies.results.name" = "名称";
@@ -210,7 +212,7 @@
 "maintenance.steps.downloads" = "下载：";
 "maintenance.steps.downloads.purge-cache" = "清除 Homebrew 缓存";
 "maintenance.steps.downloads.delete-cached-downloads" = "删除下载缓存";
-"maintenance.steps.other" = "其它：";
+"maintenance.steps.other" = "其他：";
 "maintenance.steps.other.health-check" = "平台状态检查";
 "maintenance.steps.start" = "开始";
 
@@ -228,13 +230,15 @@
 "maintenance.results.cached-downloads.summary-%@" = "你释放了 %@";
 "maintenance.results.health-check.problems-none" = "未发现 Homebrew 相关问题";
 "maintenance.results.health-check.problems" = "发现一些关于 Homebrew 问题";
-"maintenance.results.package-cache.skipped-%@" = "因为 %@ 没有更新，部分缓存未被清除";
+"maintenance.results.package-cache.skipped-%@" = "因 %@ 没有更新，部分缓存未被清除";
 
 // MARK: - Settings
 "settings.general" = "通用";
 "settings.maintenance" = "维护";
 "settings.homebrew" = "Homebrew";
 "settings.install-uninstall" = "安装和卸载";
+
+"settings.dangerous" = "高级：";
 
 // MARK: - Settings: General
 "settings.general.sort-packages" = "排序方式：";
@@ -270,6 +274,11 @@
 "settings.install-uninstall.uninstallation" = "卸载：";
 "settings.install-uninstall.uninstallation.purge-cache" = "在卸载软件包后清除缓存";
 "settings.install-uninstall.uninstallation.remove-orphans" = "在卸载软件包后删除孤立包";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "启用软件包清除";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "清除操作会删除与软件包相关的所有文件\n这可能会删除公共文件并破坏其他软件包";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "是否允许清除软件包？";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "清除操作可能破坏其他软件包\n确定要继续吗？";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "启用软件包清除";
 
 // MARK: - About
 "about.title" = "关于 Cork";
@@ -309,7 +318,7 @@
 "about.contact" = "联系我";
 
 "about.version-%@-%@" = "版本 %@ (%@)";
-"about.copyright" = "© 2023 David Bureš 及其它贡献者。";
+"about.copyright" = "© 2023 David Bureš 及其他贡献者。";
 
 // MARK: - Menu Bar
 "menubar.open.cork" = "打开 Cork";
