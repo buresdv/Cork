@@ -75,7 +75,7 @@ struct SidebarView: View
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(appState.navigationSelection == nil)
+                .disabled(appState.navigationSelection == nil || !searchText.isEmpty || !currentTokens.isEmpty)
             }
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
