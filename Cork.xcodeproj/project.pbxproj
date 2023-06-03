@@ -52,6 +52,9 @@
 		634838A629C1D69F00D3C692 /* Outdated Package Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634838A529C1D69F00D3C692 /* Outdated Package Tracker.swift */; };
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */; };
+		635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04D2A2B3818004DCBD8 /* Casks Section.swift */; };
+		635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04F2A2B3822004DCBD8 /* Formulae Section.swift */; };
+		635BE0522A2B382C004DCBD8 /* Taps Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE0512A2B382C004DCBD8 /* Taps Section.swift */; };
 		6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355929BDF67A00CC0760 /* Update Availability.swift */; };
 		63690F7B29C9FBF5008F952C /* Tag Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7A29C9FBF5008F952C /* Tag Package.swift */; };
 		63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */; };
@@ -184,6 +187,9 @@
 		634838A529C1D69F00D3C692 /* Outdated Package Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Tracker.swift"; sourceTree = "<group>"; };
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpin Package.swift"; sourceTree = "<group>"; };
+		635BE04D2A2B3818004DCBD8 /* Casks Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Casks Section.swift"; sourceTree = "<group>"; };
+		635BE04F2A2B3822004DCBD8 /* Formulae Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formulae Section.swift"; sourceTree = "<group>"; };
+		635BE0512A2B382C004DCBD8 /* Taps Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Taps Section.swift"; sourceTree = "<group>"; };
 		6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Stages.swift"; sourceTree = "<group>"; };
 		6360355929BDF67A00CC0760 /* Update Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Availability.swift"; sourceTree = "<group>"; };
 		63690F7A29C9FBF5008F952C /* Tag Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag Package.swift"; sourceTree = "<group>"; };
@@ -498,6 +504,16 @@
 			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
+		635BE04C2A2B3801004DCBD8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				635BE04F2A2B3822004DCBD8 /* Formulae Section.swift */,
+				635BE04D2A2B3818004DCBD8 /* Casks Section.swift */,
+				635BE0512A2B382C004DCBD8 /* Taps Section.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6360355529BDE79D00CC0760 /* Package Updating */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +621,7 @@
 		637402D8299BF86C001AB7B1 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
+				635BE04C2A2B3801004DCBD8 /* Components */,
 				637402D9299BF878001AB7B1 /* Sidebar View.swift */,
 			);
 			path = Sidebar;
@@ -1082,6 +1099,7 @@
 				63A8D2F329CA346400E892FB /* Load Tagged IDs from Disk.swift in Sources */,
 				63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */,
 				630D08B929B67E4300802201 /* Brew Pane.swift in Sources */,
+				635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
@@ -1091,7 +1109,9 @@
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				63690F7F29CA013E008F952C /* Untag Package.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
+				635BE0522A2B382C004DCBD8 /* Taps Section.swift in Sources */,
 				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
+				635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */,
 				633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */,
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,

@@ -11,12 +11,7 @@ struct SidebarView: View
 {
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
     
-    @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var availableTaps: AvailableTaps
-
-    @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
-    @EnvironmentObject var selectedTapInfo: SelectedTapInfo
     
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
@@ -46,264 +41,17 @@ struct SidebarView: View
         {
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .formula }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
             {
-                Section("sidebar.section.installed-formulae")
-                {
-                    if !appState.isLoadingFormulae
-                    {
-                        
-                        if currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
-                        {
-                            ForEach(searchText.isEmpty ? brewData.installedFormulae.filter({ $0.installedIntentionally == true }) : brewData.installedFormulae.filter({ $0.installedIntentionally == true && $0.name.contains(searchText)}))
-                            { formula in
-                                NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
-                                {
-                                    PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
-                                } label: {
-                                    PackageListItem(packageItem: formula)
-                                }
-                                .contextMenu
-                                {
-                                    if !formula.isTagged
-                                    {
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                            }
-                                        } label: {
-                                            Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
-                                        }
-                                    }
-                                    else
-                                    {
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                            }
-                                        } label: {
-                                            Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
-                                        }
-                                    }
-
-                                    Divider()
-
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
-                                        }
-                                    } label: {
-                                        Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
-                                    }
-                                    if allowMoreCompleteUninstallations
-                                    {
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
-                                            }
-                                        } label: {
-                                            Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                        }
-                        else
-                        {
-                            ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
-                            { formula in
-                                NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
-                                {
-                                    PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
-                                } label: {
-                                    PackageListItem(packageItem: formula)
-                                }
-                                .contextMenu
-                                {
-                                    if !formula.isTagged
-                                    {
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                            }
-                                        } label: {
-                                            Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
-                                        }
-                                    }
-                                    else
-                                    {
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                            }
-                                        } label: {
-                                            Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
-                                        }
-                                    }
-
-                                    Divider()
-
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
-                                        }
-                                    } label: {
-                                        Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
-                                    }
-                                    
-                                    if allowMoreCompleteUninstallations
-                                    {
-                                        Button
-                                        {
-                                            Task
-                                            {
-                                                try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
-                                            }
-                                        } label: {
-                                            Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        ProgressView()
-                    }
-                }
-                .collapsible(false)
+                FormulaeSection(currentTokens: $currentTokens, searchText: $searchText)
             }
 
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
             {
-                Section("sidebar.section.installed-casks")
-                {
-                    if !appState.isLoadingCasks
-                    {
-                        ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
-                        { cask in
-                            NavigationLink(tag: cask.id, selection: $appState.navigationSelection)
-                            {
-                                PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
-                            } label: {
-                                PackageListItem(packageItem: cask)
-                            }
-                            .contextMenu
-                            {
-                                if cask.isTagged
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await untagPackage(package: cask, brewData: brewData, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("sidebar.section.all.contextmenu.untag-\(cask.name)")
-                                    }
-                                }
-                                else
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            await tagPackage(package: cask, brewData: brewData, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("sidebar.section.all.contextmenu.tag-\(cask.name)")
-                                    }
-                                }
-
-                                Divider()
-
-                                Button
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
-                                }
-                                
-                                if allowMoreCompleteUninstallations
-                                {
-                                    Button
-                                    {
-                                        Task
-                                        {
-                                            try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
-                                        }
-                                    } label: {
-                                        Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(cask.name)")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        ProgressView()
-                    }
-                }
-                .collapsible(false)
+                CasksSection(searchText: $searchText)
             }
 
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
             {
-                Section("sidebar.section.added-taps")
-                {
-                    if availableTaps.addedTaps.count != 0
-                    {
-                        ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
-                        { tap in
-
-                            NavigationLink(tag: tap.id, selection: $appState.navigationSelection)
-                            {
-                                TapDetailView(tap: tap, selectedTapInfo: selectedTapInfo)
-                            } label: {
-                                Text(tap.name)
-                            }
-                            .contextMenu
-                            {
-                                Button
-                                {
-                                    Task(priority: .userInitiated)
-                                    {
-                                        print("Would remove \(tap.name)")
-                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name)")
-                                }
-                                .alert(isPresented: $appState.isShowingRemoveTapFailedAlert, content: {
-                                    Alert(title: Text("sidebar.section.added-taps.remove.title-\(tap.name)"), message: Text("sidebar.section.added-taps.remove.message"), dismissButton: .default(Text("action.close"), action: {
-                                        appState.isShowingRemoveTapFailedAlert = false
-                                    }))
-                                })
-                            }
-                        }
-                    }
-                    else
-                    {
-                        ProgressView()
-                    }
-                }
+                TapsSection(searchText: $searchText)
             }
         }
         .listStyle(.sidebar)
@@ -327,7 +75,7 @@ struct SidebarView: View
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(appState.navigationSelection == nil)
+                .disabled(appState.navigationSelection == nil || !searchText.isEmpty || !currentTokens.isEmpty)
             }
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
