@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>start-page.update-incremental.package-count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%1#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Aktualisiere %2$@ Paket</string>
+			<key>other</key>
+			<string>Aktualisiere %2$@ Pakete</string>
+		</dict>
+	</dict>
+	<key>navigation.installed-packages.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%1#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>%2$@ Paket installiert</string>
+			<key>other</key>
+			<string>%2$@ Pakete installiert</string>
+		</dict>
+	</dict>
+	<key>maintenance.results.package-cache.skipped-%@-and-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@name@%#@count@</string>
+		<key>name</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Einige Zwischenspeicher wurden nicht bereinigt, weil of %1$@ und %2$lld andere nicht aktuell sind</string>
+			<key>other</key>
+			<string>Einige Zwischenspeicher wurden nicht bereinigt, weil %1$@ und %2$lld andere nicht aktuell sind</string>
+		</dict>
+	</dict>
+	<key>start-page.added-taps.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Du hast %2$@ Tap hinzugefügt</string>
+			<key>other</key>
+			<string>Du hast %2$@ Taps hinzugefügt</string>
+		</dict>
+	</dict>
+	<key>start-page.installed-casks.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Du hast %2$@ Cask installiert</string>
+			<key>other</key>
+			<string>Du hast %2$@ Casks installiert</string>
+		</dict>
+	</dict>
+	<key>start-page.installed-formulae.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Du hast %2$@ Formula installiert</string>
+			<key>other</key>
+			<string>Du hast %2$@ Formulae installiert</string>
+		</dict>
+	</dict>
+	<key>start-page.updates.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>one</key>
+			<string>Es gibt %2$@ veraltetes Paket</string>
+			<key>other</key>
+			<string>Es gibt %2$@ veraltete Pakete</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
