@@ -18,7 +18,7 @@ Cork is not just an interface for Homebrew. It has many features that are either
 **Things that Cork makes easier**
 
 - [x] Listing of installed packages. Cork has its own way of loading packages, which is around 10 times faster than the Homebrew implementation.
-- [x] Knowing which packages you installed intentionally, and which packages wwere installed only as dependencies. While somewhat possible with the `brew leaves` command, it is often unreliable, often not listing packages that should be included.
+- [x] Knowing which packages you installed intentionally, and which packages were installed only as dependencies. While somewhat possible with the `brew leaves` command, it is often unreliable, often not listing packages that should be included.
 - [x] Updating of only selected packages. Again, while possible with Homebrew alone, Cork makes it so easy you wouldn't believe it is not this simple in Homebrew itself.
 - [x] Showing you exactly which packages a package is a dependency of. Super annoying in Homebrew, effortless with Cork.
 - [x] And many other features! Just try Cork out and try finding them all 😉
