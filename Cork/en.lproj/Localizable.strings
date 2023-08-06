@@ -50,7 +50,7 @@
 "alert.package-corrupted.title-%@" = "%@ is corrupted";
 "alert.package-corrupted.message" = "This package needs to be repaired";
 "alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
-"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork does not work. As soon as this problem is fixed, Cork will be updated";
+"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";
