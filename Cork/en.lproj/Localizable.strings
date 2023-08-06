@@ -8,6 +8,7 @@
 "action.reveal-in-finder" = "Reveal in Finder";
 "action.clear-metadata" = "Clear metadata";
 "action.repair-%@" = "Repair %@";
+"action.repair-home-path" = "Repair Homebrew";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "Report Bugs";
@@ -48,6 +49,8 @@
 "alert.could-not-create-metadata-file.title" = "Could not create metadata file";
 "alert.package-corrupted.title-%@" = "%@ is corrupted";
 "alert.package-corrupted.message" = "This package needs to be repaired";
+"alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
+"alert.home-not-set.message" = "Cork cannot access your Homebrew installation";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";

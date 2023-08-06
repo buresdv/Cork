@@ -41,8 +41,7 @@ struct StartPage: View
                         {
                             OutdatedPackageLoaderBox()
                         }
-                        
-                        
+
                         if outdatedPackageTracker.outdatedPackages.count != 0
                         {
                             OutdatedPackageListBox()
@@ -63,7 +62,7 @@ struct StartPage: View
                     HStack
                     {
                         Spacer()
-                        
+
                         UninstallationProgressWheel()
 
                         Button
@@ -85,14 +84,29 @@ struct StartPage: View
                 Task(priority: .background)
                 {
                     isLoadingUpgradeablePackages = true
-                    
+
                     await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
-                                
-                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages(brewData: brewData)
-                    
+
+                    do
+                    {
+                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    }
+                    catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                    {
+                        switch outdatedPackageRetrievalError
+                        {
+                        case .homeNotSet:
+                            appState.fatalAlertType = .homePathNotSet
+                            appState.isShowingFatalError = true
+                        case .otherError:
+                            print("Something went wrong")
+                        }
+                    }
+
                     if outdatedPackageTracker.outdatedPackages.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
                     {
-                        withAnimation {
+                        withAnimation
+                        {
                             isLoadingUpgradeablePackages = false
                         }
                     }
@@ -100,7 +114,6 @@ struct StartPage: View
                     {
                         isLoadingUpgradeablePackages = false
                     }
-                    
                 }
             }
         }

@@ -287,6 +287,17 @@ struct ContentView: View
                         appState.isShowingPackageReinstallationSheet = true
                     })
                 )
+            case .homePathNotSet:
+                return Alert(
+                    title: Text("alert.home-not-set.title"),
+                    message: Text("alert.home-not-set.message"),
+                    primaryButton: .default(Text("action.repair-home-path"), action: {
+                        print("TBD")
+                    }),
+                    secondaryButton: .destructive(Text("action.quit"), action: {
+                        exit(0)
+                    })
+                )
             }
         })
     }
