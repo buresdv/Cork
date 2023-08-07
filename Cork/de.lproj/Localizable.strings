@@ -8,6 +8,7 @@
 "action.reveal-in-finder" = "Im Finder anzeigen";
 "action.clear-metadata" = "Metadaten bereinigen";
 "action.repair-%@" = "Repariere %@";
+"action.repair-home-path" = "Repair Homebrew";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "Fehler melden";
@@ -48,6 +49,8 @@
 "alert.could-not-create-metadata-file.title" = "Metadatendatei konnte nicht erstellt werden";
 "alert.package-corrupted.title-%@" = "%@ ist beschädigt";
 "alert.package-corrupted.message" = "Dieses Paket muss repariert werden";
+"alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
+"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installierte Pakete";
