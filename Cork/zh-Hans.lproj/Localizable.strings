@@ -8,7 +8,7 @@
 "action.reveal-in-finder" = "在访达中显示";
 "action.clear-metadata" = "清除元数据";
 "action.repair-%@" = "修复 %@";
-"action.repair-home-path" = "Repair Homebrew";
+"action.repair-home-path" = "修复 Homebrew";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反馈问题";
@@ -49,8 +49,8 @@
 "alert.could-not-create-metadata-file.title" = "无法创建元数据文件";
 "alert.package-corrupted.title-%@" = "%@ 已损坏";
 "alert.package-corrupted.message" = "该软件包需要修复";
-"alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
-"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
+"alert.home-not-set.title" = "Homebrew 没有为 Cork 正确配置";
+"alert.home-not-set.message" = "Cork 无法访问 Homebrew\n我们正在调查此问题的原因，该问题可能出现在最新的 Homebrew 或 macOS 版本中\n在此问题解决之前，Cork 将无法使用。Cork 将在问题修复后更新";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
