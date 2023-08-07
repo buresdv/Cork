@@ -7,21 +7,22 @@
 
 import Foundation
 
-func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
+@discardableResult
+func shell(_ launchPath: String, _ arguments: [String], environment: [String: String]? = nil) async -> TerminalOutput
 {
     var allOutput: [String] = .init()
     var allErrors: [String] = .init()
-    for await streamedOutput in shell(launchPath, arguments)
+    for await streamedOutput in shell(launchPath, arguments, environment: environment)
     {
         switch streamedOutput
         {
-        case let .standardOutput(output):
-            allOutput.append(output)
-        case let .standardError(error):
-            allErrors.append(error)
+            case let .standardOutput(output):
+                allOutput.append(output)
+            case let .standardError(error):
+                allErrors.append(error)
         }
     }
-
+    
     return .init(
         standardOutput: allOutput.joined(),
         standardError: allErrors.joined()
@@ -40,12 +41,29 @@ func shell(_ launchPath: String, _ arguments: [String]) async -> TerminalOutput
 ///        // Do something with `errorLine`
 ///    }
 ///}
-func shell(_ launchPath: String, _ arguments: [String]) -> AsyncStream<StreamedTerminalOutput>
-{
+func shell(
+    _ launchPath: String,
+    _ arguments: [String],
+    environment: [String: String]? = nil
+) -> AsyncStream<StreamedTerminalOutput> {
     let task = Process()
+    
+    var finalEnvironment: [String: String] = .init()
+    
+    if var environment
+    {
+        environment["HOME"] = FileManager.default.homeDirectoryForCurrentUser.path
+        finalEnvironment = environment
+    }
+    else
+    {
+        finalEnvironment = ["HOME": FileManager.default.homeDirectoryForCurrentUser.path]
+    }
+    
+    task.environment = finalEnvironment
     task.launchPath = launchPath
     task.arguments = arguments
-
+    
     let pipe = Pipe()
     task.standardOutput = pipe
     
@@ -60,30 +78,30 @@ func shell(_ launchPath: String, _ arguments: [String]) -> AsyncStream<StreamedT
     {
         print(error)
     }
-
+    
     return AsyncStream { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
             guard let standardOutput = String(data: handler.availableData, encoding: .utf8) else
             {
                 return
             }
-
+            
             guard !standardOutput.isEmpty else { return }
-
+            
             continuation.yield(.standardOutput(standardOutput))
         }
-
+        
         errorPipe.fileHandleForReading.readabilityHandler = { handler in
             guard let errorOutput = String(data: handler.availableData, encoding: .utf8) else
             {
                 return
             }
-
+            
             guard !errorOutput.isEmpty else { return }
-
+            
             continuation.yield(.standardError(errorOutput))
         }
-
+        
         task.terminationHandler = { _ in
             continuation.finish()
         }
