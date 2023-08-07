@@ -8,6 +8,7 @@
 "action.reveal-in-finder" = "在 Finder 裡顯示";
 "action.clear-metadata" = "清除元資料";
 "action.repair-%@" = "修復 %@";
+"action.repair-home-path" = "Repair Homebrew";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反映程式缺陷";
@@ -48,6 +49,8 @@
 "alert.could-not-create-metadata-file.title" = "無法創建元資料檔案";
 "alert.package-corrupted.title-%@" = "%@ 已損毀";
 "alert.package-corrupted.message" = "本套件需要修復";
+"alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
+"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
