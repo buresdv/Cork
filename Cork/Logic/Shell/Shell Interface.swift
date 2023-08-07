@@ -47,7 +47,20 @@ func shell(
     environment: [String: String]? = nil
 ) -> AsyncStream<StreamedTerminalOutput> {
     let task = Process()
-    task.environment = environment
+    
+    var finalEnvironment: [String: String] = .init()
+    
+    if var environment
+    {
+        environment["HOME"] = FileManager.default.homeDirectoryForCurrentUser.path
+        finalEnvironment = environment
+    }
+    else
+    {
+        finalEnvironment = ["HOME": FileManager.default.homeDirectoryForCurrentUser.path]
+    }
+    
+    task.environment = finalEnvironment
     task.launchPath = launchPath
     task.arguments = arguments
 

@@ -10,7 +10,7 @@ import SwiftyJSON
 
 func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPackage]
 {
-    var contentsOfFolder = [BrewPackage]()
+    var contentsOfFolder: [BrewPackage] = .init()
 
     var temporaryVersionStorage: [String] = .init()
     var temporaryURLStorage: [URL] = .init()

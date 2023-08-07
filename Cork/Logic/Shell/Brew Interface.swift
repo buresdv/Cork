@@ -22,11 +22,25 @@ func getListOfFoundPackages(searchWord: String) async -> String
     return parsedResponse!
 }
 
-func getListOfUpgradeablePackages(brewData: BrewDataStorage) async -> [OutdatedPackage]
+enum OutdatedPackageRetrievalError: Error
+{
+    case homeNotSet, otherError
+}
+
+func getListOfUpgradeablePackages(brewData: BrewDataStorage) async throws -> [OutdatedPackage]
 {
     var outdatedPackageTracker: [OutdatedPackage] = .init()
     
-    let outdatedPackagesRaw: String = await shell(AppConstants.brewExecutablePath.absoluteString, ["outdated"]).standardOutput
+    let outdatedPackagesCommandOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["outdated"])
+    let outdatedPackagesRaw: String = outdatedPackagesCommandOutput.standardOutput
+    
+    print("Outdatedpackages output: \(outdatedPackagesCommandOutput)")
+    
+    if outdatedPackagesCommandOutput.standardError.contains("HOME must be set")
+    {
+        print("Encountered HOME error")
+        throw OutdatedPackageRetrievalError.homeNotSet
+    }
     
     print("Outdated packages output: \(outdatedPackagesRaw)")
     

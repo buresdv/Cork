@@ -287,6 +287,14 @@ struct ContentView: View
                         appState.isShowingPackageReinstallationSheet = true
                     })
                 )
+            case .homePathNotSet:
+                return Alert(
+                    title: Text("alert.home-not-set.title"),
+                    message: Text("alert.home-not-set.message"),
+                    dismissButton: .destructive(Text("action.quit"), action: {
+                        exit(0)
+                    })
+                )
             }
         })
     }

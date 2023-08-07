@@ -80,17 +80,30 @@ struct UpdatePackagesView: View
                             .onAppear
                             {
                                 Task(priority: .userInitiated) {
-                                    outdatedPackageTracker.outdatedPackages = await getListOfUpgradeablePackages(brewData: brewData)
-                                    
-                                    updateProgressTracker.updateProgress = 10
-                                    
-                                    if updateProgressTracker.errors.isEmpty
+                                    do
                                     {
-                                        packageUpdatingStage = .finished
+                                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                                        
+                                        updateProgressTracker.updateProgress = 10
+                                        
+                                        if updateProgressTracker.errors.isEmpty
+                                        {
+                                            packageUpdatingStage = .finished
+                                        }
+                                        else
+                                        {
+                                            packageUpdatingStage = .erroredOut
+                                        }
                                     }
-                                    else
+                                    catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                                     {
-                                        packageUpdatingStage = .erroredOut
+                                        switch outdatedPackageRetrievalError {
+                                            case .homeNotSet:
+                                                appState.fatalAlertType = .homePathNotSet
+                                                appState.isShowingFatalError = true
+                                            case .otherError:
+                                                print("Something went wrong")
+                                        }
                                     }
                                 }
                             }
