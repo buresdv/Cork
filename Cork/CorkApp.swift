@@ -40,6 +40,9 @@ struct CorkApp: App
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
+                .onChange(of: outdatedPackageTracker.outdatedPackages) { newValue in
+                    NSApp.dockTile.badgeLabel = String(newValue.count)
+                }
         }
         .commands
         {
