@@ -167,17 +167,35 @@ struct CorkApp: App
             {
                 Button("navigation.upgrade-packages")
                 {
+                    switchCorkToForeground()
                     appDelegate.appState.isShowingUpdateSheet = true
                 }
             }
             Button("navigation.install-package")
             {
+                switchCorkToForeground()
                 appDelegate.appState.isShowingInstallationSheet.toggle()
             }
             Divider()
             Button("menubar.open.cork")
             {
                 openWindow(id: "main")
+            }
+        }
+    }
+    
+    func switchCorkToForeground()
+    {
+        let runningApps: [NSRunningApplication] = NSWorkspace.shared.runningApplications
+        
+        for app in runningApps
+        {
+            if app.localizedName == "Cork"
+            {
+                if !app.isActive
+                {
+                    app.activate(options: .activateIgnoringOtherApps)
+                }
             }
         }
     }
