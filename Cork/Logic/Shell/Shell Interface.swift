@@ -50,6 +50,7 @@ func shell(
     
     var finalEnvironment: [String: String] = .init()
     
+    // MARK: - Set up the $HOME environment variable so brew commands work on versions 4.1 and up
     if var environment
     {
         environment["HOME"] = FileManager.default.homeDirectoryForCurrentUser.path
@@ -58,6 +59,13 @@ func shell(
     else
     {
         finalEnvironment = ["HOME": FileManager.default.homeDirectoryForCurrentUser.path]
+    }
+    
+    // MARK: - Set up proxy if it's enabled
+    if let proxySettings = AppConstants.proxySettings
+    {
+        print("Proxy is enabled")
+        finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
     
     task.environment = finalEnvironment
