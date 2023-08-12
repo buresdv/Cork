@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct NetworkProxy
+{
+    let host: String
+    let port: Int
+}
