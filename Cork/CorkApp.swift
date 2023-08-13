@@ -180,21 +180,30 @@ struct CorkApp: App
             Button("menubar.open.cork")
             {
                 openWindow(id: "main")
+                
+                switchCorkToForeground()
             }
         }
     }
     
     func switchCorkToForeground()
     {
-        let runningApps: [NSRunningApplication] = NSWorkspace.shared.runningApplications
         
-        for app in runningApps
+        if #available(macOS 14.0, *) {
+            NSApp.activate()
+        }
+        else
         {
-            if app.localizedName == "Cork"
+            let runningApps: [NSRunningApplication] = NSWorkspace.shared.runningApplications
+            
+            for app in runningApps
             {
-                if !app.isActive
+                if app.localizedName == "Cork"
                 {
-                    app.activate(options: .activateIgnoringOtherApps)
+                    if !app.isActive
+                    {
+                        app.activate(options: .activateIgnoringOtherApps)
+                    }
                 }
             }
         }
