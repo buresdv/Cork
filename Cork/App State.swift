@@ -13,7 +13,6 @@ class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
     
     @Published var notificationStatus: UNNotificationSettings?
-    @Published var forcedDenyBySystemSettings: Bool = false
     
     /// Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
@@ -62,15 +61,12 @@ class AppState: ObservableObject {
             case .authorized:
                 print("Notifications were authorized")
                 
-                self.forcedDenyBySystemSettings = false
             case .provisional:
                 print("Notifications are provisional")
                 
-                self.forcedDenyBySystemSettings = false
             case .ephemeral:
                 print("Notifications are ephemeral")
                 
-                self.forcedDenyBySystemSettings = false
             @unknown default:
                 print("Something got really fucked up")
         }
@@ -92,10 +88,6 @@ class AppState: ObservableObject {
             print("Error: \(notificationPermissionsObtainingError.localizedDescription)")
             print("Error code: \(notificationPermissionsObtainingError.code)")
             
-            if notificationPermissionsObtainingError.code == 1
-            {
-                self.forcedDenyBySystemSettings = true
-            }
         }
     }
     

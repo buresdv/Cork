@@ -49,15 +49,18 @@ struct CorkApp: App
 
                     if outdatedPackageCount != 0
                     {
-                        if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+                        if areNotificationsEnabled
                         {
-                            NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
-                        }
-
-                        if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
-                        {
-                            print("Will try to send notification")
-                            sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String.localizedPluralString("notification.outdated-packages-found.body", outdatedPackageCount))
+                            if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+                            {
+                                NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
+                            }
+                            
+                            if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
+                            {
+                                print("Will try to send notification")
+                                sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String.localizedPluralString("notification.outdated-packages-found.body", outdatedPackageCount))
+                            }
                         }
                     }
                 }

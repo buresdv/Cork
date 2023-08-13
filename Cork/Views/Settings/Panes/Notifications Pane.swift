@@ -31,8 +31,25 @@ struct NotificationsPane: View
                     .toggleStyle(.switch)
                     .task
                     {
+                        print("Will re-check notification authorization status")
                         await appState.requestNotificationAuthorization()
-                        if appState.notificationStatus?.authorizationStatus == .denied || appState.forcedDenyBySystemSettings
+                        
+                        switch appState.notificationStatus?.authorizationStatus {
+                            case .notDetermined:
+                                print("Not determined")
+                            case .denied:
+                                print("Denied")
+                            case .authorized:
+                                print("Authorized")
+                            case .provisional:
+                                print("Provisional")
+                            case .ephemeral:
+                                print("Ephemeral")
+                            case nil:
+                                print("Nil")
+                        }
+                        
+                        if appState.notificationStatus?.authorizationStatus == .denied
                         {
                             areNotificationsEnabled = false
                         }
@@ -40,7 +57,7 @@ struct NotificationsPane: View
                     .onChange(of: areNotificationsEnabled, perform: { newValue in
                         Task(priority: .background) {
                             await appState.requestNotificationAuthorization()
-                            if appState.notificationStatus?.authorizationStatus == .denied || appState.forcedDenyBySystemSettings
+                            if appState.notificationStatus?.authorizationStatus == .denied
                             {
                                 areNotificationsEnabled = false
                             }
