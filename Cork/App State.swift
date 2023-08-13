@@ -68,6 +68,8 @@ class AppState: ObservableObject {
                 print("Something got really fucked up")
         }
         
+        self.notificationStatus = notificationSettingsStatus
+        
         return notificationSettingsStatus
     }
     func requestNotificationAuthorization() async -> Void
