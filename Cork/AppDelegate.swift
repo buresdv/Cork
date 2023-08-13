@@ -43,11 +43,22 @@ class AppDelegate: NSObject, NSApplicationDelegate
     
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
         let menu = NSMenu()
+        menu.autoenablesItems = false
         
         let updatePackagesMenuItem = NSMenuItem()
-        updatePackagesMenuItem.title = String(localized: "navigation.menu.packages.update")
         updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
         updatePackagesMenuItem.target = appState
+        
+        if appState.isCheckingForPackageUpdates
+        {
+            updatePackagesMenuItem.title = String(localized: "start-page.updates.loading")
+            updatePackagesMenuItem.isEnabled = false
+        }
+        else
+        {
+            updatePackagesMenuItem.title = String(localized: "navigation.menu.packages.update")
+            updatePackagesMenuItem.isEnabled = true
+        }
         
         menu.addItem(updatePackagesMenuItem)
         
