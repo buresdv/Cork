@@ -41,6 +41,19 @@ class AppDelegate: NSObject, NSApplicationDelegate
         print("Died")
     }
     
+    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+        let menu = NSMenu()
+        
+        let updatePackagesMenuItem = NSMenuItem()
+        updatePackagesMenuItem.title = String(localized: "navigation.menu.packages.update")
+        updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
+        updatePackagesMenuItem.target = appState
+        
+        menu.addItem(updatePackagesMenuItem)
+        
+        return menu
+    }
+    
     private var aboutWindowController: NSWindowController?
 
     func showAboutPanel()

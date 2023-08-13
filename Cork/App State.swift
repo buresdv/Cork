@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
@@ -35,4 +36,10 @@ class AppState: ObservableObject {
     @Published var taggedPackageNames: Set<String> = .init()
     
     @Published var corruptedPackage: String = ""
+    
+    // MARK: - Initiating the update process from legacy contexts
+    @objc func startUpdateProcessForLegacySelectors(_ sender: NSMenuItem!) -> Void
+    {
+        self.isShowingUpdateSheet = true
+    }
 }
