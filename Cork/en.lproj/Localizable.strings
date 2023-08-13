@@ -266,6 +266,13 @@
 "settings.general.menubar" = "Menu Bar:";
 "settings.general.menubar.toggle" = "Show in Menu Bar";
 
+// MARK: - Settings: Notifications
+"settings.notifications" = "Notifications";
+"settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
+"settings.notifications.outdated-package-notification-type.badge" = "Badge";
+"settings.notifications.outdated-package-notification-type.notification" = "Notification";
+"settings.notifications.outdated-package-notification-type.none" = "None";
+
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "Set default steps";
 

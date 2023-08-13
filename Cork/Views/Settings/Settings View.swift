@@ -30,6 +30,11 @@ struct SettingsView: View
                     Label("settings.install-uninstall", systemImage: "plus")
                 }
             
+            NotificationsPane()
+                .tabItem {
+                    Label("settings.notifications", systemImage: "bell.badge")
+                }
+            
             BrewPane()
                 .tabItem {
                     Label("settings.homebrew", systemImage: "mug")
