@@ -21,6 +21,8 @@
 
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "Found outdated packages";
+"notification.upgrade-finished.success" = "Packages upgraded";
+"notification.upgrade-finished.failure" = "Upgrades failed";
 
 // MARK: - Navigation
 "navigation.about" = "About Cork";
@@ -278,6 +280,9 @@
 "settings.notifications.outdated-package-notification-type.notification" = "Notification";
 "settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
 "settings.notifications.outdated-package-notification-type.none" = "None";
+
+"settings.notifications.notify-about-various-actions" = "Notify about:";
+"settings.notifications.notify-about-upgrade-result" = "Upgrade results";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "Set default steps";

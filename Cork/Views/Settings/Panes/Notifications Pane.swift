@@ -13,9 +13,9 @@ struct NotificationsPane: View
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
     
-    @EnvironmentObject var appState: AppState
+    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
     
-    @State var notificationSetupStatus: UNNotificationSettings?
+    @EnvironmentObject var appState: AppState
 
     var body: some View
     {
@@ -31,24 +31,24 @@ struct NotificationsPane: View
                     .toggleStyle(.switch)
                     .task
                     {
-                        notificationSetupStatus = await appState.setupNotifications()
-                        if notificationSetupStatus?.authorizationStatus == .denied
+                        await appState.requestNotificationAuthorization()
+                        if appState.notificationStatus?.authorizationStatus == .denied || appState.forcedDenyBySystemSettings
                         {
                             areNotificationsEnabled = false
                         }
                     }
                     .onChange(of: areNotificationsEnabled, perform: { newValue in
                         Task(priority: .background) {
-                            notificationSetupStatus = await appState.setupNotifications()
-                            if notificationSetupStatus?.authorizationStatus == .denied
+                            await appState.requestNotificationAuthorization()
+                            if appState.notificationStatus?.authorizationStatus == .denied || appState.forcedDenyBySystemSettings
                             {
                                 areNotificationsEnabled = false
                             }
                         }
                     })
-                    .disabled(notificationSetupStatus == nil || notificationSetupStatus?.authorizationStatus == .denied)
+                    .disabled(appState.notificationStatus?.authorizationStatus == .denied)
                     
-                    if notificationSetupStatus?.authorizationStatus == .denied
+                    if appState.notificationStatus?.authorizationStatus == .denied
                     {
                         Text("settings.notifications.notifications-disabled-in-settings.tooltip")
                             .font(.caption)
@@ -77,9 +77,17 @@ struct NotificationsPane: View
                     } label: {
                         Text("settings.notifications.outdated-package-notification-type")
                     }
-                    .disabled(!areNotificationsEnabled)
                     
+                    LabeledContent {
+                        Toggle(isOn: $notifyAboutPackageUpgradeResults, label: {
+                            Text("settings.notifications.notify-about-upgrade-result")
+                        })
+                    } label: {
+                        Text("settings.notifications.notify-about-various-actions")
+                    }
+
                 }
+                .disabled(!areNotificationsEnabled)
             }
         }
     }

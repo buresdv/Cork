@@ -11,24 +11,34 @@ import UserNotifications
 
 func sendNotification(title: String, body: String? = nil, subtitle: String? = nil) -> Void
 {
-    let notification = UNMutableNotificationContent()
+    // Get whether we can send notifications
+    let notificationsAreEnabled = UserDefaults.standard.bool(forKey: "areNotificationsEnabled")
     
-    notification.title = title
-    
-    if let body
+    if notificationsAreEnabled
     {
-        notification.body = body
+        let notification = UNMutableNotificationContent()
+        
+        notification.title = title
+        
+        if let body
+        {
+            notification.body = body
+        }
+        
+        if let subtitle
+        {
+            notification.subtitle = subtitle
+        }
+        
+        notification.sound = .default
+        notification.interruptionLevel = .timeSensitive
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil)
+        
+        AppConstants.notificationCenter.add(request)
     }
-    
-    if let subtitle
+    else
     {
-        notification.subtitle = subtitle
+        print("Will not send notification because they're disabled")
     }
-    
-    notification.sound = .default
-    notification.interruptionLevel = .timeSensitive
-    
-    let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil)
-    
-    AppConstants.notificationCenter.add(request)
 }

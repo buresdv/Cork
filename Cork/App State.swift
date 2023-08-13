@@ -13,6 +13,7 @@ class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
     
     @Published var notificationStatus: UNNotificationSettings?
+    @Published var forcedDenyBySystemSettings: Bool = false
     
     /// Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
@@ -60,10 +61,16 @@ class AppState: ObservableObject {
                 print("Notifications were refused")
             case .authorized:
                 print("Notifications were authorized")
+                
+                self.forcedDenyBySystemSettings = false
             case .provisional:
                 print("Notifications are provisional")
+                
+                self.forcedDenyBySystemSettings = false
             case .ephemeral:
                 print("Notifications are ephemeral")
+                
+                self.forcedDenyBySystemSettings = false
             @unknown default:
                 print("Something got really fucked up")
         }
@@ -78,13 +85,17 @@ class AppState: ObservableObject {
         
         do
         {
-            let notificationCenterAuthorization = try await notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
+            try await notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
         }
-        catch let notificationPermissionsObtainingError
+        catch let notificationPermissionsObtainingError as NSError
         {
-            print("There was an error obtaining notifications permissions: \(notificationPermissionsObtainingError)")
-            self.fatalAlertType = .couldNotObtainNotificationPermissions
-            self.isShowingFatalError = true
+            print("Error: \(notificationPermissionsObtainingError.localizedDescription)")
+            print("Error code: \(notificationPermissionsObtainingError.code)")
+            
+            if notificationPermissionsObtainingError.code == 1
+            {
+                self.forcedDenyBySystemSettings = true
+            }
         }
     }
     
