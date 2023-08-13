@@ -25,14 +25,14 @@ struct SettingsView: View
                     Label("settings.maintenance", systemImage: "arrow.3.trianglepath")
                 }
 
-            InstallationAndUninstallationPane()
-                .tabItem {
-                    Label("settings.install-uninstall", systemImage: "plus")
-                }
-            
             NotificationsPane()
                 .tabItem {
                     Label("settings.notifications", systemImage: "bell.badge")
+                }
+            
+            InstallationAndUninstallationPane()
+                .tabItem {
+                    Label("settings.install-uninstall", systemImage: "plus")
                 }
             
             BrewPane()

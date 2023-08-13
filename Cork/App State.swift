@@ -12,6 +12,8 @@ import UserNotifications
 class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
     
+    @Published var notificationStatus: UNNotificationSettings?
+    
     /// Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
     @Published var isShowingPackageReinstallationSheet: Bool = false
@@ -41,41 +43,46 @@ class AppState: ObservableObject {
     @Published var corruptedPackage: String = ""
     
     // MARK: - Notification setup
-    func setupNotifications() async -> Void
+    @discardableResult
+    func setupNotifications() async -> UNNotificationSettings
     {
         let notificationCenter = UNUserNotificationCenter.current()
         
-        notificationCenter.getNotificationSettings { settings in
-            switch settings.authorizationStatus {
-                case .notDetermined:
-                    print("Notification authorization status not determined. Will request notifications again")
-                    
-                    self.requestNotificationAuthorization()
-                case .denied:
-                    print("Notifications were refused")
-                case .authorized:
-                    print("Notifications were authorized")
-                case .provisional:
-                    print("Notifications are provisional")
-                case .ephemeral:
-                    print("Notifications are ephemeral")
-                @unknown default:
-                    print("Something got really fucked up")
-            }
+        let notificationSettingsStatus = await notificationCenter.notificationSettings()
+        
+        switch notificationSettingsStatus.authorizationStatus
+        {
+            case .notDetermined:
+                print("Notification authorization status not determined. Will request notifications again")
+                
+                await self.requestNotificationAuthorization()
+            case .denied:
+                print("Notifications were refused")
+            case .authorized:
+                print("Notifications were authorized")
+            case .provisional:
+                print("Notifications are provisional")
+            case .ephemeral:
+                print("Notifications are ephemeral")
+            @unknown default:
+                print("Something got really fucked up")
         }
+        
+        return notificationSettingsStatus
     }
-    func requestNotificationAuthorization() -> Void
+    func requestNotificationAuthorization() async -> Void
     {
         let notificationCenter = UNUserNotificationCenter.current()
         
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error
-            {
-                print("There was an error obtaining notifications permissions")
-                self.fatalAlertType = .couldNotObtainNotificationPermissions
-                self.isShowingFatalError = true
-            }
-            
+        do
+        {
+            let notificationCenterAuthorization = try await notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
+        }
+        catch let notificationPermissionsObtainingError
+        {
+            print("There was an error obtaining notifications permissions: \(notificationPermissionsObtainingError)")
+            self.fatalAlertType = .couldNotObtainNotificationPermissions
+            self.isShowingFatalError = true
         }
     }
     

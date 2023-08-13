@@ -268,9 +268,12 @@
 
 // MARK: - Settings: Notifications
 "settings.notifications" = "Notifications";
+"settings.notifications.enable-notifications" = "Enable notifications";
+"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Enable notifications for Cork in System Settings";
 "settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
 "settings.notifications.outdated-package-notification-type.badge" = "Badge";
 "settings.notifications.outdated-package-notification-type.notification" = "Notification";
+"settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
 "settings.notifications.outdated-package-notification-type.none" = "None";
 
 // MARK: - Settings: Maintenance

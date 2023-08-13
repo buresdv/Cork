@@ -41,6 +41,7 @@ struct CorkApp: App
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
                 .onChange(of: outdatedPackageTracker.outdatedPackages) { newValue in
+                    
                     NSApp.dockTile.badgeLabel = String(newValue.count)
                 }
         }
@@ -157,6 +158,7 @@ struct CorkApp: App
         Settings
         {
             SettingsView()
+                .environmentObject(appDelegate.appState)
         }
 
         let outdatedCountString = String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackages.count)

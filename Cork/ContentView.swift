@@ -11,6 +11,9 @@ struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    
+    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
+    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
     @EnvironmentObject var appState: AppState
 
@@ -174,6 +177,14 @@ struct ContentView: View
                 print("Chose BY SIZE")
                 brewData.installedFormulae = sortPackagesBySize(brewData.installedFormulae)
                 brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
+            }
+        })
+        .onChange(of: areNotificationsEnabled, perform: { newValue in
+            if newValue == true
+            {
+                Task(priority: .background) {
+                    await appState.setupNotifications()
+                }
             }
         })
         .sheet(isPresented: $appState.isShowingInstallationSheet)

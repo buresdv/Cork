@@ -16,12 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate
     
     var appState = AppState()
     
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        Task(priority: .background) {
-            await appState.setupNotifications()
-        }
-    }
-    
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
         if showInMenuBar

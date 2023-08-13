@@ -9,5 +9,5 @@ import Foundation
 
 enum OutdatedPackageNotificationType: String, Codable, CaseIterable
 {
-    case none, badge, notification
+    case none, badge, notification, both
 }
