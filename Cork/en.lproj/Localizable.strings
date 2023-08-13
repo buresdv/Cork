@@ -9,6 +9,7 @@
 "action.clear-metadata" = "Clear metadata";
 "action.repair-%@" = "Repair %@";
 "action.repair-home-path" = "Repair Homebrew";
+"action.use-without-notifications" = "Use Cork without notifications";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "Report Bugs";
@@ -51,6 +52,8 @@
 "alert.package-corrupted.message" = "This package needs to be repaired";
 "alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
 "alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
+"alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
+"alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";

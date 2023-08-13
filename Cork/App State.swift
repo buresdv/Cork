@@ -7,6 +7,7 @@
 
 import Foundation
 import AppKit
+import UserNotifications
 
 class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
@@ -38,6 +39,45 @@ class AppState: ObservableObject {
     @Published var taggedPackageNames: Set<String> = .init()
     
     @Published var corruptedPackage: String = ""
+    
+    // MARK: - Notification setup
+    func setupNotifications() async -> Void
+    {
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        notificationCenter.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+                case .notDetermined:
+                    print("Notification authorization status not determined. Will request notifications again")
+                    
+                    self.requestNotificationAuthorization()
+                case .denied:
+                    print("Notifications were refused")
+                case .authorized:
+                    print("Notifications were authorized")
+                case .provisional:
+                    print("Notifications are provisional")
+                case .ephemeral:
+                    print("Notifications are ephemeral")
+                @unknown default:
+                    print("Something got really fucked up")
+            }
+        }
+    }
+    func requestNotificationAuthorization() -> Void
+    {
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error
+            {
+                print("There was an error obtaining notifications permissions")
+                self.fatalAlertType = .couldNotObtainNotificationPermissions
+                self.isShowingFatalError = true
+            }
+            
+        }
+    }
     
     // MARK: - Initiating the update process from legacy contexts
     @objc func startUpdateProcessForLegacySelectors(_ sender: NSMenuItem!) -> Void

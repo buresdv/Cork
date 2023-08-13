@@ -295,6 +295,14 @@ struct ContentView: View
                         exit(0)
                     })
                 )
+            case .couldNotObtainNotificationPermissions:
+                return Alert(
+                    title: Text("alert.notifications-error-while-obtaining-permissions.title"),
+                    message: Text("alert.notifications-error-while-obtaining-permissions.message"),
+                    dismissButton: .cancel(Text("action.use-without-notifications"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
             }
         })
     }
