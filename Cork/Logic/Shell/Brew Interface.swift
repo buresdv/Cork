@@ -63,7 +63,9 @@ func getListOfUpgradeablePackages(brewData: BrewDataStorage) async throws -> [Ou
         }
     }
     
-    return outdatedPackageTracker.dropLast()
+    // Check if the last package has an empty name. If it does, remove it. Otherwise return the tracker
+    // A fix for the last package being empty came out in Brew 4, but some people might not be upgraded to it, hence the need for this check
+    return outdatedPackageTracker.last?.package.name == "" ? outdatedPackageTracker.dropLast() : outdatedPackageTracker
 }
 
 func addTap(name: String) async -> String
