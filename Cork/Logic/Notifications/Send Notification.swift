@@ -9,23 +9,26 @@ import Foundation
 import SwiftUI
 import UserNotifications
 
-func sendNotification(title: String.LocalizationValue, body: String.LocalizationValue?, subtitle: String.LocalizationValue?) -> Void
+func sendNotification(title: String, body: String? = nil, subtitle: String? = nil) -> Void
 {
     let notification = UNMutableNotificationContent()
     
-    notification.title = String(localized: title)
+    notification.title = title
     
     if let body
     {
-        notification.body = String(localized: body)
+        notification.body = body
     }
     
     if let subtitle
     {
-        notification.subtitle = String(localized: subtitle)
+        notification.subtitle = subtitle
     }
     
     notification.sound = .default
+    notification.interruptionLevel = .timeSensitive
     
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil)
+    
+    AppConstants.notificationCenter.add(request)
 }

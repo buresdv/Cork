@@ -23,6 +23,8 @@ struct CorkApp: App
 
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
+    
+    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
     var body: some Scene
     {
@@ -41,8 +43,21 @@ struct CorkApp: App
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
                 .onChange(of: outdatedPackageTracker.outdatedPackages) { newValue in
+                    let outdatedPackageCount = newValue.count
                     
-                    NSApp.dockTile.badgeLabel = String(newValue.count)
+                    if outdatedPackageCount != 0
+                    {
+                        if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+                        {
+                            NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
+                        }
+                        
+                        if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
+                        {
+                            print("Will try to send notification")
+                            sendNotification(title: "notification.outdated-packages-found.title", subtitle: String.localizedPluralString("notification.outdated-packages-found.body", outdatedPackageCount))
+                        }
+                    }
                 }
         }
         .commands

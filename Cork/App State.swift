@@ -46,7 +46,7 @@ class AppState: ObservableObject {
     @discardableResult
     func setupNotifications() async -> UNNotificationSettings
     {
-        let notificationCenter = UNUserNotificationCenter.current()
+        let notificationCenter = AppConstants.notificationCenter
         
         let notificationSettingsStatus = await notificationCenter.notificationSettings()
         
@@ -72,7 +72,7 @@ class AppState: ObservableObject {
     }
     func requestNotificationAuthorization() async -> Void
     {
-        let notificationCenter = UNUserNotificationCenter.current()
+        let notificationCenter = AppConstants.notificationCenter
         
         do
         {

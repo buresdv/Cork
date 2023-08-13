@@ -19,6 +19,9 @@
 // MARK: - Misc Actions
 "action.go-to-status-page" = "Go to Homebrew status page";
 
+// MARK: - Notifications
+"notification.outdated-packages-found.title" = "Found outdated packages";
+
 // MARK: - Navigation
 "navigation.about" = "About Cork";
 "navigation.menu.packages" = "Packages";
