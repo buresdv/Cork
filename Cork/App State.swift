@@ -71,9 +71,12 @@ class AppState: ObservableObject {
                 print("Something got really fucked up")
         }
         
-        self.notificationStatus = notificationSettingsStatus
+        return await MainActor.run {
+            self.notificationStatus = notificationSettingsStatus
+            
+            return notificationSettingsStatus
+        }
         
-        return notificationSettingsStatus
     }
     func requestNotificationAuthorization() async -> Void
     {
@@ -95,5 +98,7 @@ class AppState: ObservableObject {
     @objc func startUpdateProcessForLegacySelectors(_ sender: NSMenuItem!) -> Void
     {
         self.isShowingUpdateSheet = true
+        
+        sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
 }

@@ -39,9 +39,14 @@ struct CorkApp: App
                 .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
-                .onAppear
+                .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
+
+                    if areNotificationsEnabled
+                    {
+                        await appDelegate.appState.setupNotifications()
+                    }
                 }
                 .onChange(of: outdatedPackageTracker.outdatedPackages)
                 { newValue in
@@ -55,7 +60,7 @@ struct CorkApp: App
                             {
                                 NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
                             }
-                            
+
                             if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
                             {
                                 print("Will try to send notification")
@@ -64,16 +69,21 @@ struct CorkApp: App
                         }
                     }
                 }
-                .onChange(of: outdatedPackageNotificationType, perform: { newValue in
-                    if newValue == .badge || newValue == .both
-                    {
-                        NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.outdatedPackages.count)
-                    }
-                    else if newValue == .notification || newValue == .none
+                .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
+                { newValue in
+                    setAppBadge(outdatedPackageNotificationType: newValue)
+                }
+                .onChange(of: areNotificationsEnabled)
+                { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
+                    if newValue == false
                     {
                         NSApp.dockTile.badgeLabel = ""
                     }
-                })
+                    else
+                    {
+                        setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
+                    }
+                }
         }
         .commands
         {
@@ -238,6 +248,18 @@ struct CorkApp: App
                     }
                 }
             }
+        }
+    }
+
+    func setAppBadge(outdatedPackageNotificationType: OutdatedPackageNotificationType)
+    {
+        if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+        {
+            NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.outdatedPackages.count)
+        }
+        else if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .none
+        {
+            NSApp.dockTile.badgeLabel = ""
         }
     }
 }

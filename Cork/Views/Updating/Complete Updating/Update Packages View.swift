@@ -9,11 +9,13 @@ import SwiftUI
 
 struct UpdatePackagesView: View
 {
+    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+
     @Binding var isShowingSheet: Bool
 
     @State var packageUpdatingStage: PackageUpdatingStage = .updating
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
-    
+
     @State var updateAvailability: PackageUpdateAvailability = .updatesAvailable
 
     @EnvironmentObject var appState: AppState
@@ -70,7 +72,7 @@ struct UpdatePackagesView: View
                                 Task(priority: .userInitiated)
                                 {
                                     await upgradePackages(updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker)
-                                    
+
                                     packageUpdatingStep = .updatingOutdatedPackageTracker
                                 }
                             }
@@ -79,13 +81,14 @@ struct UpdatePackagesView: View
                         Text("update-packages.updating.updating-outdated-package")
                             .onAppear
                             {
-                                Task(priority: .userInitiated) {
+                                Task(priority: .userInitiated)
+                                {
                                     do
                                     {
                                         outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
-                                        
+
                                         updateProgressTracker.updateProgress = 10
-                                        
+
                                         if updateProgressTracker.errors.isEmpty
                                         {
                                             packageUpdatingStage = .finished
@@ -97,12 +100,13 @@ struct UpdatePackagesView: View
                                     }
                                     catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                                     {
-                                        switch outdatedPackageRetrievalError {
-                                            case .homeNotSet:
-                                                appState.fatalAlertType = .homePathNotSet
-                                                appState.isShowingFatalError = true
-                                            case .otherError:
-                                                print("Something went wrong")
+                                        switch outdatedPackageRetrievalError
+                                        {
+                                        case .homeNotSet:
+                                            appState.fatalAlertType = .homePathNotSet
+                                            appState.isShowingFatalError = true
+                                        case .otherError:
+                                            print("Something went wrong")
                                         }
                                     }
                                 }
@@ -132,6 +136,13 @@ struct UpdatePackagesView: View
                         .fixedSize()
                     }
                 }
+                .onAppear
+                {
+                    if notifyAboutPackageUpgradeResults
+                    {
+                        sendNotification(title: String(localized: "update-packages.no-updates"))
+                    }
+                }
 
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
@@ -144,6 +155,13 @@ struct UpdatePackagesView: View
                             alignment: .leading
                         )
                         .fixedSize()
+                    }
+                }
+                .onAppear
+                {
+                    if notifyAboutPackageUpgradeResults
+                    {
+                        sendNotification(title: String(localized:"notification.upgrade-finished.success"))
                     }
                 }
 
@@ -180,6 +198,13 @@ struct UpdatePackagesView: View
                     .onAppear
                     {
                         print("Update errors: \(updateProgressTracker.errors)")
+                    }
+                }
+                .onAppear
+                {
+                    if notifyAboutPackageUpgradeResults
+                    {
+                        sendNotification(title: String(localized: "notification.upgrade-finished.success"), body: String(localized:"notification.upgrade-finished.success.some-errors"))
                     }
                 }
             }

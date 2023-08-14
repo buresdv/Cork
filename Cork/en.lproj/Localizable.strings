@@ -22,7 +22,10 @@
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "Found outdated packages";
 "notification.upgrade-finished.success" = "Packages upgraded";
+"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
 "notification.upgrade-finished.failure" = "Upgrades failed";
+
+"notification.upgrade-process-started" = "Upgrading packages…";
 
 // MARK: - Navigation
 "navigation.about" = "About Cork";
