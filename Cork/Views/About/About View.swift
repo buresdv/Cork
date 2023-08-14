@@ -75,7 +75,12 @@ struct AboutView: View
             name: "about.translator.2.name",
             reasonForAcknowledgement: "about.translator.2.purpose",
             profileService: .github,
-            profileURL: URL(string: "https://github.com/sh95014")!)
+            profileURL: URL(string: "https://github.com/sh95014")!),
+        AcknowledgedContributor(
+            name: "about.translator.3.name",
+            reasonForAcknowledgement: "about.translator.3.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/hecaex")!)
     ]
 
     @State private var isPackageGroupExpanded: Bool = false

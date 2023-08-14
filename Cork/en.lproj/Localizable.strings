@@ -316,6 +316,8 @@
 "about.translator.1.purpose" = "Translated Cork into Simplified Chinese";
 "about.translator.2.name" = "sh95014";
 "about.translator.2.purpose" = "Translated Cork into Traditional Chinese";
+"about.translator.3.name" = "Maurice Meysel";
+"about.translator.3.purpose" = "Translated Cork into German";
 
 "about.contribute" = "Contribute";
 "about.contact" = "Contact Me";
