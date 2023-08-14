@@ -287,6 +287,8 @@
 "settings.notifications.notify-about-various-actions" = "Notify about:";
 "settings.notifications.notify-about-upgrade-result" = "Upgrade results";
 
+"settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
+
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "Set default steps";
 

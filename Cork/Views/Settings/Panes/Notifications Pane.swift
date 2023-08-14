@@ -16,6 +16,8 @@ struct NotificationsPane: View
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
     
     @EnvironmentObject var appState: AppState
+    
+    @State private var isShowingNotificationHelpPopup: Bool = false
 
     var body: some View
     {
@@ -105,6 +107,20 @@ struct NotificationsPane: View
 
                 }
                 .disabled(!areNotificationsEnabled)
+                
+                HStack(alignment: .center)
+                {
+                    Spacer()
+                    
+                    HelpButton {
+                        isShowingNotificationHelpPopup.toggle()
+                    }
+                    .popover(isPresented: $isShowingNotificationHelpPopup)
+                    {
+                        Text("settings.notifications.explanation")
+                            .padding()
+                    }
+                }
             }
         }
     }
