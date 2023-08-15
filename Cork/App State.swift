@@ -12,6 +12,7 @@ import UserNotifications
 class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
     
+    @Published var notificationEnabledInSystemSettings: Bool?
     @Published var notificationStatus: UNNotificationSettings?
     
     /// Stuff for controlling various sheets from the menu bar
@@ -78,18 +79,32 @@ class AppState: ObservableObject {
         }
         
     }
-    func requestNotificationAuthorization() async -> Void
+    @discardableResult
+    func requestNotificationAuthorization() async -> Bool
     {
         let notificationCenter = AppConstants.notificationCenter
         
         do
         {
             try await notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
+            
+            return await MainActor.run {
+                
+                self.notificationEnabledInSystemSettings = true
+                
+                return true
+            }
         }
         catch let notificationPermissionsObtainingError as NSError
         {
             print("Error: \(notificationPermissionsObtainingError.localizedDescription)")
             print("Error code: \(notificationPermissionsObtainingError.code)")
+            
+            return await MainActor.run {
+                self.notificationEnabledInSystemSettings = false
+                
+                return false
+            }
             
         }
     }

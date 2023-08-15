@@ -58,16 +58,20 @@ struct NotificationsPane: View
                     }
                     .onChange(of: areNotificationsEnabled, perform: { newValue in
                         Task(priority: .background) {
-                            await appState.requestNotificationAuthorization()
-                            if appState.notificationStatus?.authorizationStatus == .denied
+                            let notificationsEnabledInSystemSettings: Bool = await appState.requestNotificationAuthorization()
+                            if notificationsEnabledInSystemSettings
                             {
-                                areNotificationsEnabled = false
+                                await appState.requestNotificationAuthorization()
+                                if appState.notificationStatus?.authorizationStatus == .denied
+                                {
+                                    areNotificationsEnabled = false
+                                }
                             }
                         }
                     })
                     .disabled(appState.notificationStatus?.authorizationStatus == .denied)
                     
-                    if appState.notificationStatus?.authorizationStatus == .denied
+                    if appState.notificationStatus?.authorizationStatus == .denied 
                     {
                         Text("settings.notifications.notifications-disabled-in-settings.tooltip")
                             .font(.caption)
