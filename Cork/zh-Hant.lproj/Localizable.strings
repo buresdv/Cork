@@ -316,6 +316,8 @@
 "about.translator.1.purpose" = "為 Cork 提供簡體中文翻譯";
 "about.translator.2.name" = "sh95014";
 "about.translator.2.purpose" = "為 Cork 提供繁體中文翻譯";
+"about.translator.3.name" = "Maurice Meysel";
+"about.translator.3.purpose" = "為 Cork 提供德語翻譯";
 
 "about.contribute" = "捐助";
 "about.contact" = "聯繫我";
