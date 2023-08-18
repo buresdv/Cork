@@ -33,6 +33,7 @@ struct PackageListItem: View
                 Text(returnFormattedVersions(packageItem.versions))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .layoutPriority(-Double(2))
             }
             .animation(.bouncy, value: packageItem.isTagged)
             .transition(.slide)
