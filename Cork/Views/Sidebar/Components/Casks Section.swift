@@ -89,6 +89,6 @@ struct CasksSection: View {
                 ProgressView()
             }
         }
-        .collapsible(false)
+        .collapsible(true)
     }
 }
