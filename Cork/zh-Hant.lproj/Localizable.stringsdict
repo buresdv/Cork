@@ -131,5 +131,21 @@
 			<string>有 %2$@ 個套件已落伍</string>
 		</dict>
 	</dict>
+	<key>notification.outdated-packages-found.body</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>You have %2$@ outdated package</string>
+			<key>other</key>
+			<string>You have %2$@ outdated packages</string>
+		</dict>
+	</dict>
 </dict>
 </plist>
