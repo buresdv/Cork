@@ -24,7 +24,6 @@ struct PackageListItem: View
                         Circle()
                             .frame(width: 10, height: 10, alignment: .center)
                             .foregroundStyle(.blue)
-                            .animation(.bouncy, value: packageItem.isTagged)
                             .transition(.scale)
                     }
 
