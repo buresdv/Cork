@@ -77,7 +77,7 @@ Prerequisites:
 
 *Skip if you already have an Apple Developer account*
 
-0. Enroll your account in the developer program at [https://developer.apple.com/](https://developer.apple.com/)
+0. Enroll your account in the developer program at [https://developer.apple.com/](https://developer.apple.com/). You don't need a paid account, a free one works fine
 1. Install Xcode
 2. Add your Developer account to Xcode. To do so, in the Menu bar, click `Xcode → Settings`, and in the window that opens, click `Accounts`. You can add your account there
 3. After you add your account, it will appear in the list of Apple IDs on the left od the screen. Select your account there
@@ -90,10 +90,14 @@ Prerequisites:
 1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open .`
 2. Double-click `Cork.xcodeproj`. Xcode should open the project
 3. Wait until all the dependencies are resolved. It should take a couple minutes at most
-4. In the Menu Bar, click `Product → Archive` and wait for the building to finish
-5. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
-6. Click `Copy App`
-7. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
+4. In the file browser on the left, click `Cork` at the very top. It's the icon with the App Store logo
+5. In the pane that opens on the right, click `Signing & Capabilities` at the top
+6. Under `Signing`, switch the `Team` dropdown to `None`
+7. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
+8. In the Menu Bar, click `Product → Archive` and wait for the building to finish
+9. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
+10. Click `Copy App`
+11. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
 
 ## License
 
