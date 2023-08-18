@@ -17,19 +17,16 @@ struct PackageListItem: View
         {
             HStack(alignment: .firstTextBaseline)
             {
-                
-                if packageItem.isTagged
+                HStack(alignment: .firstTextBaseline, spacing: 5)
                 {
-                    HStack(alignment: .firstTextBaseline, spacing: 5)
+                    if packageItem.isTagged
                     {
                         Circle()
                             .frame(width: 10, height: 10, alignment: .center)
                             .foregroundStyle(.blue)
-                        Text(packageItem.name)
+                            .transition(.scale)
                     }
-                }
-                else
-                {
+
                     Text(packageItem.name)
                 }
                 
@@ -37,6 +34,8 @@ struct PackageListItem: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
+            .animation(.bouncy, value: packageItem.isTagged)
+            .transition(.slide)
         }
     }
 }
