@@ -96,7 +96,7 @@ struct CorkApp: App
                     Text("navigation.about")
                 }
             }
-            CommandGroup(before: .systemServices) // The "Report Bugs" section
+            CommandGroup(before: .help) // The "Report Bugs" section
             {
                 Menu
                 {
