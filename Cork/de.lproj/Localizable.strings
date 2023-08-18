@@ -8,8 +8,8 @@
 "action.reveal-in-finder" = "Im Finder anzeigen";
 "action.clear-metadata" = "Metadaten bereinigen";
 "action.repair-%@" = "Repariere %@";
-"action.repair-home-path" = "Repair Homebrew";
-"action.use-without-notifications" = "Use Cork without notifications";
+"action.repair-home-path" = "Homebrew raparieren";
+"action.use-without-notifications" = "Cork ohne Benachrichtigungen verwenden";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "Fehler melden";
@@ -20,14 +20,14 @@
 "action.go-to-status-page" = "Zur Homebrew Statusseite wechseln";
 
 // MARK: - Notifications
-"notification.outdated-packages-found.title" = "Found outdated packages";
-"notification.upgrade-finished.success" = "Packages upgraded";
-"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
-"notification.upgrade-finished.failure" = "Upgrades failed";
+"notification.outdated-packages-found.title" = "Veraltete Pakete gefunden";
+"notification.upgrade-finished.success" = "Pakete aktualisiert";
+"notification.upgrade-finished.success.some-errors" = "Während des Upgrades traten einige Fehler auf";
+"notification.upgrade-finished.failure" = "Aktualisierungen fehlgeschlagen";
 
-"notification.upgrade-process-started" = "Upgrading packages…";
+"notification.upgrade-process-started" = "Pakete aktualisieren…";
 
-"notification.install-finished" = "Installation process finished";
+"notification.install-finished" = "Installation abgeschlossen";
 
 // MARK: - Navigation
 "navigation.about" = "Über Cork";
@@ -83,7 +83,7 @@
 "search.token.filter-formulae" = "Formula";
 "search.token.filter-casks" = "Cask";
 "search.token.filter-taps" = "Tap";
-"search.token.filter-manually-installed-packages" = "Manually Installed";
+"search.token.filter-manually-installed-packages" = "Manuell installierte Pakete";
 
 // MARK: - Start Page
 "start-page.loading" = "Pakete werden geladen…";
@@ -277,20 +277,20 @@
 "settings.general.menubar.toggle" = "In der Menüleiste anzeigen";
 
 // MARK: - Settings: Notifications
-"settings.notifications" = "Notifications";
-"settings.notifications.enable-notifications" = "Enable notifications";
-"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Enable notifications for Cork in System Settings";
-"settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
-"settings.notifications.outdated-package-notification-type.badge" = "Badge";
-"settings.notifications.outdated-package-notification-type.notification" = "Notification";
-"settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
-"settings.notifications.outdated-package-notification-type.none" = "None";
+"settings.notifications" = "Benachrichtigungen";
+"settings.notifications.enable-notifications" = "Benachrichtigungen aktivieren";
+"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Aktiviere Benachrichtigungen für Cork in den Systemeinstellungen";
+"settings.notifications.outdated-package-notification-type" = "Warntyp für veraletete Pakete:";
+"settings.notifications.outdated-package-notification-type.badge" = "Banner";
+"settings.notifications.outdated-package-notification-type.notification" = "Benachrichtigung";
+"settings.notifications.outdated-package-notification-type.both" = "Banner und Benachrichtigung";
+"settings.notifications.outdated-package-notification-type.none" = "Keine";
 
-"settings.notifications.notify-about-various-actions" = "Notify about:";
-"settings.notifications.notify-about-upgrade-result" = "Update results";
-"settings.notifications.notify-about-installation-result" = "Installation results";
+"settings.notifications.notify-about-various-actions" = "Benachrichtige über:";
+"settings.notifications.notify-about-upgrade-result" = "Upgrade-Ergebnis";
+"settings.notifications.notify-about-installation-result" = "Installations-Ergebnis";
 
-"settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
+"settings.notifications.explanation" = "Benachrichtigungen werden nur angezeigt, wenn Cork nicht das aktive Fenster ist";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "Standardschritte festlegen";
