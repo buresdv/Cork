@@ -62,8 +62,8 @@
 "alert.package-corrupted.message" = "该软件包需要修复";
 "alert.home-not-set.title" = "Homebrew 没有为 Cork 正确配置";
 "alert.home-not-set.message" = "Cork 无法访问 Homebrew\n我们正在调查此问题的原因，该问题可能出现在最新的 Homebrew 或 macOS 版本中\n在此问题解决之前，Cork 将无法使用。Cork 将在问题修复后更新";
-"alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
-"alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
+"alert.notifications-error-while-obtaining-permissions.title" = "在获取通知权限时出现问题";
+"alert.notifications-error-while-obtaining-permissions.message" = "你可以在没有通知的情况下继续使用 Cork";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
