@@ -158,6 +158,6 @@ struct FormulaeSection: View {
                 ProgressView()
             }
         }
-        .collapsible(false)
+        .collapsible(true)
     }
 }

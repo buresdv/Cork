@@ -24,6 +24,9 @@ struct CorkApp: App
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
 
+    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
+    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+
     var body: some Scene
     {
         Window("Main Window", id: "main")
@@ -36,9 +39,50 @@ struct CorkApp: App
                 .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
-                .onAppear
+                .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
+
+                    if areNotificationsEnabled
+                    {
+                        await appDelegate.appState.setupNotifications()
+                    }
+                }
+                .onChange(of: outdatedPackageTracker.outdatedPackages)
+                { newValue in
+                    let outdatedPackageCount = newValue.count
+
+                    if outdatedPackageCount != 0
+                    {
+                        if areNotificationsEnabled
+                        {
+                            if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+                            {
+                                NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
+                            }
+
+                            if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
+                            {
+                                print("Will try to send notification")
+                                sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String.localizedPluralString("notification.outdated-packages-found.body", outdatedPackageCount))
+                            }
+                        }
+                    }
+                }
+                .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
+                { newValue in
+                    setAppBadge(outdatedPackageNotificationType: newValue)
+                }
+                .onChange(of: areNotificationsEnabled)
+                { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
+                    if newValue == false
+                    {
+                        NSApp.dockTile.badgeLabel = ""
+                    }
+                    else
+                    {
+                        setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
+                    }
                 }
         }
         .commands
@@ -52,24 +96,27 @@ struct CorkApp: App
                     Text("navigation.about")
                 }
             }
-            CommandGroup(before: .systemServices) // The "Report Bugs" section
+            CommandGroup(before: .help) // The "Report Bugs" section
             {
-                Menu {
-                    Button {
+                Menu
+                {
+                    Button
+                    {
                         NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new")!)
                     } label: {
                         Text("action.report-bugs.git-hub")
                     }
 
-                    Button {
+                    Button
+                    {
                         let emailSubject: String = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
                         let emailBody: String = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
-                        
+
                         let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
                         emailService?.recipients = ["vsedni_zelenina.0y@icloud.com"]
                         emailService?.subject = emailSubject
                         emailService?.perform(withItems: [emailBody])
-                        
+
                     } label: {
                         Text("action.report-bugs.email")
                     }
@@ -77,16 +124,13 @@ struct CorkApp: App
                 } label: {
                     Text("action.report-bugs.menu-category")
                 }
-                
-                Divider()
 
+                Divider()
             }
 
             SidebarCommands()
             CommandGroup(replacing: .newItem) // Disables "New Window"
-            {
-                
-            }
+            {}
 
             CommandMenu("navigation.menu.packages")
             {
@@ -135,17 +179,17 @@ struct CorkApp: App
                     Text("navigation.menu.maintenance.perform")
                 }
                 .keyboardShortcut("m", modifiers: [.command, .shift])
-                
+
                 if appDelegate.appState.cachedDownloadsFolderSize != 0
                 {
-                    Button {
+                    Button
+                    {
                         appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
                     } label: {
                         Text("navigation.menu.maintenance.delete-cached-downloads")
                     }
                     .keyboardShortcut("m", modifiers: [.command, .option])
                 }
-
             }
         }
         .windowStyle(.automatic)
@@ -154,6 +198,7 @@ struct CorkApp: App
         Settings
         {
             SettingsView()
+                .environmentObject(appDelegate.appState)
         }
 
         let outdatedCountString = String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackages.count)
@@ -164,18 +209,57 @@ struct CorkApp: App
             {
                 Button("navigation.upgrade-packages")
                 {
+                    switchCorkToForeground()
                     appDelegate.appState.isShowingUpdateSheet = true
                 }
             }
             Button("navigation.install-package")
             {
+                switchCorkToForeground()
                 appDelegate.appState.isShowingInstallationSheet.toggle()
             }
             Divider()
             Button("menubar.open.cork")
             {
                 openWindow(id: "main")
+
+                switchCorkToForeground()
             }
+        }
+    }
+
+    func switchCorkToForeground()
+    {
+        if #available(macOS 14.0, *)
+        {
+            NSApp.activate()
+        }
+        else
+        {
+            let runningApps: [NSRunningApplication] = NSWorkspace.shared.runningApplications
+
+            for app in runningApps
+            {
+                if app.localizedName == "Cork"
+                {
+                    if !app.isActive
+                    {
+                        app.activate(options: .activateIgnoringOtherApps)
+                    }
+                }
+            }
+        }
+    }
+
+    func setAppBadge(outdatedPackageNotificationType: OutdatedPackageNotificationType)
+    {
+        if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+        {
+            NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.outdatedPackages.count)
+        }
+        else if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .none
+        {
+            NSApp.dockTile.badgeLabel = ""
         }
     }
 }

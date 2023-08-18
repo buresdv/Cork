@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleSignature</key>
+	<string>hbwr</string>
+	<key>HPDBookAccessPath</key>
+	<string>index.html</string>
+	<key>HPDBookCSIndexPath</key>
+	<string>CorkHelp.cshelpindex</string>
+	<key>HPDBookIndexPath</key>
+	<string>CorkHelp.helpindex</string>
+	<key>HPDBookKBProduct</key>
+	<string>CorkHelp</string>
+	<key>HPDBookTitle</key>
+	<string>Cork Help</string>
+	<key>HPDBookType</key>
+	<string>3</string>
+</dict>
+</plist>

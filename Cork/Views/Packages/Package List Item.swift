@@ -17,20 +17,27 @@ struct PackageListItem: View
         {
             HStack(alignment: .firstTextBaseline)
             {
-                
-                if packageItem.isTagged
+                HStack(alignment: .firstTextBaseline, spacing: 5)
                 {
-                    PillText(text: packageItem.name, color: .red)
-                }
-                else
-                {
+                    if packageItem.isTagged
+                    {
+                        Circle()
+                            .frame(width: 10, height: 10, alignment: .center)
+                            .foregroundStyle(.blue)
+                            .animation(.bouncy, value: packageItem.isTagged)
+                            .transition(.scale)
+                    }
+
                     Text(packageItem.name)
                 }
                 
                 Text(returnFormattedVersions(packageItem.versions))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                    .layoutPriority(-Double(2))
             }
+            .animation(.bouncy, value: packageItem.isTagged)
+            .transition(.slide)
         }
     }
 }

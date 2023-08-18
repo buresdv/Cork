@@ -11,6 +11,9 @@ struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    
+    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
+    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
     @EnvironmentObject var appState: AppState
 
@@ -176,6 +179,14 @@ struct ContentView: View
                 brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
             }
         })
+        .onChange(of: areNotificationsEnabled, perform: { newValue in
+            if newValue == true
+            {
+                Task(priority: .background) {
+                    await appState.setupNotifications()
+                }
+            }
+        })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
             AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet, packageInstallationProcessStep: .ready)
@@ -293,6 +304,14 @@ struct ContentView: View
                     message: Text("alert.home-not-set.message"),
                     dismissButton: .destructive(Text("action.quit"), action: {
                         exit(0)
+                    })
+                )
+            case .couldNotObtainNotificationPermissions:
+                return Alert(
+                    title: Text("alert.notifications-error-while-obtaining-permissions.title"),
+                    message: Text("alert.notifications-error-while-obtaining-permissions.message"),
+                    dismissButton: .cancel(Text("action.use-without-notifications"), action: {
+                        appState.isShowingFatalError = false
                     })
                 )
             }

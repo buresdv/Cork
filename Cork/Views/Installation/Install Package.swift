@@ -28,6 +28,7 @@ struct AddFormulaView: View
     @FocusState var isSearchFieldFocused: Bool
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
+    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
 
     var body: some View
     {
@@ -245,6 +246,11 @@ struct AddFormulaView: View
                 .onAppear
                 {
                     appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
+                    
+                    if notifyAboutPackageInstallationResults
+                    {
+                        sendNotification(title: String(localized: "notification.install-finished"))
+                    }
                 }
 
             default:

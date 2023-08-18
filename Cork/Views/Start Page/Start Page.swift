@@ -17,8 +17,6 @@ struct StartPage: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
-    @State private var isLoadingUpgradeablePackages = true
-
     var body: some View
     {
         VStack
@@ -37,7 +35,7 @@ struct StartPage: View
                             .font(.title)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
-                        if isLoadingUpgradeablePackages
+                        if appState.isCheckingForPackageUpdates
                         {
                             OutdatedPackageLoaderBox()
                         }
@@ -83,7 +81,7 @@ struct StartPage: View
             {
                 Task(priority: .background)
                 {
-                    isLoadingUpgradeablePackages = true
+                    appState.isCheckingForPackageUpdates = true
 
                     await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
 
@@ -107,12 +105,12 @@ struct StartPage: View
                     {
                         withAnimation
                         {
-                            isLoadingUpgradeablePackages = false
+                            appState.isCheckingForPackageUpdates = false
                         }
                     }
                     else
                     {
-                        isLoadingUpgradeablePackages = false
+                        appState.isCheckingForPackageUpdates = false
                     }
                 }
             }

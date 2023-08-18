@@ -7,9 +7,13 @@
 
 import Foundation
 import SwiftyJSON
+import UserNotifications
 
 struct AppConstants
 {
+    // MARK: - Notification stuff
+    static let notificationCenter = UNUserNotificationCenter.current()
+    
     // MARK: - Proxy settings
     static let proxySettings: NetworkProxy? =
     {
