@@ -9,6 +9,7 @@
 "action.clear-metadata" = "清除元数据";
 "action.repair-%@" = "修复 %@";
 "action.repair-home-path" = "修复 Homebrew";
+"action.use-without-notifications" = "Use Cork without notifications";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反馈问题";
@@ -17,6 +18,16 @@
 
 // MARK: - Misc Actions
 "action.go-to-status-page" = "返回主页";
+
+// MARK: - Notifications
+"notification.outdated-packages-found.title" = "Found outdated packages";
+"notification.upgrade-finished.success" = "Packages upgraded";
+"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
+"notification.upgrade-finished.failure" = "Upgrades failed";
+
+"notification.upgrade-process-started" = "Upgrading packages…";
+
+"notification.install-finished" = "Installation process finished";
 
 // MARK: - Navigation
 "navigation.about" = "关于 Cork";
@@ -51,6 +62,8 @@
 "alert.package-corrupted.message" = "该软件包需要修复";
 "alert.home-not-set.title" = "Homebrew 没有为 Cork 正确配置";
 "alert.home-not-set.message" = "Cork 无法访问 Homebrew\n我们正在调查此问题的原因，该问题可能出现在最新的 Homebrew 或 macOS 版本中\n在此问题解决之前，Cork 将无法使用。Cork 将在问题修复后更新";
+"alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
+"alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
@@ -262,6 +275,22 @@
 "settings.general.package-details.toggle" = "显示依赖搜索框 ";
 "settings.general.menubar" = "菜单栏：";
 "settings.general.menubar.toggle" = "在菜单栏中显示";
+
+// MARK: - Settings: Notifications
+"settings.notifications" = "Notifications";
+"settings.notifications.enable-notifications" = "Enable notifications";
+"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Enable notifications for Cork in System Settings";
+"settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
+"settings.notifications.outdated-package-notification-type.badge" = "Badge";
+"settings.notifications.outdated-package-notification-type.notification" = "Notification";
+"settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
+"settings.notifications.outdated-package-notification-type.none" = "None";
+
+"settings.notifications.notify-about-various-actions" = "Notify about:";
+"settings.notifications.notify-about-upgrade-result" = "Update results";
+"settings.notifications.notify-about-installation-result" = "Installation results";
+
+"settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "设置默认步骤";
