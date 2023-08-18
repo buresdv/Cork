@@ -9,6 +9,7 @@
 "action.clear-metadata" = "清除元資料";
 "action.repair-%@" = "修復 %@";
 "action.repair-home-path" = "Repair Homebrew";
+"action.use-without-notifications" = "Use Cork without notifications";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反映程式缺陷";
@@ -17,6 +18,16 @@
 
 // MARK: - Misc Actions
 "action.go-to-status-page" = "返回主頁";
+
+// MARK: - Notifications
+"notification.outdated-packages-found.title" = "Found outdated packages";
+"notification.upgrade-finished.success" = "Packages upgraded";
+"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
+"notification.upgrade-finished.failure" = "Upgrades failed";
+
+"notification.upgrade-process-started" = "Upgrading packages…";
+
+"notification.install-finished" = "Installation process finished";
 
 // MARK: - Navigation
 "navigation.about" = "關於 Cork";
@@ -51,6 +62,8 @@
 "alert.package-corrupted.message" = "本套件需要修復";
 "alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
 "alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
+"alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
+"alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
@@ -262,6 +275,22 @@
 "settings.general.package-details.toggle" = "顯示依存關係搜尋欄";
 "settings.general.menubar" = "選單列：";
 "settings.general.menubar.toggle" = "在選單列中顯示";
+
+// MARK: - Settings: Notifications
+"settings.notifications" = "Notifications";
+"settings.notifications.enable-notifications" = "Enable notifications";
+"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Enable notifications for Cork in System Settings";
+"settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
+"settings.notifications.outdated-package-notification-type.badge" = "Badge";
+"settings.notifications.outdated-package-notification-type.notification" = "Notification";
+"settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
+"settings.notifications.outdated-package-notification-type.none" = "None";
+
+"settings.notifications.notify-about-various-actions" = "Notify about:";
+"settings.notifications.notify-about-upgrade-result" = "Update results";
+"settings.notifications.notify-about-installation-result" = "Installation results";
+
+"settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "設定預設步驟";
