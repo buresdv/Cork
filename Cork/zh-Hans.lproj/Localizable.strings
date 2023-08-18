@@ -9,7 +9,7 @@
 "action.clear-metadata" = "清除元数据";
 "action.repair-%@" = "修复 %@";
 "action.repair-home-path" = "修复 Homebrew";
-"action.use-without-notifications" = "Use Cork without notifications";
+"action.use-without-notifications" = "在没有通知的情况下使用 Cork";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反馈问题";
@@ -20,14 +20,14 @@
 "action.go-to-status-page" = "返回主页";
 
 // MARK: - Notifications
-"notification.outdated-packages-found.title" = "Found outdated packages";
-"notification.upgrade-finished.success" = "Packages upgraded";
-"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
-"notification.upgrade-finished.failure" = "Upgrades failed";
+"notification.outdated-packages-found.title" = "有可用软件包更新";
+"notification.upgrade-finished.success" = "软件包已更新";
+"notification.upgrade-finished.success.some-errors" = "更新过程中出现了一些错误";
+"notification.upgrade-finished.failure" = "更新失败";
 
-"notification.upgrade-process-started" = "Upgrading packages…";
+"notification.upgrade-process-started" = "更新软件包…";
 
-"notification.install-finished" = "Installation process finished";
+"notification.install-finished" = "已完成安装";
 
 // MARK: - Navigation
 "navigation.about" = "关于 Cork";
@@ -277,20 +277,20 @@
 "settings.general.menubar.toggle" = "在菜单栏中显示";
 
 // MARK: - Settings: Notifications
-"settings.notifications" = "Notifications";
-"settings.notifications.enable-notifications" = "Enable notifications";
-"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Enable notifications for Cork in System Settings";
-"settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
-"settings.notifications.outdated-package-notification-type.badge" = "Badge";
-"settings.notifications.outdated-package-notification-type.notification" = "Notification";
-"settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
-"settings.notifications.outdated-package-notification-type.none" = "None";
+"settings.notifications" = "通知";
+"settings.notifications.enable-notifications" = "启用通知";
+"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 在系统设置中启用 Cork 的通知";
+"settings.notifications.outdated-package-notification-type" = "有可用更新时通知样式：";
+"settings.notifications.outdated-package-notification-type.badge" = "标记";
+"settings.notifications.outdated-package-notification-type.notification" = "通知";
+"settings.notifications.outdated-package-notification-type.both" = "标记和通知";
+"settings.notifications.outdated-package-notification-type.none" = "无";
 
-"settings.notifications.notify-about-various-actions" = "Notify about:";
-"settings.notifications.notify-about-upgrade-result" = "Update results";
-"settings.notifications.notify-about-installation-result" = "Installation results";
+"settings.notifications.notify-about-various-actions" = "通知内容：";
+"settings.notifications.notify-about-upgrade-result" = "更新结果";
+"settings.notifications.notify-about-installation-result" = "安装结果";
 
-"settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
+"settings.notifications.explanation" = "只有当 Cork 不在前台时推送通知";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "设置默认步骤";
