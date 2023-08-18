@@ -20,7 +20,13 @@ struct PackageListItem: View
                 
                 if packageItem.isTagged
                 {
-                    PillText(text: packageItem.name, color: .red)
+                    HStack(alignment: .firstTextBaseline, spacing: 5)
+                    {
+                        Circle()
+                            .frame(width: 10, height: 10, alignment: .center)
+                            .foregroundStyle(.blue)
+                        Text(packageItem.name)
+                    }
                 }
                 else
                 {
