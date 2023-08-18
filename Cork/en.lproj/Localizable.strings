@@ -27,6 +27,8 @@
 
 "notification.upgrade-process-started" = "Upgrading packages…";
 
+"notification.install-finished" = "Installation process finished";
+
 // MARK: - Navigation
 "navigation.about" = "About Cork";
 "navigation.menu.packages" = "Packages";
@@ -286,6 +288,7 @@
 
 "settings.notifications.notify-about-various-actions" = "Notify about:";
 "settings.notifications.notify-about-upgrade-result" = "Update results";
+"settings.notifications.notify-about-installation-result" = "Installation results";
 
 "settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
 

@@ -14,6 +14,7 @@ struct NotificationsPane: View
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
     
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
     
     @EnvironmentObject var appState: AppState
     
@@ -101,10 +102,17 @@ struct NotificationsPane: View
                         Text("settings.notifications.outdated-package-notification-type")
                     }
                     
-                    LabeledContent {
-                        Toggle(isOn: $notifyAboutPackageUpgradeResults, label: {
-                            Text("settings.notifications.notify-about-upgrade-result")
-                        })
+                    LabeledContent
+                    {
+                        VStack(alignment: .leading)
+                        {
+                            Toggle(isOn: $notifyAboutPackageUpgradeResults, label: {
+                                Text("settings.notifications.notify-about-upgrade-result")
+                            })
+                            Toggle(isOn: $notifyAboutPackageInstallationResults, label: {
+                                Text("settings.notifications.notify-about-installation-result")
+                            })
+                        }
                     } label: {
                         Text("settings.notifications.notify-about-various-actions")
                     }
