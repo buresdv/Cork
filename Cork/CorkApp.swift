@@ -232,7 +232,7 @@ struct CorkApp: App
     {
         if #available(macOS 14.0, *)
         {
-            NSApp.activate()
+            NSApp.activate(ignoringOtherApps: true)
         }
         else
         {
