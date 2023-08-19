@@ -62,7 +62,7 @@ struct AddFormulaView: View
                                     { topFormula in
                                         HStack(alignment: .center)
                                         {
-                                            SearchResultRow(packageName: topFormula.packageName, isCask: false)
+                                            Text(topFormula.packageName)
                                             
                                             Spacer()
                                             
@@ -84,7 +84,7 @@ struct AddFormulaView: View
                                     { topCask in
                                         HStack(alignment: .center)
                                         {
-                                            SearchResultRow(packageName: topCask.packageName, isCask: true)
+                                            Text(topCask.packageName)
                                             
                                             Spacer()
                                             
