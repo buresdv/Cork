@@ -35,7 +35,7 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
             
             do
             {
-                let parsedPackages = try await parseDownloadedTopPackageData(data: brewBackendResponse, isCask: isCask)
+                let parsedPackages = try await parseDownloadedTopPackageData(data: brewBackendResponse, isCask: isCask, numberOfDays: numberOfDays)
                 
                 return parsedPackages.sorted(by: { $0.packageDownloads > $1.packageDownloads })
             }
@@ -68,8 +68,13 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
     }
 }
 
-private func parseDownloadedTopPackageData(data: Data, isCask: Bool) async throws -> [TopPackage]
+private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDays: Int) async throws -> [TopPackage]
 {
+    
+    let packageDownloadsCutoff: Int = (1000 / 30) * numberOfDays
+    
+    print("Cutoff for package downloads: \(packageDownloadsCutoff)")
+    
     do
     {
         var packageTracker: [TopPackage] = .init()
@@ -91,7 +96,7 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool) async throw
             let packageInstalledCount: Int = Int(packageInfo["count"].stringValue.replacingOccurrences(of: ",", with: "")) ?? 696969
             
             /// Immediately throw away any package that has fewer than 1000 downloads to save on computing power
-            if packageInstalledCount > 1000
+            if packageInstalledCount > packageDownloadsCutoff
             {
                 let packageName: String = packageInfo[packageInfoAccessor].stringValue
                 
