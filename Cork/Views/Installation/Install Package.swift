@@ -82,7 +82,16 @@ struct AddFormulaView: View
                                         !installedCaskNamesSet.contains($0.packageName)
                                     }).prefix(15))
                                     { topCask in
-                                        Text(topCask.packageName)
+                                        HStack(alignment: .center)
+                                        {
+                                            SearchResultRow(packageName: topCask.packageName, isCask: true)
+                                            
+                                            Spacer()
+                                            
+                                            Text("\(String(topCask.packageDownloads)) downloads")
+                                                .foregroundStyle(.secondary)
+                                                .font(.caption)
+                                        }
                                     }
                                 } header: {
                                     Text("Top Casks")
