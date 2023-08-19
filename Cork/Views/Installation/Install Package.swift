@@ -26,6 +26,9 @@ struct AddFormulaView: View
     @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
 
     @State var packageInstallTrackingNumber: Float = 0
+    
+    @State private var installedFormulaNamesSet: Set<String> = .init()
+    @State private var installedCaskNamesSet: Set<String> = .init()
 
     @FocusState var isSearchFieldFocused: Bool
 
@@ -51,17 +54,33 @@ struct AddFormulaView: View
                         {
                             List
                             {
-                                Section {
-                                    ForEach(topPackagesTracker.topFormulae)
+                                Section
+                                {
+                                    ForEach(topPackagesTracker.topFormulae.filter({
+                                        !installedFormulaNamesSet.contains($0.packageName)
+                                    }).prefix(15))
                                     { topFormula in
-                                        Text(topFormula.packageName)
+                                        HStack(alignment: .center)
+                                        {
+                                            SearchResultRow(packageName: topFormula.packageName, isCask: false)
+                                            
+                                            Spacer()
+                                            
+                                            Text("\(String(topFormula.packageDownloads)) downloads")
+                                                .foregroundStyle(.secondary)
+                                                .font(.caption)
+                                        }
                                     }
                                 } header: {
                                     Text("Top Formulae")
                                 }
 
-                                Section {
-                                    ForEach(topPackagesTracker.topCasks)
+                                Section
+                                {
+                                    
+                                    ForEach(topPackagesTracker.topCasks.filter({
+                                        !installedCaskNamesSet.contains($0.packageName)
+                                    }).prefix(15))
                                     { topCask in
                                         Text(topCask.packageName)
                                     }
@@ -69,6 +88,18 @@ struct AddFormulaView: View
                                     Text("Top Casks")
                                 }
                                 
+                            }
+                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                            .frame(minHeight: 200)
+                            .onAppear
+                            {
+                                installedFormulaNamesSet = Set(brewData.installedFormulae.map(\.name))
+                                installedCaskNamesSet = Set(brewData.installedCasks.map(\.name))
+                            }
+                            .onDisappear
+                            {
+                                installedFormulaNamesSet = .init()
+                                installedCaskNamesSet = .init()
                             }
                         }
                         
