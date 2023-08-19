@@ -20,6 +20,8 @@ struct ContentView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
+    @EnvironmentObject var topPackagesTracker: TopPackagesTracker
+    
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -162,7 +164,12 @@ struct ContentView: View
             if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
             {
                 print("Initial setup finished, time to fetch the top packages")
-                try! await loadUpTopPackages(isCask: true, appState: appState)
+                
+                async let topFormulae: [TopPackage] = try! await loadUpTopPackages(isCask: false, appState: appState)
+                async let topCasks: [TopPackage] = try! await loadUpTopPackages(isCask: true, appState: appState)
+                
+                topPackagesTracker.topFormulae = await topFormulae
+                topPackagesTracker.topCasks = await topCasks
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
