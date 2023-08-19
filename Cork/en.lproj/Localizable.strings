@@ -254,7 +254,8 @@
 "settings.general" = "General";
 "settings.maintenance" = "Maintenance";
 "settings.homebrew" = "Homebrew";
-"settings.install-uninstall" = "Install and Uninstall";
+"settings.discoverability" = "Discoverability";
+"settings.install-uninstall" = "Packages";
 
 "settings.dangerous" = "Advanced:";
 
@@ -313,6 +314,13 @@
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow purging packages?";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Purging may break your other packages\nAre you sure you want to continue?";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Package Purging";
+
+// MARK: - Settings - Discoverability
+"settings.discoverability.toggle" = "Enable Discoverability";
+"settings.discoverability.time-span" = "Show top packages for:";
+"settings.discoverability.time-span.today" = "Today";
+"settings.discoverability.time-span.week" = "Last week";
+"settings.discoverability.time-span.month" = "Last month";
 
 // MARK: - About
 "about.title" = "About Cork";

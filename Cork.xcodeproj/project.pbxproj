@@ -143,6 +143,8 @@
 		63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */; };
 		63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5782A90CB8700F95E54 /* Top Package.swift */; };
 		63FFE57C2A90D61500F95E54 /* Top Packages Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57B2A90D61500F95E54 /* Top Packages Tracker.swift */; };
+		63FFE57E2A90D9E300F95E54 /* Day Spans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57D2A90D9E300F95E54 /* Day Spans.swift */; };
+		63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
@@ -288,6 +290,8 @@
 		63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Download Data From URL.swift"; sourceTree = "<group>"; };
 		63FFE5782A90CB8700F95E54 /* Top Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package.swift"; sourceTree = "<group>"; };
 		63FFE57B2A90D61500F95E54 /* Top Packages Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Packages Tracker.swift"; sourceTree = "<group>"; };
+		63FFE57D2A90D9E300F95E54 /* Day Spans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day Spans.swift"; sourceTree = "<group>"; };
+		63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discoverability Pane.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -846,6 +850,7 @@
 				6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */,
 				630D08B829B67E4300802201 /* Brew Pane.swift */,
 				635E44922A891050002C034E /* Notifications Pane.swift */,
+				63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -972,7 +977,7 @@
 		63FFE5772A90CB6C00F95E54 /* Discoverability */ = {
 			isa = PBXGroup;
 			children = (
-				63FFE5782A90CB8700F95E54 /* Top Package.swift */,
+				63FFE57D2A90D9E300F95E54 /* Day Spans.swift */,
 			);
 			path = Discoverability;
 			sourceTree = "<group>";
@@ -980,6 +985,7 @@
 		63FFE57A2A90D60400F95E54 /* Discoverability */ = {
 			isa = PBXGroup;
 			children = (
+				63FFE5782A90CB8700F95E54 /* Top Package.swift */,
 				63FFE57B2A90D61500F95E54 /* Top Packages Tracker.swift */,
 			);
 			path = Discoverability;
@@ -1112,6 +1118,7 @@
 				63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */,
 				632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */,
 				63D8C957287A1D0800483A52 /* Loading View.swift in Sources */,
+				63FFE57E2A90D9E300F95E54 /* Day Spans.swift in Sources */,
 				63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,
@@ -1193,6 +1200,7 @@
 				633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */,
 				63FFE57C2A90D61500F95E54 /* Top Packages Tracker.swift in Sources */,
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
+				63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
