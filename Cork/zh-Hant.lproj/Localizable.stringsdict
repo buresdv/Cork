@@ -74,9 +74,9 @@
 			<key>zero</key>
 			<string>未安裝任何 tap</string>
 			<key>one</key>
-			<string>您加入了 %2$@ 個 tap</string>
+			<string>您加入了 %2$@ 個 Tap</string>
 			<key>other</key>
-			<string>您加入了 %2$@ 個 tap</string>
+			<string>您加入了 %2$@ 個 Tap</string>
 		</dict>
 	</dict>
 	<key>start-page.installed-casks.count</key>
@@ -92,9 +92,9 @@
 			<key>zero</key>
 			<string>未安裝任何 cask</string>
 			<key>one</key>
-			<string>您安裝了 %2$@ 個 cask</string>
+			<string>您安裝了 %2$@ 個 Cask</string>
 			<key>other</key>
-			<string>您安裝了 %2$@ 個 cask</string>
+			<string>您安裝了 %2$@ 個 Cask</string>
 		</dict>
 	</dict>
 	<key>start-page.installed-formulae.count</key>
@@ -110,9 +110,9 @@
 			<key>zero</key>
 			<string>未安裝任何 formula</string>
 			<key>one</key>
-			<string>您安裝了 %2$@ 個 formula</string>
+			<string>您安裝了 %2$@ 個 Formula</string>
 			<key>other</key>
-			<string>您安裝了 %2$@ 個 formula</string>
+			<string>您安裝了 %2$@ 個 Formula</string>
 		</dict>
 	</dict>
 	<key>start-page.updates.count</key>
@@ -142,9 +142,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>You have %2$@ outdated package</string>
+			<string>您有 %2$@ 個落伍套件</string>
 			<key>other</key>
-			<string>You have %2$@ outdated packages</string>
+			<string>您有 %2$@ 個落伍套件</string>
 		</dict>
 	</dict>
 </dict>
