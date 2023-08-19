@@ -13,7 +13,7 @@ enum URLEncodingError: Error
     case failedToEncodeEndpointURL
 }
 
-func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState) async throws -> Void
+func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState) async throws -> [TopPackage]
 {
     
     var statsURL: URL?
@@ -36,12 +36,16 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
             do
             {
                 let parsedPackages = try await parseDownloadedTopPackageData(data: brewBackendResponse, isCask: isCask)
+                
+                return parsedPackages.sorted(by: { $0.packageDownloads > $1.packageDownloads })
             }
             catch let packageParsingError
             {
                 print("Failed while parsing top packages: \(packageParsingError)")
                 appState.fatalAlertType = .couldNotParseTopPackages
                 appState.isShowingFatalError = true
+                
+                throw packageParsingError
             }
         }
         else
@@ -54,8 +58,12 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
         switch brewApiError {
             case .invalidResponseCode:
                 print("Received invalid response code from Brew")
+                
+                throw brewApiError
             case .noDataReceived:
                 print("Received no data from Brew")
+                
+                throw brewApiError
         }
     }
 }
@@ -102,9 +110,4 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool) async throw
         
         throw JSONParsingError
     }
-}
-
-private func sortDownloadedTopPackages(topPackages: [TopPackage]) async -> [TopPackage]?
-{
-    return nil
 }

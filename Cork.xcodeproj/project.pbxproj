@@ -142,6 +142,7 @@
 		63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */; };
 		63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */; };
 		63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5782A90CB8700F95E54 /* Top Package.swift */; };
+		63FFE57C2A90D61500F95E54 /* Top Packages Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57B2A90D61500F95E54 /* Top Packages Tracker.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
@@ -286,6 +287,7 @@
 		63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load up Top Packages.swift"; sourceTree = "<group>"; };
 		63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Download Data From URL.swift"; sourceTree = "<group>"; };
 		63FFE5782A90CB8700F95E54 /* Top Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package.swift"; sourceTree = "<group>"; };
+		63FFE57B2A90D61500F95E54 /* Top Packages Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Packages Tracker.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63FFE57A2A90D60400F95E54 /* Discoverability */,
 				63E716DE29DDC025004FD2B4 /* Outdated Packages */,
 				63D86EB029C0971600AD64D2 /* Searching */,
 				63006E0B29ACC76F00243E29 /* Packages */,
@@ -974,6 +977,14 @@
 			path = Discoverability;
 			sourceTree = "<group>";
 		};
+		63FFE57A2A90D60400F95E54 /* Discoverability */ = {
+			isa = PBXGroup;
+			children = (
+				63FFE57B2A90D61500F95E54 /* Top Packages Tracker.swift */,
+			);
+			path = Discoverability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1180,6 +1191,7 @@
 				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
 				635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */,
 				633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */,
+				63FFE57C2A90D61500F95E54 /* Top Packages Tracker.swift in Sources */,
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
