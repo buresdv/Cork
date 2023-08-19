@@ -6,6 +6,8 @@
 "action.quit" = "Quit Cork";
 "action.restart" = "Restart Cork";
 "action.reveal-in-finder" = "Reveal in Finder";
+"action.show" = "Show";
+"action.hide" = "Hide";
 "action.clear-metadata" = "Clear metadata";
 "action.repair-%@" = "Repair %@";
 "action.repair-home-path" = "Repair Homebrew";
@@ -184,6 +186,8 @@
 "add-package.finished.description" = "There were no errors";
 "add-package.network-error" = "Network Connection Not Sufficient";
 "add-package.network-error.description" = "Your network connection is not stable enough to guarantee a successful installation";
+"add-package.top-formulae" = "Top Formulae";
+"add-package.top-casks" = "Top Casks";
 
 // MARK: - Package Repairing
 "repair-package.repair-process-%@" = "Repairing %@…";

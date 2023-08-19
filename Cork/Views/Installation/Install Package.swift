@@ -29,6 +29,9 @@ struct AddFormulaView: View
     
     @State private var installedFormulaNamesSet: Set<String> = .init()
     @State private var installedCaskNamesSet: Set<String> = .init()
+    
+    @State private var isTopFormulaeSectionCollapsed: Bool = false
+    @State private var isTopCasksSectionCollapsed: Bool = false
 
     @FocusState var isSearchFieldFocused: Bool
 
@@ -56,45 +59,50 @@ struct AddFormulaView: View
                             {
                                 Section
                                 {
-                                    ForEach(topPackagesTracker.topFormulae.filter({
-                                        !installedFormulaNamesSet.contains($0.packageName)
-                                    }).prefix(15))
-                                    { topFormula in
-                                        HStack(alignment: .center)
-                                        {
-                                            Text(topFormula.packageName)
-                                            
-                                            Spacer()
-                                            
-                                            Text("\(String(topFormula.packageDownloads)) downloads")
-                                                .foregroundStyle(.secondary)
-                                                .font(.caption)
+                                    if !isTopFormulaeSectionCollapsed
+                                    {
+                                        ForEach(topPackagesTracker.topFormulae.filter({
+                                            !installedFormulaNamesSet.contains($0.packageName)
+                                        }).prefix(15))
+                                        { topFormula in
+                                            HStack(alignment: .center)
+                                            {
+                                                Text(topFormula.packageName)
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(String(topFormula.packageDownloads)) downloads")
+                                                    .foregroundStyle(.secondary)
+                                                    .font(.caption)
+                                            }
                                         }
                                     }
                                 } header: {
-                                    Text("Top Formulae")
+                                    CollapsibleSectionHeader(headerText: "add-package.top-formulae", isCollapsed: $isTopFormulaeSectionCollapsed)
                                 }
 
                                 Section
                                 {
-                                    
-                                    ForEach(topPackagesTracker.topCasks.filter({
-                                        !installedCaskNamesSet.contains($0.packageName)
-                                    }).prefix(15))
-                                    { topCask in
-                                        HStack(alignment: .center)
-                                        {
-                                            Text(topCask.packageName)
-                                            
-                                            Spacer()
-                                            
-                                            Text("\(String(topCask.packageDownloads)) downloads")
-                                                .foregroundStyle(.secondary)
-                                                .font(.caption)
+                                    if !isTopCasksSectionCollapsed
+                                    {
+                                        ForEach(topPackagesTracker.topCasks.filter({
+                                            !installedCaskNamesSet.contains($0.packageName)
+                                        }).prefix(15))
+                                        { topCask in
+                                            HStack(alignment: .center)
+                                            {
+                                                Text(topCask.packageName)
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(String(topCask.packageDownloads)) downloads")
+                                                    .foregroundStyle(.secondary)
+                                                    .font(.caption)
+                                            }
                                         }
                                     }
                                 } header: {
-                                    Text("Top Casks")
+                                    CollapsibleSectionHeader(headerText: "add-package.top-casks", isCollapsed: $isTopCasksSectionCollapsed)
                                 }
                                 
                             }
@@ -115,6 +123,11 @@ struct AddFormulaView: View
                         TextField("add-package.search.prompt", text: $packageRequested)
                         { _ in
                             foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
+                        }
+                        .focused($isSearchFieldFocused)
+                        .onAppear
+                        {
+                            isSearchFieldFocused.toggle()
                         }
 
                         HStack
@@ -168,6 +181,10 @@ struct AddFormulaView: View
                         foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                     }
                     .focused($isSearchFieldFocused)
+                    .onAppear
+                    {
+                        isSearchFieldFocused = true
+                    }
 
                     List(selection: $foundPackageSelection)
                     {

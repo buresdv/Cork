@@ -33,6 +33,7 @@
 		633289ED29A68B1E004B2930 /* Installation Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289EC29A68B1E004B2930 /* Installation Progress Tracker.swift */; };
 		633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289EE29A68B36004B2930 /* Search Result Tracker.swift */; };
 		633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */; };
+		633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633513F02A91592800524165 /* Collapsible Section Header.swift */; };
 		633A861C29A525F0006EA952 /* Toggle Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A861B29A525F0006EA952 /* Toggle Sidebar.swift */; };
 		633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB30529BE65EB006CB872 /* Custom Search Field.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
@@ -181,6 +182,7 @@
 		633289EC29A68B1E004B2930 /* Installation Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installation Progress Tracker.swift"; sourceTree = "<group>"; };
 		633289EE29A68B36004B2930 /* Search Result Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Tracker.swift"; sourceTree = "<group>"; };
 		633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package in Progress of Being Installed.swift"; sourceTree = "<group>"; };
+		633513F02A91592800524165 /* Collapsible Section Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collapsible Section Header.swift"; sourceTree = "<group>"; };
 		633A861B29A525F0006EA952 /* Toggle Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle Sidebar.swift"; sourceTree = "<group>"; };
 		633EB30529BE65EB006CB872 /* Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Search Field.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -893,6 +895,7 @@
 				63D51F70299AEE5100203F3F /* Complex with Icon.swift */,
 				639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */,
 				633EB30529BE65EB006CB872 /* Custom Search Field.swift */,
+				633513F02A91592800524165 /* Collapsible Section Header.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -1207,6 +1210,7 @@
 				63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
+				633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,
