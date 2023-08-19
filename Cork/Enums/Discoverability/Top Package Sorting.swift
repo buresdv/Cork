@@ -12,14 +12,14 @@ enum TopPackageSorting: Int, Hashable, Identifiable, CaseIterable
 {
     var id: Self { self }
     
-    case byMostDownloads, byFewestDownloads, random
+    case mostDownloads, fewestDownloads, random
     
     var key: LocalizedStringKey
     {
         switch self {
-            case .byMostDownloads:
+            case .mostDownloads:
                 return "settings.discoverability.sorting.by-most-downloads"
-            case .byFewestDownloads:
+            case .fewestDownloads:
                 return "settings.discoverability.sorting.by-fewest-downloads"
             case .random:
                 return "settings.discoverability.sorting.random"

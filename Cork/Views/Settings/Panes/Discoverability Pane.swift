@@ -12,7 +12,7 @@ struct DiscoverabilityPane: View
 {
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
-    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .byMostDownloads
+    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
     
     @EnvironmentObject var appState: AppState
 

@@ -41,7 +41,7 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
             {
                 let parsedPackages = try await parseDownloadedTopPackageData(data: brewBackendResponse, isCask: isCask, numberOfDays: numberOfDays)
                 
-                return parsedPackages.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+                return parsedPackages
             }
             catch let packageParsingError
             {

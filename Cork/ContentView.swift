@@ -17,6 +17,7 @@ struct ContentView: View
 
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
 
     @EnvironmentObject var appState: AppState
 
@@ -227,6 +228,9 @@ struct ContentView: View
                 await loadTopPackages()
             }
         })
+        .onChange(of: sortTopPackagesBy, perform: { _ in
+            sortTopPackages()
+        })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
             AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet, packageInstallationProcessStep: .ready)
@@ -375,7 +379,7 @@ struct ContentView: View
         })
     }
 
-    func loadTopPackages() async
+    func loadTopPackages() async -> Void
     {
         print("Initial setup finished, time to fetch the top packages")
 
@@ -392,6 +396,8 @@ struct ContentView: View
             print("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
             print("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
             
+            sortTopPackages()
+            
             appState.isLoadingTopPackages = false
         }
         catch let topPackageLoadingError
@@ -403,6 +409,32 @@ struct ContentView: View
                 appState.fatalAlertType = .receivedInvalidResponseFromBrew
                 appState.isShowingFatalError = true
             }
+        }
+    }
+    private func sortTopPackages() -> Void
+    {
+        switch sortTopPackagesBy
+        {
+            case .mostDownloads:
+                
+                print("Will sort top packages by most downloads")
+                
+                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+                topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+                
+            case .fewestDownloads:
+                
+                print("Will sort top packages by fewest downloads")
+                
+                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+                topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+                
+            case .random:
+                
+                print("Will sort top packages randomly")
+                
+                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.shuffled()
+                topPackagesTracker.topCasks = topPackagesTracker.topCasks.shuffled()
         }
     }
 }
