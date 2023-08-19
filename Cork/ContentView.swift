@@ -15,6 +15,9 @@ struct ContentView: View
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
+    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
@@ -161,15 +164,18 @@ struct ContentView: View
         }
         .task(priority: .background)
         {
-            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+            if enableDiscoverability
             {
-                print("Initial setup finished, time to fetch the top packages")
-                
-                async let topFormulae: [TopPackage] = try! await loadUpTopPackages(isCask: false, appState: appState)
-                async let topCasks: [TopPackage] = try! await loadUpTopPackages(isCask: true, appState: appState)
-                
-                topPackagesTracker.topFormulae = await topFormulae
-                topPackagesTracker.topCasks = await topCasks
+                if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+                {
+                    print("Initial setup finished, time to fetch the top packages")
+                    
+                    async let topFormulae: [TopPackage] = try! await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: false, appState: appState)
+                    async let topCasks: [TopPackage] = try! await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: true, appState: appState)
+                    
+                    topPackagesTracker.topFormulae = await topFormulae
+                    topPackagesTracker.topCasks = await topCasks
+                }
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in

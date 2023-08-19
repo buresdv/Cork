@@ -12,19 +12,19 @@ enum DiscoverabilityDaySpans: Int, Hashable, Identifiable, CaseIterable
 {
     var id: Self { self }
     
-    case oneDay = 1
-    case week = 7
     case month = 30
+    case quarterYear = 90
+    case year = 365
     
     var key: LocalizedStringKey
     {
         switch self {
-            case .oneDay:
-                return "settings.discoverability.time-span.today"
-            case .week:
-                return "settings.discoverability.time-span.week"
             case .month:
                 return "settings.discoverability.time-span.month"
+            case .quarterYear:
+                return "settings.discoverability.time-span.quarter-year"
+            case .year:
+                return "settings.discoverability.time-span.year"
         }
     }
 }

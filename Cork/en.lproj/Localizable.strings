@@ -318,9 +318,9 @@
 // MARK: - Settings - Discoverability
 "settings.discoverability.toggle" = "Enable Discoverability";
 "settings.discoverability.time-span" = "Show top packages for:";
-"settings.discoverability.time-span.today" = "Today";
-"settings.discoverability.time-span.week" = "Last week";
 "settings.discoverability.time-span.month" = "Last month";
+"settings.discoverability.time-span.quarter-year" = "Last three months";
+"settings.discoverability.time-span.year" = "Last year";
 
 // MARK: - About
 "about.title" = "About Cork";

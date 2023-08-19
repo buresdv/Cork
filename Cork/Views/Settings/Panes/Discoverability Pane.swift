@@ -11,7 +11,7 @@ import SwiftUI
 struct DiscoverabilityPane: View
 {
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
-    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .week
+    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
 
     var body: some View
     {
