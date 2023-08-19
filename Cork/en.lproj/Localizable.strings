@@ -325,6 +325,9 @@
 "settings.discoverability.time-span.year" = "Last year";
 
 "settings.discoverability.sorting" = "Sort top packages by:";
+"settings.discoverability.sorting.by-most-downloads" = "Most downloads";
+"settings.discoverability.sorting.by-fewest-downloads" = "Fewest downloads";
+"settings.discoverability.sorting.random" = "Random";
 
 // MARK: - About
 "about.title" = "About Cork";

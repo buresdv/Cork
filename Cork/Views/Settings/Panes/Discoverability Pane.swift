@@ -12,6 +12,7 @@ struct DiscoverabilityPane: View
 {
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .byMostDownloads
     
     @EnvironmentObject var appState: AppState
 
@@ -39,8 +40,16 @@ struct DiscoverabilityPane: View
                             Text(discoverabilitySpan.key)
                         }
                     }
+                    
+                    Picker("settings.discoverability.sorting", selection: $sortTopPackagesBy)
+                    {
+                        ForEach(TopPackageSorting.allCases)
+                        { topPackageSortType in
+                            Text(topPackageSortType.key)
+                        }
+                    }
                 }
-                .disabled(!enableDiscoverability && !appState.isLoadingTopPackages)
+                .disabled(!enableDiscoverability || appState.isLoadingTopPackages)
             }
         }
     }

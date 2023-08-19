@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum TopPackageSorting: Hashable, Identifiable, CaseIterable
+enum TopPackageSorting: Int, Hashable, Identifiable, CaseIterable
 {
     var id: Self { self }
     
