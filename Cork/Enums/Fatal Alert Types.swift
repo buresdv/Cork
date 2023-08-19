@@ -11,4 +11,5 @@ enum FatalAlertType
 {
     case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions, homePathNotSet
     case couldNotObtainNotificationPermissions
+    case couldNotParseTopPackages
 }

@@ -26,3 +26,16 @@ func parseJSON(from string: String) throws -> JSON
         throw JSONError.parsingFailed
     }
 }
+
+func parseJSON(from data: Data) async throws -> JSON
+{
+    do
+    {
+        return try JSON(data: data)
+    }
+    catch let JSONParsingError as NSError
+    {
+        print("JSON parsing failed: \(JSONParsingError.localizedDescription)")
+        throw JSONError.parsingFailed
+    }
+}

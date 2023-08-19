@@ -11,7 +11,7 @@ struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    
+
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
@@ -157,6 +157,14 @@ struct ContentView: View
                 }
             }
         }
+        .task(priority: .background)
+        {
+            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+            {
+                print("Initial setup finished, time to fetch the top packages")
+                try! await loadUpTopPackages(isCask: true, appState: appState)
+            }
+        }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
             switch newSortOption
             {
@@ -182,7 +190,8 @@ struct ContentView: View
         .onChange(of: areNotificationsEnabled, perform: { newValue in
             if newValue == true
             {
-                Task(priority: .background) {
+                Task(priority: .background)
+                {
                     await appState.setupNotifications()
                 }
             }
@@ -311,6 +320,14 @@ struct ContentView: View
                     title: Text("alert.notifications-error-while-obtaining-permissions.title"),
                     message: Text("alert.notifications-error-while-obtaining-permissions.message"),
                     dismissButton: .cancel(Text("action.use-without-notifications"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .couldNotParseTopPackages:
+                return Alert(
+                    title: Text("alert.notifications-error-while-parsing-top-packages.title"),
+                    message: Text("alert.notifications-error-while-parsing-top-packages.message"),
+                    dismissButton: .cancel(Text("action.close"), action: {
                         appState.isShowingFatalError = false
                     })
                 )
