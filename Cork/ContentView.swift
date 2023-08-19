@@ -17,14 +17,14 @@ struct ContentView: View
 
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
-    
+
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
-    
+
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -168,13 +168,7 @@ struct ContentView: View
             {
                 if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
                 {
-                    print("Initial setup finished, time to fetch the top packages")
-                    
-                    async let topFormulae: [TopPackage] = try! await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: false, appState: appState)
-                    async let topCasks: [TopPackage] = try! await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: true, appState: appState)
-                    
-                    topPackagesTracker.topFormulae = await topFormulae
-                    topPackagesTracker.topCasks = await topCasks
+                    await loadTopPackages()
                 }
             }
         }
@@ -207,6 +201,30 @@ struct ContentView: View
                 {
                     await appState.setupNotifications()
                 }
+            }
+        })
+        .onChange(of: enableDiscoverability, perform: { newValue in
+            if newValue == true
+            {
+                Task(priority: .userInitiated)
+                {
+                    await loadTopPackages()
+                }
+            }
+            else
+            {
+                print("Will purge top package trackers")
+                /// Clear out the package trackers so they don't take up RAM
+                topPackagesTracker.topFormulae = .init()
+                topPackagesTracker.topCasks = .init()
+
+                print("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
+            }
+        })
+        .onChange(of: discoverabilityDaySpan, perform: { _ in
+            Task(priority: .userInitiated)
+            {
+                await loadTopPackages()
             }
         })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
@@ -344,7 +362,47 @@ struct ContentView: View
                         appState.isShowingFatalError = false
                     })
                 )
+            case .receivedInvalidResponseFromBrew:
+                return Alert(
+                    title: Text("alert.notifications-error-while-getting-top-packages.title"),
+                    message: Text("alert.notifications-error-while-getting-top-package.message"),
+                    dismissButton: .cancel(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                        enableDiscoverability = false
+                    })
+                )
             }
         })
+    }
+
+    func loadTopPackages() async
+    {
+        print("Initial setup finished, time to fetch the top packages")
+
+        do
+        {
+            appState.isLoadingTopPackages = true
+
+            async let topFormulae: [TopPackage] = try await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: false, appState: appState)
+            async let topCasks: [TopPackage] = try await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: true, appState: appState)
+
+            topPackagesTracker.topFormulae = try await topFormulae
+            topPackagesTracker.topCasks = try await topCasks
+
+            print("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
+            print("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
+            
+            appState.isLoadingTopPackages = false
+        }
+        catch let topPackageLoadingError
+        {
+            print("Failed while loading top packages: \(topPackageLoadingError)")
+
+            if topPackageLoadingError is DataDownloadingError
+            {
+                appState.fatalAlertType = .receivedInvalidResponseFromBrew
+                appState.isShowingFatalError = true
+            }
+        }
     }
 }

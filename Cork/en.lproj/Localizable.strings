@@ -64,8 +64,10 @@
 "alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
 "alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
 "alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
-"alert.notifications-error-while-parsing-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-parsing-top-packages.title" = "Could not decipher top packages";
 "alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
+"alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";
@@ -317,10 +319,12 @@
 
 // MARK: - Settings - Discoverability
 "settings.discoverability.toggle" = "Enable Discoverability";
-"settings.discoverability.time-span" = "Show top packages for:";
+"settings.discoverability.time-span" = "Get top packages for:";
 "settings.discoverability.time-span.month" = "Last month";
 "settings.discoverability.time-span.quarter-year" = "Last three months";
 "settings.discoverability.time-span.year" = "Last year";
+
+"settings.discoverability.sorting" = "Sort top packages by:";
 
 // MARK: - About
 "about.title" = "About Cork";

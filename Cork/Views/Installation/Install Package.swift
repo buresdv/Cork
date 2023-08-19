@@ -15,6 +15,8 @@ struct AddFormulaView: View
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
+    
+    @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
     @State private var foundPackageSelection = Set<UUID>()
 
@@ -29,6 +31,9 @@ struct AddFormulaView: View
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
     @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    
+    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
 
     var body: some View
     {
@@ -41,6 +46,32 @@ struct AddFormulaView: View
                 {
                     VStack
                     {
+                        
+                        if enableDiscoverability
+                        {
+                            List
+                            {
+                                Section {
+                                    ForEach(topPackagesTracker.topFormulae)
+                                    { topFormula in
+                                        Text(topFormula.packageName)
+                                    }
+                                } header: {
+                                    Text("Top Formulae")
+                                }
+
+                                Section {
+                                    ForEach(topPackagesTracker.topCasks)
+                                    { topCask in
+                                        Text(topCask.packageName)
+                                    }
+                                } header: {
+                                    Text("Top Casks")
+                                }
+                                
+                            }
+                        }
+                        
                         TextField("add-package.search.prompt", text: $packageRequested)
                         { _ in
                             foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package

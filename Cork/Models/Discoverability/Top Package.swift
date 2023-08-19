@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct TopPackage: Hashable
+struct TopPackage: Hashable, Identifiable
 {
+    var id: Self { self }
+    
     let packageName: String
     let packageDownloads: Int
 }

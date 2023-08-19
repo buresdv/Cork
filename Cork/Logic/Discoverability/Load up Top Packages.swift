@@ -12,6 +12,10 @@ enum URLEncodingError: Error
 {
     case failedToEncodeEndpointURL
 }
+enum PackageParsingError: Error
+{
+    case couldNotParseHomebrewResponse
+}
 
 func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState) async throws -> [TopPackage]
 {
@@ -70,8 +74,8 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
 
 private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDays: Int) async throws -> [TopPackage]
 {
-    
-    let packageDownloadsCutoff: Int = (1000 / 30) * numberOfDays
+    /// The magic number here is the result of 1000/30, a base limit for 30 days: If the user selects the number of days to be 30, only show packages with more than 1000 downloads
+    let packageDownloadsCutoff: Int = 33 * numberOfDays
     
     print("Cutoff for package downloads: \(packageDownloadsCutoff)")
     

@@ -12,6 +12,8 @@ struct DiscoverabilityPane: View
 {
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    
+    @EnvironmentObject var appState: AppState
 
     var body: some View
     {
@@ -24,6 +26,7 @@ struct DiscoverabilityPane: View
                     Text("settings.discoverability.toggle")
                 }
                 .toggleStyle(.switch)
+                .disabled(appState.isLoadingTopPackages)
 
                 Divider()
 
@@ -37,7 +40,7 @@ struct DiscoverabilityPane: View
                         }
                     }
                 }
-                .disabled(!enableDiscoverability)
+                .disabled(!enableDiscoverability && !appState.isLoadingTopPackages)
             }
         }
     }
