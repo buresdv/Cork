@@ -32,6 +32,8 @@ struct AddFormulaView: View
     
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
+    @State private var isFormulaeSectionCollapsed: Bool = false
+    @State private var isCasksSectionCollapsed: Bool = false
 
     @FocusState var isSearchFieldFocused: Bool
 
@@ -188,19 +190,29 @@ struct AddFormulaView: View
 
                     List(selection: $foundPackageSelection)
                     {
-                        Section("add-package.search.results.formulae")
+                        Section
                         {
-                            ForEach(searchResultTracker.foundFormulae)
-                            { formula in
-                                SearchResultRow(packageName: formula.name, isCask: formula.isCask)
+                            if !isFormulaeSectionCollapsed
+                            {
+                                ForEach(searchResultTracker.foundFormulae)
+                                { formula in
+                                    SearchResultRow(packageName: formula.name, isCask: formula.isCask)
+                                }
                             }
+                        } header: {
+                            CollapsibleSectionHeader(headerText: "add-package.search.results.formulae", isCollapsed: $isFormulaeSectionCollapsed)
                         }
-                        Section("add-package.search.results.casks")
+                        Section
                         {
-                            ForEach(searchResultTracker.foundCasks)
-                            { cask in
-                                SearchResultRow(packageName: cask.name, isCask: cask.isCask)
+                            if !isCasksSectionCollapsed
+                            {
+                                ForEach(searchResultTracker.foundCasks)
+                                { cask in
+                                    SearchResultRow(packageName: cask.name, isCask: cask.isCask)
+                                }
                             }
+                        } header: {
+                            CollapsibleSectionHeader(headerText: "add-package.search.results.casks", isCollapsed: $isCasksSectionCollapsed)
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
