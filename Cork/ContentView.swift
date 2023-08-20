@@ -25,7 +25,7 @@ struct ContentView: View
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
-  
+
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
