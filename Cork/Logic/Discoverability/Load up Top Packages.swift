@@ -12,7 +12,6 @@ enum URLEncodingError: Error
 {
     case failedToEncodeEndpointURL
 }
-
 enum PackageParsingError: Error
 {
     case couldNotParseHomebrewResponse
@@ -79,7 +78,7 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDay
     let packageDownloadsCutoff: Int = 33 * numberOfDays
     
     print("Cutoff for package downloads: \(packageDownloadsCutoff)")
-
+    
     do
     {
         var packageTracker: [TopPackage] = .init()
@@ -101,9 +100,7 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDay
             let packageInstalledCount: Int = Int(packageInfo["count"].stringValue.replacingOccurrences(of: ",", with: "")) ?? 696969
             
             /// Immediately throw away any package that has fewer than 1000 downloads to save on computing power
-
             if packageInstalledCount > packageDownloadsCutoff
-
             {
                 let packageName: String = packageInfo[packageInfoAccessor].stringValue
                 
