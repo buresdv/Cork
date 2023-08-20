@@ -17,7 +17,7 @@
 	<key>CFBundleSignature</key>
 	<string>hbwr</string>
 	<key>HPDBookAccessPath</key>
-	<string>index.html </string>
+	<string>index.html</string>
 	<key>HPDBookCSIndexPath</key>
 	<string>CorkHelp.cshelpindex</string>
 	<key>HPDBookIndexPath</key>
