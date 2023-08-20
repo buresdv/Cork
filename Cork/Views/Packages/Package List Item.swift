@@ -35,7 +35,11 @@ struct PackageListItem: View
                     .foregroundColor(.secondary)
                     .layoutPriority(-Double(2))
             }
-            .animation(.bouncy, value: packageItem.isTagged)
+            #if hasAttribute(bouncy)
+                .animation(.bouncy, value: packageItem.isTagged)
+            #else
+                .animation(.default, value: packageItem.isTagged)
+            #endif
             .transition(.slide)
         }
     }

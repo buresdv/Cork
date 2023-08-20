@@ -6,6 +6,8 @@
 "action.quit" = "Quit Cork";
 "action.restart" = "Restart Cork";
 "action.reveal-in-finder" = "Reveal in Finder";
+"action.show" = "Show";
+"action.hide" = "Hide";
 "action.clear-metadata" = "Clear metadata";
 "action.repair-%@" = "Repair %@";
 "action.repair-home-path" = "Repair Homebrew";
@@ -64,8 +66,10 @@
 "alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
 "alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
 "alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
-"alert.notifications-error-while-parsing-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-parsing-top-packages.title" = "Could not decipher top packages";
 "alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
+"alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";
@@ -182,6 +186,8 @@
 "add-package.finished.description" = "There were no errors";
 "add-package.network-error" = "Network Connection Not Sufficient";
 "add-package.network-error.description" = "Your network connection is not stable enough to guarantee a successful installation";
+"add-package.top-formulae" = "Top Formulae";
+"add-package.top-casks" = "Top Casks";
 
 // MARK: - Package Repairing
 "repair-package.repair-process-%@" = "Repairing %@…";
@@ -254,7 +260,8 @@
 "settings.general" = "General";
 "settings.maintenance" = "Maintenance";
 "settings.homebrew" = "Homebrew";
-"settings.install-uninstall" = "Install and Uninstall";
+"settings.discoverability" = "Discoverability";
+"settings.install-uninstall" = "Packages";
 
 "settings.dangerous" = "Advanced:";
 
@@ -313,6 +320,18 @@
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow purging packages?";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Purging may break your other packages\nAre you sure you want to continue?";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Package Purging";
+
+// MARK: - Settings - Discoverability
+"settings.discoverability.toggle" = "Enable Discoverability";
+"settings.discoverability.time-span" = "Get top packages for:";
+"settings.discoverability.time-span.month" = "Last month";
+"settings.discoverability.time-span.quarter-year" = "Last three months";
+"settings.discoverability.time-span.year" = "Last year";
+
+"settings.discoverability.sorting" = "Sort top packages by:";
+"settings.discoverability.sorting.by-most-downloads" = "Most downloads";
+"settings.discoverability.sorting.by-fewest-downloads" = "Fewest downloads";
+"settings.discoverability.sorting.random" = "Random";
 
 // MARK: - About
 "about.title" = "About Cork";

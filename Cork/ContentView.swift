@@ -15,13 +15,17 @@ struct ContentView: View
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
+    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
-    
+  
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -161,15 +165,12 @@ struct ContentView: View
         }
         .task(priority: .background)
         {
-            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+            if enableDiscoverability
             {
-                print("Initial setup finished, time to fetch the top packages")
-                
-                async let topFormulae: [TopPackage] = try! await loadUpTopPackages(isCask: false, appState: appState)
-                async let topCasks: [TopPackage] = try! await loadUpTopPackages(isCask: true, appState: appState)
-                
-                topPackagesTracker.topFormulae = await topFormulae
-                topPackagesTracker.topCasks = await topCasks
+                if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+                {
+                    await loadTopPackages()
+                }
             }
         }
         .onChange(of: sortPackagesBy, perform: { newSortOption in
@@ -202,6 +203,33 @@ struct ContentView: View
                     await appState.setupNotifications()
                 }
             }
+        })
+        .onChange(of: enableDiscoverability, perform: { newValue in
+            if newValue == true
+            {
+                Task(priority: .userInitiated)
+                {
+                    await loadTopPackages()
+                }
+            }
+            else
+            {
+                print("Will purge top package trackers")
+                /// Clear out the package trackers so they don't take up RAM
+                topPackagesTracker.topFormulae = .init()
+                topPackagesTracker.topCasks = .init()
+
+                print("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
+            }
+        })
+        .onChange(of: discoverabilityDaySpan, perform: { _ in
+            Task(priority: .userInitiated)
+            {
+                await loadTopPackages()
+            }
+        })
+        .onChange(of: sortTopPackagesBy, perform: { _ in
+            sortTopPackages()
         })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
@@ -338,7 +366,75 @@ struct ContentView: View
                         appState.isShowingFatalError = false
                     })
                 )
+            case .receivedInvalidResponseFromBrew:
+                return Alert(
+                    title: Text("alert.notifications-error-while-getting-top-packages.title"),
+                    message: Text("alert.notifications-error-while-getting-top-package.message"),
+                    dismissButton: .cancel(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                        enableDiscoverability = false
+                    })
+                )
             }
         })
+    }
+
+    func loadTopPackages() async -> Void
+    {
+        print("Initial setup finished, time to fetch the top packages")
+
+        do
+        {
+            appState.isLoadingTopPackages = true
+
+            async let topFormulae: [TopPackage] = try await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: false, appState: appState)
+            async let topCasks: [TopPackage] = try await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: true, appState: appState)
+
+            topPackagesTracker.topFormulae = try await topFormulae
+            topPackagesTracker.topCasks = try await topCasks
+
+            print("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
+            print("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
+            
+            sortTopPackages()
+            
+            appState.isLoadingTopPackages = false
+        }
+        catch let topPackageLoadingError
+        {
+            print("Failed while loading top packages: \(topPackageLoadingError)")
+
+            if topPackageLoadingError is DataDownloadingError
+            {
+                appState.fatalAlertType = .receivedInvalidResponseFromBrew
+                appState.isShowingFatalError = true
+            }
+        }
+    }
+    private func sortTopPackages() -> Void
+    {
+        switch sortTopPackagesBy
+        {
+            case .mostDownloads:
+                
+                print("Will sort top packages by most downloads")
+                
+                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+                topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+                
+            case .fewestDownloads:
+                
+                print("Will sort top packages by fewest downloads")
+                
+                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+                topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+                
+            case .random:
+                
+                print("Will sort top packages randomly")
+                
+                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.shuffled()
+                topPackagesTracker.topCasks = topPackagesTracker.topCasks.shuffled()
+        }
     }
 }

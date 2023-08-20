@@ -8,26 +8,26 @@
 "action.reveal-in-finder" = "在 Finder 裡顯示";
 "action.clear-metadata" = "清除元資料";
 "action.repair-%@" = "修復 %@";
-"action.repair-home-path" = "Repair Homebrew";
-"action.use-without-notifications" = "Use Cork without notifications";
+"action.repair-home-path" = "修復 Homebrew";
+"action.use-without-notifications" = "停用通知";
 
 // MARK: - Bug Reporting
 "action.report-bugs.menu-category" = "反映程式缺陷";
 "action.report-bugs.git-hub" = "在 GitHub 上反映⋯";
-"action.report-bugs.email" = "寄送電子郵件⋯";
+"action.report-bugs.email" = "用電子郵件反映⋯";
 
 // MARK: - Misc Actions
 "action.go-to-status-page" = "返回主頁";
 
 // MARK: - Notifications
-"notification.outdated-packages-found.title" = "Found outdated packages";
-"notification.upgrade-finished.success" = "Packages upgraded";
-"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
-"notification.upgrade-finished.failure" = "Upgrades failed";
+"notification.outdated-packages-found.title" = "發現落伍套件";
+"notification.upgrade-finished.success" = "套件成功更新";
+"notification.upgrade-finished.success.some-errors" = "套件更新時發生錯誤";
+"notification.upgrade-finished.failure" = "更新失敗";
 
-"notification.upgrade-process-started" = "Upgrading packages…";
+"notification.upgrade-process-started" = "套件更新中⋯";
 
-"notification.install-finished" = "Installation process finished";
+"notification.install-finished" = "安裝完畢";
 
 // MARK: - Navigation
 "navigation.about" = "關於 Cork";
@@ -60,16 +60,16 @@
 "alert.could-not-create-metadata-file.title" = "無法創建元資料檔案";
 "alert.package-corrupted.title-%@" = "%@ 已損毀";
 "alert.package-corrupted.message" = "本套件需要修復";
-"alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
-"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
-"alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
-"alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
+"alert.home-not-set.title" = "Homebrew 的設定不如 Cork 所預期";
+"alert.home-not-set.message" = "Cork 無法使用您的 Homebrew 安裝\n我們正在研究這個在最新的 Homebrew 或 macOS 版本上所發現的問題。\nCork 目前無法執行，我們將儘速解決問題並更新。";
+"alert.notifications-error-while-obtaining-permissions.title" = "取得通知許可時發生問題";
+"alert.notifications-error-while-obtaining-permissions.message" = "通知並未啟用，但您可以繼續使用 Cork。";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
 "sidebar.section.installed-formulae" = "已安裝的 Formula";
 "sidebar.section.installed-formulae.contextmenu.uninstall-%@" = "卸載 %@";
-"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "Purge %@";
+"sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" = "清除 %@";
 "sidebar.section.installed-casks" = "已安裝的 Cask";
 "sidebar.section.installed-casks.contextmenu.uninstall-%@" = "卸載 %@";
 "sidebar.section.added-taps" = "已安裝的 Tap";
@@ -106,7 +106,7 @@
 "start-page.open-maintenance" = "Homebrew 維護⋯";
 
 // MARK: - Add Tap
-"add-tap" = "新增 tap";
+"add-tap" = "新增 Tap";
 "add-tap.typing.error.empty" = "未輸入 Tap 名稱";
 "add-tap.typing.error.empty.description" = "您未輸入任何 Tap 的名稱";
 "add-tap.typing.error.slash" = "Tap 名稱裡需有斜線號";
@@ -188,7 +188,7 @@
 
 // MARK: - Package Details
 "package-details.pinned.help-%@" = "%@ 已被釘選，無法更新。";
-"package-details.dependants.dependency-of-%@" = "由 %@ 所依存";
+"package-details.dependants.dependency-of-%@" = "受 %@ 依存";
 "package-details.dependants.loading" = "計算依存⋯";
 "package-details.outdated" = "落伍";
 "package-details.caveats.available" = "含警訊 􀅴";
@@ -212,7 +212,7 @@
 "package-details.action.pin-version-%@" = "釘選 %@ 版本";
 "package-details.action.unpin-version-%@" = "取消釘選 %@ 版本";
 "package-details.action.uninstall-%@" = "卸載 %@";
-"package-details.action.uninstall-deep-%@" = "Purge %@";
+"package-details.action.uninstall-deep-%@" = "清除 %@";
 
 "package-details.dependencies.search.prompt" = "依存關係";
 "package-details.dependencies.results.name" = "名稱";
@@ -254,7 +254,7 @@
 "settings.homebrew" = "Homebrew";
 "settings.install-uninstall" = "安裝與卸載";
 
-"settings.dangerous" = "Advanced:";
+"settings.dangerous" = "進階：";
 
 // MARK: - Settings: General
 "settings.general.sort-packages" = "套件排序：";
@@ -277,20 +277,20 @@
 "settings.general.menubar.toggle" = "在選單列中顯示";
 
 // MARK: - Settings: Notifications
-"settings.notifications" = "Notifications";
-"settings.notifications.enable-notifications" = "Enable notifications";
-"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 Enable notifications for Cork in System Settings";
-"settings.notifications.outdated-package-notification-type" = "Outdated packages alert type:";
-"settings.notifications.outdated-package-notification-type.badge" = "Badge";
-"settings.notifications.outdated-package-notification-type.notification" = "Notification";
-"settings.notifications.outdated-package-notification-type.both" = "Badge and Notification";
-"settings.notifications.outdated-package-notification-type.none" = "None";
+"settings.notifications" = "通知";
+"settings.notifications.enable-notifications" = "啟用通知";
+"settings.notifications.notifications-disabled-in-settings.tooltip" = "􀅴 在系統設定裡為 Cork 啟用通知";
+"settings.notifications.outdated-package-notification-type" = "落伍套件通知型態：";
+"settings.notifications.outdated-package-notification-type.badge" = "標記";
+"settings.notifications.outdated-package-notification-type.notification" = "提示";
+"settings.notifications.outdated-package-notification-type.both" = "標記與提示";
+"settings.notifications.outdated-package-notification-type.none" = "無";
 
-"settings.notifications.notify-about-various-actions" = "Notify about:";
-"settings.notifications.notify-about-upgrade-result" = "Update results";
-"settings.notifications.notify-about-installation-result" = "Installation results";
+"settings.notifications.notify-about-various-actions" = "通知項目：";
+"settings.notifications.notify-about-upgrade-result" = "更新成果";
+"settings.notifications.notify-about-installation-result" = "安裝成果";
 
-"settings.notifications.explanation" = "Notifications will get shown only when Cork is not the active window";
+"settings.notifications.explanation" = "通知只會在 Cork 不是前景程式時顯示。";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "設定預設步驟";
@@ -306,11 +306,11 @@
 "settings.install-uninstall.uninstallation" = "卸載：";
 "settings.install-uninstall.uninstallation.purge-cache" = "卸載套件後清除快取";
 "settings.install-uninstall.uninstallation.remove-orphans" = "卸載套件後清除遺孤套件";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "Enable package purging";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "Allow purging packages?";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Purging may break your other packages\nAre you sure you want to continue?";
-"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Enable Package Purging";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" = "啟用套件清除";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" = "清除所有與套件相關的檔案。\n這可能會移除共享的檔案，導致其他套件故障。";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "允許套件清除？";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "清除動作可能會移除共享的檔案，導致其他套件故障。\n您確定要繼續？";
+"settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "啟用套件清除";
 
 // MARK: - About
 "about.title" = "關於 Cork";
@@ -322,7 +322,7 @@
 
 "about.contributor.service.github" = "GitHub";
 "about.contributor.service.mastodon" = "Mastodon";
-"about.contributor.service.website" = "Website";
+"about.contributor.service.website" = "網站";
 
 "about.thanks" = "特別銘謝";
 "about.thanks.1.name" = "Seb Jachec";
@@ -346,7 +346,7 @@
 "about.translator.2.name" = "sh95014";
 "about.translator.2.purpose" = "為 Cork 提供繁體中文翻譯";
 "about.translator.3.name" = "Maurice Meysel";
-"about.translator.3.purpose" = "為 Cork 提供德語翻譯";
+"about.translator.3.purpose" = "為 Cork 提供德文翻譯";
 
 "about.contribute" = "捐助";
 "about.contact" = "聯繫我";
