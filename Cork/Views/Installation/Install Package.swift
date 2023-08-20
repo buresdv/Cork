@@ -18,7 +18,7 @@ struct AddFormulaView: View
 
     @State private var isFormulaeSectionCollapsed: Bool = false
     @State private var isCasksSectionCollapsed: Bool = false
-    
+
     @State private var foundPackageSelection = Set<UUID>()
 
     @ObservedObject var searchResultTracker = SearchResultTracker()
@@ -51,29 +51,11 @@ struct AddFormulaView: View
                 }
 
             case .searching:
-                ProgressView("add-package.searching-\(packageRequested)")
-                    .onAppear
-                    {
-                        Task
-                        {
-                            searchResultTracker.foundFormulae = []
-                            searchResultTracker.foundCasks = []
-
-                            async let foundFormulae = try searchForPackage(packageName: packageRequested, packageType: .formula)
-                            async let foundCasks = try searchForPackage(packageName: packageRequested, packageType: .cask)
-
-                            for formula in try await foundFormulae
-                            {
-                                searchResultTracker.foundFormulae.append(BrewPackage(name: formula, isCask: false, installedOn: nil, versions: [], sizeInBytes: nil))
-                            }
-                            for cask in try await foundCasks
-                            {
-                                searchResultTracker.foundCasks.append(BrewPackage(name: cask, isCask: true, installedOn: nil, versions: [], sizeInBytes: nil))
-                            }
-
-                            packageInstallationProcessStep = .presentingSearchResults
-                        }
-                    }
+                InstallationSearchingView(
+                    packageRequested: $packageRequested,
+                    searchResultTracker: searchResultTracker,
+                    packageInstallationProcessStep: $packageInstallationProcessStep
+                )
 
             case .presentingSearchResults:
                 VStack
@@ -246,7 +228,7 @@ struct AddFormulaView: View
                 .onAppear
                 {
                     appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
-                    
+
                     if notifyAboutPackageInstallationResults
                     {
                         sendNotification(title: String(localized: "notification.install-finished"))
