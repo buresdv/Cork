@@ -143,7 +143,21 @@
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
 		96B86AFD29C66E6D00844DF4 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AFF29C66E6D00844DF4 /* Localizable.stringsdict */; };
+		97D0101D2A93DDA40085FB59 /* CorkHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = 97D010172A93DC990085FB59 /* CorkHelp.help */; };
+		97D010242A93E1A20085FB59 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 97D010262A93E1A20085FB59 /* index.html */; };
+		97D0102C2A93E41A0085FB59 /* CorkHelp.helpindex in Resources */ = {isa = PBXBuildFile; fileRef = 97D010282A93E41A0085FB59 /* CorkHelp.helpindex */; };
+		97D0102D2A93E41A0085FB59 /* CorkHelp.cshelpindex in Resources */ = {isa = PBXBuildFile; fileRef = 97D0102A2A93E41A0085FB59 /* CorkHelp.cshelpindex */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97D0101B2A93DD860085FB59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 634065592871AA42001A2178 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97D010162A93DC990085FB59;
+			remoteInfo = CorkHelp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		512963C42A35A288009FE512 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -284,6 +298,15 @@
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		96B86AFE29C66E6D00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		97D010172A93DC990085FB59 /* CorkHelp.help */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorkHelp.help; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D0101F2A93DE4A0085FB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97D010252A93E1A20085FB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/index.html; sourceTree = "<group>"; };
+		97D010272A93E1E20085FB59 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hant"; path = "zh-Hant.lproj/index.html"; sourceTree = "<group>"; };
+		97D010292A93E41A0085FB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/CorkHelp.helpindex; sourceTree = "<group>"; };
+		97D0102B2A93E41A0085FB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/CorkHelp.cshelpindex; sourceTree = "<group>"; };
+		97D0102E2A93E4320085FB59 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/CorkHelp.cshelpindex"; sourceTree = "<group>"; };
+		97D0102F2A93E4320085FB59 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/CorkHelp.helpindex"; sourceTree = "<group>"; };
+		97D010302A93E4870085FB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B0376A5729D26097009C7E6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B0376A5829D26097009C7E6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		C4F430F329C93B500070489B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -297,6 +320,13 @@
 			files = (
 				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
 				634065752871AB22001A2178 /* DavidFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97D010142A93DC990085FB59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				634065612871AA42001A2178 /* Cork.app */,
+				97D010172A93DC990085FB59 /* CorkHelp.help */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -424,6 +455,7 @@
 		634065632871AA42001A2178 /* Cork */ = {
 			isa = PBXGroup;
 			children = (
+				97D010302A93E4870085FB59 /* Info.plist */,
 				63006DF929AB691B00243E29 /* Styles */,
 				63A87466298FE808009F9533 /* Enums */,
 				6340657B2871AC4F001A2178 /* Models */,
@@ -440,6 +472,7 @@
 				63A8746D29904A7F009F9533 /* App State.swift */,
 				96B86AF729C6561E00844DF4 /* Localizable.strings */,
 				96B86AFF29C66E6D00844DF4 /* Localizable.stringsdict */,
+				97D0101E2A93DDC10085FB59 /* Help */,
 			);
 			path = Cork;
 			sourceTree = "<group>";
@@ -949,6 +982,17 @@
 			path = "Incremental Updating";
 			sourceTree = "<group>";
 		};
+		97D0101E2A93DDC10085FB59 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				97D0101F2A93DE4A0085FB59 /* Info.plist */,
+				97D010262A93E1A20085FB59 /* index.html */,
+				97D0102A2A93E41A0085FB59 /* CorkHelp.cshelpindex */,
+				97D010282A93E41A0085FB59 /* CorkHelp.helpindex */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -963,6 +1007,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				97D0101C2A93DD860085FB59 /* PBXTargetDependency */,
 			);
 			name = Cork;
 			packageProductDependencies = (
@@ -972,6 +1017,23 @@
 			productName = Cork;
 			productReference = 634065612871AA42001A2178 /* Cork.app */;
 			productType = "com.apple.product-type.application";
+		};
+		97D010162A93DC990085FB59 /* CorkHelp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97D0101A2A93DC990085FB59 /* Build configuration list for PBXNativeTarget "CorkHelp" */;
+			buildPhases = (
+				97D010132A93DC990085FB59 /* Sources */,
+				97D010142A93DC990085FB59 /* Frameworks */,
+				97D010152A93DC990085FB59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CorkHelp;
+			productName = CorkHelp;
+			productReference = 97D010172A93DC990085FB59 /* CorkHelp.help */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -985,6 +1047,9 @@
 				TargetAttributes = {
 					634065602871AA42001A2178 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					97D010162A93DC990085FB59 = {
+						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
@@ -1009,6 +1074,7 @@
 			projectRoot = "";
 			targets = (
 				634065602871AA42001A2178 /* Cork */,
+				97D010162A93DC990085FB59 /* CorkHelp */,
 			);
 		};
 /* End PBXProject section */
@@ -1018,10 +1084,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D0101D2A93DDA40085FB59 /* CorkHelp.help in Resources */,
 				6340656C2871AA42001A2178 /* Preview Assets.xcassets in Resources */,
 				96B86AFD29C66E6D00844DF4 /* Localizable.stringsdict in Resources */,
 				96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */,
 				634065692871AA42001A2178 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97D010152A93DC990085FB59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97D0102D2A93E41A0085FB59 /* CorkHelp.cshelpindex in Resources */,
+				97D010242A93E1A20085FB59 /* index.html in Resources */,
+				97D0102C2A93E41A0085FB59 /* CorkHelp.helpindex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1165,7 +1242,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97D010132A93DC990085FB59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97D0101C2A93DD860085FB59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97D010162A93DC990085FB59 /* CorkHelp */;
+			targetProxy = 97D0101B2A93DD860085FB59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		96B86AF729C6561E00844DF4 /* Localizable.strings */ = {
@@ -1188,6 +1280,33 @@
 				512963C52A35A288009FE512 /* de */,
 			);
 			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		97D010262A93E1A20085FB59 /* index.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97D010252A93E1A20085FB59 /* Base */,
+				97D010272A93E1E20085FB59 /* zh-Hant */,
+			);
+			name = index.html;
+			sourceTree = "<group>";
+		};
+		97D010282A93E41A0085FB59 /* CorkHelp.helpindex */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97D010292A93E41A0085FB59 /* Base */,
+				97D0102F2A93E4320085FB59 /* zh-Hant */,
+			);
+			name = CorkHelp.helpindex;
+			sourceTree = "<group>";
+		};
+		97D0102A2A93E41A0085FB59 /* CorkHelp.cshelpindex */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97D0102B2A93E41A0085FB59 /* Base */,
+				97D0102E2A93E4320085FB59 /* zh-Hant */,
+			);
+			name = CorkHelp.cshelpindex;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1321,16 +1440,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 42;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cork/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1352,16 +1472,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 42;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cork/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1373,6 +1494,50 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		97D010182A93DC990085FB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Cork/Help/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.CorkHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = help;
+			};
+			name = Debug;
+		};
+		97D010192A93DC990085FB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Cork/Help/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.CorkHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = help;
 			};
 			name = Release;
 		};
@@ -1393,6 +1558,15 @@
 			buildConfigurations = (
 				634065712871AA42001A2178 /* Debug */,
 				634065722871AA42001A2178 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97D0101A2A93DC990085FB59 /* Build configuration list for PBXNativeTarget "CorkHelp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97D010182A93DC990085FB59 /* Debug */,
+				97D010192A93DC990085FB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

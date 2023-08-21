@@ -2,16 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en-us</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.davidbures.CorkHelp</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>hbwr</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
 	<key>HPDBookAccessPath</key>
 	<string>index.html</string>
 	<key>HPDBookCSIndexPath</key>
 	<string>CorkHelp.cshelpindex</string>
 	<key>HPDBookIndexPath</key>
 	<string>CorkHelp.helpindex</string>
-	<key>HPDBookKBProduct</key>
-	<string>CorkHelp</string>
 	<key>HPDBookTitle</key>
 	<string>Cork Help</string>
 	<key>HPDBookType</key>
