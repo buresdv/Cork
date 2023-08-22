@@ -64,6 +64,7 @@
 "alert.home-not-set.message" = "Cork 無法使用您的 Homebrew 安裝\n我們正在研究這個在最新的 Homebrew 或 macOS 版本上所發現的問題。\nCork 目前無法執行，我們將儘速解決問題並更新。";
 "alert.notifications-error-while-obtaining-permissions.title" = "取得通知許可時發生問題";
 "alert.notifications-error-while-obtaining-permissions.message" = "通知並未啟用，但您可以繼續使用 Cork。";
+"alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "You still have packages installed from %@\nUninstall them and try again";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
