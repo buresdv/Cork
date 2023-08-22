@@ -11,7 +11,7 @@ struct ContentView: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    
+
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
@@ -182,7 +182,8 @@ struct ContentView: View
         .onChange(of: areNotificationsEnabled, perform: { newValue in
             if newValue == true
             {
-                Task(priority: .background) {
+                Task(priority: .background)
+                {
                     await appState.setupNotifications()
                 }
             }
@@ -314,6 +315,10 @@ struct ContentView: View
                         appState.isShowingFatalError = false
                     })
                 )
+            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
+                    return Alert(title: Text("sidebar.section.added-taps.remove.title-\(appState.offendingTapProhibitingRemovalOfTap)"), message: Text("alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(appState.offendingTapProhibitingRemovalOfTap)"), dismissButton: .default(Text("action.close"), action: {
+                    appState.isShowingRemoveTapFailedAlert = false
+                }))
             }
         })
     }

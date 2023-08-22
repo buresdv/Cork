@@ -42,11 +42,6 @@ struct TapsSection: View {
                         } label: {
                             Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name)")
                         }
-                        .alert(isPresented: $appState.isShowingRemoveTapFailedAlert, content: {
-                            Alert(title: Text("sidebar.section.added-taps.remove.title-\(tap.name)"), message: Text("sidebar.section.added-taps.remove.message"), dismissButton: .default(Text("action.close"), action: {
-                                appState.isShowingRemoveTapFailedAlert = false
-                            }))
-                        })
                     }
                 }
             }
