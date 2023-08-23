@@ -17,9 +17,7 @@ func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStora
         {
             print("Formula index to replace: \(formulaIndexToReplace)")
             
-            let oldFormula = brewData.installedFormulae[formulaIndexToReplace]
-            
-            brewData.installedFormulae[formulaIndexToReplace] = BrewPackage(id: oldFormula.id, name: oldFormula.name, isCask: oldFormula.isCask, isTagged: true, installedOn: oldFormula.installedOn, versions: oldFormula.versions, sizeInBytes: oldFormula.sizeInBytes)
+            brewData.installedFormulae[formulaIndexToReplace].changeTaggedStatus()
         }
         else
         {
@@ -30,9 +28,7 @@ func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStora
         {
             print("Cask index to replace: \(caskIndexToReplace)")
             
-            let oldCask = brewData.installedCasks[caskIndexToReplace]
-            
-            brewData.installedCasks[caskIndexToReplace] = BrewPackage(id: oldCask.id, name: oldCask.name, isCask: oldCask.isCask, isTagged: true, installedOn: oldCask.installedOn, versions: oldCask.versions, sizeInBytes: oldCask.sizeInBytes)
+            brewData.installedCasks[caskIndexToReplace].changeTaggedStatus()
         }
         else
         {

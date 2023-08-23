@@ -14,7 +14,7 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
     {
         if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
         {
-            brewData.installedFormulae[indexToReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
+            brewData.installedFormulae[indexToReplace].changeTaggedStatus()
         }
         
     }
@@ -22,7 +22,7 @@ func untagPackage(package: BrewPackage, brewData: BrewDataStorage, appState: App
     {
         if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
         {
-            brewData.installedCasks[indextoReplace] = BrewPackage(id: package.id, name: package.name, isCask: package.isCask, isTagged: false, installedOn: package.installedOn, versions: package.versions, sizeInBytes: package.sizeInBytes)
+            brewData.installedCasks[indextoReplace].changeTaggedStatus()
         }
     }
     
