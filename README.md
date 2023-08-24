@@ -15,6 +15,14 @@ Without his contribution, many of the processes that depend on real-time outputs
 
 Cork is not just an interface for Homebrew. It has many features that are either very hard to accomplish using Homebrew alone, or straight-up not possible.
 
+**Things that are not possible without Cork**
+
+- [x] Automatically respecting system proxy.
+- [x] Clearing of cached downloads.
+- [x] Updating packages from the Menu Bar without having Cork open.
+- [x] Seeing this much info about a package in one convenient location.
+- [x] Tagging packages. This is a Cork-only feature that lets you mark any number of packages you'd like to keep track of.
+
 **Things that Cork makes easier**
 
 - [x] Listing of installed packages. Cork has its own way of loading packages, which is around 10 times faster than the Homebrew implementation.
@@ -23,18 +31,20 @@ Cork is not just an interface for Homebrew. It has many features that are either
 - [x] Showing you exactly which packages a package is a dependency of. Super annoying in Homebrew, effortless with Cork.
 - [x] And many other features! Just try Cork out and try finding them all 😉
 
-**Things that are not possible without Cork**
-
-- [x] Clearing of cached downloads.
-- [x] Updating packages from the Menu Bar without having Cork open.
-- [x] Seeing this much info about a package in one convenient location.
-- [x] Tagging packages. This is a Cork-only feature that lets you mark any number of packages you'd like to keep track of.
-
 ## Getting Cork
 
-Pre-compiled, always up-to-date versions are available from my Homebrew tap, which you get access to by donating 5€/month. You can donate through [Ko-Fi](https://ko-fi.com/buresdv) or [GitHub Sponsors](https://github.com/sponsors/buresdv).
+Pre-compiled, always up-to-date versions are available from my Homebrew tap. You can get access to it in a few ways:
 
-However, as Cork is open source, you can always compile it from source for free. See below for instructions.
+- Buy Cork for 25€ through [GitHub Sponsors](https://github.com/sponsors/buresdv?frequency=one-time&sponsor=buresdv). You will get access to all future versions at no additional cost.
+- Donate at least 5€/month to support the ongoing development of Cork. You can donate through [Ko-Fi](https://ko-fi.com/buresdv) or [GitHub Sponsors](https://github.com/sponsors/buresdv). Additionally, you will also get priority support.
+- Become a contributor. For example, you can:
+  - Translate Cork into your language, and keep your translation updated. I'd recommend joining the [Cork Discord](https://discord.gg/kUHg8uGHpG), as I always ping the translators there when new text is ready for translating.
+    If you aren't sure how to go about translating Cork, I'd recommend asking the translation team on Discord. They have the `Linguist` role.
+    If you'd prefer to learn on your own, this Apple documentation article is a nice introduction to the process: [Internalization](https://developer.apple.com/documentation/xcode/adding-support-for-languages-and-regions).
+  - Implement a feature tagged with `Help Wanted` in the [Issue Tracker](https://github.com/buresdv/Cork/issues?q=is%3Aissue+is%3Aopen+label%3A%22Help+Wanted%22).
+    Please espect the coding style. The main deviation from the Swift convention is that [brackets are on their own lines](https://github.com/buresdv/Cork/blob/83e6ac9977d780328d7bfeddaf4df66dc3260521/Cork/Logic/JSON/Parse%20JSON.swift#L16).
+
+However, if you don't want to do any of the above, you can always compile Cork yourself for free. See below for instructions.
 
 ## Screenshots
 ### Main Window
