@@ -41,8 +41,8 @@ struct AboutView: View
         AcknowledgedContributor(
             name: "about.contributors.6.name",
             reasonForAcknowledgement: "about.contributors.6.purpose",
-            profileService: .mastodon,
-            profileURL: URL(string: "https://mastodon.social/@ctietze")!
+            profileService: .website,
+            profileURL: URL(string: "https://christiantietze.de")!
         ),
         AcknowledgedContributor(
             name: "about.contributors.5.name",
