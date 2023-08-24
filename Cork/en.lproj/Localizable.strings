@@ -339,6 +339,8 @@
 "about.contributors.4.purpose" = "Made the first approved pull request; fixed package counts, along with Jierong Li";
 "about.contributors.5.name" = "Andrey Radchishin";
 "about.contributors.5.purpose" = "Added a way of going back to the Homebrew Status page";
+"about.contributors.6.name" = "Christian Tietze";
+"about.contributors.6.purpose" = "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support";
 
 "about.translators" = "Translators";
 "about.translator.1.name" = "Jerry";

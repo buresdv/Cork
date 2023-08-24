@@ -36,7 +36,13 @@ struct AboutView: View
             name: "about.contributors.1.name",
             reasonForAcknowledgement: "about.contributors.1.purpose",
             profileService: .mastodon,
-            profileURL: URL(string: "https://elk.zone/mstdn.social/@cocoaphony@mastodon.social")!
+            profileURL: URL(string: "https://mastodon.social/@cocoaphony")!
+        ),
+        AcknowledgedContributor(
+            name: "about.contributors.6.name",
+            reasonForAcknowledgement: "about.contributors.6.purpose",
+            profileService: .mastodon,
+            profileURL: URL(string: "https://mastodon.social/@ctietze")!
         ),
         AcknowledgedContributor(
             name: "about.contributors.5.name",
@@ -48,19 +54,19 @@ struct AboutView: View
             name: "about.contributors.2.name",
             reasonForAcknowledgement: "about.contributors.2.purpose",
             profileService: .mastodon,
-            profileURL: URL(string: "https://elk.zone/mstdn.social/@luckkerr@mastodon.world")!
+            profileURL: URL(string: "https://mastodon.world/@luckkerr")!
         ),
         AcknowledgedContributor(
             name: "about.contributors.3.name",
             reasonForAcknowledgement: "about.contributors.3.purpose",
             profileService: .mastodon,
-            profileURL: URL(string: "https://elk.zone/mstdn.social/@jierongli@mastodon.social")!
+            profileURL: URL(string: "https://mastodon.social/@jierongli")!
         ),
         AcknowledgedContributor(
             name: "about.contributors.4.name",
             reasonForAcknowledgement: "about.contributors.4.purpose",
             profileService: .mastodon,
-            profileURL: URL(string: "https://elk.zone/mstdn.social/@oscb@hachyderm.io")!
+            profileURL: URL(string: "https://hachyderm.io/@oscb")!
         ),
     ]
     
