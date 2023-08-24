@@ -257,7 +257,7 @@ struct MaintenanceView: View
                 }
                 .padding()
                 //.frame(minWidth: 300, minHeight: 150)
-                .onAppear
+                .onAppear // This should stay this way, I don' want the task to be cancelled when the view disappears
                 {
                     Task
                     {
