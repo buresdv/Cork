@@ -90,6 +90,11 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) a
     let untapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["untap", name]).standardError
     print("Untapping result: \(untapResult)")
     
+    defer
+    {
+        appState.isShowingUninstallationProgressView = false
+    }
+    
     if untapResult.contains("Untapped")
     {
         print("Untapping was successful")
@@ -103,10 +108,13 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) a
     {
         print("Untapping failed")
         
-        appState.isShowingRemoveTapFailedAlert = true
+        if untapResult.contains("because it contains the following installed formulae or casks")
+        {
+            appState.offendingTapProhibitingRemovalOfTap = name
+            appState.fatalAlertType = .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
+            appState.isShowingFatalError = true
+        }
         
         throw UntapError.couldNotUntap
     }
-    
-    appState.isShowingUninstallationProgressView = false
 }

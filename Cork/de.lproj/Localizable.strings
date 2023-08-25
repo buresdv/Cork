@@ -64,6 +64,7 @@
 "alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
 "alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
 "alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
+"alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "You still have packages installed from %@\nUninstall them and try again";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installierte Pakete";

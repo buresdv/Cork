@@ -30,6 +30,7 @@ class AppState: ObservableObject {
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
     @Published var offendingDependencyProhibitingUninstallation: String = ""
+    @Published var offendingTapProhibitingRemovalOfTap: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false
     
     @Published var isShowingIncrementalUpdateSheet: Bool = false
