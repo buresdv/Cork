@@ -104,8 +104,6 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDay
             {
                 let packageName: String = packageInfo[packageInfoAccessor].stringValue
                 
-                print("Package \(packageName) has \(packageInstalledCount) installations")
-                
                 packageTracker.append(TopPackage(packageName: packageName, packageDownloads: packageInstalledCount))
             }
             
