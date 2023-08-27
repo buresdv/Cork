@@ -452,6 +452,13 @@
 			path = Incremental;
 			sourceTree = "<group>";
 		};
+		633D64012A992D4200476A24 /* Raw Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Raw Files";
+			sourceTree = "<group>";
+		};
 		634065582871AA42001A2178 = {
 			isa = PBXGroup;
 			children = (
@@ -1044,6 +1051,7 @@
 		C47433532A92255900BC7209 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				633D64012A992D4200476A24 /* Raw Files */,
 				C45945192A91232900271D99 /* index.html */,
 				C459451C2A91232E00271D99 /* topic1.html */,
 				C459451F2A91233400271D99 /* topic2.html */,
