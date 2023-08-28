@@ -60,11 +60,11 @@
 "alert.could-not-create-metadata-file.title" = "Metadatendatei konnte nicht erstellt werden";
 "alert.package-corrupted.title-%@" = "%@ ist beschädigt";
 "alert.package-corrupted.message" = "Dieses Paket muss repariert werden";
-"alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
-"alert.home-not-set.message" = "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated";
-"alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
-"alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
-"alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "You still have packages installed from %@\nUninstall them and try again";
+"alert.home-not-set.title" = "Homebrew ist nicht richtig für Cork konfiguriert";
+"alert.home-not-set.message" = "Cork kann nicht auf Ihre Homebrew-Installation zugreifen\nWir untersuchen derzeit die Ursache dieses Problems, das in der neuesten Homebrew- oder macOS-Version aufgetreten ist\nBis dahin wird Cork nicht richtig funktionieren. Sobald dieses Problem behoben ist, wird Cork aktualisiert werden.";
+"alert.notifications-error-while-obtaining-permissions.title" = "Es gab ein Problem beim Erhalt der Benachrichtigungsberechtigungen";
+"alert.notifications-error-while-obtaining-permissions.message" = "Sie können Cork auch ohne Benachrichtigungen verwenden";
+"alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "Sie haben noch Pakete von %@\n installiert. Deinstallieren Sie diese und versuchen Sie es erneut.";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installierte Pakete";
