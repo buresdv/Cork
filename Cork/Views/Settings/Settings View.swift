@@ -30,9 +30,14 @@ struct SettingsView: View
                     Label("settings.notifications", systemImage: "bell.badge")
                 }
             
+            DiscoverabilityPane()
+                .tabItem {
+                    Label("settings.discoverability", systemImage: "magnifyingglass")
+                }
+            
             InstallationAndUninstallationPane()
                 .tabItem {
-                    Label("settings.install-uninstall", systemImage: "plus")
+                    Label("settings.install-uninstall", systemImage: "shippingbox")
                 }
             
             BrewPane()

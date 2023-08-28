@@ -11,5 +11,7 @@ enum FatalAlertType
 {
     case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions, homePathNotSet
     case couldNotObtainNotificationPermissions
-    case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
+	case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
+    case couldNotParseTopPackages
+    case receivedInvalidResponseFromBrew
 }

@@ -14,6 +14,8 @@ struct CorkApp: App
 
     @StateObject var brewData = BrewDataStorage()
     @StateObject var availableTaps = AvailableTaps()
+    
+    @StateObject var topPackagesTracker = TopPackagesTracker()
 
     @StateObject var updateProgressTracker = UpdateProgressTracker()
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
@@ -39,6 +41,7 @@ struct CorkApp: App
                 .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
+                .environmentObject(topPackagesTracker)
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
