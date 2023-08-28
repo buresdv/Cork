@@ -21,6 +21,11 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     var installedIntentionally: Bool = true
     
     let sizeInBytes: Int64?
+    
+    mutating func changeTaggedStatus() -> Void
+    {
+        self.isTagged.toggle()
+    }
 }
 
 extension FormatStyle where Self == Date.FormatStyle

@@ -33,10 +33,11 @@ struct AddTapView: View
     @State private var requestedTap: String = ""
 
     @State private var isShowingErrorPopover: Bool = false
-    
+
     @State private var tappingError: TappingError = .other
 
     @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     var body: some View
     {
@@ -104,35 +105,33 @@ struct AddTapView: View
                 {
                     Text("add-tap.progress-\(requestedTap)")
                 }
-                .onAppear
+                .task(priority: .medium)
                 {
-                    Task
+                    let tapResult = await addTap(name: requestedTap)
+
+                    print("Result: \(tapResult)")
+
+                    if tapResult.contains("Tapped")
                     {
-                        let tapResult = await addTap(name: requestedTap)
+                        print("Tapping was successful!")
+                        progress = .finished
+                    }
+                    else
+                    {
+                        progress = .error
+                        tappingError = .other
 
-                        print("Result: \(tapResult)")
+                        if tapResult.contains("Repository not found")
+                        {
+                            print("Repository was not found")
 
-                        if tapResult.contains("Tapped")
-                        {
-                            print("Tapping was successful!")
-                            progress = .finished
-                        }
-                        else
-                        {
-                            progress = .error
-                            tappingError = .other
-                            
-                            if tapResult.contains("Repository not found")
-                            {
-                                print("Repository was not found")
-                                
-                                tappingError = .repositoryNotFound
-                            }
+                            tappingError = .repositoryNotFound
                         }
                     }
                 }
             case .finished:
-                ComplexWithIcon(systemName: "checkmark.seal") {
+                ComplexWithIcon(systemName: "checkmark.seal")
+                {
                     DisappearableSheet(isShowingSheet: $isShowingSheet)
                     {
                         HeadlineWithSubheadline(
@@ -150,19 +149,29 @@ struct AddTapView: View
 
                             print("Available taps: \(availableTaps.addedTaps)")
                         }
+                        .onDisappear
+                        { // Force-load the packages from the new tap
+                            Task(priority: .background)
+                            {
+                                print("Will update packages")
+                                await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+                            }
+                        }
                     }
                 }
 
             case .error:
-                ComplexWithIcon(systemName: "xmark.seal") {
+                ComplexWithIcon(systemName: "xmark.seal")
+                {
                     VStack(alignment: .leading, spacing: 5)
                     {
-                        switch tappingError {
+                        switch tappingError
+                        {
                         case .repositoryNotFound:
-                                Text("add-tap.error.repository-not-found-\(requestedTap)")
-                                    .font(.headline)
-                                Text("add-tap.error.repository-not-found.description")
-                        
+                            Text("add-tap.error.repository-not-found-\(requestedTap)")
+                                .font(.headline)
+                            Text("add-tap.error.repository-not-found.description")
+
                         case .other:
                             Text("add-tap.error.other-\(requestedTap)")
                                 .font(.headline)
@@ -172,7 +181,7 @@ struct AddTapView: View
                         HStack
                         {
                             DismissSheetButton(isShowingSheet: $isShowingSheet)
-                            
+
                             Spacer()
 
                             Button
@@ -192,7 +201,8 @@ struct AddTapView: View
         .padding()
     }
 
-    private func validateTapName(tapName: String) -> TapInputErrors? {
+    private func validateTapName(tapName: String) -> TapInputErrors?
+    {
         if tapName.isEmpty
         {
             return .empty
