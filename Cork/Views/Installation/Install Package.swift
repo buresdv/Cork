@@ -16,6 +16,9 @@ struct AddFormulaView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
+    @State private var isFormulaeSectionCollapsed: Bool = false
+    @State private var isCasksSectionCollapsed: Bool = false
+
     @State private var foundPackageSelection = Set<UUID>()
 
     @ObservedObject var searchResultTracker = SearchResultTracker()
@@ -39,55 +42,20 @@ struct AddFormulaView: View
             case .ready:
                 SheetWithTitle(title: "add-package.title")
                 {
-                    VStack
-                    {
-                        TextField("add-package.search.prompt", text: $packageRequested)
-                        { _ in
-                            foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
-                        }
-
-                        HStack
-                        {
-                            DismissSheetButton(isShowingSheet: $isShowingSheet)
-
-                            Spacer()
-
-                            Button
-                            {
-                                packageInstallationProcessStep = .searching
-                            } label: {
-                                Text("add-package.search.action")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                            .disabled(packageRequested.isEmpty)
-                        }
-                    }
+                    InstallationInitialView(
+                        isShowingSheet: $isShowingSheet,
+                        packageRequested: $packageRequested,
+                        foundPackageSelection: $foundPackageSelection,
+                        packageInstallationProcessStep: $packageInstallationProcessStep
+                    )
                 }
 
             case .searching:
-                ProgressView("add-package.searching-\(packageRequested)")
-                    .onAppear
-                    {
-                        Task
-                        {
-                            searchResultTracker.foundFormulae = []
-                            searchResultTracker.foundCasks = []
-
-                            async let foundFormulae = try searchForPackage(packageName: packageRequested, packageType: .formula)
-                            async let foundCasks = try searchForPackage(packageName: packageRequested, packageType: .cask)
-
-                            for formula in try await foundFormulae
-                            {
-                                searchResultTracker.foundFormulae.append(BrewPackage(name: formula, isCask: false, installedOn: nil, versions: [], sizeInBytes: nil))
-                            }
-                            for cask in try await foundCasks
-                            {
-                                searchResultTracker.foundCasks.append(BrewPackage(name: cask, isCask: true, installedOn: nil, versions: [], sizeInBytes: nil))
-                            }
-
-                            packageInstallationProcessStep = .presentingSearchResults
-                        }
-                    }
+                InstallationSearchingView(
+                    packageRequested: $packageRequested,
+                    searchResultTracker: searchResultTracker,
+                    packageInstallationProcessStep: $packageInstallationProcessStep
+                )
 
             case .presentingSearchResults:
                 VStack
@@ -97,22 +65,36 @@ struct AddFormulaView: View
                         foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
                     }
                     .focused($isSearchFieldFocused)
+                    .onAppear
+                    {
+                        isSearchFieldFocused = true
+                    }
 
                     List(selection: $foundPackageSelection)
                     {
-                        Section("add-package.search.results.formulae")
+                        Section
                         {
-                            ForEach(searchResultTracker.foundFormulae)
-                            { formula in
-                                SearchResultRow(packageName: formula.name, isCask: formula.isCask)
+                            if !isFormulaeSectionCollapsed
+                            {
+                                ForEach(searchResultTracker.foundFormulae)
+                                { formula in
+                                    SearchResultRow(packageName: formula.name, isCask: formula.isCask)
+                                }
                             }
+                        } header: {
+                            CollapsibleSectionHeader(headerText: "add-package.search.results.formulae", isCollapsed: $isFormulaeSectionCollapsed)
                         }
-                        Section("add-package.search.results.casks")
+                        Section
                         {
-                            ForEach(searchResultTracker.foundCasks)
-                            { cask in
-                                SearchResultRow(packageName: cask.name, isCask: cask.isCask)
+                            if !isCasksSectionCollapsed
+                            {
+                                ForEach(searchResultTracker.foundCasks)
+                                { cask in
+                                    SearchResultRow(packageName: cask.name, isCask: cask.isCask)
+                                }
                             }
+                        } header: {
+                            CollapsibleSectionHeader(headerText: "add-package.search.results.casks", isCollapsed: $isCasksSectionCollapsed)
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
@@ -246,7 +228,7 @@ struct AddFormulaView: View
                 .onAppear
                 {
                     appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
-                    
+
                     if notifyAboutPackageInstallationResults
                     {
                         sendNotification(title: String(localized: "notification.install-finished"))
