@@ -14,7 +14,7 @@ struct CorkApp: App
 
     @StateObject var brewData = BrewDataStorage()
     @StateObject var availableTaps = AvailableTaps()
-    
+
     @StateObject var topPackagesTracker = TopPackagesTracker()
 
     @StateObject var updateProgressTracker = UpdateProgressTracker()
@@ -29,6 +29,26 @@ struct CorkApp: App
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
+    let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
+        let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
+        scheduler.repeats = true
+        scheduler.interval = AppConstants.backgroundUpdateInterval
+        scheduler.tolerance = 1 * 30
+        scheduler.qualityOfService = .background
+        
+        return scheduler
+    }()
+
+    init()
+    {
+        // Start the background update scheduler when the app starts
+        backgroundUpdateTimer.schedule
+        { (completion: NSBackgroundActivityScheduler.CompletionHandler) in
+            print("Scheduled event fired at \(Date())")
+            completion(NSBackgroundActivityScheduler.Result.finished)
+        }
+    }
+    
     var body: some Scene
     {
         Window("Main Window", id: "main")

@@ -108,4 +108,7 @@ struct AppConstants
 
     /// This one has all the downloaded files themselves
     static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)
+    
+    // MARK: - Misc Stuff
+    static let backgroundUpdateInterval: TimeInterval = 5 * 60
 }
