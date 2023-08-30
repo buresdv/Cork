@@ -15,6 +15,8 @@ struct InstallationInitialView: View
     @EnvironmentObject var brewData: BrewDataStorage
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
+    
+    @ObservedObject var searchResultTracker: SearchResultTracker
 
     @State private var installedFormulaNamesSet: Set<String> = .init()
     @State private var installedCaskNamesSet: Set<String> = .init()
@@ -37,69 +39,78 @@ struct InstallationInitialView: View
         {
             if enableDiscoverability
             {
-                List(selection: $foundPackageSelection)
+                if !topPackagesTracker.topFormulae.isEmpty || !topPackagesTracker.topCasks.isEmpty
                 {
-                    Section
+                    List(selection: $foundPackageSelection)
                     {
-                        if !isTopFormulaeSectionCollapsed
+                        Section
                         {
-                            ForEach(topPackagesTracker.topFormulae.filter
+                            if !isTopFormulaeSectionCollapsed
                             {
-                                !installedFormulaNamesSet.contains($0.packageName)
-                            }.prefix(15))
-                            { topFormula in
-                                HStack(alignment: .center)
-                                {
-                                    Text(topFormula.packageName)
-
-                                    Spacer()
-
-                                    Text("\(String(topFormula.packageDownloads)) downloads")
-                                        .foregroundStyle(.secondary)
-                                        .font(.caption)
+                                ForEach(topPackagesTracker.topFormulae.filter
+                                        {
+                                    !installedFormulaNamesSet.contains($0.packageName)
+                                }.prefix(15))
+                                { topFormula in
+                                    HStack(alignment: .center)
+                                    {
+                                        Text(topFormula.packageName)
+                                        
+                                        Spacer()
+                                        
+                                        Text("\(String(topFormula.packageDownloads)) downloads")
+                                            .foregroundStyle(.secondary)
+                                            .font(.caption)
+                                    }
                                 }
                             }
+                        } header: {
+                            CollapsibleSectionHeader(headerText: "add-package.top-formulae", isCollapsed: $isTopFormulaeSectionCollapsed)
                         }
-                    } header: {
-                        CollapsibleSectionHeader(headerText: "add-package.top-formulae", isCollapsed: $isTopFormulaeSectionCollapsed)
-                    }
-
-                    Section
-                    {
-                        if !isTopCasksSectionCollapsed
+                        
+                        Section
                         {
-                            ForEach(topPackagesTracker.topCasks.filter
+                            if !isTopCasksSectionCollapsed
                             {
-                                !installedCaskNamesSet.contains($0.packageName)
-                            }.prefix(15))
-                            { topCask in
-                                HStack(alignment: .center)
-                                {
-                                    Text(topCask.packageName)
-
-                                    Spacer()
-
-                                    Text("\(String(topCask.packageDownloads)) downloads")
-                                        .foregroundStyle(.secondary)
-                                        .font(.caption)
+                                ForEach(topPackagesTracker.topCasks.filter
+                                        {
+                                    !installedCaskNamesSet.contains($0.packageName)
+                                }.prefix(15))
+                                { topCask in
+                                    HStack(alignment: .center)
+                                    {
+                                        Text(topCask.packageName)
+                                        
+                                        Spacer()
+                                        
+                                        Text("\(String(topCask.packageDownloads)) downloads")
+                                            .foregroundStyle(.secondary)
+                                            .font(.caption)
+                                    }
                                 }
                             }
+                        } header: {
+                            CollapsibleSectionHeader(headerText: "add-package.top-casks", isCollapsed: $isTopCasksSectionCollapsed)
                         }
-                    } header: {
-                        CollapsibleSectionHeader(headerText: "add-package.top-casks", isCollapsed: $isTopCasksSectionCollapsed)
+                    }
+                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .frame(minHeight: 200)
+                    .onAppear
+                    {
+                        // Convert the installed formular and casks array into sets for faster comparisons
+                        installedFormulaNamesSet = Set(brewData.installedFormulae.map(\.name))
+                        installedCaskNamesSet = Set(brewData.installedCasks.map(\.name))
+                    }
+                    .onDisappear
+                    {
+                        installedFormulaNamesSet = .init()
+                        installedCaskNamesSet = .init()
                     }
                 }
-                .listStyle(.bordered(alternatesRowBackgrounds: true))
-                .frame(minHeight: 200)
-                .onAppear
+                else
                 {
-                    installedFormulaNamesSet = Set(brewData.installedFormulae.map(\.name))
-                    installedCaskNamesSet = Set(brewData.installedCasks.map(\.name))
-                }
-                .onDisappear
-                {
-                    installedFormulaNamesSet = .init()
-                    installedCaskNamesSet = .init()
+                    ProgressView("Loading top packages…")
+                        .frame(minHeight: 200)
                 }
             }
 
@@ -124,6 +135,8 @@ struct InstallationInitialView: View
                     Button
                     {
                         print("Would install package \(foundPackageSelection)")
+                        
+                        print(getPackageFromUUID(requestedPackageUUID: foundPackageSelection.first!, tracker: searchResultTracker))
                     } label: {
                         Text("add-package.install.action")
                     }
