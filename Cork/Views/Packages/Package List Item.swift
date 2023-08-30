@@ -38,9 +38,8 @@ struct PackageListItem: View
             #if hasAttribute(bouncy)
                 .animation(.bouncy, value: packageItem.isTagged)
             #else
-                .animation(.default, value: packageItem.isTagged)
+                .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
             #endif
-            .transition(.slide)
         }
     }
 }
