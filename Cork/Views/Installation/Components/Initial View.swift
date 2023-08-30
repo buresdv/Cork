@@ -37,7 +37,7 @@ struct InstallationInitialView: View
         {
             if enableDiscoverability
             {
-                List
+                List(selection: $foundPackageSelection)
                 {
                     Section
                     {
@@ -118,6 +118,18 @@ struct InstallationInitialView: View
                 DismissSheetButton(isShowingSheet: $isShowingSheet)
 
                 Spacer()
+                
+                if enableDiscoverability
+                {
+                    Button
+                    {
+                        print("Would install package \(foundPackageSelection)")
+                    } label: {
+                        Text("add-package.install.action")
+                    }
+                    .keyboardShortcut(!foundPackageSelection.isEmpty ? .defaultAction : .init(.end))
+                    .disabled(foundPackageSelection.isEmpty)
+                }
 
                 Button
                 {
@@ -125,9 +137,13 @@ struct InstallationInitialView: View
                 } label: {
                     Text("add-package.search.action")
                 }
-                .keyboardShortcut(.defaultAction)
+                .keyboardShortcut(foundPackageSelection.isEmpty ? .defaultAction : .init(.end))
                 .disabled(packageRequested.isEmpty)
             }
+        }
+        .onAppear
+        {
+            foundPackageSelection = .init()
         }
     }
 }
