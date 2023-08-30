@@ -14,7 +14,18 @@ enum DataDownloadingError: Error
 
 func downloadDataFromURL(_ url: URL) async throws -> Data
 {
-    let session: URLSession = URLSession.shared
+    
+    let sessionConfiguration = URLSessionConfiguration.default
+    if AppConstants.proxySettings != nil
+    {
+        sessionConfiguration.connectionProxyDictionary = [
+            kCFNetworkProxiesHTTPEnable: 1,
+            kCFNetworkProxiesHTTPPort: AppConstants.proxySettings!.port,
+            kCFNetworkProxiesHTTPProxy: AppConstants.proxySettings!.host
+        ] as [AnyHashable: Any]
+    }
+    
+    let session: URLSession = URLSession(configuration: sessionConfiguration)
     
     let request: URLRequest = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
     
