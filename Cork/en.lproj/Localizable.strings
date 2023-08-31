@@ -23,6 +23,7 @@
 
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "Found outdated packages";
+"notification.new-outdated-packages-found.title" = "New outdated package";
 "notification.upgrade-finished.success" = "Packages upgraded";
 "notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
 "notification.upgrade-finished.failure" = "Upgrades failed";
@@ -73,6 +74,8 @@
 "alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
 "alert.top-package-retrieval-function-turned-up-empty.title" = "Could not get selected top package";
 "alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package could not be installed";
+"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Could not retrieve outdated packages";
+"alert.could-not-get-new-packages-in-scheduled-update-system.message" = "There was an error while parsing outdated packages";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";
