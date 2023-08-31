@@ -43,9 +43,11 @@ struct AddFormulaView: View
                 SheetWithTitle(title: "add-package.title")
                 {
                     InstallationInitialView(
+                        searchResultTracker: searchResultTracker,
                         isShowingSheet: $isShowingSheet,
                         packageRequested: $packageRequested,
                         foundPackageSelection: $foundPackageSelection,
+                        installationProgressTracker: installationProgressTracker,
                         packageInstallationProcessStep: $packageInstallationProcessStep
                     )
                 }

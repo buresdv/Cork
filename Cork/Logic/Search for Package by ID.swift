@@ -31,6 +31,33 @@ func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker
     return filteredPackage!
 }
 
+enum TopPackageRetrievalError: Error
+{
+    case resultingArrayWasEmptyEvenThoughPackagesWereInIt
+}
+
+func getTopPackageFromUUID(requestedPackageUUID: UUID, isCask: Bool, topPackageTracker: TopPackagesTracker) throws -> BrewPackage
+{
+    if !isCask
+    {
+        guard let foundTopFormula: TopPackage = topPackageTracker.topFormulae.filter({ $0.id == requestedPackageUUID }).first else
+        {
+            throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
+        }
+        
+        return BrewPackage(name: foundTopFormula.packageName, isCask: isCask, installedOn: nil, versions: [], sizeInBytes: nil)
+    }
+    else
+    {
+        guard let foundTopCask: TopPackage = topPackageTracker.topCasks.filter({ $0.id == requestedPackageUUID }).first else
+        {
+            throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
+        }
+        
+        return BrewPackage(name: foundTopCask.packageName, isCask: isCask, installedOn: nil, versions: [], sizeInBytes: nil)
+    }
+}
+
 /*
 func getPackageNamesFromUUID(selectionBinding: Set<UUID>, tracker: SearchResultTracker) -> [String]
 {
