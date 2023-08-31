@@ -71,6 +71,8 @@
 "alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
 "alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
 "alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
+"alert.top-package-retrieval-function-turned-up-empty.title" = "Could not get selected top package";
+"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package could not be installed";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installed Packages";

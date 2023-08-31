@@ -47,6 +47,7 @@ struct AddFormulaView: View
                         isShowingSheet: $isShowingSheet,
                         packageRequested: $packageRequested,
                         foundPackageSelection: $foundPackageSelection,
+                        installationProgressTracker: installationProgressTracker,
                         packageInstallationProcessStep: $packageInstallationProcessStep
                     )
                 }

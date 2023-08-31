@@ -14,4 +14,5 @@ enum FatalAlertType
 	case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
     case couldNotParseTopPackages
     case receivedInvalidResponseFromBrew
+    case topPackageArrayFilterCouldNotRetrieveAnyPackages
 }

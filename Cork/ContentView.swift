@@ -375,15 +375,31 @@ struct ContentView: View
                         enableDiscoverability = false
                     })
                 )
-			case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
-                    return Alert(title: Text("sidebar.section.added-taps.remove.title-\(appState.offendingTapProhibitingRemovalOfTap)"), message: Text("alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(appState.offendingTapProhibitingRemovalOfTap)"), dismissButton: .default(Text("action.close"), action: {
-                    appState.isShowingRemoveTapFailedAlert = false
-                }))
+            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
+                return Alert(
+                    title: Text("sidebar.section.added-taps.remove.title-\(appState.offendingTapProhibitingRemovalOfTap)"),
+                    message: Text("alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(appState.offendingTapProhibitingRemovalOfTap)"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingRemoveTapFailedAlert = false
+                    })
+                )
+
+            case .topPackageArrayFilterCouldNotRetrieveAnyPackages:
+                return Alert(
+                    title: Text("alert.top-package-retrieval-function-turned-up-empty.title"),
+                    message: Text("alert.top-package-retrieval-function-turned-up-empty.message"),
+                    primaryButton: .default(Text("action.close"), action: {
+                        appState.isShowingRemoveTapFailedAlert = false
+                    }),
+                    secondaryButton: .destructive(Text("action.restart"), action: {
+                        restartApp()
+                    })
+                )
             }
         })
     }
 
-    func loadTopPackages() async -> Void
+    func loadTopPackages() async
     {
         print("Initial setup finished, time to fetch the top packages")
 
@@ -399,9 +415,9 @@ struct ContentView: View
 
             print("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
             print("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
-            
+
             sortTopPackages()
-            
+
             appState.isLoadingTopPackages = false
         }
         catch let topPackageLoadingError
@@ -415,30 +431,31 @@ struct ContentView: View
             }
         }
     }
-    private func sortTopPackages() -> Void
+
+    private func sortTopPackages()
     {
         switch sortTopPackagesBy
         {
-            case .mostDownloads:
-                
-                print("Will sort top packages by most downloads")
-                
-                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
-                topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
-                
-            case .fewestDownloads:
-                
-                print("Will sort top packages by fewest downloads")
-                
-                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
-                topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
-                
-            case .random:
-                
-                print("Will sort top packages randomly")
-                
-                topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.shuffled()
-                topPackagesTracker.topCasks = topPackagesTracker.topCasks.shuffled()
+        case .mostDownloads:
+
+            print("Will sort top packages by most downloads")
+
+            topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+            topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+
+        case .fewestDownloads:
+
+            print("Will sort top packages by fewest downloads")
+
+            topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+            topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+
+        case .random:
+
+            print("Will sort top packages randomly")
+
+            topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.shuffled()
+            topPackagesTracker.topCasks = topPackagesTracker.topCasks.shuffled()
         }
     }
 }
