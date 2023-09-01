@@ -51,7 +51,7 @@ struct PackageDetailView: View
             {
                 HStack(alignment: .firstTextBaseline, spacing: 5)
                 {
-                    Text(package.name)
+                    SanitizedPackageName(packageName: package.name)
                         .font(.title)
                     Text("v. \(returnFormattedVersions(package.versions))")
                         .font(.subheadline)
