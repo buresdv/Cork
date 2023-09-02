@@ -95,6 +95,8 @@ struct ContentView: View
                     .help("navigation.install-package.help")
                 }
 
+                #warning("TODO: Implement this button")
+                /*
                 ToolbarItem(id: "installPackageDirectly", placement: .automatic)
                 {
                     Button
@@ -103,13 +105,15 @@ struct ContentView: View
                     } label: {
                         Label
                         {
-                            Text("Install package directly")
+                            Text("navigation.install-package.direct")
                         } icon: {
                             Image(systemName: "plus.viewfinder")
                         }
                     }
+                    .help("navigation.install-package.direct.help")
                 }
                 .defaultCustomization(.hidden)
+                 */
             }
         }
         .onAppear
