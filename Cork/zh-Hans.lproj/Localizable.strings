@@ -6,6 +6,8 @@
 "action.quit" = "退出 Cork";
 "action.restart" = "重启 Cork";
 "action.reveal-in-finder" = "在访达中显示";
+"action.show" = "显示";
+"action.hide" = "隐藏";
 "action.clear-metadata" = "清除元数据";
 "action.repair-%@" = "修复 %@";
 "action.repair-home-path" = "修复 Homebrew";
@@ -20,7 +22,8 @@
 "action.go-to-status-page" = "返回主页";
 
 // MARK: - Notifications
-"notification.outdated-packages-found.title" = "有可用软件包更新";
+"notification.outdated-packages-found.title" = "已找到可用软件包更新";
+"notification.new-outdated-packages-found.title" = "有可用软件包更新";
 "notification.upgrade-finished.success" = "软件包已更新";
 "notification.upgrade-finished.success.some-errors" = "更新过程中出现了一些错误";
 "notification.upgrade-finished.failure" = "更新失败";
@@ -45,6 +48,8 @@
 "navigation.add-tap.help" = "添加新 Tap";
 "navigation.install-package" = "安装软件包";
 "navigation.install-package.help" = "添加新软件包";
+"navigation.install-package.direct" = "Install Package Directly";
+"navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "无法卸载";
@@ -65,6 +70,14 @@
 "alert.notifications-error-while-obtaining-permissions.title" = "在获取通知权限时出现问题";
 "alert.notifications-error-while-obtaining-permissions.message" = "你可以在没有通知的情况下继续使用 Cork";
 "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "你还有从 %@ 安装的软件包\n请卸载它们并重试";
+"alert.notifications-error-while-parsing-top-packages.title" = "无法解析热门软件包";
+"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork 无法解析来自 Homebrew 的响应";
+"alert.notifications-error-while-getting-top-packages.title" = "无法获取热门软件包";
+"alert.notifications-error-while-getting-top-package.message" = "Homebrew 给 Cork 发送了一条无效的响应";
+"alert.top-package-retrieval-function-turned-up-empty.title" = "无法获取所选的热门软件包";
+"alert.top-package-retrieval-function-turned-up-empty.message" = "无法安装所选软件包";
+"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "无法获取软件包的更早版本";
+"alert.could-not-get-new-packages-in-scheduled-update-system.message" = "在解析更早版本软件包时出现了错误";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安装软件包";
@@ -151,6 +164,11 @@
 "update-packages.finished.description" = "未发生任何错误";
 "update-packages.error" = "软件包更新失败";
 "update-packages.error.description" = "更新过程中出现了一些错误。\n请查看下方信息获取详情";
+"update-packages.detail-stage.downloading" = "下载中…";
+"update-packages.detail-stage.pouring" = "更新中…";
+"update-packages.detail-stage.cleanup" = "正在清理…";
+"update-packages.detail-stage.backing-up" = "正在备份旧版本…";
+"update-packages.detail-stage.linking" = "链接新版本…";
 
 "update-packages.incremental.finished" = "已成功更新选定的软件包";
 "update-packages.incremental.update-in-progress-%@" = "更新 %@…";
@@ -181,6 +199,8 @@
 "add-package.finished.description" = "未发生任何错误";
 "add-package.network-error" = "网络连接不稳定";
 "add-package.network-error.description" = "您的网络连接不稳定，无法保证安装成功";
+"add-package.top-formulae" = "热门 Formula";
+"add-package.top-casks" = "热门 Cask";
 
 // MARK: - Package Repairing
 "repair-package.repair-process-%@" = "正在修复 %@…";
@@ -253,6 +273,7 @@
 "settings.general" = "通用";
 "settings.maintenance" = "维护";
 "settings.homebrew" = "Homebrew";
+"settings.discoverability" = "探索";
 "settings.install-uninstall" = "安装和卸载";
 
 "settings.dangerous" = "高级：";
@@ -291,7 +312,7 @@
 "settings.notifications.notify-about-upgrade-result" = "更新结果";
 "settings.notifications.notify-about-installation-result" = "安装结果";
 
-"settings.notifications.explanation" = "只有当 Cork 不在前台时推送通知";
+"settings.notifications.explanation" = "只有当 Cork 在后台时推送通知";
 
 // MARK: - Settings: Maintenance
 "settings.maintenance.default-steps" = "设置默认步骤";
@@ -312,6 +333,18 @@
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" = "是否允许清除软件包？";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "清除操作可能破坏其他软件包\n确定要继续吗？";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "启用软件包清除";
+
+// MARK: - Settings - Discoverability
+"settings.discoverability.toggle" = "启用探索";
+"settings.discoverability.time-span" = "Get top packages for:";
+"settings.discoverability.time-span.month" = "Last month";
+"settings.discoverability.time-span.quarter-year" = "Last three months";
+"settings.discoverability.time-span.year" = "Last year";
+
+"settings.discoverability.sorting" = "Sort top packages by:";
+"settings.discoverability.sorting.by-most-downloads" = "Most downloads";
+"settings.discoverability.sorting.by-fewest-downloads" = "Fewest downloads";
+"settings.discoverability.sorting.random" = "Random";
 
 // MARK: - About
 "about.title" = "关于 Cork";
@@ -340,6 +373,8 @@
 "about.contributors.4.purpose" = "发起了第一个通过审核的拉取请求；与 Jierong Li 一起修复了软件包计数功能";
 "about.contributors.5.name" = "Andrey Radchishin";
 "about.contributors.5.purpose" = "添加了返回主页的功能";
+"about.contributors.6.name" = "Christian Tietze";
+"about.contributors.6.purpose" = "提交了许多高级逻辑优化，同时持续提供有价值的 Swift 支持";
 
 "about.translators" = "翻译";
 "about.translator.1.name" = "Jerry";
