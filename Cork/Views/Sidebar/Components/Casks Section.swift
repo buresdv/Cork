@@ -63,7 +63,7 @@ struct CasksSection: View {
                         {
                             Task
                             {
-                                try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
+                                try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
                             }
                         } label: {
                             Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
@@ -75,7 +75,7 @@ struct CasksSection: View {
                             {
                                 Task
                                 {
-                                    try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
+                                    try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
                                 }
                             } label: {
                                 Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(cask.name)")

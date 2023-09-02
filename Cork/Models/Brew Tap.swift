@@ -11,4 +11,11 @@ struct BrewTap: Identifiable
 {
     let id = UUID()
     let name: String
+    
+    var isBeingModified: Bool = false
+    
+    mutating func changeBeingModifiedStatus() -> Void
+    {
+        self.isBeingModified.toggle()
+    }
 }

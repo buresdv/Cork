@@ -108,9 +108,24 @@ enum UntapError: Error
 }
 
 @MainActor
-func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) async throws -> Void
+func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws -> Void
 {
-    appState.isShowingUninstallationProgressView = true
+    
+    var indexToReplaceGlobal: Int? = nil
+    
+    if shouldApplyUninstallSpinnerToRelevantItemInSidebar
+    {
+        if let indexToReplace = availableTaps.addedTaps.firstIndex(where: { $0.name == name })
+        {
+            availableTaps.addedTaps[indexToReplace].changeBeingModifiedStatus()
+            
+            indexToReplaceGlobal = indexToReplace
+        }
+    }
+    else
+    {
+        appState.isShowingUninstallationProgressView = true
+    }
     
     let untapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["untap", name]).standardError
     print("Untapping result: \(untapResult)")
@@ -128,6 +143,11 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) a
                 availableTaps.addedTaps.removeAll(where: { $0.name == name })
             }
         }
+        
+        if appState.navigationSelection != nil
+        {
+            appState.navigationSelection = nil
+        }
     }
     else
     {
@@ -138,6 +158,22 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState) a
             appState.offendingTapProhibitingRemovalOfTap = name
             appState.fatalAlertType = .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
             appState.isShowingFatalError = true
+        }
+        
+        if let indexToReplaceGlobal
+        {
+            availableTaps.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
+        }
+        else
+        {
+            print("Could not get index for that tap. Will loop over all of them")
+            for (index, _) in availableTaps.addedTaps.enumerated()
+            {
+                if availableTaps.addedTaps[index].isBeingModified
+                {
+                    availableTaps.addedTaps[index].isBeingModified = false
+                }
+            }
         }
         
         throw UntapError.couldNotUntap
