@@ -72,6 +72,7 @@
 		637260C729BE466700E6E81C /* Get Formulae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C629BE466700E6E81C /* Get Formulae.swift */; };
 		637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C829BE4D8700E6E81C /* Get Casks.swift */; };
 		637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */; };
+		63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */; };
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
@@ -241,6 +242,7 @@
 		637260C629BE466700E6E81C /* Get Formulae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Formulae.swift"; sourceTree = "<group>"; };
 		637260C829BE4D8700E6E81C /* Get Casks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Casks.swift"; sourceTree = "<group>"; };
 		637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Packages Included in Tap.swift"; sourceTree = "<group>"; };
+		63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Updating Process Details.swift"; sourceTree = "<group>"; };
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63738C7D2AA38BEA009278B8 /* Updating */,
 				63FFE57A2A90D60400F95E54 /* Discoverability */,
 				63E716DE29DDC025004FD2B4 /* Outdated Packages */,
 				63D86EB029C0971600AD64D2 /* Searching */,
@@ -686,6 +689,14 @@
 				637260C829BE4D8700E6E81C /* Get Casks.swift */,
 			);
 			path = "Get Various Tap Info from JSON";
+			sourceTree = "<group>";
+		};
+		63738C7D2AA38BEA009278B8 /* Updating */ = {
+			isa = PBXGroup;
+			children = (
+				63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */,
+			);
+			path = Updating;
 			sourceTree = "<group>";
 		};
 		6373D9C929DC60B700D98607 /* Reinstall Corrupted Package */ = {
@@ -1247,6 +1258,7 @@
 				635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */,
 				63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */,
 				63D51F65299A992900203F3F /* Settings View.swift in Sources */,
+				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
 				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,

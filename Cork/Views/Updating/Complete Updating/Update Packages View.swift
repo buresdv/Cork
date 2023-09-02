@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+enum UpdateProcessStages: LocalizedStringKey
+{
+    case downloading = "update-packages.detail-stage.downloading"
+    case pouring = "update-packages.detail-stage.pouring"
+    case cleanup = "update-packages.detail-stage.cleanup"
+    case backingUp = "update-packages.detail-stage.backing-up"
+    case linking = "update-packages.detail-stage.linking"
+}
+
 struct UpdatePackagesView: View
 {
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
@@ -22,6 +31,8 @@ struct UpdatePackagesView: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var brewData: BrewDataStorage
+    
+    @ObservedObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
 
     var body: some View
     {
@@ -66,7 +77,12 @@ struct UpdatePackagesView: View
                             }
 
                     case .updatingPackages:
-                        Text("update-packages.updating.updating")
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("update-packages.updating.updating")
+                                Text(updateProcessDetailsStage.currentStage.rawValue)
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
                             .onAppear
                             {
                                 Task(priority: .userInitiated)

@@ -164,6 +164,11 @@
 "update-packages.finished.description" = "There were no errors";
 "update-packages.error" = "Packages updated with errors";
 "update-packages.error.description" = "There were some errors during updating.\nCheck below for more information";
+"update-packages.detail-stage.downloading" = "Downloading…";
+"update-packages.detail-stage.pouring" = "Updating…";
+"update-packages.detail-stage.cleanup" = "Cleaning up…";
+"update-packages.detail-stage.backing-up" = "Backing up old version…";
+"update-packages.detail-stage.linking" = "Linking new version…";
 
 "update-packages.incremental.finished" = "Successfully updated selected packages";
 "update-packages.incremental.update-in-progress-%@" = "Updating %@…";
