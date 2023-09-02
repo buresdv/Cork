@@ -7,9 +7,14 @@
 
 import Foundation
 
+enum RegexError: Error
+{
+    case regexFunctionCouldNotMatchAnything
+}
+
 func regexMatch(from string: String, regex: String) throws -> String
 {
-    guard let matchedRange = string.range(of: regex, options: .regularExpression) else { return "FAILED TO FIND MATCH" }
+    guard let matchedRange = string.range(of: regex, options: .regularExpression) else { throw RegexError.regexFunctionCouldNotMatchAnything }
     
     return String(string[matchedRange])
 }

@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum RegexError: Error
-{
-    case foundNilRange
-}
-
 enum MaintenanceSteps
 {
     case ready, maintenanceRunning, finished

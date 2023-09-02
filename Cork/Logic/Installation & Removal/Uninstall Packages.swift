@@ -48,7 +48,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         catch let regexError as NSError
         {
             print("Failed to extract dependency name from output: \(regexError)")
-            throw RegexError.foundNilRange
+            throw RegexError.regexFunctionCouldNotMatchAnything
         }
     }
     else
