@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func upgradePackages(_ updateProgressTracker: UpdateProgressTracker, appState _: AppState, outdatedPackageTracker _: OutdatedPackageTracker) async
+func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState _: AppState, outdatedPackageTracker _: OutdatedPackageTracker) async
 {
     for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["upgrade"])
     {

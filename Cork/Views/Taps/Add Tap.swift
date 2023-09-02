@@ -149,13 +149,10 @@ struct AddTapView: View
 
                             print("Available taps: \(availableTaps.addedTaps)")
                         }
-                        .onDisappear
+                        .task(priority: .background)
                         { // Force-load the packages from the new tap
-                            Task(priority: .background)
-                            {
-                                print("Will update packages")
-                                await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
-                            }
+                            print("Will update packages")
+                            await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
                         }
                     }
                 }

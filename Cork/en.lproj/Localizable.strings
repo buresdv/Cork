@@ -24,11 +24,11 @@
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "Found outdated packages";
 "notification.new-outdated-packages-found.title" = "New outdated package";
-"notification.upgrade-finished.success" = "Packages upgraded";
-"notification.upgrade-finished.success.some-errors" = "There were some errors during upgrading";
-"notification.upgrade-finished.failure" = "Upgrades failed";
+"notification.upgrade-finished.success" = "Packages updated";
+"notification.upgrade-finished.success.some-errors" = "There were some errors during updating";
+"notification.upgrade-finished.failure" = "Updates failed";
 
-"notification.upgrade-process-started" = "Upgrading packages…";
+"notification.upgrade-process-started" = "Updating packages…";
 
 "notification.install-finished" = "Installation process finished";
 
@@ -42,8 +42,8 @@
 "navigation.menu.maintenance.perform" = "Perform Maintenance…";
 "navigation.menu.maintenance.delete-cached-downloads" = "Delete Cached Downloads";
 
-"navigation.upgrade-packages" = "Upgrade Packages";
-"navigation.upgrade-packages.help" = "Upgrade installed packages";
+"navigation.upgrade-packages" = "Update Packages";
+"navigation.upgrade-packages.help" = "Update installed packages";
 "navigation.add-tap" = "Add Tap";
 "navigation.add-tap.help" = "Add a new tap";
 "navigation.install-package" = "Install Package";
@@ -160,12 +160,12 @@
 "update-packages.updating.finished" = "Done";
 "update-packages.no-updates" = "No updates available";
 "update-packages.no-updates.description" = "You're all up to date";
-"update-packages.finished" = "Successfully upgraded packages";
+"update-packages.finished" = "Successfully updated packages";
 "update-packages.finished.description" = "There were no errors";
 "update-packages.error" = "Packages updated with errors";
 "update-packages.error.description" = "There were some errors during updating.\nCheck below for more information";
 
-"update-packages.incremental.finished" = "Successfully upgraded selected packages";
+"update-packages.incremental.finished" = "Successfully updated selected packages";
 "update-packages.incremental.update-in-progress-%@" = "Updating %@…";
 "update-packages.incremental.impossible-case" = "I don't know what you did to make this appear";
 
