@@ -34,6 +34,15 @@ struct PackageListItem: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .layoutPriority(-Double(2))
+                
+                if packageItem.isBeingModified
+                {
+                    Spacer()
+                    
+                    ProgressView()
+                        .frame(height: 5)
+                        .scaleEffect(0.5)
+                }
             }
             #if hasAttribute(bouncy)
                 .animation(.bouncy, value: packageItem.isTagged)

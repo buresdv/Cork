@@ -22,9 +22,16 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     
     let sizeInBytes: Int64?
     
+    var isBeingModified: Bool = false
+    
     mutating func changeTaggedStatus() -> Void
     {
         self.isTagged.toggle()
+    }
+    
+    mutating func changeBeingModifiedStatus() -> Void
+    {
+        self.isBeingModified.toggle()
     }
 }
 
