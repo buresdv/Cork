@@ -50,6 +50,8 @@ struct NotificationsPane: View
                                 print("Ephemeral")
                             case nil:
                                 print("Nil")
+                            default:
+                                print("TF")
                         }
                         
                         if appState.notificationStatus?.authorizationStatus == .denied
