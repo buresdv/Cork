@@ -16,7 +16,7 @@ struct TopPackageListItem: View
     {
         HStack(alignment: .center)
         {
-            Text(topPackage.packageName)
+            SanitizedPackageName(packageName: topPackage.packageName, shouldShowVersion: true)
             
             Spacer()
             

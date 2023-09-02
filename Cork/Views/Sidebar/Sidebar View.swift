@@ -22,7 +22,7 @@ struct SidebarView: View
         PackageSearchToken(name: "search.token.filter-manually-installed-packages", icon: "hand.tap", tokenSearchResultType: .intentionallyInstalledPackage)
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
-
+    
     var suggestedTokens: [PackageSearchToken]
     {
         if searchText.starts(with: "#")
@@ -34,7 +34,7 @@ struct SidebarView: View
             return .init()
         }
     }
-
+    
     var body: some View
     {
         List
@@ -43,12 +43,12 @@ struct SidebarView: View
             {
                 FormulaeSection(currentTokens: $currentTokens, searchText: $searchText)
             }
-
+            
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
             {
                 CasksSection(searchText: $searchText)
             }
-
+            
             if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
             {
                 TapsSection(searchText: $searchText)
@@ -64,11 +64,11 @@ struct SidebarView: View
                 Image(systemName: token.icon)
                     .foregroundColor(Color.blue)
             }
-
+            
         }
-        .toolbar
+        .toolbar(id: "SidebarToolbar")
         {
-            ToolbarItem(placement: .automatic) {
+            ToolbarItem(id: "homeButton", placement: .automatic) {
                 Button {
                     appState.navigationSelection = nil
                 } label: {
@@ -77,6 +77,7 @@ struct SidebarView: View
                 .help("action.go-to-status-page")
                 .disabled(appState.navigationSelection == nil || !searchText.isEmpty || !currentTokens.isEmpty)
             }
+            .defaultCustomization(.visible, options: .alwaysAvailable)
         }
         .sheet(isPresented: $appState.isShowingMaintenanceSheet)
         {

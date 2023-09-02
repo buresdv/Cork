@@ -27,7 +27,7 @@ struct PackageListItem: View
                             .transition(.scale)
                     }
 
-                    SanitizedPackageName(packageName: packageItem.name)
+                    SanitizedPackageName(packageName: packageItem.name, shouldShowVersion: false)
                 }
                 
                 Text(returnFormattedVersions(packageItem.versions))

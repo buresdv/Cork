@@ -47,7 +47,9 @@
 "navigation.add-tap" = "Add Tap";
 "navigation.add-tap.help" = "Add a new tap";
 "navigation.install-package" = "Install Package";
-"navigation.install-package.help" = "Add a new package";
+"navigation.install-package.help" = "Install a new package";
+"navigation.install-package.direct" = "Install Package Directly";
+"navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "Could Not Uninstall";

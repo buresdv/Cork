@@ -45,9 +45,9 @@ struct ContentView: View
             }
             .navigationTitle("app-name")
             .navigationSubtitle(String.localizedPluralString("navigation.installed-packages.count", brewData.installedFormulae.count + brewData.installedCasks.count))
-            .toolbar
+            .toolbar(id: "PackageActions")
             {
-                ToolbarItemGroup(placement: .primaryAction)
+                ToolbarItem(id: "upgradePackages", placement: .primaryAction)
                 {
                     Button
                     {
@@ -61,9 +61,10 @@ struct ContentView: View
                         }
                     }
                     .help("navigation.upgrade-packages.help")
+                }
 
-                    Spacer()
-
+                ToolbarItem(id: "addTap", placement: .primaryAction)
+                {
                     Button
                     {
                         appState.isShowingAddTapSheet.toggle()
@@ -76,7 +77,10 @@ struct ContentView: View
                         }
                     }
                     .help("navigation.add-tap.help")
+                }
 
+                ToolbarItem(id: "installPackage", placement: .primaryAction)
+                {
                     Button
                     {
                         appState.isShowingInstallationSheet.toggle()
@@ -90,6 +94,26 @@ struct ContentView: View
                     }
                     .help("navigation.install-package.help")
                 }
+
+                #warning("TODO: Implement this button")
+                /*
+                ToolbarItem(id: "installPackageDirectly", placement: .automatic)
+                {
+                    Button
+                    {
+                        print("Ahoj")
+                    } label: {
+                        Label
+                        {
+                            Text("navigation.install-package.direct")
+                        } icon: {
+                            Image(systemName: "plus.viewfinder")
+                        }
+                    }
+                    .help("navigation.install-package.direct.help")
+                }
+                .defaultCustomization(.hidden)
+                 */
             }
         }
         .onAppear
