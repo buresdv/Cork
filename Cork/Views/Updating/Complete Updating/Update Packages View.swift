@@ -31,7 +31,7 @@ struct UpdatePackagesView: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @ObservedObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
 
     var body: some View
@@ -77,54 +77,53 @@ struct UpdatePackagesView: View
                             }
 
                     case .updatingPackages:
-                            VStack(alignment: .leading, spacing: 3) {
-                                Text("update-packages.updating.updating")
-                                Text(updateProcessDetailsStage.currentStage.rawValue)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                            .onAppear
-                            {
-                                Task(priority: .userInitiated)
-                                {
-                                    await updatePackages(updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker)
+                        VStack(alignment: .leading, spacing: 3)
+                        {
+                            Text("update-packages.updating.updating")
+                            Text(updateProcessDetailsStage.currentStage.rawValue)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        .task(priority: .userInitiated)
+                        {
+                            await updatePackages(updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker)
 
-                                    packageUpdatingStep = .updatingOutdatedPackageTracker
-                                }
-                            }
+                            packageUpdatingStep = .updatingOutdatedPackageTracker
+                        }
 
                     case .updatingOutdatedPackageTracker:
                         Text("update-packages.updating.updating-outdated-package")
-                            .onAppear
+                            .task(priority: .userInitiated)
                             {
-                                Task(priority: .userInitiated)
+                                do
                                 {
-                                    do
-                                    {
-                                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
 
-                                        updateProgressTracker.updateProgress = 10
+                                    updateProgressTracker.updateProgress = 10
 
-                                        if updateProgressTracker.errors.isEmpty
-                                        {
-                                            packageUpdatingStage = .finished
-                                        }
-                                        else
-                                        {
-                                            packageUpdatingStage = .erroredOut
-                                        }
-                                    }
-                                    catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                                    if updateProgressTracker.errors.isEmpty
                                     {
-                                        switch outdatedPackageRetrievalError
-                                        {
-                                        case .homeNotSet:
-                                            appState.fatalAlertType = .homePathNotSet
-                                            appState.isShowingFatalError = true
-                                        case .otherError:
-                                            print("Something went wrong")
-                                        }
+                                        packageUpdatingStage = .finished
                                     }
+                                    else
+                                    {
+                                        packageUpdatingStage = .erroredOut
+                                    }
+                                }
+                                catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                                {
+                                    switch outdatedPackageRetrievalError
+                                    {
+                                    case .homeNotSet:
+                                        appState.fatalAlertType = .homePathNotSet
+                                        appState.isShowingFatalError = true
+                                    case .otherError:
+                                        print("Something went wrong")
+                                    }
+                                }
+                                catch
+                                {
+                                    print("IDK what just happened")
                                 }
                             }
 
@@ -177,7 +176,7 @@ struct UpdatePackagesView: View
                 {
                     if notifyAboutPackageUpgradeResults
                     {
-                        sendNotification(title: String(localized:"notification.upgrade-finished.success"))
+                        sendNotification(title: String(localized: "notification.upgrade-finished.success"))
                     }
                 }
 
@@ -220,7 +219,7 @@ struct UpdatePackagesView: View
                 {
                     if notifyAboutPackageUpgradeResults
                     {
-                        sendNotification(title: String(localized: "notification.upgrade-finished.success"), body: String(localized:"notification.upgrade-finished.success.some-errors"))
+                        sendNotification(title: String(localized: "notification.upgrade-finished.success"), body: String(localized: "notification.upgrade-finished.success.some-errors"))
                     }
                 }
             }
