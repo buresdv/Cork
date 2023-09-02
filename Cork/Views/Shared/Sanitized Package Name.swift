@@ -11,6 +11,7 @@ import SwiftUI
 struct SanitizedPackageName: View
 {
     let packageName: String
+    @State var shouldShowVersion: Bool
 
     var body: some View
     {
@@ -18,7 +19,17 @@ struct SanitizedPackageName: View
         { /// Only do the matching if the name contains @
             if let sanitizedName = try? regexMatch(from: packageName, regex: ".+?(?=@)")
             { /// Try to REGEX-match the name out of the raw name
-                Text(sanitizedName)
+                HStack(alignment: .firstTextBaseline, spacing: 5) {
+                    Text(sanitizedName)
+                    
+                    if shouldShowVersion
+                    {
+                        /// The version is the lenght of the package name, + 1 due to the @ character
+                        Text("v. \(String(packageName.dropFirst(sanitizedName.count + 1)))")
+                            .foregroundColor(.gray)
+                            .font(.subheadline)
+                    }
+                }
             }
             else
             { /// If the REGEX matching fails, just show "Failure"
