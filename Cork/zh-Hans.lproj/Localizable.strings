@@ -342,8 +342,8 @@
 "settings.discoverability.time-span.year" = "去年";
 
 "settings.discoverability.sorting" = "按下载量排序热门软件包：";
-"settings.discoverability.sorting.by-most-downloads" = "下载量由多到少";
-"settings.discoverability.sorting.by-fewest-downloads" = "下载量由少到多";
+"settings.discoverability.sorting.by-most-downloads" = "由多到少";
+"settings.discoverability.sorting.by-fewest-downloads" = "由少到多";
 "settings.discoverability.sorting.random" = "随机";
 
 // MARK: - About
