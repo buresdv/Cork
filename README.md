@@ -71,6 +71,11 @@ However, if you don't want to do any of the above, you can always compile Cork y
 ![Brew Maintenance](https://i.imgur.com/TNYXFZQ.jpg)
 ![Brew Maintenance Results](https://i.imgur.com/UDNMz0i.jpg)
 
+## Media
+Do you run a blog, a magazine, make videos, or just make content about apps for fun? Get in touch at dev@corkmac.app!
+
+I will provide you with the newest release and development version, answer any questions you have, and introduce you to Cork personally (and for free, or course), so you can focus on creating.
+
 ## Compiling Cork
 
 Compiling Cork is simple, as it does not have many dependencies.
