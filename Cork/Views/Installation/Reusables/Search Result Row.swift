@@ -24,7 +24,7 @@ struct SearchResultRow: View
         {
             HStack(alignment: .firstTextBaseline)
             {
-                Text(packageName)
+                SanitizedPackageName(packageName: packageName, shouldShowVersion: true)
                 
                 if !isCask
                 {
