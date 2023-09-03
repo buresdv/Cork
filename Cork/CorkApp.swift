@@ -179,7 +179,7 @@ struct CorkApp: App
                 {
                     Button
                     {
-                        NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new")!)
+                        NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.md")!)
                     } label: {
                         Text("action.report-bugs.git-hub")
                     }
