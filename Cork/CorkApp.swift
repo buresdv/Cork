@@ -119,9 +119,9 @@ struct CorkApp: App
                         completion(NSBackgroundActivityScheduler.Result.finished)
                     }
                 }
-                .onChange(of: outdatedPackageTracker.outdatedPackages)
+                .onChange(of: outdatedPackageTracker.outdatedPackages.count)
                 { newValue in
-                    let outdatedPackageCount = newValue.count
+                    let outdatedPackageCount = newValue
 
                     if outdatedPackageCount != 0
                     {
