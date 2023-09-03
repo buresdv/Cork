@@ -274,7 +274,7 @@
 "settings.maintenance" = "Wartung";
 "settings.homebrew" = "Homebrew";
 "settings.discoverability" = "Discoverability";
-"settings.install-uninstall" = "Installation";
+"settings.install-uninstall" = "Packages";
 
 "settings.dangerous" = "Erweitert:";
 

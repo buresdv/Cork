@@ -274,7 +274,7 @@
 "settings.maintenance" = "维护";
 "settings.homebrew" = "Homebrew";
 "settings.discoverability" = "探索";
-"settings.install-uninstall" = "安装和卸载";
+"settings.install-uninstall" = "软件包";
 
 "settings.dangerous" = "高级：";
 

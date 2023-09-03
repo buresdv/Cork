@@ -274,7 +274,7 @@
 "settings.maintenance" = "維護";
 "settings.homebrew" = "Homebrew";
 "settings.discoverability" = "Discoverability";
-"settings.install-uninstall" = "安裝與卸載";
+"settings.install-uninstall" = "Packages";
 
 "settings.dangerous" = "進階：";
 
