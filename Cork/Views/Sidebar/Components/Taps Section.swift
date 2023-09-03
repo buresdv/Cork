@@ -12,8 +12,6 @@ struct TapsSection: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
     
-    @EnvironmentObject var selectedTapInfo: SelectedTapInfo
-    
     @Binding var searchText: String
     
     var body: some View {
@@ -26,10 +24,10 @@ struct TapsSection: View {
                     
                     NavigationLink(tag: tap.id, selection: $appState.navigationSelection)
                     {
-                        TapDetailView(tap: tap, selectedTapInfo: selectedTapInfo)
+                        TapDetailView(tap: tap)
                     } label: {
                         Text(tap.name)
-                        
+
                         if tap.isBeingModified
                         {
                             Spacer()

@@ -14,7 +14,6 @@ struct FormulaeSection: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     
     @Binding var currentTokens: [PackageSearchToken]
     @Binding var searchText: String
@@ -31,7 +30,7 @@ struct FormulaeSection: View {
                     { formula in
                         NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
                         {
-                            PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
+                            PackageDetailView(package: formula)
                         } label: {
                             PackageListItem(packageItem: formula)
                         }
@@ -109,7 +108,7 @@ struct FormulaeSection: View {
                     { formula in
                         NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
                         {
-                            PackageDetailView(package: formula, packageInfo: selectedPackageInfo)
+                            PackageDetailView(package: formula)
                         } label: {
                             PackageListItem(packageItem: formula)
                         }

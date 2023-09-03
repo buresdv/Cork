@@ -53,17 +53,18 @@
 "navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
+"alert.generic.couldnt-parse-json" = "Couldn't decipher Homebrew response";
 "alert.unable-to-uninstall-dependency.title" = "Could Not Uninstall";
 "alert.unable-to-uninstall-dependency.message-%@" = "This package is a dependency of %@";
-"alert.could-not-apply-tags.title" = "Could not apply tagged state to packages";
+"alert.could-not-apply-tags.title" = "Couldn't apply tagged state to packages";
 "alert.could-not-apply-tags.message" = "Try restarting Cork. If the problem persists, clear Cork metadata";
-"alert.could-not-clear-metadata.title" = "Could not clear metadata";
+"alert.could-not-clear-metadata.title" = "Couldn't clear metadata";
 "alert.could-not-clear-metadata.message" = "Delete the metadata folder manually, or try restarting Cork";
-"alert.metadata-folder-does-not-exist.title" = "Could not find metadata folder";
+"alert.metadata-folder-does-not-exist.title" = "Couldn't find metadata folder";
 "alert.metadata-folder-does-not-exist.message" = "Reinstall Cork and try again";
-"alert.could-not-create-metadata-directory.title" = "Could not create Metadata folder";
+"alert.could-not-create-metadata-directory.title" = "Couldn't create Metadata folder";
 "alert.could-not-create-metadata-directory-or-folder.message" = "Make sure you've given Cork permission to access your Documents folder";
-"alert.could-not-create-metadata-file.title" = "Could not create metadata file";
+"alert.could-not-create-metadata-file.title" = "Couldn't create metadata file";
 "alert.package-corrupted.title-%@" = "%@ is corrupted";
 "alert.package-corrupted.message" = "This package needs to be repaired";
 "alert.home-not-set.title" = "Homebrew is not configured properly for Cork";
@@ -71,13 +72,13 @@
 "alert.notifications-error-while-obtaining-permissions.title" = "There was a problem obtaining notifications permissions";
 "alert.notifications-error-while-obtaining-permissions.message" = "You can keep using Cork without notifications";
 "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "You still have packages installed from %@\nUninstall them and try again";
-"alert.notifications-error-while-parsing-top-packages.title" = "Could not decipher top packages";
-"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
-"alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-parsing-top-packages.title" = "Couldn't decipher top packages";
+"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork couldn't understand the response from Homebrew";
+"alert.notifications-error-while-getting-top-packages.title" = "Couldn't get top packages";
 "alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
-"alert.top-package-retrieval-function-turned-up-empty.title" = "Could not get selected top package";
-"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package could not be installed";
-"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Could not retrieve outdated packages";
+"alert.top-package-retrieval-function-turned-up-empty.title" = "Couldn't get selected top package";
+"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package couldn't be installed";
+"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Couldn't retrieve outdated packages";
 "alert.could-not-get-new-packages-in-scheduled-update-system.message" = "There was an error while parsing outdated packages";
 
 // MARK: - Sidebar

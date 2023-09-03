@@ -13,7 +13,6 @@ struct CasksSection: View {
     
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
     @Binding var searchText: String
@@ -27,7 +26,7 @@ struct CasksSection: View {
                 { cask in
                     NavigationLink(tag: cask.id, selection: $appState.navigationSelection)
                     {
-                        PackageDetailView(package: cask, packageInfo: selectedPackageInfo)
+                        PackageDetailView(package: cask)
                     } label: {
                         PackageListItem(packageItem: cask)
                     }

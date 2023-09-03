@@ -7,19 +7,12 @@
 
 import SwiftUI
 
-class SelectedTapInfo: ObservableObject
-{
-    @Published var contents: String = .init()
-}
-
 struct TapDetailView: View
 {
     @State var tap: BrewTap
     
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
-
-    @StateObject var selectedTapInfo: SelectedTapInfo
 
     @State private var isLoadingTapInfo: Bool = true
 
@@ -29,8 +22,7 @@ struct TapDetailView: View
     @State private var includedCasks: [String]?
     @State private var numberOfPackages: Int = 0
 
-    @State private var isShowingIncludedFormulae: Bool = false
-    @State private var isShowingIncludedCasks: Bool = false
+    @State private var erroredOut: Bool = false
 
     var body: some View
     {
@@ -64,126 +56,129 @@ struct TapDetailView: View
             }
             else
             {
-                VStack(alignment: .leading, spacing: 10)
+                if erroredOut
+                { /// Show this if there was an error during the info loading process
+                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json")
+                }
+                else
                 {
-                    Text("tap-details.info")
-                        .font(.title2)
-
-                    GroupBox
+                    VStack(alignment: .leading, spacing: 10)
                     {
-                        Grid(alignment: .leading, horizontalSpacing: 20)
-                        {
-                            GridRow(alignment: .firstTextBaseline) {
-                                Text("tap-details.contents")
-                                
-                                if includedFormulae == nil && includedCasks == nil
-                                {
-                                    Text("tap-details.contents.none")
-                                }
-                                else if includedFormulae != nil && includedCasks == nil
-                                {
-                                    Text("tap-details.contents.formulae-only")
-                                }
-                                else if includedCasks != nil && includedFormulae == nil
-                                {
-                                    Text("tap-details.contents.casks-only")
-                                }
-                                else if includedFormulae?.count ?? 0 > includedCasks?.count ?? 0
-                                {
-                                    Text("tap-details.contents.formulae-mostly")
-                                }
-                                else if includedFormulae?.count ?? 0 < includedCasks?.count ?? 0
-                                {
-                                    Text("tap-details.contents.casks-mostly")
-                                }
-                            }
-                            
-                            Divider()
-                            
-                            GridRow(alignment: .firstTextBaseline) {
-                                Text("tap-details.package-count")
-                                Text(numberOfPackages.formatted())
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            
-                            Divider()
-                            
-                            GridRow(alignment: .firstTextBaseline)
-                            {
-                                Text("tap-details.homepage")
-                                Link(destination: homepage)
-                                {
-                                    Text(homepage.absoluteString)
-                                }
-                            }
-                        }
-                    }
+                        Text("tap-details.info")
+                            .font(.title2)
 
-                    if includedFormulae != nil || includedCasks != nil
-                    {
                         GroupBox
                         {
-                            VStack
+                            Grid(alignment: .leading, horizontalSpacing: 20)
                             {
-                                if let includedFormulae
-                                {
-                                    DisclosureGroup("tap-details.included-formulae", isExpanded: $isShowingIncludedFormulae)
-                                    {}
-                                    .disclosureGroupStyle(NoPadding())
-                                    if isShowingIncludedFormulae
+                                GridRow(alignment: .firstTextBaseline) {
+                                    Text("tap-details.contents")
+
+                                    if includedFormulae == nil && includedCasks == nil
                                     {
-                                        PackagesIncludedInTapList(packages: includedFormulae)
+                                        Text("tap-details.contents.none")
+                                    }
+                                    else if includedFormulae != nil && includedCasks == nil
+                                    {
+                                        Text("tap-details.contents.formulae-only")
+                                    }
+                                    else if includedCasks != nil && includedFormulae == nil
+                                    {
+                                        Text("tap-details.contents.casks-only")
+                                    }
+                                    else if includedFormulae?.count ?? 0 > includedCasks?.count ?? 0
+                                    {
+                                        Text("tap-details.contents.formulae-mostly")
+                                    }
+                                    else if includedFormulae?.count ?? 0 < includedCasks?.count ?? 0
+                                    {
+                                        Text("tap-details.contents.casks-mostly")
                                     }
                                 }
 
-                                if includedFormulae != nil && includedCasks != nil
-                                {
-                                    Divider()
+                                Divider()
+
+                                GridRow(alignment: .firstTextBaseline) {
+                                    Text("tap-details.package-count")
+                                    Text(numberOfPackages.formatted())
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 }
-                                
-                                if let includedCasks
+
+                                Divider()
+
+                                GridRow(alignment: .firstTextBaseline)
                                 {
-                                    DisclosureGroup("tap-details.included-casks", isExpanded: $isShowingIncludedCasks)
-                                    {}
-                                    .disclosureGroupStyle(NoPadding())
-                                    if isShowingIncludedCasks
+                                    Text("tap-details.homepage")
+                                    Link(destination: homepage)
                                     {
-                                        PackagesIncludedInTapList(packages: includedCasks)
+                                        Text(homepage.absoluteString)
                                     }
                                 }
                             }
                         }
-                    }
 
-                    Spacer()
-                    
-                    HStack
-                    {
+                        if includedFormulae != nil || includedCasks != nil
+                        {
+                            GroupBox
+                            {
+                                VStack
+                                {
+                                    if let includedFormulae
+                                    {
+                                        DisclosureGroup("tap-details.included-formulae")
+                                        {
+                                            PackagesIncludedInTapList(packages: includedFormulae)
+                                        }
+                                        .disclosureGroupStyle(NoPadding())
+                                    }
+
+                                    if includedFormulae != nil && includedCasks != nil
+                                    {
+                                        Divider()
+                                    }
+
+                                    if let includedCasks
+                                    {
+                                        DisclosureGroup("tap-details.included-casks")
+                                        {
+                                            PackagesIncludedInTapList(packages: includedCasks)
+                                        }
+                                        .disclosureGroupStyle(NoPadding())
+                                    }
+                                }
+                            }
+                        }
+
                         Spacer()
-                        
-                        UninstallationProgressWheel()
-                        
-                        Button {
-                            Task(priority: .userInitiated)
-                            {
-                                try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
-                            }
-                        } label: {
-                            Text("tap-details.remove-\(tap.name)")
-                        }
 
+                        HStack
+                        {
+                            Spacer()
+
+                            UninstallationProgressWheel()
+
+                            Button {
+                                Task(priority: .userInitiated)
+                                {
+                                    try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                }
+                            } label: {
+                                Text("tap-details.remove-\(tap.name)")
+                            }
+
+                        }
                     }
                 }
             }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .onAppear
+        .task(priority: .userInitiated)
         {
-            Task(priority: .userInitiated)
-            {
-                async let tapInfo = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput
+            async let tapInfo = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput
 
+            do
+            {
                 let parsedJSON = try await parseJSON(from: tapInfo)
 
                 homepage = getTapHomepageFromJSON(json: parsedJSON)
@@ -192,8 +187,13 @@ struct TapDetailView: View
                 includedCasks = getCasksAvailableFromTap(json: parsedJSON, tap: tap)
 
                 numberOfPackages = Int(includedFormulae?.count ?? 0) + Int(includedCasks?.count ?? 0)
-                
+
                 isLoadingTapInfo = false
+            }
+            catch let parsingError
+            {
+                print("Failed while parsing package info: \(parsingError)")
+                erroredOut = true
             }
         }
     }

@@ -71,13 +71,13 @@
 "alert.notifications-error-while-obtaining-permissions.title" = "Es gab ein Problem beim Erhalt der Benachrichtigungsberechtigungen";
 "alert.notifications-error-while-obtaining-permissions.message" = "Sie können Cork auch ohne Benachrichtigungen verwenden";
 "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "Sie haben noch Pakete von %@\n installiert. Deinstallieren Sie diese und versuchen Sie es erneut.";
-"alert.notifications-error-while-parsing-top-packages.title" = "Could not decipher top packages";
-"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
-"alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-parsing-top-packages.title" = "Couldn't decipher top packages";
+"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork couldn't understand the response from Homebrew";
+"alert.notifications-error-while-getting-top-packages.title" = "Couldn't get top packages";
 "alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
-"alert.top-package-retrieval-function-turned-up-empty.title" = "Could not get selected top package";
-"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package could not be installed";
-"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Could not retrieve outdated packages";
+"alert.top-package-retrieval-function-turned-up-empty.title" = "Couldn't get selected top package";
+"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package couldn't be installed";
+"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Couldn't retrieve outdated packages";
 "alert.could-not-get-new-packages-in-scheduled-update-system.message" = "There was an error while parsing outdated packages";
 
 // MARK: - Sidebar

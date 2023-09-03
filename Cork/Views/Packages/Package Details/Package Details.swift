@@ -8,11 +8,6 @@
 import SwiftUI
 import SwiftyJSON
 
-class SelectedPackageInfo: ObservableObject
-{
-    @Published var contents: String?
-}
-
 struct PackageDetailView: View
 {
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
@@ -22,8 +17,7 @@ struct PackageDetailView: View
 
     @EnvironmentObject var brewData: BrewDataStorage
 
-    #warning("TODO: Figure out if this has to be an EnvironmentObject and not something like SceneStorage instead")
-    @StateObject var packageInfo: SelectedPackageInfo
+    @State var packageInfoRaw: String?
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
@@ -42,8 +36,9 @@ struct PackageDetailView: View
     @State private var canExpandCaveats: Bool = false
 
     @State private var isShowingCaveatPopover: Bool = false
-    @State private var isShowingDependencies: Bool = false
     @State var isShowingPopover: Bool = false
+
+    @State private var erroredOut: Bool = false
 
     var body: some View
     {
@@ -121,7 +116,7 @@ struct PackageDetailView: View
                         }
                     }
 
-                    if packageInfo.contents != nil
+                    if packageInfoRaw != nil
                     {
                         if !description.isEmpty
                         {
@@ -144,7 +139,7 @@ struct PackageDetailView: View
                 }
             }
 
-            if packageInfo.contents == nil
+            if packageInfoRaw == nil
             {
                 HStack(alignment: .center)
                 {
@@ -160,43 +155,49 @@ struct PackageDetailView: View
             }
             else
             {
-                VStack(alignment: .leading, spacing: 10)
+                if erroredOut
                 {
-                    Text("package-details.info")
-                        .font(.title2)
-
-                    if let caveats
+                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json")
+                }
+                else
+                {
+                    VStack(alignment: .leading, spacing: 10)
                     {
-                        if !caveats.isEmpty
+                        Text("package-details.info")
+                            .font(.title2)
+
+                        if let caveats
                         {
-                            if caveatDisplayOptions == .full
+                            if !caveats.isEmpty
                             {
-                                GroupBox
+                                if caveatDisplayOptions == .full
                                 {
-                                    HStack(alignment: .top, spacing: 10)
+                                    GroupBox
                                     {
-                                        Image(systemName: "exclamationmark.triangle.fill")
-                                            .resizable()
-                                            .frame(width: 15, height: 15)
-                                            .foregroundColor(.yellow)
-
-                                        /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
-                                        VStack(alignment: .leading, spacing: 5)
+                                        HStack(alignment: .top, spacing: 10)
                                         {
-                                            let text = Text(
-                                                .init(
-                                                    caveats
-                                                        .trimmingCharacters(in: .whitespacesAndNewlines)
-                                                        .replacingOccurrences(of: "\n\n", with: "\n")
-                                                )
-                                            )
-                                            .lineSpacing(5)
+                                            Image(systemName: "exclamationmark.triangle.fill")
+                                                .resizable()
+                                                .frame(width: 15, height: 15)
+                                                .foregroundColor(.yellow)
 
-                                            text
-                                                .textSelection(.enabled)
-                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                                .lineLimit(isShowingExpandedCaveats ? nil : 2)
-                                                .background
+                                            /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
+                                            VStack(alignment: .leading, spacing: 5)
+                                            {
+                                                let text = Text(
+                                                    .init(
+                                                        caveats
+                                                            .trimmingCharacters(in: .whitespacesAndNewlines)
+                                                            .replacingOccurrences(of: "\n\n", with: "\n")
+                                                    )
+                                                )
+                                                    .lineSpacing(5)
+
+                                                text
+                                                    .textSelection(.enabled)
+                                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                                    .lineLimit(isShowingExpandedCaveats ? nil : 2)
+                                                    .background
                                                 {
                                                     ViewThatFits(in: .vertical)
                                                     {
@@ -205,127 +206,125 @@ struct PackageDetailView: View
                                                     }
                                                 }
 
-                                            if canExpandCaveats
-                                            {
-                                                Button
+                                                if canExpandCaveats
                                                 {
-                                                    withAnimation
+                                                    Button
                                                     {
-                                                        isShowingExpandedCaveats.toggle()
+                                                        withAnimation
+                                                        {
+                                                            isShowingExpandedCaveats.toggle()
+                                                        }
+                                                    } label: {
+                                                        Text(isShowingExpandedCaveats ? "package-details.caveats.collapse" : "package-details.caveats.expand")
                                                     }
-                                                } label: {
-                                                    Text(isShowingExpandedCaveats ? "package-details.caveats.collapse" : "package-details.caveats.expand")
+                                                    .padding(.top, 5)
                                                 }
-                                                .padding(.top, 5)
                                             }
                                         }
+                                        .padding(2)
                                     }
-                                    .padding(2)
                                 }
                             }
                         }
-                    }
 
-                    GroupBox
-                    {
-                        Grid(alignment: .leading, horizontalSpacing: 20)
-                        {
-                            GridRow(alignment: .firstTextBaseline)
-                            {
-                                Text("Tap")
-                                Text(tap)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-
-                            Divider()
-
-                            GridRow(alignment: .top)
-                            {
-                                Text("package-details.type")
-                                if package.isCask
-                                {
-                                    Text("package-details.type.cask")
-                                }
-                                else
-                                {
-                                    Text("package-details.type.formula")
-                                }
-                            }
-
-                            Divider()
-
-                            GridRow(alignment: .top)
-                            {
-                                Text("package-details.homepage")
-                                Link(destination: homepage)
-                                {
-                                    Text(homepage.absoluteString)
-                                }
-                            }
-                        }
-                    }
-
-                    if let dependencies
-                    {
-                        GroupBox
-                        {
-                            VStack
-                            {
-                                DisclosureGroup("package-details.dependencies", isExpanded: $isShowingDependencies)
-                                {}
-                                .disclosureGroupStyle(NoPadding())
-
-                                if isShowingDependencies
-                                {
-                                    DependencyList(dependencies: dependencies)
-                                }
-                            }
-                        }
-                    }
-
-                    if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
-                    {
                         GroupBox
                         {
                             Grid(alignment: .leading, horizontalSpacing: 20)
                             {
-                                GridRow(alignment: .top)
+                                GridRow(alignment: .firstTextBaseline)
                                 {
-                                    Text("package-details.install-date")
-                                    Text(installedOnDate.formatted(.packageInstallationStyle))
+                                    Text("Tap")
+                                    Text(tap)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
 
-                                if let packageSize = package.sizeInBytes
-                                {
-                                    Divider()
+                                Divider()
 
+                                GridRow(alignment: .top)
+                                {
+                                    Text("package-details.type")
+                                    if package.isCask
+                                    {
+                                        Text("package-details.type.cask")
+                                    }
+                                    else
+                                    {
+                                        Text("package-details.type.formula")
+                                    }
+                                }
+
+                                Divider()
+
+                                GridRow(alignment: .top)
+                                {
+                                    Text("package-details.homepage")
+                                    Link(destination: homepage)
+                                    {
+                                        Text(homepage.absoluteString)
+                                    }
+                                }
+                            }
+                        }
+
+                        if let dependencies
+                        {
+                            GroupBox
+                            {
+                                VStack
+                                {
+                                    DisclosureGroup("package-details.dependencies")
+                                    {
+                                        DependencyList(dependencies: dependencies)
+                                    }
+                                    .disclosureGroupStyle(NoPadding())
+                                }
+                            }
+                        }
+
+                        if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
+                        {
+                            GroupBox
+                            {
+                                Grid(alignment: .leading, horizontalSpacing: 20)
+                                {
                                     GridRow(alignment: .top)
                                     {
-                                        Text("package-details.size")
+                                        Text("package-details.install-date")
+                                        Text(installedOnDate.formatted(.packageInstallationStyle))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
 
-                                        HStack
+                                    if let packageSize = package.sizeInBytes
+                                    {
+                                        Divider()
+
+                                        GridRow(alignment: .top)
                                         {
-                                            Text(packageSize.formatted(.byteCount(style: .file)))
+                                            Text("package-details.size")
 
-                                            if package.isCask
+                                            HStack
                                             {
-                                                HelpButton
+                                                Text(packageSize.formatted(.byteCount(style: .file)))
+
+                                                if package.isCask
                                                 {
-                                                    isShowingPopover.toggle()
-                                                }
-                                                .help("package-details.size.help")
-                                                .popover(isPresented: $isShowingPopover)
-                                                {
-                                                    VStack(alignment: .leading, spacing: 10)
+                                                    HelpButton
                                                     {
-                                                        Text("package-details.size.help.title")
-                                                            .font(.headline)
-                                                        Text("package-details.size.help.body-1")
-                                                        Text("package-details.size.help.body-2")
+                                                        isShowingPopover.toggle()
                                                     }
-                                                    .padding()
-                                                    .frame(width: 300, alignment: .center)
+                                                    .help("package-details.size.help")
+                                                    .popover(isPresented: $isShowingPopover)
+                                                    {
+                                                        VStack(alignment: .leading, spacing: 10)
+                                                        {
+                                                            Text("package-details.size.help.title")
+                                                                .font(.headline)
+                                                            Text("package-details.size.help.body-1")
+                                                            Text("package-details.size.help.body-2")
+                                                        }
+                                                        .padding()
+                                                        .frame(width: 300, alignment: .center)
+                                                    }
                                                 }
                                             }
                                         }
@@ -341,7 +340,7 @@ struct PackageDetailView: View
 
             if let _ = package.installedOn // Only show the uninstall button for packages that are actually installed
             {
-                if packageInfo.contents != nil
+                if packageInfoRaw != nil
                 {
                     HStack
                     {
@@ -430,20 +429,20 @@ struct PackageDetailView: View
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding()
-        .onAppear
+        .task(priority: .userInitiated)
         {
-            Task
+            if !package.isCask
             {
-                if !package.isCask
-                {
-                    packageInfo.contents = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", package.name]).standardOutput
-                }
-                else
-                {
-                    packageInfo.contents = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", "--cask", package.name]).standardOutput
-                }
+                packageInfoRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", package.name]).standardOutput
+            }
+            else
+            {
+                packageInfoRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", "--cask", package.name]).standardOutput
+            }
 
-                let parsedJSON: JSON = try parseJSON(from: packageInfo.contents!)
+            do
+            {
+                let parsedJSON: JSON = try parseJSON(from: packageInfoRaw!)
 
                 description = getPackageDescriptionFromJSON(json: parsedJSON, package: package)
                 homepage = getPackageHomepageFromJSON(json: parsedJSON, package: package)
@@ -452,7 +451,7 @@ struct PackageDetailView: View
                 outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
                 caveats = getCaveatsFromJSON(json: parsedJSON, package: package)
                 pinned = getPinStatusFromJSON(json: parsedJSON, package: package)
-                
+
                 if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
                 {
                     dependencies = packageDependencies
@@ -466,6 +465,12 @@ struct PackageDetailView: View
 
                     print("Package dependents: \(String(describing: packageDependents))")
                 }
+            }
+            catch let packageInfoDecodingError
+            {
+                print("Failed while parsing package info: \(packageInfoDecodingError)")
+
+                erroredOut = true
             }
         }
     }
