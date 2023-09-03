@@ -6,6 +6,8 @@
 "action.quit" = "Cork beenden";
 "action.restart" = "Cork neustarten";
 "action.reveal-in-finder" = "Im Finder anzeigen";
+"action.show" = "Show";
+"action.hide" = "Hide";
 "action.clear-metadata" = "Metadaten bereinigen";
 "action.repair-%@" = "Repariere %@";
 "action.repair-home-path" = "Homebrew raparieren";
@@ -21,6 +23,7 @@
 
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "Veraltete Pakete gefunden";
+"notification.new-outdated-packages-found.title" = "New outdated package";
 "notification.upgrade-finished.success" = "Pakete aktualisiert";
 "notification.upgrade-finished.success.some-errors" = "Während des Upgrades traten einige Fehler auf";
 "notification.upgrade-finished.failure" = "Aktualisierungen fehlgeschlagen";
@@ -44,7 +47,9 @@
 "navigation.add-tap" = "Tap hinzufügen";
 "navigation.add-tap.help" = "Neuen Tap hinzufügen";
 "navigation.install-package" = "Paket installieren";
-"navigation.install-package.help" = "Ein neues Paket hinzufügen";
+"navigation.install-package.help" = "Install a new package";
+"navigation.install-package.direct" = "Install Package Directly";
+"navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "Installation nicht möglich";
@@ -65,6 +70,14 @@
 "alert.notifications-error-while-obtaining-permissions.title" = "Es gab ein Problem beim Erhalt der Benachrichtigungsberechtigungen";
 "alert.notifications-error-while-obtaining-permissions.message" = "Sie können Cork auch ohne Benachrichtigungen verwenden";
 "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "Sie haben noch Pakete von %@\n installiert. Deinstallieren Sie diese und versuchen Sie es erneut.";
+"alert.notifications-error-while-parsing-top-packages.title" = "Could not decipher top packages";
+"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
+"alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
+"alert.top-package-retrieval-function-turned-up-empty.title" = "Could not get selected top package";
+"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package could not be installed";
+"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Could not retrieve outdated packages";
+"alert.could-not-get-new-packages-in-scheduled-update-system.message" = "There was an error while parsing outdated packages";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "Installierte Pakete";
@@ -151,6 +164,11 @@
 "update-packages.finished.description" = "Es wurden keine Fehler festgestellt";
 "update-packages.error" = "Pakete mit Fehlern aktualisiert";
 "update-packages.error.description" = "Bei der Aktualisierung traten einige Fehler auf.\nWeitere Informationen findest du unten";
+"update-packages.detail-stage.downloading" = "Downloading…";
+"update-packages.detail-stage.pouring" = "Updating…";
+"update-packages.detail-stage.cleanup" = "Cleaning up…";
+"update-packages.detail-stage.backing-up" = "Backing up old version…";
+"update-packages.detail-stage.linking" = "Linking new version…";
 
 "update-packages.incremental.finished" = "Ausgewählte Pakete erfolgreich aktualisiert";
 "update-packages.incremental.update-in-progress-%@" = "Aktualisiere %@…";
@@ -181,6 +199,8 @@
 "add-package.finished.description" = "Es wurden keine Fehler festgestellt";
 "add-package.network-error" = "Netzwerkverbindung ist nicht ausreichend";
 "add-package.network-error.description" = "Deine Netzwerkverbindung ist nicht stabil genug, um eine erfolgreiche Installation zu gewährleisten";
+"add-package.top-formulae" = "Top Formulae";
+"add-package.top-casks" = "Top Casks";
 
 // MARK: - Package Repairing
 "repair-package.repair-process-%@" = "Repariere %@…";
@@ -253,7 +273,8 @@
 "settings.general" = "Allgemein";
 "settings.maintenance" = "Wartung";
 "settings.homebrew" = "Homebrew";
-"settings.install-uninstall" = "Installation";
+"settings.discoverability" = "Discoverability";
+"settings.install-uninstall" = "Packages";
 
 "settings.dangerous" = "Erweitert:";
 
@@ -313,6 +334,18 @@
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "Durch das Bereinigen können anderen Pakete beschädigt werden. Bist du sicher, dass du fortfahren möchtest?";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "Paketbereinigung aktivieren";
 
+// MARK: - Settings - Discoverability
+"settings.discoverability.toggle" = "Enable Discoverability";
+"settings.discoverability.time-span" = "Get top packages for:";
+"settings.discoverability.time-span.month" = "Last month";
+"settings.discoverability.time-span.quarter-year" = "Last three months";
+"settings.discoverability.time-span.year" = "Last year";
+
+"settings.discoverability.sorting" = "Sort top packages by:";
+"settings.discoverability.sorting.by-most-downloads" = "Most downloads";
+"settings.discoverability.sorting.by-fewest-downloads" = "Fewest downloads";
+"settings.discoverability.sorting.random" = "Random";
+
 // MARK: - About
 "about.title" = "Über Cork";
 "about.packages" = "Verwendete Pakete";
@@ -340,6 +373,8 @@
 "about.contributors.4.purpose" = "Hat den ersten genehmigten Pullrequest erstellt; Paketanzahl gefixt, zusammen mit Jierong Li";
 "about.contributors.5.name" = "Andrey Radchishin";
 "about.contributors.5.purpose" = "Hat eine Möglichkeit hinzugefügt, zur Homebrew-Statusseite zurückzukehren";
+"about.contributors.6.name" = "Christian Tietze";
+"about.contributors.6.purpose" = "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support";
 
 "about.translators" = "Übersetzer";
 "about.translator.1.name" = "Jerry";

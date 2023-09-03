@@ -6,6 +6,8 @@
 "action.quit" = "結束 Cork";
 "action.restart" = "重啟 Cork";
 "action.reveal-in-finder" = "在 Finder 裡顯示";
+"action.show" = "Show";
+"action.hide" = "Hide";
 "action.clear-metadata" = "清除元資料";
 "action.repair-%@" = "修復 %@";
 "action.repair-home-path" = "修復 Homebrew";
@@ -21,6 +23,7 @@
 
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "發現落伍套件";
+"notification.new-outdated-packages-found.title" = "New outdated package";
 "notification.upgrade-finished.success" = "套件成功更新";
 "notification.upgrade-finished.success.some-errors" = "套件更新時發生錯誤";
 "notification.upgrade-finished.failure" = "更新失敗";
@@ -45,6 +48,8 @@
 "navigation.add-tap.help" = "加入新的 Tap";
 "navigation.install-package" = "安裝套件";
 "navigation.install-package.help" = "安裝新套件";
+"navigation.install-package.direct" = "Install Package Directly";
+"navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "卸載失敗";
@@ -65,6 +70,14 @@
 "alert.notifications-error-while-obtaining-permissions.title" = "取得通知許可時發生問題";
 "alert.notifications-error-while-obtaining-permissions.message" = "通知並未啟用，但您可以繼續使用 Cork。";
 "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" = "You still have packages installed from %@\nUninstall them and try again";
+"alert.notifications-error-while-parsing-top-packages.title" = "Could not decipher top packages";
+"alert.notifications-error-while-parsing-top-packages.mesage" = "Cork could not understand the response from Homebrew";
+"alert.notifications-error-while-getting-top-packages.title" = "Could not get top packages";
+"alert.notifications-error-while-getting-top-package.message" = "Homebrew sent Cork an invalid response";
+"alert.top-package-retrieval-function-turned-up-empty.title" = "Could not get selected top package";
+"alert.top-package-retrieval-function-turned-up-empty.message" = "The selected package could not be installed";
+"alert.could-not-get-new-packages-in-scheduled-update-system.title" = "Could not retrieve outdated packages";
+"alert.could-not-get-new-packages-in-scheduled-update-system.message" = "There was an error while parsing outdated packages";
 
 // MARK: - Sidebar
 "sidebar.search.prompt" = "已安裝的套件";
@@ -151,6 +164,11 @@
 "update-packages.finished.description" = "未發生任何錯誤";
 "update-packages.error" = "套件更新時發生錯誤";
 "update-packages.error.description" = "請詳查下方資訊";
+"update-packages.detail-stage.downloading" = "Downloading…";
+"update-packages.detail-stage.pouring" = "Updating…";
+"update-packages.detail-stage.cleanup" = "Cleaning up…";
+"update-packages.detail-stage.backing-up" = "Backing up old version…";
+"update-packages.detail-stage.linking" = "Linking new version…";
 
 "update-packages.incremental.finished" = "成功更新了選擇的套件";
 "update-packages.incremental.update-in-progress-%@" = "更新 %@⋯";
@@ -181,6 +199,8 @@
 "add-package.finished.description" = "未發生任何錯誤";
 "add-package.network-error" = "網路連線不穩定";
 "add-package.network-error.description" = "您的網路連線不穩定，無法保證安裝成功";
+"add-package.top-formulae" = "Top Formulae";
+"add-package.top-casks" = "Top Casks";
 
 // MARK: - Package Repairing
 "repair-package.repair-process-%@" = "修復 %@⋯";
@@ -253,7 +273,8 @@
 "settings.general" = "一般";
 "settings.maintenance" = "維護";
 "settings.homebrew" = "Homebrew";
-"settings.install-uninstall" = "安裝與卸載";
+"settings.discoverability" = "Discoverability";
+"settings.install-uninstall" = "Packages";
 
 "settings.dangerous" = "進階：";
 
@@ -313,6 +334,18 @@
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" = "清除動作可能會移除共享的檔案，導致其他套件故障。\n您確定要繼續？";
 "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" = "啟用套件清除";
 
+// MARK: - Settings - Discoverability
+"settings.discoverability.toggle" = "Enable Discoverability";
+"settings.discoverability.time-span" = "Get top packages for:";
+"settings.discoverability.time-span.month" = "Last month";
+"settings.discoverability.time-span.quarter-year" = "Last three months";
+"settings.discoverability.time-span.year" = "Last year";
+
+"settings.discoverability.sorting" = "Sort top packages by:";
+"settings.discoverability.sorting.by-most-downloads" = "Most downloads";
+"settings.discoverability.sorting.by-fewest-downloads" = "Fewest downloads";
+"settings.discoverability.sorting.random" = "Random";
+
 // MARK: - About
 "about.title" = "關於 Cork";
 "about.packages" = "運用套件";
@@ -340,6 +373,8 @@
 "about.contributors.4.purpose" = "貢獻了第一個通過的拉取請求，與 Jierong Li 一同修理套件數量";
 "about.contributors.5.name" = "Andrey Radchishin";
 "about.contributors.5.purpose" = "加入返回主頁功能";
+"about.contributors.6.name" = "Christian Tietze";
+"about.contributors.6.purpose" = "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support";
 
 "about.translators" = "翻譯";
 "about.translator.1.name" = "Jerry";
