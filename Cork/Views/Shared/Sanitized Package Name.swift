@@ -32,8 +32,8 @@ struct SanitizedPackageName: View
                 }
             }
             else
-            { /// If the REGEX matching fails, just show "Failure"
-                Text("FAILURE")
+            { /// If the REGEX matching fails, just show the entire name
+                Text(packageName)
             }
         }
         else
