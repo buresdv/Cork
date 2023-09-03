@@ -22,6 +22,7 @@ struct PackageDetailView: View
 
     @EnvironmentObject var brewData: BrewDataStorage
 
+    #warning("TODO: Figure out if this has to be an EnvironmentObject and not something like SceneStorage instead")
     @StateObject var packageInfo: SelectedPackageInfo
 
     @EnvironmentObject var appState: AppState
@@ -466,10 +467,6 @@ struct PackageDetailView: View
                     print("Package dependents: \(String(describing: packageDependents))")
                 }
             }
-        }
-        .onDisappear
-        {
-            packageInfo.contents = nil
         }
     }
 }
