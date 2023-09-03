@@ -20,6 +20,9 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
     var installationResult = TerminalOutput(standardOutput: "", standardError: "")
 
+    /// For some reason, the line `fetching [package name]` appears twice during the matching process, and the first one is a dud. Ignore that first one.
+    var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
+
     var packageDependencies: [String] = .init()
 
     if !installationProgressTracker.packagesBeingInstalled[0].package.isCask
@@ -85,13 +88,21 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 else if outputLine.contains("Fetching \(installationProgressTracker.packagesBeingInstalled[0].package.name)") || outputLine.contains("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
                 {
-                    print("Will install the package itself!")
-                    installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingPackage
+                    if hasAlreadyMatchedLineAboutInstallingPackageItself
+                    { /// Only the second line about the package being installed is valid
+                        print("Will install the package itself!")
+                        installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingPackage
 
-                    // TODO: Add a math formula for advancing the stepper
-                    installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress) + Double((Double(10) - Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress)) / Double(2))
+                        // TODO: Add a math formula for advancing the stepper
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress) + Double((Double(10) - Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress)) / Double(2))
 
-                    print("Stepper value: \(Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))")
+                        print("Stepper value: \(Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))")
+                    }
+                    else
+                    { /// When it appears for the first time, ignore it
+                        print("Matched the dud line about the package itself being installed!")
+                        hasAlreadyMatchedLineAboutInstallingPackageItself = true
+                    }
                 }
 
                 installationResult.standardOutput.append(outputLine)
