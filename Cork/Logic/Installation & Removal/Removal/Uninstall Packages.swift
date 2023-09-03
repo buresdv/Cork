@@ -13,6 +13,9 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
 {
     
     var indexToReplaceGlobal: Int?
+
+    /// Store the old navigation selection to see if it got updated in the middle of switching
+    let oldNavigationSelectionID: UUID? = appState.navigationSelection
     
     if shouldApplyUninstallSpinnerToRelevantItemInSidebar
     {
@@ -148,7 +151,11 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         
         if appState.navigationSelection != nil
         {
-            appState.navigationSelection = nil
+            /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
+            if oldNavigationSelectionID == appState.navigationSelection
+            {
+                appState.navigationSelection = nil
+            }
         }
     }
 
