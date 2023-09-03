@@ -47,7 +47,7 @@
 "navigation.add-tap" = "Tap hinzufügen";
 "navigation.add-tap.help" = "Neuen Tap hinzufügen";
 "navigation.install-package" = "Paket installieren";
-"navigation.install-package.help" = "Ein neues Paket hinzufügen";
+"navigation.install-package.help" = "Install a new package";
 "navigation.install-package.direct" = "Install Package Directly";
 "navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 

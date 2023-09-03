@@ -47,9 +47,9 @@
 "navigation.add-tap" = "添加 Tap";
 "navigation.add-tap.help" = "添加新 Tap";
 "navigation.install-package" = "安装软件包";
-"navigation.install-package.help" = "添加新软件包";
-"navigation.install-package.direct" = "Install Package Directly";
-"navigation.install-package.direct.help" = "Install a package by name, bypassing search";
+"navigation.install-package.help" = "安装新软件包";
+"navigation.install-package.direct" = "直接安装软件包";
+"navigation.install-package.direct.help" = "通过名称直接安装软件包，跳过搜索";
 
 // MARK: - Alerts
 "alert.unable-to-uninstall-dependency.title" = "无法卸载";
