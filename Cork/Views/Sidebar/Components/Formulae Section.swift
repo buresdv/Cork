@@ -13,6 +13,7 @@ struct FormulaeSection: View {
     
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
     
     @Binding var currentTokens: [PackageSearchToken]
@@ -67,7 +68,14 @@ struct FormulaeSection: View {
                             {
                                 Task
                                 {
-                                    try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                    try await uninstallSelectedPackage(
+                                        package: formula,
+                                        brewData: brewData,
+                                        appState: appState,
+                                        outdatedPackageTracker: outdatedPackageTracker,
+                                        shouldRemoveAllAssociatedFiles: false,
+                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                    )
                                 }
                             } label: {
                                 Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
@@ -78,7 +86,14 @@ struct FormulaeSection: View {
                                 {
                                     Task
                                     {
-                                        try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                        try await uninstallSelectedPackage(
+                                            package: formula,
+                                            brewData: brewData,
+                                            appState: appState,
+                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            shouldRemoveAllAssociatedFiles: true,
+                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                        )
                                     }
                                 } label: {
                                     Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
@@ -131,7 +146,14 @@ struct FormulaeSection: View {
                             {
                                 Task
                                 {
-                                    try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                    try await uninstallSelectedPackage(
+                                        package: formula,
+                                        brewData: brewData,
+                                        appState: appState,
+                                        outdatedPackageTracker: outdatedPackageTracker,
+                                        shouldRemoveAllAssociatedFiles: false,
+                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                    )
                                 }
                             } label: {
                                 Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
@@ -143,7 +165,14 @@ struct FormulaeSection: View {
                                 {
                                     Task
                                     {
-                                        try await uninstallSelectedPackage(package: formula, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                        try await uninstallSelectedPackage(
+                                            package: formula,
+                                            brewData: brewData,
+                                            appState: appState,
+                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            shouldRemoveAllAssociatedFiles: true,
+                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                        )
                                     }
                                 } label: {
                                     Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")

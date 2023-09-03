@@ -14,6 +14,7 @@ struct CasksSection: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var selectedPackageInfo: SelectedPackageInfo
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
     @Binding var searchText: String
     
@@ -63,7 +64,14 @@ struct CasksSection: View {
                         {
                             Task
                             {
-                                try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                try await uninstallSelectedPackage(
+                                    package: cask,
+                                    brewData: brewData,
+                                    appState: appState,
+                                    outdatedPackageTracker: outdatedPackageTracker,
+                                    shouldRemoveAllAssociatedFiles: false,
+                                    shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                )
                             }
                         } label: {
                             Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
@@ -75,7 +83,14 @@ struct CasksSection: View {
                             {
                                 Task
                                 {
-                                    try await uninstallSelectedPackage(package: cask, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                    try await uninstallSelectedPackage(
+                                        package: cask,
+                                        brewData: brewData,
+                                        appState: appState,
+                                        outdatedPackageTracker: outdatedPackageTracker,
+                                        shouldRemoveAllAssociatedFiles: true,
+                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                    )
                                 }
                             } label: {
                                 Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(cask.name)")

@@ -25,6 +25,7 @@ struct PackageDetailView: View
     @StateObject var packageInfo: SelectedPackageInfo
 
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var description: String = ""
     @State private var homepage: URL = .init(string: "https://google.com")!
@@ -375,7 +376,13 @@ struct PackageDetailView: View
                                 {
                                     Task
                                     {
-                                        try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
+                                        try await uninstallSelectedPackage(
+                                            package: package,
+                                            brewData: brewData,
+                                            appState: appState,
+                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            shouldRemoveAllAssociatedFiles: false
+                                        )
                                     }
                                 } label: {
                                     Text("package-details.action.uninstall-\(package.name)")
@@ -388,7 +395,13 @@ struct PackageDetailView: View
                                     {
                                         Task
                                         {
-                                            try await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: true)
+                                            try await uninstallSelectedPackage(
+                                                package: package,
+                                                brewData: brewData,
+                                                appState: appState,
+                                                outdatedPackageTracker: outdatedPackageTracker,
+                                                shouldRemoveAllAssociatedFiles: true
+                                            )
                                         }
                                     } label: {
                                         Text("package-details.action.uninstall-deep-\(package.name)")
@@ -398,7 +411,13 @@ struct PackageDetailView: View
                                 } primaryAction: {
                                     Task(priority: .userInitiated)
                                     {
-                                        try! await uninstallSelectedPackage(package: package, brewData: brewData, appState: appState, shouldRemoveAllAssociatedFiles: false)
+                                        try! await uninstallSelectedPackage(
+                                            package: package,
+                                            brewData: brewData,
+                                            appState: appState,
+                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            shouldRemoveAllAssociatedFiles: false
+                                        )
                                     }
                                 }
                                 .fixedSize()

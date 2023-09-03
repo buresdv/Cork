@@ -9,14 +9,13 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, outdatedPackageTracker: OutdatedPackageTracker? = nil, shouldRemoveAllAssociatedFiles: Bool, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, outdatedPackageTracker: OutdatedPackageTracker, shouldRemoveAllAssociatedFiles: Bool, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
-    
     var indexToReplaceGlobal: Int?
 
     /// Store the old navigation selection to see if it got updated in the middle of switching
     let oldNavigationSelectionID: UUID? = appState.navigationSelection
-    
+
     if shouldApplyUninstallSpinnerToRelevantItemInSidebar
     {
         if !package.isCask
@@ -24,17 +23,16 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
             {
                 brewData.installedFormulae[indexToReplace].changeBeingModifiedStatus()
-                
+
                 indexToReplaceGlobal = indexToReplace
             }
-            
         }
         else
         {
             if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
             {
                 brewData.installedCasks[indextoReplace].changeBeingModifiedStatus()
-                
+
                 indexToReplaceGlobal = indextoReplace
             }
         }
@@ -46,7 +44,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
 
     print("Will try to remove package \(package.name)")
     var uninstallCommandOutput: TerminalOutput
-    
+
     if !shouldRemoveAllAssociatedFiles
     {
         uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", package.name])
@@ -73,7 +71,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             else
             {
                 print("Could not get the index for that formula. Will loop over all of them.")
-                
+
                 for (index, _) in brewData.installedFormulae.enumerated()
                 {
                     if brewData.installedFormulae[index].isBeingModified == true
@@ -93,7 +91,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             else
             {
                 print("Could not get the index for that cask. Will loop over all of them.")
-                
+
                 for (index, _) in brewData.installedCasks.enumerated()
                 {
                     if brewData.installedCasks[index].isBeingModified == true
@@ -103,14 +101,14 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
                 }
             }
         }
-        
+
         do
         {
             let dependencyNameExtractionRegex: String = "(?<=required by ).*?(?=, which)"
 
             var dependencyName: String
 
-            dependencyName = String(try regexMatch(from: uninstallCommandOutput.standardError, regex: dependencyNameExtractionRegex))
+            dependencyName = try String(regexMatch(from: uninstallCommandOutput.standardError, regex: dependencyNameExtractionRegex))
 
             appState.offendingDependencyProhibitingUninstallation = dependencyName
             appState.fatalAlertType = .uninstallationNotPossibleDueToDependency
@@ -148,7 +146,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
                 }
             }
         }
-        
+
         if appState.navigationSelection != nil
         {
             /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
@@ -163,11 +161,9 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
 
     print(uninstallCommandOutput)
 
-    if let outdatedPackageTracker
-    { /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        Task
-        {
-            outdatedPackageTracker.outdatedPackages.removeAll(where: { $0.package.name == package.name })
-        }
+    /// If the user removed a package that was outdated, remove it from the outdated package tracker
+    Task
+    {
+        outdatedPackageTracker.outdatedPackages.removeAll(where: { $0.package.name == package.name })
     }
 }
