@@ -100,8 +100,12 @@ struct CorkApp: App
                                     
                                     /// Set this to `true` so the normal notification doesn't get sent
                                     sendStandardUpdatesAvailableNotification = false
-                                    
+
+                                    let differentPackages: [OutdatedPackage] = newOutdatedPackages.difference(from: outdatedPackageTracker.outdatedPackages)
+
                                     outdatedPackageTracker.outdatedPackages = newOutdatedPackages
+
+                                    sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).joined(separator: ", "))
                                     
                                     sendStandardUpdatesAvailableNotification = true
                                 }

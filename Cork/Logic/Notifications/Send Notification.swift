@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import UserNotifications
 
-func sendNotification(title: String, body: String? = nil, subtitle: String? = nil) -> Void
+func sendNotification(title: String, body: String? = nil, subtitle: String? = nil, sensitivity: UNNotificationInterruptionLevel = .timeSensitive) -> Void
 {
     // Get whether we can send notifications
     let notificationsAreEnabled = UserDefaults.standard.bool(forKey: "areNotificationsEnabled")
@@ -31,7 +31,7 @@ func sendNotification(title: String, body: String? = nil, subtitle: String? = ni
         }
         
         notification.sound = .default
-        notification.interruptionLevel = .timeSensitive
+        notification.interruptionLevel = sensitivity
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil)
         

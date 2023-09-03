@@ -114,6 +114,7 @@
 		63A90D8B2AA268C700CEC48E /* Sanitized Package Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */; };
 		63A96F6E2AA4B3D90029E33B /* Add Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F6D2AA4B3D90029E33B /* Add Tap.swift */; };
 		63A96F702AA4B3F70029E33B /* Remove Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */; };
+		63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F712AA4F8030029E33B /* Array - Get Difference.swift */; };
 		63A9778529A7D5800091DF2E /* Synchnorize Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */; };
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
@@ -286,6 +287,7 @@
 		63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sanitized Package Name.swift"; sourceTree = "<group>"; };
 		63A96F6D2AA4B3D90029E33B /* Add Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap.swift"; sourceTree = "<group>"; };
 		63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Remove Tap.swift"; sourceTree = "<group>"; };
+		63A96F712AA4F8030029E33B /* Array - Get Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Difference.swift"; sourceTree = "<group>"; };
 		63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchnorize Installed Packages.swift"; sourceTree = "<group>"; };
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
@@ -940,6 +942,7 @@
 				63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */,
 				63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */,
 				63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */,
+				63A96F712AA4F8030029E33B /* Array - Get Difference.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1315,6 +1318,7 @@
 				63D51F6B299A9AC500203F3F /* Settings Pane Template.swift in Sources */,
 				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
+				63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */,
 				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */,
