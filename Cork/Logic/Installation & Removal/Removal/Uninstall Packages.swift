@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, shouldRemoveAllAssociatedFiles: Bool, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, outdatedPackageTracker: OutdatedPackageTracker? = nil, shouldRemoveAllAssociatedFiles: Bool, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
     
     var indexToReplaceGlobal: Int?
@@ -162,4 +162,12 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     appState.isShowingUninstallationProgressView = false
 
     print(uninstallCommandOutput)
+
+    if let outdatedPackageTracker
+    { /// If the user removed a package that was outdated, remove it from the outdated package tracker
+        Task
+        {
+            outdatedPackageTracker.outdatedPackages.removeAll(where: { $0.package.name == package.name })
+        }
+    }
 }

@@ -209,6 +209,16 @@ struct CorkApp: App
             CommandGroup(replacing: .newItem) // Disables "New Window"
             {}
 
+            CommandGroup(before: .sidebar) {
+                Button {
+                    appDelegate.appState.navigationSelection = nil
+                } label: {
+                    Text("action.go-to-status-page.menu-bar")
+                }
+                .disabled(appDelegate.appState.navigationSelection == nil)
+                Divider()
+            }
+
             CommandMenu("navigation.menu.packages")
             {
                 Button

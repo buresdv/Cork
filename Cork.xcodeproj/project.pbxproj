@@ -23,7 +23,7 @@
 		6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
-		632FD2952995A3920029FC49 /* Add Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap.swift */; };
+		632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap View.swift */; };
 		632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2962995A7E50029FC49 /* Nicer Text Editor.swift */; };
 		632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */; };
 		632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD29A2995C1C20029FC49 /* Brew Tap.swift */; };
@@ -112,6 +112,8 @@
 		63A8D2F329CA346400E892FB /* Load Tagged IDs from Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8D2F229CA346400E892FB /* Load Tagged IDs from Disk.swift */; };
 		63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8D2F629CA605200E892FB /* Apply Tags to Package Array.swift */; };
 		63A90D8B2AA268C700CEC48E /* Sanitized Package Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */; };
+		63A96F6E2AA4B3D90029E33B /* Add Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F6D2AA4B3D90029E33B /* Add Tap.swift */; };
+		63A96F702AA4B3F70029E33B /* Remove Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */; };
 		63A9778529A7D5800091DF2E /* Synchnorize Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */; };
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
@@ -192,7 +194,7 @@
 		6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Apply Uninstallation Spinner.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
 		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
-		632FD2942995A3920029FC49 /* Add Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap.swift"; sourceTree = "<group>"; };
+		632FD2942995A3920029FC49 /* Add Tap View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap View.swift"; sourceTree = "<group>"; };
 		632FD2962995A7E50029FC49 /* Nicer Text Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nicer Text Editor.swift"; sourceTree = "<group>"; };
 		632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Tapped Taps.swift"; sourceTree = "<group>"; };
 		632FD29A2995C1C20029FC49 /* Brew Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Tap.swift"; sourceTree = "<group>"; };
@@ -282,6 +284,8 @@
 		63A8D2F229CA346400E892FB /* Load Tagged IDs from Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load Tagged IDs from Disk.swift"; sourceTree = "<group>"; };
 		63A8D2F629CA605200E892FB /* Apply Tags to Package Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Apply Tags to Package Array.swift"; sourceTree = "<group>"; };
 		63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sanitized Package Name.swift"; sourceTree = "<group>"; };
+		63A96F6D2AA4B3D90029E33B /* Add Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap.swift"; sourceTree = "<group>"; };
+		63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Remove Tap.swift"; sourceTree = "<group>"; };
 		63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchnorize Installed Packages.swift"; sourceTree = "<group>"; };
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
@@ -438,7 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				637260BE29BE387C00E6E81C /* Tap Details */,
-				632FD2942995A3920029FC49 /* Add Tap.swift */,
+				632FD2942995A3920029FC49 /* Add Tap View.swift */,
 			);
 			path = Taps;
 			sourceTree = "<group>";
@@ -549,6 +553,7 @@
 				63D2B0862997F5240084E223 /* Package Loading */,
 				63A87463298FE7E4009F9533 /* Search */,
 				637E006928734032005C9890 /* Installation & Removal */,
+				63A96F6C2AA4B3B50029E33B /* Taps */,
 				6371EA242871EE6000300E1B /* Shell */,
 				6371EA1F2871E0EC00300E1B /* Helpers */,
 				637E006728733C1C005C9890 /* Search for Package by ID.swift */,
@@ -891,6 +896,15 @@
 				63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		63A96F6C2AA4B3B50029E33B /* Taps */ = {
+			isa = PBXGroup;
+			children = (
+				63A96F6D2AA4B3D90029E33B /* Add Tap.swift */,
+				63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */,
+			);
+			path = Taps;
 			sourceTree = "<group>";
 		};
 		63AB6C472A9FEBEF00E58B93 /* Misc Views */ = {
@@ -1273,7 +1287,7 @@
 				63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */,
 				634065782871AB3A001A2178 /* Shell Interface.swift in Sources */,
 				63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */,
-				632FD2952995A3920029FC49 /* Add Tap.swift in Sources */,
+				632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */,
 				635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */,
 				63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */,
 				63D51F65299A992900203F3F /* Settings View.swift in Sources */,
@@ -1297,6 +1311,7 @@
 				6342117A29AA52B900E2563B /* Delete Cached Downloads.swift in Sources */,
 				6340657A2871AC27001A2178 /* Brew Data Storage.swift in Sources */,
 				633289E729A68A61004B2930 /* Package Installation Steps.swift in Sources */,
+				63A96F702AA4B3F70029E33B /* Remove Tap.swift in Sources */,
 				63D51F6B299A9AC500203F3F /* Settings Pane Template.swift in Sources */,
 				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
@@ -1311,6 +1326,7 @@
 				63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,
+				63A96F6E2AA4B3D90029E33B /* Add Tap.swift in Sources */,
 				6342117829AA500300E2563B /* Check if URL is Symlink.swift in Sources */,
 				63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */,
 				6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */,

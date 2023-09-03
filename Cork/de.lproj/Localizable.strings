@@ -20,6 +20,7 @@
 
 // MARK: - Misc Actions
 "action.go-to-status-page" = "Zur Homebrew Statusseite wechseln";
+"action.go-to-status-page.menu-bar" = "Zur Statusseite wechseln";
 
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "Veraltete Pakete gefunden";

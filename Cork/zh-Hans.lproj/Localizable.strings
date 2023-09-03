@@ -20,6 +20,7 @@
 
 // MARK: - Misc Actions
 "action.go-to-status-page" = "返回主页";
+"action.go-to-status-page.menu-bar" = "返回主页";
 
 // MARK: - Notifications
 "notification.outdated-packages-found.title" = "已找到可用软件包更新";
