@@ -190,7 +190,7 @@ struct CorkApp: App
                         let emailBody: String = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
 
                         let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
-                        emailService?.recipients = ["vsedni_zelenina.0y@icloud.com"]
+                        emailService?.recipients = ["bug-reporting@corkmac.app"]
                         emailService?.subject = emailSubject
                         emailService?.perform(withItems: [emailBody])
 
