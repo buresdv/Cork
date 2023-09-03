@@ -336,15 +336,15 @@
 
 // MARK: - Settings - Discoverability
 "settings.discoverability.toggle" = "启用探索";
-"settings.discoverability.time-span" = "Get top packages for:";
-"settings.discoverability.time-span.month" = "Last month";
-"settings.discoverability.time-span.quarter-year" = "Last three months";
-"settings.discoverability.time-span.year" = "Last year";
+"settings.discoverability.time-span" = "获取以下用途的热门软件包：";
+"settings.discoverability.time-span.month" = "上月";
+"settings.discoverability.time-span.quarter-year" = "前三月";
+"settings.discoverability.time-span.year" = "去年";
 
-"settings.discoverability.sorting" = "Sort top packages by:";
-"settings.discoverability.sorting.by-most-downloads" = "Most downloads";
-"settings.discoverability.sorting.by-fewest-downloads" = "Fewest downloads";
-"settings.discoverability.sorting.random" = "Random";
+"settings.discoverability.sorting" = "按以下方式排序热门软件包：";
+"settings.discoverability.sorting.by-most-downloads" = "下载量由多到少";
+"settings.discoverability.sorting.by-fewest-downloads" = "下载量由少到多";
+"settings.discoverability.sorting.random" = "随机";
 
 // MARK: - About
 "about.title" = "关于 Cork";
