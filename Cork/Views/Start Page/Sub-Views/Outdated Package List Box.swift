@@ -24,7 +24,7 @@ struct OutdatedPackageListBox: View
                     {
                         GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                         {
-                            VStack(alignment: .leading, spacing: 0)
+                            VStack(alignment: .leading, spacing: 5)
                             {
                                 HStack(alignment: .firstTextBaseline)
                                 {
@@ -114,6 +114,7 @@ struct OutdatedPackageListBox: View
                                     Text("start-page.updates.list")
                                         .font(.subheadline)
                                 }
+                                .disclosureGroupStyle(NoPadding())
                             }
                         }
                     }

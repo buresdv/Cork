@@ -115,6 +115,7 @@
 		63A96F6E2AA4B3D90029E33B /* Add Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F6D2AA4B3D90029E33B /* Add Tap.swift */; };
 		63A96F702AA4B3F70029E33B /* Remove Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */; };
 		63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F712AA4F8030029E33B /* Array - Get Difference.swift */; };
+		63A96F742AA520120029E33B /* Inline Fatal Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96F732AA520120029E33B /* Inline Fatal Error.swift */; };
 		63A9778529A7D5800091DF2E /* Synchnorize Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */; };
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
@@ -288,6 +289,7 @@
 		63A96F6D2AA4B3D90029E33B /* Add Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap.swift"; sourceTree = "<group>"; };
 		63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Remove Tap.swift"; sourceTree = "<group>"; };
 		63A96F712AA4F8030029E33B /* Array - Get Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Difference.swift"; sourceTree = "<group>"; };
+		63A96F732AA520120029E33B /* Inline Fatal Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inline Fatal Error.swift"; sourceTree = "<group>"; };
 		63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchnorize Installed Packages.swift"; sourceTree = "<group>"; };
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
@@ -826,14 +828,13 @@
 				63D51F6C299AAFC600203F3F /* Maintenance */,
 				63D51F63299A98F800203F3F /* Settings */,
 				63D830FD2999279800FA802F /* Reusables */,
-				63C830BF29984B96002D11BB /* Misc */,
 				6330531729966E9200F34F94 /* Start Page */,
-				632FD2932995A3870029FC49 /* Taps */,
 				63958CFE287735ED00E0B807 /* About */,
 				63A38B9429BA0B5D0080158C /* Updating */,
 				6373D9C929DC60B700D98607 /* Reinstall Corrupted Package */,
 				637E006C28734189005C9890 /* Installation */,
 				6371EA1C2871D96800300E1B /* Packages */,
+				632FD2932995A3870029FC49 /* Taps */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -896,6 +897,8 @@
 				632FD291299596790029FC49 /* HelpButton.swift */,
 				63A874692990127D009F9533 /* PillText.swift */,
 				63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */,
+				63C830C029984BA4002D11BB /* Button That Opens Websites.swift */,
+				63A96F732AA520120029E33B /* Inline Fatal Error.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -923,14 +926,6 @@
 				63C830BB29984B1A002D11BB /* Used Package.swift */,
 				63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */,
 				63EC74C82A87C9E9001187F2 /* Network Proxy.swift */,
-			);
-			path = Misc;
-			sourceTree = "<group>";
-		};
-		63C830BF29984B96002D11BB /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				63C830C029984BA4002D11BB /* Button That Opens Websites.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -1332,6 +1327,7 @@
 				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,
 				63A96F6E2AA4B3D90029E33B /* Add Tap.swift in Sources */,
 				6342117829AA500300E2563B /* Check if URL is Symlink.swift in Sources */,
+				63A96F742AA520120029E33B /* Inline Fatal Error.swift in Sources */,
 				63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */,
 				6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,

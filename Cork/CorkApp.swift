@@ -20,9 +20,6 @@ struct CorkApp: App
     @StateObject var updateProgressTracker = UpdateProgressTracker()
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
-    @StateObject var selectedPackageInfo = SelectedPackageInfo()
-    @StateObject var selectedTapInfo = SelectedTapInfo()
-
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
 
@@ -49,8 +46,6 @@ struct CorkApp: App
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
-                .environmentObject(selectedPackageInfo)
-                .environmentObject(selectedTapInfo)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
                 .environmentObject(topPackagesTracker)
