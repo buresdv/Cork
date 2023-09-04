@@ -139,5 +139,21 @@
 			<string>You have %2$@ outdated packages</string>
 		</dict>
 	</dict>
+	<key>add-package.top-packages.list-item</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>%2$@ download</string>
+			<key>other</key>
+			<string>%2$@ downloads</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

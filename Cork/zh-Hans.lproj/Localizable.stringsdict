@@ -147,5 +147,21 @@
 			<string>现有 %2$@ 个软件包有可用更新</string>
 		</dict>
 	</dict>
+	<key>add-package.top-packages.list-item</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>%2$@ 次下载</string>
+			<key>other</key>
+			<string>%2$@ 次下载</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

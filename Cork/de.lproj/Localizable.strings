@@ -53,6 +53,7 @@
 "navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
+"alert.generic.couldnt-parse-json" = "Couldn't decipher Homebrew response";
 "alert.unable-to-uninstall-dependency.title" = "Installation nicht möglich";
 "alert.unable-to-uninstall-dependency.message-%@" = "Dieses Paket ist eine Abhängigkeit von %@";
 "alert.could-not-apply-tags.title" = "Die Pakete konnten nicht getaggt werden";

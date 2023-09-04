@@ -53,6 +53,7 @@
 "navigation.install-package.direct.help" = "Install a package by name, bypassing search";
 
 // MARK: - Alerts
+"alert.generic.couldnt-parse-json" = "Couldn't decipher Homebrew response";
 "alert.unable-to-uninstall-dependency.title" = "卸載失敗";
 "alert.unable-to-uninstall-dependency.message-%@" = "本套件受 %@ 依存";
 "alert.could-not-apply-tags.title" = "無法為套件加上標籤";
