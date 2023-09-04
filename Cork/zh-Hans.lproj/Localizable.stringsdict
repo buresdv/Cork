@@ -158,9 +158,9 @@
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>one</key>
-			<string>%2$@ download</string>
+			<string>%2$@ 次下载</string>
 			<key>other</key>
-			<string>%2$@ downloads</string>
+			<string>%2$@ 次下载</string>
 		</dict>
 	</dict>
 </dict>
