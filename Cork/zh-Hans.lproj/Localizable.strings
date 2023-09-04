@@ -53,6 +53,7 @@
 "navigation.install-package.direct.help" = "通过名称直接安装软件包，跳过搜索";
 
 // MARK: - Alerts
+"alert.generic.couldnt-parse-json" = "Couldn't decipher Homebrew response";
 "alert.unable-to-uninstall-dependency.title" = "无法卸载";
 "alert.unable-to-uninstall-dependency.message-%@" = "该软件包是 %@ 的依赖";
 "alert.could-not-apply-tags.title" = "无法将标签状态应用于软件包";
