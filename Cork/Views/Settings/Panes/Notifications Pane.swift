@@ -37,7 +37,7 @@ struct NotificationsPane: View
                         print("Will re-check notification authorization status")
                         await appState.requestNotificationAuthorization()
                         
-                        switch appState.notificationStatus?.authorizationStatus {
+                        switch appState.notificationAuthStatus {
                             case .notDetermined:
                                 print("Not determined")
                             case .denied:
@@ -48,33 +48,32 @@ struct NotificationsPane: View
                                 print("Provisional")
                             case .ephemeral:
                                 print("Ephemeral")
-                            case nil:
-                                print("Nil")
                             default:
                                 print("TF")
                         }
                         
-                        if appState.notificationStatus?.authorizationStatus == .denied
+                        if appState.notificationAuthStatus == .denied
                         {
                             areNotificationsEnabled = false
                         }
                     }
                     .onChange(of: areNotificationsEnabled, perform: { newValue in
                         Task(priority: .background) {
-                            let notificationsEnabledInSystemSettings: Bool = await appState.requestNotificationAuthorization()
-                            if notificationsEnabledInSystemSettings
+                            await appState.requestNotificationAuthorization()
+                            
+                            if appState.notificationEnabledInSystemSettings == true
                             {
                                 await appState.requestNotificationAuthorization()
-                                if appState.notificationStatus?.authorizationStatus == .denied
+                                if appState.notificationAuthStatus == .denied
                                 {
                                     areNotificationsEnabled = false
                                 }
                             }
                         }
                     })
-                    .disabled(appState.notificationStatus?.authorizationStatus == .denied)
+                    .disabled(appState.notificationAuthStatus == .denied)
                     
-                    if appState.notificationStatus?.authorizationStatus == .denied 
+                    if appState.notificationAuthStatus == .denied
                     {
                         Text("settings.notifications.notifications-disabled-in-settings.tooltip")
                             .font(.caption)

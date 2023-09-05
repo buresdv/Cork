@@ -46,8 +46,7 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
             catch let packageParsingError
             {
                 print("Failed while parsing top packages: \(packageParsingError)")
-                appState.fatalAlertType = .couldNotParseTopPackages
-                appState.isShowingFatalError = true
+                await appState.setCouldNotParseTopPackages()
                 
                 throw packageParsingError
             }
