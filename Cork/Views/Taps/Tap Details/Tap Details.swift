@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TapDetailView: View
+struct TapDetailView: View, Sendable
 {
     @State var tap: BrewTap
     

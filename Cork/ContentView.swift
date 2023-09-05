@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View
+struct ContentView: View, Sendable
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true

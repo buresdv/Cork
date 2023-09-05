@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftyJSON
 
-struct PackageDetailView: View
+struct PackageDetailView: View, Sendable
 {
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false

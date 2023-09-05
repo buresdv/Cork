@@ -71,9 +71,7 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPa
                     else
                     {
                         print("\(item) does not have any versions installed")
-                        appState.corruptedPackage = item
-                        appState.fatalAlertType = .installedPackageHasNoVersions
-                        appState.isShowingFatalError = true
+                        await appState.setCorruptedPackage(item)
                     }
                 }
                 else

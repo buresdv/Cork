@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchResultRow: View
+struct SearchResultRow: View, Sendable
 {
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
     
