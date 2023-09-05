@@ -44,11 +44,11 @@
 "navigation.menu.maintenance.delete-cached-downloads" = "清除下载缓存";
 
 "navigation.upgrade-packages" = "更新软件包";
-"navigation.upgrade-packages.help" = "更新已安装软件包";
+"navigation.upgrade-packages.help" = "更新软件包";
 "navigation.add-tap" = "添加 Tap";
-"navigation.add-tap.help" = "添加新 Tap";
+"navigation.add-tap.help" = "添加 Tap";
 "navigation.install-package" = "安装软件包";
-"navigation.install-package.help" = "安装新软件包";
+"navigation.install-package.help" = "安装软件包";
 "navigation.install-package.direct" = "直接安装软件包";
 "navigation.install-package.direct.help" = "通过名称直接安装软件包，跳过搜索";
 
