@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>start-page.update-incremental.package-count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%1#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Mettre à jour %2$@ un paquet</string>
+			<key>other</key>
+			<string>Mettre à jour %2$@ des paquets</string>
+		</dict>
+	</dict>
+	<key>navigation.installed-packages.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%1#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>%2$@ paquet installé</string>
+			<key>other</key>
+			<string>%2$@ paquets installés</string>
+		</dict>
+	</dict>
+	<key>maintenance.results.package-cache.skipped-%@-and-%lld</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@name@%#@count@</string>
+		<key>name</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Certains caches n&apos;ont pas été purgés en raison de %1$@ et %2$lld autre n&apos;ayant pas été mis à jour</string>
+			<key>other</key>
+			<string>Certains caches n&apos;ont pas été purgés en raison de %1$@ et %2$lld autres n&apos;ayant pas été mis à jour</string>
+		</dict>
+	</dict>
+	<key>start-page.added-taps.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Vous avez ajouté %2$@ Tap</string>
+			<key>other</key>
+			<string>Vous avez ajouté %2$@ Taps</string>
+		</dict>
+	</dict>
+	<key>start-page.installed-casks.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Vous avez installé %2$@ Cask</string>
+			<key>other</key>
+			<string>Vous avez installé %2$@ Casks</string>
+		</dict>
+	</dict>
+	<key>start-page.installed-formulae.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Vous avez installé %2$@ Formule</string>
+			<key>other</key>
+			<string>Vous avez installé %2$@ Formules</string>
+		</dict>
+	</dict>
+	<key>start-page.updates.count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>one</key>
+			<string>Il y a %2$@ paquet obsolète</string>
+			<key>other</key>
+			<string>Il y a %2$@ paquets obsolète</string>
+		</dict>
+	</dict>
+	<key>notification.outdated-packages-found.body</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>Vous avez %2$@ paquet obsolète</string>
+			<key>other</key>
+			<string>Vous avez %2$@ paquets obsolètes</string>
+		</dict>
+	</dict>
+	<key>add-package.top-packages.list-item</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#1@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>@</string>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>one</key>
+			<string>%2$@ téléchargement</string>
+			<key>other</key>
+			<string>%2$@ téléchargements</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
