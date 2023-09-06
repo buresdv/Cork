@@ -23,7 +23,7 @@
 "action.go-to-status-page.menu-bar" = "返回主页";
 
 // MARK: - Notifications
-"notification.outdated-packages-found.title" = "已找到可用软件包更新";
+"notification.outdated-packages-found.title" = "找到可用软件包更新";
 "notification.new-outdated-packages-found.title" = "有可用软件包更新";
 "notification.upgrade-finished.success" = "软件包已更新";
 "notification.upgrade-finished.success.some-errors" = "更新过程中出现了一些错误";
