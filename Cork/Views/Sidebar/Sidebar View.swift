@@ -38,17 +38,17 @@ struct SidebarView: View
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
-                FormulaeSection(currentTokens: $currentTokens, searchText: $searchText)
+                FormulaeSection(currentTokens: currentTokens, searchText: searchText)
             }
             
             if currentTokens.isEmpty || currentTokens.contains(.cask) || currentTokens.contains(.intentionallyInstalledPackage)
             {
-                CasksSection(searchText: $searchText)
+                CasksSection(searchText: searchText)
             }
             
             if currentTokens.isEmpty || currentTokens.contains(.tap)
             {
-                TapsSection(searchText: $searchText)
+                TapsSection(searchText: searchText)
             }
         }
         .listStyle(.sidebar)
