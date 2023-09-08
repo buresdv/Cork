@@ -23,124 +23,62 @@ struct FormulaeSection: View {
         {
             if !appState.isLoadingFormulae
             {
-                
-                if currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
-                {
-                    ForEach(searchText.isEmpty ? brewData.installedFormulae.filter({ $0.installedIntentionally == true }) : brewData.installedFormulae.filter({ $0.installedIntentionally == true && $0.name.contains(searchText)}))
-                    { formula in
-                        NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
-                        {
-                            PackageDetailView(package: formula)
-                        } label: {
-                            PackageListItem(packageItem: formula)
-                        }
-                        .contextMenu
-                        {
-                            if !formula.isTagged
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
-                                }
-                            }
-                            else
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
-                                }
-                            }
-                            
-                            Divider()
-                            
-                            Button
-                            {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(
-                                        package: formula,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false,
-                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                    )
-                                }
-                            } label: {
-                                Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
-                            }
-                            if allowMoreCompleteUninstallations
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(
-                                            package: formula,
-                                            brewData: brewData,
-                                            appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: true,
-                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                        )
-                                    }
-                                } label: {
-                                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
-                                }
-                            }
-                            
-                        }
+                ForEach(displayedFormulae)
+                { formula in
+                    NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
+                    {
+                        PackageDetailView(package: formula)
+                    } label: {
+                        PackageListItem(packageItem: formula)
                     }
-                }
-                else
-                {
-                    ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
-                    { formula in
-                        NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
+                    .contextMenu
+                    {
+                        if !formula.isTagged
                         {
-                            PackageDetailView(package: formula)
-                        } label: {
-                            PackageListItem(packageItem: formula)
+                            Button
+                            {
+                                Task
+                                {
+                                    await tagPackage(package: formula, brewData: brewData, appState: appState)
+                                }
+                            } label: {
+                                Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
+                            }
                         }
-                        .contextMenu
+                        else
                         {
-                            if !formula.isTagged
+                            Button
                             {
-                                Button
+                                Task
                                 {
-                                    Task
-                                    {
-                                        await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
+                                    await untagPackage(package: formula, brewData: brewData, appState: appState)
                                 }
+                            } label: {
+                                Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
                             }
-                            else
+                        }
+
+                        Divider()
+
+                        Button
+                        {
+                            Task
                             {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
-                                }
+                                try await uninstallSelectedPackage(
+                                    package: formula,
+                                    brewData: brewData,
+                                    appState: appState,
+                                    outdatedPackageTracker: outdatedPackageTracker,
+                                    shouldRemoveAllAssociatedFiles: false,
+                                    shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                                )
                             }
-                            
-                            Divider()
-                            
+                        } label: {
+                            Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
+                        }
+
+                        if allowMoreCompleteUninstallations
+                        {
                             Button
                             {
                                 Task
@@ -150,34 +88,15 @@ struct FormulaeSection: View {
                                         brewData: brewData,
                                         appState: appState,
                                         outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false,
+                                        shouldRemoveAllAssociatedFiles: true,
                                         shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
                                     )
                                 }
                             } label: {
-                                Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
-                            }
-                            
-                            if allowMoreCompleteUninstallations
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(
-                                            package: formula,
-                                            brewData: brewData,
-                                            appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: true,
-                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                        )
-                                    }
-                                } label: {
-                                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
-                                }
+                                Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
                             }
                         }
+
                     }
                 }
             }
@@ -187,5 +106,39 @@ struct FormulaeSection: View {
             }
         }
         .collapsible(true)
+    }
+
+    private var displayedFormulae: [BrewPackage]
+    {
+        guard !appState.isLoadingFormulae else
+        {
+            return []
+        }
+
+        let filter: (BrewPackage) -> Bool
+
+        if currentTokens.contains(.intentionallyInstalledPackage)
+        {
+            if searchText.isEmpty
+            {
+                filter = \.installedIntentionally
+            } else
+            {
+                filter = { $0.installedIntentionally && $0.name.contains(searchText)  }
+            }
+        } 
+        else
+        {
+            if searchText.isEmpty || searchText.contains("#")
+            {
+                filter = { _ in true }
+            } 
+            else
+            {
+                filter = { $0.name.contains(searchText) }
+            }
+        }
+
+        return brewData.installedFormulae.filter(filter)
     }
 }

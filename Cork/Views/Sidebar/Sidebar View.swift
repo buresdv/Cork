@@ -16,10 +16,7 @@ struct SidebarView: View
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
     @State private var availableTokens: [PackageSearchToken] = [
-        PackageSearchToken(name: "search.token.filter-formulae", icon: "terminal", tokenSearchResultType: .formula),
-        PackageSearchToken(name: "search.token.filter-casks", icon: "macwindow", tokenSearchResultType: .cask),
-        PackageSearchToken(name: "search.token.filter-taps", icon: "spigot", tokenSearchResultType: .tap),
-        PackageSearchToken(name: "search.token.filter-manually-installed-packages", icon: "hand.tap", tokenSearchResultType: .intentionallyInstalledPackage)
+        .formula, .cask, .tap, .intentionallyInstalledPackage
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
     
@@ -39,17 +36,17 @@ struct SidebarView: View
     {
         List
         {
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .formula }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
+            if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
                 FormulaeSection(currentTokens: $currentTokens, searchText: $searchText)
             }
             
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .cask }) || currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
+            if currentTokens.isEmpty || currentTokens.contains(.cask) || currentTokens.contains(.intentionallyInstalledPackage)
             {
                 CasksSection(searchText: $searchText)
             }
             
-            if currentTokens.isEmpty || currentTokens.contains(where: { $0.tokenSearchResultType == .tap })
+            if currentTokens.isEmpty || currentTokens.contains(.tap)
             {
                 TapsSection(searchText: $searchText)
             }
