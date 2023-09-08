@@ -385,6 +385,8 @@
 "about.translator.2.purpose" = "為 Cork 提供繁體中文翻譯";
 "about.translator.3.name" = "Maurice Meysel";
 "about.translator.3.purpose" = "為 Cork 提供德文翻譯";
+"about.translator.4.name" = "Bryan Ledda";
+"about.translator.4.purpose" = "為 Cork 法語";
 
 "about.contribute" = "捐助";
 "about.contact" = "聯繫我";

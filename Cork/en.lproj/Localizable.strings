@@ -385,6 +385,8 @@
 "about.translator.2.purpose" = "Translated Cork into Traditional Chinese";
 "about.translator.3.name" = "Maurice Meysel";
 "about.translator.3.purpose" = "Translated Cork into German";
+"about.translator.4.name" = "Bryan Ledda";
+"about.translator.4.purpose" = "Translated Cork into French";
 
 "about.contribute" = "Contribute";
 "about.contact" = "Contact Me";

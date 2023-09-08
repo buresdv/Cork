@@ -336,6 +336,11 @@
 		96B86AFE29C66E6D00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		B0376A5729D26097009C7E6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B0376A5829D26097009C7E6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
+		C1AA4F252AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C1AA4F262AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = fr; path = fr.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		C1AA4F272AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/index.html; sourceTree = "<group>"; };
+		C1AA4F282AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/topic1.html; sourceTree = "<group>"; };
+		C1AA4F292AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = fr.lproj/topic2.html; sourceTree = "<group>"; };
 		C45945182A91232900271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/index.html; sourceTree = "<group>"; wrapsLines = 0; };
 		C459451B2A91232E00271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic1.html; sourceTree = "<group>"; };
 		C459451E2A91233400271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic2.html; sourceTree = "<group>"; };
@@ -1203,6 +1208,7 @@
 				"zh-Hans",
 				"zh-Hant",
 				de,
+				fr,
 			);
 			mainGroup = 634065582871AA42001A2178;
 			packageReferences = (
@@ -1447,6 +1453,7 @@
 				C4F430F329C93B500070489B /* zh-Hans */,
 				B0376A5729D26097009C7E6B /* zh-Hant */,
 				512963C42A35A288009FE512 /* de */,
+				C1AA4F252AA936CA003BCF81 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1458,6 +1465,7 @@
 				C4F430F429C93B500070489B /* zh-Hans */,
 				B0376A5829D26097009C7E6B /* zh-Hant */,
 				512963C52A35A288009FE512 /* de */,
+				C1AA4F262AA936CA003BCF81 /* fr */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";
@@ -1617,13 +1625,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 43;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1649,13 +1657,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 43;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
