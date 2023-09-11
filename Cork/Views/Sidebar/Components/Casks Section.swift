@@ -9,100 +9,38 @@ import SwiftUI
 
 struct CasksSection: View {
     
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
-    @Binding var searchText: String
+    let searchText: String
     
     var body: some View {
         Section("sidebar.section.installed-casks")
         {
-            if !appState.isLoadingCasks
-            {
-                ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedCasks : brewData.installedCasks.filter { $0.name.contains(searchText) })
-                { cask in
-                    NavigationLink(tag: cask.id, selection: $appState.navigationSelection)
-                    {
-                        PackageDetailView(package: cask)
-                    } label: {
-                        PackageListItem(packageItem: cask)
-                    }
-                    .contextMenu
-                    {
-                        if cask.isTagged
-                        {
-                            Button
-                            {
-                                Task
-                                {
-                                    await untagPackage(package: cask, brewData: brewData, appState: appState)
-                                }
-                            } label: {
-                                Text("sidebar.section.all.contextmenu.untag-\(cask.name)")
-                            }
-                        }
-                        else
-                        {
-                            Button
-                            {
-                                Task
-                                {
-                                    await tagPackage(package: cask, brewData: brewData, appState: appState)
-                                }
-                            } label: {
-                                Text("sidebar.section.all.contextmenu.tag-\(cask.name)")
-                            }
-                        }
-                        
-                        Divider()
-                        
-                        Button
-                        {
-                            Task
-                            {
-                                try await uninstallSelectedPackage(
-                                    package: cask,
-                                    brewData: brewData,
-                                    appState: appState,
-                                    outdatedPackageTracker: outdatedPackageTracker,
-                                    shouldRemoveAllAssociatedFiles: false,
-                                    shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                )
-                            }
-                        } label: {
-                            Text("sidebar.section.installed-casks.contextmenu.uninstall-\(cask.name)")
-                        }
-                        
-                        if allowMoreCompleteUninstallations
-                        {
-                            Button
-                            {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(
-                                        package: cask,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: true,
-                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                    )
-                                }
-                            } label: {
-                                Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(cask.name)")
-                            }
-                        }
-                    }
-                }
-            }
-            else
+            if appState.isLoadingCasks
             {
                 ProgressView()
             }
+            else
+            {
+                ForEach(displayedCasks)
+                { cask in
+                    SidebarPackageRow(package: cask)
+                }
+            }
         }
         .collapsible(true)
+    }
+
+    private var displayedCasks: [BrewPackage]
+    {
+        if searchText.isEmpty || searchText.contains("#")
+        {
+            return brewData.installedCasks
+        } 
+        else
+        {
+            return brewData.installedCasks.filter { $0.name.contains(searchText) }
+        }
     }
 }
