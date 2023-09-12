@@ -12,7 +12,7 @@ struct TapsSection: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
     
-    @Binding var searchText: String
+    let searchText: String
     
     var body: some View {
         Section("sidebar.section.added-taps")
@@ -21,7 +21,6 @@ struct TapsSection: View {
             {
                 ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
                 { tap in
-                    
                     NavigationLink(tag: tap.id, selection: $appState.navigationSelection)
                     {
                         TapDetailView(tap: tap)

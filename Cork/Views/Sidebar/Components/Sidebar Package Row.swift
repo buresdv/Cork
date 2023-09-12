@@ -1,0 +1,94 @@
+//
+//  Sidebar Package Row.swift
+//  Cork
+//
+//  Created by Seb Jachec on 08/09/2023.
+//
+
+import SwiftUI
+
+struct SidebarPackageRow: View {
+
+    let package: BrewPackage
+
+    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+
+    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+
+    var body: some View {
+        NavigationLink(tag: package.id, selection: $appState.navigationSelection)
+        {
+            PackageDetailView(package: package)
+        } label: {
+            PackageListItem(packageItem: package)
+        }
+        .contextMenu
+        {
+            if package.isTagged
+            {
+                Button
+                {
+                    Task
+                    {
+                        await untagPackage(package: package, brewData: brewData, appState: appState)
+                    }
+                } label: {
+                    Text("sidebar.section.all.contextmenu.untag-\(package.name)")
+                }
+            }
+            else
+            {
+                Button
+                {
+                    Task
+                    {
+                        await tagPackage(package: package, brewData: brewData, appState: appState)
+                    }
+                } label: {
+                    Text("sidebar.section.all.contextmenu.tag-\(package.name)")
+                }
+            }
+
+            Divider()
+
+            Button
+            {
+                Task
+                {
+                    try await uninstallSelectedPackage(
+                        package: package,
+                        brewData: brewData,
+                        appState: appState,
+                        outdatedPackageTracker: outdatedPackageTracker,
+                        shouldRemoveAllAssociatedFiles: false,
+                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                    )
+                }
+            } label: {
+                Text("sidebar.section.installed-casks.contextmenu.uninstall-\(package.name)")
+            }
+
+            if allowMoreCompleteUninstallations
+            {
+                Button
+                {
+                    Task
+                    {
+                        try await uninstallSelectedPackage(
+                            package: package,
+                            brewData: brewData,
+                            appState: appState,
+                            outdatedPackageTracker: outdatedPackageTracker,
+                            shouldRemoveAllAssociatedFiles: true,
+                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
+                        )
+                    }
+                } label: {
+                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(package.name)")
+                }
+            }
+        }
+    }
+}
