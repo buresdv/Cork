@@ -34,7 +34,8 @@ struct SidebarView: View
     
     var body: some View
     {
-        List
+        /// Navigation selection enables "Home" button behaviour. [2023.09]
+        List(selection: $appState.navigationSelection)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
