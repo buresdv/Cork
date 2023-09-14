@@ -29,15 +29,15 @@ struct ContentView: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @State private var multiSelection = Set<UUID>()
+    @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
     var body: some View
     {
         VStack
         {
-            NavigationView
-            {
+            NavigationSplitView(columnVisibility: $columnVisibility) {
                 SidebarView()
-
+            } detail: {
                 StartPage()
                     .frame(minWidth: 600, minHeight: 500)
             }
