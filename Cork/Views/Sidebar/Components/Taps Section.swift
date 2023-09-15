@@ -21,16 +21,16 @@ struct TapsSection: View {
             {
                 ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
                 { tap in
-                    NavigationLink(tag: tap.id, selection: $appState.navigationSelection)
-                    {
+                    NavigationLink {
                         TapDetailView(tap: tap)
+                            .id(tap.id)
                     } label: {
                         Text(tap.name)
 
                         if tap.isBeingModified
                         {
                             Spacer()
-                            
+
                             ProgressView()
                                 .frame(height: 5)
                                 .scaleEffect(0.5)

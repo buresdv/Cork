@@ -18,9 +18,9 @@ struct SidebarPackageRow: View {
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     var body: some View {
-        NavigationLink(tag: package.id, selection: $appState.navigationSelection)
-        {
+        NavigationLink {
             PackageDetailView(package: package)
+                .id(package.id)
         } label: {
             PackageListItem(packageItem: package)
         }
