@@ -112,4 +112,19 @@ struct AppConstants
     // MARK: - Misc Stuff
     static let backgroundUpdateInterval: TimeInterval = 10 * 60
     static let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60
+
+    static let osVersionString: (lookupName: String, fullName: String) =
+    {
+        let versionDictionary: [Int: (lookupName: String, fullName: String)] = [
+            14: ("sonoma", "Sonoma"),
+            13: ("ventura", "Ventura"),
+            12: ("monterey", "Monterey"),
+            11: ("big_sur", "Big Sur"),
+            10: ("legacy", "Legacy")
+        ]
+
+        let macOSVersionTheUserIsRunning: Int = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
+
+        return versionDictionary[macOSVersionTheUserIsRunning, default: ("legacy", "Legacy")]
+    }()
 }

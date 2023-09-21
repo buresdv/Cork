@@ -17,6 +17,7 @@ struct SearchResultRow: View
     @State var isCask: Bool
     
     @State private var description: String = ""
+    @State private var isCompatible: Bool?
 
     var body: some View
     {
@@ -25,7 +26,7 @@ struct SearchResultRow: View
             HStack(alignment: .firstTextBaseline)
             {
                 SanitizedPackageName(packageName: packageName, shouldShowVersion: true)
-                
+
                 if !isCask
                 {
                     if brewData.installedFormulae.contains(where: { $0.name == packageName })
@@ -74,6 +75,8 @@ struct SearchResultRow: View
                         async let descriptionRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", packageName]).standardOutput
                         
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)
+
+                        isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
                         
                         description = getPackageDescriptionFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
                     }

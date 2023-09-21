@@ -77,6 +77,7 @@
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
+		637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637410AD2ABB751B00B7915A /* Get Compatibility.swift */; };
 		637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Upgrade Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
@@ -253,6 +254,7 @@
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
+		637410AD2ABB751B00B7915A /* Get Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Compatibility.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Upgrade Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upgrade Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */,
 				63006E1829AD215000243E29 /* Get Caveats.swift */,
 				635A50E829B7723C00164FBA /* Get Pin Status.swift */,
+				637410AD2ABB751B00B7915A /* Get Compatibility.swift */,
 			);
 			path = "Get Various Package Info From JSON";
 			sourceTree = "<group>";
@@ -1401,6 +1404,7 @@
 				635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
+				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				63B8D4F8299E3DAD00AA7CFA /* Sort By Size.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,

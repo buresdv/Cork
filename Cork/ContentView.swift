@@ -120,6 +120,8 @@ struct ContentView: View
 
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
 
+            print("System version: \(AppConstants.osVersionString)")
+
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
             {
                 print("Documents directory does not exist, creating it...")
