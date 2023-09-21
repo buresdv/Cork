@@ -2394,6 +2394,17 @@
         }
       }
     },
+    "add-package.result.description-empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No description provided"
+          }
+        }
+      }
+    },
     "add-package.result.loading-description" : {
       "localizations" : {
         "de" : {
@@ -2424,6 +2435,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "下載簡介⋯"
+          }
+        }
+      }
+    },
+    "add-package.result.loading-failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load description"
+          }
+        }
+      }
+    },
+    "add-package.result.not-optimized-for-%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not optimized for %@"
           }
         }
       }
@@ -2701,139 +2734,25 @@
         }
       }
     },
-    "add-package.top-packages.list-item" : {
+    "add-package.top-packages.list-item %lld" : {
+
+    },
+    "add-package.top-packages.list-item-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ download"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ downloads"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ download"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ downloads"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld download"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ téléchargement"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ téléchargements"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ 次下载"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ 次下载"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ download"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ downloads"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld downloads"
                 }
               }
             }
@@ -4471,71 +4390,31 @@
         }
       }
     },
-    "maintenance.results.orphans-count-%@" : {
+    "maintenance.results.orphans-count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ verwaiste Pakete entfernt"
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ orphaned packages removed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ paquets orphelins supprimés"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已移除 %@ 个孤立包"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "移除了 %@ 個遺孤套件"
-          }
-        }
-      }
-    },
-    "maintenance.results.orphans-none" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine verwaisten Pakete gefunden"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No orphaned packages found"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aucun paquet orphelin trouvé"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未发现孤立包 "
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無遺孤套件"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld orphaned package removed"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld orphaned packages removed"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "No orphaned packages found"
+                }
+              }
+            }
           }
         }
       }
@@ -5577,151 +5456,21 @@
         }
       }
     },
-    "navigation.installed-packages.count" : {
-      "extractionState" : "manual",
+    "navigation.installed-packages.count-%lld" : {
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ Paket installiert"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ Pakete installiert"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ package installed"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ packages installed"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld package installed"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ paquet installé"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "%2$@ paquets installés"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "已安装 %2$@ 个软件包"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "已安装 %2$@ 个软件包"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安装任何软件包"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "已安裝 %2$@ 個套件"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "已安裝 %2$@ 個套件"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安裝任何套件"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld packages installed"
                 }
               }
             }
@@ -6103,139 +5852,22 @@
         }
       }
     },
-    "notification.outdated-packages-found.body" : {
+    "notification.outdated-packages-found.body-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ outdated package"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ outdated packages"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ outdated package"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ outdated packages"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld outdated package"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez %2$@ paquet obsolète"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez %2$@ paquets obsolètes"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "现有 %2$@ 个软件包有可用更新"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "现有 %2$@ 个软件包有可用更新"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您有 %2$@ 個落伍套件"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您有 %2$@ 個落伍套件"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld outdated packages"
                 }
               }
             }
@@ -10140,151 +9772,22 @@
         }
       }
     },
-    "start-page.added-taps.count" : {
+    "start-page.added-taps.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Du hast %2$@ Tap hinzugefügt"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Du hast %2$@ Taps hinzugefügt"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ Tap added"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ Taps added"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld Tap added"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez ajouté %2$@ Tap"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez ajouté %2$@ Taps"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "你已添加 %2$@ 个 Tap"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "你已添加 %2$@ 个 Tap"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安装任何 Tap"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您加入了 %2$@ 個 Tap"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您加入了 %2$@ 個 Tap"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安裝任何 tap"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld Taps added"
                 }
               }
             }
@@ -10564,151 +10067,22 @@
         }
       }
     },
-    "start-page.installed-casks.count" : {
+    "start-page.installed-casks.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Du hast %2$@ Cask installiert"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Du hast %2$@ Casks installiert"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ Cask installed"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ Casks installed"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld Cask installed"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez installé %2$@ Cask"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez installé %2$@ Casks"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "你已安装 %2$@ 个 Cask"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "你已安装 %2$@ 个 Cask"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安装任何 Cask"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您安裝了 %2$@ 個 Cask"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您安裝了 %2$@ 個 Cask"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安裝任何 cask"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld Casks installed"
                 }
               }
             }
@@ -10750,151 +10124,22 @@
         }
       }
     },
-    "start-page.installed-formulae.count" : {
+    "start-page.installed-formulae.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Du hast %2$@ Formula installiert"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Du hast %2$@ Formulae installiert"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ Formula installed"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "You have %2$@ Formulae installed"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld Formula installed"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez installé %2$@ Formule"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Vous avez installé %2$@ Formules"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "你已安装 %2$@ 个 Formula"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "你已安装 %2$@ 个 Formula"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安装任何 Formula"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您安裝了 %2$@ 個 Formula"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "您安裝了 %2$@ 個 Formula"
-                    }
-                  },
-                  "zero" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "未安裝任何 formula"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "You have %lld Formulae installed"
                 }
               }
             }
@@ -11039,139 +10284,22 @@
         }
       }
     },
-    "start-page.update-incremental.package-count" : {
+    "start-page.update-incremental.package-count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Aktualisiere %2$@ Paket"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Aktualisiere %2$@ Pakete"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Update %2$@ package"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Update %2$@ packages"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Update %lld package"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Mettre à jour %2$@ un paquet"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Mettre à jour %2$@ des paquets"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "更新 %2$@ 个软件包"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "更新 %2$@ 个软件包"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "更新 %2$@ 個套件"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "更新 %2$@ 個套件"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Update %lld packages"
                 }
               }
             }
@@ -11281,139 +10409,22 @@
         }
       }
     },
-    "start-page.updates.count" : {
+    "start-page.updates.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Es gibt %2$@ veraltetes Paket"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Es gibt %2$@ veraltete Pakete"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "There is %2$@ outdated package"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "There are %2$@ outdated packages"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld outdated package"
                 }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#1@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Il y a %2$@ paquet obsolète"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Il y a %2$@ paquets obsolète"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "现有 %2$@ 个软件包有可用更新"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "现有 %2$@ 个软件包有可用更新"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "@",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "有 %2$@ 個套件已落伍"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "有 %2$@ 個套件已落伍"
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld outdated packages"
                 }
               }
             }

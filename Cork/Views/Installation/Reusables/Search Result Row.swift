@@ -32,7 +32,7 @@ struct SearchResultRow: View
 
                 if let isCompatible
                 {
-                    Text("Compatible")
+                    Text("add-package.result.not-optimized-for-\(AppConstants.osVersionString.fullName)")
                 }
 
                 if !isCask

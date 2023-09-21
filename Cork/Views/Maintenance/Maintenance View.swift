@@ -177,14 +177,7 @@ struct MaintenanceView: View
 
                             if shouldUninstallOrphans
                             {
-                                if numberOfOrphansRemoved == 0
-                                {
-                                    Text("maintenance.results.orphans-none")
-                                }
-                                else
-                                {
-                                    Text(String.localizedPluralString("maintenance.results.orphans-count-%@", numberOfOrphansRemoved))
-                                }
+                                Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
                             }
 
                             if shouldPurgeCache

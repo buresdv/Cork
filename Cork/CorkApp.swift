@@ -135,7 +135,7 @@ struct CorkApp: App
                                 /// Instead, we want to send a more succinct notification that includes only the new package
                                 if sendStandardUpdatesAvailableNotification
                                 {
-                                    sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String.localizedPluralString("notification.outdated-packages-found.body", outdatedPackageCount))
+                                    sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String(localized: "notification.outdated-packages-found.body-\(outdatedPackageCount)"))
                                 }
                                 else
                                 {
@@ -287,7 +287,7 @@ struct CorkApp: App
                 .environmentObject(appDelegate.appState)
         }
 
-        let outdatedCountString = String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackages.count)
+        let outdatedCountString = String(localized: "notification.outdated-packages-found.body-\(outdatedPackageTracker.outdatedPackages.count)")
         MenuBarExtra(outdatedCountString, systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             Text(outdatedCountString)
