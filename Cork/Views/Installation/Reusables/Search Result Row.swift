@@ -19,6 +19,9 @@ struct SearchResultRow: View
     @State private var description: String = ""
     @State private var isCompatible: Bool?
 
+    @State private var isLoadingDescription: Bool = true
+    @State private var descriptionParsingFailed: Bool = false
+
     var body: some View
     {
         VStack(alignment: .leading)
@@ -50,16 +53,34 @@ struct SearchResultRow: View
             
             if showDescriptionsInSearchResults
             {
-                if !description.isEmpty
-                {
-                    Text(description)
-                        .font(.caption)
+                if !descriptionParsingFailed
+                { // Show this if the description got properly parsed
+                    if isLoadingDescription
+                    {
+                        Text("add-package.result.loading-description")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    else
+                    {
+                        if !description.isEmpty
+                        {
+                            Text(description)
+                                .font(.caption)
+                        }
+                        else
+                        {
+                            Text("add-package.result.description-empty")
+                                .font(.caption)
+                                .foregroundColor(Color(nsColor: .tertiaryLabelColor))
+                        }
+                    }
                 }
                 else
-                {
-                    Text("add-package.result.loading-description")
+                { // Otherwise, tell the user the parsing failed
+                    Text("add-package.result.loading-failed")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.orange)
                 }
             }
             
@@ -72,7 +93,6 @@ struct SearchResultRow: View
 
                 if description.isEmpty
                 {
-
                     print("\(packageName) does not have its description loaded")
 
                     async let descriptionRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", packageName]).standardOutput
@@ -83,10 +103,13 @@ struct SearchResultRow: View
                         isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
 
                         description = getPackageDescriptionFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
+
+                        isLoadingDescription = false
                     }
                     catch let descriptionJSONRetrievalError
                     {
                         print("Failed while retrieving description JSON: \(descriptionJSONRetrievalError)")
+                        isLoadingDescription = false
                     }
                 }
                 else
