@@ -27,6 +27,11 @@ struct SearchResultRow: View
             {
                 SanitizedPackageName(packageName: packageName, shouldShowVersion: true)
 
+                if let isCompatible
+                {
+                    Text("Compatible")
+                }
+
                 if !isCask
                 {
                     if brewData.installedFormulae.contains(where: { $0.name == packageName })
@@ -59,31 +64,34 @@ struct SearchResultRow: View
             }
             
         }
-        .onAppear
+        .task
         {
             if showDescriptionsInSearchResults
             {
-                Task
+                print("\(packageName) came into view")
+
+                if description.isEmpty
                 {
-                    print("\(packageName) came into view")
-                    
-                    if description.isEmpty
+
+                    print("\(packageName) does not have its description loaded")
+
+                    async let descriptionRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", packageName]).standardOutput
+                    do
                     {
-                        
-                        print("\(packageName) does not have its description loaded")
-                        
-                        async let descriptionRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", packageName]).standardOutput
-                        
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)
 
                         isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
-                        
+
                         description = getPackageDescriptionFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
                     }
-                    else
+                    catch let descriptionJSONRetrievalError
                     {
-                        print("\(packageName) already has its description loaded")
+                        print("Failed while retrieving description JSON: \(descriptionJSONRetrievalError)")
                     }
+                }
+                else
+                {
+                    print("\(packageName) already has its description loaded")
                 }
             }
         }
