@@ -2,13 +2,34 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "?" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        }
+      }
     },
     "⚠️" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "about.contact" : {
       "localizations" : {
@@ -2402,6 +2423,12 @@
             "state" : "translated",
             "value" : "No description provided"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune description fournie"
+          }
         }
       }
     },
@@ -2447,6 +2474,12 @@
             "state" : "translated",
             "value" : "Couldn't load description"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger la description"
+          }
         }
       }
     },
@@ -2457,6 +2490,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Not optimized for %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non optimisé pour %@"
           }
         }
       }
@@ -2735,7 +2774,14 @@
       }
     },
     "add-package.top-packages.list-item %lld" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "add-package.top-packages.list-item %lld"
+          }
+        }
+      }
     },
     "add-package.top-packages.list-item-%lld" : {
       "extractionState" : "manual",
@@ -2753,6 +2799,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld downloads"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld téléchargement"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld téléchargements"
                 }
               }
             }
@@ -3172,7 +3236,14 @@
       }
     },
     "add-tap.typing.error.error" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "add-tap.typing.error.error"
+          }
+        }
+      }
     },
     "add-tap.typing.error.slash" : {
       "localizations" : {
@@ -3927,7 +3998,14 @@
       }
     },
     "alert.notifications-error-while-parsing-top-packages.message" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "alert.notifications-error-while-parsing-top-packages.message"
+          }
+        }
+      }
     },
     "alert.notifications-error-while-parsing-top-packages.title" : {
       "localizations" : {
@@ -4203,22 +4281,64 @@
       }
     },
     "GitHub" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Github"
+          }
+        }
+      }
     },
     "homebrew/core" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        }
+      }
     },
     "Installing %@" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation de %@"
+          }
+        }
+      }
     },
     "Loading info..." : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des informations..."
+          }
+        }
+      }
     },
     "Loading top packages…" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des meilleurs packages…"
+          }
+        }
+      }
     },
     "Main Window" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenêtre principale"
+          }
+        }
+      }
     },
     "maintenance.finished" : {
       "localizations" : {
@@ -4412,6 +4532,30 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "No orphaned packages found"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld package orphelin supprimé"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld packages orphelin supprimé"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aucun package orphelin trouvé"
                 }
               }
             }
@@ -4697,6 +4841,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "maintenance.results.package-cache.skipped-%1$@-and-%2$lld-others"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "maintenance.results.package-cache.skipped-%1$@-and-%2$lld-others"
           }
         }
@@ -5475,6 +5625,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld paquet installé"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld paquets installés"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -5868,6 +6036,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld outdated packages"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld package obsolète"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld packages obsolètes"
                 }
               }
             }
@@ -9792,6 +9978,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez ajouté %lld Tap"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez ajouté %lld Taps"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10087,6 +10291,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez installé %lld Cask"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez installé %lld Casks"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10140,6 +10362,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld Formulae installed"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez installé %lld Formule"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez installé %lld Formules"
                 }
               }
             }
@@ -10304,6 +10544,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mise à jour de %lld package"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mise à jour de %lld packages"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10429,6 +10687,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld package obsolète"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld packages obsolètes"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10501,7 +10777,14 @@
       }
     },
     "Tap" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
+        }
+      }
     },
     "tap-details.contents" : {
       "localizations" : {
@@ -11663,10 +11946,24 @@
       }
     },
     "v. %@" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        }
+      }
     },
     "􀇾" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
