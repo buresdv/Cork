@@ -20,7 +20,7 @@ struct TopPackageListItem: View
             
             Spacer()
             
-            Text(String.localizedPluralString("add-package.top-packages.list-item", topPackage.packageDownloads))
+            Text("add-package.top-packages.list-item-\(topPackage.packageDownloads)")
                 .foregroundStyle(.secondary)
                 .font(.caption)
         }

@@ -28,7 +28,7 @@ struct OutdatedPackageListBox: View
                             {
                                 HStack(alignment: .firstTextBaseline)
                                 {
-                                    Text(String.localizedPluralString("start-page.updates.count", outdatedPackageTracker.outdatedPackages.count))
+                                    Text("start-page.updates.count-\(outdatedPackageTracker.outdatedPackages.count)")
                                         .font(.headline)
 
                                     Spacer()
@@ -48,7 +48,7 @@ struct OutdatedPackageListBox: View
                                         {
                                             appState.isShowingIncrementalUpdateSheet = true
                                         } label: {
-                                            Text(String.localizedPluralString("start-page.update-incremental.package-count", outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count))
+                                            Text("start-page.update-incremental.package-count-\( outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count)")
                                         }
                                         .disabled(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count == 0)
                                     }

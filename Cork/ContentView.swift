@@ -42,7 +42,7 @@ struct ContentView: View
                     .frame(minWidth: 600, minHeight: 500)
             }
             .navigationTitle("app-name")
-            .navigationSubtitle(String.localizedPluralString("navigation.installed-packages.count", brewData.installedFormulae.count + brewData.installedCasks.count))
+            .navigationSubtitle("navigation.installed-packages.count-\(brewData.installedFormulae.count + brewData.installedCasks.count)")
             .toolbar(id: "PackageActions")
             {
                 ToolbarItem(id: "upgradePackages", placement: .primaryAction)
@@ -119,6 +119,8 @@ struct ContentView: View
             print("Brew executable path: \(AppConstants.brewExecutablePath.absoluteString)")
 
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
+
+            print("System version: \(AppConstants.osVersionString)")
 
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
             {

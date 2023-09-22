@@ -77,6 +77,7 @@
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
+		637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637410AD2ABB751B00B7915A /* Get Compatibility.swift */; };
 		637E00642872F3CE005C9890 /* Upgrade Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Upgrade Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
@@ -160,11 +161,10 @@
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		9606D0AD2AAB8B8E005B7DBA /* Sidebar Package Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */; };
-		96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AF729C6561E00844DF4 /* Localizable.strings */; };
-		96B86AFD29C66E6D00844DF4 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 96B86AFF29C66E6D00844DF4 /* Localizable.stringsdict */; };
 		C45945172A91232900271D99 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C45945192A91232900271D99 /* index.html */; };
 		C459451A2A91232E00271D99 /* topic1.html in Resources */ = {isa = PBXBuildFile; fileRef = C459451C2A91232E00271D99 /* topic1.html */; };
 		C459451D2A91233400271D99 /* topic2.html in Resources */ = {isa = PBXBuildFile; fileRef = C459451F2A91233400271D99 /* topic2.html */; };
+		C45C26112ABCC2C600290D26 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C45C26102ABCC2C600290D26 /* Localizable.xcstrings */; };
 		C4C2A0E72A910A0D00E6F172 /* CorkHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C4C2A0E02A9108DA00E6F172 /* CorkHelp.help */; };
 /* End PBXBuildFile section */
 
@@ -179,8 +179,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		512963C42A35A288009FE512 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		512963C52A35A288009FE512 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = de; path = de.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisclosureGroup - No Padding.swift"; sourceTree = "<group>"; };
 		63006DFF29AC073D00243E29 /* Parse JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse JSON.swift"; sourceTree = "<group>"; };
 		63006E0529ACC56800243E29 /* Get Package Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Description.swift"; sourceTree = "<group>"; };
@@ -253,6 +251,7 @@
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
+		637410AD2ABB751B00B7915A /* Get Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Compatibility.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Upgrade Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upgrade Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
@@ -334,20 +333,13 @@
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar Package Row.swift"; sourceTree = "<group>"; };
-		96B86AF629C6561E00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		96B86AFE29C66E6D00844DF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		B0376A5729D26097009C7E6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		B0376A5829D26097009C7E6B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
-		C1AA4F252AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C1AA4F262AA936CA003BCF81 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = fr; path = fr.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		C45945182A91232900271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/index.html; sourceTree = "<group>"; wrapsLines = 0; };
 		C459451B2A91232E00271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic1.html; sourceTree = "<group>"; };
 		C459451E2A91233400271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic2.html; sourceTree = "<group>"; };
+		C45C26102ABCC2C600290D26 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C47433522A92219700BC7209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C4C2A0E02A9108DA00E6F172 /* CorkHelp.help */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorkHelp.help; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C2A0E42A91090500E6F172 /* CorkHelp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CorkHelp-Info.plist"; sourceTree = "<group>"; };
-		C4F430F329C93B500070489B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		C4F430F429C93B500070489B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +391,7 @@
 				63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */,
 				63006E1829AD215000243E29 /* Get Caveats.swift */,
 				635A50E829B7723C00164FBA /* Get Pin Status.swift */,
+				637410AD2ABB751B00B7915A /* Get Compatibility.swift */,
 			);
 			path = "Get Various Package Info From JSON";
 			sourceTree = "<group>";
@@ -532,8 +525,7 @@
 				6340657E2871AF68001A2178 /* App Constants.swift */,
 				63958CFC2877341F00E0B807 /* AppDelegate.swift */,
 				63A8746D29904A7F009F9533 /* App State.swift */,
-				96B86AF729C6561E00844DF4 /* Localizable.strings */,
-				96B86AFF29C66E6D00844DF4 /* Localizable.stringsdict */,
+				C45C26102ABCC2C600290D26 /* Localizable.xcstrings */,
 			);
 			path = Cork;
 			sourceTree = "<group>";
@@ -1232,8 +1224,7 @@
 			files = (
 				C4C2A0E72A910A0D00E6F172 /* CorkHelp.help in Resources */,
 				6340656C2871AA42001A2178 /* Preview Assets.xcassets in Resources */,
-				96B86AFD29C66E6D00844DF4 /* Localizable.stringsdict in Resources */,
-				96B86AF529C6561E00844DF4 /* Localizable.strings in Resources */,
+				C45C26112ABCC2C600290D26 /* Localizable.xcstrings in Resources */,
 				634065692871AA42001A2178 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1401,6 +1392,7 @@
 				635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
+				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				63B8D4F8299E3DAD00AA7CFA /* Sort By Size.swift in Sources */,
 				637E006E2873419B005C9890 /* Install Progress Tracker.swift in Sources */,
@@ -1447,30 +1439,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		96B86AF729C6561E00844DF4 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96B86AF629C6561E00844DF4 /* en */,
-				C4F430F329C93B500070489B /* zh-Hans */,
-				B0376A5729D26097009C7E6B /* zh-Hant */,
-				512963C42A35A288009FE512 /* de */,
-				C1AA4F252AA936CA003BCF81 /* fr */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		96B86AFF29C66E6D00844DF4 /* Localizable.stringsdict */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96B86AFE29C66E6D00844DF4 /* en */,
-				C4F430F429C93B500070489B /* zh-Hans */,
-				B0376A5829D26097009C7E6B /* zh-Hant */,
-				512963C52A35A288009FE512 /* de */,
-				C1AA4F262AA936CA003BCF81 /* fr */,
-			);
-			name = Localizable.stringsdict;
-			sourceTree = "<group>";
-		};
 		C45945192A91232900271D99 /* index.html */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1552,6 +1520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1610,6 +1579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
