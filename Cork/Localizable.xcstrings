@@ -2773,16 +2773,6 @@
         }
       }
     },
-    "add-package.top-packages.list-item %lld" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "add-package.top-packages.list-item %lld"
-          }
-        }
-      }
-    },
     "add-package.top-packages.list-item-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
