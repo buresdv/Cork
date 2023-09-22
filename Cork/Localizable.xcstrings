@@ -4270,12 +4270,6 @@
         }
       }
     },
-    "Check package compatibility" : {
-
-    },
-    "Compatibility:" : {
-
-    },
     "GitHub" : {
       "localizations" : {
         "fr" : {
@@ -8715,6 +8709,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages"
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.compatibility-checking.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compatibility:"
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.compatibility-checking.toggle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check package compatibility"
           }
         }
       }

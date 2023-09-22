@@ -58,10 +58,10 @@ struct InstallationAndUninstallationPane: View
                 LabeledContent {
                     Toggle(isOn: $showCompatibilityWarning)
                     {
-                        Text("Check package compatibility")
+                        Text("settings.install-uninstall.compatibility-checking.toggle")
                     }
                 } label: {
-                    Text("Compatibility:")
+                    Text("settings.install-uninstall.compatibility-checking.label")
                 }
 
                 LabeledContent
