@@ -4270,6 +4270,12 @@
         }
       }
     },
+    "Check package compatibility" : {
+
+    },
+    "Compatibility:" : {
+
+    },
     "GitHub" : {
       "localizations" : {
         "fr" : {

@@ -10,7 +10,8 @@ import SwiftUI
 struct SearchResultRow: View
 {
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
-    
+    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
+
     @EnvironmentObject var brewData: BrewDataStorage
 
     @State var packageName: String
@@ -26,14 +27,9 @@ struct SearchResultRow: View
     {
         VStack(alignment: .leading)
         {
-            HStack(alignment: .firstTextBaseline)
+            HStack(alignment: .center)
             {
                 SanitizedPackageName(packageName: packageName, shouldShowVersion: true)
-
-                if let isCompatible
-                {
-                    Text("add-package.result.not-optimized-for-\(AppConstants.osVersionString.fullName)")
-                }
 
                 if !isCask
                 {
@@ -47,6 +43,22 @@ struct SearchResultRow: View
                     if brewData.installedCasks.contains(where: { $0.name == packageName })
                     {
                         PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                    }
+                }
+
+                if let isCompatible
+                {
+                    if !isCompatible
+                    {
+                        if showCompatibilityWarning
+                        {
+                            HStack(alignment: .center, spacing: 4) {
+                                Image(systemName: "exclamationmark.circle")
+                                Text("add-package.result.not-optimized-for-\(AppConstants.osVersionString.fullName)")
+                            }
+                            .font(.subheadline)
+                            .foregroundColor(.red)
+                        }
                     }
                 }
             }
