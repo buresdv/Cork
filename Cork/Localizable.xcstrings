@@ -4812,6 +4812,12 @@
         "zh-Hant" : {
           "variations" : {
             "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "由於 %@ 和另 %lld 個未能更新，某些暫存無法清除。"
+                }
+              },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
