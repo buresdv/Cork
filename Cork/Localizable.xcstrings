@@ -4735,229 +4735,90 @@
         }
       }
     },
-    "maintenance.results.package-cache.skipped-%@-and-%lld" : {
-      "extractionState" : "manual",
+    "maintenance.results.package-cache.skipped-%@-and-%lld-others" : {
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@name@%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil of %1$@ und %2$lld andere nicht aktuell sind"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil %1$@ und %2$lld andere nicht aktuell sind"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil of %@ und %lld andere nicht aktuell sind"
                 }
-              }
-            },
-            "name" : {
-              "formatSpecifier" : "d",
-              "variations" : {
-                "plural" : {
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : ""
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil %@ und %lld andere nicht aktuell sind"
                 }
               }
             }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@name@%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Some caches weren't purged because of %1$@ and %2$lld other not being updated"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Some caches weren't purged because of %1$@ and %2$lld others not being updated"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Some caches weren't purged because of %@ and %lld other package not being updated"
                 }
-              }
-            },
-            "name" : {
-              "formatSpecifier" : "d",
-              "variations" : {
-                "plural" : {
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : ""
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Some caches weren't purged because of %@ and %lld other packages not being updated"
                 }
               }
             }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@name@%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Certains caches n'ont pas été purgés en raison de %1$@ et %2$lld autre n'ayant pas été mis à jour"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "Certains caches n'ont pas été purgés en raison de %1$@ et %2$lld autres n'ayant pas été mis à jour"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autre n'ayant pas été mis à jour"
                 }
-              }
-            },
-            "name" : {
-              "formatSpecifier" : "d",
-              "variations" : {
-                "plural" : {
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : ""
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autres n'ayant pas été mis à jour"
                 }
               }
             }
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@name@%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "由于 %1$@ 和 %2$lld 未更新，某些缓存未被清除"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "由于 %1$@ 和 %2$lld 未更新，某些缓存未被清除"
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "由于 %@ 和 %lld 未更新，某些缓存未被清除"
                 }
-              }
-            },
-            "name" : {
-              "formatSpecifier" : "d",
-              "variations" : {
-                "plural" : {
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : ""
-                    }
-                  }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "由于 %@ 和 %lld 未更新，某些缓存未被清除"
                 }
               }
             }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%#@name@%#@count@"
-          },
-          "substitutions" : {
-            "count" : {
-              "formatSpecifier" : "lld",
-              "variations" : {
-                "plural" : {
-                  "one" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "由於 %1$@ 和另 %2$lld 個未能更新，某些暫存無法清除。"
-                    }
-                  },
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : "由於 %1$@ 和另 %2$lld 個未能更新，某些暫存無法清除。"
-                    }
-                  }
-                }
-              }
-            },
-            "name" : {
-              "formatSpecifier" : "d",
-              "variations" : {
-                "plural" : {
-                  "other" : {
-                    "stringUnit" : {
-                      "state" : "translated",
-                      "value" : ""
-                    }
-                  }
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "由於 %@ 和另 %lld 個未能更新，某些暫存無法清除。"
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "maintenance.results.package-cache.skipped-%@-and-%lld-others" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.package-cache.skipped-%1$@-and-%2$lld-others"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "maintenance.results.package-cache.skipped-%1$@-and-%2$lld-others"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
           }
         }
       }
