@@ -8,6 +8,12 @@
             "state" : "translated",
             "value" : ""
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -18,6 +24,12 @@
             "state" : "translated",
             "value" : "?"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "？"
+          }
         }
       }
     },
@@ -27,6 +39,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️"
           }
         }
       }
@@ -2429,6 +2447,12 @@
             "state" : "translated",
             "value" : "Aucune description fournie"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未提供任何信息"
+          }
         }
       }
     },
@@ -2480,6 +2504,12 @@
             "state" : "translated",
             "value" : "Impossible de charger la description"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法载入详细信息"
+          }
         }
       }
     },
@@ -2496,6 +2526,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non optimisé pour %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未对 %@ 优化"
           }
         }
       }
@@ -2807,6 +2843,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld téléchargements"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 次下载"
                 }
               }
             }
@@ -3231,6 +3279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "add-tap.typing.error.error"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : ""
           }
         }
       }
@@ -3994,6 +4048,12 @@
             "state" : "translated",
             "value" : "alert.notifications-error-while-parsing-top-packages.message"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : ""
+          }
         }
       }
     },
@@ -4277,12 +4337,24 @@
             "state" : "translated",
             "value" : "Github"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
         }
       }
     },
     "homebrew/core" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
@@ -4297,6 +4369,12 @@
             "state" : "translated",
             "value" : "Installation de %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装 %@"
+          }
         }
       }
     },
@@ -4306,6 +4384,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des informations..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载信息..."
           }
         }
       }
@@ -4317,6 +4401,12 @@
             "state" : "translated",
             "value" : "Chargement des meilleurs packages…"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载热门软件包..."
+          }
         }
       }
     },
@@ -4326,6 +4416,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fenêtre principale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "主窗口"
           }
         }
       }
@@ -4546,6 +4642,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Aucun package orphelin trouvé"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "已移除 %lld 个孤立包"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "未发现孤立包"
                 }
               }
             }
@@ -4838,6 +4952,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "maintenance.results.package-cache.skipped-%1$@-and-%2$lld-others"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : ""
           }
         }
       }
@@ -5633,6 +5753,24 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "已安装 %lld 个软件包"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "未安装任何软件包"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -6044,6 +6182,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Vous avez %lld packages obsolètes"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你有 %lld 个软件包有可用更新"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "没有软件包有可用更新"
                 }
               }
             }
@@ -8721,6 +8877,12 @@
             "state" : "translated",
             "value" : "Compatibility:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "兼容性："
+          }
         }
       }
     },
@@ -8731,6 +8893,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check package compatibility"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查软件包兼容性"
           }
         }
       }
@@ -10008,6 +10176,24 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已添加 %lld 个 Tap"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你未添加任何 Tap"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10321,6 +10507,24 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已安装 %lld 个 Cask"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你未安装任何 Cask"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10396,6 +10600,24 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你已安装 %lld 个 Formula"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你未安装任何 Formula"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10422,7 +10644,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Formula 是你通过终端使用的软件包"
+            "value" : "Formula 是通过终端使用的软件包"
           }
         },
         "zh-Hant" : {
@@ -10574,6 +10796,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "更新 %lld 个软件包"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10717,6 +10951,24 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 个软件包有可用更新"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "所有软件包已是最新"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -10791,6 +11043,12 @@
     "Tap" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap"
@@ -11964,12 +12222,24 @@
             "state" : "translated",
             "value" : "v. %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
         }
       }
     },
     "􀇾" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"
