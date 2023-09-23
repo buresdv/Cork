@@ -4702,6 +4702,7 @@
       }
     },
     "maintenance.results.package-cache.skipped-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -4736,6 +4737,7 @@
       }
     },
     "maintenance.results.package-cache.skipped-%@-and-%lld-others" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "variations" : {

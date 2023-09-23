@@ -71,7 +71,7 @@ struct PackageDetailView: View
                             {
                                 if packageDependents.count != 0 // This happens when the package was originally installed as a dependency, but the parent is no longer installed
                                 {
-                                    OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.joined(separator: ", "))", color: .secondary)
+                                    OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.formatted(.list(type: .and)))", color: .secondary)
                                 }
                             }
                             else
@@ -355,7 +355,7 @@ struct PackageDetailView: View
                                     await pinAndUnpinPackage(package: package, pinned: pinned)
                                 }
                             } label: {
-                                Text(pinned ? "package-details.action.unpin-version-\(package.versions.joined())" : "package-details.action.pin-version-\(package.versions.joined())")
+                                Text(pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
                             }
                         }
 

@@ -100,8 +100,8 @@ struct CorkApp: App
 
                                     outdatedPackageTracker.outdatedPackages = newOutdatedPackages
 
-                                    sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).joined(separator: ", "))
-                                    
+                                    sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
+
                                     sendStandardUpdatesAvailableNotification = true
                                 }
                             }

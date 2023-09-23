@@ -9,5 +9,5 @@ import Foundation
 
 func returnFormattedVersions(_ array: [String]) -> String
 {
-    return array.joined(separator: ", ")
+    return array.formatted(.list(type: .and, width: .narrow))
 }
