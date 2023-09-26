@@ -7272,25 +7272,25 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "У вас есть %lld устаревших пакета"
+                  "value" : "У вас %lld устаревших пакета"
                 }
               },
               "many" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "У вас есть %lld устаревших пакетов"
+                  "value" : "У вас %lld устаревших пакетов"
                 }
               },
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "У вас есть %lld устаревший пакет"
+                  "value" : "У вас %lld устаревший пакет"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "У вас есть %lld устаревших пакетов"
+                  "value" : "У вас %lld устаревших пакетов"
                 }
               }
             }
@@ -9708,7 +9708,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Показывать больше о зависимостях"
+            "value" : "Показывать больше информации о зависимостях"
           }
         },
         "zh-Hans" : {
@@ -9788,7 +9788,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Показывать в строке меню"
+            "value" : "Показывать значок Cork в строке меню"
           }
         },
         "zh-Hans" : {
