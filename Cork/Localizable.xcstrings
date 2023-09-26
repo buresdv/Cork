@@ -1508,6 +1508,40 @@
         }
       }
     },
+    "about.translator.5.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Никита Уткин"
+          }
+        }
+      }
+    },
+    "about.translator.5.purpose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translated Cork into Russian"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевел Cork на русский"
+          }
+        }
+      }
+    },
     "about.translators" : {
       "localizations" : {
         "de" : {
