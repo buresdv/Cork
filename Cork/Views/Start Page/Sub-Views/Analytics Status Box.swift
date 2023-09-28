@@ -13,17 +13,14 @@ struct AnalyticsStatusBox: View
 
     var body: some View
     {
-        GroupBox
+        VStack(alignment: .leading)
         {
-            VStack(alignment: .leading)
-            {
-                GroupBoxHeadlineGroup(
-                    image: "chart.bar",
-                    title: allowBrewAnalytics ? "start-page.analytics.enabled" : "start-page.analytics.disabled",
-                    mainText: allowBrewAnalytics ? "start-page.analytics.enabled.description" : "start-page.analytics.disabled.description"
-                )
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            }
+            GroupBoxHeadlineGroup(
+                image: "chart.bar",
+                title: allowBrewAnalytics ? "start-page.analytics.enabled" : "start-page.analytics.disabled",
+                mainText: allowBrewAnalytics ? "start-page.analytics.enabled.description" : "start-page.analytics.disabled.description"
+            )
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         }
     }
 }

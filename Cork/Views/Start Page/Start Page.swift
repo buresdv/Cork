@@ -29,29 +29,41 @@ struct StartPage: View
             {
                 VStack
                 {
-                    VStack(alignment: .leading)
+                    Text("start-page.status")
+                        .font(.title)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    
+                    FullSizeGroupedForm
                     {
-                        Text("start-page.status")
-                            .font(.title)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-
-                        if appState.isCheckingForPackageUpdates
+                        Section
                         {
-                            OutdatedPackageLoaderBox()
+                            if appState.isCheckingForPackageUpdates
+                            {
+                                OutdatedPackageLoaderBox()
+                            }
+
+                            if outdatedPackageTracker.outdatedPackages.count != 0
+                            {
+                                OutdatedPackageListBox()
+                            }
                         }
 
-                        if outdatedPackageTracker.outdatedPackages.count != 0
+                        Section
                         {
-                            OutdatedPackageListBox()
+                            PackageAndTapOverviewBox()
                         }
 
-                        PackageAndTapOverviewBox()
-
-                        AnalyticsStatusBox()
+                        Section
+                        {
+                            AnalyticsStatusBox()
+                        }
 
                         if appState.cachedDownloadsFolderSize != 0
                         {
-                            CachedDownloadsFolderInfoBox()
+                            Section
+                            {
+                                CachedDownloadsFolderInfoBox()
+                            }
                         }
                     }
 

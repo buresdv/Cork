@@ -62,7 +62,6 @@ struct SidebarView: View
                 Image(systemName: token.icon)
                     .foregroundColor(Color.blue)
             }
-            
         }
         .toolbar(id: "SidebarToolbar")
         {
