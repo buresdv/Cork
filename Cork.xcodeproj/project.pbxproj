@@ -710,8 +710,8 @@
 		637260BE29BE387C00E6E81C /* Tap Details */ = {
 			isa = PBXGroup;
 			children = (
+				63D67B762AC5DF76002EB992 /* Sub-Views */,
 				637260BF29BE388F00E6E81C /* Tap Details.swift */,
-				637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */,
 			);
 			path = "Tap Details";
 			sourceTree = "<group>";
@@ -1006,6 +1006,14 @@
 				6382C906299DA01A00354B19 /* Steps */,
 			);
 			path = Maintenance;
+			sourceTree = "<group>";
+		};
+		63D67B762AC5DF76002EB992 /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */,
+			);
+			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
 		63D830FD2999279800FA802F /* Reusables */ = {

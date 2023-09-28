@@ -67,13 +67,12 @@ struct TapDetailView: View
                         Text("tap-details.info")
                             .font(.title2)
 
-                        GroupBox
+                        Form
                         {
-                            Grid(alignment: .leading, horizontalSpacing: 20)
+                            Section
                             {
-                                GridRow(alignment: .firstTextBaseline) {
-                                    Text("tap-details.contents")
-
+                                LabeledContent
+                                {
                                     if includedFormulae == nil && includedCasks == nil
                                     {
                                         Text("tap-details.contents.none")
@@ -94,34 +93,30 @@ struct TapDetailView: View
                                     {
                                         Text("tap-details.contents.casks-mostly")
                                     }
+                                } label: {
+                                    Text("tap-details.contents")
                                 }
 
-                                Divider()
-
-                                GridRow(alignment: .firstTextBaseline) {
-                                    Text("tap-details.package-count")
+                                LabeledContent {
                                     Text(numberOfPackages.formatted())
-                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                } label: {
+                                    Text("tap-details.package-count")
                                 }
 
-                                Divider()
-
-                                GridRow(alignment: .firstTextBaseline)
+                                LabeledContent
                                 {
-                                    Text("tap-details.homepage")
                                     Link(destination: homepage)
                                     {
                                         Text(homepage.absoluteString)
                                     }
+                                } label: {
+                                    Text("tap-details.homepage")
                                 }
                             }
-                        }
 
-                        if includedFormulae != nil || includedCasks != nil
-                        {
-                            GroupBox
+                            if includedFormulae != nil || includedCasks != nil
                             {
-                                VStack
+                                Section
                                 {
                                     if let includedFormulae
                                     {
@@ -148,6 +143,11 @@ struct TapDetailView: View
                                 }
                             }
                         }
+                        .formStyle(.grouped)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .padding(-20)
+                        .scrollContentBackground(.hidden)
+                        .scrollDisabled(true)
 
                         Spacer()
 
