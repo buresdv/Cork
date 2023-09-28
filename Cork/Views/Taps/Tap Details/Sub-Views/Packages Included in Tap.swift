@@ -24,12 +24,8 @@ struct PackagesIncludedInTapList: View
             {
                 List
                 {
-                    
-                }
-                LazyVStack(spacing: 0)
-                {
-                    ForEach(Array(searchString.isEmpty ? packages.enumerated() : packages.filter { $0.contains(searchString) }.enumerated()), id: \.offset)
-                    { index, package in
+                    ForEach(Array(packages.sorted()), id: \.self)
+                    { package in
                         HStack(alignment: .center)
                         {
                             Text(package)
@@ -39,14 +35,11 @@ struct PackagesIncludedInTapList: View
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }
                         }
-                        .padding(6)
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .background(index % 2 == 0 ? Color(nsColor: NSColor.alternatingContentBackgroundColors[0]) : Color(nsColor: NSColor.alternatingContentBackgroundColors[1]))
                     }
                 }
+                .frame(height: 150)
+                .listStyle(.bordered(alternatesRowBackgrounds: true))
             }
-            .frame(maxHeight: 150)
-            .border(Color(nsColor: .lightGray))
         }
     }
 }
