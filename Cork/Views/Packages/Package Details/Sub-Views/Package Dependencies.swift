@@ -11,6 +11,8 @@ struct PackageDependencies: View {
 
     let dependencies: [BrewPackageDependency]?
 
+    @Binding var isDependencyDisclosureGroupExpanded: Bool
+
     var body: some View {
         if let dependencies
         {
@@ -18,7 +20,7 @@ struct PackageDependencies: View {
             {
                 VStack
                 {
-                    DisclosureGroup("package-details.dependencies")
+                    DisclosureGroup("package-details.dependencies", isExpanded: $isDependencyDisclosureGroupExpanded)
                     {
                         DependencyList(dependencies: dependencies)
                     }

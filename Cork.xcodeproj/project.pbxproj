@@ -136,6 +136,7 @@
 		63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51F70299AEE5100203F3F /* Complex with Icon.swift */; };
 		63D67B712AC5A27F002EB992 /* Package System Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D67B702AC5A27F002EB992 /* Package System Info.swift */; };
 		63D67B732AC5AC78002EB992 /* Package Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D67B722AC5AC78002EB992 /* Package Dependencies.swift */; };
+		63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */; };
 		63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D830FB29990DD600FA802F /* Terminal Output.swift */; };
 		63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83100299927C800FA802F /* Disappearable Sheet.swift */; };
 		63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83102299928B400FA802F /* Headline with Subheadline.swift */; };
@@ -312,6 +313,7 @@
 		63D51F70299AEE5100203F3F /* Complex with Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Complex with Icon.swift"; sourceTree = "<group>"; };
 		63D67B702AC5A27F002EB992 /* Package System Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package System Info.swift"; sourceTree = "<group>"; };
 		63D67B722AC5AC78002EB992 /* Package Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Dependencies.swift"; sourceTree = "<group>"; };
+		63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding - Reverse Bool Value.swift"; sourceTree = "<group>"; };
 		63D830FB29990DD600FA802F /* Terminal Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terminal Output.swift"; sourceTree = "<group>"; };
 		63D83100299927C800FA802F /* Disappearable Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Disappearable Sheet.swift"; sourceTree = "<group>"; };
 		63D83102299928B400FA802F /* Headline with Subheadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Headline with Subheadline.swift"; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 				63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */,
 				63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */,
 				63A96F712AA4F8030029E33B /* Array - Get Difference.swift */,
+				63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1304,6 +1307,7 @@
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
+				63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
 				639246E529A26BB4008149E2 /* REGEX Match.swift in Sources */,

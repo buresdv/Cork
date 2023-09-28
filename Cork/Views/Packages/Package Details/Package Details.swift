@@ -35,6 +35,8 @@ struct PackageDetailView: View
     @State private var isShowingExpandedCaveats: Bool = false
     @State private var canExpandCaveats: Bool = false
 
+    @State private var isShowingExpandedDependencies: Bool = false
+
     @State private var isShowingCaveatPopover: Bool = false
     @State var isShowingPopover: Bool = false
 
@@ -231,7 +233,7 @@ struct PackageDetailView: View
                         {
                             BasicPackageInfoView(package: package, tap: tap, homepage: homepage)
 
-                            PackageDependencies(dependencies: dependencies)
+                            PackageDependencies(dependencies: dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
 
                             PackageSystemInfo(package: package)
                         }
@@ -239,6 +241,7 @@ struct PackageDetailView: View
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .padding(-20)
                         .scrollContentBackground(.hidden)
+                        .scrollDisabled(!isShowingExpandedDependencies)
 
                         /*
                         Grid(alignment: .leading, horizontalSpacing: 20)
