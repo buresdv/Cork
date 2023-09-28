@@ -17,22 +17,17 @@ struct PackageSystemInfo: View
     {
         if let installedOnDate = package.installedOn // Only show the "Installed on" date for packages that are actually installed
         {
-            GroupBox
+            Section
             {
-                GridRow(alignment: .top)
-                {
-                    Text("package-details.install-date")
+                LabeledContent {
                     Text(installedOnDate.formatted(.packageInstallationStyle))
+                } label: {
+                    Text("package-details.install-date")
                 }
 
                 if let packageSize = package.sizeInBytes
                 {
-                    Divider()
-
-                    GridRow(alignment: .top)
-                    {
-                        Text("package-details.size")
-
+                    LabeledContent {
                         HStack
                         {
                             Text(packageSize.formatted(.byteCount(style: .file)))
@@ -58,6 +53,8 @@ struct PackageSystemInfo: View
                                 }
                             }
                         }
+                    } label: {
+                        Text("package-details.size")
                     }
                 }
             }

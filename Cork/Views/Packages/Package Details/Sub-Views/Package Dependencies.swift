@@ -7,12 +7,24 @@
 
 import SwiftUI
 
-struct Package_Dependencies: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct PackageDependencies: View {
 
-#Preview {
-    Package_Dependencies()
+    let dependencies: [BrewPackageDependency]?
+
+    var body: some View {
+        if let dependencies
+        {
+            Section
+            {
+                VStack
+                {
+                    DisclosureGroup("package-details.dependencies")
+                    {
+                        DependencyList(dependencies: dependencies)
+                    }
+                    .disclosureGroupStyle(NoPadding())
+                }
+            }
+        }
+    }
 }

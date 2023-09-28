@@ -161,11 +161,8 @@ struct PackageDetailView: View
                 }
                 else
                 {
-                    VStack(alignment: .leading, spacing: 10)
+                    VStack(alignment: .leading)
                     {
-                        Text("package-details.info")
-                            .font(.title2)
-
                         if let caveats
                         {
                             if !caveats.isEmpty
@@ -227,9 +224,25 @@ struct PackageDetailView: View
                             }
                         }
 
-                        Grid(alignment: .leading, horizontalSpacing: 20) 
+                        Text("package-details.info")
+                            .font(.title2)
+
+                        Form
                         {
                             BasicPackageInfoView(package: package, tap: tap, homepage: homepage)
+
+                            PackageDependencies(dependencies: dependencies)
+
+                            PackageSystemInfo(package: package)
+                        }
+                        .formStyle(.grouped)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .padding(-20)
+                        .scrollContentBackground(.hidden)
+
+                        /*
+                        Grid(alignment: .leading, horizontalSpacing: 20)
+                        {
 
                             if let dependencies
                             {
@@ -248,7 +261,7 @@ struct PackageDetailView: View
 
                             PackageSystemInfo(package: package)
                         }
-
+                         */
 
 
                     }

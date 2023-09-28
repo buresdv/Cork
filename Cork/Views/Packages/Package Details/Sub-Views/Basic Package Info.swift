@@ -16,19 +16,16 @@ struct BasicPackageInfoView: View
 
     var body: some View
     {
-        GroupBox
+        Section 
         {
-            GridRow(alignment: .firstTextBaseline)
-            {
-                Text("Tap")
+            LabeledContent {
                 Text(tap)
+            } label: {
+                Text("Tap")
             }
 
-            Divider()
-
-            GridRow(alignment: .top)
+            LabeledContent
             {
-                Text("package-details.type")
                 if package.isCask
                 {
                     Text("package-details.type.cask")
@@ -37,17 +34,18 @@ struct BasicPackageInfoView: View
                 {
                     Text("package-details.type.formula")
                 }
+            } label: {
+                Text("package-details.type")
             }
 
-            Divider()
-
-            GridRow(alignment: .top)
+            LabeledContent
             {
-                Text("package-details.homepage")
                 Link(destination: homepage)
                 {
                     Text(homepage.absoluteString)
                 }
+            } label: {
+                Text("package-details.homepage")
             }
         }
     }
