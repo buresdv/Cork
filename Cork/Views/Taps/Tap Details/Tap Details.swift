@@ -54,16 +54,12 @@ struct TapDetailView: View
                         Text("tap-details.info")
                             .font(.title2)
 
-                        Form
+                        FullSizeGroupedForm
                         {
                             TapDetailsInfo(includedFormulae: includedFormulae, includedCasks: includedCasks, numberOfPackages: numberOfPackages, homepage: homepage)
 
                             TapDetailsIncludedPackages(includedFormulae: includedFormulae, includedCasks: includedCasks)
                         }
-                        .formStyle(.grouped)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .padding(-20)
-                        .scrollContentBackground(.hidden)
                         .scrollDisabled(true)
 
                         Spacer()

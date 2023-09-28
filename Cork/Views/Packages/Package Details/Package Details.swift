@@ -229,7 +229,7 @@ struct PackageDetailView: View
                         Text("package-details.info")
                             .font(.title2)
 
-                        Form
+                        FullSizeGroupedForm
                         {
                             BasicPackageInfoView(package: package, tap: tap, homepage: homepage)
 
@@ -237,10 +237,6 @@ struct PackageDetailView: View
 
                             PackageSystemInfo(package: package)
                         }
-                        .formStyle(.grouped)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .padding(-20)
-                        .scrollContentBackground(.hidden)
                         .scrollDisabled(!isShowingExpandedDependencies)
 
                         /*
