@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TapDetailsIncludedPackages: View
 {
-    let includedFormulae: [String]?
-    let includedCasks: [String]?
+    let includedFormulae: Set<String>?
+    let includedCasks: Set<String>?
 
     var body: some View
     {

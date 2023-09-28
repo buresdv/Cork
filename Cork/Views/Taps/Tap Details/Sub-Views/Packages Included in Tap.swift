@@ -11,7 +11,7 @@ struct PackagesIncludedInTapList: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @State var packages: [String]
+    @State var packages: Set<String>
 
     @State private var searchString: String = ""
 
@@ -22,6 +22,10 @@ struct PackagesIncludedInTapList: View
             CustomSearchField(search: $searchString, customPromptText: "tap-details.included-packages.search.prompt")
             ScrollView
             {
+                List
+                {
+                    
+                }
                 LazyVStack(spacing: 0)
                 {
                     ForEach(Array(searchString.isEmpty ? packages.enumerated() : packages.filter { $0.contains(searchString) }.enumerated()), id: \.offset)

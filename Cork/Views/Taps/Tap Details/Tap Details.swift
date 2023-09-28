@@ -18,8 +18,8 @@ struct TapDetailView: View
 
     @State private var homepage: URL = .init(string: "https://google.com")!
     @State private var isOfficial: Bool = false
-    @State private var includedFormulae: [String]?
-    @State private var includedCasks: [String]?
+    @State private var includedFormulae: Set<String>?
+    @State private var includedCasks: Set<String>?
     @State private var numberOfPackages: Int = 0
 
     @State private var erroredOut: Bool = false

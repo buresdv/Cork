@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TapDetailsInfo: View
 {
-    let includedFormulae: [String]?
-    let includedCasks: [String]?
+    let includedFormulae: Set<String>?
+    let includedCasks: Set<String>?
 
     let numberOfPackages: Int
     let homepage: URL
