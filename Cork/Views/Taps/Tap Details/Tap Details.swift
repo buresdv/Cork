@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TapDetailView: View
 {
-    @State var tap: BrewTap
-    
+    let tap: BrewTap
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
 
@@ -28,20 +28,7 @@ struct TapDetailView: View
     {
         VStack(alignment: .leading, spacing: 15)
         {
-            VStack(alignment: .leading, spacing: 5)
-            {
-                HStack(alignment: .center, spacing: 5)
-                {
-                    Text(tap.name)
-                        .font(.title)
-
-                    if isOfficial
-                    {
-                        Image(systemName: "checkmark.shield")
-                            .help("tap-details.official-\(tap.name)")
-                    }
-                }
-            }
+            TapDetailsTitle(tap: tap, isOfficial: isOfficial)
 
             if isLoadingTapInfo
             {
@@ -69,79 +56,9 @@ struct TapDetailView: View
 
                         Form
                         {
-                            Section
-                            {
-                                LabeledContent
-                                {
-                                    if includedFormulae == nil && includedCasks == nil
-                                    {
-                                        Text("tap-details.contents.none")
-                                    }
-                                    else if includedFormulae != nil && includedCasks == nil
-                                    {
-                                        Text("tap-details.contents.formulae-only")
-                                    }
-                                    else if includedCasks != nil && includedFormulae == nil
-                                    {
-                                        Text("tap-details.contents.casks-only")
-                                    }
-                                    else if includedFormulae?.count ?? 0 > includedCasks?.count ?? 0
-                                    {
-                                        Text("tap-details.contents.formulae-mostly")
-                                    }
-                                    else if includedFormulae?.count ?? 0 < includedCasks?.count ?? 0
-                                    {
-                                        Text("tap-details.contents.casks-mostly")
-                                    }
-                                } label: {
-                                    Text("tap-details.contents")
-                                }
+                            TapDetailsInfo(includedFormulae: includedFormulae, includedCasks: includedCasks, numberOfPackages: numberOfPackages, homepage: homepage)
 
-                                LabeledContent {
-                                    Text(numberOfPackages.formatted())
-                                } label: {
-                                    Text("tap-details.package-count")
-                                }
-
-                                LabeledContent
-                                {
-                                    Link(destination: homepage)
-                                    {
-                                        Text(homepage.absoluteString)
-                                    }
-                                } label: {
-                                    Text("tap-details.homepage")
-                                }
-                            }
-
-                            if includedFormulae != nil || includedCasks != nil
-                            {
-                                Section
-                                {
-                                    if let includedFormulae
-                                    {
-                                        DisclosureGroup("tap-details.included-formulae")
-                                        {
-                                            PackagesIncludedInTapList(packages: includedFormulae)
-                                        }
-                                        .disclosureGroupStyle(NoPadding())
-                                    }
-
-                                    if includedFormulae != nil && includedCasks != nil
-                                    {
-                                        Divider()
-                                    }
-
-                                    if let includedCasks
-                                    {
-                                        DisclosureGroup("tap-details.included-casks")
-                                        {
-                                            PackagesIncludedInTapList(packages: includedCasks)
-                                        }
-                                        .disclosureGroupStyle(NoPadding())
-                                    }
-                                }
-                            }
+                            TapDetailsIncludedPackages(includedFormulae: includedFormulae, includedCasks: includedCasks)
                         }
                         .formStyle(.grouped)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
