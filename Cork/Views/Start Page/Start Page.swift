@@ -32,7 +32,7 @@ struct StartPage: View
                     Text("start-page.status")
                         .font(.title)
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                    
+
                     FullSizeGroupedForm
                     {
                         Section
@@ -87,43 +87,44 @@ struct StartPage: View
             }
         }
         .padding()
-        .onAppear
+        .task(priority: .background)
         {
             if outdatedPackageTracker.outdatedPackages.isEmpty
             {
-                Task(priority: .background)
+                appState.isCheckingForPackageUpdates = true
+
+                await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+
+                do
                 {
-                    appState.isCheckingForPackageUpdates = true
-
-                    await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
-
-                    do
+                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                }
+                catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                {
+                    switch outdatedPackageRetrievalError
                     {
-                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    case .homeNotSet:
+                        appState.fatalAlertType = .homePathNotSet
+                        appState.isShowingFatalError = true
+                    case .otherError:
+                        print("Something went wrong")
                     }
-                    catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                    {
-                        switch outdatedPackageRetrievalError
-                        {
-                        case .homeNotSet:
-                            appState.fatalAlertType = .homePathNotSet
-                            appState.isShowingFatalError = true
-                        case .otherError:
-                            print("Something went wrong")
-                        }
-                    }
+                }
+                catch
+                {
+                    print("Unspecified error while pulling package updates")
+                }
 
-                    if outdatedPackageTracker.outdatedPackages.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
-                    {
-                        withAnimation
-                        {
-                            appState.isCheckingForPackageUpdates = false
-                        }
-                    }
-                    else
+                if outdatedPackageTracker.outdatedPackages.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
+                {
+                    withAnimation
                     {
                         appState.isCheckingForPackageUpdates = false
                     }
+                }
+                else
+                {
+                    appState.isCheckingForPackageUpdates = false
                 }
             }
         }

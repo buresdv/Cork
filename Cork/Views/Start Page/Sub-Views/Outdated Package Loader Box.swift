@@ -23,7 +23,6 @@ struct OutdatedPackageLoaderBox: View
                 }
                 .padding(10)
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         }
     }
 }
