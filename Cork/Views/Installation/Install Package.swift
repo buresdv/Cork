@@ -16,9 +16,6 @@ struct AddFormulaView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
-    @State private var isFormulaeSectionCollapsed: Bool = false
-    @State private var isCasksSectionCollapsed: Bool = false
-
     @State private var foundPackageSelection = Set<UUID>()
 
     @ObservedObject var searchResultTracker = SearchResultTracker()
@@ -60,92 +57,14 @@ struct AddFormulaView: View
                 )
 
             case .presentingSearchResults:
-                VStack
-                {
-                    TextField("add-package.search.prompt", text: $packageRequested)
-                    { _ in
-                        foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
-                    }
-                    .focused($isSearchFieldFocused)
-                    .onAppear
-                    {
-                        isSearchFieldFocused = true
-                    }
-
-                    List(selection: $foundPackageSelection)
-                    {
-                        Section
-                        {
-                            if !isFormulaeSectionCollapsed
-                            {
-                                ForEach(searchResultTracker.foundFormulae)
-                                { formula in
-                                    SearchResultRow(packageName: formula.name, isCask: formula.isCask)
-                                }
-                            }
-                        } header: {
-                            CollapsibleSectionHeader(headerText: "add-package.search.results.formulae", isCollapsed: $isFormulaeSectionCollapsed)
-                        }
-                        Section
-                        {
-                            if !isCasksSectionCollapsed
-                            {
-                                ForEach(searchResultTracker.foundCasks)
-                                { cask in
-                                    SearchResultRow(packageName: cask.name, isCask: cask.isCask)
-                                }
-                            }
-                        } header: {
-                            CollapsibleSectionHeader(headerText: "add-package.search.results.casks", isCollapsed: $isCasksSectionCollapsed)
-                        }
-                    }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .frame(width: 300, height: 300)
-
-                    HStack
-                    {
-                        DismissSheetButton(isShowingSheet: $isShowingSheet)
-
-                        Spacer()
-
-                        if isSearchFieldFocused
-                        {
-                            Button
-                            {
-                                packageInstallationProcessStep = .searching
-                            } label: {
-                                Text("add-package.search.action")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                        }
-                        else
-                        {
-                            Button
-                            {
-                                for requestedPackage in foundPackageSelection
-                                {
-                                    print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
-
-                                    let packageToInstall: BrewPackage = getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
-
-                                    installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
-
-                                    print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
-
-                                    installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
-                                }
-
-                                print(installationProgressTracker.packagesBeingInstalled)
-
-                                packageInstallationProcessStep = .installing
-                            } label: {
-                                Text("add-package.install.action")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                            .disabled(foundPackageSelection.isEmpty)
-                        }
-                    }
-                }
+                    PresentingSearchResultsView(
+                        searchResultTracker: searchResultTracker,
+                        packageRequested: $packageRequested,
+                        foundPackageSelection: $foundPackageSelection,
+                        isShowingSheet: $isShowingSheet,
+                        packageInstallationProcessStep: $packageInstallationProcessStep,
+                        installationProgressTracker: installationProgressTracker
+                    )
 
             case .installing:
                 VStack(alignment: .leading)
