@@ -85,7 +85,7 @@ struct TapDetailView: View
             }
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)
         {
             async let tapInfo = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput

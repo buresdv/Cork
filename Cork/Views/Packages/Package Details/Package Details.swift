@@ -358,7 +358,7 @@ struct PackageDetailView: View
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .padding()
         .task(priority: .userInitiated)
         {
