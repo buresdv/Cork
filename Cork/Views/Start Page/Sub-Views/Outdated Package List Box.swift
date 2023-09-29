@@ -12,6 +12,8 @@ struct OutdatedPackageListBox: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
+    @Binding var isDropdownExpanded: Bool
+
     var body: some View
     {
         Grid
@@ -52,7 +54,7 @@ struct OutdatedPackageListBox: View
                                 }
                             }
 
-                            DisclosureGroup
+                            DisclosureGroup(isExpanded: $isDropdownExpanded)
                             {
                                 List
                                 {
@@ -107,7 +109,6 @@ struct OutdatedPackageListBox: View
                                     }
                                 }
                                 .listStyle(.bordered(alternatesRowBackgrounds: true))
-                                .frame(height: 120)
                             } label: {
                                 Text("start-page.updates.list")
                                     .font(.subheadline)

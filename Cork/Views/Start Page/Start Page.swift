@@ -17,6 +17,8 @@ struct StartPage: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
+    @State private var isOutdatedPackageDropdownExpanded: Bool = false
+
     var body: some View
     {
         VStack
@@ -44,7 +46,7 @@ struct StartPage: View
 
                             if outdatedPackageTracker.outdatedPackages.count != 0
                             {
-                                OutdatedPackageListBox()
+                                OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
                             }
                         }
 
@@ -66,6 +68,7 @@ struct StartPage: View
                             }
                         }
                     }
+                    .scrollDisabled(!isOutdatedPackageDropdownExpanded)
 
                     Spacer()
 
