@@ -102,6 +102,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                     { /// When it appears for the first time, ignore it
                         print("Matched the dud line about the package itself being installed!")
                         hasAlreadyMatchedLineAboutInstallingPackageItself = true
+                        installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress) + Double((Double(10) - Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress)) / Double(2))
                     }
                 }
 

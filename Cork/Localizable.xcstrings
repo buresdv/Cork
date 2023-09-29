@@ -2265,6 +2265,26 @@
         }
       }
     },
+    "add-package.fatal-error-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured while installing %@"
+          }
+        }
+      }
+    },
+    "add-package.fatal-error.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try installing the package again, or restarting CorkI\\nf the problem persists, restart your Mac"
+          }
+        }
+      }
+    },
     "add-package.finished" : {
       "localizations" : {
         "de" : {

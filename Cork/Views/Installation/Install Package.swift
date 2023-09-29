@@ -57,82 +57,20 @@ struct AddFormulaView: View
                 )
 
             case .presentingSearchResults:
-                    PresentingSearchResultsView(
-                        searchResultTracker: searchResultTracker,
-                        packageRequested: $packageRequested,
-                        foundPackageSelection: $foundPackageSelection,
-                        isShowingSheet: $isShowingSheet,
-                        packageInstallationProcessStep: $packageInstallationProcessStep,
-                        installationProgressTracker: installationProgressTracker
-                    )
+                PresentingSearchResultsView(
+                    searchResultTracker: searchResultTracker,
+                    packageRequested: $packageRequested,
+                    foundPackageSelection: $foundPackageSelection,
+                    isShowingSheet: $isShowingSheet,
+                    packageInstallationProcessStep: $packageInstallationProcessStep,
+                    installationProgressTracker: installationProgressTracker
+                )
 
             case .installing:
-                VStack(alignment: .leading)
-                {
-                    ForEach(installationProgressTracker.packagesBeingInstalled)
-                    { packageBeingInstalled in
-
-                        if packageBeingInstalled.installationStage != .finished
-                        {
-                            ProgressView(value: installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress, total: 10)
-                            {
-                                switch packageBeingInstalled.installationStage
-                                {
-                                case .ready:
-                                    Text("add-package.install.ready")
-
-                                // FORMULAE
-                                case .loadingDependencies:
-                                    Text("add-package.install.loading-dependencies")
-
-                                case .fetchingDependencies:
-                                    Text("add-package.install.fetching-dependencies")
-
-                                case .installingDependencies:
-                                    Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-of-\(installationProgressTracker.numberOfPackageDependencies)")
-
-                                case .installingPackage:
-                                    Text("add-package.install.installing-package")
-
-                                case .finished:
-                                    Text("add-package.install.finished")
-
-                                // CASKS
-                                case .downloadingCask:
-                                    Text("add-package.install.downloading-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-
-                                case .installingCask:
-                                    Text("add-package.install.installing-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-
-                                case .linkingCaskBinary:
-                                    Text("add-package.install.linking-cask-binary")
-
-                                case .movingCask:
-                                    Text("add-package.install.moving-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                                }
-                            }
-                        }
-                        else
-                        { // Show this when the installation is finished
-                            Text("add-package.install.finished")
-                                .onAppear
-                                {
-                                    packageInstallationProcessStep = .finished
-                                }
-                        }
-                    }
-                }
-                .onAppear
-                {
-                    for var packageToInstall in installationProgressTracker.packagesBeingInstalled
-                    {
-                        Task(priority: .userInitiated)
-                        {
-                            let installationResult = try! await installPackage(installationProgressTracker: installationProgressTracker, brewData: brewData)
-                            print("Installation result: \(installationResult)")
-                        }
-                    }
-                }
+                InstallingPackageView(
+                    installationProgressTracker: installationProgressTracker,
+                    packageInstallationProcessStep: $packageInstallationProcessStep
+                )
 
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
@@ -155,6 +93,33 @@ struct AddFormulaView: View
                         sendNotification(title: String(localized: "notification.install-finished"))
                     }
                 }
+
+            case .fatalError: /// This shows up when the function for executing the install action throws an error
+                    VStack(alignment: .leading)
+                    {
+                        ComplexWithIcon(systemName: "exclamationmark.triangle") 
+                        {
+                            HeadlineWithSubheadline(
+                                headline: "add-package.fatal-error-\(installationProgressTracker.packagesBeingInstalled.first!.package.name)",
+                                subheadline: "add-package.fatal-error.description",
+                                alignment: .leading
+                            )
+                        }
+
+                        HStack
+                        {
+                            Button
+                            {
+                                restartApp()
+                            } label: {
+                                Text("action.restart")
+                            }
+
+                            Spacer()
+
+                            DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        }
+                    }
 
             default:
                 VStack(alignment: .leading)
