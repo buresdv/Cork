@@ -2285,6 +2285,17 @@
         }
       }
     },
+    "add-package.fatal-error.generic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured during the install process"
+          }
+        }
+      }
+    },
     "add-package.finished" : {
       "localizations" : {
         "de" : {

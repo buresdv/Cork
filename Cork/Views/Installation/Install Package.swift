@@ -95,31 +95,42 @@ struct AddFormulaView: View
                 }
 
             case .fatalError: /// This shows up when the function for executing the install action throws an error
-                    VStack(alignment: .leading)
+                VStack(alignment: .leading)
+                {
+                    ComplexWithIcon(systemName: "exclamationmark.triangle")
                     {
-                        ComplexWithIcon(systemName: "exclamationmark.triangle") 
-                        {
+                        if let packageBeingInstalled = installationProgressTracker.packagesBeingInstalled.first
+                        { /// Show this when we can pull out which package was being installed
                             HeadlineWithSubheadline(
-                                headline: "add-package.fatal-error-\(installationProgressTracker.packagesBeingInstalled.first!.package.name)",
+                                headline: "add-package.fatal-error-\(packageBeingInstalled.package.name)",
                                 subheadline: "add-package.fatal-error.description",
                                 alignment: .leading
                             )
                         }
-
-                        HStack
-                        {
-                            Button
-                            {
-                                restartApp()
-                            } label: {
-                                Text("action.restart")
-                            }
-
-                            Spacer()
-
-                            DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        else
+                        { /// Otherwise, show a generic error
+                            HeadlineWithSubheadline(
+                                headline: "add-package.fatal-error.generic",
+                                subheadline: "add-package.fatal-error.description",
+                                alignment: .leading
+                            )
                         }
                     }
+
+                    HStack
+                    {
+                        Button
+                        {
+                            restartApp()
+                        } label: {
+                            Text("action.restart")
+                        }
+
+                        Spacer()
+
+                        DismissSheetButton(isShowingSheet: $isShowingSheet)
+                    }
+                }
 
             default:
                 VStack(alignment: .leading)
