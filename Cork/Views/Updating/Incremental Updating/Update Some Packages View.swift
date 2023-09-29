@@ -100,10 +100,6 @@ struct UpdateSomePackagesView: View
                         }
                     }
                 }
-                .onAppear
-                    {
-                        
-                    }
 
             case .erroredOut:
                 ComplexWithIcon(systemName: "checkmark.seal")

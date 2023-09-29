@@ -783,7 +783,7 @@
 		637E006C28734189005C9890 /* Installation */ = {
 			isa = PBXGroup;
 			children = (
-				6392FD112A921B9600711B92 /* Components */,
+				6392FD112A921B9600711B92 /* Sub-Views */,
 				63D83108299982D300FA802F /* Reusables */,
 				639A7D822871D08200B50280 /* Install Package.swift */,
 			);
@@ -819,7 +819,7 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		6392FD112A921B9600711B92 /* Components */ = {
+		6392FD112A921B9600711B92 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
 				63AB6C472A9FEBEF00E58B93 /* Misc Views */,
@@ -828,7 +828,7 @@
 				63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */,
 				63D024E42AC76DCD0050F9D0 /* Installing.swift */,
 			);
-			path = Components;
+			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
 		63958CFE287735ED00E0B807 /* About */ = {
