@@ -8829,7 +8829,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odstranit %@ a vymazat soubory"
+            "value" : "Odinstalovat %@ a vymazat soubory"
           }
         },
         "de" : {
@@ -12458,7 +12458,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Může se stát, že více balíčků závisí na stejném podpůrném souboru.\nPokud vymažete všechny podpůrné soubory balíčku, může se stát, že jiný balíček, který tento soubor využívá, přestane fungovat."
+            "value" : "Může se stát, že více balíčků závisí na stejném podpůrném souboru.\nPokud vymažete všechny podpůrné soubory balíčku,\nmůže se stát, že jiný balíček, který tento soubor využívá, přestane fungovat."
           }
         },
         "de" : {
@@ -13245,7 +13245,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nainstalované balíčky"
+            "value" : "Balíčky"
           }
         },
         "de" : {
@@ -13753,7 +13753,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odstranit %@ a vymazat soubory"
+            "value" : "Odinstalovat %@ a vymazat soubory"
           }
         },
         "de" : {
@@ -14194,7 +14194,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Smazat stažené balíčky v mezipaměti…"
+            "value" : "Vymazat mezipaměť…"
           }
         },
         "de" : {
