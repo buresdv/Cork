@@ -43,7 +43,7 @@ struct PackageSystemInfo: View
                                 {
                                     VStack(alignment: .leading, spacing: 10)
                                     {
-                                        Text("package-details.size.help.title")
+                                        Text("package-details.size.help")
                                             .font(.headline)
                                         Text("package-details.size.help.body-1")
                                         Text("package-details.size.help.body-2")
