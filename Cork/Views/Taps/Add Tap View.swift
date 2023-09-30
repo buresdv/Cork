@@ -60,9 +60,9 @@ struct AddTapView: View
                                 switch tapInputError
                                 {
                                 case .empty:
-                                    Text("add-tap.typing.error.error")
+                                    Text("add-tap.typing.error.empty")
                                         .font(.headline)
-                                    Text("add-tap.typing.error.error")
+                                    Text("add-tap.typing.error.empty.description")
                                 case .missingSlash:
                                     Text("add-tap.typing.error.slash")
                                         .font(.headline)
