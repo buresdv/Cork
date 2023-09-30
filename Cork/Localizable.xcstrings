@@ -9217,7 +9217,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Závislost %@"
+            "value" : "Na balíčku závisí %@"
           }
         },
         "de" : {
