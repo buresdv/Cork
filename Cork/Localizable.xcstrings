@@ -26,6 +26,12 @@
             "state" : "translated",
             "value" : "？"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
         }
       }
     },
@@ -53,6 +59,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "⚠️"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         }
       }
@@ -1708,8 +1720,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "為 Cork 法語"
+            "state" : "needs_review",
+            "value" : "為 Cork 提供法文翻譯"
           }
         }
       }
@@ -1734,6 +1746,18 @@
             "state" : "translated",
             "value" : "Никита Уткин"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
         }
       }
     },
@@ -1756,6 +1780,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перевел Cork на русский"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为 Cork 提供了俄语翻译"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "為 Cork 提供俄文翻譯"
           }
         }
       }
@@ -2604,6 +2640,12 @@
             "state" : "translated",
             "value" : "An error occured while installing %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在安装 %@ 时出现了错误"
+          }
         }
       }
     },
@@ -2619,6 +2661,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try installing the package again, or restarting Cork\nIf the problem persists, restart your Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请尝试重新安装软件包或重启Cork\n如果问题没有解决，请重启你的 Mac"
           }
         }
       }
@@ -2636,6 +2684,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occured during the install process"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装过程出现错误"
           }
         }
       }
@@ -4274,7 +4328,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "在添加 Tap %@ 时出现了错误"
           }
         },
@@ -4320,7 +4374,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "请在几分钟后重试"
           }
         },
@@ -4458,7 +4512,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "添加 Tap %@"
           }
         },
@@ -5974,6 +6028,12 @@
             "state" : "translated",
             "value" : "GitHub"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
         }
       }
     },
@@ -5998,6 +6058,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
@@ -10451,6 +10517,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tagged Packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已添加标签的软件包"
           }
         }
       }
@@ -15237,6 +15309,12 @@
             "state" : "translated",
             "value" : "Tap"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
         }
       }
     },
@@ -16832,6 +16910,12 @@
             "state" : "translated",
             "value" : "v. %@"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
         }
       }
     },
@@ -16856,6 +16940,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"
