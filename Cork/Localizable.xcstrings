@@ -26,6 +26,12 @@
             "state" : "translated",
             "value" : "？"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
         }
       }
     },
@@ -53,6 +59,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "⚠️"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
           }
         }
       }
@@ -1708,8 +1720,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "為 Cork 法語"
+            "state" : "needs_review",
+            "value" : "為 Cork 提供法文翻譯"
           }
         }
       }
@@ -1736,6 +1748,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nikita Utkin"
@@ -1768,6 +1786,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "为 Cork 提供了俄语翻译"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "為 Cork 提供俄文翻譯"
           }
         }
       }
@@ -6004,6 +6028,12 @@
             "state" : "translated",
             "value" : "GitHub"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
         }
       }
     },
@@ -6028,6 +6058,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
@@ -15273,6 +15309,12 @@
             "state" : "translated",
             "value" : "Tap"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
         }
       }
     },
@@ -16868,6 +16910,12 @@
             "state" : "translated",
             "value" : "v. %@"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
         }
       }
     },
@@ -16892,6 +16940,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"
