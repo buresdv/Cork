@@ -111,8 +111,9 @@ Prerequisites:
 7. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
 8. In the Menu Bar, click `Product → Archive` and wait for the building to finish
 9. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
-10. Click `Copy App`
-11. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
+10. In the popup that appears, click `Custom`, then click `Next` in the bottom right of the popup
+11. Click `Copy App`
+12. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
 
 ## License
 
