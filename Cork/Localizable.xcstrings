@@ -46,7 +46,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "⚠️"
           }
         },
         "ru" : {
@@ -1741,6 +1741,12 @@
             "value" : "Nikita Utkin"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1774,6 +1780,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translated Cork into Russian"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduction de Cork en Chinois Russe"
           }
         },
         "ru" : {
@@ -2641,6 +2653,12 @@
             "value" : "An error occured while installing %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur s'est produite lors de l'installation de %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2661,6 +2679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try installing the package again, or restarting Cork\nIf the problem persists, restart your Mac"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayez d'installer le package à nouveau, ou redémarrez Cork.\nSi le problème persiste, redémarrez votre Mac"
           }
         },
         "zh-Hans" : {
@@ -2684,6 +2708,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occured during the install process"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur s'est produite lors du processus d'installation"
           }
         },
         "zh-Hans" : {
@@ -4316,7 +4346,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Une erreur s'est produite lors de la tentative de tap %@"
           }
         },
@@ -4362,7 +4392,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Essayez d'ajouter le Tap à nouveau dans quelques minutes"
           }
         },
@@ -4500,7 +4530,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ajout de Tap %@"
           }
         },
@@ -6072,7 +6102,7 @@
       }
     },
     "Installing %@" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -6604,7 +6634,7 @@
       }
     },
     "maintenance.results.package-cache.skipped-%@" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -6651,7 +6681,7 @@
       }
     },
     "maintenance.results.package-cache.skipped-%@-and-%lld-others" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "variations" : {
@@ -10519,6 +10549,12 @@
             "value" : "Tagged Packages"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packages étiquetés"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12156,6 +12192,12 @@
             "value" : "Compatibility:"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compatibilité:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12183,6 +12225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check package compatibility"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifier la compatibilité du package"
           }
         },
         "ru" : {
