@@ -1237,6 +1237,7 @@
 				de,
 				fr,
 				ru,
+				cs,
 			);
 			mainGroup = 634065582871AA42001A2178;
 			packageReferences = (
