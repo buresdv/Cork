@@ -127,6 +127,8 @@
 		63C830BC29984B1A002D11BB /* Used Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BB29984B1A002D11BB /* Used Package.swift */; };
 		63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */; };
 		63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830C029984BA4002D11BB /* Button That Opens Websites.swift */; };
+		63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBCC492AC9835400E1E95B /* Package Caveat Full Display.swift */; };
+		63CBCC4D2AC983FB00E1E95B /* Package Caveat Minified Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBCC4C2AC983FB00E1E95B /* Package Caveat Minified Display.swift */; };
 		63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0275288B22D9004AE2EC /* View - New Windows.swift */; };
 		63D024E32AC769AC0050F9D0 /* Presenting Search Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */; };
 		63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D024E42AC76DCD0050F9D0 /* Installing.swift */; };
@@ -307,6 +309,8 @@
 		63C830BB29984B1A002D11BB /* Used Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Used Package.swift"; sourceTree = "<group>"; };
 		63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Acknowledged Contributor.swift"; sourceTree = "<group>"; };
 		63C830C029984BA4002D11BB /* Button That Opens Websites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button That Opens Websites.swift"; sourceTree = "<group>"; };
+		63CBCC492AC9835400E1E95B /* Package Caveat Full Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Caveat Full Display.swift"; sourceTree = "<group>"; };
+		63CBCC4C2AC983FB00E1E95B /* Package Caveat Minified Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Caveat Minified Display.swift"; sourceTree = "<group>"; };
 		63CD0275288B22D9004AE2EC /* View - New Windows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - New Windows.swift"; sourceTree = "<group>"; };
 		63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presenting Search Results.swift"; sourceTree = "<group>"; };
 		63D024E42AC76DCD0050F9D0 /* Installing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installing.swift; sourceTree = "<group>"; };
@@ -433,6 +437,7 @@
 		63006E1529AD142B00243E29 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
+				63CBCC4B2AC983DF00E1E95B /* Package Caveats */,
 				63006E1629AD143D00243E29 /* Dependency List.swift */,
 				63EF569A2AC31AA600199F7B /* Basic Package Info.swift */,
 				63D67B702AC5A27F002EB992 /* Package System Info.swift */,
@@ -947,6 +952,15 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
+		63CBCC4B2AC983DF00E1E95B /* Package Caveats */ = {
+			isa = PBXGroup;
+			children = (
+				63CBCC492AC9835400E1E95B /* Package Caveat Full Display.swift */,
+				63CBCC4C2AC983FB00E1E95B /* Package Caveat Minified Display.swift */,
+			);
+			path = "Package Caveats";
+			sourceTree = "<group>";
+		};
 		63CD0274288B22C8004AE2EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1353,6 +1367,7 @@
 				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				63D67B782AC5E205002EB992 /* Tap Title.swift in Sources */,
+				63CBCC4D2AC983FB00E1E95B /* Package Caveat Minified Display.swift in Sources */,
 				63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */,
 				63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */,
 				632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */,
@@ -1398,6 +1413,7 @@
 				63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */,
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
 				6382C900299D71A300354B19 /* Sort by Install Date.swift in Sources */,
+				63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */,
 				63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */,
 				63006E0029AC073D00243E29 /* Parse JSON.swift in Sources */,
 				637260C029BE388F00E6E81C /* Tap Details.swift in Sources */,
