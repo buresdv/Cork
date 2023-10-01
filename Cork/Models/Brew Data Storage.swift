@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import IdentifiedCollections
 
 @MainActor
 class BrewDataStorage: ObservableObject
 {
-    @Published var installedFormulae = [BrewPackage]()
-    @Published var installedCasks = [BrewPackage]()
+    @Published var installedFormulae: IdentifiedArrayOf<BrewPackage> = .init()
+    @Published var installedCasks: IdentifiedArrayOf<BrewPackage> = .init()
 }
 
 class AvailableTaps: ObservableObject

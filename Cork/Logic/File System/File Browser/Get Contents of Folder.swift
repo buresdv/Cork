@@ -7,10 +7,11 @@
 
 import Foundation
 import SwiftyJSON
+import IdentifiedCollections
 
-func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPackage]
+func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> IdentifiedArrayOf<BrewPackage>
 {
-    var contentsOfFolder: [BrewPackage] = .init()
+    var contentsOfFolder: IdentifiedArrayOf<BrewPackage> = .init()
 
     var temporaryVersionStorage: [String] = .init()
     var temporaryURLStorage: [URL] = .init()

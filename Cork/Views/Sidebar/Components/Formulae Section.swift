@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import IdentifiedCollections
 
 struct FormulaeSection: View {
     
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     
@@ -24,7 +27,7 @@ struct FormulaeSection: View {
             }
             else
             {
-                ForEach(displayedFormulae)
+                ForEach(formulaeToDisplayInSidebar)
                 { formula in
                     SidebarPackageRow(package: formula)
                 }
@@ -33,7 +36,7 @@ struct FormulaeSection: View {
         .collapsible(true)
     }
 
-    private var displayedFormulae: [BrewPackage]
+    private var displayedFormulae: IdentifiedArrayOf<BrewPackage>
     {
         let filter: (BrewPackage) -> Bool
 
@@ -60,5 +63,19 @@ struct FormulaeSection: View {
         }
 
         return brewData.installedFormulae.filter(filter)
+    }
+
+    private var formulaeToDisplayInSidebar: [BrewPackage]
+    {
+        switch sortPackagesBy {
+            case .none:
+                return Array(displayedFormulae)
+            case .alphabetically:
+                return displayedFormulae.sorted(by: { $0.name < $1.name })
+            case .byInstallDate:
+                return displayedFormulae.sorted(by: { $0.installedOn! < $1.installedOn! })
+            case .bySize:
+                return displayedFormulae.sorted(by: { $0.sizeInBytes! < $1.sizeInBytes! })
+        }
     }
 }

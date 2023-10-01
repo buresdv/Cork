@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import IdentifiedCollections
 
-func sortPackagesAlphabetically(_ packageArray: [BrewPackage]) -> [BrewPackage]
+func sortPackagesAlphabetically(_ packageArray: IdentifiedArrayOf<BrewPackage>) -> [BrewPackage]
 {
-    return packageArray.sorted{ $0.name.lowercased() < $1.name.lowercased() }
+    return packageArray.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
 }
