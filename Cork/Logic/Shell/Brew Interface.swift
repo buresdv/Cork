@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import IdentifiedCollections
 
 struct SearchResults
 {
@@ -28,11 +29,11 @@ enum OutdatedPackageRetrievalError: Error
 }
 
 /// Get a list of all outdated packages. Optionally supply array of package names to skip asking Homebrew for a new list of packages.
-func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [String]? = nil) async throws -> [OutdatedPackage]
+func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [String]? = nil) async throws -> IdentifiedArrayOf<OutdatedPackage>
 {
     
-    var outdatedPackageTracker: [OutdatedPackage] = .init()
-    
+    var outdatedPackageTracker: IdentifiedArrayOf<OutdatedPackage> = .init()
+
     do
     {
         var outdatedPackages: [String] = .init()
