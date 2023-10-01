@@ -2659,6 +2659,12 @@
             "value" : "Une erreur s'est produite lors de l'installation de %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка при установке %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2685,6 +2691,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayez d'installer le package à nouveau, ou redémarrez Cork.\nSi le problème persiste, redémarrez votre Mac"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попробуйте установить пакет еще раз, либо перезапустите Cork\\nЕсли вы продолжаете сталкиваться с этой проблемой, попробуйте перезагрузить ваш Mac"
           }
         },
         "zh-Hans" : {
@@ -2714,6 +2726,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur s'est produite lors du processus d'installation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка в процессе установки"
           }
         },
         "zh-Hans" : {
@@ -4352,7 +4370,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Произошла ошибка при добавлении источника %@"
           }
         },
@@ -4398,7 +4416,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Попробуйте добавить источник еще раз через несколько минут"
           }
         },
@@ -4536,8 +4554,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Подключение %@..."
+            "state" : "translated",
+            "value" : "Подключение %@"
           }
         },
         "zh-Hans" : {
@@ -10553,6 +10571,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages étiquetés"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помеченные пакеты"
           }
         },
         "zh-Hans" : {
