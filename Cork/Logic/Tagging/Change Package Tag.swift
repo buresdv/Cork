@@ -33,9 +33,16 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
             return copyCask
         }))
     }
-    
-    appState.taggedPackageNames.insert(package.name)
-    
+
+    if appState.taggedPackageNames.contains(package.name)
+    {
+        appState.taggedPackageNames.remove(package.name)
+    }
+    else
+    {
+        appState.taggedPackageNames.insert(package.name)
+    }
+
     print("Tagged package with ID \(package)")
     
     print("Tagged packages: \(appState.taggedPackageNames)")
