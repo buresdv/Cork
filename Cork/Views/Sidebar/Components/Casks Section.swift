@@ -26,7 +26,18 @@ struct CasksSection: View {
             }
             else
             {
-                ForEach(casksToDisplayInSidebar)
+                ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
+                    switch sortPackagesBy {
+                        case .none:
+                            return false
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! < secondPackage.sizeInBytes!
+                    }
+                }))
                 { cask in
                     SidebarPackageRow(package: cask)
                 }
@@ -44,20 +55,6 @@ struct CasksSection: View {
         else
         {
             return brewData.installedCasks.filter { $0.name.contains(searchText) }
-        }
-    }
-
-    private var casksToDisplayInSidebar: [BrewPackage]
-    {
-        switch sortPackagesBy {
-            case .none:
-                return Array(displayedCasks)
-            case .alphabetically:
-                return displayedCasks.sorted(by: { $0.name < $1.name })
-            case .byInstallDate:
-                return displayedCasks.sorted(by: { $0.installedOn! < $1.installedOn! })
-            case .bySize:
-                return displayedCasks.sorted(by: { $0.sizeInBytes! < $1.sizeInBytes! })
         }
     }
 }

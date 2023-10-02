@@ -397,6 +397,14 @@ struct ContentView: View
                         restartApp()
                     })
                 )
+            case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
+                return Alert(
+                    title: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title"),
+                    message: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
             }
         })
     }

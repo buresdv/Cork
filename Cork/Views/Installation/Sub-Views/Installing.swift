@@ -59,6 +59,13 @@ struct InstallingPackageView: View
 
                             case .movingCask:
                                 Text("add-package.install.moving-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+
+                            case .requiresSudoPassword:
+                                Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                    .onAppear
+                                {
+                                    packageInstallationProcessStep = .requiresSudoPassword
+                                }
                         }
                     }
                 }

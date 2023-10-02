@@ -112,6 +112,12 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
             case let .standardError(errorLine):
                 print("Errored out: \(errorLine)")
+                if errorLine.contains("a password is required")
+                {
+                    print("Install requires sudo")
+
+                    installationProgressTracker.packagesBeingInstalled[0].installationStage = .requiresSudoPassword
+                }
             }
         }
 
@@ -174,6 +180,12 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
             case let .standardError(errorLine):
                 print("Line had error: \(errorLine)")
+                if errorLine.contains("a password is required")
+                {
+                    print("Install requires sudo")
+
+                    installationProgressTracker.packagesBeingInstalled[0].installationStage = .requiresSudoPassword
+                }
             }
         }
     }

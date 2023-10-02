@@ -6,29 +6,40 @@
 //
 
 import Foundation
+import IdentifiedCollections
 
-func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker) -> BrewPackage
+private enum PackageRetrievalByUUIDError: Error
+{
+    case couldNotfindAnypackagesInTracker
+}
+
+func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker) throws -> BrewPackage
 {
     
     var filteredPackage: BrewPackage?
-    
-    let foundFormulae: [BrewPackage] = tracker.foundFormulae
-    let foundCasks: [BrewPackage] = tracker.foundCasks
-    
-    for formula in foundFormulae {
-        if requestedPackageUUID == formula.id
-        {
-            filteredPackage = BrewPackage(name: formula.name, isCask: formula.isCask, installedOn: formula.installedOn, versions: formula.versions, sizeInBytes: formula.sizeInBytes)
-        }
+
+
+    print("Formula tracker: \(tracker.foundFormulae.count)")
+    print("Cask tracker: \(tracker.foundCasks.count)")
+
+    if tracker.foundFormulae.count != 0
+    {
+        filteredPackage = tracker.foundFormulae.filter({ $0.id == requestedPackageUUID }).first
+    }
+
+    if filteredPackage == nil
+    {
+        filteredPackage = tracker.foundCasks.filter({ $0.id == requestedPackageUUID }).first
     }
     
-    for cask in foundCasks {
-        if requestedPackageUUID == cask.id {
-            filteredPackage = BrewPackage(name: cask.name, isCask: cask.isCask, installedOn: cask.installedOn, versions: cask.versions, sizeInBytes: cask.sizeInBytes)
-        }
+    if let filteredPackage
+    {
+        return filteredPackage
     }
-    
-    return filteredPackage!
+    else
+    {
+        throw PackageRetrievalByUUIDError.couldNotfindAnypackagesInTracker
+    }
 }
 
 enum TopPackageRetrievalError: Error

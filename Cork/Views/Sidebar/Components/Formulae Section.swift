@@ -27,7 +27,18 @@ struct FormulaeSection: View {
             }
             else
             {
-                ForEach(formulaeToDisplayInSidebar)
+                ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
+                    switch sortPackagesBy {
+                        case .none:
+                            return false
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! < secondPackage.sizeInBytes!
+                    }
+                }))
                 { formula in
                     SidebarPackageRow(package: formula)
                 }
@@ -63,19 +74,5 @@ struct FormulaeSection: View {
         }
 
         return brewData.installedFormulae.filter(filter)
-    }
-
-    private var formulaeToDisplayInSidebar: [BrewPackage]
-    {
-        switch sortPackagesBy {
-            case .none:
-                return Array(displayedFormulae)
-            case .alphabetically:
-                return displayedFormulae.sorted(by: { $0.name < $1.name })
-            case .byInstallDate:
-                return displayedFormulae.sorted(by: { $0.installedOn! < $1.installedOn! })
-            case .bySize:
-                return displayedFormulae.sorted(by: { $0.sizeInBytes! < $1.sizeInBytes! })
-        }
     }
 }
