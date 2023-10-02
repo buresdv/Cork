@@ -52,7 +52,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         
         withAnimation
         {
-            availableTaps.addedTaps = availableTaps.addedTaps.filter { $0.name != name }
+            availableTaps.removeTapFromTrackerByName(name)
         }
 
         if appState.navigationSelection != nil

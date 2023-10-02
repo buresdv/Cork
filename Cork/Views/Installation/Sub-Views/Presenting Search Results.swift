@@ -121,7 +121,7 @@ private struct SearchResultsSection: View
 
     let sectionType: SectionType
 
-    let packageList: IdentifiedArrayOf<BrewPackage>
+    let packageList: [BrewPackage]
 
     @State private var isSectionCollapsed: Bool = false
 

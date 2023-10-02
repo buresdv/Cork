@@ -29,7 +29,11 @@ struct SidebarPackageRow: View {
             Button
             {
                 Task(priority: .userInitiated) {
-                    await changePackageTagStatus(package:package, brewData: brewData, appState: appState)
+                    await changePackageTagStatus(
+                        package:package,
+                        brewData: brewData,
+                        appState: appState
+                    )
                 }
             } label: {
                 Text(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)")

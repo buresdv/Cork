@@ -119,13 +119,13 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         case false:
             withAnimation
             {
-                brewData.installedFormulae.remove(package)
+                brewData.removeFormulaFromTracker(withName: package.name)
             }
 
         case true:
             withAnimation
             {
-                brewData.installedCasks.remove(package)
+                brewData.removeCaskFromTracker(withName: package.name)
             }
         }
 
