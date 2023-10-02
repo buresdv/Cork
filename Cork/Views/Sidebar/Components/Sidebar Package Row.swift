@@ -26,31 +26,14 @@ struct SidebarPackageRow: View {
         }
         .contextMenu
         {
-            if package.isTagged
+            Button
             {
-                Button
-                {
-                    Task
-                    {
-                        await untagPackage(package: package, brewData: brewData, appState: appState)
-                    }
-                } label: {
-                    Text("sidebar.section.all.contextmenu.untag-\(package.name)")
+                Task(priority: .userInitiated) {
+                    await changePackageTagStatus(package:package, brewData: brewData, appState: appState)
                 }
+            } label: {
+                Text(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)")
             }
-            else
-            {
-                Button
-                {
-                    Task
-                    {
-                        await tagPackage(package: package, brewData: brewData, appState: appState)
-                    }
-                } label: {
-                    Text("sidebar.section.all.contextmenu.tag-\(package.name)")
-                }
-            }
-
             Divider()
 
             Button

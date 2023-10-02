@@ -9,7 +9,7 @@ import Foundation
 import IdentifiedCollections
 
 @MainActor
-func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> IdentifiedArrayOf<BrewPackage>
+func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<BrewPackage>
 {
 
     print("Started \(whatToLoad == .formula ? "Formula" : "Cask") loading task at \(Date())")
@@ -21,7 +21,7 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Identi
             appState.isLoadingCasks = true
     }
 
-    var contentsOfFolder: IdentifiedArrayOf<BrewPackage> = .init()
+    var contentsOfFolder: Set<BrewPackage> = .init()
 
     switch whatToLoad {
         case .formula:
@@ -30,11 +30,11 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Identi
             contentsOfFolder = await getContentsOfFolder(targetFolder: AppConstants.brewCaskPath, appState: appState)
     }
 
-    var installedPackages: IdentifiedArrayOf<BrewPackage> = .init() // Empty the tracker in case there is already something in it
+    var installedPackages: Set<BrewPackage> = .init() // Empty the tracker in case there is already something in it
 
     for package in contentsOfFolder
     {
-        installedPackages.append(package)
+        installedPackages.insert(package)
     }
 
     switch whatToLoad {

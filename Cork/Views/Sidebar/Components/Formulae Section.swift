@@ -47,7 +47,7 @@ struct FormulaeSection: View {
         .collapsible(true)
     }
 
-    private var displayedFormulae: IdentifiedArrayOf<BrewPackage>
+    private var displayedFormulae: Set<BrewPackage>
     {
         let filter: (BrewPackage) -> Bool
 

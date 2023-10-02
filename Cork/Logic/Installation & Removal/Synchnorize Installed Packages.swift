@@ -40,8 +40,8 @@ func synchronizeInstalledPackages(brewData: BrewDataStorage) async -> Void
     dummyAppState.isLoadingCasks = false
 
     /// These have to use this dummy AppState, which forces them to not activate the "loading" animation. We don't want the entire thing to re-draw
-    let newFormulae: IdentifiedArrayOf<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: dummyAppState)
-    let newCasks: IdentifiedArrayOf<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: dummyAppState)
+    let newFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: dummyAppState)
+    let newCasks: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: dummyAppState)
 
     if newFormulae.count != brewData.installedFormulae.count
     {

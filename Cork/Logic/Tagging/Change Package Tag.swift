@@ -1,28 +1,26 @@
 //
-//  Apply Uninstallation Spinner.swift
+//  Tag Package.swift
 //  Cork
 //
-//  Created by David Bureš on 02.09.2023.
+//  Created by David Bureš on 21.03.2023.
 //
 
 import Foundation
 
 @MainActor
-func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStorage) -> Void
+func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
 {
-    print("Brew data: \(brewData)")
-    print("Will try to apply uninstallation spinner to package \(package)")
-    
     if !package.isCask
     {
         brewData.installedFormulae = Set(brewData.installedFormulae.map({ formula in
             var copyFormula = formula
             if copyFormula.name == package.name
             {
-                copyFormula.changeBeingModifiedStatus()
+                copyFormula.changeTaggedStatus()
             }
             return copyFormula
         }))
+
     }
     else
     {
@@ -30,9 +28,15 @@ func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStora
             var copyCask = cask
             if copyCask.name == package.name
             {
-                copyCask.changeBeingModifiedStatus()
+                copyCask.changeTaggedStatus()
             }
             return copyCask
         }))
     }
+    
+    appState.taggedPackageNames.insert(package.name)
+    
+    print("Tagged package with ID \(package)")
+    
+    print("Tagged packages: \(appState.taggedPackageNames)")
 }

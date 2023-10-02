@@ -22,9 +22,6 @@ struct InstallationInitialView: View
     
     @ObservedObject var searchResultTracker: SearchResultTracker
 
-    @State private var installedFormulaNamesSet: Set<String> = .init()
-    @State private var installedCaskNamesSet: Set<String> = .init()
-
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
 
@@ -55,7 +52,7 @@ struct InstallationInitialView: View
                             {
                                 ForEach(topPackagesTracker.topFormulae.filter
                                 {
-                                    !installedFormulaNamesSet.contains($0.packageName)
+                                    !brewData.installedFormulae.map(\.name).contains($0.packageName)
                                 }.prefix(15))
                                 { topFormula in
                                     TopPackageListItem(topPackage: topFormula)
@@ -71,7 +68,7 @@ struct InstallationInitialView: View
                             {
                                 ForEach(topPackagesTracker.topCasks.filter
                                 {
-                                    !installedCaskNamesSet.contains($0.packageName)
+                                    !brewData.installedCasks.map(\.name).contains($0.packageName)
                                 }.prefix(15))
                                 { topCask in
                                     TopPackageListItem(topPackage: topCask)
@@ -83,17 +80,6 @@ struct InstallationInitialView: View
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
                     .frame(minHeight: 200)
-                    .onAppear
-                    {
-                        // Convert the installed formular and casks array into sets for faster comparisons
-                        installedFormulaNamesSet = Set(brewData.installedFormulae.map(\.name))
-                        installedCaskNamesSet = Set(brewData.installedCasks.map(\.name))
-                    }
-                    .onDisappear
-                    {
-                        installedFormulaNamesSet = .init()
-                        installedCaskNamesSet = .init()
-                    }
                 }
                 else
                 {

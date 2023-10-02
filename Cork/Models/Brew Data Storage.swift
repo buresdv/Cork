@@ -11,8 +11,8 @@ import IdentifiedCollections
 @MainActor
 class BrewDataStorage: ObservableObject
 {
-    @Published var installedFormulae: IdentifiedArrayOf<BrewPackage> = .init()
-    @Published var installedCasks: IdentifiedArrayOf<BrewPackage> = .init()
+    @Published var installedFormulae: Set<BrewPackage> = .init()
+    @Published var installedCasks: Set<BrewPackage> = .init()
 }
 
 class AvailableTaps: ObservableObject

@@ -63,9 +63,8 @@
 		635E44932A891050002C034E /* Notifications Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E44922A891050002C034E /* Notifications Pane.swift */; };
 		635E44952A891078002C034E /* Outdated Packages Notification Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E44942A891078002C034E /* Outdated Packages Notification Type.swift */; };
 		6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355929BDF67A00CC0760 /* Update Availability.swift */; };
-		63690F7B29C9FBF5008F952C /* Tag Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7A29C9FBF5008F952C /* Tag Package.swift */; };
+		63690F7B29C9FBF5008F952C /* Change Package Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7A29C9FBF5008F952C /* Change Package Tag.swift */; };
 		63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */; };
-		63690F7F29CA013E008F952C /* Untag Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7E29CA013E008F952C /* Untag Package.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -247,9 +246,8 @@
 		635E44942A891078002C034E /* Outdated Packages Notification Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Packages Notification Type.swift"; sourceTree = "<group>"; };
 		6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Stages.swift"; sourceTree = "<group>"; };
 		6360355929BDF67A00CC0760 /* Update Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Availability.swift"; sourceTree = "<group>"; };
-		63690F7A29C9FBF5008F952C /* Tag Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag Package.swift"; sourceTree = "<group>"; };
+		63690F7A29C9FBF5008F952C /* Change Package Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Change Package Tag.swift"; sourceTree = "<group>"; };
 		63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Save Data do Disk.swift"; sourceTree = "<group>"; };
-		63690F7E29CA013E008F952C /* Untag Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Untag Package.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -685,8 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				63A8D2EF29CA341E00E892FB /* File Handling */,
-				63690F7A29C9FBF5008F952C /* Tag Package.swift */,
-				63690F7E29CA013E008F952C /* Untag Package.swift */,
+				63690F7A29C9FBF5008F952C /* Change Package Tag.swift */,
 				63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */,
 				63A8D2F629CA605200E892FB /* Apply Tags to Package Array.swift */,
 			);
@@ -1324,7 +1321,7 @@
 				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
 				634838A629C1D69F00D3C692 /* Outdated Package Tracker.swift in Sources */,
 				63006E0D29ACC78400243E29 /* Package Dependency.swift in Sources */,
-				63690F7B29C9FBF5008F952C /* Tag Package.swift in Sources */,
+				63690F7B29C9FBF5008F952C /* Change Package Tag.swift in Sources */,
 				63E716DD29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift in Sources */,
 				63D67B732AC5AC78002EB992 /* Package Dependencies.swift in Sources */,
 				63A90D8B2AA268C700CEC48E /* Sanitized Package Name.swift in Sources */,
@@ -1459,7 +1456,6 @@
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */,
-				63690F7F29CA013E008F952C /* Untag Package.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
 				635BE0522A2B382C004DCBD8 /* Taps Section.swift in Sources */,
 				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
