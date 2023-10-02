@@ -7,6 +7,7 @@
 
 import Foundation
 import IdentifiedCollections
+import SwiftUI
 
 @MainActor
 class BrewDataStorage: ObservableObject
@@ -15,7 +16,13 @@ class BrewDataStorage: ObservableObject
     @Published var installedCasks: Set<BrewPackage> = .init()
 }
 
+@MainActor
 class AvailableTaps: ObservableObject
 {
-    @Published var addedTaps = [BrewTap]()
+    @Published var addedTaps: Set<BrewTap> = .init()
+
+    func insertTapIntoTracker(_ tap: BrewTap)
+    {
+        addedTaps.insert(tap)
+    }
 }
