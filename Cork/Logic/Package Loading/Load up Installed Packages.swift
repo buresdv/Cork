@@ -14,13 +14,6 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
 
     print("Started \(whatToLoad == .formula ? "Formula" : "Cask") loading task at \(Date())")
 
-    switch whatToLoad {
-        case .formula:
-            appState.isLoadingFormulae = true
-        case .cask:
-            appState.isLoadingCasks = true
-    }
-
     var contentsOfFolder: Set<BrewPackage> = .init()
 
     switch whatToLoad {
@@ -35,13 +28,6 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
     for package in contentsOfFolder
     {
         installedPackages.insert(package)
-    }
-
-    switch whatToLoad {
-        case .formula:
-            appState.isLoadingFormulae = false
-        case .cask:
-            appState.isLoadingCasks = false
     }
 
     print("Found \(whatToLoad == .formula ? "Formulae" : "Casks"): \(installedPackages)")

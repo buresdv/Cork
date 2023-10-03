@@ -15,6 +15,18 @@ class BrewDataStorage: ObservableObject
     @Published var installedFormulae: Set<BrewPackage> = .init()
     @Published var installedCasks: Set<BrewPackage> = .init()
 
+    func insertPackageIntoTracker(_ package: BrewPackage)
+    {
+        if !package.isCask
+        {
+            installedFormulae.insert(package)
+        }
+        else
+        {
+            installedCasks.insert(package)
+        }
+    }
+
     func removeFormulaFromTracker(withName name: String)
     {
         removePackageFromTracker(withName: name, tracker: .formula)
@@ -52,10 +64,7 @@ class AvailableTaps: ObservableObject
     }
     func removeTapFromTracker(_ tap: BrewTap)
     {
-        if let index = addedTaps.firstIndex(where: { $0.name == tap.name })
-        {
-            addedTaps.remove(at: index)
-        }
+        addedTaps.remove(tap)
     }
     func removeTapFromTrackerByName(_ tapName: String)
     {

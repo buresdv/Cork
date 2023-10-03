@@ -22,7 +22,7 @@ struct ContentView: View
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var tapData: AvailableTaps
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
@@ -141,57 +141,74 @@ struct ContentView: View
             {
                 print("Metadata file exists")
             }
+        }
+        .task(priority: .high)
+        {
+            print("Started Package Load startup action at \(Date())")
 
-            Task
+            defer
             {
-                async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
+                appState.isLoadingFormulae = false
+                appState.isLoadingCasks = false
+            }
 
-                brewData.installedFormulae = await loadUpPackages(whatToLoad: .formula, appState: appState)
-                brewData.installedCasks = await loadUpPackages(whatToLoad: .cask, appState: appState)
+            async let availableFormulae = await loadUpPackages(whatToLoad: .formula, appState: appState)
+            async let availableCasks = await loadUpPackages(whatToLoad: .cask, appState: appState)
 
-                availableTaps.addedTaps = await loadUpTappedTaps()
+            async let availableTaps = await loadUpTappedTaps()
+
+            brewData.installedFormulae = await availableFormulae
+            brewData.installedCasks = await availableCasks
+
+            tapData.addedTaps = await availableTaps
+
+            do
+            {
+                appState.taggedPackageNames = try loadTaggedIDsFromDisk()
+
+                print("Tagged packages in appState: \(appState.taggedPackageNames)")
 
                 do
                 {
-                    appState.taggedPackageNames = try loadTaggedIDsFromDisk()
-
-                    print("Tagged packages in appState: \(appState.taggedPackageNames)")
-
-                    do
-                    {
-                        try await applyTagsToPackageTrackingArray(appState: appState, brewData: brewData)
-                    }
-                    catch let taggedStateApplicationError as NSError
-                    {
-                        print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
-                        appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
-                        appState.isShowingFatalError = true
-                    }
+                    try await applyTagsToPackageTrackingArray(appState: appState, brewData: brewData)
                 }
-                catch let uuidLoadingError as NSError
+                catch let taggedStateApplicationError as NSError
                 {
-                    print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                    print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
                     appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
                     appState.isShowingFatalError = true
                 }
+            }
+            catch let uuidLoadingError as NSError
+            {
+                print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
+                appState.isShowingFatalError = true
+            }
+        }
+        .task(priority: .background) {
+            print("Started Analytics startup action at \(Date())")
 
-                if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
-                {
-                    allowBrewAnalytics = true
-                    print("Analytics are ENABLED")
-                }
-                else
-                {
-                    allowBrewAnalytics = false
-                    print("Analytics are DISABLED")
-                }
+            async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
+
+            if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
+            {
+                allowBrewAnalytics = true
+                print("Analytics are ENABLED")
+            }
+            else
+            {
+                allowBrewAnalytics = false
+                print("Analytics are DISABLED")
             }
         }
         .task(priority: .background)
         {
+            print("Started Discoverability startup action at \(Date())")
+
             if enableDiscoverability
             {
-                if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+                if appState.isLoadingFormulae && appState.isLoadingCasks || tapData.addedTaps.isEmpty
                 {
                     await loadTopPackages()
                 }

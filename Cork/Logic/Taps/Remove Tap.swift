@@ -49,11 +49,8 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     if untapResult.contains("Untapped")
     {
         print("Untapping was successful")
-        
-        withAnimation
-        {
-            availableTaps.removeTapFromTrackerByName(name)
-        }
+
+        availableTaps.removeTapFromTrackerByName(name)
 
         if appState.navigationSelection != nil
         {
