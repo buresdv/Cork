@@ -7,48 +7,47 @@
 
 import SwiftUI
 
-struct PackageCaveatFullDisplayView: View {
-
+struct PackageCaveatFullDisplayView: View
+{
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
 
     let caveats: String?
 
-    @State private var isShowingExpandedCaveats: Bool = false
+    @Binding var isShowingExpandedCaveats: Bool
     @State private var canExpandCaveats: Bool = false
 
-    var body: some View {
+    var body: some View
+    {
         if let caveats
         {
             if !caveats.isEmpty
             {
                 if caveatDisplayOptions == .full
                 {
-                    GroupBox
+                    HStack(alignment: .top, spacing: 10)
                     {
-                        HStack(alignment: .top, spacing: 10)
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.yellow)
+
+                        /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
+                        VStack(alignment: .leading, spacing: 5)
                         {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundColor(.yellow)
-
-                            /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
-                            VStack(alignment: .leading, spacing: 5)
-                            {
-                                let text = Text(
-                                    .init(
-                                        caveats
-                                            .trimmingCharacters(in: .whitespacesAndNewlines)
-                                            .replacingOccurrences(of: "\n\n", with: "\n")
-                                    )
+                            let text = Text(
+                                .init(
+                                    caveats
+                                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                                        .replacingOccurrences(of: "\n\n", with: "\n")
                                 )
-                                    .lineSpacing(5)
+                            )
+                            .lineSpacing(5)
 
-                                text
-                                    .textSelection(.enabled)
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                    .lineLimit(isShowingExpandedCaveats ? nil : 2)
-                                    .background
+                            text
+                                .textSelection(.enabled)
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                .lineLimit(isShowingExpandedCaveats ? nil : 2)
+                                .background
                                 {
                                     ViewThatFits(in: .vertical)
                                     {
@@ -57,23 +56,22 @@ struct PackageCaveatFullDisplayView: View {
                                     }
                                 }
 
-                                if canExpandCaveats
+                            if canExpandCaveats
+                            {
+                                Button
                                 {
-                                    Button
+                                    withAnimation
                                     {
-                                        withAnimation
-                                        {
-                                            isShowingExpandedCaveats.toggle()
-                                        }
-                                    } label: {
-                                        Text(isShowingExpandedCaveats ? "package-details.caveats.collapse" : "package-details.caveats.expand")
+                                        isShowingExpandedCaveats.toggle()
                                     }
-                                    .padding(.top, 5)
+                                } label: {
+                                    Text(isShowingExpandedCaveats ? "package-details.caveats.collapse" : "package-details.caveats.expand")
                                 }
+                                .padding(.top, 5)
                             }
                         }
-                        .padding(2)
                     }
+                    .padding(2)
                 }
             }
         }

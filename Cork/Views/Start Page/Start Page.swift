@@ -31,10 +31,6 @@ struct StartPage: View
             {
                 VStack
                 {
-                    Text("start-page.status")
-                        .font(.title)
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-
                     FullSizeGroupedForm
                     {
                         Section
@@ -48,6 +44,10 @@ struct StartPage: View
                             {
                                 OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
                             }
+                        } header: {
+                            Text("start-page.status")
+                                .font(.title)
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         }
 
                         Section
@@ -89,7 +89,6 @@ struct StartPage: View
                 }
             }
         }
-        .padding()
         .task(priority: .background)
         {
             if outdatedPackageTracker.outdatedPackages.isEmpty
