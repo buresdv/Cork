@@ -9,6 +9,9 @@ import SwiftUI
 
 struct TapDetailsInfo: View
 {
+    let tap: BrewTap
+    let isOfficial: Bool
+
     let includedFormulae: Set<String>?
     let includedCasks: Set<String>?
 
@@ -60,6 +63,14 @@ struct TapDetailsInfo: View
                 }
             } label: {
                 Text("tap-details.homepage")
+            }
+        } header: {
+            VStack(alignment: .leading, spacing: 15)
+            {
+                TapDetailsTitle(tap: tap, isOfficial: isOfficial)
+
+                Text("tap-details.info")
+                    .font(.title2)
             }
         }
     }

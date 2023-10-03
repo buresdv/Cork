@@ -27,7 +27,7 @@ struct PackageModificationButtons: View
         {
             if !isLoadingDetails
             {
-                HStack
+                ButtonBottomRow 
                 {
                     if !package.isCask
                     {
@@ -110,7 +110,6 @@ struct PackageModificationButtons: View
                         }
                     }
                 }
-                .padding()
             }
         }
     }

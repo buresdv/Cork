@@ -70,20 +70,19 @@ struct StartPage: View
                     }
                     .scrollDisabled(!isOutdatedPackageDropdownExpanded)
 
-                    Spacer()
-
-                    HStack
+                    ButtonBottomRow 
                     {
-                        Spacer()
-
-                        UninstallationProgressWheel()
-
-                        Button
+                        HStack
                         {
-                            print("Would perform maintenance")
-                            appState.isShowingMaintenanceSheet.toggle()
-                        } label: {
-                            Text("start-page.open-maintenance")
+                            Spacer()
+
+                            Button
+                            {
+                                print("Would perform maintenance")
+                                appState.isShowingMaintenanceSheet.toggle()
+                            } label: {
+                                Text("start-page.open-maintenance")
+                            }
                         }
                     }
                 }
