@@ -18,7 +18,7 @@ struct CachedDownloadsFolderInfoBox: View
             HStack
             {
                 GroupBoxHeadlineGroup(
-                    image: "square.and.arrow.down.on.square",
+                    image: "archivebox",
                     title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
                     mainText: "start-page.cached-downloads.description"
                 )
@@ -31,7 +31,6 @@ struct CachedDownloadsFolderInfoBox: View
                 } label: {
                     Text("start-page.cached-downloads.action")
                 }
-                .padding(.trailing, 7)
             }
         }
     }

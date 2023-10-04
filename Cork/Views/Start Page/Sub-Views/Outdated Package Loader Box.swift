@@ -21,7 +21,6 @@ struct OutdatedPackageLoaderBox: View
 
                     Text("start-page.updates.loading")
                 }
-                .padding(10)
             }
         }
     }
