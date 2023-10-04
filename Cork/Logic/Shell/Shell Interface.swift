@@ -67,7 +67,10 @@ func shell(
         print("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
-    
+
+	let path = Bundle.main.resourcePath!
+	finalEnvironment["SUDO_ASKPASS"] = "\(path)/askpass.sh"
+
     task.environment = finalEnvironment
     task.launchPath = launchPath
     task.arguments = arguments

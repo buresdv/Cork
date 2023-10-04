@@ -174,6 +174,7 @@
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
 		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		9606D0AD2AAB8B8E005B7DBA /* Sidebar Package Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */; };
+		C1CDDB342ACFAA9400139FA4 /* askpass.sh in Resources */ = {isa = PBXBuildFile; fileRef = C1CDDB332ACFAA8A00139FA4 /* askpass.sh */; };
 		C45945172A91232900271D99 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C45945192A91232900271D99 /* index.html */; };
 		C459451A2A91232E00271D99 /* topic1.html in Resources */ = {isa = PBXBuildFile; fileRef = C459451C2A91232E00271D99 /* topic1.html */; };
 		C459451D2A91233400271D99 /* topic2.html in Resources */ = {isa = PBXBuildFile; fileRef = C459451F2A91233400271D99 /* topic2.html */; };
@@ -359,6 +360,7 @@
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
 		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
 		9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar Package Row.swift"; sourceTree = "<group>"; };
+		C1CDDB332ACFAA8A00139FA4 /* askpass.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = askpass.sh; sourceTree = "<group>"; };
 		C45945182A91232900271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/index.html; sourceTree = "<group>"; wrapsLines = 0; };
 		C459451B2A91232E00271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic1.html; sourceTree = "<group>"; };
 		C459451E2A91233400271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic2.html; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				C47433522A92219700BC7209 /* Info.plist */,
+				C1CDDB332ACFAA8A00139FA4 /* askpass.sh */,
 				63006DF929AB691B00243E29 /* Styles */,
 				63A87466298FE808009F9533 /* Enums */,
 				6340657B2871AC4F001A2178 /* Models */,
@@ -1271,6 +1274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1CDDB342ACFAA9400139FA4 /* askpass.sh in Resources */,
 				C4C2A0E72A910A0D00E6F172 /* CorkHelp.help in Resources */,
 				6340656C2871AA42001A2178 /* Preview Assets.xcassets in Resources */,
 				C45C26112ABCC2C600290D26 /* Localizable.xcstrings in Resources */,
@@ -1658,13 +1662,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 44;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1690,13 +1694,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 44;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
