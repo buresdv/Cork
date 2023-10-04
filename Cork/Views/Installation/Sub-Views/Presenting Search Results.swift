@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import IdentifiedCollections
 
 struct PresentingSearchResultsView: View
 {
+    @EnvironmentObject var appState: AppState
+
     @ObservedObject var searchResultTracker: SearchResultTracker
 
     @Binding var packageRequested: String
@@ -48,7 +51,7 @@ struct PresentingSearchResultsView: View
 
                 SearchResultsSection(
                     sectionType: .cask,
-                    packageList: searchResultTracker.foundFormulae
+                    packageList: searchResultTracker.foundCasks
                 )
             }
             .listStyle(.bordered(alternatesRowBackgrounds: true))
@@ -76,15 +79,23 @@ struct PresentingSearchResultsView: View
                     {
                         for requestedPackage in foundPackageSelection
                         {
-                            print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
+                            do
+                            {
+                                let packageToInstall: BrewPackage = try getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
 
-                            let packageToInstall: BrewPackage = getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
+                                installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
 
-                            installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
+                                print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
 
-                            print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
-
-                            installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
+                                installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
+                            }
+                            catch let packageByUUIDRetrievalError
+                            {
+                                print("Failed while associating package with its ID: \(packageByUUIDRetrievalError)")
+                                isShowingSheet = false
+                                appState.fatalAlertType = .couldNotAssociateAnyPackageWithProvidedPackageUUID
+                                appState.isShowingFatalError = true
+                            }
                         }
 
                         print(installationProgressTracker.packagesBeingInstalled)
@@ -110,7 +121,7 @@ private struct SearchResultsSection: View
 
     let sectionType: SectionType
 
-    let packageList: [BrewPackage]
+    let packageList: IdentifiedArrayOf<BrewPackage>
 
     @State private var isSectionCollapsed: Bool = false
 

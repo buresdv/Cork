@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IdentifiedCollections
 
 struct UpdateSomePackagesView: View
 {
@@ -144,7 +145,7 @@ struct UpdateSomePackagesView: View
         .padding()
     }
     
-    func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> [OutdatedPackage]
+    func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> IdentifiedArrayOf<OutdatedPackage>
     {
         for updatedPackageName in namesOfUpdatedPackages
         {

@@ -2038,6 +2038,26 @@
         }
       }
     },
+    "action.copy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy"
+          }
+        }
+      }
+    },
+    "action.copy-manual-install-command-to-clipboard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy to Clipboard"
+          }
+        }
+      }
+    },
     "action.go-to-status-page" : {
       "comment" : "MARK: - Misc Actions",
       "localizations" : {
@@ -2173,6 +2193,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hide"
+          }
+        }
+      }
+    },
+    "action.open-terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Terminal"
           }
         }
       }
@@ -3336,6 +3366,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "建立依存關係圖⋯"
+          }
+        }
+      }
+    },
+    "add-package.install.requires-sudo-password-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elevated permissions are required to install %@"
+          }
+        }
+      }
+    },
+    "add-package.install.requires-sudo-password.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will have to install this package through the Terminal.\nUse the command below."
           }
         }
       }
@@ -4758,6 +4808,16 @@
         }
       }
     },
+    "add.package.install.requires-sudo-password.terminal-instructions-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
+          }
+        }
+      }
+    },
     "alert.could-not-apply-tags.message" : {
       "localizations" : {
         "cs" : {
@@ -4846,6 +4906,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法為套件加上標籤"
+          }
+        }
+      }
+    },
+    "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork could not find this package in the package database"
+          }
+        }
+      }
+    },
+    "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't find package in database"
           }
         }
       }

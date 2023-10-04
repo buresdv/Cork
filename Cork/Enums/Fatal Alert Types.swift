@@ -15,4 +15,5 @@ enum FatalAlertType
     case couldNotParseTopPackages
     case receivedInvalidResponseFromBrew
     case topPackageArrayFilterCouldNotRetrieveAnyPackages
+    case couldNotAssociateAnyPackageWithProvidedPackageUUID
 }

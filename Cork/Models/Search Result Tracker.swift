@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import IdentifiedCollections
 
 class SearchResultTracker: ObservableObject
 {
-    @Published var foundFormulae: [BrewPackage] = .init()
-    @Published var foundCasks: [BrewPackage] = .init()
+    @Published var foundFormulae: IdentifiedArrayOf<BrewPackage> = .init()
+    @Published var foundCasks: IdentifiedArrayOf<BrewPackage> = .init()
     @Published var selectedPackagesForInstallation: [String] = .init()
 }

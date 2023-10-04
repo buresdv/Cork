@@ -146,8 +146,8 @@ struct ContentView: View
             {
                 async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
 
-                brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
-                brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
+                brewData.installedFormulae = await loadUpPackages(whatToLoad: .formula, appState: appState)
+                brewData.installedCasks = await loadUpPackages(whatToLoad: .cask, appState: appState)
 
                 availableTaps.addedTaps = await loadUpTappedTaps()
 
@@ -197,28 +197,6 @@ struct ContentView: View
                 }
             }
         }
-        .onChange(of: sortPackagesBy, perform: { newSortOption in
-            switch newSortOption
-            {
-            case .none:
-                print("Chose NONE")
-
-            case .alphabetically:
-                print("Chose ALPHABETICALLY")
-                brewData.installedFormulae = sortPackagesAlphabetically(brewData.installedFormulae)
-                brewData.installedCasks = sortPackagesAlphabetically(brewData.installedCasks)
-
-            case .byInstallDate:
-                print("Chose BY INSTALL DATE")
-                brewData.installedFormulae = sortPackagesByInstallDate(brewData.installedFormulae)
-                brewData.installedCasks = sortPackagesByInstallDate(brewData.installedCasks)
-
-            case .bySize:
-                print("Chose BY SIZE")
-                brewData.installedFormulae = sortPackagesBySize(brewData.installedFormulae)
-                brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
-            }
-        })
         .onChange(of: areNotificationsEnabled, perform: { newValue in
             if newValue == true
             {
@@ -417,6 +395,14 @@ struct ContentView: View
                     }),
                     secondaryButton: .destructive(Text("action.restart"), action: {
                         restartApp()
+                    })
+                )
+            case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
+                return Alert(
+                    title: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title"),
+                    message: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
                     })
                 )
             }

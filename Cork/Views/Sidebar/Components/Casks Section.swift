@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import IdentifiedCollections
 
 struct CasksSection: View {
     
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     
@@ -23,7 +26,18 @@ struct CasksSection: View {
             }
             else
             {
-                ForEach(displayedCasks)
+                ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
+                    switch sortPackagesBy {
+                        case .none:
+                            return false
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! < secondPackage.sizeInBytes!
+                    }
+                }))
                 { cask in
                     SidebarPackageRow(package: cask)
                 }
@@ -32,7 +46,7 @@ struct CasksSection: View {
         .collapsible(true)
     }
 
-    private var displayedCasks: [BrewPackage]
+    private var displayedCasks: IdentifiedArrayOf<BrewPackage>
     {
         if searchText.isEmpty || searchText.contains("#")
         {

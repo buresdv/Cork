@@ -60,7 +60,7 @@ struct OutdatedPackageListBox: View
                                 {
                                     Section
                                     {
-                                        ForEach(outdatedPackageTracker.outdatedPackages, id: \.self)
+                                        ForEach(outdatedPackageTracker.outdatedPackages)
                                         { outdatedPackage in
                                             Toggle(outdatedPackage.package.name, isOn: Binding<Bool>(
                                                 get: {
