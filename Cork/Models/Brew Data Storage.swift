@@ -56,21 +56,5 @@ class BrewDataStorage: ObservableObject
 @MainActor
 class AvailableTaps: ObservableObject
 {
-    @Published var addedTaps: Set<BrewTap> = .init()
-
-    func insertTapIntoTracker(_ tap: BrewTap)
-    {
-        addedTaps.insert(tap)
-    }
-    func removeTapFromTracker(_ tap: BrewTap)
-    {
-        addedTaps.remove(tap)
-    }
-    func removeTapFromTrackerByName(_ tapName: String)
-    {
-        if let index = addedTaps.firstIndex(where: { $0.name == tapName })
-        {
-            addedTaps.remove(at: index)
-        }
-    }
+    @Published var addedTaps: [BrewTap] = .init()
 }

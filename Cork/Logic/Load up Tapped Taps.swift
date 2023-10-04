@@ -8,11 +8,11 @@
 import Foundation
 
 @MainActor
-func loadUpTappedTaps() async -> Set<BrewTap>
+func loadUpTappedTaps() async -> [BrewTap]
 {
-    var finalAvailableTaps: Set<BrewTap> = .init()
-    
-    let contentsOfTapFolder: Set<URL> = getContentsOfFolder(targetFolder: AppConstants.tapPath, options: .skipsHiddenFiles)
+    var finalAvailableTaps: [BrewTap] = .init()
+
+    let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.tapPath, options: .skipsHiddenFiles)
 
     print("Contents of tap folder: \(contentsOfTapFolder)")
     
@@ -21,7 +21,7 @@ func loadUpTappedTaps() async -> Set<BrewTap>
         
         print("Tap repo: \(tapRepoParentURL)")
         
-        let contentsOfTapRepoParent: Set<URL> = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
+        let contentsOfTapRepoParent: [URL] = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
 
         for repoURL in contentsOfTapRepoParent {
             
@@ -36,7 +36,7 @@ func loadUpTappedTaps() async -> Set<BrewTap>
             
             print("Full tap name: \(fullTapName)")
             
-            finalAvailableTaps.insert(BrewTap(name: fullTapName))
+            finalAvailableTaps.append(BrewTap(name: fullTapName))
         }
     }
     

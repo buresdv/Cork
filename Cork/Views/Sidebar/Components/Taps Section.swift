@@ -20,9 +20,7 @@ struct TapsSection: View
         {
             if availableTaps.addedTaps.count != 0
             {
-                ForEach(displayedTaps.sorted(by: { firstTap, secondTap in
-                    return firstTap.name < secondTap.name
-                }))
+                ForEach(displayedTaps)
                 { tap in
                     NavigationLink
                     {
@@ -62,7 +60,7 @@ struct TapsSection: View
         }
     }
 
-    private var displayedTaps: Set<BrewTap>
+    private var displayedTaps: [BrewTap]
     {
         if searchText.isEmpty || searchText.contains("#")
         {

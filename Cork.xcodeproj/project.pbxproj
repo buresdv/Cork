@@ -67,6 +67,7 @@
 		63689F7F2ACC8FDC00BD354C /* Package Modification Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */; };
 		63689F832ACC9FE000BD354C /* Button Bottom Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F822ACC9FE000BD354C /* Button Bottom Row.swift */; };
 		63689F8B2ACCB5B600BD354C /* Load Image from Local URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F8A2ACCB5B600BD354C /* Load Image from Local URL.swift */; };
+		63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689FA72ACCC04E00BD354C /* Array - Prepend.swift */; };
 		63690F7B29C9FBF5008F952C /* Change Package Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7A29C9FBF5008F952C /* Change Package Tag.swift */; };
 		63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
@@ -254,6 +255,7 @@
 		63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Modification Buttons.swift"; sourceTree = "<group>"; };
 		63689F822ACC9FE000BD354C /* Button Bottom Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button Bottom Row.swift"; sourceTree = "<group>"; };
 		63689F8A2ACCB5B600BD354C /* Load Image from Local URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load Image from Local URL.swift"; sourceTree = "<group>"; };
+		63689FA72ACCC04E00BD354C /* Array - Prepend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Prepend.swift"; sourceTree = "<group>"; };
 		63690F7A29C9FBF5008F952C /* Change Package Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Change Package Tag.swift"; sourceTree = "<group>"; };
 		63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Save Data do Disk.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
@@ -982,6 +984,7 @@
 				63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */,
 				63A96F712AA4F8030029E33B /* Array - Get Difference.swift */,
 				63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */,
+				63689FA72ACCC04E00BD354C /* Array - Prepend.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1487,6 +1490,7 @@
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,
+				63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */,
 				63958D00287735F800E0B807 /* About View.swift in Sources */,
 				63A38B9329BA0AFD0080158C /* Update Packages.swift in Sources */,
 				639A7D862871D78C00B50280 /* Package Details.swift in Sources */,

@@ -143,11 +143,11 @@ struct AddTapView: View
                         .onAppear
                         {
                             withAnimation {
-                                availableTaps.insertTapIntoTracker(BrewTap(name: requestedTap))
+                                availableTaps.addedTaps.prepend(BrewTap(name: requestedTap))
                             }
 
                             /// Remove that one element of the array that's empty for some reason
-                            availableTaps.addedTaps.remove(BrewTap(name: ""))
+                            availableTaps.addedTaps.removeAll(where: { $0.name == "" })
 
                             print("Available taps: \(availableTaps.addedTaps)")
                         }

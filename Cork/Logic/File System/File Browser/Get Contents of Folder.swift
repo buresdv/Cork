@@ -99,7 +99,7 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Set<Bre
     return contentsOfFolder
 }
 
-func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> Set<URL>
+func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> [URL]
 {
     var contentsOfFolder: [URL] = .init()
 
@@ -119,5 +119,5 @@ func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumer
         print(folderReadingError.localizedDescription)
     }
 
-    return Set(contentsOfFolder)
+    return contentsOfFolder
 }

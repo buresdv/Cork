@@ -14,24 +14,22 @@ enum UntapError: Error
 }
 
 @MainActor
-func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws -> Void
 {
-    var indexToReplaceGlobal: Int?
+
+    var indexToReplaceGlobal: Int? = nil
 
     /// Store the old navigation selection to see if it got updated in the middle of switching
     let oldNavigationSelectionID: UUID? = appState.navigationSelection
 
     if shouldApplyUninstallSpinnerToRelevantItemInSidebar
     {
-        availableTaps.addedTaps = Set(availableTaps.addedTaps.map
-        { tap in
-            var copyTap = tap
-            if copyTap.name == name
-            {
-                copyTap.changeBeingModifiedStatus()
-            }
-            return copyTap
-        })
+        if let indexToReplace = availableTaps.addedTaps.firstIndex(where: { $0.name == name })
+        {
+            availableTaps.addedTaps[indexToReplace].changeBeingModifiedStatus()
+
+            indexToReplaceGlobal = indexToReplace
+        }
     }
     else
     {
@@ -49,8 +47,11 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     if untapResult.contains("Untapped")
     {
         print("Untapping was successful")
-
-        availableTaps.removeTapFromTrackerByName(name)
+        DispatchQueue.main.async {
+            withAnimation {
+                availableTaps.addedTaps.removeAll(where: { $0.name == name })
+            }
+        }
 
         if appState.navigationSelection != nil
         {
@@ -72,15 +73,21 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
             appState.isShowingFatalError = true
         }
 
-        availableTaps.addedTaps = Set(availableTaps.addedTaps.map
-        { tap in
-            var copyTap = tap
-            if copyTap.name == name, copyTap.isBeingModified == true
+        if let indexToReplaceGlobal
+        {
+            availableTaps.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
+        }
+        else
+        {
+            print("Could not get index for that tap. Will loop over all of them")
+            for (index, _) in availableTaps.addedTaps.enumerated()
             {
-                copyTap.changeBeingModifiedStatus()
+                if availableTaps.addedTaps[index].isBeingModified
+                {
+                    availableTaps.addedTaps[index].isBeingModified = false
+                }
             }
-            return copyTap
-        })
+        }
 
         throw UntapError.couldNotUntap
     }
