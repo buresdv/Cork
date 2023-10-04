@@ -42,13 +42,6 @@ struct GeneralPane: View
                     Text("settings.general.sort-packages")
                 }
 
-                if sortPackagesBy == .none
-                {
-                    Text("settings.general.sort-packages.restart")
-                        .font(.caption)
-                        .foregroundColor(Color(nsColor: NSColor.systemGray))
-                }
-
                 LabeledContent
                 {
                     VStack(alignment: .leading)

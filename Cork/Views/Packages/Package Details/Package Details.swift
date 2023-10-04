@@ -41,7 +41,8 @@ struct PackageDetailView: View
         if isShowingExpandedCaveats
         {
             return false
-        } else if isShowingExpandedDependencies
+        }
+        else if isShowingExpandedDependencies
         {
             return false
         }
@@ -53,7 +54,7 @@ struct PackageDetailView: View
 
     var body: some View
     {
-        VStack(alignment: .leading, spacing: 15)
+        VStack(alignment: .leading, spacing: 0)
         {
             if isLoadingDetails
             {
@@ -77,27 +78,27 @@ struct PackageDetailView: View
                 }
                 else
                 {
-                        FullSizeGroupedForm
-                        {
-                            BasicPackageInfoView(
-                                package: package,
-                                tap: tap,
-                                homepage: homepage,
-                                description: description,
-                                pinned: pinned,
-                                installedAsDependency: installedAsDependency,
-                                packageDependents: packageDependents,
-                                outdated: outdated,
-                                caveats: caveats,
-                                isLoadingDetails: isLoadingDetails,
-                                isShowingExpandedCaveats: $isShowingExpandedCaveats
-                            )
+                    FullSizeGroupedForm
+                    {
+                        BasicPackageInfoView(
+                            package: package,
+                            tap: tap,
+                            homepage: homepage,
+                            description: description,
+                            pinned: pinned,
+                            installedAsDependency: installedAsDependency,
+                            packageDependents: packageDependents,
+                            outdated: outdated,
+                            caveats: caveats,
+                            isLoadingDetails: isLoadingDetails,
+                            isShowingExpandedCaveats: $isShowingExpandedCaveats
+                        )
 
-                            PackageDependencies(dependencies: dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
+                        PackageDependencies(dependencies: dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
 
-                            PackageSystemInfo(package: package)
-                        }
-                        .scrollDisabled(isScrollingDisabled)
+                        PackageSystemInfo(package: package)
+                    }
+                    .scrollDisabled(isScrollingDisabled)
                 }
             }
 

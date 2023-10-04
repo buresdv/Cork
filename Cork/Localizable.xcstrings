@@ -12097,52 +12097,6 @@
         }
       }
     },
-    "settings.general.sort-packages.restart" : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Pro uplatnění změn Cork restartujte"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Starte Cork neu um die gewählte Sortierungsoption zu übernehmen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Restart Cork for this sorting option to take effect"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Redémarrez Cork pour que cette option de tri prenne effet"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Перезапустите Cork, чтобы это вступило в силу"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 重新启动 Cork 以使排序生效"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 此排序需重啟 Cork 才能生效"
-          }
-        }
-      }
-    },
     "settings.general.sort-packages.size" : {
       "localizations" : {
         "cs" : {

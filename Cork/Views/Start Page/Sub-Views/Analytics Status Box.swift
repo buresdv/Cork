@@ -20,7 +20,6 @@ struct AnalyticsStatusBox: View
                 title: allowBrewAnalytics ? "start-page.analytics.enabled" : "start-page.analytics.disabled",
                 mainText: allowBrewAnalytics ? "start-page.analytics.enabled.description" : "start-page.analytics.disabled.description"
             )
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         }
     }
 }
