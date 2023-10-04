@@ -146,7 +146,9 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     /// If the user removed a package that was outdated, remove it from the outdated package tracker
     Task
     {
-        outdatedPackageTracker.outdatedPackages.filter({ $0.package.name != package.name })
-        //outdatedPackageTracker.outdatedPackages.removeAll(where: { $0.package.name == package.name })
+        if let index = outdatedPackageTracker.outdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        {
+            outdatedPackageTracker.outdatedPackages.remove(at: index)
+        }
     }
 }
