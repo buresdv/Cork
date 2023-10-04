@@ -30,6 +30,7 @@ struct PackageCaveatMinifiedDisplayView: View {
                     .popover(isPresented: $isShowingCaveatPopover)
                     {
                         Text(.init(caveats.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\n\n", with: "\n")))
+                            .font(.system(size: 13))
                             .textSelection(.enabled)
                             .lineSpacing(5)
                             .padding()
