@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import IdentifiedCollections
+
 
 class SearchResultTracker: ObservableObject
 {

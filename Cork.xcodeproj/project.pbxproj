@@ -22,7 +22,6 @@
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
 		632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */; };
 		6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */; };
-		63272FB92AC8DE3A0054ACA7 /* IdentifiedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 63272FB82AC8DE3A0054ACA7 /* IdentifiedCollections */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
 		632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap View.swift */; };
@@ -370,7 +369,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63272FB92AC8DE3A0054ACA7 /* IdentifiedCollections in Frameworks */,
 				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
 				634065752871AB22001A2178 /* DavidFoundation in Frameworks */,
 			);
@@ -1192,7 +1190,6 @@
 			packageProductDependencies = (
 				634065742871AB22001A2178 /* DavidFoundation */,
 				63936A4A29AE09D00069C988 /* SwiftyJSON */,
-				63272FB82AC8DE3A0054ACA7 /* IdentifiedCollections */,
 			);
 			productName = Cork;
 			productReference = 634065612871AA42001A2178 /* Cork.app */;
@@ -1252,7 +1249,6 @@
 			packageReferences = (
 				634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */,
 				63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				63272FB72AC8DE3A0054ACA7 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
 			);
 			productRefGroup = 634065622871AA42001A2178 /* Products */;
 			projectDirPath = "";
@@ -1796,14 +1792,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		63272FB72AC8DE3A0054ACA7 /* XCRemoteSwiftPackageReference "swift-identified-collections" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-identified-collections";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/buresdv/DavidFoundation";
@@ -1823,11 +1811,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		63272FB82AC8DE3A0054ACA7 /* IdentifiedCollections */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63272FB72AC8DE3A0054ACA7 /* XCRemoteSwiftPackageReference "swift-identified-collections" */;
-			productName = IdentifiedCollections;
-		};
 		634065742871AB22001A2178 /* DavidFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */;
