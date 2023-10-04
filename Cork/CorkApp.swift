@@ -139,10 +139,6 @@ struct CorkApp: App
                                 {
                                     sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String(localized: "notification.outdated-packages-found.body-\(outdatedPackageCount)"))
                                 }
-                                else
-                                {
-                                    sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"))
-                                }
                             }
                         }
                     }
