@@ -31,10 +31,6 @@ struct StartPage: View
             {
                 VStack
                 {
-                    Text("start-page.status")
-                        .font(.title)
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-
                     FullSizeGroupedForm
                     {
                         Section
@@ -48,6 +44,10 @@ struct StartPage: View
                             {
                                 OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
                             }
+                        } header: {
+                            Text("start-page.status")
+                                .font(.title)
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         }
 
                         Section
@@ -70,26 +70,24 @@ struct StartPage: View
                     }
                     .scrollDisabled(!isOutdatedPackageDropdownExpanded)
 
-                    Spacer()
-
-                    HStack
+                    ButtonBottomRow 
                     {
-                        Spacer()
-
-                        UninstallationProgressWheel()
-
-                        Button
+                        HStack
                         {
-                            print("Would perform maintenance")
-                            appState.isShowingMaintenanceSheet.toggle()
-                        } label: {
-                            Text("start-page.open-maintenance")
+                            Spacer()
+
+                            Button
+                            {
+                                print("Would perform maintenance")
+                                appState.isShowingMaintenanceSheet.toggle()
+                            } label: {
+                                Text("start-page.open-maintenance")
+                            }
                         }
                     }
                 }
             }
         }
-        .padding()
         .task(priority: .background)
         {
             if outdatedPackageTracker.outdatedPackages.isEmpty

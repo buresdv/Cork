@@ -28,13 +28,14 @@ struct TapDetailView: View
     {
         VStack(alignment: .leading, spacing: 15)
         {
-            TapDetailsTitle(tap: tap, isOfficial: isOfficial)
-
             if isLoadingTapInfo
             {
-                HStack(alignment: .center) {
-                    VStack(alignment: .center) {
-                        ProgressView {
+                HStack(alignment: .center)
+                {
+                    VStack(alignment: .center)
+                    {
+                        ProgressView
+                        {
                             Text("tap-details.loading")
                         }
                     }
@@ -51,40 +52,44 @@ struct TapDetailView: View
                 {
                     VStack(alignment: .leading, spacing: 10)
                     {
-                        Text("tap-details.info")
-                            .font(.title2)
-
                         FullSizeGroupedForm
                         {
-                            TapDetailsInfo(includedFormulae: includedFormulae, includedCasks: includedCasks, numberOfPackages: numberOfPackages, homepage: homepage)
+                            TapDetailsInfo(
+                                tap: tap,
+                                isOfficial: isOfficial,
+                                includedFormulae: includedFormulae,
+                                includedCasks: includedCasks,
+                                numberOfPackages: numberOfPackages,
+                                homepage: homepage
+                            )
 
                             TapDetailsIncludedPackages(includedFormulae: includedFormulae, includedCasks: includedCasks)
                         }
                         .scrollDisabled(true)
 
-                        Spacer()
-
-                        HStack
+                        ButtonBottomRow
                         {
-                            Spacer()
+                            HStack
+                            {
+                                Spacer()
 
-                            UninstallationProgressWheel()
+                                UninstallationProgressWheel()
 
-                            Button {
-                                Task(priority: .userInitiated)
+                                Button
                                 {
-                                    try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                    Task(priority: .userInitiated)
+                                    {
+                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                    }
+                                } label: {
+                                    Text("tap-details.remove-\(tap.name)")
                                 }
-                            } label: {
-                                Text("tap-details.remove-\(tap.name)")
                             }
-
                         }
                     }
                 }
             }
         }
-        .padding()
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)
         {

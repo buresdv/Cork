@@ -7,11 +7,11 @@
 
 import Foundation
 import SwiftyJSON
-import IdentifiedCollections
 
-func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> IdentifiedArrayOf<BrewPackage>
+
+func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Set<BrewPackage>
 {
-    var contentsOfFolder: IdentifiedArrayOf<BrewPackage> = .init()
+    var contentsOfFolder: Set<BrewPackage> = .init()
 
     var temporaryVersionStorage: [String] = .init()
     var temporaryURLStorage: [URL] = .init()
@@ -67,7 +67,7 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Identif
 
                         print("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
                         
-                        contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw))
+                        contentsOfFolder.insert(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw))
                     }
                     else
                     {
@@ -79,7 +79,7 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Identif
                 }
                 else
                 {
-                    contentsOfFolder.append(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                    contentsOfFolder.insert(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
                 }
 
                 temporaryVersionStorage = [String]()

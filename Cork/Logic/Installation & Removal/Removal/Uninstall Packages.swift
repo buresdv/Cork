@@ -11,8 +11,6 @@ import SwiftUI
 @MainActor
 func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, outdatedPackageTracker: OutdatedPackageTracker, shouldRemoveAllAssociatedFiles: Bool, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
-    var indexToReplaceGlobal: Int?
-
     /// Store the old navigation selection to see if it got updated in the middle of switching
     let oldNavigationSelectionID: UUID? = appState.navigationSelection
 
@@ -20,21 +18,27 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     {
         if !package.isCask
         {
-            if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
-            {
-                brewData.installedFormulae[indexToReplace].changeBeingModifiedStatus()
-
-                indexToReplaceGlobal = indexToReplace
-            }
+            brewData.installedFormulae = Set(brewData.installedFormulae.map
+            { formula in
+                var copyFormula = formula
+                if copyFormula.name == package.name
+                {
+                    copyFormula.changeBeingModifiedStatus()
+                }
+                return copyFormula
+            })
         }
         else
         {
-            if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
-            {
-                brewData.installedCasks[indextoReplace].changeBeingModifiedStatus()
-
-                indexToReplaceGlobal = indextoReplace
-            }
+            brewData.installedFormulae = Set(brewData.installedCasks.map
+            { cask in
+                var copyCask = cask
+                if copyCask.name == package.name
+                {
+                    copyCask.changeBeingModifiedStatus()
+                }
+                return copyCask
+            })
         }
     }
     else
@@ -63,43 +67,27 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         /// If the uninstallation failed, change the status back to "not being modified"
         if !package.isCask
         {
-            /// Take the index gotten at the top. If it doesn't exist, loop over all packages and force-change them all to `false`
-            if let indexToReplaceGlobal
-            {
-                brewData.installedFormulae[indexToReplaceGlobal].changeBeingModifiedStatus()
-            }
-            else
-            {
-                print("Could not get the index for that formula. Will loop over all of them.")
-
-                for (index, _) in brewData.installedFormulae.enumerated()
+            brewData.installedFormulae = Set(brewData.installedFormulae.map
+            { formula in
+                var copyFormula = formula
+                if copyFormula.name == package.name, copyFormula.isBeingModified == true
                 {
-                    if brewData.installedFormulae[index].isBeingModified == true
-                    {
-                        brewData.installedFormulae[index].isBeingModified = false
-                    }
+                    copyFormula.changeBeingModifiedStatus()
                 }
-            }
+                return copyFormula
+            })
         }
         else
         {
-            /// See above, it's the same thing, but for casks
-            if let indexToReplaceGlobal
-            {
-                brewData.installedCasks[indexToReplaceGlobal].changeBeingModifiedStatus()
-            }
-            else
-            {
-                print("Could not get the index for that cask. Will loop over all of them.")
-
-                for (index, _) in brewData.installedCasks.enumerated()
+            brewData.installedFormulae = Set(brewData.installedCasks.map
+            { cask in
+                var copyCask = cask
+                if copyCask.name == package.name, copyCask.isBeingModified == true
                 {
-                    if brewData.installedCasks[index].isBeingModified == true
-                    {
-                        brewData.installedCasks[index].isBeingModified = false
-                    }
+                    copyCask.changeBeingModifiedStatus()
                 }
-            }
+                return copyCask
+            })
         }
 
         do
@@ -129,21 +117,15 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         switch package.isCask
         {
         case false:
-            DispatchQueue.main.async
+            withAnimation
             {
-                withAnimation
-                {
-                    brewData.installedFormulae.removeAll(where: { $0.name == package.name })
-                }
+                brewData.removeFormulaFromTracker(withName: package.name)
             }
 
         case true:
-            DispatchQueue.main.async
+            withAnimation
             {
-                withAnimation
-                {
-                    brewData.installedCasks.removeAll(where: { $0.name == package.name })
-                }
+                brewData.removeCaskFromTracker(withName: package.name)
             }
         }
 
@@ -164,6 +146,9 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
     /// If the user removed a package that was outdated, remove it from the outdated package tracker
     Task
     {
-        outdatedPackageTracker.outdatedPackages.removeAll(where: { $0.package.name == package.name })
+        if let index = outdatedPackageTracker.outdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        {
+            outdatedPackageTracker.outdatedPackages.remove(at: index)
+        }
     }
 }

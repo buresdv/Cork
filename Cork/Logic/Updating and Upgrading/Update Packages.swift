@@ -1,47 +1,66 @@
 //
-//  Update Packages.swift
+//  Upgrade Packages.swift
 //  Cork
 //
-//  Created by David Bureš on 09.03.2023.
+//  Created by David Bureš on 04.07.2022.
 //
 
 import Foundation
 import SwiftUI
 
 @MainActor
-func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability
+func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState _: AppState, outdatedPackageTracker _: OutdatedPackageTracker, detailStage: UpdatingProcessDetails? = nil) async
 {
-    for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+    for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["upgrade"])
     {
         switch output
         {
         case let .standardOutput(outputLine):
-            print("Update function output: \(outputLine)")
-            updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
-
-            if outdatedPackageTracker.outdatedPackages.isEmpty
+            print("Upgrade function output: \(outputLine)")
+                
+            if let detailStage
             {
-                if outputLine.starts(with: "Already up-to-date")
+                if outputLine.contains("Downloading")
                 {
-                    print("Inside update function: No updates available")
-                    return .noUpdatesAvailable
+                    detailStage.currentStage = .downloading
+                }
+                else if outputLine.contains("Pouring")
+                {
+                    detailStage.currentStage = .pouring
+                }
+                else if outputLine.contains("cleanup")
+                {
+                    detailStage.currentStage = .cleanup
+                }
+                else if outputLine.contains("Backing App")
+                {
+                    detailStage.currentStage = .backingUp
+                }
+                else if outputLine.contains("Moving App") || outputLine.contains("Linking")
+                {
+                    detailStage.currentStage = .linking
+                }
+                else
+                {
+                    detailStage.currentStage = .cleanup
                 }
             }
+            updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
         case let .standardError(errorLine):
-            if errorLine.starts(with: "Another active Homebrew update process is already in progress") || errorLine == "Error: " || errorLine.contains("Updated [0-9]+ tap") || errorLine == "Already up-to-date" || errorLine.contains("No checksum defined")
+            if errorLine.contains("tap") || errorLine.contains("No checksum defined for")
             {
                 updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
-                print("Ignorable update function error: \(errorLine)")
+
+                print("Ignorable upgrade function error: \(errorLine)")
             }
             else
             {
-                print("Update function error: \(errorLine)")
-                updateProgressTracker.errors.append("Update error: \(errorLine)")
+                print("Upgrade function error: \(errorLine)")
+                updateProgressTracker.errors.append("Upgrade error: \(errorLine)")
             }
         }
     }
-    updateProgressTracker.updateProgress = Float(10) / Float(2)
 
-    return .updatesAvailable
+    updateProgressTracker.updateProgress = 9
 }

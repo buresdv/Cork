@@ -142,7 +142,9 @@ struct AddTapView: View
                         .fixedSize(horizontal: true, vertical: true)
                         .onAppear
                         {
-                            availableTaps.addedTaps.append(BrewTap(name: requestedTap))
+                            withAnimation {
+                                availableTaps.addedTaps.prepend(BrewTap(name: requestedTap))
+                            }
 
                             /// Remove that one element of the array that's empty for some reason
                             availableTaps.addedTaps.removeAll(where: { $0.name == "" })

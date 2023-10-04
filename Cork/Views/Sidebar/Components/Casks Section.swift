@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import IdentifiedCollections
+
 
 struct CasksSection: View {
     
@@ -46,7 +46,7 @@ struct CasksSection: View {
         .collapsible(true)
     }
 
-    private var displayedCasks: IdentifiedArrayOf<BrewPackage>
+    private var displayedCasks: Set<BrewPackage>
     {
         if searchText.isEmpty || searchText.contains("#")
         {

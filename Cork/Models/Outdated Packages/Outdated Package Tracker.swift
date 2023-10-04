@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import IdentifiedCollections
+
 
 class OutdatedPackageTracker: ObservableObject
 {
-    @Published var outdatedPackages: IdentifiedArrayOf<OutdatedPackage> = .init()
+    @Published var outdatedPackages: Set<OutdatedPackage> = .init()
 }

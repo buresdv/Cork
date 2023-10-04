@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import IdentifiedCollections
+
 
 struct UpdateSomePackagesView: View
 {
@@ -145,11 +145,10 @@ struct UpdateSomePackagesView: View
         .padding()
     }
     
-    func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> IdentifiedArrayOf<OutdatedPackage>
+    func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> Set<OutdatedPackage>
     {
-        for updatedPackageName in namesOfUpdatedPackages
-        {
-            outdatedPackageTracker.outdatedPackages.removeAll(where: { $0.package.name == updatedPackageName })
+        outdatedPackageTracker.outdatedPackages = outdatedPackageTracker.outdatedPackages.filter { outdatedPackage in
+            return !namesOfUpdatedPackages.contains(outdatedPackage.package.name)
         }
         
         return outdatedPackageTracker.outdatedPackages

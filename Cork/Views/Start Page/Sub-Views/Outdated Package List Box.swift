@@ -60,16 +60,20 @@ struct OutdatedPackageListBox: View
                                 {
                                     Section
                                     {
-                                        ForEach(outdatedPackageTracker.outdatedPackages)
+                                        ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                                         { outdatedPackage in
                                             Toggle(outdatedPackage.package.name, isOn: Binding<Bool>(
                                                 get: {
                                                     outdatedPackage.isMarkedForUpdating
-                                                }, set: {
-                                                    if let index = outdatedPackageTracker.outdatedPackages.firstIndex(where: { $0.id == outdatedPackage.id })
-                                                    {
-                                                        outdatedPackageTracker.outdatedPackages[index].isMarkedForUpdating = $0
-                                                    }
+                                                }, set: { toggleState in
+                                                    outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
+                                                        var copyOutdatedPackage = modifiedElement
+                                                        if copyOutdatedPackage.id == modifiedElement.id
+                                                        {
+                                                            copyOutdatedPackage.isMarkedForUpdating = toggleState
+                                                        }
+                                                        return copyOutdatedPackage
+                                                    }))
                                                 }
                                             ))
                                         }
@@ -78,13 +82,14 @@ struct OutdatedPackageListBox: View
                                         {
                                             Button
                                             {
-                                                for outdatedPackage in outdatedPackageTracker.outdatedPackages
-                                                {
-                                                    if let index = outdatedPackageTracker.outdatedPackages.firstIndex(where: { $0.id == outdatedPackage.id })
+                                                outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
+                                                    var copyOutdatedPackage = modifiedElement
+                                                    if copyOutdatedPackage.id == modifiedElement.id
                                                     {
-                                                        outdatedPackageTracker.outdatedPackages[index].isMarkedForUpdating = false
+                                                        copyOutdatedPackage.isMarkedForUpdating = true
                                                     }
-                                                }
+                                                    return copyOutdatedPackage
+                                                }))
                                             } label: {
                                                 Text("start-page.updated.action.deselect-all")
                                             }
@@ -93,13 +98,14 @@ struct OutdatedPackageListBox: View
 
                                             Button
                                             {
-                                                for outdatedPackage in outdatedPackageTracker.outdatedPackages
-                                                {
-                                                    if let index = outdatedPackageTracker.outdatedPackages.firstIndex(where: { $0.id == outdatedPackage.id })
+                                                outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
+                                                    var copyOutdatedPackage = modifiedElement
+                                                    if copyOutdatedPackage.id == modifiedElement.id
                                                     {
-                                                        outdatedPackageTracker.outdatedPackages[index].isMarkedForUpdating = true
+                                                        copyOutdatedPackage.isMarkedForUpdating = false
                                                     }
-                                                }
+                                                    return copyOutdatedPackage
+                                                }))
                                             } label: {
                                                 Text("start-page.updated.action.select-all")
                                             }
