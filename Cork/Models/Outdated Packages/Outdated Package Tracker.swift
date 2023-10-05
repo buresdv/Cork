@@ -7,7 +7,8 @@
 
 import Foundation
 
+
 class OutdatedPackageTracker: ObservableObject
 {
-    @Published var outdatedPackages: [OutdatedPackage] = .init()
+    @Published var outdatedPackages: Set<OutdatedPackage> = .init()
 }

@@ -16,9 +16,6 @@ struct AddFormulaView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
-    @State private var isFormulaeSectionCollapsed: Bool = false
-    @State private var isCasksSectionCollapsed: Bool = false
-
     @State private var foundPackageSelection = Set<UUID>()
 
     @ObservedObject var searchResultTracker = SearchResultTracker()
@@ -60,160 +57,20 @@ struct AddFormulaView: View
                 )
 
             case .presentingSearchResults:
-                VStack
-                {
-                    TextField("add-package.search.prompt", text: $packageRequested)
-                    { _ in
-                        foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
-                    }
-                    .focused($isSearchFieldFocused)
-                    .onAppear
-                    {
-                        isSearchFieldFocused = true
-                    }
-
-                    List(selection: $foundPackageSelection)
-                    {
-                        Section
-                        {
-                            if !isFormulaeSectionCollapsed
-                            {
-                                ForEach(searchResultTracker.foundFormulae)
-                                { formula in
-                                    SearchResultRow(packageName: formula.name, isCask: formula.isCask)
-                                }
-                            }
-                        } header: {
-                            CollapsibleSectionHeader(headerText: "add-package.search.results.formulae", isCollapsed: $isFormulaeSectionCollapsed)
-                        }
-                        Section
-                        {
-                            if !isCasksSectionCollapsed
-                            {
-                                ForEach(searchResultTracker.foundCasks)
-                                { cask in
-                                    SearchResultRow(packageName: cask.name, isCask: cask.isCask)
-                                }
-                            }
-                        } header: {
-                            CollapsibleSectionHeader(headerText: "add-package.search.results.casks", isCollapsed: $isCasksSectionCollapsed)
-                        }
-                    }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .frame(width: 300, height: 300)
-
-                    HStack
-                    {
-                        DismissSheetButton(isShowingSheet: $isShowingSheet)
-
-                        Spacer()
-
-                        if isSearchFieldFocused
-                        {
-                            Button
-                            {
-                                packageInstallationProcessStep = .searching
-                            } label: {
-                                Text("add-package.search.action")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                        }
-                        else
-                        {
-                            Button
-                            {
-                                for requestedPackage in foundPackageSelection
-                                {
-                                    print(getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker))
-
-                                    let packageToInstall: BrewPackage = getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
-
-                                    installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
-
-                                    print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
-
-                                    installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
-                                }
-
-                                print(installationProgressTracker.packagesBeingInstalled)
-
-                                packageInstallationProcessStep = .installing
-                            } label: {
-                                Text("add-package.install.action")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                            .disabled(foundPackageSelection.isEmpty)
-                        }
-                    }
-                }
+                PresentingSearchResultsView(
+                    searchResultTracker: searchResultTracker,
+                    packageRequested: $packageRequested,
+                    foundPackageSelection: $foundPackageSelection,
+                    isShowingSheet: $isShowingSheet,
+                    packageInstallationProcessStep: $packageInstallationProcessStep,
+                    installationProgressTracker: installationProgressTracker
+                )
 
             case .installing:
-                VStack(alignment: .leading)
-                {
-                    ForEach(installationProgressTracker.packagesBeingInstalled)
-                    { packageBeingInstalled in
-
-                        if packageBeingInstalled.installationStage != .finished
-                        {
-                            ProgressView(value: installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress, total: 10)
-                            {
-                                switch packageBeingInstalled.installationStage
-                                {
-                                case .ready:
-                                    Text("add-package.install.ready")
-
-                                // FORMULAE
-                                case .loadingDependencies:
-                                    Text("add-package.install.loading-dependencies")
-
-                                case .fetchingDependencies:
-                                    Text("add-package.install.fetching-dependencies")
-
-                                case .installingDependencies:
-                                    Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-of-\(installationProgressTracker.numberOfPackageDependencies)")
-
-                                case .installingPackage:
-                                    Text("add-package.install.installing-package")
-
-                                case .finished:
-                                    Text("add-package.install.finished")
-
-                                // CASKS
-                                case .downloadingCask:
-                                    Text("add-package.install.downloading-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-
-                                case .installingCask:
-                                    Text("add-package.install.installing-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-
-                                case .linkingCaskBinary:
-                                    Text("add-package.install.linking-cask-binary")
-
-                                case .movingCask:
-                                    Text("add-package.install.moving-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                                }
-                            }
-                        }
-                        else
-                        { // Show this when the installation is finished
-                            Text("add-package.install.finished")
-                                .onAppear
-                                {
-                                    packageInstallationProcessStep = .finished
-                                }
-                        }
-                    }
-                }
-                .onAppear
-                {
-                    for var packageToInstall in installationProgressTracker.packagesBeingInstalled
-                    {
-                        Task(priority: .userInitiated)
-                        {
-                            let installationResult = try! await installPackage(installationProgressTracker: installationProgressTracker, brewData: brewData)
-                            print("Installation result: \(installationResult)")
-                        }
-                    }
-                }
+                InstallingPackageView(
+                    installationProgressTracker: installationProgressTracker,
+                    packageInstallationProcessStep: $packageInstallationProcessStep
+                )
 
             case .finished:
                 DisappearableSheet(isShowingSheet: $isShowingSheet)
@@ -236,6 +93,90 @@ struct AddFormulaView: View
                         sendNotification(title: String(localized: "notification.install-finished"))
                     }
                 }
+
+            case .fatalError: /// This shows up when the function for executing the install action throws an error
+                VStack(alignment: .leading)
+                {
+                    ComplexWithIcon(systemName: "exclamationmark.triangle")
+                    {
+                        if let packageBeingInstalled = installationProgressTracker.packagesBeingInstalled.first
+                        { /// Show this when we can pull out which package was being installed
+                            HeadlineWithSubheadline(
+                                headline: "add-package.fatal-error-\(packageBeingInstalled.package.name)",
+                                subheadline: "add-package.fatal-error.description",
+                                alignment: .leading
+                            )
+                        }
+                        else
+                        { /// Otherwise, show a generic error
+                            HeadlineWithSubheadline(
+                                headline: "add-package.fatal-error.generic",
+                                subheadline: "add-package.fatal-error.description",
+                                alignment: .leading
+                            )
+                        }
+                    }
+
+                    HStack
+                    {
+                        Button
+                        {
+                            restartApp()
+                        } label: {
+                            Text("action.restart")
+                        }
+
+                        Spacer()
+
+                        DismissSheetButton(isShowingSheet: $isShowingSheet)
+                    }
+                }
+
+                case .requiresSudoPassword:
+                    VStack(alignment: .leading)
+                    {
+                        ComplexWithIcon(systemName: "exclamationmark.triangle.fill") {
+                            VStack(alignment: .leading, spacing: 10)
+                            {
+                                Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                    .font(.headline)
+
+                                ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
+                            }
+                        }
+
+                        Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+
+                        HStack
+                        {
+                            Button
+                            {
+                                isShowingSheet = false
+
+                                Task.detached 
+                                {
+                                    await synchronizeInstalledPackages(brewData: brewData)
+                                }
+                            } label: {
+                                Text("action.close")
+                            }
+                            .keyboardShortcut(.cancelAction)
+
+                            Spacer()
+
+                            Button
+                            {
+                                openTerminal()
+                            } label: {
+                                Text("action.open-terminal")
+                            }
+                            .keyboardShortcut(.defaultAction)
+                        }
+                    }
+                    .fixedSize()
 
             default:
                 VStack(alignment: .leading)
@@ -260,4 +201,55 @@ struct AddFormulaView: View
         }
         .padding()
     }
+}
+
+private struct ManualInstallInstructions: View 
+{
+
+    let installationProgressTracker: InstallationProgressTracker
+
+    var manualInstallCommand: String
+    {
+        return "brew install \(installationProgressTracker.packagesBeingInstalled[0].package.isCask ? "--cask" : "") \(installationProgressTracker.packagesBeingInstalled[0].package.name)"
+    }
+
+    var body: some View
+    {
+        VStack
+        {
+            Text("add-package.install.requires-sudo-password.description")
+
+            GroupBox
+            {
+                HStack(alignment: .center, spacing: 5)
+                {
+                    Text(manualInstallCommand)
+
+                    Divider()
+
+                    Button {
+                        copyToClipboard(whatToCopy: manualInstallCommand)
+                    } label: {
+                        Label {
+                            Text("action.copy")
+                        } icon: {
+                            Image(systemName: "doc.on.doc")
+                        }
+                        .help("action.copy-manual-install-command-to-clipboard")
+                    }
+                }
+                .padding(3)
+            }
+        }
+    }
+}
+
+fileprivate func openTerminal()
+{
+    guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal") else { return }
+
+    let path = "/bin"
+    let configuration = NSWorkspace.OpenConfiguration()
+    configuration.arguments = [path]
+    NSWorkspace.shared.openApplication(at: url, configuration: configuration, completionHandler: nil)
 }

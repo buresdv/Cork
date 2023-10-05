@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 struct SearchResults
 {
     let foundFormulae: [String]
@@ -28,11 +29,11 @@ enum OutdatedPackageRetrievalError: Error
 }
 
 /// Get a list of all outdated packages. Optionally supply array of package names to skip asking Homebrew for a new list of packages.
-func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [String]? = nil) async throws -> [OutdatedPackage]
+func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [String]? = nil) async throws -> Set<OutdatedPackage>
 {
     
-    var outdatedPackageTracker: [OutdatedPackage] = .init()
-    
+    var outdatedPackageTracker: Set<OutdatedPackage> = .init()
+
     do
     {
         var outdatedPackages: [String] = .init()
@@ -52,14 +53,14 @@ func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [Stri
             {
                 if foundOutdatedFormula.installedIntentionally /// Only show the intentionally-installed packages. The users don't care about dependencies
                 {
-                    outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedFormula))
+                    outdatedPackageTracker.insert(OutdatedPackage(package: foundOutdatedFormula))
                 }
             }
             if let foundOutdatedCask = await brewData.installedCasks.filter({ $0.name == outdatedPackage }).first
             {
                 if foundOutdatedCask.installedIntentionally
                 {
-                    outdatedPackageTracker.append(OutdatedPackage(package: foundOutdatedCask))
+                    outdatedPackageTracker.insert(OutdatedPackage(package: foundOutdatedCask))
                 }
             }
         }

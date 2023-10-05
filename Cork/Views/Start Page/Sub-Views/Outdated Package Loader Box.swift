@@ -11,21 +11,16 @@ struct OutdatedPackageLoaderBox: View
 {
     var body: some View
     {
-        GroupBox
+        Grid
         {
-            Grid
+            GridRow(alignment: .firstTextBaseline)
             {
-                GridRow(alignment: .firstTextBaseline)
+                HStack(alignment: .center, spacing: 15)
                 {
-                    HStack(alignment: .center, spacing: 15)
-                    {
-                        ProgressView()
+                    ProgressView()
 
-                        Text("start-page.updates.loading")
-                    }
-                    .padding(10)
+                    Text("start-page.updates.loading")
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             }
         }
     }

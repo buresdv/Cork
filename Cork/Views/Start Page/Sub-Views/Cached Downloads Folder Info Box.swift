@@ -13,27 +13,23 @@ struct CachedDownloadsFolderInfoBox: View
 
     var body: some View
     {
-        GroupBox
+        VStack
         {
-            VStack
+            HStack
             {
-                HStack
+                GroupBoxHeadlineGroup(
+                    image: "archivebox",
+                    title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
+                    mainText: "start-page.cached-downloads.description"
+                )
+
+                Spacer()
+
+                Button
                 {
-                    GroupBoxHeadlineGroup(
-                        image: "square.and.arrow.down.on.square",
-                        title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
-                        mainText: "start-page.cached-downloads.description"
-                    )
-
-                    Spacer()
-
-                    Button
-                    {
-                        appState.isShowingFastCacheDeletionMaintenanceView = true
-                    } label: {
-                        Text("start-page.cached-downloads.action")
-                    }
-                    .padding(.trailing, 7)
+                    appState.isShowingFastCacheDeletionMaintenanceView = true
+                } label: {
+                    Text("start-page.cached-downloads.action")
                 }
             }
         }

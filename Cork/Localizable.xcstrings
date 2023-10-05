@@ -1,30 +1,14 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "?" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42,15 +26,27 @@
             "state" : "translated",
             "value" : "？"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
         }
       }
     },
     "⚠️" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "⚠️"
           }
         },
         "ru" : {
@@ -64,11 +60,23 @@
             "state" : "translated",
             "value" : "⚠️"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
     "about.contact" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontaktujte mě"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -109,6 +117,12 @@
     },
     "about.contribute" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přispějte"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -149,6 +163,12 @@
     },
     "about.contributor.service.github" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -189,6 +209,12 @@
     },
     "about.contributor.service.mastodon" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mastodon"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -229,6 +255,12 @@
     },
     "about.contributor.service.website" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -269,6 +301,12 @@
     },
     "about.contributors" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přispěvatelé"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -309,6 +347,12 @@
     },
     "about.contributors.1.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rob Napier"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -349,6 +393,12 @@
     },
     "about.contributors.1.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asistoval se vším možným, od rešení problémů s asynchronním kódem do implementace procesu instalace balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -389,6 +439,12 @@
     },
     "about.contributors.2.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Łukasz Rutkowski"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -429,6 +485,12 @@
     },
     "about.contributors.2.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravil mnoho problémů s asynchronním kódem a SwiftUI"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -469,6 +531,12 @@
     },
     "about.contributors.3.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jierong Li"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -509,6 +577,12 @@
     },
     "about.contributors.3.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravil problémy se zobrazováním počtu nainstalovaných balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -549,6 +623,12 @@
     },
     "about.contributors.4.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscar Bazaldua"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -589,6 +669,12 @@
     },
     "about.contributors.4.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autor prvního přijmutého PR; společtě s Jierongem Li opravil zobrazení počtu nainstalovaných balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -629,6 +715,12 @@
     },
     "about.contributors.5.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andrey Radchishin"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -669,6 +761,12 @@
     },
     "about.contributors.5.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidal možnost vrácení se na stavovou stránku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -709,6 +807,12 @@
     },
     "about.contributors.6.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christian Tietze"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -749,6 +853,12 @@
     },
     "about.contributors.6.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vymyslel několik pokročilých optimalizací. Často mi pomáhá se Swiftem"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -789,6 +899,12 @@
     },
     "about.copyright" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2023 David Bureš a přispěvatelé."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -829,6 +945,12 @@
     },
     "about.packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Použité balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -869,6 +991,12 @@
     },
     "about.packages.1.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DavidFoundation"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -909,6 +1037,12 @@
     },
     "about.packages.1.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Můj vlastní balíček, který obsahuje pár základních funkcí"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -949,6 +1083,12 @@
     },
     "about.packages.2.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SwiftyJSON"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -989,6 +1129,12 @@
     },
     "about.packages.2.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenávidím, jak se ve Swiftu pracuje s JSONem. Proč znovu objevovat dávno objevené?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1029,6 +1175,12 @@
     },
     "about.thanks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zvláštní poděkování"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1069,6 +1221,12 @@
     },
     "about.thanks.1.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seb Jachec"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1109,6 +1267,12 @@
     },
     "about.thanks.1.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naprogramoval funkci pro čtení výstupu terminálových příkazů v reálném čase. Bez této funkce by většina Corku nefungovala"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1150,6 +1314,12 @@
     "about.title" : {
       "comment" : "MARK: - About",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Corku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1190,6 +1360,12 @@
     },
     "about.translator.1.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jerry"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1230,6 +1406,12 @@
     },
     "about.translator.1.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeložil Cork do zjednodušené čínštiny"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1270,6 +1452,12 @@
     },
     "about.translator.2.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sh95014"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1310,6 +1498,12 @@
     },
     "about.translator.2.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeložil Cork do tradiční čínštiny"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1350,6 +1544,12 @@
     },
     "about.translator.3.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maurice Meysel"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1390,6 +1590,12 @@
     },
     "about.translator.3.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeložil Cork do němčiny"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1430,6 +1636,12 @@
     },
     "about.translator.4.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bryan Ledda"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1470,6 +1682,12 @@
     },
     "about.translator.4.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeložil Cork do francouzštiny"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1502,8 +1720,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "為 Cork 法語"
+            "state" : "needs_review",
+            "value" : "為 Cork 提供法文翻譯"
           }
         }
       }
@@ -1511,7 +1729,19 @@
     "about.translator.5.name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nikita Utkin"
@@ -1522,16 +1752,40 @@
             "state" : "translated",
             "value" : "Никита Уткин"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
         }
       }
     },
     "about.translator.5.purpose" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeložil Cork do ruštiny"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translated Cork into Russian"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduction de Cork en Chinois Russe"
           }
         },
         "ru" : {
@@ -1539,11 +1793,29 @@
             "state" : "translated",
             "value" : "Перевел Cork на русский"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为 Cork 提供了俄语翻译"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "為 Cork 提供俄文翻譯"
+          }
         }
       }
     },
     "about.translators" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Překladatelé"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1584,6 +1856,12 @@
     },
     "about.version-%@-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze %@ (%@)"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1624,6 +1902,12 @@
     },
     "action.cancel" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zrušit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1664,6 +1948,12 @@
     },
     "action.clear-metadata" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vymazat metadata"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1704,6 +1994,12 @@
     },
     "action.close" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zavřít"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1742,9 +2038,35 @@
         }
       }
     },
+    "action.copy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy"
+          }
+        }
+      }
+    },
+    "action.copy-manual-install-command-to-clipboard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy to Clipboard"
+          }
+        }
+      }
+    },
     "action.go-to-status-page" : {
       "comment" : "MARK: - Misc Actions",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stavová stránka"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1785,6 +2107,12 @@
     },
     "action.go-to-status-page.menu-bar" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přejít na stavouvou stránku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1825,6 +2153,12 @@
     },
     "action.hide" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skrýt"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1863,8 +2197,24 @@
         }
       }
     },
+    "action.open-terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Terminal"
+          }
+        }
+      }
+    },
     "action.quit" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ukončit Cork"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1905,6 +2255,12 @@
     },
     "action.repair-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravit %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1946,6 +2302,12 @@
     "action.repair-home-path" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravit Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1986,6 +2348,12 @@
     },
     "action.report-bugs.email" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poslat email…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2026,6 +2394,12 @@
     },
     "action.report-bugs.git-hub" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahlásit na GitHubu…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2067,6 +2441,12 @@
     "action.report-bugs.menu-category" : {
       "comment" : "MARK: - Bug Reporting",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahlásit chybu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2107,6 +2487,12 @@
     },
     "action.restart" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restartovat Cork"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2147,6 +2533,12 @@
     },
     "action.reveal-in-finder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit ve Finderu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2187,6 +2579,12 @@
     },
     "action.show" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2227,6 +2625,12 @@
     },
     "action.use-without-notifications" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Používat Cork bez oznámení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2265,8 +2669,117 @@
         }
       }
     },
+    "add-package.fatal-error-%@" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při instalaci %@ se vyskytla chyba"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured while installing %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur s'est produite lors de l'installation de %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка при установке %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在安装 %@ 时出现了错误"
+          }
+        }
+      }
+    },
+    "add-package.fatal-error.description" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkuste balíček znovu nainstalovat nebo restartovat Cork\nPokud se to tím nevyřeší, restartujte Mac"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try installing the package again, or restarting Cork\nIf the problem persists, restart your Mac"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayez d'installer le package à nouveau, ou redémarrez Cork.\nSi le problème persiste, redémarrez votre Mac"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попробуйте установить пакет еще раз, либо перезапустите Cork\\nЕсли вы продолжаете сталкиваться с этой проблемой, попробуйте перезагрузить ваш Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请尝试重新安装软件包或重启Cork\n如果问题没有解决，请重启你的 Mac"
+          }
+        }
+      }
+    },
+    "add-package.fatal-error.generic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při instalaci balíčku nastala chyba"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured during the install process"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur s'est produite lors du processus d'installation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка в процессе установки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装过程出现错误"
+          }
+        }
+      }
+    },
     "add-package.finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky nainstalovány"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2307,6 +2820,12 @@
     },
     "add-package.finished.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nevyskytly se žádné chyby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2347,6 +2866,12 @@
     },
     "add-package.install.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2387,6 +2912,12 @@
     },
     "add-package.install.downloading-cask-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stahování %@…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2427,6 +2958,12 @@
     },
     "add-package.install.fetching-dependencies" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stahování závislostí…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2467,6 +3004,12 @@
     },
     "add-package.install.finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hotovo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2507,6 +3050,12 @@
     },
     "add-package.install.installing-cask-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalace %@…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2547,6 +3096,12 @@
     },
     "add-package.install.installing-dependencies-%lld-of-%lld" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalace závislosti %lld/%lld"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2587,6 +3142,12 @@
     },
     "add-package.install.installing-package" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalace balíčku…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2627,6 +3188,12 @@
     },
     "add-package.install.linking-cask-binary" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propojování binárního souboru"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2667,6 +3234,12 @@
     },
     "add-package.install.loading-dependencies" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání závislostí…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2707,6 +3280,12 @@
     },
     "add-package.install.moving-cask-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přesouvání %@ do složky Aplikace… "
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2747,6 +3326,12 @@
     },
     "add-package.install.ready" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sestavování seznamu závislostí…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2785,8 +3370,34 @@
         }
       }
     },
+    "add-package.install.requires-sudo-password-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elevated permissions are required to install %@"
+          }
+        }
+      }
+    },
+    "add-package.install.requires-sudo-password.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will have to install this package through the Terminal.\nUse the command below."
+          }
+        }
+      }
+    },
     "add-package.network-error" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejste připojení k sítí"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2827,6 +3438,12 @@
     },
     "add-package.network-error.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaše připojení k síti není k úspěšnému dokončení instalace dostatečně stabilní"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2867,6 +3484,12 @@
     },
     "add-package.result.already-installed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček nainstalovaný"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2908,6 +3531,12 @@
     "add-package.result.description-empty" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vývojář neposkytnul popis balíčku"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2936,6 +3565,12 @@
     },
     "add-package.result.loading-description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání popisu balíčku…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2977,6 +3612,12 @@
     "add-package.result.loading-failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popis balíčku use nepodařilo načíst"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3006,6 +3647,12 @@
     "add-package.result.not-optimized-for-%@" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro %@ neoptimalizováno"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3034,6 +3681,12 @@
     },
     "add-package.search.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hledat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3074,6 +3727,12 @@
     },
     "add-package.search.prompt" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hledat balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3114,6 +3773,12 @@
     },
     "add-package.search.results.casks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nalezené soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3154,6 +3819,12 @@
     },
     "add-package.search.results.formulae" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nalezené vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3194,6 +3865,12 @@
     },
     "add-package.searching-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hledání %@…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3235,6 +3912,12 @@
     "add-package.title" : {
       "comment" : "MARK: - Install Package",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovat balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3275,6 +3958,12 @@
     },
     "add-package.top-casks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejoblíbenější soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3315,6 +4004,12 @@
     },
     "add-package.top-formulae" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejoblíbenější vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3356,6 +4051,36 @@
     "add-package.top-packages.list-item-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stažení"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stažení"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stažení"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stažení"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -3439,6 +4164,12 @@
     "add-tap" : {
       "comment" : "MARK: - Add Tap",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat pípu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3479,6 +4210,12 @@
     },
     "add-tap.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3519,6 +4256,12 @@
     },
     "add-tap.complete-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pípa %@ přidána"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3559,6 +4302,12 @@
     },
     "add-tap.complete.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nevyskytly se žádné chyby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3599,6 +4348,12 @@
     },
     "add-tap.error.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkusit znovu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3639,16 +4394,22 @@
     },
     "add-tap.error.other-%@" : {
       "localizations" : {
-        "de" : {
+        "cs" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Při přidávání pípy %@ se vyskytla chyba"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Ein Fehler ist aufgetreten beim hinzufügen von %@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An error occured while tapping %@"
+            "value" : "An error occured while adding %@"
           }
         },
         "fr" : {
@@ -3671,7 +4432,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "新增 Tap %@ 時發生錯誤"
           }
         }
@@ -3679,16 +4440,22 @@
     },
     "add-tap.error.other.description" : {
       "localizations" : {
-        "de" : {
+        "cs" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Zkuste to znovu za pár minut"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Versuche es später erneut"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Try tapping it again in a few minutes"
+            "value" : "Try adding it again in a few minutes"
           }
         },
         "fr" : {
@@ -3711,7 +4478,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "請稍等幾分鐘後再重試新增。"
           }
         }
@@ -3719,6 +4486,12 @@
     },
     "add-tap.error.repository-not-found-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pípa %@ neexistuje"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3759,6 +4532,12 @@
     },
     "add-tap.error.repository-not-found.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zjistěte se, že jste její název napsali správně"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3799,16 +4578,22 @@
     },
     "add-tap.progress-%@" : {
       "localizations" : {
-        "de" : {
+        "cs" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Přidávání %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "%@ hinzufügen..."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tapping %@"
+            "value" : "Adding %@"
           }
         },
         "fr" : {
@@ -3820,7 +4605,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Подключение %@..."
+            "value" : "Подключение %@"
           }
         },
         "zh-Hans" : {
@@ -3831,7 +4616,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "新增 Tap %@"
           }
         }
@@ -3840,6 +4625,12 @@
     "add-tap.typing.error.empty" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Název pípy prázdný"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3881,6 +4672,12 @@
     "add-tap.typing.error.empty.description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nezadali jste název pípy"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3919,30 +4716,14 @@
         }
       }
     },
-    "add-tap.typing.error.error" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "add-tap.typing.error.error"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "add-tap.typing.error.error"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
-          }
-        }
-      }
-    },
     "add-tap.typing.error.slash" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Název pípy musí obsahovat lomítko"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3983,6 +4764,12 @@
     },
     "add-tap.typing.error.slash.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Názvy píp musí obsahovat lomítko"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4021,8 +4808,24 @@
         }
       }
     },
+    "add.package.install.requires-sudo-password.terminal-instructions-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
+          }
+        }
+      }
+    },
     "alert.could-not-apply-tags.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkuste restartovat Cork. Pokud problém přetrvává, smažte metadata Corku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4063,6 +4866,12 @@
     },
     "alert.could-not-apply-tags.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Značky se nepodařilo přiřadit k balíčkům"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4101,8 +4910,34 @@
         }
       }
     },
+    "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork could not find this package in the package database"
+          }
+        }
+      }
+    },
+    "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't find package in database"
+          }
+        }
+      }
+    },
     "alert.could-not-clear-metadata.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ručně smažte složku s metadaty Corku, nebo zkuste restartovat Cork"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4143,6 +4978,12 @@
     },
     "alert.could-not-clear-metadata.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Složku s metadaty se nepodařilo smazat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4183,6 +5024,12 @@
     },
     "alert.could-not-create-metadata-directory-or-folder.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ujistěte se, že Cork má přístup ke složce Dokumenty"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4223,6 +5070,12 @@
     },
     "alert.could-not-create-metadata-directory.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Složku s metadaty se nepodařilo vytvořit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4263,6 +5116,12 @@
     },
     "alert.could-not-create-metadata-file.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soubor s metadata se nepodařilo vytvořit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4304,6 +5163,12 @@
     "alert.could-not-get-new-packages-in-scheduled-update-system.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení seznamu zastaralých balíčků se vyskytla chyba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4345,6 +5210,12 @@
     "alert.could-not-get-new-packages-in-scheduled-update-system.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání zastaralých balíčku se nepodařilo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4386,6 +5257,12 @@
     "alert.generic.couldnt-parse-json" : {
       "comment" : "MARK: - Alerts",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Čtení odpovědi Homebrew serveru se nepodařilo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4426,6 +5303,12 @@
     },
     "alert.home-not-set.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork nemůže najít váš Homebrew\nTento problém se objevil v poslední verzi Homebrew. Zjišťujeme, co tento problém způsobilo.\nNež tento problém opravíme, nebude Cork fungovat."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4466,6 +5349,12 @@
     },
     "alert.home-not-set.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew není pro Cork správně nakonfigurovaný"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4506,6 +5395,12 @@
     },
     "alert.metadata-folder-does-not-exist.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znovu nainstalujte Cork a zkuste to znovu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4546,6 +5441,12 @@
     },
     "alert.metadata-folder-does-not-exist.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Složku s metadata se nepodařilo najít"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4586,6 +5487,12 @@
     },
     "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Z pípy %@ máte ještě nainstalované balíčky Odinstalujte je a zkuste to znovu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4626,6 +5533,12 @@
     },
     "alert.notifications-error-while-getting-top-package.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew poslal Corku nesprávnou odpověď"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4666,6 +5579,12 @@
     },
     "alert.notifications-error-while-getting-top-packages.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejoblíbenější balíčky se nepodařilo načíst"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4706,6 +5625,12 @@
     },
     "alert.notifications-error-while-obtaining-permissions.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork můžete dále používat, nebudete ale dostávat oznámení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4746,6 +5671,12 @@
     },
     "alert.notifications-error-while-obtaining-permissions.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při pokusu o získání oprávnění k posílání oznámení se vyskytla chyba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4784,9 +5715,15 @@
         }
       }
     },
-    "alert.notifications-error-while-parsing-top-packages.mesage" : {
+    "alert.notifications-error-while-parsing-top-packages.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork nerozuměl odpovědi od Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4825,30 +5762,14 @@
         }
       }
     },
-    "alert.notifications-error-while-parsing-top-packages.message" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "alert.notifications-error-while-parsing-top-packages.message"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "alert.notifications-error-while-parsing-top-packages.message"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
-          }
-        }
-      }
-    },
     "alert.notifications-error-while-parsing-top-packages.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení seznamu nejoblíbenějších balíčků se vyskytla chyba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4889,6 +5810,12 @@
     },
     "alert.package-corrupted.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček je potřeba opravit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4929,6 +5856,12 @@
     },
     "alert.package-corrupted.title-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ je poškozený"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4969,6 +5902,12 @@
     },
     "alert.top-package-retrieval-function-turned-up-empty.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybraný balíček se nepodařilo nainstalovat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5009,6 +5948,12 @@
     },
     "alert.top-package-retrieval-function-turned-up-empty.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybraný balíček se nepodařilo načíst"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5049,6 +5994,12 @@
     },
     "alert.unable-to-uninstall-dependency.message-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček je závislostí balíčku %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5089,6 +6040,12 @@
     },
     "alert.unable-to-uninstall-dependency.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při odinstalovávání balíčku se vyskytla chyba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5130,6 +6087,12 @@
     "app-name" : {
       "comment" : "MARK: - Common",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5170,6 +6133,12 @@
     },
     "GitHub" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5187,11 +6156,23 @@
             "state" : "translated",
             "value" : "GitHub"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
         }
       }
     },
     "homebrew/core" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5209,11 +6190,24 @@
             "state" : "translated",
             "value" : "homebrew/core"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
         }
       }
     },
     "Installing %@" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalace %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5236,6 +6230,12 @@
     },
     "Loading info..." : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání informací…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5258,6 +6258,12 @@
     },
     "Loading top packages…" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání nejoblíbenějších balíčků…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5280,6 +6286,12 @@
     },
     "Main Window" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hlavní okno"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5302,6 +6314,12 @@
     },
     "maintenance.finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Údržba byla dokončena"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5342,6 +6360,12 @@
     },
     "maintenance.results.cached-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mezipaměť se staženými balíčky byla vymazána"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5382,6 +6406,12 @@
     },
     "maintenance.results.cached-downloads.summary-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uvolnili jste %@ na disku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5422,6 +6452,12 @@
     },
     "maintenance.results.health-check.problems" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Byly nalezeny problémy s Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5462,6 +6498,12 @@
     },
     "maintenance.results.health-check.problems-none" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew funguje normálně"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5503,6 +6545,42 @@
     "maintenance.results.orphans-count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld osiřelé balíčky byly odstraněny"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld osiřelých balíčků bylo odstraněno"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld osiřelý balíček byl odstraněn"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld osiřelých balíčků bylo odstraněno"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nebyly nalezeny žádné osiřelé balíčky"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -5609,6 +6687,12 @@
     },
     "maintenance.results.package-cache" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mezipaměť balíčků byla vymazána"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5648,8 +6732,14 @@
       }
     },
     "maintenance.results.package-cache.skipped-%@" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mezipaměť některých balíčků nebyla vymazána, protože balíček %@ je zastaralý"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5689,8 +6779,38 @@
       }
     },
     "maintenance.results.package-cache.skipped-%@-and-%lld-others" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mezipaměť některých balíčků nebyla vymazána, protože %@ a %lld další balíčky jsou zastaralé"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mezipaměť některých balíčků nebyla vymazána, protože %@ a %lld další balíčky jsou zastaralé"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mezipaměť některých balíčků nebyla vymazána, protože %@ a %lld další balíček jsou zastaralé"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Mezipaměť některých balíčků nebyla vymazána, protože %@ a %lld další balíčky jsou zastaralé"
+                }
+              }
+            }
+          }
+        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -5815,6 +6935,12 @@
     },
     "maintenance.step.deleting-cached-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mazání stažených balíčků v mezipaměti…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5856,6 +6982,12 @@
     "maintenance.step.initial" : {
       "comment" : "MARK: - Maintenance Progress",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jdeme na to…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5896,6 +7028,12 @@
     },
     "maintenance.step.purging-cache" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mazání mezipaměti…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5936,6 +7074,12 @@
     },
     "maintenance.step.removing-orphans" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovávání osiřelých balíčků…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5976,6 +7120,12 @@
     },
     "maintenance.step.running-health-check" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrola funkcí Homebrew…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6016,6 +7166,12 @@
     },
     "maintenance.steps.downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stažené soubory:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6056,6 +7212,12 @@
     },
     "maintenance.steps.downloads.delete-cached-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smazat stažené balíčky v mezipaměti"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6096,6 +7258,12 @@
     },
     "maintenance.steps.downloads.purge-cache" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vymazat mezipaměť Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6136,6 +7304,12 @@
     },
     "maintenance.steps.other" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ostatní:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6176,6 +7350,12 @@
     },
     "maintenance.steps.other.health-check" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolovat funkčnost Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6216,6 +7396,12 @@
     },
     "maintenance.steps.packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6256,6 +7442,12 @@
     },
     "maintenance.steps.packages.uninstall-orphans" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovat osiřelé balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6296,6 +7488,12 @@
     },
     "maintenance.steps.start" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit údržbu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6337,6 +7535,12 @@
     "maintenance.title" : {
       "comment" : "MARK: - Maintenance Steps",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Údržba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6378,6 +7582,12 @@
     "menubar.open.cork" : {
       "comment" : "MARK: - Menu Bar",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Cork"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6419,6 +7629,12 @@
     "navigation.about" : {
       "comment" : "MARK: - Navigation",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Corku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6459,6 +7675,12 @@
     },
     "navigation.add-tap" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat pípu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6499,6 +7721,12 @@
     },
     "navigation.add-tap.help" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat novou pípu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6539,6 +7767,12 @@
     },
     "navigation.install-package" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovat balíček"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6580,6 +7814,12 @@
     "navigation.install-package.direct" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovat balíček přímo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6621,6 +7861,12 @@
     "navigation.install-package.direct.help" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeskočit hledání a nainstalovat balíček přímo podle jména"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6661,6 +7907,12 @@
     },
     "navigation.install-package.help" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovat nový balíček"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6701,6 +7953,36 @@
     },
     "navigation.installed-packages.count-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nainstalovány %lld balíčky"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nainstalováno %lld balíčků"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nainstalován %lld balíček"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nainstalováno %lld balíčků"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -6789,6 +8071,12 @@
     },
     "navigation.menu.maintenance" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Údržba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6829,6 +8117,12 @@
     },
     "navigation.menu.maintenance.delete-cached-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smazat stažené balíčky v mezipaměti"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6869,6 +8163,12 @@
     },
     "navigation.menu.maintenance.perform" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit údržbu…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6909,6 +8209,12 @@
     },
     "navigation.menu.packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6949,6 +8255,12 @@
     },
     "navigation.menu.packages.add-tap" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat pípu…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6989,6 +8301,12 @@
     },
     "navigation.menu.packages.install" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovat balíček…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7029,6 +8347,12 @@
     },
     "navigation.menu.packages.update" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat balíčky…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7069,6 +8393,12 @@
     },
     "navigation.upgrade-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7109,6 +8439,12 @@
     },
     "navigation.upgrade-packages.help" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat nainstalované balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7149,6 +8485,12 @@
     },
     "notification.install-finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček úspěšně nainstalován"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7189,6 +8531,12 @@
     },
     "notification.new-outdated-packages-found.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nalezeny nové zastaralé balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7230,6 +8578,36 @@
     "notification.outdated-packages-found.body-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezeny %lld zastaralé balíčky"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezeno %lld zastaralých balíčků"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezen %lld zastaralý balíček"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezeno %lld zastaralých balíčků"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -7319,6 +8697,12 @@
     "notification.outdated-packages-found.title" : {
       "comment" : "MARK: - Notifications",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nalezeny zastaralé balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7360,6 +8744,12 @@
     "notification.upgrade-finished.failure" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace selhaly"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7400,6 +8790,12 @@
     },
     "notification.upgrade-finished.success" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky byly aktualizovány"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7440,6 +8836,12 @@
     },
     "notification.upgrade-finished.success.some-errors" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při aktualizování balíčků se vyskytla chyba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7480,6 +8882,12 @@
     },
     "notification.upgrade-process-started" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizuji balíčky…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7520,6 +8928,12 @@
     },
     "package-details.action.pin-version-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Připnout verzi %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7560,6 +8974,12 @@
     },
     "package-details.action.uninstall-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovat %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7600,6 +9020,12 @@
     },
     "package-details.action.uninstall-deep-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovat %@ a vymazat soubory"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7640,6 +9066,12 @@
     },
     "package-details.action.unpin-version-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odepnout z verze %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7680,6 +9112,12 @@
     },
     "package-details.caveats.available" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poznámky k balíčku  􀅴"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7720,6 +9158,12 @@
     },
     "package-details.caveats.collapse" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sbalit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7760,6 +9204,12 @@
     },
     "package-details.caveats.expand" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozbalit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7800,6 +9250,12 @@
     },
     "package-details.caveats.help" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klikněte pro zobrazení poznámek"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7840,6 +9296,12 @@
     },
     "package-details.contents.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání informací…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7880,6 +9342,12 @@
     },
     "package-details.dependants.dependency-of-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na balíčku závisí %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7920,6 +9388,12 @@
     },
     "package-details.dependants.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání závislých balíčků…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7960,6 +9434,12 @@
     },
     "package-details.dependencies" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Závislosti"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8000,6 +9480,12 @@
     },
     "package-details.dependencies.results.declaration" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ závislosti"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8040,6 +9526,12 @@
     },
     "package-details.dependencies.results.declaration.direct" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přímá"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8080,6 +9572,12 @@
     },
     "package-details.dependencies.results.declaration.indirect" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepřímá"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8120,6 +9618,12 @@
     },
     "package-details.dependencies.results.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Název"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8160,6 +9664,12 @@
     },
     "package-details.dependencies.results.version" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8201,6 +9711,12 @@
     "package-details.dependencies.search.prompt" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Závislosti"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8241,6 +9757,12 @@
     },
     "package-details.description-none-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ nemá popis"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8281,6 +9803,12 @@
     },
     "package-details.homepage" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8321,6 +9849,12 @@
     },
     "package-details.info" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informace o balíčku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8361,6 +9895,12 @@
     },
     "package-details.install-date" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datum instalace"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8401,6 +9941,12 @@
     },
     "package-details.outdated" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastaralý balíček"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8442,6 +9988,12 @@
     "package-details.pinned.help-%@" : {
       "comment" : "MARK: - Package Details",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ je připnutý. Nebude aktualizovaný."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8482,6 +10034,12 @@
     },
     "package-details.size" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velikost"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8522,6 +10080,12 @@
     },
     "package-details.size.help" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proč zde napsaná velikost neodpovídá velikosti na disku?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8562,6 +10126,12 @@
     },
     "package-details.size.help.body-1" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudky nejsou nainstalovány do té samé složky, jako vzorce. Soudky jsou vždy ve složce Aplikace."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8602,6 +10172,12 @@
     },
     "package-details.size.help.body-2" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork nemá z bezpečnostních důvodů přístup do složky Aplikace, tak nemůže zjistit, jakou má soudek ve skutečnosti velikost. Může zjistit jenom velikost metadat."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8640,48 +10216,14 @@
         }
       }
     },
-    "package-details.size.help.title" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Warum ist die Größe so klein?"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Why is the size so small?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pourquoi la taille est-elle si petite ?"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Почему размер такой маленький?"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "为什么软件包这么小？"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "套件為什麼會這麼小？"
-          }
-        }
-      }
-    },
     "package-details.type" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ balíčku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8722,6 +10264,12 @@
     },
     "package-details.type.cask" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudek"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8762,6 +10310,12 @@
     },
     "package-details.type.formula" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vzorec"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8803,6 +10357,12 @@
     "repair-package.repair-process-%@" : {
       "comment" : "MARK: - Package Repairing",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oprava %@…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8843,6 +10403,12 @@
     },
     "repair-package.repairing-finished.headline-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ byl opraven"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8883,6 +10449,12 @@
     },
     "repair-package.repairing-finished.subheadline" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork nenašel žádné další problémy"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8923,6 +10495,12 @@
     },
     "search.token.filter-casks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8964,6 +10542,12 @@
     "search.token.filter-formulae" : {
       "comment" : "MARK: - Searching",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9004,6 +10588,12 @@
     },
     "search.token.filter-manually-installed-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalováno záměrně"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9042,8 +10632,49 @@
         }
       }
     },
+    "search.token.filter-tags" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Označené"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tagged Packages"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packages étiquetés"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помеченные пакеты"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已添加标签的软件包"
+          }
+        }
+      }
+    },
     "search.token.filter-taps" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pípy"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9085,6 +10716,12 @@
     "settings.brew.analytics" : {
       "comment" : "MARK: - Settings: Brew",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analýza:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9125,6 +10762,12 @@
     },
     "settings.brew.collect-analytics" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shromažďovat analytická data"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9165,6 +10808,12 @@
     },
     "settings.dangerous" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokročilé:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9205,6 +10854,12 @@
     },
     "settings.discoverability" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objevování"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9245,6 +10900,12 @@
     },
     "settings.discoverability.sorting" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejoblíbenější balíčky seřadit podle:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9285,6 +10946,12 @@
     },
     "settings.discoverability.sorting.by-fewest-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejméně stažení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9325,6 +10992,12 @@
     },
     "settings.discoverability.sorting.by-most-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejvíce stažení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9365,6 +11038,12 @@
     },
     "settings.discoverability.sorting.random" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Náhodně"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9405,6 +11084,12 @@
     },
     "settings.discoverability.time-span" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit nejoblíbenější balíčky za poslední:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9445,6 +11130,12 @@
     },
     "settings.discoverability.time-span.month" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Měsíc"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9485,6 +11176,12 @@
     },
     "settings.discoverability.time-span.quarter-year" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tři měsíce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9525,6 +11222,12 @@
     },
     "settings.discoverability.time-span.year" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rok"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9566,6 +11269,12 @@
     "settings.discoverability.toggle" : {
       "comment" : "MARK: - Settings - Discoverability",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapnout Objevování"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9607,6 +11316,12 @@
     "settings.general" : {
       "comment" : "MARK: - Settings",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obecné"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9647,6 +11362,12 @@
     },
     "settings.general.dependencies" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Závislosti:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9687,6 +11408,12 @@
     },
     "settings.general.dependencies.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit více informací o závislostech"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9727,6 +11454,12 @@
     },
     "settings.general.menubar" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Řádek nabídek:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9767,6 +11500,12 @@
     },
     "settings.general.menubar.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit v řádku nabídek"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9807,6 +11546,12 @@
     },
     "settings.general.package-caveats" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazení poznámek k balíčkům:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9847,6 +11592,12 @@
     },
     "settings.general.package-caveats.full" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úplné"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9887,6 +11638,12 @@
     },
     "settings.general.package-caveats.minified" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kompaktní"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9927,6 +11684,12 @@
     },
     "settings.general.package-caveats.minified.info" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 Pro zobrazení poznámek klikněte na pilulku \"Poznámky k balíčku\""
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9967,6 +11730,12 @@
     },
     "settings.general.package-details" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podrobnosti o balíčcích:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10007,6 +11776,12 @@
     },
     "settings.general.package-details.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit vyhledávací pole závislostí"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10047,6 +11822,12 @@
     },
     "settings.general.search-results" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výsledky hledání:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10087,6 +11868,12 @@
     },
     "settings.general.search-results.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit popisy balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10128,6 +11915,12 @@
     "settings.general.sort-packages" : {
       "comment" : "MARK: - Settings: General",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Řadit balíčky podle:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10168,6 +11961,12 @@
     },
     "settings.general.sort-packages.alphabetically" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Názvu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10208,6 +12007,12 @@
     },
     "settings.general.sort-packages.install-date" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data instalace"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10248,6 +12053,12 @@
     },
     "settings.general.sort-packages.none" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neřadit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10286,48 +12097,14 @@
         }
       }
     },
-    "settings.general.sort-packages.restart" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Starte Cork neu um die gewählte Sortierungsoption zu übernehmen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Restart Cork for this sorting option to take effect"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Redémarrez Cork pour que cette option de tri prenne effet"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 Перезапустите Cork, чтобы это вступило в силу"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 重新启动 Cork 以使排序生效"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "􀅴 此排序需重啟 Cork 才能生效"
-          }
-        }
-      }
-    },
     "settings.general.sort-packages.size" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velikosti"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10368,6 +12145,12 @@
     },
     "settings.homebrew" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10408,6 +12191,12 @@
     },
     "settings.install-uninstall" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10449,10 +12238,22 @@
     "settings.install-uninstall.compatibility-checking.label" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kompatibilita:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Compatibility:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compatibilité:"
           }
         },
         "ru" : {
@@ -10472,10 +12273,22 @@
     "settings.install-uninstall.compatibility-checking.toggle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrolovat, zda jsou balíčky kompatibilní"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check package compatibility"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifier la compatibilité du package"
           }
         },
         "ru" : {
@@ -10496,6 +12309,12 @@
       "comment" : "MARK: - Settings: Install/Uninstall",
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalace:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10537,6 +12356,12 @@
     "settings.install-uninstall.installation.toggle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit seznam právě instalovaných balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10578,6 +12403,12 @@
     "settings.install-uninstall.uninstallation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalace:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10618,6 +12449,12 @@
     },
     "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povolit mazání všech podpůrných souborů balíčku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10658,6 +12495,12 @@
     },
     "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mazání podpůrných souborů může způsobit, že ostatní balíčky přestanou fungovat\nOpravdu chcete tuto možnost zapnout?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10698,6 +12541,12 @@
     },
     "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povolit mazání podpůrných souborů"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10738,6 +12587,12 @@
     },
     "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povolit mazání podpůrných souborů balíčků?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10778,6 +12633,12 @@
     },
     "settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Může se stát, že více balíčků závisí na stejném podpůrném souboru.\nPokud vymažete všechny podpůrné soubory balíčku,\nmůže se stát, že jiný balíček, který tento soubor využívá, přestane fungovat."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10819,6 +12680,12 @@
     "settings.install-uninstall.uninstallation.purge-cache" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Po odinstalování balíčků vymazat mezipaměť"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10860,6 +12727,12 @@
     "settings.install-uninstall.uninstallation.remove-orphans" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Po odinstalování balíčku odstranit osiřelé balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10900,6 +12773,12 @@
     },
     "settings.maintenance" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Údržba"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10941,6 +12820,12 @@
     "settings.maintenance.default-steps" : {
       "comment" : "MARK: - Settings: Maintenance",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výchozí kroky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10982,6 +12867,12 @@
     "settings.notifications" : {
       "comment" : "MARK: - Settings: Notifications",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oznámení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11022,6 +12913,12 @@
     },
     "settings.notifications.enable-notifications" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapnout oznámení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11062,6 +12959,12 @@
     },
     "settings.notifications.explanation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oznámení dostanete pouze, když Cork nemáte v popředí"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11102,6 +13005,12 @@
     },
     "settings.notifications.notifications-disabled-in-settings.tooltip" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 Odesílání oznámení Corku povolte v Nastavení systému"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11142,6 +13051,12 @@
     },
     "settings.notifications.notify-about-installation-result" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výsledcích instalací"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11182,6 +13097,12 @@
     },
     "settings.notifications.notify-about-upgrade-result" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výsledcích aktualizací"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11222,6 +13143,12 @@
     },
     "settings.notifications.notify-about-various-actions" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posílat oznámení o:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11262,6 +13189,12 @@
     },
     "settings.notifications.outdated-package-notification-type" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ oznámení o zastaralých balíčcích:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11302,6 +13235,12 @@
     },
     "settings.notifications.outdated-package-notification-type.badge" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odznak"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11342,6 +13281,12 @@
     },
     "settings.notifications.outdated-package-notification-type.both" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odznak a oznámení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11382,6 +13327,12 @@
     },
     "settings.notifications.outdated-package-notification-type.none" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádný"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11422,6 +13373,12 @@
     },
     "settings.notifications.outdated-package-notification-type.notification" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oznámení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11463,6 +13420,12 @@
     "sidebar.search.prompt" : {
       "comment" : "MARK: - Sidebar",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11503,6 +13466,12 @@
     },
     "sidebar.section.added-taps" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidané pípy"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11543,6 +13512,12 @@
     },
     "sidebar.section.added-taps.contextmenu.remove-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odstranit %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11584,6 +13559,12 @@
     "sidebar.section.added-taps.remove.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkuste to za pár minut znovu nebo Cork restartujte"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11624,6 +13605,12 @@
     },
     "sidebar.section.added-taps.remove.title-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se odstranit %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11664,6 +13651,12 @@
     },
     "sidebar.section.all.contextmenu.tag-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Označit %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11704,6 +13697,12 @@
     },
     "sidebar.section.all.contextmenu.untag-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odznačit %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11744,6 +13743,12 @@
     },
     "sidebar.section.installed-casks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalované soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11784,6 +13789,12 @@
     },
     "sidebar.section.installed-casks.contextmenu.uninstall-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovat %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11824,6 +13835,12 @@
     },
     "sidebar.section.installed-formulae" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalované vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11865,6 +13882,12 @@
     "sidebar.section.installed-formulae.contextmenu.uninstall-%@" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovat %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11905,6 +13928,12 @@
     },
     "sidebar.section.installed-formulae.contextmenu.uninstall-deep-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalovat %@ a vymazat soubory"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11946,6 +13975,36 @@
     "start-page.added-taps.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte přidané %lld pípy"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte přidaných %lld píp"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte přidanou jednu pípu"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte přidaných %lld píp"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -12034,6 +14093,12 @@
     },
     "start-page.added-taps.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pípy obsahují soubory, které Homebrew ve výchozím stavu neposkytuje"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12074,6 +14139,12 @@
     },
     "start-page.analytics.disabled" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sběr diagnostických dat je vypnutý"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12114,6 +14185,12 @@
     },
     "start-page.analytics.disabled.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew nesbírá žádná diagnostická data o tom, jak ho používáte"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12154,6 +14231,12 @@
     },
     "start-page.analytics.enabled" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sběr diagnostických dat je zapnutý"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12194,6 +14277,12 @@
     },
     "start-page.analytics.enabled.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew sbírá různé druhy anonymních diagnostických dat, například seznam nainstalovaných balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12234,6 +14323,12 @@
     },
     "start-page.cached-downloads-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky v mezipaměti zabírají %@ na disku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12274,6 +14369,12 @@
     },
     "start-page.cached-downloads.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vymazat mezipaměť…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12314,6 +14415,12 @@
     },
     "start-page.cached-downloads.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyto soubory zůstaly po instalacích balíčků. Můžete je odstranit."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12355,6 +14462,36 @@
     "start-page.installed-casks.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalované %lld soudky"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalovaných %lld soudků"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalovaný jeden soudek"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalovaných %lld soudků"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -12443,6 +14580,12 @@
     },
     "start-page.installed-casks.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudky jsou balíčky, které mají okna"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12484,6 +14627,36 @@
     "start-page.installed-formulae.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalované %lld vzorce"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalovaných %lld vzorců"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalovaný jeden vzorec"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte nainstalovaných %lld vzorců"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -12572,6 +14745,12 @@
     },
     "start-page.installed-formulae.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vzorce jsou balíčky, které se používají přes terminál"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12613,6 +14792,12 @@
     "start-page.loading" : {
       "comment" : "MARK: - Start Page",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání balíčků…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12653,6 +14838,12 @@
     },
     "start-page.open-maintenance" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Údržba Homebrew…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12693,6 +14884,12 @@
     },
     "start-page.status" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stav Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12734,6 +14931,36 @@
     "start-page.update-incremental.package-count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aktualizovat %lld balíčky"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aktualizovat %lld balíčků"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aktualizovat jeden balíček"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aktualizovat %lld balíčků"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -12816,6 +15043,12 @@
     },
     "start-page.updated.action.deselect-all" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odznačit vše"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12856,6 +15089,12 @@
     },
     "start-page.updated.action.select-all" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Označit vše"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12896,6 +15135,12 @@
     },
     "start-page.updates.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12937,6 +15182,36 @@
     "start-page.updates.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld zastaralé balíčky"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld zastaralých balíčků"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jeden balíček je zastaralý"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld zastaralých balíčků"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -13025,6 +15300,12 @@
     },
     "start-page.updates.list" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastaralé balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13065,6 +15346,12 @@
     },
     "start-page.updates.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrola aktualizací…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13105,6 +15392,12 @@
     },
     "Tap" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pípa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13122,11 +15415,23 @@
             "state" : "translated",
             "value" : "Tap"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
         }
       }
     },
     "tap-details.contents" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obsah"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13167,6 +15472,12 @@
     },
     "tap-details.contents.casks-mostly" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Převážně soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13207,6 +15518,12 @@
     },
     "tap-details.contents.casks-only" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pouze soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13247,6 +15564,12 @@
     },
     "tap-details.contents.formulae-mostly" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Převážně vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13287,6 +15610,12 @@
     },
     "tap-details.contents.formulae-only" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pouze vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13327,6 +15656,12 @@
     },
     "tap-details.contents.none" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nic"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13367,6 +15702,12 @@
     },
     "tap-details.homepage" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13407,6 +15748,12 @@
     },
     "tap-details.included-casks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13447,6 +15794,12 @@
     },
     "tap-details.included-formulae" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vzorce"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13488,6 +15841,12 @@
     "tap-details.included-packages.search.prompt" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13528,6 +15887,12 @@
     },
     "tap-details.info" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informace"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13568,6 +15933,12 @@
     },
     "tap-details.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání informací o pípě…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13609,6 +15980,12 @@
     "tap-details.official-%@" : {
       "comment" : "MARK: - Tap Details",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ je oficiální pípa. Balíčky, které obsahuje, jsou kontrolovány a neobsahují škodlivý kód."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13649,6 +16026,12 @@
     },
     "tap-details.package-count" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Počet balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13689,6 +16072,12 @@
     },
     "tap-details.remove-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odstranit %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13729,6 +16118,12 @@
     },
     "update-packages.detail-stage.backing-up" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zálohování starší verze…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13769,6 +16164,12 @@
     },
     "update-packages.detail-stage.cleanup" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odstraňování nepotřebných souborů…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13809,6 +16210,12 @@
     },
     "update-packages.detail-stage.downloading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stahování…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13849,6 +16256,12 @@
     },
     "update-packages.detail-stage.linking" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propojování nové verze…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13889,6 +16302,12 @@
     },
     "update-packages.detail-stage.pouring" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13929,6 +16348,12 @@
     },
     "update-packages.error" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky byly aktualizovány, ale vyskytly se chyby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13969,6 +16394,12 @@
     },
     "update-packages.error.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při aktualizaci se vyskytly chyby.\nNíže najdete podrobnosti."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14009,6 +16440,12 @@
     },
     "update-packages.finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíčky aktualizovány"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14049,6 +16486,12 @@
     },
     "update-packages.finished.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nevyskytly se žádné chyby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14089,6 +16532,12 @@
     },
     "update-packages.incremental.finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrané balíčky aktualizovány"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14129,6 +16578,12 @@
     },
     "update-packages.incremental.impossible-case" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Netuším, jak jste se sem dostali"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14169,6 +16624,12 @@
     },
     "update-packages.incremental.update-in-progress-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace %@…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14209,6 +16670,12 @@
     },
     "update-packages.no-updates" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejsou dostupné žádné aktualizace"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14249,6 +16716,12 @@
     },
     "update-packages.no-updates.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny balíčky máte aktuální"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14289,6 +16762,12 @@
     },
     "update-packages.updating.checking" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stahování aktualizací…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14329,6 +16808,12 @@
     },
     "update-packages.updating.finished" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hotovo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14370,6 +16855,12 @@
     "update-packages.updating.ready" : {
       "comment" : "MARK: - Update Packages",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vše připraveno"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14410,6 +16901,12 @@
     },
     "update-packages.updating.updating" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace balíčků…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14450,6 +16947,12 @@
     },
     "update-packages.updating.updating-outdated-package" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace mezipaměti balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14490,6 +16993,12 @@
     },
     "v. %@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14503,6 +17012,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "v. %@"
@@ -14512,6 +17027,12 @@
     },
     "􀇾" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14525,6 +17046,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"

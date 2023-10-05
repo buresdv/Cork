@@ -9,5 +9,5 @@ import Foundation
 
 enum PackageInstallationProcessSteps
 {
-    case ready, searching, presentingSearchResults, installing, finished
+    case ready, searching, presentingSearchResults, installing, finished, fatalError, requiresSudoPassword
 }

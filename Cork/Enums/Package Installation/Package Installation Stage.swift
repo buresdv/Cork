@@ -12,4 +12,6 @@ enum PackageInstallationStage
     case ready, loadingDependencies, fetchingDependencies, installingDependencies, installingPackage, finished // For Formulae
     
     case downloadingCask, installingCask, movingCask, linkingCaskBinary // For Casks
+
+    case requiresSudoPassword // For Both
 }

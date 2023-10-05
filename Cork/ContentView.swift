@@ -22,7 +22,7 @@ struct ContentView: View
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var tapData: AvailableTaps
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
@@ -141,84 +141,79 @@ struct ContentView: View
             {
                 print("Metadata file exists")
             }
+        }
+        .task(priority: .high)
+        {
+            print("Started Package Load startup action at \(Date())")
 
-            Task
+            defer
             {
-                async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
+                appState.isLoadingFormulae = false
+                appState.isLoadingCasks = false
+            }
 
-                brewData.installedFormulae = await loadUpFormulae(appState: appState, sortBy: sortPackagesBy)
-                brewData.installedCasks = await loadUpCasks(appState: appState, sortBy: sortPackagesBy)
+            async let availableFormulae = await loadUpPackages(whatToLoad: .formula, appState: appState)
+            async let availableCasks = await loadUpPackages(whatToLoad: .cask, appState: appState)
 
-                availableTaps.addedTaps = await loadUpTappedTaps()
+            async let availableTaps = await loadUpTappedTaps()
+
+            brewData.installedFormulae = await availableFormulae
+            brewData.installedCasks = await availableCasks
+
+            tapData.addedTaps = await availableTaps
+
+            do
+            {
+                appState.taggedPackageNames = try loadTaggedIDsFromDisk()
+
+                print("Tagged packages in appState: \(appState.taggedPackageNames)")
 
                 do
                 {
-                    appState.taggedPackageNames = try loadTaggedIDsFromDisk()
-
-                    print("Tagged packages in appState: \(appState.taggedPackageNames)")
-
-                    do
-                    {
-                        try await applyTagsToPackageTrackingArray(appState: appState, brewData: brewData)
-                    }
-                    catch let taggedStateApplicationError as NSError
-                    {
-                        print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
-                        appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
-                        appState.isShowingFatalError = true
-                    }
+                    try await applyTagsToPackageTrackingArray(appState: appState, brewData: brewData)
                 }
-                catch let uuidLoadingError as NSError
+                catch let taggedStateApplicationError as NSError
                 {
-                    print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                    print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
                     appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
                     appState.isShowingFatalError = true
                 }
+            }
+            catch let uuidLoadingError as NSError
+            {
+                print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
+                appState.isShowingFatalError = true
+            }
+        }
+        .task(priority: .background) {
+            print("Started Analytics startup action at \(Date())")
 
-                if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
-                {
-                    allowBrewAnalytics = true
-                    print("Analytics are ENABLED")
-                }
-                else
-                {
-                    allowBrewAnalytics = false
-                    print("Analytics are DISABLED")
-                }
+            async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
+
+            if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
+            {
+                allowBrewAnalytics = true
+                print("Analytics are ENABLED")
+            }
+            else
+            {
+                allowBrewAnalytics = false
+                print("Analytics are DISABLED")
             }
         }
         .task(priority: .background)
         {
+            print("Started Discoverability startup action at \(Date())")
+
             if enableDiscoverability
             {
-                if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+                if appState.isLoadingFormulae && appState.isLoadingCasks || tapData.addedTaps.isEmpty
                 {
                     await loadTopPackages()
                 }
             }
         }
-        .onChange(of: sortPackagesBy, perform: { newSortOption in
-            switch newSortOption
-            {
-            case .none:
-                print("Chose NONE")
-
-            case .alphabetically:
-                print("Chose ALPHABETICALLY")
-                brewData.installedFormulae = sortPackagesAlphabetically(brewData.installedFormulae)
-                brewData.installedCasks = sortPackagesAlphabetically(brewData.installedCasks)
-
-            case .byInstallDate:
-                print("Chose BY INSTALL DATE")
-                brewData.installedFormulae = sortPackagesByInstallDate(brewData.installedFormulae)
-                brewData.installedCasks = sortPackagesByInstallDate(brewData.installedCasks)
-
-            case .bySize:
-                print("Chose BY SIZE")
-                brewData.installedFormulae = sortPackagesBySize(brewData.installedFormulae)
-                brewData.installedCasks = sortPackagesBySize(brewData.installedCasks)
-            }
-        })
         .onChange(of: areNotificationsEnabled, perform: { newValue in
             if newValue == true
             {
@@ -417,6 +412,14 @@ struct ContentView: View
                     }),
                     secondaryButton: .destructive(Text("action.restart"), action: {
                         restartApp()
+                    })
+                )
+            case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
+                return Alert(
+                    title: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title"),
+                    message: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
                     })
                 )
             }

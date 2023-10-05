@@ -32,7 +32,7 @@ extension PackageSearchToken
         case .tap:
             return "search.token.filter-taps"
         case .tag:
-            return ""
+            return "search.token.filter-tags"
         case .intentionallyInstalledPackage:
             return "search.token.filter-manually-installed-packages"
         }

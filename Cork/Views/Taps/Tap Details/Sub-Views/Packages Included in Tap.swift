@@ -11,7 +11,7 @@ struct PackagesIncludedInTapList: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @State var packages: [String]
+    @State var packages: Set<String>
 
     @State private var searchString: String = ""
 
@@ -22,10 +22,10 @@ struct PackagesIncludedInTapList: View
             CustomSearchField(search: $searchString, customPromptText: "tap-details.included-packages.search.prompt")
             ScrollView
             {
-                LazyVStack(spacing: 0)
+                List
                 {
-                    ForEach(Array(searchString.isEmpty ? packages.enumerated() : packages.filter { $0.contains(searchString) }.enumerated()), id: \.offset)
-                    { index, package in
+                    ForEach(Array(searchString.isEmpty ? packages.sorted() : packages.filter({ $0.localizedCaseInsensitiveContains(searchString) }).sorted()), id: \.self)
+                    { package in
                         HStack(alignment: .center)
                         {
                             Text(package)
@@ -35,14 +35,11 @@ struct PackagesIncludedInTapList: View
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }
                         }
-                        .padding(6)
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .background(index % 2 == 0 ? Color(nsColor: NSColor.alternatingContentBackgroundColors[0]) : Color(nsColor: NSColor.alternatingContentBackgroundColors[1]))
                     }
                 }
+                .frame(height: 150)
+                .listStyle(.bordered(alternatesRowBackgrounds: true))
             }
-            .frame(maxHeight: 150)
-            .border(Color(nsColor: .lightGray))
         }
     }
 }

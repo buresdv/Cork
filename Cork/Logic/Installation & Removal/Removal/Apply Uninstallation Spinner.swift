@@ -15,19 +15,24 @@ func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStora
     
     if !package.isCask
     {
-        if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
-        {
-            print("Found formula at index \(indexToReplace)")
-            brewData.installedFormulae[indexToReplace].changeBeingModifiedStatus()
-        }
-        
+        brewData.installedFormulae = Set(brewData.installedFormulae.map({ formula in
+            var copyFormula = formula
+            if copyFormula.name == package.name
+            {
+                copyFormula.changeBeingModifiedStatus()
+            }
+            return copyFormula
+        }))
     }
     else
     {
-        if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
-        {
-            print("Found cask at index \(indextoReplace)")
-            brewData.installedCasks[indextoReplace].changeBeingModifiedStatus()
-        }
+        brewData.installedFormulae = Set(brewData.installedCasks.map({ cask in
+            var copyCask = cask
+            if copyCask.name == package.name
+            {
+                copyCask.changeBeingModifiedStatus()
+            }
+            return copyCask
+        }))
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OutdatedPackage: Identifiable, Hashable, Equatable
+struct OutdatedPackage: Identifiable, Equatable, Hashable
 {
     let id: UUID = UUID()
     

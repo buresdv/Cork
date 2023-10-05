@@ -7,21 +7,23 @@
 
 import SwiftUI
 
-struct TapsSection: View {
-    
+struct TapsSection: View
+{
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
-    
+
     let searchText: String
-    
-    var body: some View {
+
+    var body: some View
+    {
         Section("sidebar.section.added-taps")
         {
             if availableTaps.addedTaps.count != 0
             {
-                ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
+                ForEach(displayedTaps)
                 { tap in
-                    NavigationLink {
+                    NavigationLink
+                    {
                         TapDetailView(tap: tap)
                             .id(tap.id)
                     } label: {
@@ -55,6 +57,18 @@ struct TapsSection: View {
             {
                 ProgressView()
             }
+        }
+    }
+
+    private var displayedTaps: [BrewTap]
+    {
+        if searchText.isEmpty || searchText.contains("#")
+        {
+            return availableTaps.addedTaps
+        }
+        else
+        {
+            return availableTaps.addedTaps.filter { $0.name.contains(searchText) }
         }
     }
 }

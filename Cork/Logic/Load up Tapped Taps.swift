@@ -11,9 +11,9 @@ import Foundation
 func loadUpTappedTaps() async -> [BrewTap]
 {
     var finalAvailableTaps: [BrewTap] = .init()
-    
+
     let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.tapPath, options: .skipsHiddenFiles)
-    
+
     print("Contents of tap folder: \(contentsOfTapFolder)")
     
     for tapRepoParentURL in contentsOfTapFolder
@@ -22,7 +22,7 @@ func loadUpTappedTaps() async -> [BrewTap]
         print("Tap repo: \(tapRepoParentURL)")
         
         let contentsOfTapRepoParent: [URL] = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
-        
+
         for repoURL in contentsOfTapRepoParent {
             
             let repoParentComponents: [String] = repoURL.pathComponents
