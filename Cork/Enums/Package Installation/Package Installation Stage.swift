@@ -13,5 +13,5 @@ enum PackageInstallationStage
     
     case downloadingCask, installingCask, movingCask, linkingCaskBinary // For Casks
 
-    case requiresSudoPassword // For Both
+    case requiresSudoPassword, obtainedSudoPermissions // For Both
 }

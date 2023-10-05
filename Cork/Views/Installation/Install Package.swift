@@ -28,7 +28,6 @@ struct AddFormulaView: View
     @FocusState var isSearchFieldFocused: Bool
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
 
     var body: some View
     {
@@ -73,110 +72,57 @@ struct AddFormulaView: View
                 )
 
             case .finished:
-                DisappearableSheet(isShowingSheet: $isShowingSheet)
-                {
-                    ComplexWithIcon(systemName: "checkmark.seal")
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "add-package.finished",
-                            subheadline: "add-package.finished.description",
-                            alignment: .leading
-                        )
-                    }
-                }
-                .onAppear
-                {
-                    appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
-
-                    if notifyAboutPackageInstallationResults
-                    {
-                        sendNotification(title: String(localized: "notification.install-finished"))
-                    }
-                }
+                PackageInstallationFinishedView(isShowingSheet: $isShowingSheet)
 
             case .fatalError: /// This shows up when the function for executing the install action throws an error
+                PackageInstallationFatalErrorView(installationProgressTracker: installationProgressTracker, isShowingSheet: $isShowingSheet)
+
+            case .requiresSudoPassword:
                 VStack(alignment: .leading)
                 {
-                    ComplexWithIcon(systemName: "exclamationmark.triangle")
+                    ComplexWithIcon(systemName: "exclamationmark.triangle.fill")
                     {
-                        if let packageBeingInstalled = installationProgressTracker.packagesBeingInstalled.first
-                        { /// Show this when we can pull out which package was being installed
-                            HeadlineWithSubheadline(
-                                headline: "add-package.fatal-error-\(packageBeingInstalled.package.name)",
-                                subheadline: "add-package.fatal-error.description",
-                                alignment: .leading
-                            )
-                        }
-                        else
-                        { /// Otherwise, show a generic error
-                            HeadlineWithSubheadline(
-                                headline: "add-package.fatal-error.generic",
-                                subheadline: "add-package.fatal-error.description",
-                                alignment: .leading
-                            )
+                        VStack(alignment: .leading, spacing: 10)
+                        {
+                            Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                .font(.headline)
+
+                            ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
                         }
                     }
+
+                    Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
 
                     HStack
                     {
                         Button
                         {
-                            restartApp()
+                            isShowingSheet = false
+
+                            Task.detached
+                            {
+                                await synchronizeInstalledPackages(brewData: brewData)
+                            }
                         } label: {
-                            Text("action.restart")
+                            Text("action.close")
                         }
+                        .keyboardShortcut(.cancelAction)
 
                         Spacer()
 
-                        DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        Button
+                        {
+                            openTerminal()
+                        } label: {
+                            Text("action.open-terminal")
+                        }
+                        .keyboardShortcut(.defaultAction)
                     }
                 }
-
-                case .requiresSudoPassword:
-                    VStack(alignment: .leading)
-                    {
-                        ComplexWithIcon(systemName: "exclamationmark.triangle.fill") {
-                            VStack(alignment: .leading, spacing: 10)
-                            {
-                                Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                                    .font(.headline)
-
-                                ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
-                            }
-                        }
-
-                        Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-
-                        HStack
-                        {
-                            Button
-                            {
-                                isShowingSheet = false
-
-                                Task.detached 
-                                {
-                                    await synchronizeInstalledPackages(brewData: brewData)
-                                }
-                            } label: {
-                                Text("action.close")
-                            }
-                            .keyboardShortcut(.cancelAction)
-
-                            Spacer()
-
-                            Button
-                            {
-                                openTerminal()
-                            } label: {
-                                Text("action.open-terminal")
-                            }
-                            .keyboardShortcut(.defaultAction)
-                        }
-                    }
-                    .fixedSize()
+                .fixedSize()
 
             default:
                 VStack(alignment: .leading)
@@ -203,9 +149,8 @@ struct AddFormulaView: View
     }
 }
 
-private struct ManualInstallInstructions: View 
+private struct ManualInstallInstructions: View
 {
-
     let installationProgressTracker: InstallationProgressTracker
 
     var manualInstallCommand: String
@@ -227,10 +172,12 @@ private struct ManualInstallInstructions: View
 
                     Divider()
 
-                    Button {
+                    Button
+                    {
                         copyToClipboard(whatToCopy: manualInstallCommand)
                     } label: {
-                        Label {
+                        Label
+                        {
                             Text("action.copy")
                         } icon: {
                             Image(systemName: "doc.on.doc")
@@ -244,7 +191,7 @@ private struct ManualInstallInstructions: View
     }
 }
 
-fileprivate func openTerminal()
+private func openTerminal()
 {
     guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal") else { return }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Automator
 
 @discardableResult
 func shell(_ launchPath: String, _ arguments: [String], environment: [String: String]? = nil) async -> TerminalOutput
@@ -112,6 +113,32 @@ func shell(
 
         task.terminationHandler = { _ in
             continuation.finish()
+        }
+    }
+}
+
+enum SudoShellError: Error
+{
+    case errorWhileRunningAppleScript
+}
+
+func sudoShell(
+    _ launchPath: String,
+    _ arguments: [String],
+    environment: [String: String]? = nil
+) async throws -> Void {
+    let scriptSource =
+    """
+    do shell script "\(launchPath) \(arguments.joined(separator: " "))" with administrator privileges
+    """
+
+    var error: NSDictionary?
+    if let scriptObject = NSAppleScript(source: scriptSource) {
+        if scriptObject.executeAndReturnError(&error) != nil {
+            print("Sudo command ran successfully.")
+        } else if let error = error {
+            print("Sudo command failed: \(error)")
+            throw SudoShellError.errorWhileRunningAppleScript
         }
     }
 }
