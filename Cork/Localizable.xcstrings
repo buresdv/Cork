@@ -1173,6 +1173,26 @@
         }
       }
     },
+    "about.packages.3.name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        }
+      }
+    },
+    "about.packages.3.purpose" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A package that lets Cork start when you log in"
+          }
+        }
+      }
+    },
     "about.thanks" : {
       "localizations" : {
         "cs" : {
@@ -11448,6 +11468,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示更多依存關係的資訊"
+          }
+        }
+      }
+    },
+    "settings.general.launch-at-login" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic startup:"
+          }
+        }
+      }
+    },
+    "settings.general.launch-at-login.toggle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open at login"
           }
         }
       }

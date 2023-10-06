@@ -69,6 +69,7 @@
 		63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689FA72ACCC04E00BD354C /* Array - Prepend.swift */; };
 		63689FAB2ACDCA1A00BD354C /* Maintenance Running View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689FAA2ACDCA1A00BD354C /* Maintenance Running View.swift */; };
 		63689FAD2ACDCD2F00BD354C /* Maintenance Finished View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689FAC2ACDCD2F00BD354C /* Maintenance Finished View.swift */; };
+		63689FB62ACFF18900BD354C /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 63689FB52ACFF18900BD354C /* LaunchAtLogin */; };
 		63690F7B29C9FBF5008F952C /* Change Package Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7A29C9FBF5008F952C /* Change Package Tag.swift */; };
 		63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63690F7C29C9FC0F008F952C /* Save Data do Disk.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
@@ -373,6 +374,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63689FB62ACFF18900BD354C /* LaunchAtLogin in Frameworks */,
 				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
 				634065752871AB22001A2178 /* DavidFoundation in Frameworks */,
 			);
@@ -1196,6 +1198,7 @@
 			packageProductDependencies = (
 				634065742871AB22001A2178 /* DavidFoundation */,
 				63936A4A29AE09D00069C988 /* SwiftyJSON */,
+				63689FB52ACFF18900BD354C /* LaunchAtLogin */,
 			);
 			productName = Cork;
 			productReference = 634065612871AA42001A2178 /* Cork.app */;
@@ -1255,6 +1258,7 @@
 			packageReferences = (
 				634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */,
 				63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			productRefGroup = 634065622871AA42001A2178 /* Products */;
 			projectDirPath = "";
@@ -1808,6 +1812,14 @@
 				kind = branch;
 			};
 		};
+		63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -1823,6 +1835,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 634065732871AB22001A2178 /* XCRemoteSwiftPackageReference "DavidFoundation" */;
 			productName = DavidFoundation;
+		};
+		63689FB52ACFF18900BD354C /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
 		};
 		63936A4A29AE09D00069C988 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
