@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AboutView: View
 {
-    @State private var usedPackages: [UsedPackage] = [
+    private let usedPackages: [UsedPackage] = [
         UsedPackage(
             name: "about.packages.1.name",
             whyIsItUsed: "about.packages.1.purpose",
@@ -20,10 +20,15 @@ struct AboutView: View
             name: "about.packages.2.name",
             whyIsItUsed: "about.packages.2.purpose",
             packageURL: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!
+        ),
+        UsedPackage(
+            name: "about.packages.3.name",
+            whyIsItUsed: "about.packages.3.purpose",
+            packageURL: URL(string: "https://github.com/sindresorhus/LaunchAtLogin-Modern")!
         )
     ]
 
-    @State private var specialThanks: [AcknowledgedContributor] = [
+    private let specialThanks: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.thanks.1.name",
             reasonForAcknowledgement: "about.thanks.1.purpose",
@@ -31,7 +36,7 @@ struct AboutView: View
             profileURL: URL(string: "https://github.com/sebj")!)
         ,
     ]
-    @State private var acknowledgedContributors: [AcknowledgedContributor] = [
+    private let acknowledgedContributors: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.contributors.1.name",
             reasonForAcknowledgement: "about.contributors.1.purpose",
@@ -70,7 +75,7 @@ struct AboutView: View
         ),
     ]
     
-    @State private var translators: [AcknowledgedContributor] = [
+    private let translators: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.translator.1.name",
             reasonForAcknowledgement: "about.translator.1.purpose",

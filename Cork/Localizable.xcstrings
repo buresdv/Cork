@@ -1173,6 +1173,26 @@
         }
       }
     },
+    "about.packages.3.name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        }
+      }
+    },
+    "about.packages.3.purpose" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A package that lets Cork start when you log in"
+          }
+        }
+      }
+    },
     "about.thanks" : {
       "localizations" : {
         "cs" : {
