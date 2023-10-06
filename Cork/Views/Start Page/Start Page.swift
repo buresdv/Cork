@@ -35,15 +35,9 @@ struct StartPage: View
                     {
                         Section
                         {
-                            if appState.isCheckingForPackageUpdates
-                            {
-                                OutdatedPackageLoaderBox()
-                            }
-
-                            if outdatedPackageTracker.outdatedPackages.count != 0
-                            {
-                                OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
-                            }
+                            OutdatedPackagesBox(isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded)
+                                .transition(.move(edge: .top))
+                                .animation(.easeIn, value: appState.isCheckingForPackageUpdates)
                         } header: {
                             Text("start-page.status")
                                 .font(.title)
@@ -116,14 +110,7 @@ struct StartPage: View
                     print("Unspecified error while pulling package updates")
                 }
 
-                if outdatedPackageTracker.outdatedPackages.isEmpty // Only play the slide out animation if there are no updates. Otherwise don't play it. This is because if there are updates, the "Updates available" GroupBox shows up and then immediately slides up, which is ugly.
-                {
-                    withAnimation
-                    {
-                        appState.isCheckingForPackageUpdates = false
-                    }
-                }
-                else
+                withAnimation
                 {
                     appState.isCheckingForPackageUpdates = false
                 }

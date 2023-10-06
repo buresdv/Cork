@@ -127,6 +127,7 @@
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
 		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
 		63BE889C2A910BB0003C6E59 /* Top Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */; };
+		63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */; };
 		63C830BC29984B1A002D11BB /* Used Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BB29984B1A002D11BB /* Used Package.swift */; };
 		63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */; };
 		63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830C029984BA4002D11BB /* Button That Opens Websites.swift */; };
@@ -313,6 +314,7 @@
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
 		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
 		63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package Sorting.swift"; sourceTree = "<group>"; };
+		63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Packages Box.swift"; sourceTree = "<group>"; };
 		63C830BB29984B1A002D11BB /* Used Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Used Package.swift"; sourceTree = "<group>"; };
 		63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Acknowledged Contributor.swift"; sourceTree = "<group>"; };
 		63C830C029984BA4002D11BB /* Button That Opens Websites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button That Opens Websites.swift"; sourceTree = "<group>"; };
@@ -945,6 +947,15 @@
 			path = "Misc Views";
 			sourceTree = "<group>";
 		};
+		63C1A3192AD0998E00F36371 /* Outdated Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */,
+				63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */,
+			);
+			path = "Outdated Packages";
+			sourceTree = "<group>";
+		};
 		63C830BA29984B10002D11BB /* Misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,11 +1109,11 @@
 		63E716D329DDA815004FD2B4 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
-				63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */,
-				63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */,
+				63C1A3192AD0998E00F36371 /* Outdated Packages */,
 				63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */,
 				63E716DA29DDB9D0004FD2B4 /* Analytics Status Box.swift */,
 				63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */,
+				63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */,
 			);
 			path = "Sub-Views";
 			sourceTree = "<group>";
@@ -1420,6 +1431,7 @@
 				63689F8B2ACCB5B600BD354C /* Load Image from Local URL.swift in Sources */,
 				63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */,
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
+				63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */,
 				63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */,
 				63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */,
 				63006E0029AC073D00243E29 /* Parse JSON.swift in Sources */,
