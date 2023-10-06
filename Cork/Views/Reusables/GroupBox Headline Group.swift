@@ -14,6 +14,8 @@ struct GroupBoxHeadlineGroup: View
     let title: LocalizedStringKey
     let mainText: LocalizedStringKey
 
+    var animateNumberChanges: Bool = false
+
     var body: some View
     {
         HStack(spacing: 15)
@@ -28,7 +30,15 @@ struct GroupBoxHeadlineGroup: View
 
             VStack(alignment: .leading, spacing: 2)
             {
-                Text(title)
+                if animateNumberChanges
+                {
+                    Text(title)
+                        .contentTransition(.numericText())
+                }
+                else
+                {
+                    Text(title)
+                }
                 Text(mainText)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
