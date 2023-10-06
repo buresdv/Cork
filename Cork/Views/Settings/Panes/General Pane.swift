@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct GeneralPane: View
 {
@@ -100,6 +101,17 @@ struct GeneralPane: View
                 } label: {
                     Text("settings.general.menubar")
                 }
+
+                LabeledContent 
+                {
+                    LaunchAtLogin.Toggle
+                    {
+                        Text("settings.general.launch-at-login.toggle")
+                    }
+                } label: {
+                    Text("settings.general.launch-at-login")
+                }
+
             }
         }
     }

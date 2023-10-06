@@ -11452,6 +11452,27 @@
         }
       }
     },
+    "settings.general.launch-at-login" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic startup:"
+          }
+        }
+      }
+    },
+    "settings.general.launch-at-login.toggle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open at login"
+          }
+        }
+      }
+    },
     "settings.general.menubar" : {
       "localizations" : {
         "cs" : {
