@@ -36,7 +36,6 @@
 		633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289EE29A68B36004B2930 /* Search Result Tracker.swift */; };
 		633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */; };
 		633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633513F02A91592800524165 /* Collapsible Section Header.swift */; };
-		633A861C29A525F0006EA952 /* Toggle Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633A861B29A525F0006EA952 /* Toggle Sidebar.swift */; };
 		633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB30529BE65EB006CB872 /* Custom Search Field.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
@@ -224,7 +223,6 @@
 		633289EE29A68B36004B2930 /* Search Result Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Tracker.swift"; sourceTree = "<group>"; };
 		633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package in Progress of Being Installed.swift"; sourceTree = "<group>"; };
 		633513F02A91592800524165 /* Collapsible Section Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collapsible Section Header.swift"; sourceTree = "<group>"; };
-		633A861B29A525F0006EA952 /* Toggle Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toggle Sidebar.swift"; sourceTree = "<group>"; };
 		633EB30529BE65EB006CB872 /* Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Search Field.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634065642871AA42001A2178 /* CorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorkApp.swift; sourceTree = "<group>"; };
@@ -719,7 +717,6 @@
 			children = (
 				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
 				639246E429A26BB4008149E2 /* REGEX Match.swift */,
-				633A861B29A525F0006EA952 /* Toggle Sidebar.swift */,
 				63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */,
 				63CBCC4E2AC9B46E00E1E95B /* Copy to Clipboard.swift */,
 				63689F8A2ACCB5B600BD354C /* Load Image from Local URL.swift */,
@@ -1459,7 +1456,6 @@
 				6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */,
 				63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */,
 				63D024E32AC769AC0050F9D0 /* Presenting Search Results.swift in Sources */,
-				633A861C29A525F0006EA952 /* Toggle Sidebar.swift in Sources */,
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				63D67B7A2AC5E28C002EB992 /* Tap Info.swift in Sources */,
 				63689F832ACC9FE000BD354C /* Button Bottom Row.swift in Sources */,
