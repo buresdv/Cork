@@ -90,6 +90,7 @@
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
 		637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006A28734041005C9890 /* Install Selected Packages.swift */; };
+		63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63824AA62AD161E1007B2892 /* Live Code Output.swift */; };
 		6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C8F8299D6C1D00354B19 /* Package Sorting.swift */; };
 		6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C8FA299D6E5D00354B19 /* General Pane.swift */; };
 		6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382C907299DA02700354B19 /* Uninstall Orphaned Packages.swift */; };
@@ -278,6 +279,7 @@
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
 		637E006A28734041005C9890 /* Install Selected Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Selected Packages.swift"; sourceTree = "<group>"; };
+		63824AA62AD161E1007B2892 /* Live Code Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Live Code Output.swift"; sourceTree = "<group>"; };
 		6382C8F8299D6C1D00354B19 /* Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Sorting.swift"; sourceTree = "<group>"; };
 		6382C8FA299D6E5D00354B19 /* General Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General Pane.swift"; sourceTree = "<group>"; };
 		6382C907299DA02700354B19 /* Uninstall Orphaned Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Orphaned Packages.swift"; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 			isa = PBXGroup;
 			children = (
 				63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */,
+				63824AA62AD161E1007B2892 /* Live Code Output.swift */,
 			);
 			path = "Misc Views";
 			sourceTree = "<group>";
@@ -1485,6 +1488,7 @@
 				63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
+				63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
 				633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,

@@ -3410,6 +3410,16 @@
         }
       }
     },
+    "add-package.install.show-details" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show details"
+          }
+        }
+      }
+    },
     "add-package.network-error" : {
       "localizations" : {
         "cs" : {
