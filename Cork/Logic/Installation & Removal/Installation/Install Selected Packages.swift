@@ -16,6 +16,8 @@ enum InstallationError: Error
 @MainActor
 func installPackage(installationProgressTracker: InstallationProgressTracker, brewData: BrewDataStorage) async throws -> TerminalOutput
 {
+    let showRealTimeTerminalOutputs = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
+
     print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
     var installationResult = TerminalOutput(standardOutput: "", standardError: "")
@@ -37,7 +39,10 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 print("Line out: \(outputLine)")
 
-                installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
+                if showRealTimeTerminalOutputs
+                {
+                    installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
+                }
 
                 print("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies))")
 
@@ -113,7 +118,10 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
             case let .standardError(errorLine):
                 print("Errored out: \(errorLine)")
 
-                installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
+                if showRealTimeTerminalOutputs
+                {
+                    installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
+                }
 
                 if errorLine.contains("a password is required")
                 {
@@ -139,6 +147,11 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
             {
             case let .standardOutput(outputLine):
                 print("Output line: \(outputLine)")
+
+                if showRealTimeTerminalOutputs
+                {
+                    installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
+                }
 
                 if outputLine.contains("Downloading")
                 {
@@ -183,6 +196,12 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
             case let .standardError(errorLine):
                 print("Line had error: \(errorLine)")
+
+                if showRealTimeTerminalOutputs
+                {
+                    installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
+                }
+
                 if errorLine.contains("a password is required")
                 {
                     print("Install requires sudo")

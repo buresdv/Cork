@@ -9,40 +9,45 @@ import SwiftUI
 
 struct LiveTerminalOutputView: View
 {
+    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
+
     @Binding var lineArray: [RealTimeTerminalLine]
 
     var body: some View
     {
-        DisclosureGroup("add-package.install.show-details")
+        if showRealTimeTerminalOutputOfOperations
         {
-            ScrollViewReader
-            { proxy in
-                ScrollView
-                {
-                    VStack(alignment: .leading, spacing: 5)
+            DisclosureGroup("add-package.install.show-details")
+            {
+                ScrollViewReader
+                { proxy in
+                    ScrollView
                     {
-                        ForEach(lineArray)
-                        { line in
-                            Text(line.line)
-                                .id(line.id)
+                        VStack(alignment: .leading, spacing: 5)
+                        {
+                            ForEach(lineArray)
+                            { line in
+                                Text(line.line)
+                                    .id(line.id)
+                            }
                         }
                     }
+                    .onChange(of: lineArray)
+                    { _ in
+                        proxy.scrollTo(lineArray.last?.id, anchor: .bottom)
+                    }
+                    .frame(width: 300, height: 200)
+                    .fixedSize()
+                    .border(Color(nsColor: NSColor.separatorColor))
                 }
-                .onChange(of: lineArray)
-                { _ in
-                    proxy.scrollTo(lineArray.last?.id, anchor: .bottom)
-                }
-                .frame(width: 300, height: 200)
-                .fixedSize()
-                .border(Color(nsColor: NSColor.separatorColor))
+                // }
             }
-            // }
-        }
-        .onDisappear
-        {
-            print("Purging saved real time output")
+            .onDisappear
+            {
+                print("Purging saved real time output")
 
-            lineArray = .init()
+                lineArray = .init()
+            }
         }
     }
 }

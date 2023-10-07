@@ -12822,6 +12822,16 @@
         }
       }
     },
+    "settings.install-uninstall.uninstallation.show-real-time-terminal-outputs" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show real-time outputs of operations"
+          }
+        }
+      }
+    },
     "settings.maintenance" : {
       "localizations" : {
         "cs" : {

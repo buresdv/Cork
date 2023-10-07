@@ -16,6 +16,7 @@ struct InstallationAndUninstallationPane: View
     @AppStorage("purgeCacheAfterEveryUninstallation") var purgeCacheAfterEveryUninstallation: Bool = false
     @AppStorage("removeOrphansAfterEveryUninstallation") var removeOrphansAfterEveryUninstallation: Bool = false
 
+    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
     @State private var isShowingDeepUninstallConfirmation: Bool = false
@@ -68,37 +69,45 @@ struct InstallationAndUninstallationPane: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Toggle(isOn: $allowMoreCompleteUninstallations)
+                        Toggle(isOn: $showRealTimeTerminalOutputOfOperations)
                         {
-                            Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation")
-                        }
-                        .onChange(of: allowMoreCompleteUninstallations, perform: { newValue in
-                            if newValue == true
-                            {
-                                isShowingDeepUninstallConfirmation = true
-                            }
-                        })
-                        .alert(isPresented: $isShowingDeepUninstallConfirmation) {
-                            Alert(
-                                title: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title"),
-                                message: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body"),
-                                primaryButton: .default(Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm"), action: {
-                                    allowMoreCompleteUninstallations = true
-                                    isShowingDeepUninstallConfirmation = false
-                                }),
-                                secondaryButton: .cancel({
-                                    allowMoreCompleteUninstallations = false
-                                    isShowingDeepUninstallConfirmation = false
-                                }))
+                            Text("settings.install-uninstall.uninstallation.show-real-time-terminal-outputs")
                         }
 
-                        HStack(alignment: .top)
+                        VStack(alignment: .leading)
                         {
-                            Text("􀇾")
-                            Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning")
+                            Toggle(isOn: $allowMoreCompleteUninstallations)
+                            {
+                                Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation")
+                            }
+                            .onChange(of: allowMoreCompleteUninstallations, perform: { newValue in
+                                if newValue == true
+                                {
+                                    isShowingDeepUninstallConfirmation = true
+                                }
+                            })
+                            .alert(isPresented: $isShowingDeepUninstallConfirmation) {
+                                Alert(
+                                    title: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title"),
+                                    message: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body"),
+                                    primaryButton: .default(Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm"), action: {
+                                        allowMoreCompleteUninstallations = true
+                                        isShowingDeepUninstallConfirmation = false
+                                    }),
+                                    secondaryButton: .cancel({
+                                        allowMoreCompleteUninstallations = false
+                                        isShowingDeepUninstallConfirmation = false
+                                    }))
+                            }
+
+                            HStack(alignment: .top)
+                            {
+                                Text("􀇾")
+                                Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning")
+                            }
+                            .font(.caption)
+                            .foregroundColor(Color(nsColor: NSColor.systemGray))
                         }
-                        .font(.caption)
-                        .foregroundColor(Color(nsColor: NSColor.systemGray))
                     }
                 } label: {
                     Text("settings.dangerous")
