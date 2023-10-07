@@ -3410,6 +3410,16 @@
         }
       }
     },
+    "add-package.install.show-details" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show details"
+          }
+        }
+      }
+    },
     "add-package.network-error" : {
       "localizations" : {
         "cs" : {
@@ -12808,6 +12818,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "卸載套件後清除遺孤套件"
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.uninstallation.show-real-time-terminal-outputs" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show real-time outputs of operations"
           }
         }
       }

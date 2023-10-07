@@ -26,47 +26,52 @@ struct InstallingPackageView: View
                 {
                     ProgressView(value: installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress, total: 10)
                     {
-                        switch packageBeingInstalled.installationStage
+                        VStack(alignment: .leading)
                         {
-                            case .ready:
-                                Text("add-package.install.ready")
+                            switch packageBeingInstalled.installationStage
+                            {
+                                case .ready:
+                                    Text("add-package.install.ready")
 
-                                // FORMULAE
-                            case .loadingDependencies:
-                                Text("add-package.install.loading-dependencies")
+                                    // FORMULAE
+                                case .loadingDependencies:
+                                    Text("add-package.install.loading-dependencies")
 
-                            case .fetchingDependencies:
-                                Text("add-package.install.fetching-dependencies")
+                                case .fetchingDependencies:
+                                    Text("add-package.install.fetching-dependencies")
 
-                            case .installingDependencies:
-                                Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-of-\(installationProgressTracker.numberOfPackageDependencies)")
+                                case .installingDependencies:
+                                    Text("add-package.install.installing-dependencies-\(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled)-of-\(installationProgressTracker.numberOfPackageDependencies)")
 
-                            case .installingPackage:
-                                Text("add-package.install.installing-package")
+                                case .installingPackage:
+                                    Text("add-package.install.installing-package")
 
-                            case .finished:
-                                Text("add-package.install.finished")
+                                case .finished:
+                                    Text("add-package.install.finished")
 
-                                // CASKS
-                            case .downloadingCask:
-                                Text("add-package.install.downloading-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                    // CASKS
+                                case .downloadingCask:
+                                    Text("add-package.install.downloading-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
-                            case .installingCask:
-                                Text("add-package.install.installing-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                case .installingCask:
+                                    Text("add-package.install.installing-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
-                            case .linkingCaskBinary:
-                                Text("add-package.install.linking-cask-binary")
+                                case .linkingCaskBinary:
+                                    Text("add-package.install.linking-cask-binary")
 
-                            case .movingCask:
-                                Text("add-package.install.moving-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                case .movingCask:
+                                    Text("add-package.install.moving-cask-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
-                            case .requiresSudoPassword:
-                                Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                                    .onAppear
-                                {
-                                    packageInstallationProcessStep = .requiresSudoPassword
-                                }
+                                case .requiresSudoPassword:
+                                    Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                        .onAppear
+                                    {
+                                        packageInstallationProcessStep = .requiresSudoPassword
+                                    }
+                            }
+                            LiveTerminalOutputView(lineArray: $installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput)
                         }
+                        .fixedSize()
                     }
                 }
                 else

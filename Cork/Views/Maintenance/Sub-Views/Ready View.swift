@@ -27,6 +27,8 @@ struct MaintenanceReadyView: View
 
     @State var forcedOptions: Bool
 
+    var enablePadding: Bool = true
+
     var body: some View
     {
         SheetWithTitle(title: "maintenance.title")
@@ -88,7 +90,7 @@ struct MaintenanceReadyView: View
                         .keyboardShortcut(.defaultAction)
                         .disabled(isStartDisabled)
                     }
-                    .padding(.top)
+                    //.padding(.top)
                 }
             }
             .onAppear
@@ -104,7 +106,10 @@ struct MaintenanceReadyView: View
                 }
             }
         }
-        .padding()
+        .if(enablePadding, transform: { viewProxy in
+            viewProxy
+                .padding()
+        })
     }
 
     private var isStartDisabled: Bool

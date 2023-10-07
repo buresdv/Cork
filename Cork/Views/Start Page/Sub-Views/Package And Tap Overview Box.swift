@@ -19,27 +19,27 @@ struct PackageAndTapOverviewBox: View
             GroupBoxHeadlineGroup(
                 image: "terminal",
                 title: LocalizedStringKey("start-page.installed-formulae.count-\(brewData.installedFormulae.count)"),
-                mainText: "start-page.installed-formulae.description"
+                mainText: "start-page.installed-formulae.description",
+                animateNumberChanges: true
             )
-            .animation(.none, value: brewData.installedFormulae.count)
 
             Divider()
 
             GroupBoxHeadlineGroup(
                 image: "macwindow",
                 title: LocalizedStringKey("start-page.installed-casks.count-\(brewData.installedCasks.count)"),
-                mainText: "start-page.installed-casks.description"
+                mainText: "start-page.installed-casks.description",
+                animateNumberChanges: true
             )
-            .animation(.none, value: brewData.installedCasks.count)
 
             Divider()
 
             GroupBoxHeadlineGroup(
                 image: "spigot",
                 title: LocalizedStringKey("start-page.added-taps.count-\(availableTaps.addedTaps.count)"),
-                mainText: "start-page.added-taps.description"
+                mainText: "start-page.added-taps.description",
+                animateNumberChanges: true
             )
-            .animation(.none, value: availableTaps.addedTaps.count)
         }
     }
 }
