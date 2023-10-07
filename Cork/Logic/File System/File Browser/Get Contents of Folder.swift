@@ -72,9 +72,7 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Set<Bre
                     else
                     {
                         print("\(item) does not have any versions installed")
-                        appState.corruptedPackage = item
-                        appState.fatalAlertType = .installedPackageHasNoVersions
-                        appState.isShowingFatalError = true
+                        await appState.setCorruptedPackage(item)
                     }
                 }
                 else

@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftyJSON
 
-struct PackageDetailView: View
+struct PackageDetailView: View, Sendable
 {
     let package: BrewPackage
 

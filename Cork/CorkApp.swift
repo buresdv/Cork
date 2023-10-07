@@ -126,7 +126,10 @@ struct CorkApp: App
                         {
                             if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
                             {
-                                NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
+                                if outdatedPackageCount > 0
+                                {
+                                    NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
+                                }
                             }
 
                             if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
@@ -341,7 +344,10 @@ struct CorkApp: App
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
         {
-            NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.outdatedPackages.count)
+            if outdatedPackageTracker.outdatedPackages.count > 0
+            {
+                NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.outdatedPackages.count)
+            }
         }
         else if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .none
         {

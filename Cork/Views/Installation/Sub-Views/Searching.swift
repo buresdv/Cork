@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InstallationSearchingView: View
+struct InstallationSearchingView: View, Sendable
 {
     @Binding var packageRequested: String
 

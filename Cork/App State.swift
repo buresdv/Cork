@@ -9,11 +9,12 @@ import Foundation
 import AppKit
 import UserNotifications
 
+@MainActor
 class AppState: ObservableObject {
     @Published var navigationSelection: UUID?
     
     @Published var notificationEnabledInSystemSettings: Bool?
-    @Published var notificationStatus: UNNotificationSettings?
+    @Published var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
     
     /// Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
@@ -47,14 +48,13 @@ class AppState: ObservableObject {
     @Published var corruptedPackage: String = ""
     
     // MARK: - Notification setup
-    @discardableResult
-    func setupNotifications() async -> UNNotificationSettings
+    func setupNotifications() async
     {
         let notificationCenter = AppConstants.notificationCenter
         
-        let notificationSettingsStatus = await notificationCenter.notificationSettings()
-        
-        switch notificationSettingsStatus.authorizationStatus
+        let authStatus = await notificationCenter.authorizationStatus()
+
+        switch authStatus
         {
             case .notDetermined:
                 print("Notification authorization status not determined. Will request notifications again")
@@ -75,15 +75,10 @@ class AppState: ObservableObject {
                 print("Something got really fucked up")
         }
         
-        return await MainActor.run {
-            self.notificationStatus = notificationSettingsStatus
-            
-            return notificationSettingsStatus
-        }
-        
+        notificationAuthStatus = authStatus
     }
-    @discardableResult
-    func requestNotificationAuthorization() async -> Bool
+    
+    func requestNotificationAuthorization() async
     {
         let notificationCenter = AppConstants.notificationCenter
         
@@ -91,24 +86,14 @@ class AppState: ObservableObject {
         {
             try await notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
             
-            return await MainActor.run {
-                
-                self.notificationEnabledInSystemSettings = true
-                
-                return true
-            }
+            notificationEnabledInSystemSettings = true
         }
         catch let notificationPermissionsObtainingError as NSError
         {
             print("Error: \(notificationPermissionsObtainingError.localizedDescription)")
             print("Error code: \(notificationPermissionsObtainingError.code)")
             
-            return await MainActor.run {
-                self.notificationEnabledInSystemSettings = false
-                
-                return false
-            }
-            
+            notificationEnabledInSystemSettings = false
         }
     }
     
@@ -118,5 +103,22 @@ class AppState: ObservableObject {
         self.isShowingUpdateSheet = true
         
         sendNotification(title: String(localized: "notification.upgrade-process-started"))
+    }
+    
+    func setCorruptedPackage(_ name: String) {
+        corruptedPackage = name
+        fatalAlertType = .installedPackageHasNoVersions
+        isShowingFatalError = true 
+    }
+    
+    func setCouldNotParseTopPackages() {
+        fatalAlertType = .couldNotParseTopPackages
+        isShowingFatalError = true
+    }
+}
+
+private extension UNUserNotificationCenter {
+    func authorizationStatus() async -> UNAuthorizationStatus {
+        await notificationSettings().authorizationStatus
     }
 }

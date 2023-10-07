@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 {
     @AppStorage("showInMenuBar") var showInMenuBar = false
     
-    var appState = AppState()
+    @MainActor let appState = AppState()
     
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
