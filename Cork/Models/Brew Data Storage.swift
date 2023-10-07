@@ -33,7 +33,7 @@ class BrewDataStorage: ObservableObject
     }
     func removeCaskFromTracker(withName name: String)
     {
-        removePackageFromTracker(withName: name, tracker: .formula)
+        removePackageFromTracker(withName: name, tracker: .cask)
     }
 
     private func removePackageFromTracker(withName name: String, tracker: PackageType)

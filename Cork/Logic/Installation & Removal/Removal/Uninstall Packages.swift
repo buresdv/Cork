@@ -30,7 +30,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         }
         else
         {
-            brewData.installedFormulae = Set(brewData.installedCasks.map
+            brewData.installedCasks = Set(brewData.installedCasks.map
             { cask in
                 var copyCask = cask
                 if copyCask.name == package.name
@@ -79,7 +79,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         }
         else
         {
-            brewData.installedFormulae = Set(brewData.installedCasks.map
+            brewData.installedCasks = Set(brewData.installedCasks.map
             { cask in
                 var copyCask = cask
                 if copyCask.name == package.name, copyCask.isBeingModified == true
