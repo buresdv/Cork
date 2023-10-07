@@ -86,7 +86,7 @@ struct OutdatedPackageListBox: View
                                                     var copyOutdatedPackage = modifiedElement
                                                     if copyOutdatedPackage.id == modifiedElement.id
                                                     {
-                                                        copyOutdatedPackage.isMarkedForUpdating = true
+                                                        copyOutdatedPackage.isMarkedForUpdating = false
                                                     }
                                                     return copyOutdatedPackage
                                                 }))
@@ -102,7 +102,7 @@ struct OutdatedPackageListBox: View
                                                     var copyOutdatedPackage = modifiedElement
                                                     if copyOutdatedPackage.id == modifiedElement.id
                                                     {
-                                                        copyOutdatedPackage.isMarkedForUpdating = false
+                                                        copyOutdatedPackage.isMarkedForUpdating = true
                                                     }
                                                     return copyOutdatedPackage
                                                 }))
