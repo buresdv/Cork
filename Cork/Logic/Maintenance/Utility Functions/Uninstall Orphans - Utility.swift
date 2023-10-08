@@ -22,14 +22,22 @@ func uninstallOrphansUtility() async throws -> Int
 
         print("Orphan removal output: \(orphanUninstallationOutput)")
 
-        let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
-
-        guard let numberOfRemovedOrphans = try Int(regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex)) else
+        if orphanUninstallationOutput.standardError.isEmpty && orphanUninstallationOutput.standardOutput.isEmpty
         {
+            print("No orphans found")
             return 0
         }
+        else
+        {
+            let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
 
-        return numberOfRemovedOrphans
+            guard let numberOfRemovedOrphans = try Int(regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex)) else
+            {
+                throw OrphanRemovalError.couldNotGetNumberOfUninstalledOrphans
+            }
+
+            return numberOfRemovedOrphans
+        }
     }
     catch let orphanUninstallatioError as NSError
     {

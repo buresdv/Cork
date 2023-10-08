@@ -337,7 +337,7 @@ struct CorkApp: App
                                 sensitivity: .active
                             )
                         }
-                        catch let orphanUninstallationError
+                        catch let orphanUninstallationError as OrphanRemovalError
                         {
                             print("Failed while uninstalling orphans: \(orphanUninstallationError)")
 
@@ -347,6 +347,8 @@ struct CorkApp: App
                                 sensitivity: .active
                             )
                         }
+
+                        await synchronizeInstalledPackages(brewData: brewData)
                     }
                 }
             }
@@ -427,6 +429,8 @@ struct CorkApp: App
                     )
 
                     isDeletingCachedDownloads = false
+
+                    appDelegate.appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
                 }
                 .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
             }
