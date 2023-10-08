@@ -28,8 +28,7 @@ struct MaintenanceView: View
 
     @State var numberOfOrphansRemoved: Int = 0
 
-    @State var cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: Bool = false
-    @State var packagesHoldingBackCachePurgeTracker: [String] = .init()
+    @State var packagesHoldingBackCachePurge: [String] = .init()
 
     @State var brewHealthCheckFoundNoProblems: Bool = false
 
@@ -64,8 +63,7 @@ struct MaintenanceView: View
                     shouldDeleteDownloads: shouldDeleteDownloads,
                     shouldPerformHealthCheck: shouldPerformHealthCheck,
                     numberOfOrphansRemoved: $numberOfOrphansRemoved,
-                    packagesHoldingBackCachePurgeTracker: $packagesHoldingBackCachePurgeTracker,
-                    cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled: $cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled,
+                    packagesHoldingBackCachePurge: $packagesHoldingBackCachePurge, 
                     reclaimedSpaceAfterCachePurge: $reclaimedSpaceAfterCachePurge,
                     brewHealthCheckFoundNoProblems: $brewHealthCheckFoundNoProblems,
                     maintenanceSteps: $maintenanceSteps
@@ -77,6 +75,7 @@ struct MaintenanceView: View
                     shouldPurgeCache: shouldPurgeCache,
                     shouldDeleteDownloads: shouldDeleteDownloads,
                     shouldPerformHealthCheck: shouldPerformHealthCheck,
+                    packagesHoldingBackCachePurge: packagesHoldingBackCachePurge, 
                     numberOfOrphansRemoved: numberOfOrphansRemoved,
                     reclaimedSpaceAfterCachePurge: reclaimedSpaceAfterCachePurge,
                     brewHealthCheckFoundNoProblems: brewHealthCheckFoundNoProblems,

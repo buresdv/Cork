@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UserNotifications
 
 @main
 struct CorkApp: App
@@ -28,6 +29,10 @@ struct CorkApp: App
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
 
     @State private var sendStandardUpdatesAvailableNotification: Bool = true
+
+    @State private var isUninstallingOrphanedPackages: Bool = false
+    @State private var isPurgingHomebrewCache: Bool = false
+    @State private var isDeletingCachedDownloads: Bool = false
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
@@ -293,6 +298,10 @@ struct CorkApp: App
         let outdatedCountString = String(localized: "notification.outdated-packages-found.body-\(outdatedPackageTracker.outdatedPackages.count)")
         MenuBarExtra(outdatedCountString, systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
+            Text("menu-bar.state-overview-\(brewData.installedFormulae.count)-\(brewData.installedCasks.count)-\(availableTaps.addedTaps.count)")
+
+            Divider()
+
             Text(outdatedCountString)
             if outdatedPackageTracker.outdatedPackages.count > 0
             {
@@ -307,12 +316,140 @@ struct CorkApp: App
                 switchCorkToForeground()
                 appDelegate.appState.isShowingInstallationSheet.toggle()
             }
+
             Divider()
+
+            if !isUninstallingOrphanedPackages
+            {
+                Button("maintenance.steps.packages.uninstall-orphans")
+                {
+                    Task(priority: .userInitiated)
+                    {
+                        print("Will delete orphans")
+
+                        do
+                        {
+                            let orphanUninstallResult = try await uninstallOrphansUtility()
+
+                            sendNotification(
+                                title: String(localized: "maintenance.results.orphans-removed"),
+                                body: String(localized: "maintenance.results.orphans-count-\(orphanUninstallResult)"),
+                                sensitivity: .active
+                            )
+                        }
+                        catch let orphanUninstallationError
+                        {
+                            print("Failed while uninstalling orphans: \(orphanUninstallationError)")
+
+                            sendNotification(
+                                title: String(localized: "maintenance.results.orphans.failure"),
+                                body: String(localized: "maintenance.results.orphans.failure.details-\(orphanUninstallationError.localizedDescription)"),
+                                sensitivity: .active
+                            )
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Text("maintenance.step.removing-orphans")
+            }
+
+            if !isPurgingHomebrewCache
+            {
+                Button("maintenance.steps.downloads.purge-cache")
+                {
+                    Task(priority: .userInitiated)
+                    {
+                        print("Will purge cache")
+
+                        isPurgingHomebrewCache = true
+
+                        defer
+                        {
+                            isPurgingHomebrewCache = false
+                        }
+
+                        do
+                        {
+                            let packagesHoldingBackCachePurge = try await purgeHomebrewCacheUtility()
+
+                            if packagesHoldingBackCachePurge.isEmpty
+                            {
+                                sendNotification(
+                                    title: String(localized: "maintenance.results.package-cache"),
+                                    sensitivity: .active
+                                )
+                            }
+                            else
+                            {
+                                sendNotification(
+                                    title: String(localized: "maintenance.results.package-cache"),
+                                    body: String(localized: "maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))"),
+                                    sensitivity: .active
+                                )
+                            }
+                        }
+                        catch let cachePurgingError
+                        {
+                            print("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription)")
+
+                            sendNotification(
+                                title: String(localized: "maintenance.results.package-cache.failure"),
+                                body: String(localized: "maintenance.results.package-cache.failure.details-\(cachePurgingError.localizedDescription)"),
+                                sensitivity: .active
+                            )
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Text("maintenance.step.purging-cache")
+            }
+
+            if !isDeletingCachedDownloads
+            {
+                Button(appDelegate.appState.cachedDownloadsFolderSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
+                {
+                    print("Will delete cached downloads")
+
+                    isDeletingCachedDownloads = true
+
+                    let reclaimedSpaceAfterCachePurge = Int(appDelegate.appState.cachedDownloadsFolderSize)
+
+                    deleteCachedDownloads()
+
+                    sendNotification(
+                        title: String(localized: "maintenance.results.cached-downloads"),
+                        body: String(localized: "maintenance.results.cached-downloads.summary-\(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))"),
+                        sensitivity: .active
+                    )
+
+                    isDeletingCachedDownloads = false
+                }
+                .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
+            }
+            else
+            {
+                Text("maintenance.step.deleting-cached-downloads")
+            }
+
+
+            Divider()
+
             Button("menubar.open.cork")
             {
                 openWindow(id: "main")
 
                 switchCorkToForeground()
+            }
+
+            Divider()
+
+            Button("action.quit")
+            {
+                NSApp.terminate(self)
             }
         }
     }

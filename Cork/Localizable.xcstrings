@@ -9,6 +9,12 @@
             "value" : "?"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6169,6 +6175,12 @@
             "value" : "GitHub"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6198,6 +6210,12 @@
     "homebrew/core" : {
       "localizations" : {
         "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
@@ -6234,25 +6252,31 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Instalace %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installing %@"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Installation de %@"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Установка %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "安装 %@"
           }
         }
@@ -6262,25 +6286,31 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Načítání informací…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading info…"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Chargement des informations..."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Загрузка подробностей..."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "加载信息..."
           }
         }
@@ -6290,25 +6320,31 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Načítání nejoblíbenějších balíčků…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading top packages… "
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Chargement des meilleurs packages…"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Загрузка популярных пакетов..."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "加载热门软件包..."
           }
         }
@@ -6320,6 +6356,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hlavní okno"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Main Window"
           }
         },
         "fr" : {
@@ -6715,6 +6757,36 @@
         }
       }
     },
+    "maintenance.results.orphans-removed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orphaned packages uninstalled"
+          }
+        }
+      }
+    },
+    "maintenance.results.orphans.failure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't uninstall orphaned packages"
+          }
+        }
+      }
+    },
+    "maintenance.results.orphans.failure.details-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error %@ occured"
+          }
+        }
+      }
+    },
     "maintenance.results.package-cache" : {
       "localizations" : {
         "cs" : {
@@ -6757,6 +6829,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "清除了套件快取"
+          }
+        }
+      }
+    },
+    "maintenance.results.package-cache.failure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't purge package cache"
+          }
+        }
+      }
+    },
+    "maintenance.results.package-cache.failure.details-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error %@ occured"
           }
         }
       }
@@ -7609,6 +7701,17 @@
         }
       }
     },
+    "menu-bar.state-overview-%lld-%lld-%lld" : {
+      "comment" : "Abbreviatons of `Formula`, `Cask`, `Tap`, in that order",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
+        }
+      }
+    },
     "menubar.open.cork" : {
       "comment" : "MARK: - Menu Bar",
       "localizations" : {
@@ -8187,6 +8290,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "刪除下載快取"
+          }
+        }
+      }
+    },
+    "navigation.menu.maintenance.no-cached-downloads" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No cached downloads to delete"
           }
         }
       }
@@ -15459,6 +15572,12 @@
             "value" : "Pípa"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17060,6 +17179,12 @@
             "value" : "v. %@"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17089,6 +17214,12 @@
     "􀇾" : {
       "localizations" : {
         "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"

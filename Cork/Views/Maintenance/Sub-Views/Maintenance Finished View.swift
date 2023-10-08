@@ -17,6 +17,8 @@ struct MaintenanceFinishedView: View
     let shouldDeleteDownloads: Bool
     let shouldPerformHealthCheck: Bool
 
+    let packagesHoldingBackCachePurge: [String]
+
     let numberOfOrphansRemoved: Int
     let reclaimedSpaceAfterCachePurge: Int
 
@@ -46,6 +48,10 @@ struct MaintenanceFinishedView: View
                         VStack(alignment: .leading)
                         {
                             Text("maintenance.results.package-cache")
+
+                            Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))")
+                                .font(.caption)
+                                .foregroundColor(Color(nsColor: NSColor.systemGray))
 
                             /*
                              if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
