@@ -294,23 +294,36 @@ struct CorkApp: App
             SettingsView()
                 .environmentObject(appDelegate.appState)
         }
-
-        let outdatedCountString = String(localized: "notification.outdated-packages-found.body-\(outdatedPackageTracker.outdatedPackages.count)")
-        MenuBarExtra(outdatedCountString, systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             Text("menu-bar.state-overview-\(brewData.installedFormulae.count)-\(brewData.installedCasks.count)-\(availableTaps.addedTaps.count)")
 
             Divider()
 
-            Text(outdatedCountString)
             if outdatedPackageTracker.outdatedPackages.count > 0
             {
+                Menu {
+                    ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn!}))
+                    { outdatedPackage in
+                        Text(outdatedPackage.package.name)
+                    }
+                } label: {
+                    Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.outdatedPackages.count)")
+                }
+
                 Button("navigation.upgrade-packages")
                 {
                     switchCorkToForeground()
                     appDelegate.appState.isShowingUpdateSheet = true
                 }
             }
+            else
+            {
+                Text("update-packages.no-updates.description")
+            }
+
+            Divider()
+
             Button("navigation.install-package")
             {
                 switchCorkToForeground()
