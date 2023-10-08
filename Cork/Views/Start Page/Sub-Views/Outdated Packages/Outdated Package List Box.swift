@@ -14,6 +14,11 @@ struct OutdatedPackageListBox: View
 
     @Binding var isDropdownExpanded: Bool
 
+    private var packagesMarkedForUpdating: [OutdatedPackage]
+    {
+        return outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating })
+    }
+
     var body: some View
     {
         Grid
@@ -33,7 +38,7 @@ struct OutdatedPackageListBox: View
 
                                 Spacer()
 
-                                if outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating }).count == outdatedPackageTracker.outdatedPackages.count
+                                if packagesMarkedForUpdating.count == outdatedPackageTracker.outdatedPackages.count
                                 {
                                     Button
                                     {
@@ -48,9 +53,9 @@ struct OutdatedPackageListBox: View
                                     {
                                         appState.isShowingIncrementalUpdateSheet = true
                                     } label: {
-                                        Text("start-page.update-incremental.package-count-\(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count)")
+                                        Text("start-page.update-incremental.package-count-\(packagesMarkedForUpdating.count)")
                                     }
-                                    .disabled(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count == 0)
+                                    .disabled(packagesMarkedForUpdating.count == 0)
                                 }
                             }
 
@@ -62,7 +67,7 @@ struct OutdatedPackageListBox: View
                                     {
                                         ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                                         { outdatedPackage in
-                                            Toggle(outdatedPackage.package.name, isOn: Binding<Bool>(
+                                            Toggle(isOn: Binding<Bool>(
                                                 get: {
                                                     outdatedPackage.isMarkedForUpdating
                                                 }, set: { toggleState in
@@ -75,7 +80,9 @@ struct OutdatedPackageListBox: View
                                                         return copyOutdatedPackage
                                                     }))
                                                 }
-                                            ))
+                                            )) {
+                                                SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+                                            }
                                         }
                                     } header: {
                                         HStack(alignment: .center, spacing: 10)
@@ -94,7 +101,7 @@ struct OutdatedPackageListBox: View
                                                 Text("start-page.updated.action.deselect-all")
                                             }
                                             .buttonStyle(.plain)
-                                            .disabled(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count == 0)
+                                            .disabled(packagesMarkedForUpdating.count == 0)
 
                                             Button
                                             {
@@ -110,7 +117,7 @@ struct OutdatedPackageListBox: View
                                                 Text("start-page.updated.action.select-all")
                                             }
                                             .buttonStyle(.plain)
-                                            .disabled(outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }.count == outdatedPackageTracker.outdatedPackages.count)
+                                            .disabled(packagesMarkedForUpdating.count == outdatedPackageTracker.outdatedPackages.count)
                                         }
                                     }
                                 }

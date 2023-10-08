@@ -305,7 +305,7 @@ struct CorkApp: App
                 Menu {
                     ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn!}))
                     { outdatedPackage in
-                        Text(outdatedPackage.package.name)
+                        SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
                     }
                 } label: {
                     Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.outdatedPackages.count)")
