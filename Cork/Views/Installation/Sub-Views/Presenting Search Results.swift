@@ -72,6 +72,7 @@ struct PresentingSearchResultsView: View
                         Text("add-package.search.action")
                     }
                     .keyboardShortcut(.defaultAction)
+                    .disabled(packageRequested.isEmpty)
                 }
                 else
                 {
