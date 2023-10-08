@@ -17,6 +17,8 @@ struct InstallationAndUninstallationPane: View
     @AppStorage("removeOrphansAfterEveryUninstallation") var removeOrphansAfterEveryUninstallation: Bool = false
 
     @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
+    @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
+
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
     @State private var isShowingDeepUninstallConfirmation: Bool = false
@@ -69,9 +71,19 @@ struct InstallationAndUninstallationPane: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Toggle(isOn: $showRealTimeTerminalOutputOfOperations)
+                        VStack(alignment: .leading)
                         {
-                            Text("settings.install-uninstall.uninstallation.show-real-time-terminal-outputs")
+                            Toggle(isOn: $showRealTimeTerminalOutputOfOperations)
+                            {
+                                Text("settings.install-uninstall.uninstallation.show-real-time-terminal-outputs")
+                            }
+
+                            Toggle(isOn: $openRealTimeTerminalOutputByDefault) 
+                            {
+                                Text("settings.install-uninstall.uninstallation.show-real-time-terminal-outputs.open-by-default")
+                            }
+                            .disabled(!showRealTimeTerminalOutputOfOperations)
+                            .padding(.leading)
                         }
 
                         VStack(alignment: .leading)

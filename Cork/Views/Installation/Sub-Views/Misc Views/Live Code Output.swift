@@ -10,14 +10,17 @@ import SwiftUI
 struct LiveTerminalOutputView: View
 {
     @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
+    @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
 
     @Binding var lineArray: [RealTimeTerminalLine]
+
+    @State private var isRealTimeTerminalOutputExpanded: Bool = false
 
     var body: some View
     {
         if showRealTimeTerminalOutputOfOperations
         {
-            DisclosureGroup("add-package.install.show-details")
+            DisclosureGroup("add-package.install.show-details", isExpanded: $isRealTimeTerminalOutputExpanded)
             {
                 ScrollViewReader
                 { proxy in
@@ -41,6 +44,10 @@ struct LiveTerminalOutputView: View
                     .border(Color(nsColor: NSColor.separatorColor))
                 }
                 // }
+            }
+            .onAppear
+            { /// This has to be here so that the real-time output dropdown can be open according to user preference, while, at the same time, enabling the user to open/close the dropdown without also changing their preference in the process
+                isRealTimeTerminalOutputExpanded = openRealTimeTerminalOutputByDefault
             }
             .onDisappear
             {
