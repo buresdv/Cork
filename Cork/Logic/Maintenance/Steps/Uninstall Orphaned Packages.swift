@@ -18,7 +18,15 @@ func uninstallOrphanedPackages() async throws -> TerminalOutput
     
     if !commandResult.standardOutput.contains("Autoremoving")
     {
-        throw OrphanUninstallationError.unexpectedCommandOutput
+        if commandResult.standardError.isEmpty
+        {
+            return commandResult
+        }
+        else
+        {
+            print("Unexpected output: \(commandResult)")
+            throw OrphanUninstallationError.unexpectedCommandOutput
+        }
     }
     else
     {
