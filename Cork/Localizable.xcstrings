@@ -1192,6 +1192,12 @@
             "state" : "translated",
             "value" : "LaunchAtLogin"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
         }
       }
     },
@@ -1207,6 +1213,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A package that lets Cork start when you log in"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет, позволяющий Cork запускаться, когда вы входите в профиль"
           }
         }
       }
@@ -2089,6 +2101,12 @@
             "state" : "translated",
             "value" : "Copy"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать"
+          }
         }
       }
     },
@@ -2104,6 +2122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copy to Clipboard"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать в буфер обмена"
           }
         }
       }
@@ -2259,6 +2283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open Terminal"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть Терминал"
           }
         }
       }
@@ -3439,6 +3469,12 @@
             "state" : "translated",
             "value" : "Elevated permissions are required to install %@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для установки %@ нужны привилегии администратора"
+          }
         }
       }
     },
@@ -3455,6 +3491,12 @@
             "state" : "translated",
             "value" : "You will have to install this package through the Terminal.\nUse the command below."
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот пакет необходимо установить через Терминал.\nИспользуйте команду снизу."
+          }
         }
       }
     },
@@ -3470,6 +3512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show details"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать подробности"
           }
         }
       }
@@ -4905,6 +4953,12 @@
             "state" : "translated",
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для установки %@, затем вернитесь в Cork и закройте диалог"
+          }
         }
       }
     },
@@ -5013,6 +5067,12 @@
             "state" : "translated",
             "value" : "Cork could not find this package in the package database"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork не удалось найти этот пакет в базе"
+          }
         }
       }
     },
@@ -5028,6 +5088,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find package in database"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось найти пакет в базе"
           }
         }
       }
@@ -6336,7 +6402,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Установка %@"
           }
         },
@@ -6370,7 +6436,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Загрузка подробностей..."
           }
         },
@@ -6404,7 +6470,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Загрузка популярных пакетов..."
           }
         },
@@ -6836,6 +6902,12 @@
             "state" : "translated",
             "value" : "Orphaned packages uninstalled"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ненужные зависимости удалены"
+          }
         }
       }
     },
@@ -6852,6 +6924,12 @@
             "state" : "translated",
             "value" : "Couldn't uninstall orphaned packages"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось удалить ненужные зависимости"
+          }
         }
       }
     },
@@ -6867,6 +6945,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error %@ occured"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка %@"
           }
         }
       }
@@ -6930,6 +7014,12 @@
             "state" : "translated",
             "value" : "Couldn't purge package cache"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось очистить кеш пакетов"
+          }
         }
       }
     },
@@ -6945,6 +7035,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error %@ occured"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка %@"
           }
         }
       }
@@ -7503,7 +7599,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Очистить кеш Homebrew"
+            "value" : "Удалить кеш Homebrew"
           }
         },
         "zh-Hans" : {
@@ -7811,6 +7907,12 @@
             "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Конс.прил.: %1$lld | Прил.macOS: %2$lld | Источ.: %3$lld"
+          }
         }
       }
     },
@@ -7844,7 +7946,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Открыть Cork"
+            "value" : "Показать окно Cork"
           }
         },
         "zh-Hans" : {
@@ -8408,6 +8510,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No cached downloads to delete"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет кешированных загрузок, которых можно удалить"
           }
         }
       }
@@ -11716,6 +11824,12 @@
             "state" : "translated",
             "value" : "Automatic startup:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автозапуск:"
+          }
         }
       }
     },
@@ -11732,6 +11846,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open at login"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запускать Cork при входе в профиль"
           }
         }
       }
@@ -13068,6 +13188,12 @@
             "state" : "translated",
             "value" : "Show real-time outputs of operations"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать вывод операций в реальном времени"
+          }
         }
       }
     },
@@ -13083,6 +13209,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show real-time outputs by default"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать вывод в реальном времени по умолчанию"
           }
         }
       }
