@@ -1181,6 +1181,12 @@
     },
     "about.packages.3.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1191,6 +1197,12 @@
     },
     "about.packages.3.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček, díky kterému se Cork zvládne otvírat při přihlášení"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2066,6 +2078,12 @@
     },
     "action.copy" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkopírovat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2076,6 +2094,12 @@
     },
     "action.copy-manual-install-command-to-clipboard" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkopírovat do schránky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2225,6 +2249,12 @@
     },
     "action.open-terminal" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Terminál"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3398,6 +3428,12 @@
     },
     "add-package.install.requires-sudo-password-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro nainstalování %@ je potřeba oprávnění správce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3408,6 +3444,12 @@
     },
     "add-package.install.requires-sudo-password.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček musíte nainstalovat přes Terminál. Použijte tento příkaz."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3418,6 +3460,12 @@
     },
     "add-package.install.show-details" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit podrobnosti"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4846,6 +4894,12 @@
     },
     "add.package.install.requires-sudo-password.terminal-instructions-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klikněte na \"Otevřit Terminál\"\nPříkaz do něj vložte pomocí ⌘+V, a poté příkaz spusťte stisknutím ↩ (Return)\nŘiďte se podle pokynů, které uvidíte v Terminálu, a poté se vraťte do Corku a tento dialog zavřete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4948,6 +5002,12 @@
     },
     "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork tento balíček nenašel v databázi balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4958,6 +5018,12 @@
     },
     "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček nebyl nalezen v databázi"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6252,7 +6318,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Instalace %@"
           }
         },
@@ -6286,7 +6352,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Načítání informací…"
           }
         },
@@ -6320,7 +6386,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Načítání nejoblíbenějších balíčků…"
           }
         },
@@ -6759,6 +6825,12 @@
     },
     "maintenance.results.orphans-removed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Osiřelé balíčky odinstalovány"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6769,6 +6841,12 @@
     },
     "maintenance.results.orphans.failure" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Osiřelé balíčky se nepodařilo odinstalovat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6779,6 +6857,12 @@
     },
     "maintenance.results.orphans.failure.details-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chyba operace: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6835,6 +6919,12 @@
     },
     "maintenance.results.package-cache.failure" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mezipaměť balíčků se nepodařilo vymazat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6845,6 +6935,12 @@
     },
     "maintenance.results.package-cache.failure.details-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chyba operace: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7704,6 +7800,12 @@
     "menu-bar.state-overview-%lld-%lld-%lld" : {
       "comment" : "Abbreviatons of `Formula`, `Cask`, `Tap`, in that order",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V: %1$lld | S: %2$lld | P: %3$lld"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8296,6 +8398,12 @@
     },
     "navigation.menu.maintenance.no-cached-downloads" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mezipaměť stažených balíčků je prázdná"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11597,6 +11705,12 @@
     },
     "settings.general.launch-at-login" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spuštění při přihlášení:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11608,6 +11722,12 @@
     "settings.general.launch-at-login.toggle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít při přihlášení"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12937,6 +13057,12 @@
     },
     "settings.install-uninstall.uninstallation.show-real-time-terminal-outputs" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit výstupy příkazů v reálném čase"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12947,6 +13073,12 @@
     },
     "settings.install-uninstall.uninstallation.show-real-time-terminal-outputs.open-by-default" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vždy zobrazit výstupy v reálném čase"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
