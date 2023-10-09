@@ -1198,6 +1198,12 @@
             "state" : "translated",
             "value" : "LaunchAtLogin"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
         }
       }
     },
@@ -1219,6 +1225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пакет, позволяющий Cork запускаться, когда вы входите в профиль"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一个让 Cork 登录时启动的软件包"
           }
         }
       }
@@ -2107,6 +2119,12 @@
             "state" : "translated",
             "value" : "Скопировать"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拷贝"
+          }
         }
       }
     },
@@ -2128,6 +2146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Скопировать в буфер обмена"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拷贝到剪贴板"
           }
         }
       }
@@ -2289,6 +2313,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открыть Терминал"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开启终端"
           }
         }
       }
@@ -3475,6 +3505,12 @@
             "state" : "translated",
             "value" : "Для установки %@ нужны привилегии администратора"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装 %@ 需要更高权限"
+          }
         }
       }
     },
@@ -3497,6 +3533,12 @@
             "state" : "translated",
             "value" : "Этот пакет необходимо установить через Терминал.\nИспользуйте команду снизу."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你必须通过终端安装该软件包。\n请使用下方命令。"
+          }
         }
       }
     },
@@ -3518,6 +3560,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показать подробности"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示详细信息"
           }
         }
       }
@@ -4959,6 +5007,12 @@
             "state" : "translated",
             "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для установки %@, затем вернитесь в Cork и закройте диалог"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "单击下方的“开启终端”\n使用 ⌘+V 插入命令，然后按 ↩（回车）执行命令\n按照提示安装 %@，然后返回 Cork 并关闭此对话框"
+          }
         }
       }
     },
@@ -5073,6 +5127,12 @@
             "state" : "translated",
             "value" : "Cork не удалось найти этот пакет в базе"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 无法在数据库中找到该软件包"
+          }
         }
       }
     },
@@ -5094,6 +5154,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось найти пакет в базе"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法在数据库中找到软件包"
           }
         }
       }
@@ -6408,7 +6474,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "安装 %@"
           }
         }
@@ -6442,7 +6508,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "加载信息..."
           }
         }
@@ -6476,7 +6542,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "加载热门软件包..."
           }
         }
@@ -6908,6 +6974,12 @@
             "state" : "translated",
             "value" : "Ненужные зависимости удалены"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已卸载孤立包"
+          }
         }
       }
     },
@@ -6930,6 +7002,12 @@
             "state" : "translated",
             "value" : "Не удалось удалить ненужные зависимости"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法卸载孤立包"
+          }
         }
       }
     },
@@ -6951,6 +7029,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла ошибка %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生错误 %@"
           }
         }
       }
@@ -7020,6 +7104,12 @@
             "state" : "translated",
             "value" : "Не удалось очистить кеш пакетов"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法清除软件包缓存"
+          }
         }
       }
     },
@@ -7041,6 +7131,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла ошибка %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生错误 %@"
           }
         }
       }
@@ -7913,6 +8009,12 @@
             "state" : "translated",
             "value" : "Конс.прил.: %1$lld | Прил.macOS: %2$lld | Источ.: %3$lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
         }
       }
     },
@@ -8516,6 +8618,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нет кешированных загрузок, которых можно удалить"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有可删除的下载缓存"
           }
         }
       }
@@ -11830,6 +11938,12 @@
             "state" : "translated",
             "value" : "Автозапуск:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动开启："
+          }
         }
       }
     },
@@ -11852,6 +11966,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запускать Cork при входе в профиль"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登录时启动"
           }
         }
       }
@@ -13194,6 +13314,12 @@
             "state" : "translated",
             "value" : "Показывать вывод операций в реальном времени"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示终端实时输出"
+          }
         }
       }
     },
@@ -13215,6 +13341,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать вывод в реальном времени по умолчанию"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认展开终端实时输出"
           }
         }
       }
