@@ -1192,6 +1192,12 @@
             "state" : "translated",
             "value" : "LaunchAtLogin"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
         }
       }
     },
@@ -1207,6 +1213,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A package that lets Cork start when you log in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un package qui permet à Cork de démarrer lorsque vous vous connectez"
           }
         }
       }
@@ -2089,6 +2101,12 @@
             "state" : "translated",
             "value" : "Copy"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier"
+          }
         }
       }
     },
@@ -2104,6 +2122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copy to Clipboard"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier dans le presse-papiers"
           }
         }
       }
@@ -2259,6 +2283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open Terminal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le Terminal"
           }
         }
       }
@@ -3439,6 +3469,12 @@
             "state" : "translated",
             "value" : "Elevated permissions are required to install %@"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des permissions élevées sont nécessaires pour installer %@"
+          }
         }
       }
     },
@@ -3455,6 +3491,12 @@
             "state" : "translated",
             "value" : "You will have to install this package through the Terminal.\nUse the command below."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous devrez installer ce package via le Terminal.\nUtilisez la commande ci-dessous."
+          }
         }
       }
     },
@@ -3470,6 +3512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show details"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les détails"
           }
         }
       }
@@ -4905,6 +4953,12 @@
             "state" : "translated",
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur \"Ouvrir le Terminal\" ci-dessous.\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Entrée) pour exécuter la commande.\nSuivez les instructions pour installer %@, puis revenez à Cork et fermez cette boîte de dialogue"
+          }
         }
       }
     },
@@ -5013,6 +5067,12 @@
             "state" : "translated",
             "value" : "Cork could not find this package in the package database"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork n'a pas pu trouver ce package dans la base de données des packages"
+          }
         }
       }
     },
@@ -5028,6 +5088,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find package in database"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver le package dans la base de données"
           }
         }
       }
@@ -6330,7 +6396,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Installation de %@"
           }
         },
@@ -6364,7 +6430,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Chargement des informations..."
           }
         },
@@ -6398,7 +6464,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Chargement des meilleurs packages…"
           }
         },
@@ -6836,6 +6902,12 @@
             "state" : "translated",
             "value" : "Orphaned packages uninstalled"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les packages orphelins ont été désinstallés"
+          }
         }
       }
     },
@@ -6852,6 +6924,12 @@
             "state" : "translated",
             "value" : "Couldn't uninstall orphaned packages"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de désinstaller les packages orphelins"
+          }
         }
       }
     },
@@ -6867,6 +6945,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error %@ occured"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur %@ s'est produite"
           }
         }
       }
@@ -6930,6 +7014,12 @@
             "state" : "translated",
             "value" : "Couldn't purge package cache"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de purger le cache des packages"
+          }
         }
       }
     },
@@ -6945,6 +7035,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error %@ occured"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur %@ s'est produite"
           }
         }
       }
@@ -7811,6 +7907,12 @@
             "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
         }
       }
     },
@@ -8408,6 +8510,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No cached downloads to delete"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de téléchargements mis en cache à supprimer"
           }
         }
       }
@@ -11716,6 +11824,12 @@
             "state" : "translated",
             "value" : "Automatic startup:"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrage automatique :"
+          }
         }
       }
     },
@@ -11732,6 +11846,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open at login"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir au démarrage"
           }
         }
       }
@@ -13068,6 +13188,12 @@
             "state" : "translated",
             "value" : "Show real-time outputs of operations"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les sorties en temps réel des opérations"
+          }
         }
       }
     },
@@ -13083,6 +13209,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show real-time outputs by default"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les sorties en temps réel par défaut"
           }
         }
       }
