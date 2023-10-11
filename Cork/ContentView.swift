@@ -191,7 +191,7 @@ struct ContentView: View, Sendable
 
             async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
 
-            if await analyticsQueryCommand.standardOutput.contains("Analytics are enabled")
+            if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
             {
                 allowBrewAnalytics = true
                 print("Analytics are ENABLED")
