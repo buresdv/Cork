@@ -43,7 +43,7 @@ struct DependencyList: View
                 {
                     TableColumn("package-details.dependencies.results.name")
                     { dependency in
-                        Text(dependency.name)
+                        SanitizedPackageName(packageName: dependency.name, shouldShowVersion: false)
                     }
                     TableColumn("package-details.dependencies.results.version")
                     { dependency in
