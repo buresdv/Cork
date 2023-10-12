@@ -7,23 +7,46 @@
 
 import SwiftUI
 
-struct HelpButton: View
+struct HelpButton: NSViewRepresentable
 {
     var action: () -> Void
 
-    var body: some View
+    func makeNSView(context: Context) -> NSButton
     {
-        Button(action: action, label: {
-            ZStack
-            {
-                Circle()
-                    .strokeBorder(Color(NSColor.controlShadowColor), lineWidth: 0.5) // .controlColor, or any other color, doesn't have the same look, so this has to stay here
-                    .background(Circle().foregroundColor(Color(NSColor.controlColor)))
-                    .shadow(color: Color(NSColor.controlShadowColor).opacity(0.3), radius: 1) // See comment above
-                    .frame(width: 20, height: 20)
-                Text("?").font(.system(size: 15, weight: .medium))
-            }
-        })
-        .buttonStyle(PlainButtonStyle())
+        let button: NSButton =
+        {
+            let button = NSButton()
+            button.bezelStyle = .helpButton
+            button.target = context.coordinator
+            button.action = #selector(Coordinator.buttonClicked)
+            button.title = ""
+            return button
+        }()
+
+        return button
+    }
+
+    func updateNSView(_: NSButton, context _: Context)
+    {}
+
+    typealias NSViewType = NSButton
+
+    func makeCoordinator() -> Coordinator
+    {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject
+    {
+        var parent: HelpButton
+        init(_ parent: HelpButton)
+        {
+            self.parent = parent
+        }
+
+        @objc func buttonClicked(_: Any?)
+        {
+            parent.action()
+        }
     }
 }
