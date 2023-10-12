@@ -73,6 +73,7 @@ struct InstallingPackageView: View
                         }
                         .fixedSize()
                     }
+                    .animation(.none)
                 }
                 else
                 { // Show this when the installation is finished

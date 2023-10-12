@@ -20,7 +20,7 @@ struct LiveTerminalOutputView: View
     {
         if showRealTimeTerminalOutputOfOperations
         {
-            DisclosureGroup("add-package.install.show-details", isExpanded: $isRealTimeTerminalOutputExpanded)
+            DisclosureGroup(isRealTimeTerminalOutputExpanded ? "add-package.install.hide-details" : "add-package.install.show-details", isExpanded: $isRealTimeTerminalOutputExpanded)
             {
                 ScrollViewReader
                 { proxy in
