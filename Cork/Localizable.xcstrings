@@ -30,7 +30,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "？"
+            "value" : "?"
           }
         },
         "zh-Hant" : {
@@ -1193,12 +1193,12 @@
             "value" : "LaunchAtLogin"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "LaunchAtLogin"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1227,12 +1227,12 @@
             "value" : "A package that lets Cork start when you log in"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Un package qui permet à Cork de démarrer lorsque vous vous connectez"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un package qui permet à Cork de démarrer lorsque vous vous connectez"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2126,12 +2126,12 @@
             "value" : "Copy"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Copier"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2160,12 +2160,12 @@
             "value" : "Copy to Clipboard"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Copier dans le presse-papiers"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier dans le presse-papiers"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2333,12 +2333,12 @@
             "value" : "Open Terminal"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Ouvrir le Terminal"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le Terminal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3530,12 +3530,12 @@
             "value" : "Elevated permissions are required to install %@"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Des permissions élevées sont nécessaires pour installer %@"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Des permissions élevées sont nécessaires pour installer %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3564,12 +3564,12 @@
             "value" : "You will have to install this package through the Terminal.\nUse the command below."
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Vous devrez installer ce package via le Terminal.\nUtilisez la commande ci-dessous."
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous devrez installer ce package via le Terminal.\nUtilisez la commande ci-dessous."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3598,12 +3598,12 @@
             "value" : "Show details"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Afficher les détails"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les détails"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5050,12 +5050,12 @@
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Cliquez sur \"Ouvrir le Terminal\" ci-dessous.\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Entrée) pour exécuter la commande.\nSuivez les instructions pour installer %@, puis revenez à Cork et fermez cette boîte de dialogue"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliquez sur \"Ouvrir le Terminal\" ci-dessous.\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Entrée) pour exécuter la commande.\nSuivez les instructions pour installer %@, puis revenez à Cork et fermez cette boîte de dialogue"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5176,12 +5176,12 @@
             "value" : "Cork could not find this package in the package database"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Cork n'a pas pu trouver ce package dans la base de données des packages"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork n'a pas pu trouver ce package dans la base de données des packages"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5210,12 +5210,12 @@
             "value" : "Couldn't find package in database"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Impossible de trouver le package dans la base de données"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver le package dans la base de données"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7035,12 +7035,12 @@
             "value" : "Orphaned packages uninstalled"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Les packages orphelins ont été désinstallés"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les packages orphelins ont été désinstallés"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7069,12 +7069,12 @@
             "value" : "Couldn't uninstall orphaned packages"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Impossible de désinstaller les packages orphelins"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de désinstaller les packages orphelins"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7103,12 +7103,12 @@
             "value" : "Error %@ occured"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Une erreur %@ s'est produite"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur %@ s'est produite"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7183,12 +7183,12 @@
             "value" : "Couldn't purge package cache"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Impossible de purger le cache des packages"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de purger le cache des packages"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7217,12 +7217,12 @@
             "value" : "Error %@ occured"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Une erreur %@ s'est produite"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur %@ s'est produite"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8100,12 +8100,12 @@
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8716,12 +8716,12 @@
             "value" : "No cached downloads to delete"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Pas de téléchargements mis en cache à supprimer"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de téléchargements mis en cache à supprimer"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12041,12 +12041,12 @@
             "value" : "Automatic startup:"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Démarrage automatique :"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrage automatique :"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12076,12 +12076,12 @@
             "value" : "Open at login"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Ouvrir au démarrage"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir au démarrage"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13429,12 +13429,12 @@
             "value" : "Show real-time outputs of operations"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Afficher les sorties en temps réel des opérations"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les sorties en temps réel des opérations"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13463,12 +13463,12 @@
             "value" : "Show real-time outputs by default"
           }
         },
-		"fr" : {
-			"stringUnit" : {
-			  "state" : "translated",
-			  "value" : "Afficher les sorties en temps réel par défaut"
-			}
-		  },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les sorties en temps réel par défaut"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
