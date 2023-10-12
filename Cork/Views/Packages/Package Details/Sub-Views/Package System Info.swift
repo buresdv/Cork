@@ -48,8 +48,9 @@ struct PackageSystemInfo: View
                                         Text("package-details.size.help.body-1")
                                         Text("package-details.size.help.body-2")
                                     }
+                                    .multilineTextAlignment(.leading)
                                     .padding()
-                                    .frame(width: 300, alignment: .center)
+                                    .frame(width: 300)
                                 }
                             }
                         }
