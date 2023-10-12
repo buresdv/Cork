@@ -48,28 +48,28 @@ However, if you don't want to do any of the above, you can always compile Cork y
 
 ## Screenshots
 ### Main Window
-![Start Page](https://i.imgur.com/N8HQtcL.jpg)
+![Start Page](https://i.imgur.com/DNCsucp.png)
 
 ### Package Info
-![Package Info](https://i.imgur.com/jQLTlOc.jpg)
-![Package Info - Full-size Caveats](https://i.imgur.com/ysoa3Hs.jpg)
-![Package Info - Minimized Caveats](https://i.imgur.com/vNwRUng.jpg)
+![Package Info](https://i.imgur.com/U8nCdlc.png)
+![Package Info - Full-size Caveats](https://i.imgur.com/lm2AhnX.png)
+![Package Info - Minimized Caveats](https://i.imgur.com/KFonAHx.png)
 
 ### Tap Info
-![Tap Info - Casks Only](https://i.imgur.com/Jn5BpuS.jpg)
-![Tap Info - Formulae and Casks](https://i.imgur.com/9FghOAy.jpg)
+![Tap Info - Formulae Only](https://i.imgur.com/VZi6jKK.png)
+![Tap Info - Formulae and Casks](https://i.imgur.com/ZCDlel6.png)
 
 ### Install Package
-![Install Package](https://i.imgur.com/CtqSCUu.jpg)
-![Install Package - Fetching Dependencies](https://i.imgur.com/GuniTJH.jpg)
-![Install Package - Installing Dependencies](https://i.imgur.com/EMmaSLA.jpg)
+![Install Package](https://i.imgur.com/c5BNkl3.png)
+![Install Package - Fetching Dependencies](https://i.imgur.com/x8qWBMO.png)
+![Install Package - Installing Dependencies](https://i.imgur.com/dIgYKoj.png)
 
 ### Add Taps
-![Tap Taps](https://i.imgur.com/bywcxaX.jpg)
+![Tap Taps](https://i.imgur.com/RKMUgM8.png)
 
 ### Brew Maintenance
-![Brew Maintenance](https://i.imgur.com/TNYXFZQ.jpg)
-![Brew Maintenance Results](https://i.imgur.com/UDNMz0i.jpg)
+![Brew Maintenance](https://i.imgur.com/Ky9kjPo.png)
+![Brew Maintenance Results](https://i.imgur.com/sxjbRg2.png)
 
 ## Media
 Do you run a blog, a magazine, make videos, or just make content about apps for fun? Get in touch at dev@corkmac.app!
