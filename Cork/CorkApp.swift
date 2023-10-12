@@ -91,11 +91,7 @@ struct CorkApp: App
                                     newOutdatedPackages = .init()
                                 }
 
-                                if newOutdatedPackages.count == outdatedPackageTracker.outdatedPackages.count
-                                {
-                                    print("No new updates found")
-                                }
-                                else
+                                if newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
                                 {
                                     print("New updates found")
 
@@ -110,6 +106,10 @@ struct CorkApp: App
                                     outdatedPackageTracker.outdatedPackages = newOutdatedPackages
 
                                     sendStandardUpdatesAvailableNotification = true
+                                }
+                                else
+                                {
+                                    print("No new updates found")
                                 }
                             }
                             catch
