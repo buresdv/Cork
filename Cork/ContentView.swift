@@ -116,7 +116,7 @@ struct ContentView: View, Sendable
         }
         .onAppear
         {
-            print("Brew executable path: \(AppConstants.brewExecutablePath.absoluteString)")
+            print("Brew executable path: \(AppConstants.brewExecutablePath)")
 
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
 
@@ -189,7 +189,7 @@ struct ContentView: View, Sendable
         .task(priority: .background) {
             print("Started Analytics startup action at \(Date())")
 
-            async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath.absoluteString, ["analytics"])
+            async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath, ["analytics"])
 
             if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
             {

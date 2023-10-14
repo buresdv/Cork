@@ -8,7 +8,11 @@
 import Foundation
 
 @discardableResult
-func shell(_ launchPath: String, _ arguments: [String], environment: [String: String]? = nil) async -> TerminalOutput
+func shell(
+    _ launchPath: URL,
+    _ arguments: [String],
+    environment: [String: String]? = nil
+) async -> TerminalOutput
 {
     var allOutput: [String] = .init()
     var allErrors: [String] = .init()
@@ -31,7 +35,7 @@ func shell(_ launchPath: String, _ arguments: [String], environment: [String: St
 
 
 /// # Usage:
-/// for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["install", package.name])
+/// for await output in shell(AppConstants.brewExecutablePath, ["install", package.name])
 /// {
 ///    switch output
 ///    {
@@ -42,7 +46,7 @@ func shell(_ launchPath: String, _ arguments: [String], environment: [String: St
 ///    }
 ///}
 func shell(
-    _ launchPath: String,
+    _ launchPath: URL,
     _ arguments: [String],
     environment: [String: String]? = nil
 ) -> AsyncStream<StreamedTerminalOutput> {
@@ -69,7 +73,7 @@ func shell(
     }
     
     task.environment = finalEnvironment
-    task.launchPath = launchPath
+    task.launchPath = launchPath.absoluteString
     task.arguments = arguments
 
     let pipe = Pipe()

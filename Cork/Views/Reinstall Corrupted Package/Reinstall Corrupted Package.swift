@@ -30,7 +30,7 @@ struct ReinstallCorruptedPackageView: View
             .padding()
             .task(priority: .userInitiated)
             {
-                let reinstallationResult: TerminalOutput = await shell(AppConstants.brewExecutablePath.path, ["reinstall", corruptedPackageToReinstall])
+                let reinstallationResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["reinstall", corruptedPackageToReinstall])
                 print(reinstallationResult)
 
                 corruptedPackageReinstallationStage = .finished

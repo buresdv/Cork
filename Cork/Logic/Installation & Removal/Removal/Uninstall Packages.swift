@@ -51,11 +51,11 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
 
     if !shouldRemoveAllAssociatedFiles
     {
-        uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", package.name])
+        uninstallCommandOutput = await shell(AppConstants.brewExecutablePath, ["uninstall", package.name])
     }
     else
     {
-        uninstallCommandOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["uninstall", "--zap", package.name])
+        uninstallCommandOutput = await shell(AppConstants.brewExecutablePath, ["uninstall", "--zap", package.name])
     }
 
     print(uninstallCommandOutput.standardError)

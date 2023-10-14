@@ -127,11 +127,11 @@ struct PackageDetailView: View, Sendable
 
             if !package.isCask
             {
-                packageInfoRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", package.name]).standardOutput
+                packageInfoRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", package.name]).standardOutput
             }
             else
             {
-                packageInfoRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", "--cask", package.name]).standardOutput
+                packageInfoRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", "--cask", package.name]).standardOutput
             }
 
             do
@@ -155,7 +155,7 @@ struct PackageDetailView: View, Sendable
 
                 if installedAsDependency
                 {
-                    async let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath.absoluteString, ["uses", "--installed", package.name]).standardOutput
+                    async let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", package.name]).standardOutput
 
                     packageDependents = await packageDependentsRaw.components(separatedBy: "\n").dropLast()
 

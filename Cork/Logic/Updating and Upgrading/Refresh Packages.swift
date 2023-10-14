@@ -11,7 +11,7 @@ import SwiftUI
 @MainActor
 func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability
 {
-    for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+    for await output in shell(AppConstants.brewExecutablePath, ["update"])
     {
         switch output
         {

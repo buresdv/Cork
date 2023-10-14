@@ -18,7 +18,7 @@ struct SearchResults
 func getListOfFoundPackages(searchWord: String) async -> String
 {
     var parsedResponse: String?
-    parsedResponse = await shell(AppConstants.brewExecutablePath.absoluteString, ["search", searchWord]).standardOutput
+    parsedResponse = await shell(AppConstants.brewExecutablePath, ["search", searchWord]).standardOutput
 
     return parsedResponse!
 }
@@ -74,7 +74,7 @@ func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [Stri
 }
 func getListOfAllUpgradeablePackageNames() async throws -> [String]
 {
-    let outdatedPackagesCommandOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["outdated"])
+    let outdatedPackagesCommandOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["outdated"])
     let outdatedPackagesRaw: String = outdatedPackagesCommandOutput.standardOutput
     
     print("Outdated packages output: \(outdatedPackagesCommandOutput)")

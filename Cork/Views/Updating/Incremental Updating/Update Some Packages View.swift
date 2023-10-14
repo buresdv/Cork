@@ -56,7 +56,7 @@ struct UpdateSomePackagesView: View
 
                         print("Update command: \(updateCommandArguments)")
 
-                        for await output in shell(AppConstants.brewExecutablePath.absoluteString, updateCommandArguments)
+                        for await output in shell(AppConstants.brewExecutablePath, updateCommandArguments)
                         {
                             switch output
                             {

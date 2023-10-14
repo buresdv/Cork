@@ -14,7 +14,7 @@ import Foundation
 
 func purgeBrewCache() async throws -> TerminalOutput
 {
-    async let commandResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["cleanup"])
+    async let commandResult = await shell(AppConstants.brewExecutablePath, ["cleanup"])
 
     return await commandResult
 }

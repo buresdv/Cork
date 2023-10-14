@@ -88,7 +88,7 @@ struct StartPage: View
             {
                 appState.isCheckingForPackageUpdates = true
 
-                await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+                await shell(AppConstants.brewExecutablePath, ["update"])
 
                 do
                 {
