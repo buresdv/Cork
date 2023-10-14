@@ -154,7 +154,7 @@ struct AddTapView: View
                         .task(priority: .background)
                         { // Force-load the packages from the new tap
                             print("Will update packages")
-                            await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+                            await shell(AppConstants.brewExecutablePath, ["update"])
                         }
                     }
                 }

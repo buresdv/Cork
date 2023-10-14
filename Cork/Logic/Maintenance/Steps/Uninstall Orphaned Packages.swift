@@ -14,7 +14,7 @@ enum OrphanUninstallationError: Error
 
 func uninstallOrphanedPackages() async throws -> TerminalOutput
 {
-    let commandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["autoremove"])
+    let commandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["autoremove"])
     
     if !commandResult.standardOutput.contains("Autoremoving")
     {

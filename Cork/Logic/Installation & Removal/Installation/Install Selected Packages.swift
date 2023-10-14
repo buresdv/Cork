@@ -31,7 +31,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
     {
         print("Package is Formula")
 
-        for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["install", installationProgressTracker.packagesBeingInstalled[0].package.name])
+        for await output in shell(AppConstants.brewExecutablePath, ["install", installationProgressTracker.packagesBeingInstalled[0].package.name])
         {
             switch output
             {
@@ -141,7 +141,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
         print("Package is Cask")
         print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
 
-        for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["install", "--no-quarantine", installationProgressTracker.packagesBeingInstalled[0].package.name])
+        for await output in shell(AppConstants.brewExecutablePath, ["install", "--no-quarantine", installationProgressTracker.packagesBeingInstalled[0].package.name])
         {
             switch output
             {

@@ -107,7 +107,7 @@ struct SearchResultRow: View, Sendable
                 {
                     print("\(packageName) does not have its description loaded")
 
-                    async let descriptionRaw = await shell(AppConstants.brewExecutablePath.absoluteString, ["info", "--json=v2", packageName]).standardOutput
+                    async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", packageName]).standardOutput
                     do
                     {
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)

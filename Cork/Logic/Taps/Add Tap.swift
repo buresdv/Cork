@@ -9,7 +9,7 @@ import Foundation
 
 func addTap(name: String) async -> String
 {
-    let tapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap", name]).standardError
+    let tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name]).standardError
 
     print("Tapping result: \(tapResult)")
 

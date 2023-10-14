@@ -73,7 +73,7 @@ struct CorkApp: App
 
                         Task(priority: .background)
                         {
-                            var updateResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["update"])
+                            var updateResult = await shell(AppConstants.brewExecutablePath, ["update"])
 
                             print("Update result: \(updateResult)")
 

@@ -36,7 +36,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         appState.isShowingUninstallationProgressView = true
     }
 
-    let untapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["untap", name]).standardError
+    let untapResult = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
     print("Untapping result: \(untapResult)")
 
     defer
