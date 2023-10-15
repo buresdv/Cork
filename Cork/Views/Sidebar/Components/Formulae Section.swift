@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FormulaeSection: View {
     
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
@@ -29,8 +29,6 @@ struct FormulaeSection: View {
             {
                 ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
                     switch sortPackagesBy {
-                        case .none:
-                            return false
                         case .alphabetically:
                             return firstPackage.name < secondPackage.name
                         case .byInstallDate:

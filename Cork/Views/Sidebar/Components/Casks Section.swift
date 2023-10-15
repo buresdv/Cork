@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CasksSection: View {
     
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
@@ -28,8 +28,6 @@ struct CasksSection: View {
             {
                 ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
                     switch sortPackagesBy {
-                        case .none:
-                            return false
                         case .alphabetically:
                             return firstPackage.name < secondPackage.name
                         case .byInstallDate:

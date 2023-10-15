@@ -10,7 +10,7 @@ import LaunchAtLogin
 
 struct GeneralPane: View
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
 
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
@@ -34,11 +34,6 @@ struct GeneralPane: View
                         .tag(PackageSortingOptions.byInstallDate)
                     Text("settings.general.sort-packages.size")
                         .tag(PackageSortingOptions.bySize)
-
-                    Divider()
-
-                    Text("settings.general.sort-packages.none")
-                        .tag(PackageSortingOptions.none)
                 } label: {
                     Text("settings.general.sort-packages")
                 }

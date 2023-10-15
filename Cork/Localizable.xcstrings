@@ -12978,6 +12978,7 @@
       }
     },
     "settings.general.sort-packages.none" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
