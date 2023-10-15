@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-enum UpdateProcessStages: LocalizedStringKey
-{
-    case downloading = "update-packages.detail-stage.downloading"
-    case pouring = "update-packages.detail-stage.pouring"
-    case cleanup = "update-packages.detail-stage.cleanup"
-    case backingUp = "update-packages.detail-stage.backing-up"
-    case linking = "update-packages.detail-stage.linking"
-}
-
 struct UpdatePackagesView: View
 {
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
@@ -32,7 +23,7 @@ struct UpdatePackagesView: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @ObservedObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
+    @StateObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
 
     var body: some View
     {
@@ -55,24 +46,20 @@ struct UpdatePackagesView: View
 
                     case .checkingForUpdates:
                         Text("update-packages.updating.checking")
-                            .onAppear
-                            {
-                                Task(priority: .userInitiated)
+                            .task(priority: .userInitiated) {
+                                updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
+
+                                print("Update availability result: \(updateAvailability)")
+
+                                if updateAvailability == .noUpdatesAvailable
                                 {
-                                    updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
-
-                                    print("Update availability result: \(updateAvailability)")
-
-                                    if updateAvailability == .noUpdatesAvailable
-                                    {
-                                        print("Outside update function: No updates available")
-                                        packageUpdatingStage = .noUpdatesAvailable
-                                    }
-                                    else
-                                    {
-                                        print("Outside update function: Updates available")
-                                        packageUpdatingStep = .updatingPackages
-                                    }
+                                    print("Outside update function: No updates available")
+                                    packageUpdatingStage = .noUpdatesAvailable
+                                }
+                                else
+                                {
+                                    print("Outside update function: Updates available")
+                                    packageUpdatingStep = .updatingPackages
                                 }
                             }
 
@@ -86,7 +73,7 @@ struct UpdatePackagesView: View
                         }
                         .task(priority: .userInitiated)
                         {
-                            await updatePackages(updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker)
+                            await updatePackages(updateProgressTracker: updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker, detailStage: updateProcessDetailsStage)
 
                             packageUpdatingStep = .updatingOutdatedPackageTracker
                         }

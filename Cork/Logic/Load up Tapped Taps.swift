@@ -108,7 +108,7 @@ func loadUpTappedTaps() async -> [BrewTap]
 
 private func checkIfTapIsAdded(tapToCheck: String) async -> Bool
 {
-    async let checkingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap", tapToCheck])
+    async let checkingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["tap", tapToCheck])
 
     if await checkingResult.standardOutput.isEmpty
     {
@@ -121,7 +121,7 @@ private func checkIfTapIsAdded(tapToCheck: String) async -> Bool
 
         Task.detached(priority: .background)
         {
-            await shell(AppConstants.brewExecutablePath.absoluteString, ["untap", tapToCheck])
+            await shell(AppConstants.brewExecutablePath, ["untap", tapToCheck])
         }
 
         return false

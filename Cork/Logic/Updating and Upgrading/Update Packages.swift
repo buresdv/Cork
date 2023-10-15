@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState _: AppState, outdatedPackageTracker _: OutdatedPackageTracker, detailStage: UpdatingProcessDetails? = nil) async
+func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: AppState, outdatedPackageTracker _: OutdatedPackageTracker, detailStage: UpdatingProcessDetails) async
 {
     for await output in shell(AppConstants.brewExecutablePath, ["upgrade"])
     {
@@ -17,34 +17,34 @@ func updatePackages(_ updateProgressTracker: UpdateProgressTracker, appState _: 
         {
         case let .standardOutput(outputLine):
             print("Upgrade function output: \(outputLine)")
-                
-            if let detailStage
+
+            if outputLine.contains("Downloading")
             {
-                if outputLine.contains("Downloading")
-                {
-                    detailStage.currentStage = .downloading
-                }
-                else if outputLine.contains("Pouring")
-                {
-                    detailStage.currentStage = .pouring
-                }
-                else if outputLine.contains("cleanup")
-                {
-                    detailStage.currentStage = .cleanup
-                }
-                else if outputLine.contains("Backing App")
-                {
-                    detailStage.currentStage = .backingUp
-                }
-                else if outputLine.contains("Moving App") || outputLine.contains("Linking")
-                {
-                    detailStage.currentStage = .linking
-                }
-                else
-                {
-                    detailStage.currentStage = .cleanup
-                }
+                detailStage.currentStage = .downloading
             }
+            else if outputLine.contains("Pouring")
+            {
+                detailStage.currentStage = .pouring
+            }
+            else if outputLine.contains("cleanup")
+            {
+                detailStage.currentStage = .cleanup
+            }
+            else if outputLine.contains("Backing App")
+            {
+                detailStage.currentStage = .backingUp
+            }
+            else if outputLine.contains("Moving App") || outputLine.contains("Linking")
+            {
+                detailStage.currentStage = .linking
+            }
+            else
+            {
+                detailStage.currentStage = .cleanup
+            }
+
+                print("Current updating stage: \(detailStage.currentStage)")
+
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
         case let .standardError(errorLine):
