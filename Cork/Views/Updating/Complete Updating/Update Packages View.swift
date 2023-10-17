@@ -15,13 +15,12 @@ struct UpdatePackagesView: View
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
 
     @State var updateAvailability: PackageUpdateAvailability = .updatesAvailable
-
-    @EnvironmentObject var appState: AppState
+    
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var brewData: BrewDataStorage
 
     @StateObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
+
+    @State private var isRealTimeTerminalOutputExpanded: Bool = false
 
     var body: some View
     {
@@ -42,20 +41,22 @@ struct UpdatePackagesView: View
                     case .checkingForUpdates:
                         CheckingForUpdatesStateView(
                             packageUpdatingStep: $packageUpdatingStep,
-                            updateAvailability: $updateAvailability
+                            packageUpdatingStage: $packageUpdatingStage, 
+                            updateAvailability: $updateAvailability, 
+                            isShowingRealTimeTerminalOutput: $isRealTimeTerminalOutputExpanded
                         )
 
                     case .updatingPackages:
                         UpdatingPackagesStateView(
                             updateProcessDetailsStage: updateProcessDetailsStage,
-                            packageUpdatingStep: $packageUpdatingStep
+                            packageUpdatingStep: $packageUpdatingStep,
+                            isShowingRealTimeTerminalOutput: $isRealTimeTerminalOutputExpanded
                         )
 
                     case .updatingOutdatedPackageTracker:
-                        UpdatingPackagesStateView(
-                            updateProcessDetailsStage: updateProcessDetailsStage,
-                            packageUpdatingStep: $packageUpdatingStep
-                        )
+                            UpdatingPackageTrackerStateView(
+                                packageUpdatingStage: $packageUpdatingStage
+                            )
 
                     case .finished:
                         UpdatingFinishedStateView(
@@ -63,8 +64,6 @@ struct UpdatePackagesView: View
                         )
                     }
                 }
-                .frame(width: 200)
-                .fixedSize()
 
             case .noUpdatesAvailable:
                 NoUpdatesAvailableStageView(
@@ -79,5 +78,7 @@ struct UpdatePackagesView: View
             }
         }
         .padding()
+        .fixedSize()
+        .animation(.none)
     }
 }

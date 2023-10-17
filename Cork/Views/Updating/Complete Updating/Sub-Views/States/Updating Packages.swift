@@ -17,14 +17,24 @@ struct UpdatingPackagesStateView: View
 
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
 
+    @Binding var isShowingRealTimeTerminalOutput: Bool
+
     var body: some View
     {
-        VStack(alignment: .leading, spacing: 3)
+        VStack(alignment: .leading)
         {
-            Text("update-packages.updating.updating")
-            Text(updateProcessDetailsStage.currentStage.rawValue)
-                .font(.subheadline)
-                .foregroundColor(.gray)
+            VStack(alignment: .leading, spacing: 3)
+            {
+                Text("update-packages.updating.updating")
+                Text(updateProcessDetailsStage.currentStage.rawValue)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+
+            LiveTerminalOutputView(
+                lineArray: $updateProgressTracker.realTimeOutput, 
+                isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput
+            )
         }
         .task(priority: .userInitiated)
         {

@@ -13,28 +13,39 @@ struct CheckingForUpdatesStateView: View
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
-    
+    @Binding var packageUpdatingStage: PackageUpdatingStage
+
     @Binding var updateAvailability: PackageUpdateAvailability
+
+    @Binding var isShowingRealTimeTerminalOutput: Bool
 
     var body: some View
     {
-        Text("update-packages.updating.checking")
-            .task(priority: .userInitiated)
+        VStack(alignment: .leading)
+        {
+            Text("update-packages.updating.checking")
+            LiveTerminalOutputView(
+                lineArray: $updateProgressTracker.realTimeOutput,
+                isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput,
+                forceKeepTerminalOutputInMemory: true
+            )
+        }
+        .task(priority: .userInitiated)
+        {
+            updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
+
+            print("Update availability result: \(updateAvailability)")
+
+            if updateAvailability == .noUpdatesAvailable
             {
-                updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
-
-                print("Update availability result: \(updateAvailability)")
-
-                if updateAvailability == .noUpdatesAvailable
-                {
-                    print("Outside update function: No updates available")
-                    packageUpdatingStage = .noUpdatesAvailable
-                }
-                else
-                {
-                    print("Outside update function: Updates available")
-                    packageUpdatingStep = .updatingPackages
-                }
+                print("Outside update function: No updates available")
+                packageUpdatingStage = .noUpdatesAvailable
             }
+            else
+            {
+                print("Outside update function: Updates available")
+                packageUpdatingStep = .updatingPackages
+            }
+        }
     }
 }

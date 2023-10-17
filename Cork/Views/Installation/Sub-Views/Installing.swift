@@ -15,6 +15,8 @@ struct InstallingPackageView: View
     
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
+    @State var isShowingRealTimeOutput: Bool = false
+
     var body: some View
     {
         VStack(alignment: .leading)
@@ -69,7 +71,10 @@ struct InstallingPackageView: View
                                         packageInstallationProcessStep = .requiresSudoPassword
                                     }
                             }
-                            LiveTerminalOutputView(lineArray: $installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput)
+                            LiveTerminalOutputView(
+                                lineArray: $installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput,
+                                isRealTimeTerminalOutputExpanded: $isShowingRealTimeOutput
+                            )
                         }
                         .fixedSize()
                     }

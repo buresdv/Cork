@@ -14,7 +14,9 @@ struct LiveTerminalOutputView: View
 
     @Binding var lineArray: [RealTimeTerminalLine]
 
-    @State private var isRealTimeTerminalOutputExpanded: Bool = false
+    @Binding var isRealTimeTerminalOutputExpanded: Bool
+
+    @State var forceKeepTerminalOutputInMemory: Bool = false
 
     var body: some View
     {
@@ -51,9 +53,16 @@ struct LiveTerminalOutputView: View
             }
             .onDisappear
             {
-                print("Purging saved real time output")
+                if !forceKeepTerminalOutputInMemory
+                {
+                    print("Purging saved real time output")
 
-                lineArray = .init()
+                    lineArray = .init()
+                }
+                else
+                {
+                    print("Forced to keep previous output in memory")
+                }
             }
         }
     }
