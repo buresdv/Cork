@@ -9,8 +9,6 @@ import SwiftUI
 
 struct UpdatePackagesView: View
 {
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
-
     @Binding var isShowingSheet: Bool
 
     @State var packageUpdatingStage: PackageUpdatingStage = .updating
@@ -37,178 +35,47 @@ struct UpdatePackagesView: View
                     switch packageUpdatingStep
                     {
                     case .ready:
-                        Text("update-packages.updating.ready")
-                            .onAppear
-                            {
-                                updateProgressTracker.updateProgress = 0
-                                packageUpdatingStep = .checkingForUpdates
-                            }
+                        ReadyToUpdateStateView(
+                            packageUpdatingStep: $packageUpdatingStep
+                        )
 
                     case .checkingForUpdates:
-                        Text("update-packages.updating.checking")
-                            .task(priority: .userInitiated) {
-                                updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
-
-                                print("Update availability result: \(updateAvailability)")
-
-                                if updateAvailability == .noUpdatesAvailable
-                                {
-                                    print("Outside update function: No updates available")
-                                    packageUpdatingStage = .noUpdatesAvailable
-                                }
-                                else
-                                {
-                                    print("Outside update function: Updates available")
-                                    packageUpdatingStep = .updatingPackages
-                                }
-                            }
+                        CheckingForUpdatesStateView(
+                            packageUpdatingStep: $packageUpdatingStep,
+                            updateAvailability: $updateAvailability
+                        )
 
                     case .updatingPackages:
-                        VStack(alignment: .leading, spacing: 3)
-                        {
-                            Text("update-packages.updating.updating")
-                            Text(updateProcessDetailsStage.currentStage.rawValue)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                        .task(priority: .userInitiated)
-                        {
-                            await updatePackages(updateProgressTracker: updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker, detailStage: updateProcessDetailsStage)
-
-                            packageUpdatingStep = .updatingOutdatedPackageTracker
-                        }
+                        UpdatingPackagesStateView(
+                            updateProcessDetailsStage: updateProcessDetailsStage,
+                            packageUpdatingStep: $packageUpdatingStep
+                        )
 
                     case .updatingOutdatedPackageTracker:
-                        Text("update-packages.updating.updating-outdated-package")
-                            .task(priority: .userInitiated)
-                            {
-                                do
-                                {
-                                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
-
-                                    updateProgressTracker.updateProgress = 10
-
-                                    if updateProgressTracker.errors.isEmpty
-                                    {
-                                        packageUpdatingStage = .finished
-                                    }
-                                    else
-                                    {
-                                        packageUpdatingStage = .erroredOut
-                                    }
-                                }
-                                catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                                {
-                                    switch outdatedPackageRetrievalError
-                                    {
-                                    case .homeNotSet:
-                                        appState.fatalAlertType = .homePathNotSet
-                                        appState.isShowingFatalError = true
-                                    case .otherError:
-                                        print("Something went wrong")
-                                    }
-                                }
-                                catch
-                                {
-                                    print("IDK what just happened")
-                                }
-                            }
+                        UpdatingPackagesStateView(
+                            updateProcessDetailsStage: updateProcessDetailsStage,
+                            packageUpdatingStep: $packageUpdatingStep
+                        )
 
                     case .finished:
-                        Text("update-packages.updating.finished")
-                            .onAppear
-                            {
-                                packageUpdatingStep = .finished
-                            }
+                        UpdatingFinishedStateView(
+                            packageUpdatingStep: $packageUpdatingStep
+                        )
                     }
                 }
                 .frame(width: 200)
                 .fixedSize()
 
             case .noUpdatesAvailable:
-                DisappearableSheet(isShowingSheet: $isShowingSheet)
-                {
-                    ComplexWithIcon(systemName: "checkmark.seal")
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "update-packages.no-updates",
-                            subheadline: "update-packages.no-updates.description",
-                            alignment: .leading
-                        )
-                        .fixedSize()
-                    }
-                }
-                .onAppear
-                {
-                    if notifyAboutPackageUpgradeResults
-                    {
-                        sendNotification(title: String(localized: "update-packages.no-updates"))
-                    }
-                }
+                NoUpdatesAvailableStageView(
+                    isShowingSheet: $isShowingSheet
+                )
 
             case .finished:
-                DisappearableSheet(isShowingSheet: $isShowingSheet)
-                {
-                    ComplexWithIcon(systemName: "checkmark.seal")
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "update-packages.finished",
-                            subheadline: "update-packages.finished.description",
-                            alignment: .leading
-                        )
-                        .fixedSize()
-                    }
-                }
-                .onAppear
-                {
-                    if notifyAboutPackageUpgradeResults
-                    {
-                        sendNotification(title: String(localized: "notification.upgrade-finished.success"))
-                    }
-                }
+                FinishedStageView(isShowingSheet: $isShowingSheet)
 
             case .erroredOut:
-                ComplexWithIcon(systemName: "checkmark.seal")
-                {
-                    VStack(alignment: .leading, spacing: 5)
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "update-packages.error",
-                            subheadline: "update-packages.error.description",
-                            alignment: .leading
-                        )
-                        List
-                        {
-                            ForEach(updateProgressTracker.errors, id: \.self)
-                            { error in
-                                HStack(alignment: .firstTextBaseline, spacing: 5)
-                                {
-                                    Text("⚠️")
-                                    Text(error)
-                                }
-                            }
-                        }
-                        .listStyle(.bordered(alternatesRowBackgrounds: false))
-                        .frame(height: 100, alignment: .leading)
-                        HStack
-                        {
-                            Spacer()
-                            DismissSheetButton(isShowingSheet: $appState.isShowingUpdateSheet, customButtonText: "action.close")
-                        }
-                    }
-                    .fixedSize()
-                    .onAppear
-                    {
-                        print("Update errors: \(updateProgressTracker.errors)")
-                    }
-                }
-                .onAppear
-                {
-                    if notifyAboutPackageUpgradeResults
-                    {
-                        sendNotification(title: String(localized: "notification.upgrade-finished.success"), body: String(localized: "notification.upgrade-finished.success.some-errors"))
-                    }
-                }
+                ErroredOutStageView()
             }
         }
         .padding()
