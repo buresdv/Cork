@@ -59,6 +59,7 @@ struct ContentView: View, Sendable
                         }
                     }
                     .help("navigation.upgrade-packages.help")
+                    .disabled(appState.isCheckingForPackageUpdates)
                 }
 
                 ToolbarItem(id: "addTap", placement: .primaryAction)
