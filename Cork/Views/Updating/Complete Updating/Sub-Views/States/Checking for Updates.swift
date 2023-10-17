@@ -39,6 +39,9 @@ struct CheckingForUpdatesStateView: View
             if updateAvailability == .noUpdatesAvailable
             {
                 print("Outside update function: No updates available")
+
+                updateProgressTracker.realTimeOutput = .init()
+
                 packageUpdatingStage = .noUpdatesAvailable
             }
             else

@@ -47,6 +47,8 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
             {
                 updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
                 print("Ignorable update function error: \(errorLine)")
+
+                return .noUpdatesAvailable
             }
             else
             {
