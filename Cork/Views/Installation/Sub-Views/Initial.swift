@@ -46,37 +46,9 @@ struct InstallationInitialView: View
                 {
                     List(selection: $foundPackageSelection)
                     {
-                        Section
-                        {
-                            if !isTopFormulaeSectionCollapsed
-                            {
-                                ForEach(topPackagesTracker.topFormulae.filter
-                                {
-                                    !brewData.installedFormulae.map(\.name).contains($0.packageName)
-                                }.prefix(15))
-                                { topFormula in
-                                    TopPackageListItem(topPackage: topFormula)
-                                }
-                            }
-                        } header: {
-                            CollapsibleSectionHeader(headerText: "add-package.top-formulae", isCollapsed: $isTopFormulaeSectionCollapsed)
-                        }
+                        TopPackagesSection(packageTracker: topPackagesTracker.topFormulae, isCaskTracker: false)
 
-                        Section
-                        {
-                            if !isTopCasksSectionCollapsed
-                            {
-                                ForEach(topPackagesTracker.topCasks.filter
-                                {
-                                    !brewData.installedCasks.map(\.name).contains($0.packageName)
-                                }.prefix(15))
-                                { topCask in
-                                    TopPackageListItem(topPackage: topCask)
-                                }
-                            }
-                        } header: {
-                            CollapsibleSectionHeader(headerText: "add-package.top-casks", isCollapsed: $isTopCasksSectionCollapsed)
-                        }
+                        TopPackagesSection(packageTracker: topPackagesTracker.topCasks, isCaskTracker: true)
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
                     .frame(minHeight: 200)

@@ -19,6 +19,7 @@
 		63006E1729AD143D00243E29 /* Dependency List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1629AD143D00243E29 /* Dependency List.swift */; };
 		63006E1929AD215000243E29 /* Get Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1829AD215000243E29 /* Get Caveats.swift */; };
 		630D08B929B67E4300802201 /* Brew Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630D08B829B67E4300802201 /* Brew Pane.swift */; };
+		6317BF712ADEE1FD0018E425 /* Top Packages Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317BF702ADEE1FD0018E425 /* Top Packages Section.swift */; };
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
 		63219ACC2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63219ACB2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift */; };
 		63219ACE2AD2ACA00037D178 /* Purge Cache Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63219ACD2AD2ACA00037D178 /* Purge Cache Utility.swift */; };
@@ -208,6 +209,7 @@
 		63006E1629AD143D00243E29 /* Dependency List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency List.swift"; sourceTree = "<group>"; };
 		63006E1829AD215000243E29 /* Get Caveats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Caveats.swift"; sourceTree = "<group>"; };
 		630D08B829B67E4300802201 /* Brew Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Pane.swift"; sourceTree = "<group>"; };
+		6317BF702ADEE1FD0018E425 /* Top Packages Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Packages Section.swift"; sourceTree = "<group>"; };
 		63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Installed Packages.swift"; sourceTree = "<group>"; };
 		63219ACB2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Orphans - Utility.swift"; sourceTree = "<group>"; };
 		63219ACD2AD2ACA00037D178 /* Purge Cache Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purge Cache Utility.swift"; sourceTree = "<group>"; };
@@ -460,6 +462,15 @@
 				63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */,
 			);
 			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		6317BF6F2ADEE1EC0018E425 /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */,
+				6317BF702ADEE1FD0018E425 /* Top Packages Section.swift */,
+			);
+			path = Initial;
 			sourceTree = "<group>";
 		};
 		63219ACA2AD2AA410037D178 /* Utility Functions */ = {
@@ -841,6 +852,7 @@
 		6392FD112A921B9600711B92 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
+				6317BF6F2ADEE1EC0018E425 /* Initial */,
 				63AB6C472A9FEBEF00E58B93 /* Misc Views */,
 				6392FD122A921BAB00711B92 /* Initial.swift */,
 				6392FD142A921D5100711B92 /* Searching.swift */,
@@ -954,7 +966,6 @@
 		63AB6C472A9FEBEF00E58B93 /* Misc Views */ = {
 			isa = PBXGroup;
 			children = (
-				63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */,
 				63824AA62AD161E1007B2892 /* Live Code Output.swift */,
 			);
 			path = "Misc Views";
@@ -1499,6 +1510,7 @@
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
 				63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
+				6317BF712ADEE1FD0018E425 /* Top Packages Section.swift in Sources */,
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
 				63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
