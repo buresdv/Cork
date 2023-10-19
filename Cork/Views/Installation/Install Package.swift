@@ -202,6 +202,8 @@ struct AddFormulaView: View
                                             try? FileManager.default.removeItem(at: lockURL)
                                         }
                                     }
+                                    
+                                    isShowingSheet.toggle()
                                 }
                                 Spacer()
                                 DismissSheetButton(isShowingSheet: $isShowingSheet)
