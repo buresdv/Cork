@@ -132,51 +132,84 @@ struct AddFormulaView: View
                     }
                 }
 
-                case .requiresSudoPassword:
-                    VStack(alignment: .leading)
+            case .requiresSudoPassword:
+                VStack(alignment: .leading)
+                {
+                    ComplexWithImage(image: Image(localURL: URL(filePath: "/System/Library/CoreServices/KeyboardSetupAssistant.app/Contents/Resources/AppIcon.icns"))!)
                     {
-                        ComplexWithIcon(systemName: "exclamationmark.triangle.fill") {
-                            VStack(alignment: .leading, spacing: 10)
-                            {
-                                Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                                    .font(.headline)
-
-                                ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
-                            }
-                        }
-
-                        Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-
-                        HStack
+                        VStack(alignment: .leading, spacing: 10)
                         {
-                            Button
-                            {
-                                isShowingSheet = false
+                            Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                                .font(.headline)
 
-                                Task.detached 
-                                {
-                                    await synchronizeInstalledPackages(brewData: brewData)
-                                }
-                            } label: {
-                                Text("action.close")
-                            }
-                            .keyboardShortcut(.cancelAction)
-
-                            Spacer()
-
-                            Button
-                            {
-                                openTerminal()
-                            } label: {
-                                Text("action.open-terminal")
-                            }
-                            .keyboardShortcut(.defaultAction)
+                            ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
                         }
                     }
-                    .fixedSize()
+
+                    Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+
+                    HStack
+                    {
+                        Button
+                        {
+                            isShowingSheet = false
+
+                            Task.detached
+                            {
+                                await synchronizeInstalledPackages(brewData: brewData)
+                            }
+                        } label: {
+                            Text("action.close")
+                        }
+                        .keyboardShortcut(.cancelAction)
+
+                        Spacer()
+
+                        Button
+                        {
+                            openTerminal()
+                        } label: {
+                            Text("action.open-terminal")
+                        }
+                        .keyboardShortcut(.defaultAction)
+                    }
+                }
+                .fixedSize()
+
+            case .anotherProcessAlreadyRunning:
+                VStack(alignment: .leading)
+                {
+                    ComplexWithImage(image: Image(localURL: URL(string: "/System/Library/CoreServices/KeyboardSetupAssistant.app/Contents/Resources/AppIcon.icns")!)!)
+                    {
+                        VStack(alignment: .leading, spacing: 10)
+                        {
+                            Text("add-package.install.another-homebrew-process-blocking-install.title")
+                                .font(.headline)
+
+                            Text("add-package.install.another-homebrew-process-blocking-install.description")
+
+                            HStack
+                            {
+                                Button("add-package.clear-brew-locks", role: .destructive)
+                                {
+                                    if let contentsOfLockFolder = try? FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/usr/local/var/homebrew/locks"), includingPropertiesForKeys: [.isRegularFileKey])
+                                    {
+                                        for lockURL in contentsOfLockFolder
+                                        {
+                                            try? FileManager.default.removeItem(at: lockURL)
+                                        }
+                                    }
+                                }
+                                Spacer()
+                                DismissSheetButton(isShowingSheet: $isShowingSheet)
+                            }
+                        }
+                    }
+                }
+                .fixedSize()
 
             default:
                 VStack(alignment: .leading)
@@ -203,9 +236,8 @@ struct AddFormulaView: View
     }
 }
 
-private struct ManualInstallInstructions: View 
+private struct ManualInstallInstructions: View
 {
-
     let installationProgressTracker: InstallationProgressTracker
 
     var manualInstallCommand: String
@@ -227,10 +259,12 @@ private struct ManualInstallInstructions: View
 
                     Divider()
 
-                    Button {
+                    Button
+                    {
                         copyToClipboard(whatToCopy: manualInstallCommand)
                     } label: {
-                        Label {
+                        Label
+                        {
                             Text("action.copy")
                         } icon: {
                             Image(systemName: "doc.on.doc")
@@ -244,7 +278,7 @@ private struct ManualInstallInstructions: View
     }
 }
 
-fileprivate func openTerminal()
+private func openTerminal()
 {
     guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal") else { return }
 

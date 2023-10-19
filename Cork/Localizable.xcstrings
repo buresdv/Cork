@@ -3076,6 +3076,26 @@
         }
       }
     },
+    "add-package.install.another-homebrew-process-blocking-install.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can either wait for this process to finish, or force it to stop.\nForcing it to stop might lead to breaking your Homebrew installation."
+          }
+        }
+      }
+    },
+    "add-package.install.another-homebrew-process-blocking-install.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Another Homebrew process is already running"
+          }
+        }
+      }
+    },
     "add-package.install.downloading-cask-%@" : {
       "localizations" : {
         "cs" : {
