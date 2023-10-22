@@ -2830,6 +2830,12 @@
             "state" : "translated",
             "value" : "Stop"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "终止"
+          }
         }
       }
     },
@@ -3105,6 +3111,12 @@
             "state" : "translated",
             "value" : "You can either wait for this process to finish, or force it to stop.\nForcing it to stop might lead to breaking your Homebrew installation."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以等待该进程结束，也可以强制终止。\n强制终止可能会损坏你的 Homebrew 安装。"
+          }
         }
       }
     },
@@ -3120,6 +3132,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Another Homebrew process is already running"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "另一个 Homebrew 进程正在运行"
           }
         }
       }
