@@ -49,9 +49,12 @@ struct MaintenanceFinishedView: View
                         {
                             Text("maintenance.results.package-cache")
 
-                            Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))")
-                                .font(.caption)
-                                .foregroundColor(Color(nsColor: NSColor.systemGray))
+                            if !packagesHoldingBackCachePurge.isEmpty
+                            {
+                                Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))")
+                                    .font(.caption)
+                                    .foregroundColor(Color(nsColor: NSColor.systemGray))
+                            }
 
                             /*
                              if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
