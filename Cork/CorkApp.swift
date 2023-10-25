@@ -22,6 +22,8 @@ struct CorkApp: App
     @StateObject var updateProgressTracker = UpdateProgressTracker()
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
+    @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
+    
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
 
@@ -49,6 +51,11 @@ struct CorkApp: App
         Window("Main Window", id: "main")
         {
             ContentView()
+                .sheet(isPresented: !$hasFinishedOnboarding, onDismiss: {
+                    hasFinishedOnboarding = true
+                }, content: {
+                    OnboardingView()
+                })
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
@@ -157,6 +164,19 @@ struct CorkApp: App
                 }
                 .onChange(of: areNotificationsEnabled)
                 { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
+                    Task(priority: .background) {
+                        await appDelegate.appState.requestNotificationAuthorization()
+                        
+                        if appDelegate.appState.notificationEnabledInSystemSettings == true
+                        {
+                            await appDelegate.appState.requestNotificationAuthorization()
+                            if appDelegate.appState.notificationAuthStatus == .denied
+                            {
+                                areNotificationsEnabled = false
+                            }
+                        }
+                    }
+                    
                     if newValue == false
                     {
                         NSApp.dockTile.badgeLabel = ""
@@ -210,6 +230,18 @@ struct CorkApp: App
                 Divider()
             }
 
+            CommandGroup(before: .systemServices) {
+                Button
+                {
+                    hasFinishedOnboarding = false
+                } label: {
+                    Text("onboarding.start")
+                }
+                .disabled(!hasFinishedOnboarding)
+                
+                Divider()
+            }
+            
             SidebarCommands()
             CommandGroup(replacing: .newItem) // Disables "New Window"
             {}

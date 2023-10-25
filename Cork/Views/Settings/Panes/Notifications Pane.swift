@@ -57,20 +57,6 @@ struct NotificationsPane: View
                             areNotificationsEnabled = false
                         }
                     }
-                    .onChange(of: areNotificationsEnabled, perform: { newValue in
-                        Task(priority: .background) {
-                            await appState.requestNotificationAuthorization()
-                            
-                            if appState.notificationEnabledInSystemSettings == true
-                            {
-                                await appState.requestNotificationAuthorization()
-                                if appState.notificationAuthStatus == .denied
-                                {
-                                    areNotificationsEnabled = false
-                                }
-                            }
-                        }
-                    })
                     .disabled(appState.notificationAuthStatus == .denied)
                     
                     if appState.notificationAuthStatus == .denied
