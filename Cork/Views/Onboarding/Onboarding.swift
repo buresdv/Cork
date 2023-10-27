@@ -33,6 +33,8 @@ struct OnboardingView: View
     
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     
+    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    
     @State var onboardingSetupLevel: SetupLevels = .medium
 
     /// Level numbers:
@@ -127,6 +129,8 @@ struct OnboardingView: View
                     
                     notifyAboutPackageUpgradeResults = true
                     notifyAboutPackageInstallationResults = true
+                    
+                    enableRevealInFinder = true
                 }
                 
                 if onboardingSetupLevelNumber >= 4
