@@ -2176,6 +2176,16 @@
         }
       }
     },
+    "action.done" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
     "action.go-to-status-page" : {
       "comment" : "MARK: - Misc Actions",
       "localizations" : {
@@ -9837,6 +9847,278 @@
         }
       }
     },
+    "onboarding.all-features-enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All optional features enabled"
+          }
+        }
+      }
+    },
+    "onboarding.details.section.basic" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basic Features"
+          }
+        }
+      }
+    },
+    "onboarding.details.section.discoverability" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discoverability"
+          }
+        }
+      }
+    },
+    "onboarding.details.section.extras" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Features"
+          }
+        }
+      }
+    },
+    "onboarding.details.section.package-features" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package Features"
+          }
+        }
+      }
+    },
+    "onboarding.details.section.tap-features" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap Features"
+          }
+        }
+      }
+    },
+    "onboarding.feature.compatibility-checking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package compatibility checking"
+          }
+        }
+      }
+    },
+    "onboarding.feature.complex-dependencies" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More info about dependencies"
+          }
+        }
+      }
+    },
+    "onboarding.feature.dependency-search" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Searching through package dependencies"
+          }
+        }
+      }
+    },
+    "onboarding.feature.detailed-caveats" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full package caveats"
+          }
+        }
+      }
+    },
+    "onboarding.feature.discoverability" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find popular packages"
+          }
+        }
+      }
+    },
+    "onboarding.feature.maintenanace" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew maintenance"
+          }
+        }
+      }
+    },
+    "onboarding.feature.menu-bar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick actions in Menu Bar"
+          }
+        }
+      }
+    },
+    "onboarding.feature.notifications" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications about various actions"
+          }
+        }
+      }
+    },
+    "onboarding.feature.package-descriptions-in-search" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package descriptions in search"
+          }
+        }
+      }
+    },
+    "onboarding.feature.package-details" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package details"
+          }
+        }
+      }
+    },
+    "onboarding.feature.package-purging" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package purging"
+          }
+        }
+      }
+    },
+    "onboarding.feature.search" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Searching through installed packages"
+          }
+        }
+      }
+    },
+    "onboarding.feature.searching" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package searching"
+          }
+        }
+      }
+    },
+    "onboarding.feature.tagging" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package tagging"
+          }
+        }
+      }
+    },
+    "onboarding.feature.tap-details" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap details"
+          }
+        }
+      }
+    },
+    "onboarding.hide-details-about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide details about"
+          }
+        }
+      }
+    },
+    "onboarding.settings.exmplanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can always customize your experience in the Settings"
+          }
+        }
+      }
+    },
+    "onboarding.show-details-about" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show details about"
+          }
+        }
+      }
+    },
+    "onboarding.start" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Onboarding…"
+          }
+        }
+      }
+    },
+    "onboarding.subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say hello to the world's apps"
+          }
+        }
+      }
+    },
+    "onboarding.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to the future of Homebrew!"
+          }
+        }
+      }
+    },
     "package-details.action.pin-version-%@" : {
       "localizations" : {
         "cs" : {
@@ -14502,6 +14784,66 @@
         }
       }
     },
+    "setup.level.advanced.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced"
+          }
+        }
+      }
+    },
+    "setup.level.basic.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basic"
+          }
+        }
+      }
+    },
+    "setup.level.medium.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balanced"
+          }
+        }
+      }
+    },
+    "setup.level.slightly-advanced.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slightly Advanced"
+          }
+        }
+      }
+    },
+    "setup.level.slightly-basic.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slightly Basic"
+          }
+        }
+      }
+    },
+    "setup.slider.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How would you like to experience Cork?"
+          }
+        }
+      }
+    },
     "sidebar.search.prompt" : {
       "comment" : "MARK: - Sidebar",
       "localizations" : {
@@ -16561,6 +16903,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查看套件更新⋯"
+          }
+        }
+      }
+    },
+    "state.disabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disabled"
           }
         }
       }
