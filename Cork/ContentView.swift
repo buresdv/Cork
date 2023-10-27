@@ -423,6 +423,14 @@ struct ContentView: View, Sendable
                         appState.isShowingFatalError = false
                     })
                 )
+                case .couldNotFindPackageInParentDirectory:
+                    return Alert(
+                        title: Text("alert.could-not-find-package-in-parent-directory.title"),
+                        message: Text("alert.could-not-find-package-in-parent-directory.message"),
+                        dismissButton: .default(Text("action.close"), action: {
+                            appState.isShowingFatalError = false
+                        })
+                    )
             }
         })
     }

@@ -5668,6 +5668,12 @@
         }
       }
     },
+    "alert.could-not-find-package-in-parent-directory.message" : {
+
+    },
+    "alert.could-not-find-package-in-parent-directory.title" : {
+
+    },
     "alert.could-not-get-new-packages-in-scheduled-update-system.message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -13044,6 +13050,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "套件簡介："
+          }
+        }
+      }
+    },
+    "settings.general.package-details.reveal-in-finder.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow revealing packages in Finder"
           }
         }
       }

@@ -12,6 +12,8 @@ struct SidebarPackageRow: View {
     let package: BrewPackage
 
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    
+    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
@@ -74,6 +76,26 @@ struct SidebarPackageRow: View {
                     }
                 } label: {
                     Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(package.name)")
+                }
+            }
+            
+            if enableRevealInFinder
+            {
+                Divider()
+                
+                Button
+                {
+                    do
+                    {
+                        try package.revealInFinder()
+                    }
+                    catch
+                    {
+                        appState.fatalAlertType = .couldNotFindPackageInParentDirectory
+                        appState.isShowingFatalError = true
+                    }
+                } label: {
+                    Text("action.reveal-in-finder")
                 }
             }
         }

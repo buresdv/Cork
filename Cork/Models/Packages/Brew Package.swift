@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 struct BrewPackage: Identifiable, Equatable, Hashable
 {
@@ -32,6 +33,40 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     mutating func changeBeingModifiedStatus() -> Void
     {
         self.isBeingModified.toggle()
+    }
+    
+    /// Open the location of this package in Finder
+    func revealInFinder() throws
+    {
+        
+        enum FinderRevealError: Error
+        {
+            case couldNotFindPackageInParent
+        }
+        
+        var packageURL: URL?
+        var packageLocationParent: URL
+        {
+            if !isCask
+            {
+                return AppConstants.brewCellarPath
+            }
+            else
+            {
+                return AppConstants.brewCaskPath
+            }
+        }
+        
+        let contentsOfParentFolder = try! FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
+        
+        packageURL = contentsOfParentFolder.filter({ $0.lastPathComponent.contains(name) }).first
+        
+        guard let packageURL else
+        {
+            throw FinderRevealError.couldNotFindPackageInParent
+        }
+        
+        NSWorkspace.shared.selectFile(packageURL.path, inFileViewerRootedAtPath: packageURL.deletingLastPathComponent().path)
     }
 }
 

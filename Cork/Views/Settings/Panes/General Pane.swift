@@ -16,6 +16,8 @@ struct GeneralPane: View
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
     
+    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
     @AppStorage("showInMenuBar") var showInMenuBar = false
@@ -80,8 +82,15 @@ struct GeneralPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails) {
-                        Text("settings.general.package-details.toggle")
+                    VStack(alignment: .leading)
+                    {
+                        Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails) {
+                            Text("settings.general.package-details.toggle")
+                        }
+                        
+                        Toggle(isOn: $enableRevealInFinder) {
+                            Text("settings.general.package-details.reveal-in-finder.toggle")
+                        }
                     }
                 } label: {
                     Text("settings.general.package-details")
