@@ -5669,10 +5669,24 @@
       }
     },
     "alert.could-not-find-package-in-parent-directory.message" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This package doesn't seem to be installed"
+          }
+        }
+      }
     },
     "alert.could-not-find-package-in-parent-directory.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not find this package"
+          }
+        }
+      }
     },
     "alert.could-not-get-new-packages-in-scheduled-update-system.message" : {
       "extractionState" : "manual",
@@ -10019,6 +10033,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package purging"
+          }
+        }
+      }
+    },
+    "onboarding.feature.revealing-packages-in-finder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revealing packages in Finder"
           }
         }
       }

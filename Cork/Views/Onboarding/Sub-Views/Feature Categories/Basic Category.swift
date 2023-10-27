@@ -40,7 +40,7 @@ struct OnboardingBasicCategory: View
                 // Slightly advanced
                 if onboardingSetupLevelNumber >= 3
                 {
-                    
+                    Text("onboarding.feature.revealing-packages-in-finder")
                 }
                 
                 // Advanced
