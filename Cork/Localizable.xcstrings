@@ -1843,7 +1843,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Traduction de Cork en Chinois Russe"
+            "value" : "Traduction de Cork en Russe"
           }
         },
         "ru" : {
@@ -2182,6 +2182,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Done"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminé"
           }
         }
       }
@@ -2841,6 +2847,12 @@
             "value" : "Stop"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêt"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3122,6 +3134,12 @@
             "value" : "You can either wait for this process to finish, or force it to stop.\nForcing it to stop might lead to breaking your Homebrew installation."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez soit attendre que ce processus se termine, soit le forcer à s'arrêter.\nForcer son arrêt peut entraîner la suppression de votre installation Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3142,6 +3160,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Another Homebrew process is already running"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un autre processus Homebrew est déjà en cours"
           }
         },
         "zh-Hans" : {
@@ -5675,6 +5699,12 @@
             "state" : "translated",
             "value" : "This package doesn't seem to be installed"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il semble que ce paquet ne soit pas installé"
+          }
         }
       }
     },
@@ -5684,6 +5714,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not find this package"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver ce paquet"
           }
         }
       }
@@ -9874,6 +9910,12 @@
             "state" : "translated",
             "value" : "All optional features enabled"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les fonctionnalités optionnelles sont activées"
+          }
         }
       }
     },
@@ -9883,6 +9925,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basic Features"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonctionnalités de base"
           }
         }
       }
@@ -9894,6 +9942,12 @@
             "state" : "translated",
             "value" : "Discoverability"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Découvrabilité"
+          }
         }
       }
     },
@@ -9903,6 +9957,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extra Features"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonctionnalités supplémentaires"
           }
         }
       }
@@ -9914,6 +9974,12 @@
             "state" : "translated",
             "value" : "Package Features"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonctionnalités du package"
+          }
         }
       }
     },
@@ -9923,6 +9989,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap Features"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fonctionnalités du Tap"
           }
         }
       }
@@ -9934,6 +10006,12 @@
             "state" : "translated",
             "value" : "Package compatibility checking"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérification de la compatibilité du package"
+          }
         }
       }
     },
@@ -9943,6 +10021,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "More info about dependencies"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus d'informations sur les dépendances"
           }
         }
       }
@@ -9954,6 +10038,12 @@
             "state" : "translated",
             "value" : "Searching through package dependencies"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche dans les dépendances du package"
+          }
         }
       }
     },
@@ -9963,6 +10053,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Full package caveats"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avis complets sur le package"
           }
         }
       }
@@ -9974,6 +10070,12 @@
             "state" : "translated",
             "value" : "Find popular packages"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher des packages populaires"
+          }
         }
       }
     },
@@ -9983,6 +10085,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew maintenance"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maintenance Homebrew"
           }
         }
       }
@@ -9994,6 +10102,12 @@
             "state" : "translated",
             "value" : "Quick actions in Menu Bar"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actions rapides dans la barre de menu"
+          }
         }
       }
     },
@@ -10003,6 +10117,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications about various actions"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications concernant diverses actions"
           }
         }
       }
@@ -10014,6 +10134,12 @@
             "state" : "translated",
             "value" : "Package descriptions in search"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descriptions des packages dans la recherche"
+          }
         }
       }
     },
@@ -10023,6 +10149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package details"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails du package"
           }
         }
       }
@@ -10034,6 +10166,12 @@
             "state" : "translated",
             "value" : "Package purging"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purge de paquet"
+          }
         }
       }
     },
@@ -10043,6 +10181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Revealing packages in Finder"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Révéler les paquets dans Finder"
           }
         }
       }
@@ -10054,6 +10198,12 @@
             "state" : "translated",
             "value" : "Searching through installed packages"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche dans les paquets installés"
+          }
         }
       }
     },
@@ -10063,6 +10213,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package searching"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche de paquet"
           }
         }
       }
@@ -10074,6 +10230,12 @@
             "state" : "translated",
             "value" : "Package tagging"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Étiquetage de paquet"
+          }
         }
       }
     },
@@ -10083,6 +10245,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap details"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails du Tap"
           }
         }
       }
@@ -10095,6 +10263,12 @@
             "state" : "translated",
             "value" : "Hide details about"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer les détails de"
+          }
         }
       }
     },
@@ -10104,6 +10278,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can always customize your experience in the Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez toujours personnaliser votre expérience dans les paramètres"
           }
         }
       }
@@ -10116,6 +10296,12 @@
             "state" : "translated",
             "value" : "Show details about"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les détails de"
+          }
         }
       }
     },
@@ -10125,6 +10311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show Onboarding…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la première utilisation…"
           }
         }
       }
@@ -10136,6 +10328,12 @@
             "state" : "translated",
             "value" : "Say hello to the world's apps"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Découvrez les applications du monde entier"
+          }
         }
       }
     },
@@ -10145,6 +10343,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Welcome to the future of Homebrew!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bienvenue dans l'avenir de Homebrew !"
           }
         }
       }
@@ -13085,6 +13289,12 @@
             "state" : "translated",
             "value" : "Allow revealing packages in Finder"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autoriser la révélation des paquets dans Finder"
+          }
         }
       }
     },
@@ -14831,6 +15041,12 @@
             "state" : "translated",
             "value" : "Advanced"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avancé"
+          }
         }
       }
     },
@@ -14840,6 +15056,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basic"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basique"
           }
         }
       }
@@ -14851,6 +15073,12 @@
             "state" : "translated",
             "value" : "Balanced"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Équilibré"
+          }
         }
       }
     },
@@ -14860,6 +15088,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Slightly Advanced"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Légèrement avancé"
           }
         }
       }
@@ -14871,6 +15105,12 @@
             "state" : "translated",
             "value" : "Slightly Basic"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Légèrement basique"
+          }
         }
       }
     },
@@ -14880,6 +15120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "How would you like to experience Cork?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comment souhaiteriez-vous découvrir Cork ?"
           }
         }
       }
@@ -16953,6 +17199,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disabled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactivé"
           }
         }
       }
