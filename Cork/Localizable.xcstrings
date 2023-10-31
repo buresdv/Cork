@@ -2189,6 +2189,12 @@
             "state" : "translated",
             "value" : "Terminé"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
         }
       }
     },
@@ -3877,7 +3883,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您的网络连接不稳定，无法保证安装成功"
+            "value" : "你的网络连接不稳定，无法保证安装成功"
           }
         },
         "zh-Hant" : {
@@ -5705,6 +5711,12 @@
             "state" : "translated",
             "value" : "Il semble que ce paquet ne soit pas installé"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该软件包似乎没有被安装"
+          }
         }
       }
     },
@@ -5720,6 +5732,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de trouver ce paquet"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法找到该软件包"
           }
         }
       }
@@ -9916,6 +9934,12 @@
             "state" : "translated",
             "value" : "Toutes les fonctionnalités optionnelles sont activées"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用所有可选功能"
+          }
         }
       }
     },
@@ -9931,6 +9955,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités de base"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基础功能"
           }
         }
       }
@@ -9948,6 +9978,12 @@
             "state" : "translated",
             "value" : "Découvrabilité"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "探索功能"
+          }
         }
       }
     },
@@ -9963,6 +9999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités supplémentaires"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更多功能"
           }
         }
       }
@@ -9980,6 +10022,12 @@
             "state" : "translated",
             "value" : "Fonctionnalités du package"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包功能"
+          }
         }
       }
     },
@@ -9995,6 +10043,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités du Tap"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap 功能"
           }
         }
       }
@@ -10012,6 +10066,12 @@
             "state" : "translated",
             "value" : "Vérification de la compatibilité du package"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包兼容性检查"
+          }
         }
       }
     },
@@ -10027,6 +10087,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Plus d'informations sur les dépendances"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更多依赖信息"
           }
         }
       }
@@ -10044,6 +10110,12 @@
             "state" : "translated",
             "value" : "Recherche dans les dépendances du package"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索软件包依赖"
+          }
         }
       }
     },
@@ -10059,6 +10131,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avis complets sur le package"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包完整性警告"
           }
         }
       }
@@ -10076,6 +10154,12 @@
             "state" : "translated",
             "value" : "Rechercher des packages populaires"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查找热门软件包"
+          }
         }
       }
     },
@@ -10091,6 +10175,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenance Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 维护"
           }
         }
       }
@@ -10108,6 +10198,12 @@
             "state" : "translated",
             "value" : "Actions rapides dans la barre de menu"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "菜单栏快速操作"
+          }
         }
       }
     },
@@ -10123,6 +10219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications concernant diverses actions"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "各种操作的通知"
           }
         }
       }
@@ -10140,6 +10242,12 @@
             "state" : "translated",
             "value" : "Descriptions des packages dans la recherche"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在搜索中显示软件包描述"
+          }
         }
       }
     },
@@ -10155,6 +10263,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détails du package"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包详细信息"
           }
         }
       }
@@ -10172,6 +10286,12 @@
             "state" : "translated",
             "value" : "Purge de paquet"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包清除"
+          }
         }
       }
     },
@@ -10187,6 +10307,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Révéler les paquets dans Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在访达中显示"
           }
         }
       }
@@ -10204,6 +10330,12 @@
             "state" : "translated",
             "value" : "Recherche dans les paquets installés"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在已安装的软件包中进行搜索"
+          }
         }
       }
     },
@@ -10219,6 +10351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche de paquet"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在搜索软件包"
           }
         }
       }
@@ -10236,6 +10374,12 @@
             "state" : "translated",
             "value" : "Étiquetage de paquet"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装 Tap"
+          }
         }
       }
     },
@@ -10251,6 +10395,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détails du Tap"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap 详细信息"
           }
         }
       }
@@ -10269,6 +10419,12 @@
             "state" : "translated",
             "value" : "Masquer les détails de"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏详细信息"
+          }
         }
       }
     },
@@ -10284,6 +10440,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez toujours personnaliser votre expérience dans les paramètres"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以随时在设置中自定义你的体验"
           }
         }
       }
@@ -10302,6 +10464,12 @@
             "state" : "translated",
             "value" : "Afficher les détails de"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示详细信息"
+          }
         }
       }
     },
@@ -10317,6 +10485,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la première utilisation…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示入门体验..."
           }
         }
       }
@@ -10334,6 +10508,12 @@
             "state" : "translated",
             "value" : "Découvrez les applications du monde entier"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对全世界的软件说哈喽"
+          }
         }
       }
     },
@@ -10349,6 +10529,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bienvenue dans l'avenir de Homebrew !"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎来到 Homebrew 的未来！"
           }
         }
       }
@@ -11171,7 +11357,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "依赖"
+            "value" : "搜索依赖"
           }
         },
         "zh-Hant" : {
@@ -12914,7 +13100,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自动开启："
+            "value" : "自动启动："
           }
         }
       }
@@ -13294,6 +13480,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autoriser la révélation des paquets dans Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许在访达中显示软件包"
           }
         }
       }
@@ -14609,7 +14801,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "只有当 Cork 在后台时推送通知"
+            "value" : "Cork 只有当不在前台时才会推送通知"
           }
         },
         "zh-Hant" : {
@@ -15047,6 +15239,12 @@
             "state" : "translated",
             "value" : "Avancé"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高级"
+          }
         }
       }
     },
@@ -15062,6 +15260,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basique"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "基础"
           }
         }
       }
@@ -15079,6 +15283,12 @@
             "state" : "translated",
             "value" : "Équilibré"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "均衡"
+          }
         }
       }
     },
@@ -15094,6 +15304,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Légèrement avancé"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "较为高级"
           }
         }
       }
@@ -15111,6 +15327,12 @@
             "state" : "translated",
             "value" : "Légèrement basique"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "较为基础"
+          }
         }
       }
     },
@@ -15126,6 +15348,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comment souhaiteriez-vous découvrir Cork ?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "想要定制你的 Cork 体验吗？"
           }
         }
       }
@@ -17205,6 +17433,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Désactivé"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "禁用"
           }
         }
       }
