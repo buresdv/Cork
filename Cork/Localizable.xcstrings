@@ -2178,6 +2178,12 @@
     },
     "action.done" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hotovo"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5700,6 +5706,12 @@
     },
     "alert.could-not-find-package-in-parent-directory.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček nejspíš není nainstalovaný"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5722,6 +5734,12 @@
     },
     "alert.could-not-find-package-in-parent-directory.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček se nepodařilo najít"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9923,6 +9941,12 @@
     },
     "onboarding.all-features-enabled" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny volitelné funkce budou zapnuty"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9945,6 +9969,12 @@
     },
     "onboarding.details.section.basic" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Základní funkce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9967,6 +9997,12 @@
     },
     "onboarding.details.section.discoverability" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objevování"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9989,6 +10025,12 @@
     },
     "onboarding.details.section.extras" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Další funkce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10011,6 +10053,12 @@
     },
     "onboarding.details.section.package-features" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funkce balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10033,6 +10081,12 @@
     },
     "onboarding.details.section.tap-features" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funkce píp"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10055,6 +10109,12 @@
     },
     "onboarding.feature.compatibility-checking" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrola kompatibility balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10077,6 +10137,12 @@
     },
     "onboarding.feature.complex-dependencies" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Více informací o závislostech"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10099,6 +10165,12 @@
     },
     "onboarding.feature.dependency-search" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledávání závislostí"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10121,6 +10193,12 @@
     },
     "onboarding.feature.detailed-caveats" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úplné poznámky k balíčkům"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10143,6 +10221,12 @@
     },
     "onboarding.feature.discoverability" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objevování populárních balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10165,6 +10249,12 @@
     },
     "onboarding.feature.maintenanace" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Údržba Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10187,6 +10277,12 @@
     },
     "onboarding.feature.menu-bar" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rychlé akce v řádku nabídek"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10209,6 +10305,12 @@
     },
     "onboarding.feature.notifications" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oznámení o akcích"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10231,6 +10333,12 @@
     },
     "onboarding.feature.package-descriptions-in-search" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popisy balíčků ve vyhledávání"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10253,6 +10361,12 @@
     },
     "onboarding.feature.package-details" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podrobnosti o balíčku"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10275,6 +10389,12 @@
     },
     "onboarding.feature.package-purging" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mazání podpůrných souborů"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10297,6 +10417,12 @@
     },
     "onboarding.feature.revealing-packages-in-finder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazování balíčků ve Finderu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10319,6 +10445,12 @@
     },
     "onboarding.feature.search" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledávání nainstalovaných balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10341,6 +10473,12 @@
     },
     "onboarding.feature.searching" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledávání balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10363,6 +10501,12 @@
     },
     "onboarding.feature.tagging" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Označování balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10385,6 +10529,12 @@
     },
     "onboarding.feature.tap-details" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informace o pípách"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10408,6 +10558,12 @@
     "onboarding.hide-details-about" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skrýt podrobnosti o"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10430,6 +10586,12 @@
     },
     "onboarding.settings.exmplanation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechna tato nastavení můžete měnit v Nastavení Corku"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10453,6 +10615,12 @@
     "onboarding.show-details-about" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit podrobnosti o"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10475,6 +10643,12 @@
     },
     "onboarding.start" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit úvodní nastavení… "
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10497,6 +10671,12 @@
     },
     "onboarding.subtitle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zdraví vás aplikace z celého světa"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10519,6 +10699,12 @@
     },
     "onboarding.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vítá vás budoucnost Homebrew!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13470,6 +13656,12 @@
     },
     "settings.general.package-details.reveal-in-finder.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Možnost zobrazit balíčky ve Finderu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15228,6 +15420,12 @@
     },
     "setup.level.advanced.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokročilé"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15250,6 +15448,12 @@
     },
     "setup.level.basic.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Základní"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15272,6 +15476,12 @@
     },
     "setup.level.medium.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normální"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15294,6 +15504,12 @@
     },
     "setup.level.slightly-advanced.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mírně pokročilé"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15316,6 +15532,12 @@
     },
     "setup.level.slightly-basic.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokročilejší"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15338,6 +15560,12 @@
     },
     "setup.slider.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jak chcete, aby se Cork choval?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17423,6 +17651,12 @@
     },
     "state.disabled" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vypnuto"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
