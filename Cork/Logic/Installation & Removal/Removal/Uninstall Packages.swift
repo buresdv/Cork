@@ -9,7 +9,14 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, appState: AppState, outdatedPackageTracker: OutdatedPackageTracker, shouldRemoveAllAssociatedFiles: Bool, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+func uninstallSelectedPackage(
+    package: BrewPackage,
+    brewData: BrewDataStorage,
+    appState: AppState,
+    outdatedPackageTracker: OutdatedPackageTracker,
+    shouldRemoveAllAssociatedFiles: Bool,
+    shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false
+) async throws
 {
     /// Store the old navigation selection to see if it got updated in the middle of switching
     let oldNavigationSelectionID: UUID? = appState.navigationSelection
@@ -65,30 +72,7 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         print("Could not uninstall this package because it's a dependency")
 
         /// If the uninstallation failed, change the status back to "not being modified"
-        if !package.isCask
-        {
-            brewData.installedFormulae = Set(brewData.installedFormulae.map
-            { formula in
-                var copyFormula = formula
-                if copyFormula.name == package.name, copyFormula.isBeingModified == true
-                {
-                    copyFormula.changeBeingModifiedStatus()
-                }
-                return copyFormula
-            })
-        }
-        else
-        {
-            brewData.installedCasks = Set(brewData.installedCasks.map
-            { cask in
-                var copyCask = cask
-                if copyCask.name == package.name, copyCask.isBeingModified == true
-                {
-                    copyCask.changeBeingModifiedStatus()
-                }
-                return copyCask
-            })
-        }
+        resetPackageState(package: package, brewData: brewData)
 
         do
         {
@@ -110,9 +94,19 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
             throw RegexError.regexFunctionCouldNotMatchAnything
         }
     }
+    else if uninstallCommandOutput.standardError.contains("sudo: a terminal is required to read the password")
+    {
+        #warning("TODO: So far, this only stops the package from being removed from the tracker. Implement a tutorial on how to uninstall the package")
+        
+        print("Could not uninstall this package because sudo is required")
+        
+        resetPackageState(package: package, brewData: brewData)
+    }
     else
     {
         print("Uninstalling can proceed")
+        
+        
 
         switch package.isCask
         {
@@ -150,5 +144,34 @@ func uninstallSelectedPackage(package: BrewPackage, brewData: BrewDataStorage, a
         {
             outdatedPackageTracker.outdatedPackages.remove(at: index)
         }
+    }
+}
+
+@MainActor
+private func resetPackageState(package: BrewPackage, brewData: BrewDataStorage)
+{
+    if !package.isCask
+    {
+        brewData.installedFormulae = Set(brewData.installedFormulae.map
+                                         { formula in
+            var copyFormula = formula
+            if copyFormula.name == package.name, copyFormula.isBeingModified == true
+            {
+                copyFormula.changeBeingModifiedStatus()
+            }
+            return copyFormula
+        })
+    }
+    else
+    {
+        brewData.installedCasks = Set(brewData.installedCasks.map
+                                      { cask in
+            var copyCask = cask
+            if copyCask.name == package.name, copyCask.isBeingModified == true
+            {
+                copyCask.changeBeingModifiedStatus()
+            }
+            return copyCask
+        })
     }
 }
