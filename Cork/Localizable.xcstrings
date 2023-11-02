@@ -9693,7 +9693,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你有 %lld 个软件包有可用更新"
+                  "value" : "%lld 个软件包有可用更新"
                 }
               },
               "zero" : {
