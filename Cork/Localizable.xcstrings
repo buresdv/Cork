@@ -3002,7 +3002,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請嘗試重新安裝套件，或重啟 Cork。 如果問題無法解決，請嘗試重啟您的 Mac。"
+            "value" : "請嘗試重新安裝套件，或重啟 Cork。\n如果問題無法解決，請嘗試重啟您的 Mac。"
           }
         }
       }
@@ -3255,7 +3255,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "另一個 Homebrew 程式已經在執行"
+            "value" : "另一個 Homebrew 行程已經在執行"
           }
         }
       }
@@ -5429,7 +5429,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩ 輸入鍵來執行指令\n遵照指示安裝 %@ ，回到 Cork 關閉本對話"
+            "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩（輸入鍵）來執行指令\n遵照指示安裝 %@，回到 Cork 關閉本對話"
           }
         }
       }
