@@ -30,7 +30,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "⚠️"
           }
         }
       }
@@ -1176,6 +1176,12 @@
             "state" : "translated",
             "value" : "LaunchAtLogin"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
         }
       }
     },
@@ -1215,6 +1221,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "一个让 Cork 登录时启动的软件包"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使 Cork 於登入時自動開啟的套件"
           }
         }
       }
@@ -2133,6 +2145,12 @@
             "state" : "translated",
             "value" : "拷贝"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拷貝"
+          }
         }
       }
     },
@@ -2173,6 +2191,12 @@
             "state" : "translated",
             "value" : "拷贝到剪贴板"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拷貝至剪貼簿"
+          }
         }
       }
     },
@@ -2200,6 +2224,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "完成"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結束"
           }
         }
       }
@@ -2338,7 +2368,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide"
+            "value" : "隱藏"
           }
         }
       }
@@ -2379,6 +2409,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "开启终端"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟終端機"
           }
         }
       }
@@ -2870,6 +2906,12 @@
             "state" : "translated",
             "value" : "终止"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止"
+          }
         }
       }
     },
@@ -2909,6 +2951,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在安装 %@ 时出现了错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安裝 %@ 時發生錯誤"
           }
         }
       }
@@ -2950,6 +2998,12 @@
             "state" : "translated",
             "value" : "请尝试重新安装软件包或重启Cork\n如果问题没有解决，请重启你的 Mac"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請嘗試重新安裝套件，或重啟 Cork。 如果問題無法解決，請嘗試重啟您的 Mac。"
+          }
         }
       }
     },
@@ -2990,6 +3044,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安装过程出现错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安裝時發生錯誤"
           }
         }
       }
@@ -3157,6 +3217,12 @@
             "state" : "translated",
             "value" : "你可以等待该进程结束，也可以强制终止。\n强制终止可能会损坏你的 Homebrew 安装。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可以等待它結束，或強制它結束。\n請注意強制結束可能導致 Homebrew 安裝受損。"
+          }
         }
       }
     },
@@ -3184,6 +3250,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "另一个 Homebrew 进程正在运行"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "另一個 Homebrew 程式已經在執行"
           }
         }
       }
@@ -3362,6 +3434,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隐藏详细信息"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隱藏詳細訊息"
           }
         }
       }
@@ -3725,6 +3803,12 @@
             "state" : "translated",
             "value" : "安装 %@ 需要更高权限"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安裝 %@ 需要提升權限"
+          }
         }
       }
     },
@@ -3765,6 +3849,12 @@
             "state" : "translated",
             "value" : "你必须通过终端安装该软件包。\n请使用下方命令。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您必須在終端機裡使用以下指令安裝此套件。"
+          }
         }
       }
     },
@@ -3804,6 +3894,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示详细信息"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示細節"
           }
         }
       }
@@ -3984,6 +4080,12 @@
             "state" : "translated",
             "value" : "未提供任何信息"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未提供任何描述"
+          }
         }
       }
     },
@@ -4071,6 +4173,12 @@
             "state" : "translated",
             "value" : "无法载入详细信息"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法下載描述"
+          }
         }
       }
     },
@@ -4111,6 +4219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未对 %@ 优化"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未曾針對 %@ 作最佳化"
           }
         }
       }
@@ -4612,6 +4726,18 @@
               }
             }
           }
+        },
+        "zh-Hant" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "下載 %lld 次"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -4886,7 +5012,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "新增 Tap %@ 時發生錯誤"
           }
         }
@@ -4932,7 +5058,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "請稍等幾分鐘後再重試新增。"
           }
         }
@@ -5070,7 +5196,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "新增 Tap %@"
           }
         }
@@ -5299,6 +5425,12 @@
             "state" : "translated",
             "value" : "单击下方的“开启终端”\n使用 ⌘+V 插入命令，然后按 ↩（回车）执行命令\n按照提示安装 %@，然后返回 Cork 并关闭此对话框"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩ (Return) 鍵來執行指令\n遵照指示安裝 %@ ，回到 Cork 關閉本對話"
+          }
         }
       }
     },
@@ -5431,6 +5563,12 @@
             "state" : "translated",
             "value" : "Cork 无法在数据库中找到该软件包"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 無法在套件資料庫裡找到此套件"
+          }
         }
       }
     },
@@ -5470,6 +5608,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法在数据库中找到软件包"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "套件資料庫裡無此套件"
           }
         }
       }
@@ -5729,6 +5873,12 @@
             "state" : "translated",
             "value" : "该软件包似乎没有被安装"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此套件似乎並未安裝"
+          }
         }
       }
     },
@@ -5756,6 +5906,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法找到该软件包"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找不到此套件"
           }
         }
       }
@@ -5802,7 +5958,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "There was an error while parsing outdated packages"
+            "value" : "解讀落伍套件時發生錯誤"
           }
         }
       }
@@ -5849,7 +6005,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't retrieve outdated packages"
+            "value" : "無法取得落伍套件"
           }
         }
       }
@@ -5896,7 +6052,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't decipher Homebrew response"
+            "value" : "無法解讀 Homebrew 回應"
           }
         }
       }
@@ -6126,7 +6282,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You still have packages installed from %@\nUninstall them and try again"
+            "value" : "您仍有從 %@ 安裝的套件\n請把它們移除後再重試"
           }
         }
       }
@@ -6172,7 +6328,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew sent Cork an invalid response"
+            "value" : "Homebrew 傳給 Cork 一個無效的回應"
           }
         }
       }
@@ -6218,7 +6374,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't get top packages"
+            "value" : "無法取得熱門套件"
           }
         }
       }
@@ -6357,7 +6513,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cork couldn't understand the response from Homebrew"
+            "value" : "Cork 無法了解 Homebrew 的回應"
           }
         }
       }
@@ -6403,7 +6559,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't decipher top packages"
+            "value" : "無法解讀熱門套件"
           }
         }
       }
@@ -6541,7 +6697,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The selected package couldn't be installed"
+            "value" : "您選的套件無法安裝"
           }
         }
       }
@@ -6587,7 +6743,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't get selected top package"
+            "value" : "無法取得熱門套件"
           }
         }
       }
