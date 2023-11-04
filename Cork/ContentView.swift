@@ -215,6 +215,22 @@ struct ContentView: View, Sendable
                 }
             }
         }
+        .task(priority: .background)
+        {
+            if appState.cachedDownloads.isEmpty
+            {
+                print("Will calculate cached downloads")
+                await appState.loadCachedDownloadedPackages()
+            }
+        }
+        .onChange(of: appState.cachedDownloadsFolderSize)
+        { newValue in
+            Task(priority: .background) {
+                print("Will recalculate cached downloads")
+                appState.cachedDownloads = .init()
+                await appState.loadCachedDownloadedPackages()
+            }
+        }
         .onChange(of: areNotificationsEnabled, perform: { newValue in
             if newValue == true
             {

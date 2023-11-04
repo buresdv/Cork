@@ -17420,6 +17420,16 @@
         }
       }
     },
+    "start-page.cached-downloads.graph.other-smaller-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Others"
+          }
+        }
+      }
+    },
     "start-page.cached-downloads.graph.package-name" : {
 
     },

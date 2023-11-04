@@ -9,18 +9,8 @@ import SwiftUI
 import Charts
 
 struct CachedDownloadsFolderInfoBox: View
-{
-    private struct CachedDownload: Identifiable, Hashable {
-        
-        var id: String { packageName }
-        
-        let packageName: String
-        let sizeInBytes: Int
-    }
-    
+{    
     @EnvironmentObject var appState: AppState
-    
-    @State private var cachedDownloads: [CachedDownload] = .init()
 
     var body: some View
     {
@@ -44,11 +34,11 @@ struct CachedDownloadsFolderInfoBox: View
                 }
             }
             
-            if !cachedDownloads.isEmpty
+            if !appState.cachedDownloads.isEmpty
             {
                 Chart
                 {
-                    ForEach(cachedDownloads)
+                    ForEach(appState.cachedDownloads)
                     { cachedPackage in
                         BarMark(
                             x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
@@ -61,7 +51,7 @@ struct CachedDownloadsFolderInfoBox: View
                         }
                         
                         /// Insert the separators between the bars, unless it's the last one. Then don't insert the divider
-                        if cachedPackage.packageName != cachedDownloads.last?.packageName
+                        if cachedPackage.packageName != appState.cachedDownloads.last?.packageName
                         {
                             BarMark(
                                 x: .value("start-page.cached-downloads.graph.size", appState.cachedDownloadsFolderSize / 500)
@@ -77,62 +67,5 @@ struct CachedDownloadsFolderInfoBox: View
                 .frame(height: 20)
             }
         }
-        .task(priority: .background) 
-        {
-            await loadCachedDownloads()
-        }
-    }
-    
-    private func loadCachedDownloads() async
-    {
-        
-        let smallestDispalyableSize: Int = Int(appState.cachedDownloadsFolderSize / 50)
-        let largestDisplayableSize: Int = Int(appState.cachedDownloadsFolderSize / 50)
-        
-        var packagesThatAreTooSmallToDisplaySize: Int = 0
-        
-        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles]) else
-        {
-            return
-        }
-        
-        let usableCachedDownloads: [URL] = cachedDownloadsFolderContents.filter({ $0.pathExtension != "json" })
-        
-        for usableCachedDownload in usableCachedDownloads 
-        {
-            guard let itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)") else
-            {
-                return
-            }
-            
-            print("Temp item name: \(itemName)")
-            
-            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path) else
-            {
-                return
-            }
-            
-            guard let itemSize = itemAttributes[.size] as? Int else
-            {
-                return
-            }
-            
-            if itemSize < smallestDispalyableSize
-            {
-                packagesThatAreTooSmallToDisplaySize = packagesThatAreTooSmallToDisplaySize + itemSize
-            }
-            else
-            {
-                cachedDownloads.append(.init(packageName: itemName, sizeInBytes: itemSize))
-            }
-            
-            print("Others size: \(packagesThatAreTooSmallToDisplaySize)")
-        }
-        
-        print("Cached downloads contents: \(cachedDownloads)")
-        
-        cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
-        
-        cachedDownloads.append(.init(packageName: "start-page.cached-downloads.graph.other-smaller-packages", sizeInBytes: packagesThatAreTooSmallToDisplaySize))
     }
 }
