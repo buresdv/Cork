@@ -129,10 +129,10 @@ struct CachedDownloadsFolderInfoBox: View
             print("Others size: \(packagesThatAreTooSmallToDisplaySize)")
         }
         
-        cachedDownloads.append(.init(packageName: "start-page.cached-downloads.graph.other-smaller-packages", sizeInBytes: packagesThatAreTooSmallToDisplaySize))
-        
         print("Cached downloads contents: \(cachedDownloads)")
         
         cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
+        
+        cachedDownloads.append(.init(packageName: "start-page.cached-downloads.graph.other-smaller-packages", sizeInBytes: packagesThatAreTooSmallToDisplaySize))
     }
 }
