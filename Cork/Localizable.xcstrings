@@ -13400,7 +13400,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "上月"
+            "value" : "过去一个月"
           }
         },
         "zh-Hant" : {
@@ -13492,7 +13492,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "去年"
+            "value" : "过去一年"
           }
         },
         "zh-Hant" : {
