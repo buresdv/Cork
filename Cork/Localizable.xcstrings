@@ -17420,6 +17420,12 @@
         }
       }
     },
+    "start-page.cached-downloads.graph.package-name" : {
+
+    },
+    "start-page.cached-downloads.graph.size" : {
+
+    },
     "start-page.installed-casks.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
