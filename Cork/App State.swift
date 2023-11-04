@@ -119,7 +119,6 @@ class AppState: ObservableObject {
     
     func loadCachedDownloadedPackages() async
     {
-        
         let smallestDispalyableSize: Int = Int(self.cachedDownloadsFolderSize / 50)
         
         var packagesThatAreTooSmallToDisplaySize: Int = 0
@@ -133,12 +132,24 @@ class AppState: ObservableObject {
         
         for usableCachedDownload in usableCachedDownloads
         {
-            guard let itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)") else
+            guard var itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)") else
             {
                 return
             }
             
             print("Temp item name: \(itemName)")
+            
+            if itemName.contains("--")
+            {
+                do
+                {
+                    itemName = try regexMatch(from: itemName, regex: ".*?(?=--)")
+                }
+                catch
+                {
+                    
+                }
+            }
             
             guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path) else
             {
