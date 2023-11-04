@@ -47,7 +47,7 @@ struct CachedDownloadsFolderInfoBox: View
                         .annotation(position: .overlay, alignment: .center) {
                             Text(cachedPackage.packageName)
                                 .foregroundColor(.white)
-                                .font(.system(size: 10))
+                                .font(.caption)
                         }
                         
                         /// Insert the separators between the bars, unless it's the last one. Then don't insert the divider
