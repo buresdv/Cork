@@ -21,6 +21,7 @@ struct CachedDownloadsFolderInfoBox: View
     @EnvironmentObject var appState: AppState
     
     @State private var cachedDownloads: Set<CachedDownload> = .init()
+    @State private var selectedPackageName: String?
 
     var body: some View
     {
@@ -28,27 +29,11 @@ struct CachedDownloadsFolderInfoBox: View
         {
             HStack
             {
-                VStack(alignment: .leading)
-                {
-                    GroupBoxHeadlineGroup(
-                        image: "archivebox",
-                        title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
-                        mainText: "start-page.cached-downloads.description"
-                    )
-                    
-                    if !cachedDownloads.isEmpty
-                    {
-                        Chart(cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes }))
-                        {
-                            BarMark(
-                                x: .value("start-page.cached-downloads.graph.size", $0.sizeInBytes)
-                            )
-                            .foregroundStyle(by: .value("start-page.cached-downloads.graph.package-name", $0.packageName))
-                        }
-                        .chartXAxis(.hidden)
-                        .chartYScale(type: .log)
-                    }
-                }
+                GroupBoxHeadlineGroup(
+                    image: "archivebox",
+                    title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
+                    mainText: "start-page.cached-downloads.description"
+                )
 
                 Spacer()
 
@@ -59,6 +44,27 @@ struct CachedDownloadsFolderInfoBox: View
                     Text("start-page.cached-downloads.action")
                 }
             }
+            
+            if !cachedDownloads.isEmpty
+            {
+                Chart(cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes }))
+                { cachedPackage in
+                    BarMark(
+                        x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
+                    )
+                    .foregroundStyle(by: .value("start-page.cached-downloads.graph.package-name", cachedPackage.packageName))
+                    .annotation(position: .overlay, alignment: .center) {
+                        Text(cachedPackage.packageName)
+                            .foregroundColor(.white)
+                            .font(.system(size: 10))
+                    }
+                }
+                .chartXAxis(.hidden)
+                .chartXScale(type: .linear)
+                .chartLegend(.hidden)
+                .cornerRadius(2)
+                .frame(height: 20)
+            }
         }
         .task(priority: .background) 
         {
@@ -68,6 +74,12 @@ struct CachedDownloadsFolderInfoBox: View
     
     private func loadCachedDownloads() async
     {
+        
+        let smallestDispalyableSize: Int = Int(appState.cachedDownloadsFolderSize / 50)
+        let largestDisplayableSize: Int = Int(appState.cachedDownloadsFolderSize / 50)
+        
+        var packagesThatAreTooSmallToDisplaySize: Int = 0
+        
         guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles]) else
         {
             return
@@ -94,8 +106,19 @@ struct CachedDownloadsFolderInfoBox: View
                 return
             }
             
-            cachedDownloads.insert(.init(packageName: itemName, sizeInBytes: itemSize))
+            if itemSize < smallestDispalyableSize
+            {
+                packagesThatAreTooSmallToDisplaySize = packagesThatAreTooSmallToDisplaySize + itemSize
+            }
+            else
+            {
+                cachedDownloads.insert(.init(packageName: itemName, sizeInBytes: itemSize))
+            }
+            
+            print("Others size: \(packagesThatAreTooSmallToDisplaySize)")
         }
+        
+        cachedDownloads.insert(.init(packageName: "start-page.cached-downloads.graph.other-smaller-packages", sizeInBytes: packagesThatAreTooSmallToDisplaySize))
         
         print(print("Cached downloads contents: \(cachedDownloads)"))
     }
