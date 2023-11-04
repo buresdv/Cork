@@ -20,8 +20,7 @@ struct CachedDownloadsFolderInfoBox: View
     
     @EnvironmentObject var appState: AppState
     
-    @State private var cachedDownloads: Set<CachedDownload> = .init()
-    @State private var selectedPackageName: String?
+    @State private var cachedDownloads: [CachedDownload] = .init()
 
     var body: some View
     {
@@ -47,16 +46,28 @@ struct CachedDownloadsFolderInfoBox: View
             
             if !cachedDownloads.isEmpty
             {
-                Chart(cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes }))
-                { cachedPackage in
-                    BarMark(
-                        x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
-                    )
-                    .foregroundStyle(by: .value("start-page.cached-downloads.graph.package-name", cachedPackage.packageName))
-                    .annotation(position: .overlay, alignment: .center) {
-                        Text(cachedPackage.packageName)
-                            .foregroundColor(.white)
-                            .font(.system(size: 10))
+                Chart
+                {
+                    ForEach(cachedDownloads)
+                    { cachedPackage in
+                        BarMark(
+                            x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
+                        )
+                        .foregroundStyle(by: .value("start-page.cached-downloads.graph.package-name", cachedPackage.packageName))
+                        .annotation(position: .overlay, alignment: .center) {
+                            Text(cachedPackage.packageName)
+                                .foregroundColor(.white)
+                                .font(.system(size: 10))
+                        }
+                        
+                        /// Insert the separators between the bars, unless it's the last one. Then don't insert the divider
+                        if cachedPackage.packageName != cachedDownloads.last?.packageName
+                        {
+                            BarMark(
+                                x: .value("start-page.cached-downloads.graph.size", appState.cachedDownloadsFolderSize / 500)
+                            )
+                            .foregroundStyle(Color.white)
+                        }
                     }
                 }
                 .chartXAxis(.hidden)
@@ -112,14 +123,16 @@ struct CachedDownloadsFolderInfoBox: View
             }
             else
             {
-                cachedDownloads.insert(.init(packageName: itemName, sizeInBytes: itemSize))
+                cachedDownloads.append(.init(packageName: itemName, sizeInBytes: itemSize))
             }
             
             print("Others size: \(packagesThatAreTooSmallToDisplaySize)")
         }
         
-        cachedDownloads.insert(.init(packageName: "start-page.cached-downloads.graph.other-smaller-packages", sizeInBytes: packagesThatAreTooSmallToDisplaySize))
+        cachedDownloads.append(.init(packageName: "start-page.cached-downloads.graph.other-smaller-packages", sizeInBytes: packagesThatAreTooSmallToDisplaySize))
         
-        print(print("Cached downloads contents: \(cachedDownloads)"))
+        print("Cached downloads contents: \(cachedDownloads)")
+        
+        cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
     }
 }
