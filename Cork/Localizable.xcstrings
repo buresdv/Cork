@@ -2220,6 +2220,12 @@
             "value" : "Terminé"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2901,6 +2907,12 @@
             "value" : "Arrêt"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остановить"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3212,6 +3224,12 @@
             "value" : "Vous pouvez soit attendre que ce processus se termine, soit le forcer à s'arrêter.\nForcer son arrêt peut entraîner la suppression de votre installation Homebrew."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете либо дождаться завершения процесса, либо завершить его принудительно. Принудительное завершение может привести к повреждению Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3244,6 +3262,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un autre processus Homebrew est déjà en cours"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уже запущен другой процесс Homebrew"
           }
         },
         "zh-Hans" : {
@@ -5868,6 +5892,12 @@
             "value" : "Il semble que ce paquet ne soit pas installé"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Похоже, этот пакет не установлен"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5900,6 +5930,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de trouver ce paquet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось найти этот пакет"
           }
         },
         "zh-Hans" : {
@@ -10223,6 +10259,12 @@
             "value" : "Toutes les fonctionnalités optionnelles sont activées"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все дополнительные возможности включены"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10255,6 +10297,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités de base"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основное"
           }
         },
         "zh-Hans" : {
@@ -10291,6 +10339,12 @@
             "value" : "Découvrabilité"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярные пакеты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10323,6 +10377,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités supplémentaires"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "а также"
           }
         },
         "zh-Hans" : {
@@ -10359,6 +10419,12 @@
             "value" : "Fonctionnalités du package"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакеты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10391,6 +10457,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités du Tap"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Источники"
           }
         },
         "zh-Hans" : {
@@ -10427,6 +10499,12 @@
             "value" : "Vérification de la compatibilité du package"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверка совместимости пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10459,6 +10537,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Plus d'informations sur les dépendances"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Больше информации о зависимостях"
           }
         },
         "zh-Hans" : {
@@ -10495,6 +10579,12 @@
             "value" : "Recherche dans les dépendances du package"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск по зависимостям пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10527,6 +10617,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avis complets sur le package"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полный список предписаний пакетов"
           }
         },
         "zh-Hans" : {
@@ -10563,6 +10659,12 @@
             "value" : "Rechercher des packages populaires"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск популярных пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10595,6 +10697,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenance Homebrew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуживание Homebrew"
           }
         },
         "zh-Hans" : {
@@ -10631,6 +10739,12 @@
             "value" : "Actions rapides dans la barre de menu"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Быстрые действия в строке меню"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10663,6 +10777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications concernant diverses actions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уведомления о различных действиях"
           }
         },
         "zh-Hans" : {
@@ -10699,6 +10819,12 @@
             "value" : "Descriptions des packages dans la recherche"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Описания пакетов в меню поиска"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10731,6 +10857,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détails du package"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подробная информация о пакетах"
           }
         },
         "zh-Hans" : {
@@ -10767,6 +10899,12 @@
             "value" : "Purge de paquet"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Искоренение пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10799,6 +10937,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Révéler les paquets dans Finder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возможность просмотра пакетов в Finder"
           }
         },
         "zh-Hans" : {
@@ -10835,6 +10979,12 @@
             "value" : "Recherche dans les paquets installés"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск среди установленных пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10867,6 +11017,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche de paquet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск пакетов"
           }
         },
         "zh-Hans" : {
@@ -10903,6 +11059,12 @@
             "value" : "Étiquetage de paquet"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Способность отмечать пакеты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10935,6 +11097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détails du Tap"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подробная информация об источниках"
           }
         },
         "zh-Hans" : {
@@ -10972,6 +11140,12 @@
             "value" : "Masquer les détails de"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спрятать подробности о"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11004,6 +11178,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez toujours personnaliser votre expérience dans les paramètres"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В дальнейшем вы сможете изменить объем в Настройках"
           }
         },
         "zh-Hans" : {
@@ -11041,6 +11221,12 @@
             "value" : "Afficher les détails de"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать подробности о"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11073,6 +11259,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la première utilisation…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настроить объем функционала..."
           }
         },
         "zh-Hans" : {
@@ -11109,6 +11301,12 @@
             "value" : "Découvrez les applications du monde entier"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скажите \"Привет\" миру приложений"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11141,6 +11339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bienvenue dans l'avenir de Homebrew !"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать в будущее Homebrew!"
           }
         },
         "zh-Hans" : {
@@ -14124,6 +14328,12 @@
             "value" : "Autoriser la révélation des paquets dans Finder"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возможность показать пакет в Finder"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15918,6 +16128,12 @@
             "value" : "Avancé"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Весь"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15950,6 +16166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basique"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Базовый"
           }
         },
         "zh-Hans" : {
@@ -15986,6 +16208,12 @@
             "value" : "Équilibré"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбалансированный"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16018,6 +16246,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Légèrement avancé"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продвинутый"
           }
         },
         "zh-Hans" : {
@@ -16054,6 +16288,12 @@
             "value" : "Légèrement basique"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Упрощенный"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16086,6 +16326,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comment souhaiteriez-vous découvrir Cork ?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Какой объем функционала Cork вас устраивает?"
           }
         },
         "zh-Hans" : {
@@ -18243,6 +18489,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Désactivé"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отключено"
           }
         },
         "zh-Hans" : {
