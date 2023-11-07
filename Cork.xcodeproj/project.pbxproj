@@ -187,6 +187,7 @@
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
+		63F44AC62AF6CB6000CA0C16 /* Cached Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */; };
 		63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */; };
 		63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */; };
 		63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5782A90CB8700F95E54 /* Top Package.swift */; };
@@ -393,6 +394,7 @@
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
+		63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Download.swift"; sourceTree = "<group>"; };
 		63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load up Top Packages.swift"; sourceTree = "<group>"; };
 		63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Download Data From URL.swift"; sourceTree = "<group>"; };
 		63FFE5782A90CB8700F95E54 /* Top Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package.swift"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 				63D830FB29990DD600FA802F /* Terminal Output.swift */,
 				634065792871AC27001A2178 /* Brew Data Storage.swift */,
 				633289EE29A68B36004B2930 /* Search Result Tracker.swift */,
+				63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1551,6 +1554,7 @@
 				63689FAD2ACDCD2F00BD354C /* Maintenance Finished View.swift in Sources */,
 				63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */,
 				63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */,
+				63F44AC62AF6CB6000CA0C16 /* Cached Download.swift in Sources */,
 				63689F7D2ACC6CFF00BD354C /* Package Detail Header Complex.swift in Sources */,
 				6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */,
 				63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */,

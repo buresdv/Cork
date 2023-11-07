@@ -42,6 +42,7 @@ class AppState: ObservableObject {
     @Published var isLoadingTopPackages: Bool = false
     
     @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
+    @Published var cachedDownloads: [CachedDownload] = .init()
     
     @Published var taggedPackageNames: Set<String> = .init()
     
@@ -114,6 +115,69 @@ class AppState: ObservableObject {
     func setCouldNotParseTopPackages() {
         fatalAlertType = .couldNotParseTopPackages
         isShowingFatalError = true
+    }
+    
+    func loadCachedDownloadedPackages() async
+    {
+        let smallestDispalyableSize: Int = Int(self.cachedDownloadsFolderSize / 50)
+        
+        var packagesThatAreTooSmallToDisplaySize: Int = 0
+        
+        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles]) else
+        {
+            return
+        }
+        
+        let usableCachedDownloads: [URL] = cachedDownloadsFolderContents.filter({ $0.pathExtension != "json" })
+        
+        for usableCachedDownload in usableCachedDownloads
+        {
+            guard var itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)") else
+            {
+                return
+            }
+            
+            print("Temp item name: \(itemName)")
+            
+            if itemName.contains("--")
+            {
+                do
+                {
+                    itemName = try regexMatch(from: itemName, regex: ".*?(?=--)")
+                }
+                catch
+                {
+                    
+                }
+            }
+            
+            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path) else
+            {
+                return
+            }
+            
+            guard let itemSize = itemAttributes[.size] as? Int else
+            {
+                return
+            }
+            
+            if itemSize < smallestDispalyableSize
+            {
+                packagesThatAreTooSmallToDisplaySize = packagesThatAreTooSmallToDisplaySize + itemSize
+            }
+            else
+            {
+                self.cachedDownloads.append(CachedDownload(packageName: itemName, sizeInBytes: itemSize))
+            }
+            
+            print("Others size: \(packagesThatAreTooSmallToDisplaySize)")
+        }
+        
+        print("Cached downloads contents: \(self.cachedDownloads)")
+        
+        self.cachedDownloads = self.cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
+        
+        self.cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize))
     }
 }
 
