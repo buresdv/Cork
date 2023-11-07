@@ -17422,6 +17422,12 @@
     },
     "start-page.cached-downloads.graph.other-smaller-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ostatní"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17431,10 +17437,36 @@
       }
     },
     "start-page.cached-downloads.graph.package-name" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Název balíčku v mezipaměti"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cached Download Package Name"
+          }
+        }
+      }
     },
     "start-page.cached-downloads.graph.size" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velikost balíčku v mezipaměti"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cached Download Size"
+          }
+        }
+      }
     },
     "start-page.installed-casks.count-%lld" : {
       "extractionState" : "manual",
