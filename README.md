@@ -35,7 +35,7 @@ Cork is not just an interface for Homebrew. It has many features that are either
 
 Pre-compiled, always up-to-date versions are available from my Homebrew tap. You can get access to it in a few ways:
 
-- Buy Cork for 25€ through [GitHub Sponsors](https://github.com/sponsors/buresdv?frequency=one-time&sponsor=buresdv). You will get access to all future versions at no additional cost.
+- Buy Cork for 25€ through the [website](https://corkmac.app) or [GitHub Sponsors](https://github.com/sponsors/buresdv?frequency=one-time&sponsor=buresdv). You will get access to all future versions at no additional cost.
 - Donate at least 5€/month to support the ongoing development of Cork. You can donate through [Ko-Fi](https://ko-fi.com/buresdv) or [GitHub Sponsors](https://github.com/sponsors/buresdv). Additionally, you will also get priority support.
 - Become a contributor. For example, you can:
   - Translate Cork into your language, and keep your translation updated. I'd recommend joining the [Cork Discord](https://discord.gg/kUHg8uGHpG), as I always ping the translators there when new text is ready for translating.
@@ -44,7 +44,7 @@ Pre-compiled, always up-to-date versions are available from my Homebrew tap. You
   - Implement a feature tagged with `Help Wanted` in the [Issue Tracker](https://github.com/buresdv/Cork/issues?q=is%3Aissue+is%3Aopen+label%3A%22Help+Wanted%22).
     Please espect the coding style. The main deviation from the Swift convention is that [brackets are on their own lines](https://github.com/buresdv/Cork/blob/83e6ac9977d780328d7bfeddaf4df66dc3260521/Cork/Logic/JSON/Parse%20JSON.swift#L16).
 
-However, if you don't want to do any of the above, you can always compile Cork yourself for free. See below for instructions.
+However, if you don't want to do any of the above, you can always compile Cork yourself. See below for instructions.
 
 ## Screenshots
 ### Main Window
@@ -102,18 +102,17 @@ Prerequisites:
 
 **Compiling Cork**
 
-1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open .`
-2. Double-click `Cork.xcodeproj`. Xcode should open the project
-3. Wait until all the dependencies are resolved. It should take a couple minutes at most
-4. In the file browser on the left, click `Cork` at the very top. It's the icon with the App Store logo
-5. In the pane that opens on the right, click `Signing & Capabilities` at the top
-6. Under `Signing`, switch the `Team` dropdown to `None`
-7. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
-8. In the Menu Bar, click `Product → Archive` and wait for the building to finish
-9. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
-10. In the popup that appears, click `Custom`, then click `Next` in the bottom right of the popup
-11. Click `Copy App`
-12. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
+1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open Cork.xcodeproj`. Xcode will open the project
+2. Wait until all the dependencies are resolved. It should take a couple minutes at most
+3. In the file browser on the left, click `Cork` at the very top. It's the icon with the App Store logo
+4. In the pane that opens on the right, click `Signing & Capabilities` at the top
+5. Under `Signing`, switch the `Team` dropdown to `None`
+6. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
+7. In the Menu Bar, click `Product → Archive` and wait for the building to finish
+8. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
+9. In the popup that appears, click `Custom`, then click `Next` in the bottom right of the popup
+10. Click `Copy App`
+11. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
 
 ## License
 
