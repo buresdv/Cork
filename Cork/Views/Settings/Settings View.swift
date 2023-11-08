@@ -7,8 +7,24 @@
 
 import SwiftUI
 
+class SettingsState: ObservableObject
+{
+    enum AlertType
+    {
+        case deepUninstall, cleanupDisabling
+    }
+    
+    @Published var alertType: AlertType = .cleanupDisabling
+    @Published var isShowingAlert: Bool = false
+}
+
 struct SettingsView: View
 {
+    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled = true
+    
+    @StateObject var settingsState: SettingsState = .init()
+    
     var body: some View
     {
         TabView
@@ -44,6 +60,37 @@ struct SettingsView: View
                 .tabItem {
                     Label("settings.homebrew", systemImage: "mug")
                 }
+        }
+        .environmentObject(settingsState)
+        .alert(isPresented: $settingsState.isShowingAlert)
+        {
+            switch settingsState.alertType {
+                case .deepUninstall:
+                    return Alert(
+                        title: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title"),
+                        message: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body"),
+                        primaryButton: .default(Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm"), action: {
+                            allowMoreCompleteUninstallations = true
+                            settingsState.isShowingAlert = false
+                        }),
+                        secondaryButton: .cancel({
+                            allowMoreCompleteUninstallations = false
+                            settingsState.isShowingAlert = false
+                        }))
+                case .cleanupDisabling:
+                    return Alert(
+                        title: Text("settings.install-uninstall.installation.enable-automatic-cleanup.alert.title"),
+                        message: Text("settings.install-uninstall.installation.enable-automatic-cleanup.alert.message"),
+                        primaryButton: .destructive(Text("settings.install-uninstall.installation.enable-automatic-cleanup.alert.confirm"), action: {
+                            isAutomaticCleanupEnabled = false
+                            settingsState.isShowingAlert = false
+                        }),
+                        secondaryButton: .cancel({
+                            isAutomaticCleanupEnabled = true
+                            settingsState.isShowingAlert = false
+                        })
+                    )
+            }
         }
     }
 }
