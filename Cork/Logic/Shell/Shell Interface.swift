@@ -72,6 +72,14 @@ func shell(
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
     
+    // MARK: - Block automatic cleanup is configured
+    if !UserDefaults.standard.bool(forKey: "isAutomaticCleanupEnabled")
+    {
+        finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
+    }
+    
+    print("Final environment: \(finalEnvironment)")
+    
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
     task.arguments = arguments

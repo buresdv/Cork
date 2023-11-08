@@ -14952,6 +14952,86 @@
         }
       }
     },
+    "settings.install-uninstall.installation.enable-automatic-cleanup" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Čistit zastaralé soubory"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clean up after old packages"
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.installation.enable-automatic-cleanup.alert.confirm" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vypnout automatické čištění"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable Automatic Cleanup"
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.installation.enable-automatic-cleanup.alert.message" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neprovádění automatických čištění může rozbít Homebrew."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disabling automatic cleanups might break your Homebrew installation."
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.installation.enable-automatic-cleanup.alert.title" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravdu chcete vypnout automatické čištění zastaralých souborů?"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to disable automatic cleanups?"
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.installation.enable-automatic-cleanup.warning" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zakázáním čištění zastaralých souborů zrychlíte instalace balíčků,\nale Homebrew celkově zpomalíte.\nZakázání čištění může váš Homebrew rozbít.\nTato volba ovládá také automatické čištění balíčků po 30 dnech neaktivity."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disabling cleanup makes installing packages faster,\nbut makes Homebrew slower overall. \nDisabling this option might break your Homebrew installation.\nThis option also controls automatic cleanups that occur\nafter you have not used Homebrew for more than 30 days."
+          }
+        }
+      }
+    },
     "settings.install-uninstall.installation.toggle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -15102,37 +15182,37 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Durch das Bereinigen können anderen Pakete beschädigt werden. Bist du sicher, dass du fortfahren möchtest?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Purging may break your other packages\nAre you sure you want to continue?"
+            "value" : "Purging may break your other packages.\nAre you sure you want to continue?"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "La suppression peut endommager vos autres paquets\nÊtes-vous sûr de vouloir continuer ?"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Искоренение может сломать другие пакеты\nВы уверены?"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "清除操作可能破坏其他软件包\n确定要继续吗？"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "清除動作可能會移除共享的檔案，導致其他套件故障。\n您確定要繼續？"
           }
         }
@@ -15240,37 +15320,37 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Beim Bereinigen werden alle mit einem Paket verknüpften Dateien entfernt.\nDies kann gemeinsam genutzte Dateien entfernen und andere Pakete beschädigen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages"
+            "value" : "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "La purge supprime tous les fichiers associés à un paquet.\nCela peut entraîner la suppression de fichiers partagés et affecter d'autres de vos paquets"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Искоренение удаляет все файлы, принадлежащие пакету.\nЭто может привести к удалению файлов, которые принадлежат \nнескольким пакетам, и, таким образом, сломать эти пакеты"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "清除操作会删除与软件包相关的所有文件\n这可能会删除公共文件并破坏其他软件包"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "清除所有與套件相關的檔案。\n這可能會移除共享的檔案，導致其他套件故障。"
           }
         }
