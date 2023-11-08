@@ -14965,6 +14965,12 @@
             "state" : "translated",
             "value" : "Clean up after old packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清除旧软件包"
+          }
         }
       }
     },
@@ -14980,6 +14986,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disable Automatic Cleanup"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭自动清除"
           }
         }
       }
@@ -14997,6 +15009,12 @@
             "state" : "translated",
             "value" : "Disabling automatic cleanups might break your Homebrew installation."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭自动清理可能会破坏你的 Homebrew 安装。"
+          }
         }
       }
     },
@@ -15013,6 +15031,12 @@
             "state" : "translated",
             "value" : "Are you sure you want to disable automatic cleanups?"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你确定要禁用自动清理吗？"
+          }
         }
       }
     },
@@ -15028,6 +15052,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disabling cleanup makes installing packages faster,\nbut makes Homebrew slower overall. \nDisabling this option might break your Homebrew installation.\nThis option also controls automatic cleanups that occur\nafter you have not used Homebrew for more than 30 days."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭清除操作会加快软件包安装速度，但会降低 Homebrew 的总体性能。\n关闭该选项可能会破坏你的 Homebrew 安装。\n此选项还控制在你30 天未使用 Homebrew 后自动进行的清除操作。"
           }
         }
       }
@@ -15206,7 +15236,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "清除操作可能破坏其他软件包\n确定要继续吗？"
           }
         },
@@ -15344,7 +15374,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "清除操作会删除与软件包相关的所有文件\n这可能会删除公共文件并破坏其他软件包"
           }
         },
@@ -17213,7 +17243,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 分析已禁用"
+            "value" : "Homebrew 分析已关闭"
           }
         },
         "zh-Hant" : {
@@ -17513,6 +17543,12 @@
             "state" : "translated",
             "value" : "Others"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
+          }
         }
       }
     },
@@ -17529,6 +17565,12 @@
             "state" : "translated",
             "value" : "Cached Download Package Name"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载缓存软件包名称"
+          }
         }
       }
     },
@@ -17544,6 +17586,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cached Download Size"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载缓存大小"
           }
         }
       }
@@ -18628,7 +18676,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "禁用"
+            "value" : "关闭"
           }
         },
         "zh-Hant" : {
@@ -19458,7 +19506,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在清理…"
+            "value" : "正在清除…"
           }
         },
         "zh-Hant" : {
