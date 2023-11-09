@@ -3451,7 +3451,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Скрыть детали"
+            "value" : "Скрыть подробности"
           }
         },
         "zh-Hans" : {
@@ -14966,6 +14966,12 @@
             "value" : "Clean up after old packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Производить очистку после удаления пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14986,6 +14992,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disable Automatic Cleanup"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отключить автоматическую очистку"
           }
         },
         "zh-Hans" : {
@@ -15010,6 +15022,12 @@
             "value" : "Disabling automatic cleanups might break your Homebrew installation."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отключение автоматической очистки может привести к поломке Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15032,6 +15050,12 @@
             "value" : "Are you sure you want to disable automatic cleanups?"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы точно хотите отключить автоматическую очистку?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15052,6 +15076,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disabling cleanup makes installing packages faster,\nbut makes Homebrew slower overall. \nDisabling this option might break your Homebrew installation.\nThis option also controls automatic cleanups that occur\nafter you have not used Homebrew for more than 30 days."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установка без очистки быстрее, но делает сам Homebrew медленнее.\nОтключение этой опции может сломать Homebrew.\nЭта опция также отвечает за автоматическую очистку в случае, если вы не использовали Homebrew больше 30 дней."
           }
         },
         "zh-Hans" : {
@@ -15230,8 +15260,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Искоренение может сломать другие пакеты\nВы уверены?"
+            "state" : "translated",
+            "value" : "Искоренение может сломать другие пакеты.\nВы уверены?"
           }
         },
         "zh-Hans" : {
@@ -15368,8 +15398,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Искоренение удаляет все файлы, принадлежащие пакету.\nЭто может привести к удалению файлов, которые принадлежат \nнескольким пакетам, и, таким образом, сломать эти пакеты"
+            "state" : "translated",
+            "value" : "Искоренение удаляет все файлы, принадлежащие пакету.\nЭто может привести к удалению файлов, которые принадлежат \nнескольким пакетам, и, таким образом, сломать эти пакеты."
           }
         },
         "zh-Hans" : {
@@ -17544,6 +17574,12 @@
             "value" : "Others"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Другие"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17566,6 +17602,12 @@
             "value" : "Cached Download Package Name"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Название пакета в кеше загрузок"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17586,6 +17628,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cached Download Size"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Размер кеша загрузок"
           }
         },
         "zh-Hans" : {
