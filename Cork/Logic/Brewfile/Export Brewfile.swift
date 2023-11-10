@@ -13,8 +13,15 @@ enum BrewfileDumpingError: Error
 }
 
 /// Exports the Brewfile and returns the raw data from the Brewfile itself for further manipulation. Does not preserve the Brewfile
-func exportBrewfile() async throws -> Data
+@MainActor
+func exportBrewfile(appState: AppState) async throws -> Data
 {
+    appState.isShowingBrewfileExportProgress = true
+    
+    defer {
+        appState.isShowingBrewfileExportProgress = false
+    }
+    
     let brewfileParentLocation: URL = URL.temporaryDirectory
     
     let pathRawOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])

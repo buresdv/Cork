@@ -11,15 +11,16 @@ import UniformTypeIdentifiers
 
 struct DataFile: FileDocument
 {
-    static var readableContentTypes: [UTType] { [.data] }
-
+    static var readableContentTypes: [UTType] { [.data, .delimitedText] }
+    static var writableContentTypes: [UTType] { [.data, .delimitedText] }
+    
     var data: Data
-
+    
     init(initialData: Data = Data())
     {
         data = initialData
     }
-
+    
     init(configuration: ReadConfiguration) throws
     {
         if let fileData = configuration.file.regularFileContents
@@ -31,7 +32,7 @@ struct DataFile: FileDocument
             throw CocoaError(.fileReadCorruptFile)
         }
     }
-
+    
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper
     {
         return FileWrapper(regularFileWithContents: data)

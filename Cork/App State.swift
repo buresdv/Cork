@@ -24,6 +24,7 @@ class AppState: ObservableObject {
     @Published var isShowingFastCacheDeletionMaintenanceView: Bool = false
     @Published var isShowingAddTapSheet: Bool = false
     @Published var isShowingUpdateSheet: Bool = false
+    @Published var isShowingBrewfileExportProgress: Bool = false
     
     @Published var isCheckingForPackageUpdates: Bool = false
     

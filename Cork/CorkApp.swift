@@ -5,7 +5,6 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
-
 import SwiftUI
 import UserNotifications
 
@@ -23,7 +22,7 @@ struct CorkApp: App
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
     @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
-    
+
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
 
@@ -35,9 +34,11 @@ struct CorkApp: App
     @State private var isUninstallingOrphanedPackages: Bool = false
     @State private var isPurgingHomebrewCache: Bool = false
     @State private var isDeletingCachedDownloads: Bool = false
-    
-    @State private var brewfileContents: Data = Data()
+
+    @State private var brewfileContents: Data = .init()
     @State private var isShowingBrewfileExporter: Bool = false
+
+    @State private var isShowingBrewfileImporter: Bool = false
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
@@ -167,9 +168,10 @@ struct CorkApp: App
                 }
                 .onChange(of: areNotificationsEnabled)
                 { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
-                    Task(priority: .background) {
+                    Task(priority: .background)
+                    {
                         await appDelegate.appState.requestNotificationAuthorization()
-                        
+
                         if appDelegate.appState.notificationEnabledInSystemSettings == true
                         {
                             await appDelegate.appState.requestNotificationAuthorization()
@@ -179,7 +181,7 @@ struct CorkApp: App
                             }
                         }
                     }
-                    
+
                     if newValue == false
                     {
                         NSApp.dockTile.badgeLabel = ""
@@ -189,12 +191,33 @@ struct CorkApp: App
                         setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
                     }
                 }
-                .fileExporter(isPresented: $isShowingBrewfileExporter, document: DataFile(initialData: brewfileContents), contentType: .plainText) { result in
-                    switch result {
-                        case .success(let success):
-                            print("Succeeded in exporting: \(success)")
-                        case .failure(let failure):
-                            print("Failed in exporting: \(failure)")
+                .fileExporter(
+                    isPresented: $isShowingBrewfileExporter,
+                    document: DataFile(initialData: brewfileContents),
+                    contentType: .delimitedText,
+                    defaultFilename: String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: .numeric, time: .omitted))")
+                )
+                { result in
+                    switch result
+                    {
+                    case let .success(success):
+                        print("Succeeded in exporting: \(success)")
+                    case let .failure(failure):
+                        print("Failed in exporting: \(failure)")
+                    }
+                }
+                .fileImporter(
+                    isPresented: $isShowingBrewfileImporter,
+                    allowedContentTypes: [.delimitedText],
+                    allowsMultipleSelection: false
+                )
+                { result in
+                    switch result
+                    {
+                    case let .success(success):
+                        print("Succeeded in importing: \(success)")
+                    case let .failure(failure):
+                        print("Failed in importing: \(failure)")
                     }
                 }
         }
@@ -241,7 +264,7 @@ struct CorkApp: App
                 Divider()
             }
 
-            CommandGroup(before: .systemServices) 
+            CommandGroup(before: .systemServices)
             {
                 Button
                 {
@@ -250,10 +273,10 @@ struct CorkApp: App
                     Text("onboarding.start")
                 }
                 .disabled(!hasFinishedOnboarding)
-                
+
                 Divider()
             }
-            
+
             SidebarCommands()
             CommandGroup(replacing: .newItem) // Disables "New Window"
             {}
@@ -269,7 +292,7 @@ struct CorkApp: App
                 .disabled(appDelegate.appState.navigationSelection == nil)
                 Divider()
             }
-            
+
             CommandGroup(before: .newItem)
             {
                 Button
@@ -278,32 +301,41 @@ struct CorkApp: App
                     {
                         do
                         {
-                            brewfileContents = try await exportBrewfile()
-                            
+                            brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+
                             isShowingBrewfileExporter = true
                         }
                         catch let brewfileExportError as BrewfileDumpingError
                         {
-                            switch brewfileExportError {
-                                case .couldNotDetermineWorkingDirectory:
-                                    print("ERROR: Could not determine working directory")
-                                case .errorWhileDumpingBrewfile:
-                                    print("ERROR: Could not dump the Brewfile")
-                                case .couldNotReadBrewfile:
-                                    print("ERROR: Could not read the Brewfile")
+                            defer
+                            {
+                                appDelegate.appState.isShowingFatalError = true
+                            }
+                            switch brewfileExportError
+                            {
+                            case .couldNotDetermineWorkingDirectory:
+                                appDelegate.appState.fatalAlertType = .couldNotGetWorkingDirectory
+
+                            case .errorWhileDumpingBrewfile:
+                                appDelegate.appState.fatalAlertType = .couldNotDumpBrewfile
+
+                            case .couldNotReadBrewfile:
+                                appDelegate.appState.fatalAlertType = .couldNotReadBrewfile
                             }
                         }
                     }
                 } label: {
                     Text("navigation.menu.import-export.export-brewfile")
                 }
-                
+
                 Button
                 {
-                    Task(priority: .userInitiated) 
+                    Task(priority: .userInitiated)
                     {
                         do
                         {
+                            isShowingBrewfileImporter = true
+                            
                             try await importBrewfile()
                         }
                     }
@@ -388,8 +420,9 @@ struct CorkApp: App
 
             if outdatedPackageTracker.outdatedPackages.count > 0
             {
-                Menu {
-                    ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn!}))
+                Menu
+                {
+                    ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                     { outdatedPackage in
                         SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
                     }
@@ -537,7 +570,6 @@ struct CorkApp: App
             {
                 Text("maintenance.step.deleting-cached-downloads")
             }
-
 
             Divider()
 

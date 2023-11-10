@@ -5872,7 +5872,18 @@
         }
       }
     },
+    "alert.could-not-dump-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't write Homebrew backup"
+          }
+        }
+      }
+    },
     "alert.could-not-find-package-in-parent-directory.message" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -5948,6 +5959,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到此套件"
+          }
+        }
+      }
+    },
+    "alert.could-not-get-brewfile-working-directory.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't create backup parent folder"
           }
         }
       }
@@ -6042,6 +6063,27 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法取得落伍套件"
+          }
+        }
+      }
+    },
+    "alert.could-not-read-brewfile.message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again, or restart Cork"
+          }
+        }
+      }
+    },
+    "alert.could-not-read-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read backup"
           }
         }
       }
@@ -6919,6 +6961,37 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork"
+          }
+        }
+      }
+    },
+    "brewfile.export.default-export-name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Backup"
+          }
+        }
+      }
+    },
+    "brewfile.export.default-export-name-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Homebrew Backup"
+          }
+        }
+      }
+    },
+    "brewfile.export.progress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backing up Homebrew…"
           }
         }
       }
@@ -8829,6 +8902,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "開啟 Cork"
+          }
+        }
+      }
+    },
+    "message.try-again-or-restart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again, or restart Cork"
           }
         }
       }
