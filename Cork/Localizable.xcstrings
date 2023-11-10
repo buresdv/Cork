@@ -9306,6 +9306,26 @@
         }
       }
     },
+    "navigation.menu.import-export.export-brewfile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Homebrew Backup…"
+          }
+        }
+      }
+    },
+    "navigation.menu.import-export.import-brewfile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import Homebrew Backup…"
+          }
+        }
+      }
+    },
     "navigation.menu.maintenance" : {
       "localizations" : {
         "cs" : {

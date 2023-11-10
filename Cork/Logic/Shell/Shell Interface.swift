@@ -11,12 +11,13 @@ import Foundation
 func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
 ) async -> TerminalOutput
 {
     var allOutput: [String] = .init()
     var allErrors: [String] = .init()
-    for await streamedOutput in shell(launchPath, arguments, environment: environment)
+    for await streamedOutput in shell(launchPath, arguments, environment: environment, workingDirectory: workingDirectory)
     {
         switch streamedOutput
         {
@@ -48,7 +49,8 @@ func shell(
 func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
 ) -> AsyncStream<StreamedTerminalOutput> {
     let task = Process()
     
@@ -79,6 +81,13 @@ func shell(
     }
     
     print("Final environment: \(finalEnvironment)")
+    
+    // MARK: - Set working directory if provided
+    if let workingDirectory
+    {
+        print("Working directory configured: \(workingDirectory)")
+        task.currentDirectoryURL = workingDirectory
+    }
     
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString

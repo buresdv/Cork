@@ -35,6 +35,9 @@ struct CorkApp: App
     @State private var isUninstallingOrphanedPackages: Bool = false
     @State private var isPurgingHomebrewCache: Bool = false
     @State private var isDeletingCachedDownloads: Bool = false
+    
+    @State private var brewfileContents: Data = Data()
+    @State private var isShowingBrewfileExporter: Bool = false
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
@@ -186,6 +189,14 @@ struct CorkApp: App
                         setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
                     }
                 }
+                .fileExporter(isPresented: $isShowingBrewfileExporter, document: DataFile(initialData: brewfileContents), contentType: .plainText) { result in
+                    switch result {
+                        case .success(let success):
+                            print("Succeeded in exporting: \(success)")
+                        case .failure(let failure):
+                            print("Failed in exporting: \(failure)")
+                    }
+                }
         }
         .commands
         {
@@ -230,7 +241,8 @@ struct CorkApp: App
                 Divider()
             }
 
-            CommandGroup(before: .systemServices) {
+            CommandGroup(before: .systemServices) 
+            {
                 Button
                 {
                     hasFinishedOnboarding = false
@@ -256,6 +268,48 @@ struct CorkApp: App
                 }
                 .disabled(appDelegate.appState.navigationSelection == nil)
                 Divider()
+            }
+            
+            CommandGroup(before: .newItem)
+            {
+                Button
+                {
+                    Task(priority: .userInitiated)
+                    {
+                        do
+                        {
+                            brewfileContents = try await exportBrewfile()
+                            
+                            isShowingBrewfileExporter = true
+                        }
+                        catch let brewfileExportError as BrewfileDumpingError
+                        {
+                            switch brewfileExportError {
+                                case .couldNotDetermineWorkingDirectory:
+                                    print("ERROR: Could not determine working directory")
+                                case .errorWhileDumpingBrewfile:
+                                    print("ERROR: Could not dump the Brewfile")
+                                case .couldNotReadBrewfile:
+                                    print("ERROR: Could not read the Brewfile")
+                            }
+                        }
+                    }
+                } label: {
+                    Text("navigation.menu.import-export.export-brewfile")
+                }
+                
+                Button
+                {
+                    Task(priority: .userInitiated) 
+                    {
+                        do
+                        {
+                            try await importBrewfile()
+                        }
+                    }
+                } label: {
+                    Text("navigation.menu.import-export.import-brewfile")
+                }
             }
 
             CommandMenu("navigation.menu.packages")
