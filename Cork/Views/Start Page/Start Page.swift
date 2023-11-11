@@ -18,6 +18,8 @@ struct StartPage: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
+    
+    @State private var dragOver: Bool = false
 
     var body: some View
     {
@@ -115,6 +117,20 @@ struct StartPage: View
                     appState.isCheckingForPackageUpdates = false
                 }
             }
+        }
+        .onDrop(of: [.homebrewBackup], isTargeted: $dragOver) { providers -> Bool in
+            providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { (data, error) in
+                if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String) {
+                    
+                    if url.pathExtension == "brewbak" {
+                        print("Correct File Format")
+                        
+                    } else {
+                        print("Incorrect file format")
+                    }
+                }
+            })
+            return true
         }
     }
 }

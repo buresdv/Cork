@@ -11,8 +11,8 @@ import UniformTypeIdentifiers
 
 struct DataFile: FileDocument
 {
-    static var readableContentTypes: [UTType] { [.data, .delimitedText] }
-    static var writableContentTypes: [UTType] { [.data, .delimitedText] }
+    static var readableContentTypes: [UTType] { [.data, .homebrewBackup] }
+    static var writableContentTypes: [UTType] { [.data, .homebrewBackup] }
     
     var data: Data
     

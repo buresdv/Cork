@@ -194,7 +194,7 @@ struct CorkApp: App
                 .fileExporter(
                     isPresented: $isShowingBrewfileExporter,
                     document: DataFile(initialData: brewfileContents),
-                    contentType: .delimitedText,
+                    contentType: .homebrewBackup,
                     defaultFilename: String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: .numeric, time: .omitted))")
                 )
                 { result in
@@ -208,7 +208,7 @@ struct CorkApp: App
                 }
                 .fileImporter(
                     isPresented: $isShowingBrewfileImporter,
-                    allowedContentTypes: [.delimitedText],
+                    allowedContentTypes: [.homebrewBackup],
                     allowsMultipleSelection: false
                 )
                 { result in
