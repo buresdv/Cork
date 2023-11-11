@@ -5963,6 +5963,26 @@
         }
       }
     },
+    "alert.could-not-get-brewfile-location.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move the backup file to a different location, then try again"
+          }
+        }
+      }
+    },
+    "alert.could-not-get-brewfile-location.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insufficient permissions to read backup file"
+          }
+        }
+      }
+    },
     "alert.could-not-get-brewfile-working-directory.title" : {
       "localizations" : {
         "en" : {
@@ -6063,6 +6083,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法取得落伍套件"
+          }
+        }
+      }
+    },
+    "alert.could-not-import-brewfile.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move the backup file to a different location, then try again"
+          }
+        }
+      }
+    },
+    "alert.could-not-import-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read backup file"
           }
         }
       }
@@ -6223,6 +6263,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 的設定不如 Cork 所預期"
+          }
+        }
+      }
+    },
+    "alert.malformed-brewfile.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file you tried to restore from doesn't have the correct structure"
+          }
+        }
+      }
+    },
+    "alert.malformed-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backup File Broken"
           }
         }
       }

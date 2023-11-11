@@ -20,4 +20,5 @@ enum FatalAlertType
     
     //MARK: - Brewfile exporting/importing
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile, couldNotReadBrewfile
+    case couldNotGetBrewfileLocation, couldNotImportBrewfile, malformedBrewfile
 }

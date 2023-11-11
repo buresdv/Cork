@@ -337,7 +337,7 @@ struct CorkApp: App
                             let picker = NSOpenPanel()
                             picker.allowsMultipleSelection = false
                             picker.canChooseDirectories = false
-                            picker.allowedFileTypes = ["brewbak"]
+                            picker.allowedFileTypes = ["brewbak", ""]
                             
                             if picker.runModal() == .OK
                             {
@@ -355,19 +355,29 @@ struct CorkApp: App
                                 }
                                 catch
                                 {
-                                    throw BrewfileReadingError.couldNotImportFile
+                                    defer
+                                    {
+                                        appDelegate.appState.isShowingBrewfileImportProgress = false
+                                        appDelegate.appState.isShowingFatalError = true
+                                    }
+                                    
+                                    appDelegate.appState.fatalAlertType = .malformedBrewfile
                                 }
                             }
-                            
-                            //isShowingBrewfileImporter = true
+
                         }
                         catch let error as BrewfileReadingError
                         {
+                            defer
+                            {
+                                appDelegate.appState.isShowingFatalError = true
+                            }
                             switch error {
                                 case .couldNotGetBrewfileLocation:
-                                    print("ERROR: Could not get brewfile location")
+                                    appDelegate.appState.fatalAlertType = .couldNotGetBrewfileLocation
+                                    
                                 case .couldNotImportFile:
-                                    print("ERROR: Could not import brewfile")
+                                    appDelegate.appState.fatalAlertType = .couldNotImportBrewfile
                             }
                         }
                     }

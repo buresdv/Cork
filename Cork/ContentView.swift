@@ -485,6 +485,30 @@ struct ContentView: View, Sendable
                         appState.isShowingFatalError = false
                     })
                 )
+            case .couldNotGetBrewfileLocation:
+                return Alert(
+                    title: Text("alert.could-not-get-brewfile-location.title"),
+                    message: Text("alert.could-not-get-brewfile-location.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .couldNotImportBrewfile:
+                return Alert(
+                    title: Text("alert.could-not-import-brewfile.title"),
+                    message: Text("alert.could-not-import-brewfile.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .malformedBrewfile:
+                return Alert(
+                    title: Text("alert.malformed-brewfile.title"),
+                    message: Text("alert.malformed-brewfile.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
             }
         })
     }
