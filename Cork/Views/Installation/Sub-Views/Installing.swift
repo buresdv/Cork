@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InstallingPackageView: View
 {
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
@@ -16,6 +17,8 @@ struct InstallingPackageView: View
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
     @State var isShowingRealTimeOutput: Bool = false
+    
+    @Binding var isShowingSheet: Bool
 
     var body: some View
     {
@@ -102,6 +105,12 @@ struct InstallingPackageView: View
                 catch let fatalInstallationError
                 {
                     print("Fatal error occured during installing a package: \(fatalInstallationError)")
+                    
+                    isShowingSheet = false
+                    
+                    appState.fatalAlertDetails = fatalInstallationError.localizedDescription
+                    appState.fatalAlertType = .fatalPackageInstallationError
+                    appState.isShowingFatalError = true
                 }
             }
         }

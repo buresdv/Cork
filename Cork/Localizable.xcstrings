@@ -6128,6 +6128,16 @@
         }
       }
     },
+    "alert.fatal-installation.error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A fatal error occurred during package installation"
+          }
+        }
+      }
+    },
     "alert.generic.couldnt-parse-json" : {
       "comment" : "MARK: - Alerts",
       "localizations" : {

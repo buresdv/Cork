@@ -17,6 +17,7 @@ enum FatalAlertType
     case topPackageArrayFilterCouldNotRetrieveAnyPackages
     case couldNotAssociateAnyPackageWithProvidedPackageUUID
     case couldNotFindPackageInParentDirectory
+    case fatalPackageInstallationError
     
     //MARK: - Brewfile exporting/importing
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile, couldNotReadBrewfile

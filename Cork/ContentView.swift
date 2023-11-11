@@ -509,6 +509,14 @@ struct ContentView: View, Sendable
                         appState.isShowingFatalError = false
                     })
                 )
+                case .fatalPackageInstallationError:
+                    return Alert(
+                        title: Text("alert.fatal-installation.error"),
+                        message: Text(appState.fatalAlertDetails),
+                        dismissButton: .default(Text("action.close"), action: {
+                            appState.isShowingFatalError = false
+                        })
+                    )
             }
         })
     }
