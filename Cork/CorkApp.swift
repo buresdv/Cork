@@ -35,7 +35,7 @@ struct CorkApp: App
     @State private var isPurgingHomebrewCache: Bool = false
     @State private var isDeletingCachedDownloads: Bool = false
 
-    @State private var brewfileContents: Data = .init()
+    @State private var brewfileContents: String = .init()
     @State private var isShowingBrewfileExporter: Bool = false
 
     @State private var isShowingBrewfileImporter: Bool = false
@@ -193,7 +193,7 @@ struct CorkApp: App
                 }
                 .fileExporter(
                     isPresented: $isShowingBrewfileExporter,
-                    document: DataFile(initialData: brewfileContents),
+                    document: StringFile(initialText: brewfileContents),
                     contentType: .homebrewBackup,
                     defaultFilename: String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: .numeric, time: .omitted))")
                 )
@@ -334,9 +334,41 @@ struct CorkApp: App
                     {
                         do
                         {
-                            isShowingBrewfileImporter = true
+                            let picker = NSOpenPanel()
+                            picker.allowsMultipleSelection = false
+                            picker.canChooseDirectories = false
+                            picker.allowedFileTypes = ["brewbak"]
                             
-                            try await importBrewfile()
+                            if picker.runModal() == .OK
+                            {
+                                
+                                guard let brewfileURL = picker.url else
+                                {
+                                    throw BrewfileReadingError.couldNotGetBrewfileLocation
+                                }
+                                
+                                print(brewfileURL)
+                                
+                                do
+                                {
+                                    try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
+                                }
+                                catch
+                                {
+                                    throw BrewfileReadingError.couldNotImportFile
+                                }
+                            }
+                            
+                            //isShowingBrewfileImporter = true
+                        }
+                        catch let error as BrewfileReadingError
+                        {
+                            switch error {
+                                case .couldNotGetBrewfileLocation:
+                                    print("ERROR: Could not get brewfile location")
+                                case .couldNotImportFile:
+                                    print("ERROR: Could not import brewfile")
+                            }
                         }
                     }
                 } label: {

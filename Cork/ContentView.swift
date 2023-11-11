@@ -292,13 +292,11 @@ struct ContentView: View, Sendable
         }
         .sheet(isPresented: $appState.isShowingBrewfileExportProgress)
         {
-            HStack(alignment: .center, spacing: 20)
-            {
-                ProgressView()
-
-                Text("brewfile.export.progress")
-            }
-            .padding()
+            BrewfileExportProgressView()
+        }
+        .sheet(isPresented: $appState.isShowingBrewfileImportProgress)
+        {
+            BrewfileImportProgressView()
         }
         .alert(isPresented: $appState.isShowingFatalError, content: {
             switch appState.fatalAlertType

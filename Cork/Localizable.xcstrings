@@ -6996,6 +6996,36 @@
         }
       }
     },
+    "brewfile.import.finished.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There were no errors"
+          }
+        }
+      }
+    },
+    "brewfile.import.finished.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successfully restored from backup"
+          }
+        }
+      }
+    },
+    "brewfile.import.progress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restoring from backup…"
+          }
+        }
+      }
+    },
     "GitHub" : {
       "localizations" : {
         "cs" : {
@@ -9404,7 +9434,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Import Homebrew Backup…"
+            "value" : "Restore from Backup…"
           }
         }
       }

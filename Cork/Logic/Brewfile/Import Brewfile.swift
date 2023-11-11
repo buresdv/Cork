@@ -7,7 +7,30 @@
 
 import Foundation
 
-func importBrewfile() async throws
+enum BrewfileReadingError: Error
 {
+    case couldNotGetBrewfileLocation, couldNotImportFile
+}
+
+@MainActor
+func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage) async throws
+{
+    appState.isShowingBrewfileImportProgress = true
     
+    appState.brewfileImportingStage = .importing
+    
+    print(url.path)
+    
+    let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
+    
+    print(brewfileImportingResultRaw)
+    
+    if !brewfileImportingResultRaw.standardError.isEmpty
+    {
+        throw BrewfileReadingError.couldNotImportFile
+    }
+    
+    appState.brewfileImportingStage = .finished
+    
+    await synchronizeInstalledPackages(brewData: brewData)
 }

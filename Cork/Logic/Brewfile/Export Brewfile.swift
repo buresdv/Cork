@@ -12,9 +12,9 @@ enum BrewfileDumpingError: Error
     case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile, couldNotReadBrewfile
 }
 
-/// Exports the Brewfile and returns the raw data from the Brewfile itself for further manipulation. Does not preserve the Brewfile
+/// Exports the Brewfile and returns the contents of the Brewfile itself for further manipulation. Does not preserve the Brewfile
 @MainActor
-func exportBrewfile(appState: AppState) async throws -> Data
+func exportBrewfile(appState: AppState) async throws -> String
 {
     appState.isShowingBrewfileExportProgress = true
     
@@ -53,7 +53,7 @@ func exportBrewfile(appState: AppState) async throws -> Data
     
     do
     {
-        let brewfileContents: Data = try Data(contentsOf: brewfileLocation)
+        let brewfileContents: String = try String(contentsOf: brewfileLocation)
         
         /// Delete the brewfile
         try? FileManager.default.removeItem(at: brewfileLocation)
