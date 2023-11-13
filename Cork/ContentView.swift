@@ -18,6 +18,8 @@ struct ContentView: View, Sendable
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
     @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+    
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
     @EnvironmentObject var appState: AppState
 
@@ -43,7 +45,7 @@ struct ContentView: View, Sendable
                     .frame(minWidth: 600, minHeight: 500)
             }
             .navigationTitle("app-name")
-            .navigationSubtitle("navigation.installed-packages.count-\(brewData.installedFormulae.count + brewData.installedCasks.count)")
+            .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ?  brewData.installedFormulae.filter( \.installedIntentionally ).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
             .toolbar(id: "PackageActions")
             {
                 ToolbarItem(id: "upgradePackages", placement: .primaryAction)

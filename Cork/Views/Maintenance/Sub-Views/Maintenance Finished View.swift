@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MaintenanceFinishedView: View
 {
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
@@ -51,9 +53,31 @@ struct MaintenanceFinishedView: View
 
                             if !packagesHoldingBackCachePurge.isEmpty
                             {
-                                Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))")
-                                    .font(.caption)
-                                    .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                if displayOnlyIntentionallyInstalledPackagesByDefault
+                                {
+                                    /// This abomination of a variable does the following:
+                                    /// 1. Filter out only packages that were installed intentionally
+                                    /// 2. Get the names of the packages that were installed intentionally
+                                    /// 3. Get only the names of packages that were installed intentionally, and are also holding back cache purge
+                                    /// **Motivation**: When the user only wants to see packages they have installed intentionally, they will be confused if a dependency suddenly shows up here
+                                    #warning("TODO: Maybe intead of doing this filtering, I could plug in the tracker of outdated packages and check against that? It would be more performant")
+                                    
+                                    let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewData.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
+                                    
+                                    if !intentionallyInstalledPackagesHoldingBackCachePurge.isEmpty
+                                    {
+                                        Text("maintenance.results.package-cache.skipped-\(intentionallyInstalledPackagesHoldingBackCachePurge.formatted(.list(type: .and)))")
+                                            .font(.caption)
+                                            .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))")
+                                        .font(.caption)
+                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                }
                             }
 
                             /*
