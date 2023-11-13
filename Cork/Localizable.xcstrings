@@ -5872,7 +5872,18 @@
         }
       }
     },
+    "alert.could-not-dump-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't write Homebrew backup"
+          }
+        }
+      }
+    },
     "alert.could-not-find-package-in-parent-directory.message" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -5948,6 +5959,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到此套件"
+          }
+        }
+      }
+    },
+    "alert.could-not-get-brewfile-location.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move the backup file to a different location, then try again"
+          }
+        }
+      }
+    },
+    "alert.could-not-get-brewfile-location.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insufficient permissions to read backup file"
+          }
+        }
+      }
+    },
+    "alert.could-not-get-brewfile-working-directory.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't create backup parent folder"
           }
         }
       }
@@ -6042,6 +6083,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法取得落伍套件"
+          }
+        }
+      }
+    },
+    "alert.could-not-import-brewfile.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move the backup file to a different location, then try again"
+          }
+        }
+      }
+    },
+    "alert.could-not-import-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read backup file"
+          }
+        }
+      }
+    },
+    "alert.could-not-read-brewfile.message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again, or restart Cork"
+          }
+        }
+      }
+    },
+    "alert.could-not-read-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read backup"
+          }
+        }
+      }
+    },
+    "alert.fatal-installation.error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A fatal error occurred during package installation"
           }
         }
       }
@@ -6181,6 +6273,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 的設定不如 Cork 所預期"
+          }
+        }
+      }
+    },
+    "alert.malformed-brewfile.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file you tried to restore from doesn't have the correct structure"
+          }
+        }
+      }
+    },
+    "alert.malformed-brewfile.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backup File Broken"
           }
         }
       }
@@ -6919,6 +7031,67 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork"
+          }
+        }
+      }
+    },
+    "brewfile.export.default-export-name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Backup"
+          }
+        }
+      }
+    },
+    "brewfile.export.default-export-name-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Homebrew Backup"
+          }
+        }
+      }
+    },
+    "brewfile.export.progress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backing up Homebrew…"
+          }
+        }
+      }
+    },
+    "brewfile.import.finished.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There were no errors"
+          }
+        }
+      }
+    },
+    "brewfile.import.finished.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Successfully restored from backup"
+          }
+        }
+      }
+    },
+    "brewfile.import.progress" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restoring from backup…"
           }
         }
       }
@@ -8833,6 +9006,16 @@
         }
       }
     },
+    "message.try-again-or-restart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again, or restart Cork"
+          }
+        }
+      }
+    },
     "navigation.about" : {
       "comment" : "MARK: - Navigation",
       "localizations" : {
@@ -9302,6 +9485,26 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "navigation.menu.import-export.export-brewfile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Homebrew Backup…"
+          }
+        }
+      }
+    },
+    "navigation.menu.import-export.import-brewfile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore from Backup…"
           }
         }
       }

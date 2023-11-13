@@ -16,7 +16,7 @@ class AppState: ObservableObject {
     @Published var notificationEnabledInSystemSettings: Bool?
     @Published var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
     
-    /// Stuff for controlling various sheets from the menu bar
+    // MARK: - Stuff for controlling various sheets from the menu bar
     @Published var isShowingInstallationSheet: Bool = false
     @Published var isShowingPackageReinstallationSheet: Bool = false
     @Published var isShowingUninstallationSheet: Bool = false
@@ -25,11 +25,18 @@ class AppState: ObservableObject {
     @Published var isShowingAddTapSheet: Bool = false
     @Published var isShowingUpdateSheet: Bool = false
     
+    // MARK: - Brewfile importing and exporting
+    @Published var isShowingBrewfileExportProgress: Bool = false
+    @Published var isShowingBrewfileImportProgress: Bool = false
+    @Published var brewfileImportingStage: BrewfileImportStage = .importing
+    
     @Published var isCheckingForPackageUpdates: Bool = false
     
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
+    @Published var fatalAlertDetails: String = ""
+    
     @Published var offendingDependencyProhibitingUninstallation: String = ""
     @Published var offendingTapProhibitingRemovalOfTap: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false

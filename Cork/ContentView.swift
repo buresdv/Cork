@@ -35,7 +35,8 @@ struct ContentView: View, Sendable
     {
         VStack
         {
-            NavigationSplitView(columnVisibility: $columnVisibility) {
+            NavigationSplitView(columnVisibility: $columnVisibility)
+            {
                 SidebarView()
             } detail: {
                 StartPage()
@@ -96,23 +97,23 @@ struct ContentView: View, Sendable
 
                 #warning("TODO: Implement this button")
                 /*
-                ToolbarItem(id: "installPackageDirectly", placement: .automatic)
-                {
-                    Button
-                    {
-                        print("Ahoj")
-                    } label: {
-                        Label
-                        {
-                            Text("navigation.install-package.direct")
-                        } icon: {
-                            Image(systemName: "plus.viewfinder")
-                        }
-                    }
-                    .help("navigation.install-package.direct.help")
-                }
-                .defaultCustomization(.hidden)
-                 */
+                 ToolbarItem(id: "installPackageDirectly", placement: .automatic)
+                 {
+                     Button
+                     {
+                         print("Ahoj")
+                     } label: {
+                         Label
+                         {
+                             Text("navigation.install-package.direct")
+                         } icon: {
+                             Image(systemName: "plus.viewfinder")
+                         }
+                     }
+                     .help("navigation.install-package.direct.help")
+                 }
+                 .defaultCustomization(.hidden)
+                  */
             }
         }
         .onAppear
@@ -187,7 +188,8 @@ struct ContentView: View, Sendable
                 appState.isShowingFatalError = true
             }
         }
-        .task(priority: .background) {
+        .task(priority: .background)
+        {
             print("Started Analytics startup action at \(Date())")
 
             async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath, ["analytics"])
@@ -224,8 +226,9 @@ struct ContentView: View, Sendable
             }
         }
         .onChange(of: appState.cachedDownloadsFolderSize)
-        { newValue in
-            Task(priority: .background) {
+        { _ in
+            Task(priority: .background)
+            {
                 print("Will recalculate cached downloads")
                 appState.cachedDownloads = .init()
                 await appState.loadCachedDownloadedPackages()
@@ -286,6 +289,14 @@ struct ContentView: View, Sendable
         .sheet(isPresented: $appState.isShowingIncrementalUpdateSheet)
         {
             UpdateSomePackagesView(isShowingSheet: $appState.isShowingIncrementalUpdateSheet)
+        }
+        .sheet(isPresented: $appState.isShowingBrewfileExportProgress)
+        {
+            BrewfileExportProgressView()
+        }
+        .sheet(isPresented: $appState.isShowingBrewfileImportProgress)
+        {
+            BrewfileImportProgressView()
         }
         .alert(isPresented: $appState.isShowingFatalError, content: {
             switch appState.fatalAlertType
@@ -439,10 +450,69 @@ struct ContentView: View, Sendable
                         appState.isShowingFatalError = false
                     })
                 )
-                case .couldNotFindPackageInParentDirectory:
+
+            case .couldNotFindPackageInParentDirectory:
+                return Alert(
+                    title: Text("alert.could-not-find-package-in-parent-directory.title"),
+                    message: Text("message.try-again-or-restart"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+
+            case .couldNotGetWorkingDirectory:
+                return Alert(
+                    title: Text("alert.could-not-get-brewfile-working-directory.title"),
+                    message: Text("message.try-again-or-restart"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .couldNotDumpBrewfile:
+                return Alert(
+                    title: Text("alert.could-not-dump-brewfile.title"),
+                    message: Text("message.try-again-or-restart"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+
+            case .couldNotReadBrewfile:
+                return Alert(
+                    title: Text("alert.could-not-read-brewfile.title"),
+                    message: Text("message.try-again-or-restart"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .couldNotGetBrewfileLocation:
+                return Alert(
+                    title: Text("alert.could-not-get-brewfile-location.title"),
+                    message: Text("alert.could-not-get-brewfile-location.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .couldNotImportBrewfile:
+                return Alert(
+                    title: Text("alert.could-not-import-brewfile.title"),
+                    message: Text("alert.could-not-import-brewfile.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .malformedBrewfile:
+                return Alert(
+                    title: Text("alert.malformed-brewfile.title"),
+                    message: Text("alert.malformed-brewfile.message"),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+                case .fatalPackageInstallationError:
                     return Alert(
-                        title: Text("alert.could-not-find-package-in-parent-directory.title"),
-                        message: Text("alert.could-not-find-package-in-parent-directory.message"),
+                        title: Text("alert.fatal-installation.error"),
+                        message: Text(appState.fatalAlertDetails),
                         dismissButton: .default(Text("action.close"), action: {
                             appState.isShowingFatalError = false
                         })

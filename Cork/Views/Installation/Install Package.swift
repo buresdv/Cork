@@ -69,7 +69,8 @@ struct AddFormulaView: View
             case .installing:
                 InstallingPackageView(
                     installationProgressTracker: installationProgressTracker,
-                    packageInstallationProcessStep: $packageInstallationProcessStep
+                    packageInstallationProcessStep: $packageInstallationProcessStep,
+                    isShowingSheet: $isShowingSheet
                 )
 
             case .finished:
