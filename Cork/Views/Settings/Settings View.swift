@@ -60,6 +60,13 @@ struct SettingsView: View
                 .tabItem {
                     Label("settings.homebrew", systemImage: "mug")
                 }
+            
+            /*
+            AdvancedPane()
+                .tabItem {
+                    Label("settings.advanced", systemImage: "gearshape.2")
+                }
+             */
         }
         .environmentObject(settingsState)
         .alert(isPresented: $settingsState.isShowingAlert)

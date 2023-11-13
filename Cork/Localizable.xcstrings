@@ -7142,6 +7142,9 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
     "homebrew/core" : {
       "localizations" : {
         "cs" : {
@@ -11242,6 +11245,26 @@
         }
       }
     },
+    "onboarding.feature.show-all-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show all packages"
+          }
+        }
+      }
+    },
+    "onboarding.feature.show-only-intentionally-installed-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show manually installed packages"
+          }
+        }
+      }
+    },
     "onboarding.feature.tagging" : {
       "localizations" : {
         "cs" : {
@@ -13357,6 +13380,17 @@
         }
       }
     },
+    "settings.advanced" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced"
+          }
+        }
+      }
+    },
     "settings.brew.analytics" : {
       "comment" : "MARK: - Settings: Brew",
       "localizations" : {
@@ -14092,6 +14126,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示更多依存關係的資訊"
+          }
+        }
+      }
+    },
+    "settings.general.display-only-intentionally-installed-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package filtering:"
+          }
+        }
+      }
+    },
+    "settings.general.display-only-intentionally-installed-packages.no" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show all packages, including dependencies"
+          }
+        }
+      }
+    },
+    "settings.general.display-only-intentionally-installed-packages.yes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show only manually installed packages"
           }
         }
       }

@@ -35,6 +35,8 @@ struct OnboardingView: View
     
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
     
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
     @State var onboardingSetupLevel: SetupLevels = .medium
 
     /// Level numbers:
@@ -131,6 +133,8 @@ struct OnboardingView: View
                     notifyAboutPackageInstallationResults = true
                     
                     enableRevealInFinder = true
+                    
+                    displayOnlyIntentionallyInstalledPackagesByDefault = false
                 }
                 
                 if onboardingSetupLevelNumber >= 4

@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct FormulaeSection: View {
-    
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
     @EnvironmentObject var appState: AppState
@@ -49,7 +49,7 @@ struct FormulaeSection: View {
     {
         let filter: (BrewPackage) -> Bool
 
-        if currentTokens.contains(.intentionallyInstalledPackage)
+        if currentTokens.contains(.intentionallyInstalledPackage) || displayOnlyIntentionallyInstalledPackagesByDefault
         {
             if searchText.isEmpty
             {
