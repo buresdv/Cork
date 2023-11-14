@@ -13,6 +13,7 @@ struct MaintenanceFinishedView: View
     
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var outdatedPackageTacker: OutdatedPackageTracker
 
     let shouldUninstallOrphans: Bool
     let shouldPurgeCache: Bool
@@ -53,6 +54,8 @@ struct MaintenanceFinishedView: View
 
                             if !packagesHoldingBackCachePurge.isEmpty
                             {
+                                // See if the user wants to see all packages, or just those that are installed manually
+                                // If they only want to see those installed manually, only show those that are holding back cache purge that are actually only installed manually
                                 if displayOnlyIntentionallyInstalledPackagesByDefault
                                 {
                                     /// This abomination of a variable does the following:
@@ -60,9 +63,18 @@ struct MaintenanceFinishedView: View
                                     /// 2. Get the names of the packages that were installed intentionally
                                     /// 3. Get only the names of packages that were installed intentionally, and are also holding back cache purge
                                     /// **Motivation**: When the user only wants to see packages they have installed intentionally, they will be confused if a dependency suddenly shows up here
-                                    #warning("TODO: Maybe intead of doing this filtering, I could plug in the tracker of outdated packages and check against that? It would be more performant")
+                                    //let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewData.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
                                     
-                                    let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewData.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
+                                    /// **Motivation**: Same as above, but more performant
+                                    /// Instead of looking through all packages, it only looks through packages that are outdated. Since only outdated packages can hold back purging, it kills two birds with one stone
+                                    /// Process:
+                                    /// 1. Get only the names of outdated packages
+                                    /// 2. Get only the names of packages that are outdated, and are holding back cache purge
+                                    //let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = outdatedPackageTacker.outdatedPackages.map(\.package.name).filter({ packagesHoldingBackCachePurge.contains($0) })
+                                    
+                                    /// **Motivation**: Same as above, but even more performant
+                                    /// Only formulae can hold back cache purging. Therefore, we just filter out the outdated formulae, and those must be holding back the purging
+                                    let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = outdatedPackageTacker.outdatedPackages.filter({ !$0.package.isCask }).map(\.package.name)
                                     
                                     if !intentionallyInstalledPackagesHoldingBackCachePurge.isEmpty
                                     {
@@ -73,7 +85,7 @@ struct MaintenanceFinishedView: View
                                     
                                 }
                                 else
-                                {
+                                { // Otherwise, show all of them
                                     Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))")
                                         .font(.caption)
                                         .foregroundColor(Color(nsColor: NSColor.systemGray))
