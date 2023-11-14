@@ -31,22 +31,21 @@ struct OnboardingBasicCategory: View
                     
                 }
                 
+                // Below "balanced"
+                if onboardingSetupLevelNumber <= 1
+                {
+                    Text("onboarding.feature.show-only-intentionally-installed-packages")
+                }
+                
                 // Balanced
                 if onboardingSetupLevelNumber >= 2
                 {
-                    
-                }
-                
-                // Below "slightly advanced"
-                if onboardingSetupLevelNumber <= 2
-                {
-                    Text("onboarding.feature.show-only-intentionally-installed-packages")
+                    Text("onboarding.feature.show-all-packages")
                 }
                 
                 // Slightly advanced
                 if onboardingSetupLevelNumber >= 3
                 {
-                    Text("onboarding.feature.show-all-packages")
                     Text("onboarding.feature.revealing-packages-in-finder")
                 }
                 

@@ -120,6 +120,8 @@ struct OnboardingView: View
                     caveatDisplayOptions = .full
                     areNotificationsEnabled = true
                     outdatedPackageNotificationType = .both
+                    
+                    displayOnlyIntentionallyInstalledPackagesByDefault = false
                 }
                 
                 if onboardingSetupLevelNumber >= 3
@@ -133,8 +135,6 @@ struct OnboardingView: View
                     notifyAboutPackageInstallationResults = true
                     
                     enableRevealInFinder = true
-                    
-                    displayOnlyIntentionallyInstalledPackagesByDefault = false
                 }
                 
                 if onboardingSetupLevelNumber >= 4
