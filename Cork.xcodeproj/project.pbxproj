@@ -152,6 +152,7 @@
 		63A9778529A7D5800091DF2E /* Synchnorize Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */; };
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
+		63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7337A2B02E21D00366C77 /* Advanced Pane.swift */; };
 		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
 		63BE889C2A910BB0003C6E59 /* Top Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */; };
 		63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */; };
@@ -367,6 +368,7 @@
 		63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchnorize Installed Packages.swift"; sourceTree = "<group>"; };
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
+		63B7337A2B02E21D00366C77 /* Advanced Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advanced Pane.swift"; sourceTree = "<group>"; };
 		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
 		63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package Sorting.swift"; sourceTree = "<group>"; };
 		63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Packages Box.swift"; sourceTree = "<group>"; };
@@ -1208,6 +1210,7 @@
 				630D08B829B67E4300802201 /* Brew Pane.swift */,
 				635E44922A891050002C034E /* Notifications Pane.swift */,
 				63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */,
+				63B7337A2B02E21D00366C77 /* Advanced Pane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -1708,6 +1711,7 @@
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
 				63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
+				63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */,
 				633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
