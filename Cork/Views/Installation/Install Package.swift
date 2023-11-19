@@ -134,51 +134,7 @@ struct AddFormulaView: View
                 }
 
             case .requiresSudoPassword:
-                VStack(alignment: .leading)
-                {
-                    ComplexWithImage(image: Image(localURL: URL(filePath: "/System/Library/CoreServices/KeyboardSetupAssistant.app/Contents/Resources/AppIcon.icns"))!)
-                    {
-                        VStack(alignment: .leading, spacing: 10)
-                        {
-                            Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                                .font(.headline)
-
-                            ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
-                        }
-                    }
-
-                    Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-
-                    HStack
-                    {
-                        Button
-                        {
-                            isShowingSheet = false
-
-                            Task.detached
-                            {
-                                await synchronizeInstalledPackages(brewData: brewData)
-                            }
-                        } label: {
-                            Text("action.close")
-                        }
-                        .keyboardShortcut(.cancelAction)
-
-                        Spacer()
-
-                        Button
-                        {
-                            openTerminal()
-                        } label: {
-                            Text("action.open-terminal")
-                        }
-                        .keyboardShortcut(.defaultAction)
-                    }
-                }
-                .fixedSize()
+                SudoRequiredView(installationProgressTracker: installationProgressTracker, isShowingSheet: $isShowingSheet)
 
             case .anotherProcessAlreadyRunning:
                 VStack(alignment: .leading)
@@ -237,56 +193,4 @@ struct AddFormulaView: View
         }
         .padding()
     }
-}
-
-private struct ManualInstallInstructions: View
-{
-    let installationProgressTracker: InstallationProgressTracker
-
-    var manualInstallCommand: String
-    {
-        return "brew install \(installationProgressTracker.packagesBeingInstalled[0].package.isCask ? "--cask" : "") \(installationProgressTracker.packagesBeingInstalled[0].package.name)"
-    }
-
-    var body: some View
-    {
-        VStack
-        {
-            Text("add-package.install.requires-sudo-password.description")
-
-            GroupBox
-            {
-                HStack(alignment: .center, spacing: 5)
-                {
-                    Text(manualInstallCommand)
-
-                    Divider()
-
-                    Button
-                    {
-                        copyToClipboard(whatToCopy: manualInstallCommand)
-                    } label: {
-                        Label
-                        {
-                            Text("action.copy")
-                        } icon: {
-                            Image(systemName: "doc.on.doc")
-                        }
-                        .help("action.copy-manual-install-command-to-clipboard")
-                    }
-                }
-                .padding(3)
-            }
-        }
-    }
-}
-
-private func openTerminal()
-{
-    guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal") else { return }
-
-    let path = "/bin"
-    let configuration = NSWorkspace.OpenConfiguration()
-    configuration.arguments = [path]
-    NSWorkspace.shared.openApplication(at: url, configuration: configuration, completionHandler: nil)
 }

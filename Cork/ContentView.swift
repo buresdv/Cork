@@ -280,6 +280,10 @@ struct ContentView: View, Sendable
         {
             ReinstallCorruptedPackageView(corruptedPackageToReinstall: appState.corruptedPackage)
         }
+        .sheet(isPresented: $appState.isShowingSudoRequiredForUninstallSheet)
+        {
+            SudoRequiredForRemovalSheet(isShowingSheet: $appState.isShowingSudoRequiredForUninstallSheet)
+        }
         .sheet(isPresented: $appState.isShowingAddTapSheet)
         {
             AddTapView(isShowingSheet: $appState.isShowingAddTapSheet)

@@ -37,6 +37,9 @@ class AppState: ObservableObject {
     @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
     @Published var fatalAlertDetails: String = ""
     
+    @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
+    @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
+    
     @Published var offendingDependencyProhibitingUninstallation: String = ""
     @Published var offendingTapProhibitingRemovalOfTap: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false

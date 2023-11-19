@@ -100,13 +100,14 @@ func uninstallSelectedPackage(
         
         print("Could not uninstall this package because sudo is required")
         
+        appState.packageTryingToBeUninstalledWithSudo = package
+        appState.isShowingSudoRequiredForUninstallSheet = true
+        
         resetPackageState(package: package, brewData: brewData)
     }
     else
     {
         print("Uninstalling can proceed")
-        
-        
 
         switch package.isCask
         {

@@ -2200,6 +2200,16 @@
         }
       }
     },
+    "action.copy-manual-uninstall-command-to-clipboard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy to Clipboard"
+          }
+        }
+      }
+    },
     "action.done" : {
       "localizations" : {
         "cs" : {
@@ -4765,6 +4775,26 @@
         }
       }
     },
+    "add-package.uninstall.requires-sudo-password-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elevated permissions are required to uninstall %@"
+          }
+        }
+      }
+    },
+    "add-package.uninstall.requires-sudo-password.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will have to uninstall this package through the Terminal.\nUse the command below."
+          }
+        }
+      }
+    },
     "add-tap" : {
       "comment" : "MARK: - Add Tap",
       "localizations" : {
@@ -5454,6 +5484,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩（輸入鍵）來執行指令\n遵照指示安裝 %@，回到 Cork 關閉本對話"
+          }
+        }
+      }
+    },
+    "add.package.uninstall.requires-sudo-password.terminal-instructions-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to uninstall %@, return to Cork and close this dialog"
           }
         }
       }
