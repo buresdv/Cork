@@ -398,7 +398,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "從異步 Swift 到阻礙套件安裝等多種問題提供了寶貴的協助。"
+            "value" : "從非同步 Swift 到阻礙套件安裝等多種問題提供了寶貴的協助。"
           }
         }
       }
@@ -490,7 +490,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "修理了許多異步和 SwiftUI 問題"
+            "value" : "修理了許多非同步和 SwiftUI 問題"
           }
         }
       }
@@ -15801,7 +15801,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "標記與提示"
+            "value" : "標記與通知"
           }
         }
       }
@@ -15893,7 +15893,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "提示"
+            "value" : "通知"
           }
         }
       }
