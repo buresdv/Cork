@@ -22,7 +22,12 @@ struct BrewfileImportProgressView: View
                     {
                         ProgressView()
                         
-                        Text("brewfile.import.progress")
+                        VStack(alignment: .leading, spacing: 3)
+                        {
+                            Text("brewfile.import.progress")
+                            
+                            SubtitleText(text: "brewfile.import.progress.encouragement")
+                        }
                     }
                 case .finished:
                     DisappearableSheet(isShowingSheet: $appState.isShowingBrewfileImportProgress) {

@@ -7136,6 +7136,16 @@
         }
       }
     },
+    "brewfile.import.progress.encouragement" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hang tight! This might take a few minutes"
+          }
+        }
+      }
+    },
     "GitHub" : {
       "localizations" : {
         "cs" : {

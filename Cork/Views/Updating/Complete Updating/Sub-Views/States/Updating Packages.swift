@@ -26,9 +26,8 @@ struct UpdatingPackagesStateView: View
             VStack(alignment: .leading, spacing: 3)
             {
                 Text("update-packages.updating.updating")
-                Text(updateProcessDetailsStage.currentStage.rawValue)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                
+                SubtitleText(text: updateProcessDetailsStage.currentStage.rawValue)
             }
 
             LiveTerminalOutputView(

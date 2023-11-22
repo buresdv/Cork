@@ -157,6 +157,7 @@
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
 		63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7337A2B02E21D00366C77 /* Advanced Pane.swift */; };
 		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
+		63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */; };
 		63BE889C2A910BB0003C6E59 /* Top Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */; };
 		63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */; };
 		63C830BC29984B1A002D11BB /* Used Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BB29984B1A002D11BB /* Used Package.swift */; };
@@ -376,6 +377,7 @@
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
 		63B7337A2B02E21D00366C77 /* Advanced Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advanced Pane.swift"; sourceTree = "<group>"; };
 		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
+		63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtitle Text.swift"; sourceTree = "<group>"; };
 		63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package Sorting.swift"; sourceTree = "<group>"; };
 		63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Packages Box.swift"; sourceTree = "<group>"; };
 		63C830BB29984B1A002D11BB /* Used Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Used Package.swift"; sourceTree = "<group>"; };
@@ -1136,6 +1138,7 @@
 				63C830C029984BA4002D11BB /* Button That Opens Websites.swift */,
 				63A96F732AA520120029E33B /* Inline Fatal Error.swift */,
 				63689F822ACC9FE000BD354C /* Button Bottom Row.swift */,
+				63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1685,6 +1688,7 @@
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */,
+				63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
