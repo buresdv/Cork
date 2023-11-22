@@ -118,8 +118,6 @@ struct StartPage: View
                 }
             }
         }
-        #warning("TODO: Add drop at some point")
-        /*
         .onDrop(of: [.fileURL], isTargeted: $dragOver) { providers -> Bool in
             providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { (data, error) in
                 if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String) {
@@ -139,6 +137,5 @@ struct StartPage: View
             })
             return true
         }
-         */
     }
 }
