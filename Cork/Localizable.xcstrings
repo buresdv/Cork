@@ -7138,6 +7138,12 @@
     },
     "brewfile.import.progress.encouragement" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dejte tomu chvíli! Může to pár minut trvat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9544,6 +9550,12 @@
     },
     "navigation.menu.import-export.export-brewfile" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportovat zálohu Homebrew…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
