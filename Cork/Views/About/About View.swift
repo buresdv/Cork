@@ -267,7 +267,7 @@ struct AboutView: View
 
                     Button
                     {
-                        NSWorkspace.shared.open(URL(string: "https://elk.zone/mstdn.social/@davidbures")!)
+                        NSWorkspace.shared.open(URL(string: "https://mstdn.social/@davidbures")!)
                     } label: {
                         Label("about.contact", systemImage: "paperplane")
                     }
