@@ -16,14 +16,20 @@ class AppDelegate: NSObject, NSApplicationDelegate
     
     @MainActor let appState = AppState()
     
+    func applicationWillBecomeActive(_ notification: Notification) {
+        NSApp.setActivationPolicy(.regular)
+    }
+    
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
         if showInMenuBar
         {
+            NSApp.setActivationPolicy(.accessory)
             return false
         }
         else
         {
+            NSApp.setActivationPolicy(.regular)
             return true
         }
     }
