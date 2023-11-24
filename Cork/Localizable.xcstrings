@@ -14361,6 +14361,16 @@
         }
       }
     },
+    "settings.general.menubar.start-minimized.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Cork without its main window"
+          }
+        }
+      }
+    },
     "settings.general.menubar.toggle" : {
       "localizations" : {
         "cs" : {

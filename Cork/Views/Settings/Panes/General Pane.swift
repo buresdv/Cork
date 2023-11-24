@@ -23,6 +23,7 @@ struct GeneralPane: View
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
     @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     var body: some View
     {
@@ -111,9 +112,26 @@ struct GeneralPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $showInMenuBar)
+                    VStack(alignment: .leading, spacing: 4)
                     {
-                        Text("settings.general.menubar.toggle")
+                        Toggle(isOn: $showInMenuBar)
+                        {
+                            Text("settings.general.menubar.toggle")
+                        }
+                        
+                        Toggle(isOn: $startWithoutWindow) 
+                        {
+                            Text("settings.general.menubar.start-minimized.toggle")
+                        }
+                        .padding([.leading])
+                        .disabled(!showInMenuBar)
+                        .onChange(of: showInMenuBar)
+                        { newValue in
+                            if newValue == false
+                            {
+                                startWithoutWindow = false
+                            }
+                        }
                     }
                 } label: {
                     Text("settings.general.menubar")
