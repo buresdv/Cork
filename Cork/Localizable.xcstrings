@@ -2201,7 +2201,14 @@
       }
     },
     "action.copy-manual-uninstall-command-to-clipboard" : {
+      "extractionState" : "stale",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkopírovat do schránky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4777,6 +4784,12 @@
     },
     "add-package.uninstall.requires-sudo-password-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro odinstalování %@ je potřeba oprávnění správce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4787,6 +4800,12 @@
     },
     "add-package.uninstall.requires-sudo-password.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček musíte odinstalovat přes Terminál. Použijte tento příkaz."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5490,6 +5509,12 @@
     },
     "add.package.uninstall.requires-sudo-password.terminal-instructions-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klikněte na \"Otevřit Terminál\"\nPříkaz do něj vložte pomocí ⌘+V, a poté příkaz spusťte stisknutím ↩ (Return)\nŘiďte se podle pokynů, které uvidíte v Terminálu, a poté se vraťte do Corku a tento dialog zavřete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5914,6 +5939,12 @@
     },
     "alert.could-not-dump-brewfile.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při ukládání zálohy se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6005,6 +6036,12 @@
     },
     "alert.could-not-get-brewfile-location.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zálohu přesuňte do jiné složky a zkuste to znovu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6015,6 +6052,12 @@
     },
     "alert.could-not-get-brewfile-location.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "K přečtení zálohy nemáte dostatečná oprávnění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6025,6 +6068,12 @@
     },
     "alert.could-not-get-brewfile-working-directory.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při vytváření složky pro zálohu se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6129,6 +6178,12 @@
     },
     "alert.could-not-import-brewfile.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zálohu přesuňte do jiné složky a zkuste to znovu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6139,6 +6194,12 @@
     },
     "alert.could-not-import-brewfile.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení zálohy se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6160,6 +6221,12 @@
     },
     "alert.could-not-read-brewfile.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení zálohy se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6170,6 +6237,12 @@
     },
     "alert.fatal-installation.error" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Během instalace balíčku se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6319,6 +6392,12 @@
     },
     "alert.malformed-brewfile.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soubor, který chcete použít k obnovení, nemá správnou strukturu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6329,6 +6408,12 @@
     },
     "alert.malformed-brewfile.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Záloha je rozbitá"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7088,6 +7173,12 @@
     },
     "brewfile.export.default-export-name-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Záloha Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7098,6 +7189,12 @@
     },
     "brewfile.export.progress" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zálohuji Homebrew…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7108,6 +7205,12 @@
     },
     "brewfile.import.finished.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nevyskytly se žádné chyby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7118,6 +7221,12 @@
     },
     "brewfile.import.finished.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obnovení ze zálohy proběhlo úspěšně"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7128,6 +7237,12 @@
     },
     "brewfile.import.progress" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obnovuji ze zálohy…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7199,7 +7314,14 @@
       }
     },
     "Hello, World!" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahoj, světe!"
+          }
+        }
+      }
     },
     "homebrew/core" : {
       "localizations" : {
@@ -9067,6 +9189,12 @@
     },
     "message.try-again-or-restart" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkuste to znovu nebo restartujte Cork"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9566,6 +9694,12 @@
     },
     "navigation.menu.import-export.import-brewfile" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obnovit ze zálohy…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11309,6 +11443,12 @@
     },
     "onboarding.feature.show-all-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit všechny balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11319,6 +11459,12 @@
     },
     "onboarding.feature.show-only-intentionally-installed-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit záměrně nainstalované balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14194,6 +14340,12 @@
     },
     "settings.general.display-only-intentionally-installed-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtrování balíčků:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14204,6 +14356,12 @@
     },
     "settings.general.display-only-intentionally-installed-packages.no" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit všechny balíčky, včetně závislostí"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14214,6 +14372,12 @@
     },
     "settings.general.display-only-intentionally-installed-packages.yes" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit pouze záměrně nainstalované balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14363,6 +14527,12 @@
     },
     "settings.general.menubar.start-minimized.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Cork bez hlavního okna"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",

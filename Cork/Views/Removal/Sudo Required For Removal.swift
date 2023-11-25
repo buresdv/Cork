@@ -103,7 +103,7 @@ private struct ManualUninstallInstructions: View
                         } icon: {
                             Image(systemName: "doc.on.doc")
                         }
-                        .help("action.copy-manual-uninstall-command-to-clipboard")
+                        .help("action.copy-manual-install-command-to-clipboard")
                     }
                 }
                 .padding(3)
