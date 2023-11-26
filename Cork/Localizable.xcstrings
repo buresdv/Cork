@@ -9,6 +9,12 @@
             "value" : "⚠️"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -828,7 +834,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support"
+            "value" : "Hat viele fortschrittliche Logikoptimierungen vorgenommen und bietet kontinuierlich wertvolle Swift-Unterstützung"
           }
         },
         "en" : {
@@ -2209,6 +2215,12 @@
             "value" : "Zkopírovat do schránky"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Zwischenablage kopieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2229,6 +2241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hotovo"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
           }
         },
         "en" : {
@@ -2367,7 +2385,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide"
+            "value" : "Verstecken"
           }
         },
         "en" : {
@@ -2552,7 +2570,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew raparieren"
+            "value" : "Homebrew reparieren"
           }
         },
         "en" : {
@@ -2829,7 +2847,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show"
+            "value" : "Zeigen"
           }
         },
         "en" : {
@@ -2916,6 +2934,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zastavit"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stopp"
           }
         },
         "en" : {
@@ -3235,6 +3259,12 @@
             "value" : "Můžete počkat dokud tento proces neskončí, nebo ho můžete vynuceně zastavit.\nZastavením můžete rozbít Homebrew."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst entweder warten, bis dieser Vorgang abgeschlossen ist, oder ihn zum Stoppen zwingen.\nWenn das Stoppen erzwungen wird, kann dies dazu führen, dass die Homebrew-Installation beschädigt wird."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3273,6 +3303,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jiný Homebrew proces už běží"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein weiter Homebrew-Prozess läuft bereits"
           }
         },
         "en" : {
@@ -4796,6 +4832,12 @@
             "value" : "Pro odinstalování %@ je potřeba oprávnění správce"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für die Deinstallation sind erhöhte Berechtigungen erforderlich %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4822,6 +4864,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tento balíček musíte odinstalovat přes Terminál. Použijte tento příkaz."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie müssen dieses Paket über das Terminal deinstallieren.\nVerwenden Sie den folgenden Befehl."
           }
         },
         "en" : {
@@ -5545,6 +5593,12 @@
             "value" : "Klikněte na \"Otevřit Terminál\"\nPříkaz do něj vložte pomocí ⌘+V, a poté příkaz spusťte stisknutím ↩ (Return)\nŘiďte se podle pokynů, které uvidíte v Terminálu, a poté se vraťte do Corku a tento dialog zavřete"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke unten auf „Terminal öffnen“.\nVerwende ⌘+V, um den Befehl einzufügen, und drücke dann ↩ (Eingabe), um den Befehl auszuführen\nBefolge die Anweisungen zur Deinstallation von %@, kehre zu Cork zurück und schließe dieses Dialogfeld"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5987,6 +6041,12 @@
             "value" : "Při ukládání zálohy se vyskytla chyba"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Homebrew-Sicherung kann nicht geschrieben werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6014,6 +6074,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tento balíček nejspíš není nainstalovaný"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Paket scheint nicht installiert zu sein"
           }
         },
         "en" : {
@@ -6056,6 +6122,12 @@
             "value" : "Tento balíček se nepodařilo najít"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket konnte nicht gefunden werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6096,6 +6168,12 @@
             "value" : "Zálohu přesuňte do jiné složky a zkuste to znovu"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verschiebe die Sicherungsdatei in ein anderes Verzeichnis, und versuche es erneut"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6124,6 +6202,12 @@
             "value" : "K přečtení zálohy nemáte dostatečná oprávnění"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unzureichende Berechtigungen zum lesen der Sicherungsdatei"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6150,6 +6234,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Při vytváření složky pro zálohu se vyskytla chyba"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der übergeordnete Sicherungsordner kann nicht erstellt werden"
           }
         },
         "en" : {
@@ -6184,7 +6274,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "There was an error while parsing outdated packages"
+            "value" : "Beim Parsen veralteter Pakete ist ein Fehler aufgetreten"
           }
         },
         "en" : {
@@ -6231,7 +6321,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't retrieve outdated packages"
+            "value" : "Veraltete Pakete konnten nicht abgerufen werden"
           }
         },
         "en" : {
@@ -6274,6 +6364,12 @@
             "value" : "Zálohu přesuňte do jiné složky a zkuste to znovu"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verschiebe den Sicherungsordner in ein anderes Verzeichnis, und versuche es erneut"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6302,6 +6398,12 @@
             "value" : "Při čtení zálohy se vyskytla chyba"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicherungsdatei kann nicht gelesen werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6325,6 +6427,12 @@
     "alert.could-not-read-brewfile.message" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versuche es erneut, oder starte Cork neu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6345,6 +6453,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Při čtení zálohy se vyskytla chyba"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicherung kann nicht gelesen werden"
           }
         },
         "en" : {
@@ -6373,6 +6487,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Během instalace balíčku se vyskytla chyba"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein schwerwiegender Fehler ist während der Installation aufgetreten"
           }
         },
         "en" : {
@@ -6407,7 +6527,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't decipher Homebrew response"
+            "value" : "Die Homebrew-Antwort konnte nicht entschlüsselt werden"
           }
         },
         "en" : {
@@ -6453,7 +6573,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cork kann nicht auf Ihre Homebrew-Installation zugreifen\nWir untersuchen derzeit die Ursache dieses Problems, das in der neuesten Homebrew- oder macOS-Version aufgetreten ist\nBis dahin wird Cork nicht richtig funktionieren. Sobald dieses Problem behoben ist, wird Cork aktualisiert werden."
+            "value" : "Cork kann nicht auf die Homebrew-Installation zugreifen\nWir untersuchen derzeit die Ursache dieses Problems, das in der neuesten Homebrew- oder macOS-Version aufgetreten ist\nBis dahin wird Cork nicht richtig funktionieren. Sobald dieses Problem behoben ist, wird Cork aktualisiert werden."
           }
         },
         "en" : {
@@ -6542,6 +6662,12 @@
             "value" : "Soubor, který chcete použít k obnovení, nemá správnou strukturu"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Datei, aus der du eine Wiederherstellung versucht hast, hat nicht die richtige Struktur"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6568,6 +6694,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Záloha je rozbitá"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicherungsdatei beschädigt"
           }
         },
         "en" : {
@@ -6693,7 +6825,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sie haben noch Pakete von %@\n installiert. Deinstallieren Sie diese und versuchen Sie es erneut."
+            "value" : "Du hast noch Pakete von %@\n installiert. Deinstalliere diese und versuche es erneut"
           }
         },
         "en" : {
@@ -6739,7 +6871,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew sent Cork an invalid response"
+            "value" : "Homebrew hat Cork eine ungültige Antwort gesendet"
           }
         },
         "en" : {
@@ -6785,7 +6917,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't get top packages"
+            "value" : "Es konnten keine Top-Pakete abgerufen werden"
           }
         },
         "en" : {
@@ -6831,7 +6963,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sie können Cork auch ohne Benachrichtigungen verwenden"
+            "value" : "Du kannst Cork auch ohne Benachrichtigungen verwenden"
           }
         },
         "en" : {
@@ -6924,7 +7056,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cork couldn't understand the response from Homebrew"
+            "value" : "Cork konnte die Reaktion von Homebrew nicht verstehen"
           }
         },
         "en" : {
@@ -6970,7 +7102,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't decipher top packages"
+            "value" : "Top-Pakete konnten nicht entschlüsselt werden"
           }
         },
         "en" : {
@@ -7108,7 +7240,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The selected package couldn't be installed"
+            "value" : "Das ausgewählte Paket konnte nicht installiert werden"
           }
         },
         "en" : {
@@ -7154,7 +7286,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't get selected top package"
+            "value" : "Das ausgewählte Top-Paket konnte nicht ausgewählt werden"
           }
         },
         "en" : {
@@ -7336,6 +7468,12 @@
             "value" : "%@ Záloha Homebrew"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Homebrew Sicherung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7362,6 +7500,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zálohuji Homebrew…"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichere Homebrew..."
           }
         },
         "en" : {
@@ -7392,6 +7536,12 @@
             "value" : "Nevyskytly se žádné chyby"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es wurden keine Fehler festgestellt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7418,6 +7568,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obnovení ze zálohy proběhlo úspěšně"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicherung erfolgreich wiederhergestellt"
           }
         },
         "en" : {
@@ -7448,6 +7604,12 @@
             "value" : "Obnovuji ze zálohy…"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stelle Sicherung wieder her"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7474,6 +7636,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dejte tomu chvíli! Může to pár minut trvat"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warte ab! Das kann ein paar Minuten dauern"
           }
         },
         "en" : {
@@ -7548,6 +7716,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ahoj, světe!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hallo, Welt!"
           }
         },
         "zh-Hans" : {
@@ -9430,6 +9604,12 @@
             "value" : "Zkuste to znovu nebo restartujte Cork"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versuche es erneut, oder starte Cork neu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9647,7 +9827,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Install Package Directly"
+            "value" : "Installiere das Paket direkt"
           }
         },
         "en" : {
@@ -9694,7 +9874,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Install a package by name, bypassing search"
+            "value" : "Installiere ein Paket nach Name, umgehe dabei die Suche"
           }
         },
         "en" : {
@@ -9740,7 +9920,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Install a new package"
+            "value" : "Ein neues Paket installieren"
           }
         },
         "en" : {
@@ -9931,6 +10111,12 @@
             "value" : "Exportovat zálohu Homebrew…"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exportiere Homebrew-Sicherung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9957,6 +10143,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obnovit ze zálohy…"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stelle Sicherung wieder her"
           }
         },
         "en" : {
@@ -10496,7 +10688,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "New outdated package"
+            "value" : "Neue veraltete Pakete"
           }
         },
         "en" : {
@@ -10920,6 +11112,12 @@
             "value" : "Všechny volitelné funkce budou zapnuty"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All optionalen Funktionen aktiviert"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10958,6 +11156,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Základní funkce"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfache Funktionen"
           }
         },
         "en" : {
@@ -11000,6 +11204,12 @@
             "value" : "Objevování"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auffindbarkeit"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11038,6 +11248,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Další funkce"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Funktionen"
           }
         },
         "en" : {
@@ -11080,6 +11296,12 @@
             "value" : "Funkce balíčků"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket Funktionen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11118,6 +11340,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Funkce píp"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap Funktionen"
           }
         },
         "en" : {
@@ -11160,6 +11388,12 @@
             "value" : "Kontrola kompatibility balíčků"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket Kompatibilitätsprüfung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11198,6 +11432,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Více informací o závislostech"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr Informationen über Abhängigkeiten"
           }
         },
         "en" : {
@@ -11240,6 +11480,12 @@
             "value" : "Vyhledávání závislostí"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchsuchen von Paketabhängigkeiten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11278,6 +11524,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Úplné poznámky k balíčkům"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorbehalte für das Gesamtpaket"
           }
         },
         "en" : {
@@ -11320,6 +11572,12 @@
             "value" : "Objevování populárních balíčků"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beliebte Pakete finden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11358,6 +11616,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Údržba Homebrew"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Wartung"
           }
         },
         "en" : {
@@ -11400,6 +11664,12 @@
             "value" : "Rychlé akce v řádku nabídek"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schnellaktionen in der Menüleiste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11438,6 +11708,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oznámení o akcích"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benachrichtigungen über verschiedene Aktionen"
           }
         },
         "en" : {
@@ -11480,6 +11756,12 @@
             "value" : "Popisy balíčků ve vyhledávání"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paketbeschreibung in der Suche"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11518,6 +11800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Podrobnosti o balíčku"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paketdetails"
           }
         },
         "en" : {
@@ -11560,6 +11848,12 @@
             "value" : "mazání podpůrných souborů"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paketbereinigung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11598,6 +11892,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zobrazování balíčků ve Finderu"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pakete im Finder anzeigen"
           }
         },
         "en" : {
@@ -11640,6 +11940,12 @@
             "value" : "Vyhledávání nainstalovaných balíčků"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchsuchen installierter Pakete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11678,6 +11984,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vyhledávání balíčků"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paketsuche"
           }
         },
         "en" : {
@@ -11720,6 +12032,12 @@
             "value" : "Zobrazit všechny balíčky"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige alle Pakete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11748,6 +12066,12 @@
             "value" : "Zobrazit záměrně nainstalované balíčky"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige manuell installierte Pakete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11774,6 +12098,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Označování balíčků"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paketkennzeichnung"
           }
         },
         "en" : {
@@ -11814,6 +12144,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informace o pípách"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap-Details"
           }
         },
         "en" : {
@@ -11857,6 +12193,12 @@
             "value" : "Skrýt podrobnosti o"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details ausblenden über"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11895,6 +12237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Všechna tato nastavení můžete měnit v Nastavení Corku"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst dein Erlebnis jederzeit in den Einstellungen anpassen"
           }
         },
         "en" : {
@@ -11938,6 +12286,12 @@
             "value" : "Zobrazit podrobnosti o"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details anzeigen über"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11976,6 +12330,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zobrazit úvodní nastavení… "
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onboarding anzeigen…"
           }
         },
         "en" : {
@@ -12018,6 +12378,12 @@
             "value" : "Zdraví vás aplikace z celého světa"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Begrüße die Welt der Apps"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12056,6 +12422,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vítá vás budoucnost Homebrew!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen zur Zukunft von Homebrew"
           }
         },
         "en" : {
@@ -13805,6 +14177,12 @@
             "value" : "Označené"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gekennzeichnete Pakete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13886,6 +14264,12 @@
     "settings.advanced" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erweitert"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14050,7 +14434,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Discoverability"
+            "value" : "Auffindbarkeit"
           }
         },
         "en" : {
@@ -14096,7 +14480,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sort top packages by:"
+            "value" : "Top-Pakete sortieren nach:"
           }
         },
         "en" : {
@@ -14142,7 +14526,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fewest downloads"
+            "value" : "Schnellste Downloads"
           }
         },
         "en" : {
@@ -14188,7 +14572,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Most downloads"
+            "value" : "Meinst Downloads"
           }
         },
         "en" : {
@@ -14234,7 +14618,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Random"
+            "value" : "Zufällig"
           }
         },
         "en" : {
@@ -14280,7 +14664,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Get top packages for:"
+            "value" : "Holen Sie sich Top-Pakete für:"
           }
         },
         "en" : {
@@ -14326,7 +14710,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Last month"
+            "value" : "Letzten Monat"
           }
         },
         "en" : {
@@ -14372,7 +14756,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Last three months"
+            "value" : "Letzte drei Monate"
           }
         },
         "en" : {
@@ -14418,7 +14802,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Last year"
+            "value" : "Letztes Jahr"
           }
         },
         "en" : {
@@ -14465,7 +14849,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enable Discoverability"
+            "value" : "Aktiviere Auffindbarkeit"
           }
         },
         "en" : {
@@ -14647,6 +15031,12 @@
             "value" : "Filtrování balíčků:"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paketfilterung:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14675,6 +15065,12 @@
             "value" : "Zobrazit všechny balíčky, včetně závislostí"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige alle Pakete mit Anhängigkeiten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14701,6 +15097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zobrazit pouze záměrně nainstalované balíčky"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige nur manuell installierte Pakete"
           }
         },
         "en" : {
@@ -14868,6 +15270,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Otevřít Cork bez hlavního okna"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffne Cork ohne das Hauptfenster zu öffnen"
           }
         },
         "en" : {
@@ -15172,6 +15580,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Možnost zobrazit balíčky ve Finderu"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anzeigen von Paketen im Finder zulassen"
           }
         },
         "en" : {
@@ -15495,7 +15909,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nicht sortieren"
+            "value" : "Unsortiert"
           }
         },
         "en" : {
@@ -15818,6 +16232,12 @@
             "value" : "Čistit zastaralé soubory"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bereinigen alter Pakete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15850,6 +16270,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vypnout automatické čištění"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deaktiviere die automatische Berenigung"
           }
         },
         "en" : {
@@ -15886,6 +16312,12 @@
             "value" : "Neprovádění automatických čištění může rozbít Homebrew."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Deaktivierung der automatischen Bereinigung könnte die Homebrew-Installation zerstören."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15920,6 +16352,12 @@
             "value" : "Opravdu chcete vypnout automatické čištění zastaralých souborů?"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist du sicher, dass du die automatische Paketbereinigung deaktivieren möchtest?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15952,6 +16390,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zakázáním čištění zastaralých souborů zrychlíte instalace balíčků,\nale Homebrew celkově zpomalíte.\nZakázání čištění může váš Homebrew rozbít.\nTato volba ovládá také automatické čištění balíčků po 30 dnech neaktivity."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Deaktivierung der Bereinigung beschleunigt die Installation von Paketen,\naber macht Homebrew insgesamt langsamer. \nDie Deaktivierung dieser Option könnte Ihre Homebrew-Installation zerstören.\nDiese Option steuert auch automatische Bereinigungen, die erfolgen\nnachdem Homebrew mehr als 30 Tage lang nicht benutzt wurde."
           }
         },
         "en" : {
@@ -16130,7 +16574,7 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Durch das Bereinigen können anderen Pakete beschädigt werden. Bist du sicher, dass du fortfahren möchtest?"
           }
         },
@@ -16268,8 +16712,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Beim Bereinigen werden alle mit einem Paket verknüpften Dateien entfernt.\nDies kann gemeinsam genutzte Dateien entfernen und andere Pakete beschädigen"
+            "state" : "translated",
+            "value" : "Beim Bereinigen werden alle mit einem Paket verknüpften Dateien entfernt.\nDies kann gemeinsam genutzte Dateien entfernen und andere Pakete beschädigen."
           }
         },
         "en" : {
@@ -16917,7 +17361,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Warntyp für veraletete Pakete:"
+            "value" : "Warntyp für veraltete Pakete:"
           }
         },
         "en" : {
@@ -17144,6 +17588,12 @@
             "value" : "Pokročilé"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erweitert"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17182,6 +17632,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Základní"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfach"
           }
         },
         "en" : {
@@ -17224,6 +17680,12 @@
             "value" : "Normální"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgeglichen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17262,6 +17724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mírně pokročilé"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etwas erweiterter"
           }
         },
         "en" : {
@@ -17304,6 +17772,12 @@
             "value" : "Pokročilejší"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etwas einfacher"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17342,6 +17816,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jak chcete, aby se Cork choval?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie möchtest du Cork erleben"
           }
         },
         "en" : {
@@ -18456,6 +18936,12 @@
             "value" : "Ostatní"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18490,6 +18976,12 @@
             "value" : "Název balíčku v mezipaměti"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name des zwischengespeicherten Download-Pakets"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18522,6 +19014,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Velikost balíčku v mezipaměti"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwischengespeicherte Downloadgröße"
           }
         },
         "en" : {
@@ -19609,6 +20107,12 @@
             "value" : "Vypnuto"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deaktiviert"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20390,7 +20894,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Backing up old version…"
+            "value" : "Sichere alte Version..."
           }
         },
         "en" : {
@@ -20436,7 +20940,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cleaning up…"
+            "value" : "Aufräumen..."
           }
         },
         "en" : {
@@ -20482,7 +20986,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Downloading…"
+            "value" : "Herunterladen..."
           }
         },
         "en" : {
@@ -20528,7 +21032,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Linking new version…"
+            "value" : "Linke neue Verson..."
           }
         },
         "en" : {
@@ -20574,7 +21078,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Updating…"
+            "value" : "Aktualisiere..."
           }
         },
         "en" : {
