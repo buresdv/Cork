@@ -2214,6 +2214,12 @@
             "state" : "translated",
             "value" : "Copy to Clipboard"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать в буфер обмена"
+          }
         }
       }
     },
@@ -3882,7 +3888,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Этот пакет необходимо установить через Терминал.\nИспользуйте команду снизу."
+            "value" : "Этот пакет необходимо установить через Терминал.\nИспользуйте команду ниже."
           }
         },
         "zh-Hans" : {
@@ -4795,6 +4801,12 @@
             "state" : "translated",
             "value" : "Elevated permissions are required to uninstall %@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для удаления %@ нужны привилегии администратора"
+          }
         }
       }
     },
@@ -4810,6 +4822,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You will have to uninstall this package through the Terminal.\nUse the command below."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот пакет необходимо удалить через Терминал.\nИспользуйте команду ниже."
           }
         }
       }
@@ -4982,7 +5000,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ошибок не обнаружено"
+            "value" : "Проблем не обнаружено"
           }
         },
         "zh-Hans" : {
@@ -5490,7 +5508,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для установки %@, затем вернитесь в Cork и закройте диалог"
+            "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для установки %@, затем вернитесь в Cork и закройте это диалоговое окно"
           }
         },
         "zh-Hans" : {
@@ -5519,6 +5537,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to uninstall %@, return to Cork and close this dialog"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для удаления %@, затем вернитесь в Cork и закройте это диалоговое окно"
           }
         }
       }
@@ -5950,6 +5974,12 @@
             "state" : "translated",
             "value" : "Couldn't write Homebrew backup"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось записать резервную копию Homebrew"
+          }
         }
       }
     },
@@ -6047,6 +6077,12 @@
             "state" : "translated",
             "value" : "Move the backup file to a different location, then try again"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переместите файл в другое расположение, затем попробуйте еще раз"
+          }
         }
       }
     },
@@ -6063,6 +6099,12 @@
             "state" : "translated",
             "value" : "Insufficient permissions to read backup file"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недостаточно прав для чтения файла резервной копии"
+          }
         }
       }
     },
@@ -6078,6 +6120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't create backup parent folder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось создать папку для резервной копии"
           }
         }
       }
@@ -6189,6 +6237,12 @@
             "state" : "translated",
             "value" : "Move the backup file to a different location, then try again"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переместите файл в другое расположение, затем попробуйте еще раз"
+          }
         }
       }
     },
@@ -6205,6 +6259,12 @@
             "state" : "translated",
             "value" : "Couldn't read backup file"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось прочитать файл резервной копии"
+          }
         }
       }
     },
@@ -6215,6 +6275,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try again, or restart Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попробуйте еще раз, либо перезапустите Cork"
           }
         }
       }
@@ -6232,6 +6298,12 @@
             "state" : "translated",
             "value" : "Couldn't read backup"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось прочитать резервную копию"
+          }
         }
       }
     },
@@ -6247,6 +6319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A fatal error occurred during package installation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла критическая ошибка при установке пакета"
           }
         }
       }
@@ -6403,6 +6481,12 @@
             "state" : "translated",
             "value" : "The file you tried to restore from doesn't have the correct structure"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбранный вами файл не имеет ожидаемой структуры"
+          }
         }
       }
     },
@@ -6418,6 +6502,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Backup File Broken"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл резервных копий поврежден"
           }
         }
       }
@@ -7160,17 +7250,6 @@
         }
       }
     },
-    "brewfile.export.default-export-name" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Homebrew Backup"
-          }
-        }
-      }
-    },
     "brewfile.export.default-export-name-%@" : {
       "localizations" : {
         "cs" : {
@@ -7183,6 +7262,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ Homebrew Backup"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Резервная копия Homebrew от %@"
           }
         }
       }
@@ -7200,6 +7285,12 @@
             "state" : "translated",
             "value" : "Backing up Homebrew…"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создание резервной копии Homebrew..."
+          }
         }
       }
     },
@@ -7215,6 +7306,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "There were no errors"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проблем не обнаружено"
           }
         }
       }
@@ -7232,6 +7329,12 @@
             "state" : "translated",
             "value" : "Successfully restored from backup"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Восстановление из резервной копии успешно"
+          }
         }
       }
     },
@@ -7248,6 +7351,12 @@
             "state" : "translated",
             "value" : "Restoring from backup…"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Восстановление из резервной копии"
+          }
         }
       }
     },
@@ -7263,6 +7372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hang tight! This might take a few minutes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, подождите, это может занять несколько минут"
           }
         }
       }
@@ -9200,6 +9315,12 @@
             "state" : "translated",
             "value" : "Try again, or restart Cork"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попробуйте еще раз, либо перезапустите Cork"
+          }
         }
       }
     },
@@ -9689,6 +9810,12 @@
             "state" : "translated",
             "value" : "Export Homebrew Backup…"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экспорт резервной копии Homebrew..."
+          }
         }
       }
     },
@@ -9704,6 +9831,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restore from Backup…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Восстановить из резервной копии..."
           }
         }
       }
@@ -11454,6 +11587,12 @@
             "state" : "translated",
             "value" : "Show all packages"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отображение всех пакетов"
+          }
         }
       }
     },
@@ -11469,6 +11608,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show manually installed packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отображение только установленных вами пакетов"
           }
         }
       }
@@ -13596,6 +13741,12 @@
             "state" : "translated",
             "value" : "Advanced"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дополнительно"
+          }
         }
       }
     },
@@ -14351,6 +14502,12 @@
             "state" : "translated",
             "value" : "Package filtering:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фильтрация списка пакетов:"
+          }
         }
       }
     },
@@ -14367,6 +14524,12 @@
             "state" : "translated",
             "value" : "Show all packages, including dependencies"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать все пакеты, включая их зависимости"
+          }
         }
       }
     },
@@ -14382,6 +14545,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show only manually installed packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать только установленные вами пакеты"
           }
         }
       }
@@ -14537,6 +14706,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open Cork without its main window"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открывать Cork без главного окна"
           }
         }
       }
