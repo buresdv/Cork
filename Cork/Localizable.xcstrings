@@ -4807,6 +4807,12 @@
             "state" : "translated",
             "value" : "Для удаления %@ нужны привилегии администратора"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "卸载 %@ 需要更高权限"
+          }
         }
       }
     },
@@ -4828,6 +4834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Этот пакет необходимо удалить через Терминал.\nИспользуйте команду ниже."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你需要通过终端卸载该软件包\n请使用下方的命令"
           }
         }
       }
@@ -5544,6 +5556,12 @@
             "state" : "translated",
             "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для удаления %@, затем вернитесь в Cork и закройте это диалоговое окно"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击下方的“打开终端'”，使用 ⌘V 粘贴命令，然后按 ↩（回车）执行命令。按照卸载 %@ 的说明进行操作，完成后返回 Cork 并关闭此对话框。"
+          }
         }
       }
     },
@@ -5980,6 +5998,12 @@
             "state" : "translated",
             "value" : "Не удалось записать резервную копию Homebrew"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法写入 Homebrew 备份"
+          }
         }
       }
     },
@@ -6083,6 +6107,12 @@
             "state" : "translated",
             "value" : "Переместите файл в другое расположение, затем попробуйте еще раз"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请将备份文件移动到其他位置，然后重试"
+          }
         }
       }
     },
@@ -6105,6 +6135,12 @@
             "state" : "translated",
             "value" : "Недостаточно прав для чтения файла резервной копии"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有足够的权限读取备份文件"
+          }
         }
       }
     },
@@ -6126,6 +6162,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось создать папку для резервной копии"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法创建备份文件夹"
           }
         }
       }
@@ -6243,6 +6285,12 @@
             "state" : "translated",
             "value" : "Переместите файл в другое расположение, затем попробуйте еще раз"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请将备份文件移动到其他位置，然后重试"
+          }
         }
       }
     },
@@ -6264,6 +6312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось прочитать файл резервной копии"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取备份文件"
           }
         }
       }
@@ -6304,6 +6358,12 @@
             "state" : "translated",
             "value" : "Не удалось прочитать резервную копию"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取备份"
+          }
         }
       }
     },
@@ -6325,6 +6385,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла критическая ошибка при установке пакета"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在安装软件包过程中发生了严重错误"
           }
         }
       }
@@ -6487,6 +6553,12 @@
             "state" : "translated",
             "value" : "Выбранный вами файл не имеет ожидаемой структуры"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你尝试还原的文件没有正确的结构"
+          }
         }
       }
     },
@@ -6508,6 +6580,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Файл резервных копий поврежден"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份文件损坏"
           }
         }
       }
@@ -7269,6 +7347,12 @@
             "state" : "translated",
             "value" : "Резервная копия Homebrew от %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Homebrew 备份"
+          }
         }
       }
     },
@@ -7290,6 +7374,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Создание резервной копии Homebrew..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份 Homebrew..."
           }
         }
       }
@@ -7313,6 +7403,12 @@
             "state" : "translated",
             "value" : "Проблем не обнаружено"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未发生任何错误"
+          }
         }
       }
     },
@@ -7334,6 +7430,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Восстановление из резервной копии успешно"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "成功从备份恢复"
           }
         }
       }
@@ -7357,6 +7459,12 @@
             "state" : "translated",
             "value" : "Восстановление из резервной копии"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在从备份恢复..."
+          }
         }
       }
     },
@@ -7378,6 +7486,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пожалуйста, подождите, это может занять несколько минут"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "稍等片刻！这可能需要几分钟"
           }
         }
       }
@@ -7434,6 +7548,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ahoj, světe!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你好，世界！"
           }
         }
       }
@@ -9321,6 +9441,12 @@
             "state" : "translated",
             "value" : "Попробуйте еще раз, либо перезапустите Cork"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请重试，或重启 Cork"
+          }
         }
       }
     },
@@ -9816,6 +9942,12 @@
             "state" : "translated",
             "value" : "Экспорт резервной копии Homebrew..."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出 Homebrew 备份"
+          }
         }
       }
     },
@@ -9837,6 +9969,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Восстановить из резервной копии..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "从备份恢复..."
           }
         }
       }
@@ -11593,6 +11731,12 @@
             "state" : "translated",
             "value" : "Отображение всех пакетов"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示所有软件包"
+          }
         }
       }
     },
@@ -11614,6 +11758,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Отображение только установленных вами пакетов"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示手动安装软件包"
           }
         }
       }
@@ -14508,6 +14658,12 @@
             "state" : "translated",
             "value" : "Фильтрация списка пакетов:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包筛选："
+          }
         }
       }
     },
@@ -14530,6 +14686,12 @@
             "state" : "translated",
             "value" : "Показывать все пакеты, включая их зависимости"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示包括依赖的所有软件包"
+          }
         }
       }
     },
@@ -14551,6 +14713,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать только установленные вами пакеты"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅显示手动安装的软件包"
           }
         }
       }
@@ -14712,6 +14880,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открывать Cork без главного окна"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在不显示主窗口的情况下打开 Cork"
           }
         }
       }
