@@ -2206,41 +2206,6 @@
         }
       }
     },
-    "action.copy-manual-uninstall-command-to-clipboard" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zkopírovat do schránky"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In Zwischenablage kopieren"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Copy to Clipboard"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Copier dans le presse-papier"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скопировать в буфер обмена"
-          }
-        }
-      }
-    },
     "action.done" : {
       "localizations" : {
         "cs" : {
@@ -6097,53 +6062,6 @@
         }
       }
     },
-    "alert.could-not-find-package-in-parent-directory.message" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tento balíček nejspíš není nainstalovaný"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dieses Paket scheint nicht installiert zu sein"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This package doesn't seem to be installed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il semble que ce paquet ne soit pas installé"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Похоже, этот пакет не установлен"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "该软件包似乎没有被安装"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "此套件似乎並未安裝"
-          }
-        }
-      }
-    },
     "alert.could-not-find-package-in-parent-directory.title" : {
       "localizations" : {
         "cs" : {
@@ -6480,35 +6398,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法读取备份文件"
-          }
-        }
-      }
-    },
-    "alert.could-not-read-brewfile.message" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versuche es erneut, oder starte Cork neu"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Try again, or restart Cork"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Réessayez ou redémarrez Cork"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Попробуйте еще раз, либо перезапустите Cork"
           }
         }
       }
@@ -7850,10 +7739,22 @@
             "value" : "Hallo, Welt!"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, World!"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hello, World!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здравствуй, мир!"
           }
         },
         "zh-Hans" : {
@@ -14423,35 +14324,6 @@
         }
       }
     },
-    "settings.advanced" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erweitert"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Advanced"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avancée"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дополнительно"
-          }
-        }
-      }
-    },
     "settings.brew.analytics" : {
       "comment" : "MARK: - Settings: Brew",
       "localizations" : {
@@ -16085,53 +15957,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安裝日期"
-          }
-        }
-      }
-    },
-    "settings.general.sort-packages.none" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neřadit"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unsortiert"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Do Not Sort"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ne Pas Trier"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не сортировать"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "不排序"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "勿排序"
           }
         }
       }
