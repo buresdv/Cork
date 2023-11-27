@@ -95,6 +95,8 @@ struct ContentView: View, Sendable
                         }
                     }
                     .help("navigation.install-package.help")
+                    .background(Color.accentColor)
+                    .cornerRadius(6.0)
                 }
 
                 #warning("TODO: Implement this button")
