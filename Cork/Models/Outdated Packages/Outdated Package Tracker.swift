@@ -12,12 +12,6 @@ import SwiftUI
 class OutdatedPackageTracker: ObservableObject
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-    {
-        didSet
-        {
-            updateDisplayableOutdatedPackages()
-        }
-    }
     
     @Published var outdatedPackages: Set<OutdatedPackage> = .init()
     
@@ -29,7 +23,7 @@ class OutdatedPackageTracker: ObservableObject
         }
     }
     
-    private func updateDisplayableOutdatedPackages()
+    func updateDisplayableOutdatedPackages()
     {
         print("Updating outdated package list...")
         print("found these outdated packages: \(self.allOutdatedPackages)")
