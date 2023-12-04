@@ -116,7 +116,10 @@ struct CorkApp: App
 
                                     outdatedPackageTracker.outdatedPackages = newOutdatedPackages
 
-                                    sendStandardUpdatesAvailableNotification = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+                                    {
+                                        sendStandardUpdatesAvailableNotification = true
+                                    }
                                 }
                                 else
                                 {
