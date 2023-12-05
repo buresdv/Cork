@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTapAddingView: View
 {
     let requestedTap: String
+    let forcedRepoAddress: String
     
     @Binding var progress: TapAddingStates
     @Binding var tappingError: TappingError
@@ -22,7 +23,16 @@ struct AddTapAddingView: View
         }
         .task(priority: .medium)
         {
-            let tapResult = await addTap(name: requestedTap)
+            var tapResult: String
+            
+            if forcedRepoAddress.isEmpty
+            {
+                tapResult = await addTap(name: requestedTap)
+            }
+            else
+            {
+                tapResult = await addTap(name: requestedTap, forcedRepoAddress: forcedRepoAddress)
+            }
 
             print("Result: \(tapResult)")
 

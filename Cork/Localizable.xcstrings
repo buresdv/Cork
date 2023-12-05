@@ -5290,6 +5290,36 @@
         }
       }
     },
+    "add-tap.manual-repo-address.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap address:"
+          }
+        }
+      }
+    },
+    "add-tap.manual-repo-address.show" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use external address"
+          }
+        }
+      }
+    },
+    "add-tap.manual-repo-address.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a tap from an external address "
+          }
+        }
+      }
+    },
     "add-tap.progress-%@" : {
       "localizations" : {
         "cs" : {
@@ -7807,6 +7837,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
+          }
+        }
+      }
+    },
+    "https://gitea.com/some-cool-address" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
           }
         }
       }

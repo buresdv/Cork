@@ -9,7 +9,7 @@ import SwiftUI
 
 enum TapAddingStates
 {
-    case ready, tapping, finished, error
+    case ready, tapping, finished, error, manuallyInputtingTapRepoAddress
 }
 
 enum TapInputErrors
@@ -30,6 +30,8 @@ struct AddTapView: View
     @State var progress: TapAddingStates = .ready
 
     @State private var requestedTap: String = ""
+    
+    @State private var forcedRepoAddress: String = ""
 
     @State private var tappingError: TappingError = .other
 
@@ -45,17 +47,20 @@ struct AddTapView: View
             case .ready:
                 AddTapInitialView(
                     requestedTap: $requestedTap,
+                    forcedRepoAddress: $forcedRepoAddress,
                     isShowingSheet: $isShowingSheet,
-                    progress: $progress
+                    progress: $progress,
+                    isShowingManualRepoAddressInputField: false
                 )
 
             case .tapping:
                 AddTapAddingView(
                     requestedTap: requestedTap,
+                    forcedRepoAddress: forcedRepoAddress,
                     progress: $progress,
                     tappingError: $tappingError
                 )
-                    
+
             case .finished:
                 AddTapFinishedView(
                     requestedTap: requestedTap,
@@ -68,6 +73,15 @@ struct AddTapView: View
                     requestedTap: requestedTap,
                     isShowingSheet: $isShowingSheet,
                     progress: $progress
+                )
+
+            case .manuallyInputtingTapRepoAddress:
+                AddTapInitialView(
+                    requestedTap: $requestedTap,
+                    forcedRepoAddress: $forcedRepoAddress,
+                    isShowingSheet: $isShowingSheet,
+                    progress: $progress,
+                    isShowingManualRepoAddressInputField: true
                 )
             }
         }

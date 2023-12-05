@@ -19,19 +19,22 @@ struct AddTapErrorView: View
     {
         ComplexWithIcon(systemName: "xmark.seal")
         {
-            VStack(alignment: .leading, spacing: 5)
+            VStack(alignment: .leading, spacing: 10)
             {
-                switch tappingError
+                VStack(alignment: .leading, spacing: 5)
                 {
-                case .repositoryNotFound:
-                    Text("add-tap.error.repository-not-found-\(requestedTap)")
-                        .font(.headline)
-                    Text("add-tap.error.repository-not-found.description")
-
-                case .other:
-                    Text("add-tap.error.other-\(requestedTap)")
-                        .font(.headline)
-                    Text("add-tap.error.other.description")
+                    switch tappingError
+                    {
+                        case .repositoryNotFound:
+                            Text("add-tap.error.repository-not-found-\(requestedTap)")
+                                .font(.headline)
+                            Text("add-tap.error.repository-not-found.description")
+                            
+                        case .other:
+                            Text("add-tap.error.other-\(requestedTap)")
+                                .font(.headline)
+                            Text("add-tap.error.other.description")
+                    }
                 }
 
                 HStack
@@ -39,6 +42,16 @@ struct AddTapErrorView: View
                     DismissSheetButton(isShowingSheet: $isShowingSheet)
 
                     Spacer()
+                    
+                    if tappingError == .repositoryNotFound
+                    {
+                        Button
+                        {
+                            progress = .manuallyInputtingTapRepoAddress
+                        } label: {
+                            Text("add-tap.manual-repo-address.show")
+                        }
+                    }
 
                     Button
                     {
@@ -49,7 +62,7 @@ struct AddTapErrorView: View
                     .keyboardShortcut(.defaultAction)
                 }
             }
-            .frame(width: 200)
+            .frame(width: 320)
             .fixedSize(horizontal: false, vertical: true)
         }
     }
