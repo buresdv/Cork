@@ -5292,6 +5292,12 @@
     },
     "add-tap.manual-repo-address.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adresa pípy:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5302,6 +5308,12 @@
     },
     "add-tap.manual-repo-address.show" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Použít jinou adresu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5312,6 +5324,12 @@
     },
     "add-tap.manual-repo-address.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat pípu z externí adresy"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7843,6 +7861,12 @@
     },
     "https://gitea.com/some-cool-address" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
