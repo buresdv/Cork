@@ -73,7 +73,7 @@ struct OutdatedPackageListBox: View
                                                 }, set: { toggleState in
                                                     outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
                                                         var copyOutdatedPackage = modifiedElement
-                                                        if copyOutdatedPackage.id == modifiedElement.id
+                                                        if copyOutdatedPackage.id == outdatedPackage.id
                                                         {
                                                             copyOutdatedPackage.isMarkedForUpdating = toggleState
                                                         }
