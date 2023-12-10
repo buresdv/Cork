@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OutdatedPackageListBox: View
 {
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
@@ -131,6 +133,10 @@ struct OutdatedPackageListBox: View
                     }
                 }
             }
+        }
+        .onChange(of: displayOnlyIntentionallyInstalledPackagesByDefault) 
+        { _ in
+            outdatedPackageTracker.updateDisplayableOutdatedPackages()
         }
     }
 }

@@ -6061,7 +6061,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Адреса Tap"
+            "value" : "Адреса Tap:"
           }
         }
       }
@@ -6111,7 +6111,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Добавить источник из внешнего адреса"
+            "value" : "Добавление источника по внешнему адресу"
           }
         },
         "uk" : {
