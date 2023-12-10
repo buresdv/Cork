@@ -27,6 +27,12 @@
             "value" : "⚠️"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⚠️"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -71,6 +77,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Связь с разработчиком"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Звʼязатися зі мною"
           }
         },
         "zh-Hans" : {
@@ -119,6 +131,12 @@
             "value" : "Внесите свой вклад"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стати контрибутором"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -160,6 +178,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub"
@@ -211,6 +235,12 @@
             "value" : "Mastodon"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mastodon"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -252,6 +282,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Веб-сайт"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Веб-сайт"
@@ -303,6 +339,12 @@
             "value" : "Признанные участники"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Визнані контрибутори"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -344,6 +386,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rob Napier"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rob Napier"
@@ -395,6 +443,12 @@
             "value" : "Оказывал неоценимую помощь с множеством проблем, от асинхронного Swift до блокировки установки пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Надав неоціненну допомогу у вирішенні всіляких проблем, від асинхронного Swift до блокування інсталяцій пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -436,6 +490,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Łukasz Rutkowski"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Łukasz Rutkowski"
@@ -487,6 +547,12 @@
             "value" : "Исправил множество проблем с асинхронностью и SwiftUI"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виправив багато проблем з асинхронністю та SwiftUI"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -528,6 +594,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jierong Li"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jierong Li"
@@ -579,6 +651,12 @@
             "value" : "Исправил обновление количества пакетов на домашней странице"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виправив кількість пакетів на початковій сторінці, які не оновлювались"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -620,6 +698,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscar Bazaldua"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oscar Bazaldua"
@@ -671,6 +755,12 @@
             "value" : "Сделал первый одобренный pull request; исправил обновление количества пакетов вместе с Jierong Li"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зробив перший затверджений запит на злиття; виправив кількість пакетів разом з Jierong Li"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -712,6 +802,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andrey Radchishin"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Andrey Radchishin"
@@ -763,6 +859,12 @@
             "value" : "Добавил способ перехода назад на страницу \"Обзор Homebrew\""
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додав спосіб повернення на сторінку статусу Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -804,6 +906,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christian Tietze"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Christian Tietze"
@@ -855,6 +963,12 @@
             "value" : "Предложил множество способов оптимизировать логику, а также постоянно предоставляет ценную помощь со Swift"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Придумав багато передових логічних оптимізацій, а також постійно цінно підтримує Swift"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -899,6 +1013,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "© 2023 David Bureš и другие."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2023 David Bureš та інші."
           }
         },
         "zh-Hans" : {
@@ -947,6 +1067,12 @@
             "value" : "Использованные пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використані пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -988,6 +1114,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DavidFoundation"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DavidFoundation"
@@ -1039,6 +1171,12 @@
             "value" : "Мой собственный пакет, предоставляющий базовый вспомогательный функционал"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мій особистий пакет, який додає деякі зручні базові можливості"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1080,6 +1218,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SwiftyJSON"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "SwiftyJSON"
@@ -1131,6 +1275,12 @@
             "value" : "Ненавижу парсинг JSON по умолчанию в Swift. Зачем изобретать велосипед, если можно просто использовать библиотеку, чтобы сделать его более терпимым?"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я ненавиджу розбір JSON за замовчуванням у Swift. Навіщо винаходити колесо, коли ви можете просто використовувати бібліотеку, щоб зробити це більш стерпним?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1172,6 +1322,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "LaunchAtLogin"
@@ -1223,6 +1379,12 @@
             "value" : "Пакет, позволяющий Cork запускаться, когда вы входите в профиль"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет, який дозволяє Cork почати, коли Ви входите в систему"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1269,6 +1431,12 @@
             "value" : "Особая благодарность"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Окрема подяка"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1310,6 +1478,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seb Jachec"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seb Jachec"
@@ -1361,6 +1535,12 @@
             "value" : "Реализовал функционал получения вывода команд в реальном времени, тем самым сделав значительную часть Cork намного быстрее"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реалізував функцію для отримання виведення команд у режимі реального часу, що робить більше половини всіх функцій у Cork набагато швидшими"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1408,6 +1588,12 @@
             "value" : "О приложении Cork"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Про Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1449,6 +1635,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jerry"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jerry"
@@ -1500,6 +1692,12 @@
             "value" : "Перевел Cork на упрощенный китайский"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переклав Cork на спрощену китайську мову"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1541,6 +1739,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sh95014"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "sh95014"
@@ -1592,6 +1796,12 @@
             "value" : "Перевел Cork на традиционный китайский"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переклав Cork на традиційну китайську мову"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1633,6 +1843,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maurice Meysel"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maurice Meysel"
@@ -1684,6 +1900,12 @@
             "value" : "Перевел Cork на немецкий"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переклав Cork на німецьку"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1725,6 +1947,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bryan Ledda"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bryan Ledda"
@@ -1776,6 +2004,12 @@
             "value" : "Перевел Cork на французский"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переклав Cork на французьку"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1821,6 +2055,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Никита Уткин"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Микита Уткін"
           }
         },
         "zh-Hans" : {
@@ -1870,6 +2110,12 @@
             "value" : "Перевел Cork на русский"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переклав Cork на російську"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1880,6 +2126,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "為 Cork 提供俄文翻譯"
+          }
+        }
+      }
+    },
+    "about.translator.6.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Игорь Петручек"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ігор Петручек"
+          }
+        }
+      }
+    },
+    "about.translator.6.purpose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translated Cork into Ukraininan"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевел Cork на украинский"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переклав Cork на українську"
           }
         }
       }
@@ -1914,6 +2206,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Переводчики"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перекладачі"
           }
         },
         "zh-Hans" : {
@@ -1962,6 +2260,12 @@
             "value" : "Версия %@ (%@)"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версія %@ (%@)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2006,6 +2310,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Отмена"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відмінити"
           }
         },
         "zh-Hans" : {
@@ -2054,6 +2364,12 @@
             "value" : "Очистить метаданные"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прибрати метадані"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2098,6 +2414,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Закрыть"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрити"
           }
         },
         "zh-Hans" : {
@@ -2146,6 +2468,12 @@
             "value" : "Скопировать"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копіювати"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2192,6 +2520,12 @@
             "value" : "Скопировать в буфер обмена"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копіювати в буфер обміну"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2236,6 +2570,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Готово"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершено"
           }
         },
         "zh-Hans" : {
@@ -2285,6 +2625,12 @@
             "value" : "Страница \"Обзор\""
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сторінка статусу"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2329,6 +2675,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перейти на страницу \"Обзор\""
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейти на сторінку статусу"
           }
         },
         "zh-Hans" : {
@@ -2377,6 +2729,12 @@
             "value" : "Спрятать"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сховати"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2421,6 +2779,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открыть Терминал"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити Термінал"
           }
         },
         "zh-Hans" : {
@@ -2469,6 +2833,12 @@
             "value" : "Закрыть Cork"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрити Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2513,6 +2883,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Починить %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відремонтувати %@"
           }
         },
         "zh-Hans" : {
@@ -2562,6 +2938,12 @@
             "value" : "Починить Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відремонтувати Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2608,6 +2990,12 @@
             "value" : "Отправить Email..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відправити Email"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2652,6 +3040,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сообщить на GitHub..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомити на GitHub..."
           }
         },
         "zh-Hans" : {
@@ -2701,6 +3095,12 @@
             "value" : "Сообщить об ошибке"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомити про помилки"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2745,6 +3145,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перезапустить Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перезапустити Cork"
           }
         },
         "zh-Hans" : {
@@ -2793,6 +3199,12 @@
             "value" : "Показать в Finder"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити у Finder"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2837,6 +3249,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показать"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати"
           }
         },
         "zh-Hans" : {
@@ -2885,6 +3303,12 @@
             "value" : "Использовать Cork без уведомлений"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовувати Cork без сповіщень"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2929,6 +3353,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Остановить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зупинити"
           }
         },
         "zh-Hans" : {
@@ -2977,6 +3407,12 @@
             "value" : "Произошла ошибка при установке %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Трапилась помилка під час встановлення %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3021,6 +3457,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Попробуйте установить пакет еще раз, либо перезапустите Cork\\nЕсли вы продолжаете сталкиваться с этой проблемой, попробуйте перезагрузить ваш Mac"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте встановити пакет ще раз або перезапустити Cork\nЯкщо проблема залишиться, перезавантажте свій Mac"
           }
         },
         "zh-Hans" : {
@@ -3070,6 +3512,12 @@
             "value" : "Произошла ошибка в процессе установки"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Трапилась помилка в процесі встановлення"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3114,6 +3562,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пакеты успешно установлено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети успішно встановлені"
           }
         },
         "zh-Hans" : {
@@ -3162,6 +3616,12 @@
             "value" : "Проблем не обнаружено"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помилок не було"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3206,6 +3666,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити"
           }
         },
         "zh-Hans" : {
@@ -3254,6 +3720,12 @@
             "value" : "Вы можете либо дождаться завершения процесса, либо завершить его принудительно. Принудительное завершение может привести к повреждению Homebrew."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете зачекати на закінчення процесу або примусово завершити його. Примусове завершення може зашкодити Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3298,6 +3770,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уже запущен другой процесс Homebrew"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інший процес Homebrew вже запущено"
           }
         },
         "zh-Hans" : {
@@ -3346,6 +3824,12 @@
             "value" : "Скачивание %@..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження %@..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3390,6 +3874,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Получение зависимостей..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отримання залежностей..."
           }
         },
         "zh-Hans" : {
@@ -3438,6 +3928,12 @@
             "value" : "Готово"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3482,6 +3978,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Скрыть подробности"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сховати деталі"
           }
         },
         "zh-Hans" : {
@@ -3530,6 +4032,12 @@
             "value" : "Установка %@..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення %@..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3574,6 +4082,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установка зависимостей: %lld/%lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення залежності %lld/%lld"
           }
         },
         "zh-Hans" : {
@@ -3622,6 +4136,12 @@
             "value" : "Установка зависимостей..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення пакету..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3666,6 +4186,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Создание ссылок на исполнимые файлы..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створення символьних посилань на винонувальні файли..."
           }
         },
         "zh-Hans" : {
@@ -3714,6 +4240,12 @@
             "value" : "Загрузка зависимостей..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження залежностей..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3758,6 +4290,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перемещение %@ в папку \"Приложения\"..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переміщення %@ до папки Програми..."
           }
         },
         "zh-Hans" : {
@@ -3806,6 +4344,12 @@
             "value" : "Постройка графа зависимостей..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Побудова графіка залежності..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3850,6 +4394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Для установки %@ нужны привилегии администратора"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для встановлення потрібні привілеї адміністратора"
           }
         },
         "zh-Hans" : {
@@ -3898,6 +4448,12 @@
             "value" : "Этот пакет необходимо установить через Терминал.\nИспользуйте команду ниже."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вам доведеться встановити цей пакет через Термінал.\nСкористайтеся командою нижче."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3942,6 +4498,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показать подробности"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати деталі"
           }
         },
         "zh-Hans" : {
@@ -3990,6 +4552,12 @@
             "value" : "Нестабильная сеть"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нестабільне підключення до мережі"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4036,6 +4604,12 @@
             "value" : "Ваше подключение к сети недостаточно стабильно, чтобы успешно завершить установку"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваше підключення до мережі недостатньо стабільне щоб гарантувати успішне встановлення"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4080,6 +4654,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уже установлен"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вже встановлено"
           }
         },
         "zh-Hans" : {
@@ -4129,6 +4709,12 @@
             "value" : "Описание отсутствует"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Опис не надано"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4173,6 +4759,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузка описания..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження опису..."
           }
         },
         "zh-Hans" : {
@@ -4222,6 +4814,12 @@
             "value" : "Не удалось загрузить описание"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо завантажити опис"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4267,6 +4865,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не оптимизирован для %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не оптимізовано для %@"
           }
         },
         "zh-Hans" : {
@@ -4315,6 +4919,12 @@
             "value" : "Поиск"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шукати"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4359,6 +4969,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск пакетов..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шукати пакет..."
           }
         },
         "zh-Hans" : {
@@ -4407,6 +5023,12 @@
             "value" : "Найденные приложения macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайдені Casks"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4453,6 +5075,12 @@
             "value" : "Найденные программы"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайдені Formula"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4497,6 +5125,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Идет поиск %@..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук %@..."
           }
         },
         "zh-Hans" : {
@@ -4546,6 +5180,12 @@
             "value" : "Установка пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4592,6 +5232,12 @@
             "value" : "Популярные приложения macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярні Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4636,6 +5282,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Популярные программы/библиотеки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярні Formula"
           }
         },
         "zh-Hans" : {
@@ -4769,6 +5421,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld завантаження"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld завантажень"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld завантаження"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld завантажень"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -4827,6 +5509,12 @@
             "value" : "Для удаления %@ нужны привилегии администратора"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Необхідні привілеї адміністратора для видалення %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4865,6 +5553,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Этот пакет необходимо удалить через Терминал.\nИспользуйте команду ниже."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вам доведеться видалити цей пакет через Термінал.\nСкористайтеся командою нижче."
           }
         },
         "zh-Hans" : {
@@ -4906,6 +5600,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Добавить источник"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати Tap"
           }
         },
         "zh-Hans" : {
@@ -4954,6 +5654,12 @@
             "value" : "Добавить"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4998,6 +5704,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ добавлен успешно"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успішно додано %@"
           }
         },
         "zh-Hans" : {
@@ -5046,6 +5758,12 @@
             "value" : "Проблем не обнаружено"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помилок не було"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5090,6 +5808,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Повторить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте знову"
           }
         },
         "zh-Hans" : {
@@ -5138,6 +5862,12 @@
             "value" : "Произошла ошибка при добавлении источника %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виникла помилка під час додавання %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5182,6 +5912,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Попробуйте добавить источник еще раз через несколько минут"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте додати через кілька хвилин"
           }
         },
         "zh-Hans" : {
@@ -5230,6 +5966,12 @@
             "value" : "%@ не существует"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ не існує"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5276,6 +6018,12 @@
             "value" : "Проверьте правильность названия"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переконайтесь, що Ви написали назву правильно"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5303,6 +6051,18 @@
             "state" : "translated",
             "value" : "Tap address:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адрес источника:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адреса Tap"
+          }
         }
       }
     },
@@ -5319,6 +6079,18 @@
             "state" : "translated",
             "value" : "Use external address"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Использовать внешний адрес"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовувати зовнішню адресу"
+          }
         }
       }
     },
@@ -5334,6 +6106,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add a tap from an external address "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить источник из внешнего адреса"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додайте Tap із зовнішньої адреси"
           }
         }
       }
@@ -5368,6 +6152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Подключение %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додавання %@"
           }
         },
         "zh-Hans" : {
@@ -5417,6 +6207,12 @@
             "value" : "Название источника пусто"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пусте імʼя Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5462,6 +6258,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы не ввели название источника"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви не додали жодного імені Tap"
           }
         },
         "zh-Hans" : {
@@ -5510,6 +6312,12 @@
             "value" : "Название источника должно содержать косую черту"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ім'я Tap потребує слеш"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5554,6 +6362,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "В название источников всегда присутствует косая черта"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Імена Tap завжди повинні містити слеш"
           }
         },
         "zh-Hans" : {
@@ -5602,6 +6416,12 @@
             "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для установки %@, затем вернитесь в Cork и закройте это диалоговое окно"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть \"Відкрити Термінал\" нижче\nВикористовуйте ⌘+V, щоб вставити команду, а потім натисніть ↩ (Return), щоб виконати команду\nДотримуйтесь інструкцій для встановлення, поверніться до Cork та закрийте це діалогове вікно"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5648,6 +6468,12 @@
             "value" : "Нажмите кнопку \"Открыть Терминал\" снизу\nНажмите ⌘+V, чтобы вставить команду, а затем ↩ (Return), чтобы выполнить её\nСледуйте инструкциям для удаления %@, затем вернитесь в Cork и закройте это диалоговое окно"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть \"Відкрити термінал\" нижче\nВикористовуйте ⌘+V, щоб вставити команду, а потім натисніть ↩ (Повернути), щоб виконати команду\nДотримуйтесь інструкцій для видалення, поверніться до Cork та закрийте це діалогове вікно"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5686,6 +6512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Попробуйте перезапустить Cork. Если это не поможет, очистите метаданные Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте перезапустити Cork. Якщо проблема не зникає, приберіть метадані Cork"
           }
         },
         "zh-Hans" : {
@@ -5734,6 +6566,12 @@
             "value" : "Не удалось сопоставить метки с пакетами."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося застосувати позначений стан до пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5778,6 +6616,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork не удалось найти этот пакет в базе"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork не зміг знайти цей пакет у базі даних пакетів"
           }
         },
         "zh-Hans" : {
@@ -5826,6 +6670,12 @@
             "value" : "Не удалось найти пакет в базе"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося знайти пакет у базі даних"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5870,6 +6720,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалите папку с метаданными вручную, или попробуйте перезапустить Cork "
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видаліть папку метаданих вручну або спробуйте перезапустити Cork"
           }
         },
         "zh-Hans" : {
@@ -5918,6 +6774,12 @@
             "value" : "Не удалось очистить метаданные"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прибрати метадані"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5962,6 +6824,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Убедитесь, что вы дали Cork доступ к вашей папке \"Документы\"."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переконайтеся, що Ви надали Cork дозвіл на доступ до папки Документи"
           }
         },
         "zh-Hans" : {
@@ -6010,6 +6878,12 @@
             "value" : "Не удалось создать папку \"Metadata\""
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося створити папку Metadata"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6054,6 +6928,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось создать файл метаданных"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося створити файл метаданих"
           }
         },
         "zh-Hans" : {
@@ -6102,6 +6982,12 @@
             "value" : "Не удалось записать резервную копию Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося записати резервну копію Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6140,6 +7026,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось найти этот пакет"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося знайти цей пакет"
           }
         },
         "zh-Hans" : {
@@ -6188,6 +7080,12 @@
             "value" : "Переместите файл в другое расположение, затем попробуйте еще раз"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перемістіть файл резервної копії в інше місце, а потім спробуйте ще раз"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6226,6 +7124,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Недостаточно прав для чтения файла резервной копии"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недостатньо дозволів для читання файлу резервної копії"
           }
         },
         "zh-Hans" : {
@@ -6268,6 +7172,12 @@
             "value" : "Не удалось создать папку для резервной копии"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося створити резервну копію батьківської папки"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6307,6 +7217,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "При анализе устаревших пакетов произошла ошибка"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Під час аналізу застарілих пакетів сталася помилка"
           }
         },
         "zh-Hans" : {
@@ -6356,6 +7272,12 @@
             "value" : "Не удалось получить список устаревших пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося отримати застарілі пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6402,6 +7324,12 @@
             "value" : "Переместите файл в другое расположение, затем попробуйте еще раз"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перемістіть файл резервної копії в інше місце, а потім спробуйте ще раз"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6440,6 +7368,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось прочитать файл резервной копии"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати файл резервної копії"
           }
         },
         "zh-Hans" : {
@@ -6482,6 +7416,12 @@
             "value" : "Не удалось прочитать резервную копию"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати резервну копію"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6520,6 +7460,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла критическая ошибка при установке пакета"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Під час встановлення пакета сталася фатальна помилка"
           }
         },
         "zh-Hans" : {
@@ -6561,6 +7507,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось расшифровать ответ Homebrew"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося розшифрувати відповідь Homebrew"
           }
         },
         "zh-Hans" : {
@@ -6609,6 +7561,12 @@
             "value" : "Cork не может получить доступ к Homebrew\nМы устанавливаем причину этой проблемы, которая появилась в последней версии Homebrew или macOS\nНа данный момент Cork не может работать. Как только проблема будет исправлена, будет выпущено обновление"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork не може отримати доступ до Вашої інсталяції Homebrew\nМи досліджуємо причину цієї проблеми, яка з'явилася в останньому випуску Homebrew або macOS\nДо цього часу Cork не працюватиме. Як тільки ця проблема буде вирішена, Cork буде оновлено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6653,6 +7611,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew не настроен для работы с Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew не налаштовано належним чином для Cork"
           }
         },
         "zh-Hans" : {
@@ -6701,6 +7665,12 @@
             "value" : "Выбранный вами файл не имеет ожидаемой структуры"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл, з якого Ви намагалися відновити, не має правильної структури"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6741,6 +7711,12 @@
             "value" : "Файл резервных копий поврежден"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл резервної копії пошкоджений"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6779,6 +7755,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Переустановите Cork и попробуйте еще раз"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевстановіть Cork і спробуйте ще раз"
           }
         },
         "zh-Hans" : {
@@ -6827,6 +7809,12 @@
             "value" : "Не удалось найти папку с метаданными"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося знайти папку метаданих"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6871,6 +7859,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "У вас все установлены пакеты из %@\nУдалите их и попробуйте еще раз"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У вас все ще встановлені пакети з\nВидаліть їх і спробуйте ще раз"
           }
         },
         "zh-Hans" : {
@@ -6919,6 +7913,12 @@
             "value" : "Homebrew отправил Cork неверный ответ"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew надіслав Cork недійсну відповідь"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6963,6 +7963,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось получить список популярных пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося отримати найкращі пакети"
           }
         },
         "zh-Hans" : {
@@ -7011,6 +8017,12 @@
             "value" : "Вы можете продолжить использовать Cork без уведомлений"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете продовжувати використовувати Cork без сповіщень"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7055,6 +8067,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось получить разрешение на отправку уведомлений"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виникла проблема з отриманням дозволів на сповіщення"
           }
         },
         "zh-Hans" : {
@@ -7104,6 +8122,12 @@
             "value" : "Cork не смог понять ответ Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork не міг зрозуміти відповідь від Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7148,6 +8172,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось расшифровать список популярных пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося розшифрувати найкращі пакети"
           }
         },
         "zh-Hans" : {
@@ -7196,6 +8226,12 @@
             "value" : "Этот пакет необходимо исправить"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей пакет потрібно відремонтувати"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7240,6 +8276,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ поврежден"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ пошкоджений"
           }
         },
         "zh-Hans" : {
@@ -7288,6 +8330,12 @@
             "value" : "Выбранный пакет не может быть установлен"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося встановити вибраний пакет"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7332,6 +8380,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось получить выбранный пакет из списка популярных"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося отримати вибраний найкращий пакет"
           }
         },
         "zh-Hans" : {
@@ -7380,6 +8434,12 @@
             "value" : "Этот пакет — зависимость %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей пакет є залежністю %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7426,6 +8486,12 @@
             "value" : "Удаление невозможно"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7468,6 +8534,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork"
@@ -7519,6 +8591,12 @@
             "value" : "Резервная копия Homebrew от %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ резервне копіювання Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7557,6 +8635,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Создание резервной копии Homebrew..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Резервне копіювання Homebrew..."
           }
         },
         "zh-Hans" : {
@@ -7599,6 +8683,12 @@
             "value" : "Проблем не обнаружено"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помилок не було"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7637,6 +8727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Восстановление из резервной копии успешно"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успішно відновлено з резервної копії"
           }
         },
         "zh-Hans" : {
@@ -7679,6 +8775,12 @@
             "value" : "Восстановление из резервной копии"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відновлення з резервної копії..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7719,6 +8821,12 @@
             "value" : "Пожалуйста, подождите, это может занять несколько минут"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тримайся міцно! Це може зайняти кілька хвилин"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7754,6 +8862,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub"
@@ -7805,6 +8919,12 @@
             "value" : "Здравствуй, мир!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привіт, світе!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7845,6 +8965,12 @@
             "value" : "homebrew/core"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7868,6 +8994,18 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
@@ -7906,6 +9044,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установка %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення %@"
           }
         },
         "zh-Hans" : {
@@ -7954,6 +9098,12 @@
             "value" : "Загрузка подробностей..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження інформації..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7998,6 +9148,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузка популярных пакетов..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження найкращих пакетів..."
           }
         },
         "zh-Hans" : {
@@ -8046,6 +9202,12 @@
             "value" : "Главное окно"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Головне вікно"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8090,6 +9252,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обслуживание завершено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуговування завершено"
           }
         },
         "zh-Hans" : {
@@ -8138,6 +9306,12 @@
             "value" : "Кешированные загрузки"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кешовані завантаження видалені"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8182,6 +9356,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Освобождено %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви відновили %@"
           }
         },
         "zh-Hans" : {
@@ -8230,6 +9410,12 @@
             "value" : "У Homebrew обнаружены проблемы"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайдено деякі проблеми з Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8274,6 +9460,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "У Homebrew не обнаружено проблем"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не знайдено проблем з Homebrew"
           }
         },
         "zh-Hans" : {
@@ -8437,6 +9629,42 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld зайвих пакета видалено"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld зайвих пакетів видалено"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld зайвий пакет видалено"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld зайвих пакетів видалено"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не знайдено зайвих пакетів"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -8507,6 +9735,12 @@
             "value" : "Ненужные зависимости удалены"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зайві пакети видалені"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8551,6 +9785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось удалить ненужные зависимости"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити зайві пакети"
           }
         },
         "zh-Hans" : {
@@ -8599,6 +9839,12 @@
             "value" : "Произошла ошибка %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виникла помилка %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8643,6 +9889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Кеш пакетов очищен"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кеш пакетів очищено"
           }
         },
         "zh-Hans" : {
@@ -8691,6 +9943,12 @@
             "value" : "Не удалось очистить кеш пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося очистити кеш пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8735,6 +9993,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла ошибка %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виникла помилка %@"
           }
         },
         "zh-Hans" : {
@@ -8782,6 +10046,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не все кеши были очищены, так как %@ не обновляется"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деякі кеші не були очищені через те, що %@ не оновлено"
           }
         },
         "zh-Hans" : {
@@ -8915,6 +10185,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакета не оновлено"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакетів не оновлено"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інший пакет не оновлено"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакетів не оновлено"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -8985,6 +10285,12 @@
             "value" : "Удаление кеша загрузок..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалення кешованих завантажень..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9030,6 +10336,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Подготовка..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Починається..."
           }
         },
         "zh-Hans" : {
@@ -9078,6 +10390,12 @@
             "value" : "Очистка кеша..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очищення кешу..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9122,6 +10440,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удаление ненужных зависимостей..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалення зайвих..."
           }
         },
         "zh-Hans" : {
@@ -9170,6 +10494,12 @@
             "value" : "Поиск проблем..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проведення перевірки працездатності..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9214,6 +10544,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузки:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження:"
           }
         },
         "zh-Hans" : {
@@ -9262,6 +10598,12 @@
             "value" : "Удалить кеш загрузок"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити кешовані завантаження"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9306,6 +10648,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалить кеш Homebrew"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистити кеш Homebrew"
           }
         },
         "zh-Hans" : {
@@ -9354,6 +10702,12 @@
             "value" : "Другое:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інше:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9398,6 +10752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск проблем"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірка працездатності"
           }
         },
         "zh-Hans" : {
@@ -9446,6 +10806,12 @@
             "value" : "Пакеты:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9492,6 +10858,12 @@
             "value" : "Удалить ненужные зависимости"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити зайві пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9536,6 +10908,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запуск"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почати"
           }
         },
         "zh-Hans" : {
@@ -9585,6 +10963,12 @@
             "value" : "Обслуживание"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуговування"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9630,6 +11014,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Конс.прил.: %1$lld | Прил.macOS: %2$lld | Источ.: %3$lld"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T: %3$lld"
           }
         },
         "zh-Hans" : {
@@ -9679,6 +11069,12 @@
             "value" : "Показать окно Cork"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9725,6 +11121,12 @@
             "value" : "Попробуйте еще раз, либо перезапустите Cork"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте ще раз або перезапустіть Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9764,6 +11166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "О приложении Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Про Cork"
           }
         },
         "zh-Hans" : {
@@ -9812,6 +11220,12 @@
             "value" : "Добавить источник"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9858,6 +11272,12 @@
             "value" : "Добавить новый источник"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9902,6 +11322,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установить пакет"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити пакет"
           }
         },
         "zh-Hans" : {
@@ -9951,6 +11377,12 @@
             "value" : "Установить пакет по имени"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити пакет напряму"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9998,6 +11430,12 @@
             "value" : "Установить пакет по имени, минуя поиск"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити пакет за назвою, минаючи пошук"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10042,6 +11480,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установить новый пакет"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити новий пакет"
           }
         },
         "zh-Hans" : {
@@ -10174,6 +11618,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld пакета встановлено"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld пакетів встановлено"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld пакет встановлено"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld пакетів встановлено"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -10238,6 +11712,12 @@
             "value" : "Экспорт резервной копии Homebrew..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Експортувати резервну копію Homebrew..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10278,6 +11758,12 @@
             "value" : "Восстановить из резервной копии..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відновити з резервної копії..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10316,6 +11802,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обслуживание"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуговування"
           }
         },
         "zh-Hans" : {
@@ -10364,6 +11856,12 @@
             "value" : "Удалить кешированные загрузки"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити кешовані завантаження"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10408,6 +11906,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нет кешированных загрузок, которых можно удалить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає кешованих завантажень для видалення"
           }
         },
         "zh-Hans" : {
@@ -10456,6 +11960,12 @@
             "value" : "Выполнить обслуживание..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виконати обслуговування..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10500,6 +12010,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети"
           }
         },
         "zh-Hans" : {
@@ -10548,6 +12064,12 @@
             "value" : "Добавить источник..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати Tap..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10592,6 +12114,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установить пакеты..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити пакети..."
           }
         },
         "zh-Hans" : {
@@ -10640,6 +12168,12 @@
             "value" : "Обновить пакеты..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновити пакети..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10684,6 +12218,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновить пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновити пакети"
           }
         },
         "zh-Hans" : {
@@ -10732,6 +12272,12 @@
             "value" : "Обновить установленные пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновити встановленні пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10778,6 +12324,12 @@
             "value" : "Установка завершена"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Процес встановлення завершено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10822,6 +12374,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обнаружен устаревший пакет"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новий застарілий пакет"
           }
         },
         "zh-Hans" : {
@@ -10955,6 +12513,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "У Вас %lld застарілих пакета"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "У Вас %lld застарілих пакетів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "У Вас %lld застарілий пакет"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "У Вас %lld застарілих пакетів"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -11020,6 +12608,12 @@
             "value" : "Найдены устаревшие пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайдено застарілі пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11065,6 +12659,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновление не удалось"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося оновити"
           }
         },
         "zh-Hans" : {
@@ -11113,6 +12713,12 @@
             "value" : "Пакеты обновлены"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети оновлені"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11157,6 +12763,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошли ошибки при обновлении"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Були деякі помилки під час оновлення"
           }
         },
         "zh-Hans" : {
@@ -11205,6 +12817,12 @@
             "value" : "Обновление пакетов..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлення пакетів..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11249,6 +12867,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Все дополнительные возможности включены"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всі додаткові функції ввімкнені"
           }
         },
         "zh-Hans" : {
@@ -11297,6 +12921,12 @@
             "value" : "Основное"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основні функції"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11341,6 +12971,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Популярные пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярні пакети"
           }
         },
         "zh-Hans" : {
@@ -11389,6 +13025,12 @@
             "value" : "а также"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додаткові функції"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11433,6 +13075,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Функції пакетів"
           }
         },
         "zh-Hans" : {
@@ -11481,6 +13129,12 @@
             "value" : "Источники"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Функції Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11525,6 +13179,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверка совместимости пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірка сумісності пакетів"
           }
         },
         "zh-Hans" : {
@@ -11573,6 +13233,12 @@
             "value" : "Больше информации о зависимостях"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Більше інформації про залежності"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11617,6 +13283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск по зависимостям пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук через залежності пакетів"
           }
         },
         "zh-Hans" : {
@@ -11665,6 +13337,12 @@
             "value" : "Полный список предписаний пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повні пакетні застереження"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11709,6 +13387,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск популярных пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук популярних пакетів"
           }
         },
         "zh-Hans" : {
@@ -11757,6 +13441,12 @@
             "value" : "Обслуживание Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуговування Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11801,6 +13491,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Быстрые действия в строке меню"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Швидкі дії на панелі меню"
           }
         },
         "zh-Hans" : {
@@ -11849,6 +13545,12 @@
             "value" : "Уведомления о различных действиях"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщення про різні дії"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11893,6 +13595,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Описания пакетов в меню поиска"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Описи пакетів у пошуку"
           }
         },
         "zh-Hans" : {
@@ -11941,6 +13649,12 @@
             "value" : "Подробная информация о пакетах"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деталі пакету"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11985,6 +13699,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Искоренение пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повне видалення пакету"
           }
         },
         "zh-Hans" : {
@@ -12033,6 +13753,12 @@
             "value" : "Возможность просмотра пакетов в Finder"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкриття пакетів у Finder"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12077,6 +13803,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск среди установленных пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук через встановленні пакети"
           }
         },
         "zh-Hans" : {
@@ -12125,6 +13857,12 @@
             "value" : "Поиск пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12171,6 +13909,12 @@
             "value" : "Отображение всех пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ всіх пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12211,6 +13955,12 @@
             "value" : "Отображение только установленных вами пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ самостійно встановлених пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12249,6 +13999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Способность отмечать пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тегування пакетів"
           }
         },
         "zh-Hans" : {
@@ -12295,6 +14051,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Подробная информация об источниках"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деталі Tap"
           }
         },
         "zh-Hans" : {
@@ -12344,6 +14106,12 @@
             "value" : "Спрятать подробности о"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сховати деталі про"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12388,6 +14156,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "В дальнейшем вы сможете изменить объем в Настройках"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви завжди можете налаштувати це у Налаштуваннях"
           }
         },
         "zh-Hans" : {
@@ -12437,6 +14211,12 @@
             "value" : "Показать подробности о"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати деталі про"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12481,6 +14261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Настроить объем функционала..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати майстра налаштувань"
           }
         },
         "zh-Hans" : {
@@ -12529,6 +14315,12 @@
             "value" : "Скажите \"Привет\" миру приложений"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привітайтеся зі світом додатків"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12573,6 +14365,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Добро пожаловать в будущее Homebrew!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ласкаво просимо до майбутнього Homebrew!"
           }
         },
         "zh-Hans" : {
@@ -12621,6 +14419,12 @@
             "value" : "Закрепить версию %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закріпити до версії %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12665,6 +14469,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалить %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити %@"
           }
         },
         "zh-Hans" : {
@@ -12713,6 +14523,12 @@
             "value" : "Искоренить %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повне видалення %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12757,6 +14573,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открепить версию %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкріпити від версії %@"
           }
         },
         "zh-Hans" : {
@@ -12805,6 +14627,12 @@
             "value" : "Имеет предписания 􀅴"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Має застереження 􀅴"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12849,6 +14677,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Свернуть"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Згорнути"
           }
         },
         "zh-Hans" : {
@@ -12897,6 +14731,12 @@
             "value" : "Развернуть"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розгорнути"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12941,6 +14781,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нажмите, чтобы увидеть предписания"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть, щоб побачити застереження"
           }
         },
         "zh-Hans" : {
@@ -12989,6 +14835,12 @@
             "value" : "Загрузка подробностей пакета..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження інформації про пакет..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13033,6 +14885,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зависимость %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Залежність %@"
           }
         },
         "zh-Hans" : {
@@ -13081,6 +14939,12 @@
             "value" : "Загрузка зависимостей..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження утриманців..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13125,6 +14989,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зависимости"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Залежності"
           }
         },
         "zh-Hans" : {
@@ -13173,6 +15043,12 @@
             "value" : "Указана как"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип декларації"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13217,6 +15093,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Прямая"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прямий"
           }
         },
         "zh-Hans" : {
@@ -13265,6 +15147,12 @@
             "value" : "Косвенная"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непрямий"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13311,6 +15199,12 @@
             "value" : "Название"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ім'я"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13355,6 +15249,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Версия"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версія"
           }
         },
         "zh-Hans" : {
@@ -13404,6 +15304,12 @@
             "value" : "Зависимости"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Залежності"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13448,6 +15354,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ не имеет описания"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ не має опису"
           }
         },
         "zh-Hans" : {
@@ -13496,6 +15408,12 @@
             "value" : "Домашняя страница"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Домашня сторінка"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13540,6 +15458,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Подробности"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деталі"
           }
         },
         "zh-Hans" : {
@@ -13588,6 +15512,12 @@
             "value" : "Дата установки"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13632,6 +15562,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Устарел"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Застарілий"
           }
         },
         "zh-Hans" : {
@@ -13681,6 +15617,12 @@
             "value" : "%@ закреплен. Он не будет обновлен."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ закріплено. Не буде оновлено."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13725,6 +15667,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Размер"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розмір"
           }
         },
         "zh-Hans" : {
@@ -13773,6 +15721,12 @@
             "value" : "Почему размер такой маленький?"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чому розмір такий малий?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13817,6 +15771,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приложения macOS не устанавливаются в папку с консольными приложениями. Вместо этого они попадают в папку \"Приложения\"."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask не встановлюються у ту ж саму папку, що Formula. Cask встановлені в папку Програми."
           }
         },
         "zh-Hans" : {
@@ -13865,6 +15825,12 @@
             "value" : "Так как Cork не имеет доступа к папке \"Приложения\", определить размер самого приложения невозможно. Вместо этого отображается размер метаданных для него."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відколи Cork не має доступу до папки Програми, він не може отримати фактичний розмір Cask, тільки метадані повʼязані з ним."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13906,6 +15872,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тип"
@@ -13957,6 +15929,12 @@
             "value" : "Приложение macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14001,6 +15979,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Консольное приложение/Библиотека"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formula"
           }
         },
         "zh-Hans" : {
@@ -14050,6 +16034,12 @@
             "value" : "Исправление %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ремонтування %@..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14094,6 +16084,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ исправлен"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ відремонтовано"
           }
         },
         "zh-Hans" : {
@@ -14142,6 +16138,12 @@
             "value" : "Других проблем не обнаружено"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подальших проблем не знайдено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14186,6 +16188,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приложение macOS"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask"
           }
         },
         "zh-Hans" : {
@@ -14235,6 +16243,12 @@
             "value" : "Консольное приложение/Библиотека"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formula"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14279,6 +16293,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установленные вручную"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлені самостійно"
           }
         },
         "zh-Hans" : {
@@ -14328,6 +16348,12 @@
             "value" : "Помеченные пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Позначені пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14372,6 +16398,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Источник"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
           }
         },
         "zh-Hans" : {
@@ -14421,6 +16453,12 @@
             "value" : "Телеметрия:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аналітика:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14465,6 +16503,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Разрешить сбор данных"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збирати аналітику"
           }
         },
         "zh-Hans" : {
@@ -14513,6 +16557,12 @@
             "value" : "Дополнительно:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розширені:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14557,6 +16607,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Популярные"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярні пакети"
           }
         },
         "zh-Hans" : {
@@ -14605,6 +16661,12 @@
             "value" : "Сортировать популярные пакеты по:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сортувати рейтинг пакетів за:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14649,6 +16711,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Количеству загрузок по возрастанию"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найменше завантажень"
           }
         },
         "zh-Hans" : {
@@ -14697,6 +16765,12 @@
             "value" : "Количеству загрузок по убыванию"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Більшість завантажень"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14741,6 +16815,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Случайным образом"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Випадково"
           }
         },
         "zh-Hans" : {
@@ -14789,6 +16869,12 @@
             "value" : "Получать список популярных пакетов за:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отримати рейтинг пакетів за:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14833,6 +16919,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Последний месяц"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Останній місяць"
           }
         },
         "zh-Hans" : {
@@ -14881,6 +16973,12 @@
             "value" : "Последние 3 месяца"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Три останніх місяці"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14925,6 +17023,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Последний год"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Останній рік"
           }
         },
         "zh-Hans" : {
@@ -14974,6 +17078,12 @@
             "value" : "Включить поиск популярных пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути пошук популярних пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15019,6 +17129,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Основные"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загальні"
           }
         },
         "zh-Hans" : {
@@ -15067,6 +17183,12 @@
             "value" : "Зависимости:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Залежності:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15111,6 +17233,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать больше информации о зависимостях"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати більше інформації про залежності"
           }
         },
         "zh-Hans" : {
@@ -15159,6 +17287,12 @@
             "value" : "Фильтрация списка пакетов:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фільтрація пакетів:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15197,6 +17331,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать все пакеты, включая их зависимости"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати всі пакети, включаючи залежності"
           }
         },
         "zh-Hans" : {
@@ -15239,6 +17379,12 @@
             "value" : "Показывать только установленные вами пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати лише встановлені вручну пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15277,6 +17423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Автозапуск:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автоматичний запуск:"
           }
         },
         "zh-Hans" : {
@@ -15326,6 +17478,12 @@
             "value" : "Запускать Cork при входе в профиль"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити при вході"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15370,6 +17528,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Строка меню:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Панель меню:"
           }
         },
         "zh-Hans" : {
@@ -15418,6 +17582,12 @@
             "value" : "Открывать Cork без главного окна"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкривати Cork без головного вікна"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15456,6 +17626,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать значок Cork в строке меню"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати в панелі меню"
           }
         },
         "zh-Hans" : {
@@ -15504,6 +17680,12 @@
             "value" : "Отображение предписаний пакетов:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Застереження про пакет:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15548,6 +17730,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Полное"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повні"
           }
         },
         "zh-Hans" : {
@@ -15596,6 +17784,12 @@
             "value" : "Сокращенное"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скорочені"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15640,6 +17834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀅴 Нажмите на значок \"Имеет предписания\", чтобы их увидеть"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 Натисніть на кнопку \"Має застереження\", щоб побачити застереження"
           }
         },
         "zh-Hans" : {
@@ -15688,6 +17888,12 @@
             "value" : "Подробности пакетов:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакетна інформація:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15732,6 +17938,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Возможность показать пакет в Finder"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дозволити відкривати пакети у Finder"
           }
         },
         "zh-Hans" : {
@@ -15780,6 +17992,12 @@
             "value" : "Показывать поле поиска для зависимостей"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати поле пошуку для залежностей"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15826,6 +18044,12 @@
             "value" : "Результаты поиска:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Результати пошуку:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15870,6 +18094,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать описания пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати опис пакетів"
           }
         },
         "zh-Hans" : {
@@ -15919,6 +18149,12 @@
             "value" : "Сортировать пакеты по:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сортувати пакети за:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15963,6 +18199,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Имени"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Імʼям"
           }
         },
         "zh-Hans" : {
@@ -16011,6 +18253,12 @@
             "value" : "Дате установки"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Датою встановлення"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16057,6 +18305,12 @@
             "value" : "Размеру"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розміром"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16098,6 +18352,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew"
@@ -16149,6 +18409,12 @@
             "value" : "Пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16196,6 +18462,12 @@
             "value" : "Совместимость:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сумісність:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16241,6 +18513,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверить совместимость пакета"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевіряти сумісність пакетів"
           }
         },
         "zh-Hans" : {
@@ -16291,6 +18569,12 @@
             "value" : "Установка:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16337,6 +18621,12 @@
             "value" : "Производить очистку после удаления пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прибирання після старих пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16375,6 +18665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Отключить автоматическую очистку"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вимкнути автоматичне прибирання"
           }
         },
         "zh-Hans" : {
@@ -16417,6 +18713,12 @@
             "value" : "Отключение автоматической очистки может привести к поломке Homebrew."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вимкнення автоматичного прибирання може пошкодити установку Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16455,6 +18757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы точно хотите отключить автоматическую очистку?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви впевнені, що хочете вимкнути автоматичне прибирання?"
           }
         },
         "zh-Hans" : {
@@ -16497,6 +18805,12 @@
             "value" : "Установка без очистки быстрее, но делает сам Homebrew медленнее.\nОтключение этой опции может сломать Homebrew.\nЭта опция также отвечает за автоматическую очистку в случае, если вы не использовали Homebrew больше 30 дней."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відключення прибирання робить встановлення пакетів швидшим, але в цілому робить Homebrew повільнішим. Відключення цієї опції може порушити Вашу установку Homebrew. Ця опція також контролює автоматичне прибирання, яке відбувається після того, як Ви не використовували Homebrew більше 30 днів."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16536,6 +18850,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать список установленных пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати список встановлених пакетів"
           }
         },
         "zh-Hans" : {
@@ -16585,6 +18905,12 @@
             "value" : "Удаление"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалення:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16629,6 +18955,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Разрешить искоренение пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути повне видалення"
           }
         },
         "zh-Hans" : {
@@ -16677,6 +19009,12 @@
             "value" : "Искоренение может сломать другие пакеты.\nВы уверены?"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повне видалення може зламати інші Ваші пакети. Ви впевнені, що хочете продовжити?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16721,6 +19059,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Разрешить искоренение пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути повне видалення"
           }
         },
         "zh-Hans" : {
@@ -16769,6 +19113,12 @@
             "value" : "Разрешить искоренение пакетов?"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дозволити повне видалення пакетів?"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16813,6 +19163,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Искоренение удаляет все файлы, принадлежащие пакету.\nЭто может привести к удалению файлов, которые принадлежат \nнескольким пакетам, и, таким образом, сломать эти пакеты."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повне видалення видаляє всі файли, пов'язані з пакетом. Це може видалити спільні файли та зламати інші Ваші пакети."
           }
         },
         "zh-Hans" : {
@@ -16862,6 +19218,12 @@
             "value" : "Чистить кеш после удаления пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистити кеш після видалення пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16907,6 +19269,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалять ненужные зависимости вслед за пакетами"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видаляти застарілі пакети після видалення"
           }
         },
         "zh-Hans" : {
@@ -16955,6 +19323,12 @@
             "value" : "Показывать вывод операций в реальном времени"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати вивід операцій у реальному часі"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17001,6 +19375,12 @@
             "value" : "Показывать вывод в реальном времени по умолчанию"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показувати вивід в режимі реального часу за замовчуванням"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17045,6 +19425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обслуживание"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуговування"
           }
         },
         "zh-Hans" : {
@@ -17094,6 +19480,12 @@
             "value" : "Действия по умолчанию"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановити кроки за замовчуванням"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17139,6 +19531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уведомления"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщення"
           }
         },
         "zh-Hans" : {
@@ -17187,6 +19585,12 @@
             "value" : "Включить уведомления"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути сповіщення"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17231,6 +19635,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы будете получать уведомления, когда окно Cork не активно"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщення будуть показані тільки тоді, коли вікно Cork буде неактивним"
           }
         },
         "zh-Hans" : {
@@ -17279,6 +19689,12 @@
             "value" : "􀅴 Разрешите уведомления от Cork в Системных настройках"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 Увімкніть сповіщення від Cork у Системних параметрах"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17323,6 +19739,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Результатах установки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Результати встановлення"
           }
         },
         "zh-Hans" : {
@@ -17371,6 +19793,12 @@
             "value" : "Результатах обновления"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Результати оновлення"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17415,6 +19843,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уведомлять о:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщати про:"
           }
         },
         "zh-Hans" : {
@@ -17463,6 +19897,12 @@
             "value" : "Как уведомлять об устаревших пакетах:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип сповіщень про застарілі пакети:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17507,6 +19947,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Наклейка"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Банер"
           }
         },
         "zh-Hans" : {
@@ -17555,6 +20001,12 @@
             "value" : "Наклейка и уведомление"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Банер та попередження"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17599,6 +20051,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ничего"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає"
           }
         },
         "zh-Hans" : {
@@ -17647,6 +20105,12 @@
             "value" : "Уведомление"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщення"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17691,6 +20155,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Весь"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просунуто"
           }
         },
         "zh-Hans" : {
@@ -17739,6 +20209,12 @@
             "value" : "Базовый"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Базово"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17783,6 +20259,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сбалансированный"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбалансовано"
           }
         },
         "zh-Hans" : {
@@ -17831,6 +20313,12 @@
             "value" : "Продвинутый"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Трохи просунуто"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17877,6 +20365,12 @@
             "value" : "Упрощенный"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Трохи базово"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17921,6 +20415,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Какой объем функционала Cork вас устраивает?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Як Вам хотілось би працювати з Cork?"
           }
         },
         "zh-Hans" : {
@@ -17970,6 +20470,12 @@
             "value" : "Установленные"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлені пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18016,6 +20522,12 @@
             "value" : "Источники"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додані Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18060,6 +20572,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалить %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити %@"
           }
         },
         "zh-Hans" : {
@@ -18109,6 +20627,12 @@
             "value" : "Попробуйте еще раз через несколько минут, либо перезапустите Cork"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте ще раз через кілька хвилин або перезапустіть Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18153,6 +20677,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось удалить %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити %@"
           }
         },
         "zh-Hans" : {
@@ -18201,6 +20731,12 @@
             "value" : "Пометить %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тегнути %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18245,6 +20781,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Снять метку %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прибрати тег %@"
           }
         },
         "zh-Hans" : {
@@ -18293,6 +20835,12 @@
             "value" : "Приложения macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлені Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18339,6 +20887,12 @@
             "value" : "Удалить %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18383,6 +20937,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приложения/библиотеки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлені Formula"
           }
         },
         "zh-Hans" : {
@@ -18432,6 +20992,12 @@
             "value" : "Удалить %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18476,6 +21042,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Искоренить %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повне видалення %@"
           }
         },
         "zh-Hans" : {
@@ -18609,6 +21181,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld доданих Tap"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld доданих Tap"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld доданий Tap"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld доданих Tap"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -18673,6 +21275,12 @@
             "value" : "Источники предоставляют дополнительные пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap пропонує додаткові пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18717,6 +21325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Телеметрия Homebrew отключена"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аналітика Homebrew вимкнена"
           }
         },
         "zh-Hans" : {
@@ -18765,6 +21379,12 @@
             "value" : "Homebrew не собирает данные о его использовании"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew не збирає жодних даних про те, як Ви його використовуєте"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18809,6 +21429,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Телеметрия Homebrew включена"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аналітика Homebrew увімкнена"
           }
         },
         "zh-Hans" : {
@@ -18857,6 +21483,12 @@
             "value" : "Homebrew собирает различные анонимные данные, например, список ваших установленных пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew збирає різні анонімні дані, наприклад, які пакети Ви встановили"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18901,6 +21533,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Кеш загрузок занимает %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У вас є кешовані завантаження"
           }
         },
         "zh-Hans" : {
@@ -18949,6 +21587,12 @@
             "value" : "Удалить кеш загрузок..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити кешовані завантаження..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18993,6 +21637,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Это файлы, оставшиеся после установок пакетов. Их можно безопасно удалить."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ці файли є залишками від завершених інсталяцій пакетів. Їх безпечно видаляти."
           }
         },
         "zh-Hans" : {
@@ -19041,6 +21691,12 @@
             "value" : "Другие"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інші"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19081,6 +21737,12 @@
             "value" : "Название пакета в кеше загрузок"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назва пакету з кешованим завантаженням"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19119,6 +21781,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Размер кеша загрузок"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розмір кешованого завантаження"
           }
         },
         "zh-Hans" : {
@@ -19246,6 +21914,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлених Cask"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлених Cask"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлений Cask"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлених Cask"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -19308,6 +22006,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приложения с графическим интерфейсом"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask — це пакет, який має графічний інтерфейс"
           }
         },
         "zh-Hans" : {
@@ -19441,6 +22145,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлених Formula"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлених Formula"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлену Formula"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld встановлених Formula"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -19505,6 +22239,12 @@
             "value" : "Консольные приложения или библиотеки, используемые другими приложениями"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formula — це пакет, який використовується через Термінал"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19550,6 +22290,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузка пакетов..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження пакетів..."
           }
         },
         "zh-Hans" : {
@@ -19598,6 +22344,12 @@
             "value" : "Обслуживание Homebrew..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обслуговування Brew..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19642,6 +22394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обзор Homebrew"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус Homebrew"
           }
         },
         "zh-Hans" : {
@@ -19775,6 +22533,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Оновити %lld пакета"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Оновити %lld пакетів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Оновити %lld пакет"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Оновити %lld пакетів"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -19833,6 +22621,12 @@
             "value" : "Снять выделение"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скасувати вибір усіх"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19879,6 +22673,12 @@
             "value" : "Выделить все"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрати всі"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19923,6 +22723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновити"
           }
         },
         "zh-Hans" : {
@@ -20056,6 +22862,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld застарілих пакета"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld застарілих пакетів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld застарілих пакет"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld застарілих пакетів"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -20120,6 +22956,12 @@
             "value" : "Устаревшие пакеты"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Застарілі пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20164,6 +23006,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверка обновлений пакетов..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірка оновлень пакетів..."
           }
         },
         "zh-Hans" : {
@@ -20212,6 +23060,12 @@
             "value" : "Отключено"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вимкнено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20256,6 +23110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Источник"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
           }
         },
         "zh-Hans" : {
@@ -20304,6 +23164,12 @@
             "value" : "Содержит"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вміщує"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20348,6 +23214,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "В основном приложения macOS"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В основному Cask"
           }
         },
         "zh-Hans" : {
@@ -20396,6 +23268,12 @@
             "value" : "Только приложения macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тільки Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20440,6 +23318,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "В основном консольные приложения или библиотеки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В основному Formula"
           }
         },
         "zh-Hans" : {
@@ -20488,6 +23372,12 @@
             "value" : "Только консольные приложения или библиотеки"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тільки Formula"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20532,6 +23422,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ничего"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нічого"
           }
         },
         "zh-Hans" : {
@@ -20580,6 +23476,12 @@
             "value" : "Домашняя страница"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Домашня сторінка"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20626,6 +23528,12 @@
             "value" : "Приложения macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включно Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20670,6 +23578,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приложения/библиотеки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включно Formula"
           }
         },
         "zh-Hans" : {
@@ -20719,6 +23633,12 @@
             "value" : "Поиск пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включені пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20765,6 +23685,12 @@
             "value" : "Подробности"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інформація"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20809,6 +23735,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Загрузка подробностей источника..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження інформації про Tap..."
           }
         },
         "zh-Hans" : {
@@ -20858,6 +23790,12 @@
             "value" : "%@ — официальный источник.\nПакеты в нем проходят проверку на безопасность."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ це офіційний Tap.\nПакети включені в нього перевірені та безпечні."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20902,6 +23840,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Количество пакетов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кількість пакетів"
           }
         },
         "zh-Hans" : {
@@ -20950,6 +23894,12 @@
             "value" : "Удалить %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прибрати %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20994,6 +23944,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Резервное копирование старой версии..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Резервне копіювання старої версії..."
           }
         },
         "zh-Hans" : {
@@ -21042,6 +23998,12 @@
             "value" : "Очистка..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прибирання..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21086,6 +24048,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Скачивание..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження..."
           }
         },
         "zh-Hans" : {
@@ -21134,6 +24102,12 @@
             "value" : "Создание ссылки на новую версию..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Привʼязування нової версії..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21178,6 +24152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновление..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлення..."
           }
         },
         "zh-Hans" : {
@@ -21226,6 +24206,12 @@
             "value" : "Обновление пакетов завершено с ошибками"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети оновлено з помилками"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21270,6 +24256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Во время обновления произошли ошибки. Ниже приведены подробности."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Було кілька помилок під час оновлення. Дивіться нижче для детальної інформації"
           }
         },
         "zh-Hans" : {
@@ -21318,6 +24310,12 @@
             "value" : "Обновление пакетов завершено успешно"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакети успішно оновлено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21362,6 +24360,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проблем не обнаружено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Помилок не виявлено"
           }
         },
         "zh-Hans" : {
@@ -21410,6 +24414,12 @@
             "value" : "Выбранные пакеты обновлены успешно"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрані пакети успішно оновлено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21454,6 +24464,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не знаю, как вы так намудрили!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я навіть не знаю що Ви зробили, щоб це зʼявилось"
           }
         },
         "zh-Hans" : {
@@ -21502,6 +24518,12 @@
             "value" : "Обновление %@..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлення %@..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21546,6 +24568,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновлений не найдено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає оновлень"
           }
         },
         "zh-Hans" : {
@@ -21594,6 +24622,12 @@
             "value" : "У вас установлены свежие версии пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всі пакети мають останні версії"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21640,6 +24674,12 @@
             "value" : "Поиск обновлений..."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отримання оновлень..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21684,6 +24724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновление завершено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершено"
           }
         },
         "zh-Hans" : {
@@ -21733,6 +24779,12 @@
             "value" : "Обновление начинается"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21777,6 +24829,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновление пакетов..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлення пакетів..."
           }
         },
         "zh-Hans" : {
@@ -21825,6 +24883,12 @@
             "value" : "Обновление кеша пакетов"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлення кешу пакетів"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21871,6 +24935,12 @@
             "value" : "v. %@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21912,6 +24982,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"
