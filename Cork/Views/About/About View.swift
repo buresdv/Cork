@@ -79,8 +79,8 @@ struct AboutView: View
         AcknowledgedContributor(
             name: "about.translator.1.name",
             reasonForAcknowledgement: "about.translator.1.purpose",
-            profileService: .mastodon,
-            profileURL: URL(string: "https://mastodon.social/@Jerry23011")!
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/Jerry23011")!
         ),
         AcknowledgedContributor(
             name: "about.translator.2.name",

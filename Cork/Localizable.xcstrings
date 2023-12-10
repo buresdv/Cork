@@ -1613,49 +1613,49 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jerry"
+            "value" : "Jerry Zhang"
           }
         }
       }
@@ -2150,6 +2150,12 @@
             "state" : "translated",
             "value" : "Ігор Петручек"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
         }
       }
     },
@@ -2172,6 +2178,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Переклав Cork на українську"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为 Cork 提供了乌克兰语翻译"
           }
         }
       }
@@ -6063,6 +6075,12 @@
             "state" : "translated",
             "value" : "Адреса Tap:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap 链接："
+          }
         }
       }
     },
@@ -6091,6 +6109,12 @@
             "state" : "translated",
             "value" : "Використовувати зовнішню адресу"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用外部链接"
+          }
         }
       }
     },
@@ -6118,6 +6142,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Додайте Tap із зовнішньої адреси"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用外部链接添加 Tap"
           }
         }
       }
@@ -9006,6 +9036,12 @@
           }
         },
         "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
