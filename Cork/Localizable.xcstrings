@@ -5303,6 +5303,12 @@
             "state" : "translated",
             "value" : "Tap address:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адрес источника:"
+          }
         }
       }
     },
@@ -5319,6 +5325,12 @@
             "state" : "translated",
             "value" : "Use external address"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Использовать внешний адрес"
+          }
         }
       }
     },
@@ -5334,6 +5346,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add a tap from an external address "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавление источника по внешнему адресу"
           }
         }
       }
@@ -7868,6 +7886,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
