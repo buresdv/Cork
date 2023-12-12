@@ -2133,6 +2133,12 @@
     "about.translator.6.name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2162,6 +2168,12 @@
     "about.translator.6.purpose" : {
       "extractionState" : "manual",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeložil Cork do ukrajinštiny"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
