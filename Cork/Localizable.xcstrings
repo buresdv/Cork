@@ -458,7 +458,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "從異步 Swift 到阻礙套件安裝等多種問題提供了寶貴的協助。"
+            "value" : "從非同步 Swift 到阻礙套件安裝等多種問題提供了寶貴的協助。"
           }
         }
       }
@@ -562,7 +562,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "修理了許多異步和 SwiftUI 問題"
+            "value" : "修理了許多非同步和 SwiftUI 問題"
           }
         }
       }
@@ -2174,6 +2174,12 @@
             "state" : "translated",
             "value" : "Igor Petruchek"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
         }
       }
     },
@@ -2220,6 +2226,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "为 Cork 提供了乌克兰语翻译"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "為 Cork 提供烏克蘭文翻譯"
           }
         }
       }
@@ -5568,6 +5580,12 @@
             "state" : "translated",
             "value" : "卸载 %@ 需要更高权限"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "卸載 %@ 需要提升權限"
+          }
         }
       }
     },
@@ -5613,6 +5631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你需要通过终端卸载该软件包\n请使用下方的命令"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您必須用終端機來卸載這個套件。\n請用下列指令。"
           }
         }
       }
@@ -6129,6 +6153,12 @@
             "state" : "translated",
             "value" : "Tap 链接："
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap 位址："
+          }
         }
       }
     },
@@ -6175,6 +6205,12 @@
             "state" : "translated",
             "value" : "使用外部链接"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用外部位址"
+          }
         }
       }
     },
@@ -6220,6 +6256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "使用外部链接添加 Tap"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用外部位址來新增 Tap"
           }
         }
       }
@@ -6580,6 +6622,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "点击下方的“打开终端'”，使用 ⌘V 粘贴命令，然后按 ↩（回车）执行命令。按照卸载 %@ 的说明进行操作，完成后返回 Cork 并关闭此对话框。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩（輸入鍵）來執行指令\n遵照指示卸載 %@，回到 Cork 關閉本對話"
           }
         }
       }
@@ -7095,6 +7143,12 @@
             "state" : "translated",
             "value" : "无法写入 Homebrew 备份"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法寫入 Homebrew 備份"
+          }
         }
       }
     },
@@ -7193,6 +7247,12 @@
             "state" : "translated",
             "value" : "请将备份文件移动到其他位置，然后重试"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請把備份檔移到另一個位置之後再重試"
+          }
         }
       }
     },
@@ -7239,6 +7299,12 @@
             "state" : "translated",
             "value" : "没有足够的权限读取备份文件"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "備份檔讀取權限不足"
+          }
         }
       }
     },
@@ -7284,6 +7350,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法创建备份文件夹"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法建立儲存備份檔的資料夾"
           }
         }
       }
@@ -7437,6 +7509,12 @@
             "state" : "translated",
             "value" : "请将备份文件移动到其他位置，然后重试"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請把備份檔移到另一個位置之後再重試"
+          }
         }
       }
     },
@@ -7482,6 +7560,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法读取备份文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法讀取備份檔"
           }
         }
       }
@@ -7529,6 +7613,12 @@
             "state" : "translated",
             "value" : "无法读取备份"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法讀取備份"
+          }
         }
       }
     },
@@ -7574,6 +7664,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在安装软件包过程中发生了严重错误"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安裝套件時發生嚴重錯誤"
           }
         }
       }
@@ -7778,6 +7874,12 @@
             "state" : "translated",
             "value" : "你尝试还原的文件没有正确的结构"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您試圖回復的檔案有結構錯誤"
+          }
         }
       }
     },
@@ -7823,6 +7925,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "备份文件损坏"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "備份檔損壞"
           }
         }
       }
@@ -7978,7 +8086,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您仍有從 %@ 安裝的套件\n請把它們移除後再重試"
+            "value" : "您仍有從 %@ 安裝的套件\n請把它們卸載後再重試"
           }
         }
       }
@@ -8704,6 +8812,12 @@
             "state" : "translated",
             "value" : "%@ Homebrew 备份"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Homebrew 備份"
+          }
         }
       }
     },
@@ -8749,6 +8863,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "备份 Homebrew..."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 備份中⋯"
           }
         }
       }
@@ -8796,6 +8916,12 @@
             "state" : "translated",
             "value" : "未发生任何错误"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有發生錯誤"
+          }
         }
       }
     },
@@ -8841,6 +8967,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "成功从备份恢复"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從備份成功回復"
           }
         }
       }
@@ -8888,6 +9020,12 @@
             "state" : "translated",
             "value" : "正在从备份恢复..."
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從備份回復中⋯"
+          }
         }
       }
     },
@@ -8933,6 +9071,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "稍等片刻！这可能需要几分钟"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請稍等！這可能會需要幾分鐘"
           }
         }
       }
@@ -9032,6 +9176,12 @@
             "state" : "translated",
             "value" : "你好，世界！"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -9126,6 +9276,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
@@ -9870,7 +10026,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移除了遺孤套件"
+            "value" : "卸載了遺孤套件"
           }
         }
       }
@@ -9922,7 +10078,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法移除遺孤套件"
+            "value" : "無法卸載遺孤套件"
           }
         }
       }
@@ -11252,6 +11408,12 @@
             "state" : "translated",
             "value" : "请重试，或重启 Cork"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請重試或重啟 Cork"
+          }
         }
       }
     },
@@ -11843,6 +12005,12 @@
             "state" : "translated",
             "value" : "导出 Homebrew 备份"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸出 Homebrew 備份⋯"
+          }
         }
       }
     },
@@ -11888,6 +12056,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "从备份恢复..."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "從備份回復⋯"
           }
         }
       }
@@ -14040,6 +14214,12 @@
             "state" : "translated",
             "value" : "显示所有软件包"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示所有套件"
+          }
         }
       }
     },
@@ -14085,6 +14265,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "显示手动安装软件包"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示手動安裝套件"
           }
         }
       }
@@ -17418,6 +17604,12 @@
             "state" : "translated",
             "value" : "软件包筛选："
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "套件篩選："
+          }
         }
       }
     },
@@ -17464,6 +17656,12 @@
             "state" : "translated",
             "value" : "显示包括依赖的所有软件包"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示包括依存的所有套件"
+          }
         }
       }
     },
@@ -17509,6 +17707,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "仅显示手动安装的软件包"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只顯示手動安裝套件"
           }
         }
       }
@@ -17712,6 +17916,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在不显示主窗口的情况下打开 Cork"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟動 Cork 時不開啟主視窗"
           }
         }
       }
@@ -18752,6 +18962,12 @@
             "state" : "translated",
             "value" : "清除旧软件包"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清理舊套件"
+          }
         }
       }
     },
@@ -18797,6 +19013,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭自动清除"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停用自動清理"
           }
         }
       }
@@ -18844,6 +19066,12 @@
             "state" : "translated",
             "value" : "关闭自动清理可能会破坏你的 Homebrew 安装。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停用自動清理可能導致 Homebrew 故障。"
+          }
         }
       }
     },
@@ -18890,6 +19118,12 @@
             "state" : "translated",
             "value" : "你确定要禁用自动清理吗？"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您確定要停用自動清理？"
+          }
         }
       }
     },
@@ -18935,6 +19169,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关闭清除操作会加快软件包安装速度，但会降低 Homebrew 的总体性能。\n关闭该选项可能会破坏你的 Homebrew 安装。\n此选项还控制在你30 天未使用 Homebrew 后自动进行的清除操作。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停用清理可以讓套件安裝較快，但整體上會讓 Homebrew 變慢。\n停用本功能可能導致 Homebrew 故障。\n本選項也控制 Homebrew 閒置 30 天之後自動清理。"
           }
         }
       }
@@ -19143,8 +19383,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "清除動作可能會移除共享的檔案，導致其他套件故障。\n您確定要繼續？"
+            "state" : "translated",
+            "value" : "清除動作可能會導致其他套件故障。\n您確定要繼續？"
           }
         }
       }
@@ -19299,8 +19539,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "清除所有與套件相關的檔案。\n這可能會移除共享的檔案，導致其他套件故障。"
+            "state" : "translated",
+            "value" : "清除動作將刪除所有與套件相關的檔案。\n這可能會移除共享的檔案，導致其他套件故障。"
           }
         }
       }
@@ -20136,7 +20376,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "標記與提示"
+            "value" : "標記與通知"
           }
         }
       }
@@ -20240,7 +20480,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "提示"
+            "value" : "通知"
           }
         }
       }
@@ -21822,6 +22062,12 @@
             "state" : "translated",
             "value" : "其他"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
+          }
         }
       }
     },
@@ -21868,6 +22114,12 @@
             "state" : "translated",
             "value" : "下载缓存软件包名称"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載快取套件名稱"
+          }
         }
       }
     },
@@ -21913,6 +22165,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "下载缓存大小"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下載快取大小"
           }
         }
       }
