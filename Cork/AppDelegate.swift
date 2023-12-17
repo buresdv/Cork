@@ -13,17 +13,51 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate
 {
     @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
     
     @MainActor let appState = AppState()
+    
+    func applicationWillFinishLaunching(_ notification: Notification) 
+    {
+        if startWithoutWindow
+        {
+            NSApp.setActivationPolicy(.accessory)
+        }
+        else
+        {
+            NSApp.setActivationPolicy(.regular)
+        }
+    }
+    
+    func applicationDidFinishLaunching(_ notification: Notification) 
+    {
+        if startWithoutWindow
+        {
+            if let window = NSApplication.shared.windows.first {
+                window.close()
+            }
+        }
+    }
+    
+    func applicationWillBecomeActive(_ notification: Notification) 
+    {
+        NSApp.setActivationPolicy(.regular)
+    }
+    func applicationWillUnhide(_ notification: Notification) 
+    {
+        NSApp.setActivationPolicy(.regular)
+    }
     
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
         if showInMenuBar
         {
+            NSApp.setActivationPolicy(.accessory)
             return false
         }
         else
         {
+            NSApp.setActivationPolicy(.regular)
             return true
         }
     }

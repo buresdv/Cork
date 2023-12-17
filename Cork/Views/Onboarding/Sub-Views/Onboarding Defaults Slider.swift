@@ -44,9 +44,7 @@ struct OnboardingDefaultsSlider: View {
             Text("setup.slider.title")
                 .font(.title2)
             
-            Text("onboarding.settings.exmplanation")
-                .font(.subheadline)
-                .foregroundColor(.gray)
+            SubtitleText(text: "onboarding.settings.exmplanation")
             
             Slider(value: $sliderValue, in: 0...4, step: 1) {
                 //Text("setup.slider.title")

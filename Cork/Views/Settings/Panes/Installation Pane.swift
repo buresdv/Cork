@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct InstallationAndUninstallationPane: View
-{
+{    
     @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
@@ -21,7 +21,9 @@ struct InstallationAndUninstallationPane: View
 
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
-    @State private var isShowingDeepUninstallConfirmation: Bool = false
+    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled = true
+    
+    @EnvironmentObject var settingsState: SettingsState
     
     var body: some View
     {
@@ -95,27 +97,39 @@ struct InstallationAndUninstallationPane: View
                             .onChange(of: allowMoreCompleteUninstallations, perform: { newValue in
                                 if newValue == true
                                 {
-                                    isShowingDeepUninstallConfirmation = true
+                                    settingsState.alertType = .deepUninstall
+                                    settingsState.isShowingAlert = true
                                 }
                             })
-                            .alert(isPresented: $isShowingDeepUninstallConfirmation) {
-                                Alert(
-                                    title: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.title"),
-                                    message: Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.body"),
-                                    primaryButton: .default(Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.alert.confirm"), action: {
-                                        allowMoreCompleteUninstallations = true
-                                        isShowingDeepUninstallConfirmation = false
-                                    }),
-                                    secondaryButton: .cancel({
-                                        allowMoreCompleteUninstallations = false
-                                        isShowingDeepUninstallConfirmation = false
-                                    }))
-                            }
 
                             HStack(alignment: .top)
                             {
                                 Text("􀇾")
                                 Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation.warning")
+                            }
+                            .font(.caption)
+                            .foregroundColor(Color(nsColor: NSColor.systemGray))
+                        }
+                        
+                        VStack(alignment: .leading)
+                        {
+                            Toggle(isOn: $isAutomaticCleanupEnabled)
+                            {
+                                Text("settings.install-uninstall.installation.enable-automatic-cleanup")
+                            }
+                            .onChange(of: isAutomaticCleanupEnabled)
+                            { newValue in
+                                if newValue == false
+                                {
+                                    settingsState.alertType = .cleanupDisabling
+                                    settingsState.isShowingAlert = true
+                                }
+                            }
+                            
+                            HStack(alignment: .top)
+                            {
+                                Text("􀇾")
+                                Text("settings.install-uninstall.installation.enable-automatic-cleanup.warning")
                             }
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))

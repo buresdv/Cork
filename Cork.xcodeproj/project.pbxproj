@@ -19,6 +19,9 @@
 		63006E1729AD143D00243E29 /* Dependency List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1629AD143D00243E29 /* Dependency List.swift */; };
 		63006E1929AD215000243E29 /* Get Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1829AD215000243E29 /* Get Caveats.swift */; };
 		630D08B929B67E4300802201 /* Brew Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630D08B829B67E4300802201 /* Brew Pane.swift */; };
+		6311F3D42B0A1DE7008A8067 /* Sudo Required For Removal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311F3D32B0A1DE7008A8067 /* Sudo Required For Removal.swift */; };
+		6311F3D62B0A1E3C008A8067 /* Sudo Required.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */; };
+		6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311F3D72B0A1EB6008A8067 /* Open Terminal.swift */; };
 		6317BF712ADEE1FD0018E425 /* Top Packages Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317BF702ADEE1FD0018E425 /* Top Packages Section.swift */; };
 		6317BF752ADEFB060018E425 /* Ready to Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317BF742ADEFB060018E425 /* Ready to Update.swift */; };
 		6317BF772ADEFB690018E425 /* Checking for Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317BF762ADEFB690018E425 /* Checking for Updates.swift */; };
@@ -48,6 +51,10 @@
 		633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */; };
 		633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633513F02A91592800524165 /* Collapsible Section Header.swift */; };
 		6337AFED2AE130EF00FE60A5 /* Image - Load from Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337AFEC2AE130EF00FE60A5 /* Image - Load from Disk.swift */; };
+		633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633AA21F2AFEDD9100A5F3E3 /* Export Brewfile.swift */; };
+		633AA2222AFEDD9B00A5F3E3 /* Import Brewfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633AA2212AFEDD9B00A5F3E3 /* Import Brewfile.swift */; };
+		633AA2242AFEE40500A5F3E3 /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633AA2232AFEE40500A5F3E3 /* DataFile.swift */; };
+		633AA2262AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633AA2252AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift */; };
 		633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB30529BE65EB006CB872 /* Custom Search Field.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
@@ -124,6 +131,9 @@
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
 		639A7D832871D08200B50280 /* Install Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D822871D08200B50280 /* Install Package.swift */; };
 		639A7D862871D78C00B50280 /* Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D852871D78C00B50280 /* Package Details.swift */; };
+		63A018762AFFBD08003A2912 /* Brewfile Export Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A018752AFFBD08003A2912 /* Brewfile Export Progress.swift */; };
+		63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A018772AFFBD3F003A2912 /* Brewfile Import Progress.swift */; };
+		63A0187B2AFFBF1A003A2912 /* Brewfile Import Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A0187A2AFFBF1A003A2912 /* Brewfile Import Stage.swift */; };
 		63A38B9329BA0AFD0080158C /* Refresh Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38B9229BA0AFD0080158C /* Refresh Packages.swift */; };
 		63A38B9629BA0B6E0080158C /* Update Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38B9529BA0B6E0080158C /* Update Packages View.swift */; };
 		63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A38B9729BA0B910080158C /* Package Updating Steps.swift */; };
@@ -145,9 +155,16 @@
 		63A9778529A7D5800091DF2E /* Synchnorize Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */; };
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
+		63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7337A2B02E21D00366C77 /* Advanced Pane.swift */; };
 		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
+		63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */; };
+		63BE67E62B0EC015000FD594 /* No Updates Available Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE67E52B0EC015000FD594 /* No Updates Available Box.swift */; };
 		63BE889C2A910BB0003C6E59 /* Top Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */; };
 		63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */; };
+		63C49EA42B1E943500DAD508 /* Tap - Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EA32B1E943500DAD508 /* Tap - Initial.swift */; };
+		63C49EA62B1E964B00DAD508 /* Tap - Adding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EA52B1E964B00DAD508 /* Tap - Adding.swift */; };
+		63C49EA82B1E96D300DAD508 /* Tap - Finished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EA72B1E96D300DAD508 /* Tap - Finished.swift */; };
+		63C49EAB2B1E975100DAD508 /* Tap - Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EAA2B1E975100DAD508 /* Tap - Error.swift */; };
 		63C830BC29984B1A002D11BB /* Used Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BB29984B1A002D11BB /* Used Package.swift */; };
 		63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */; };
 		63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C830C029984BA4002D11BB /* Button That Opens Websites.swift */; };
@@ -186,7 +203,9 @@
 		63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */; };
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
+		63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
+		63F44AC62AF6CB6000CA0C16 /* Cached Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */; };
 		63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */; };
 		63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */; };
 		63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5782A90CB8700F95E54 /* Top Package.swift */; };
@@ -226,6 +245,9 @@
 		63006E1629AD143D00243E29 /* Dependency List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency List.swift"; sourceTree = "<group>"; };
 		63006E1829AD215000243E29 /* Get Caveats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Caveats.swift"; sourceTree = "<group>"; };
 		630D08B829B67E4300802201 /* Brew Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Pane.swift"; sourceTree = "<group>"; };
+		6311F3D32B0A1DE7008A8067 /* Sudo Required For Removal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sudo Required For Removal.swift"; sourceTree = "<group>"; };
+		6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sudo Required.swift"; sourceTree = "<group>"; };
+		6311F3D72B0A1EB6008A8067 /* Open Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Open Terminal.swift"; sourceTree = "<group>"; };
 		6317BF702ADEE1FD0018E425 /* Top Packages Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Packages Section.swift"; sourceTree = "<group>"; };
 		6317BF742ADEFB060018E425 /* Ready to Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ready to Update.swift"; sourceTree = "<group>"; };
 		6317BF762ADEFB690018E425 /* Checking for Updates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Checking for Updates.swift"; sourceTree = "<group>"; };
@@ -255,6 +277,10 @@
 		633289F029A68CDB004B2930 /* Package in Progress of Being Installed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package in Progress of Being Installed.swift"; sourceTree = "<group>"; };
 		633513F02A91592800524165 /* Collapsible Section Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collapsible Section Header.swift"; sourceTree = "<group>"; };
 		6337AFEC2AE130EF00FE60A5 /* Image - Load from Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image - Load from Disk.swift"; sourceTree = "<group>"; };
+		633AA21F2AFEDD9100A5F3E3 /* Export Brewfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Export Brewfile.swift"; sourceTree = "<group>"; };
+		633AA2212AFEDD9B00A5F3E3 /* Import Brewfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Import Brewfile.swift"; sourceTree = "<group>"; };
+		633AA2232AFEE40500A5F3E3 /* DataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
+		633AA2252AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType - Homebrew Backup Format.swift"; sourceTree = "<group>"; };
 		633EB30529BE65EB006CB872 /* Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Search Field.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634065642871AA42001A2178 /* CorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorkApp.swift; sourceTree = "<group>"; };
@@ -331,6 +357,9 @@
 		63958CFF287735F800E0B807 /* About View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About View.swift"; sourceTree = "<group>"; };
 		639A7D822871D08200B50280 /* Install Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Package.swift"; sourceTree = "<group>"; };
 		639A7D852871D78C00B50280 /* Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Details.swift"; sourceTree = "<group>"; };
+		63A018752AFFBD08003A2912 /* Brewfile Export Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brewfile Export Progress.swift"; sourceTree = "<group>"; };
+		63A018772AFFBD3F003A2912 /* Brewfile Import Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brewfile Import Progress.swift"; sourceTree = "<group>"; };
+		63A0187A2AFFBF1A003A2912 /* Brewfile Import Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brewfile Import Stage.swift"; sourceTree = "<group>"; };
 		63A38B9229BA0AFD0080158C /* Refresh Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Packages.swift"; sourceTree = "<group>"; };
 		63A38B9529BA0B6E0080158C /* Update Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Packages View.swift"; sourceTree = "<group>"; };
 		63A38B9729BA0B910080158C /* Package Updating Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Steps.swift"; sourceTree = "<group>"; };
@@ -352,9 +381,16 @@
 		63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchnorize Installed Packages.swift"; sourceTree = "<group>"; };
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
+		63B7337A2B02E21D00366C77 /* Advanced Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advanced Pane.swift"; sourceTree = "<group>"; };
 		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
+		63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtitle Text.swift"; sourceTree = "<group>"; };
+		63BE67E52B0EC015000FD594 /* No Updates Available Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "No Updates Available Box.swift"; sourceTree = "<group>"; };
 		63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package Sorting.swift"; sourceTree = "<group>"; };
 		63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Packages Box.swift"; sourceTree = "<group>"; };
+		63C49EA32B1E943500DAD508 /* Tap - Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Initial.swift"; sourceTree = "<group>"; };
+		63C49EA52B1E964B00DAD508 /* Tap - Adding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Adding.swift"; sourceTree = "<group>"; };
+		63C49EA72B1E96D300DAD508 /* Tap - Finished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Finished.swift"; sourceTree = "<group>"; };
+		63C49EAA2B1E975100DAD508 /* Tap - Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Error.swift"; sourceTree = "<group>"; };
 		63C830BB29984B1A002D11BB /* Used Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Used Package.swift"; sourceTree = "<group>"; };
 		63C830BD29984B49002D11BB /* Acknowledged Contributor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Acknowledged Contributor.swift"; sourceTree = "<group>"; };
 		63C830C029984BA4002D11BB /* Button That Opens Websites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button That Opens Websites.swift"; sourceTree = "<group>"; };
@@ -392,7 +428,9 @@
 		63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
+		63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo - CPU Architecture.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
+		63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Download.swift"; sourceTree = "<group>"; };
 		63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load up Top Packages.swift"; sourceTree = "<group>"; };
 		63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Download Data From URL.swift"; sourceTree = "<group>"; };
 		63FFE5782A90CB8700F95E54 /* Top Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package.swift"; sourceTree = "<group>"; };
@@ -499,6 +537,14 @@
 			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
+		6311F3D22B0A1DD9008A8067 /* Removal */ = {
+			isa = PBXGroup;
+			children = (
+				6311F3D32B0A1DE7008A8067 /* Sudo Required For Removal.swift */,
+			);
+			path = Removal;
+			sourceTree = "<group>";
+		};
 		6317BF6F2ADEE1EC0018E425 /* Initial */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +621,7 @@
 		632FD2932995A3870029FC49 /* Taps */ = {
 			isa = PBXGroup;
 			children = (
+				63C49EA22B1E941F00DAD508 /* Sub-Views */,
 				637260BE29BE387C00E6E81C /* Tap Details */,
 				632FD2942995A3920029FC49 /* Add Tap View.swift */,
 			);
@@ -613,6 +660,15 @@
 			children = (
 			);
 			path = Incremental;
+			sourceTree = "<group>";
+		};
+		633AA21E2AFEDD8500A5F3E3 /* Brewfile */ = {
+			isa = PBXGroup;
+			children = (
+				633AA21F2AFEDD9100A5F3E3 /* Export Brewfile.swift */,
+				633AA2212AFEDD9B00A5F3E3 /* Import Brewfile.swift */,
+			);
+			path = Brewfile;
 			sourceTree = "<group>";
 		};
 		633D64012A992D4200476A24 /* Raw Files */ = {
@@ -674,6 +730,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				633AA21E2AFEDD8500A5F3E3 /* Brewfile */,
 				63FFE5722A90CB3F00F95E54 /* Discoverability */,
 				635E448F2A890FAE002C034E /* Networking */,
 				6386529C2A88F0FC0001679E /* Notifications */,
@@ -692,6 +749,7 @@
 				632FD28F299591C10029FC49 /* Get Folder Size.swift */,
 				632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */,
 				635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */,
+				6311F3D72B0A1EB6008A8067 /* Open Terminal.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -711,6 +769,8 @@
 				63D830FB29990DD600FA802F /* Terminal Output.swift */,
 				634065792871AC27001A2178 /* Brew Data Storage.swift */,
 				633289EE29A68B36004B2930 /* Search Result Tracker.swift */,
+				63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */,
+				633AA2232AFEE40500A5F3E3 /* DataFile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -943,6 +1003,7 @@
 				6392FD142A921D5100711B92 /* Searching.swift */,
 				63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */,
 				63D024E42AC76DCD0050F9D0 /* Installing.swift */,
+				6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */,
 			);
 			path = "Sub-Views";
 			sourceTree = "<group>";
@@ -958,6 +1019,8 @@
 		639A7D812871D07800B50280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6311F3D22B0A1DD9008A8067 /* Removal */,
+				63A018722AFFBCDB003A2912 /* Backups */,
 				63A8A1272AE3FC6800FA21C7 /* Onboarding */,
 				63A90D892AA268A800CEC48E /* Shared */,
 				637402D8299BF86C001AB7B1 /* Sidebar */,
@@ -973,6 +1036,39 @@
 				632FD2932995A3870029FC49 /* Taps */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		63A018722AFFBCDB003A2912 /* Backups */ = {
+			isa = PBXGroup;
+			children = (
+				63A018742AFFBCE6003A2912 /* Importing */,
+				63A018732AFFBCE1003A2912 /* Exporting */,
+			);
+			path = Backups;
+			sourceTree = "<group>";
+		};
+		63A018732AFFBCE1003A2912 /* Exporting */ = {
+			isa = PBXGroup;
+			children = (
+				63A018752AFFBD08003A2912 /* Brewfile Export Progress.swift */,
+			);
+			path = Exporting;
+			sourceTree = "<group>";
+		};
+		63A018742AFFBCE6003A2912 /* Importing */ = {
+			isa = PBXGroup;
+			children = (
+				63A018772AFFBD3F003A2912 /* Brewfile Import Progress.swift */,
+			);
+			path = Importing;
+			sourceTree = "<group>";
+		};
+		63A018792AFFBF0C003A2912 /* Brewfile */ = {
+			isa = PBXGroup;
+			children = (
+				63A0187A2AFFBF1A003A2912 /* Brewfile Import Stage.swift */,
+			);
+			path = Brewfile;
 			sourceTree = "<group>";
 		};
 		63A38B9129BA0AE60080158C /* Updating and Upgrading */ = {
@@ -1004,6 +1100,7 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				63A018792AFFBF0C003A2912 /* Brewfile */,
 				63FFE5772A90CB6C00F95E54 /* Discoverability */,
 				6373D9CC29DC622B00D98607 /* Package Reinstallation */,
 				6360355629BDE7A700CC0760 /* Package Installation */,
@@ -1054,6 +1151,7 @@
 				63C830C029984BA4002D11BB /* Button That Opens Websites.swift */,
 				63A96F732AA520120029E33B /* Inline Fatal Error.swift */,
 				63689F822ACC9FE000BD354C /* Button Bottom Row.swift */,
+				63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1080,8 +1178,20 @@
 			children = (
 				63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */,
 				63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */,
+				63BE67E52B0EC015000FD594 /* No Updates Available Box.swift */,
 			);
 			path = "Outdated Packages";
+			sourceTree = "<group>";
+		};
+		63C49EA22B1E941F00DAD508 /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				63C49EA32B1E943500DAD508 /* Tap - Initial.swift */,
+				63C49EA52B1E964B00DAD508 /* Tap - Adding.swift */,
+				63C49EA72B1E96D300DAD508 /* Tap - Finished.swift */,
+				63C49EAA2B1E975100DAD508 /* Tap - Error.swift */,
+			);
+			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
 		63C830BA29984B10002D11BB /* Misc */ = {
@@ -1114,6 +1224,8 @@
 				63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */,
 				63689FA72ACCC04E00BD354C /* Array - Prepend.swift */,
 				6337AFEC2AE130EF00FE60A5 /* Image - Load from Disk.swift */,
+				633AA2252AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift */,
+				63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1144,6 +1256,7 @@
 				630D08B829B67E4300802201 /* Brew Pane.swift */,
 				635E44922A891050002C034E /* Notifications Pane.swift */,
 				63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */,
+				63B7337A2B02E21D00366C77 /* Advanced Pane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -1396,6 +1509,7 @@
 				fr,
 				ru,
 				cs,
+				uk,
 			);
 			mainGroup = 634065582871AA42001A2178;
 			packageReferences = (
@@ -1475,6 +1589,7 @@
 				63D67B732AC5AC78002EB992 /* Package Dependencies.swift in Sources */,
 				63A90D8B2AA268C700CEC48E /* Sanitized Package Name.swift in Sources */,
 				6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */,
+				6311F3D42B0A1DE7008A8067 /* Sudo Required For Removal.swift in Sources */,
 				63D67B712AC5A27F002EB992 /* Package System Info.swift in Sources */,
 				63D831052999331D00FA802F /* Sheet with Title.swift in Sources */,
 				6382C90A299DA11F00354B19 /* Purge Brew Cache.swift in Sources */,
@@ -1490,6 +1605,7 @@
 				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
+				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
 				63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
@@ -1510,8 +1626,10 @@
 				6342117A29AA52B900E2563B /* Delete Cached Downloads.swift in Sources */,
 				6340657A2871AC27001A2178 /* Brew Data Storage.swift in Sources */,
 				633289E729A68A61004B2930 /* Package Installation Steps.swift in Sources */,
+				633AA2262AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift in Sources */,
 				63A96F702AA4B3F70029E33B /* Remove Tap.swift in Sources */,
 				63D51F6B299A9AC500203F3F /* Settings Pane Template.swift in Sources */,
+				63C49EA42B1E943500DAD508 /* Tap - Initial.swift in Sources */,
 				63A8A12C2AE3FDEC00FA21C7 /* Onboarding Defaults Slider.swift in Sources */,
 				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
@@ -1547,12 +1665,15 @@
 				63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */,
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
+				63A0187B2AFFBF1A003A2912 /* Brewfile Import Stage.swift in Sources */,
 				63006E1129ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift in Sources */,
 				63689FAD2ACDCD2F00BD354C /* Maintenance Finished View.swift in Sources */,
 				63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */,
 				63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */,
+				63F44AC62AF6CB6000CA0C16 /* Cached Download.swift in Sources */,
 				63689F7D2ACC6CFF00BD354C /* Package Detail Header Complex.swift in Sources */,
 				6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */,
+				63BE67E62B0EC015000FD594 /* No Updates Available Box.swift in Sources */,
 				63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */,
 				6387A6742AE9255700517436 /* Discoverability Category.swift in Sources */,
 				63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */,
@@ -1569,9 +1690,11 @@
 				63C830BC29984B1A002D11BB /* Used Package.swift in Sources */,
 				635E44912A890FD8002C034E /* Get Proxy Settings.swift in Sources */,
 				635E44952A891078002C034E /* Outdated Packages Notification Type.swift in Sources */,
+				633AA2222AFEDD9B00A5F3E3 /* Import Brewfile.swift in Sources */,
 				6317BF772ADEFB690018E425 /* Checking for Updates.swift in Sources */,
 				637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */,
 				6337AFED2AE130EF00FE60A5 /* Image - Load from Disk.swift in Sources */,
+				63C49EA82B1E96D300DAD508 /* Tap - Finished.swift in Sources */,
 				6317BF852ADEFEE90018E425 /* Errored Out Stage.swift in Sources */,
 				63689F8B2ACCB5B600BD354C /* Load Image from Local URL.swift in Sources */,
 				63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */,
@@ -1586,6 +1709,7 @@
 				6387A6762AE9256600517436 /* Package Features Category.swift in Sources */,
 				63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */,
 				6317BF812ADEFE4B0018E425 /* No Updates Available.swift in Sources */,
+				6311F3D62B0A1E3C008A8067 /* Sudo Required.swift in Sources */,
 				63C830BE29984B49002D11BB /* Acknowledged Contributor.swift in Sources */,
 				63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */,
 				6330531B2996A16600F34F94 /* GroupBox Headline Group.swift in Sources */,
@@ -1594,6 +1718,7 @@
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */,
+				63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
@@ -1607,8 +1732,10 @@
 				63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */,
 				63D024E32AC769AC0050F9D0 /* Presenting Search Results.swift in Sources */,
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
+				63A018762AFFBD08003A2912 /* Brewfile Export Progress.swift in Sources */,
 				63D67B7A2AC5E28C002EB992 /* Tap Info.swift in Sources */,
 				63689F832ACC9FE000BD354C /* Button Bottom Row.swift in Sources */,
+				63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */,
 				637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */,
 				6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */,
 				63689F7F2ACC8FDC00BD354C /* Package Modification Buttons.swift in Sources */,
@@ -1620,12 +1747,14 @@
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
 				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
+				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */,
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
 				635BE0522A2B382C004DCBD8 /* Taps Section.swift in Sources */,
+				63C49EA62B1E964B00DAD508 /* Tap - Adding.swift in Sources */,
 				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
 				635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */,
 				633289F129A68CDB004B2930 /* Package in Progress of Being Installed.swift in Sources */,
@@ -1638,13 +1767,17 @@
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
 				63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
+				63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */,
 				633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
+				633AA2242AFEE40500A5F3E3 /* DataFile.swift in Sources */,
+				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,
 				63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */,
 				63958D00287735F800E0B807 /* About View.swift in Sources */,
 				63A38B9329BA0AFD0080158C /* Refresh Packages.swift in Sources */,
+				63C49EAB2B1E975100DAD508 /* Tap - Error.swift in Sources */,
 				639A7D862871D78C00B50280 /* Package Details.swift in Sources */,
 				63D67B7C2AC5E37E002EB992 /* Included Packages.swift in Sources */,
 				634065652871AA42001A2178 /* CorkApp.swift in Sources */,
@@ -1831,7 +1964,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 49;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -1845,7 +1978,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1863,7 +1996,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 49;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -1877,7 +2010,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

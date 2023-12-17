@@ -11,12 +11,13 @@ import Foundation
 func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
 ) async -> TerminalOutput
 {
     var allOutput: [String] = .init()
     var allErrors: [String] = .init()
-    for await streamedOutput in shell(launchPath, arguments, environment: environment)
+    for await streamedOutput in shell(launchPath, arguments, environment: environment, workingDirectory: workingDirectory)
     {
         switch streamedOutput
         {
@@ -48,7 +49,8 @@ func shell(
 func shell(
     _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
 ) -> AsyncStream<StreamedTerminalOutput> {
     let task = Process()
     
@@ -70,6 +72,21 @@ func shell(
     {
         print("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
+    }
+    
+    // MARK: - Block automatic cleanup is configured
+    if !UserDefaults.standard.bool(forKey: "isAutomaticCleanupEnabled")
+    {
+        finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
+    }
+    
+    print("Final environment: \(finalEnvironment)")
+    
+    // MARK: - Set working directory if provided
+    if let workingDirectory
+    {
+        print("Working directory configured: \(workingDirectory)")
+        task.currentDirectoryURL = workingDirectory
     }
     
     task.environment = finalEnvironment

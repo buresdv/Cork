@@ -33,7 +33,7 @@ struct CasksSection: View {
                         case .byInstallDate:
                             return firstPackage.installedOn! < secondPackage.installedOn!
                         case .bySize:
-                            return firstPackage.sizeInBytes! < secondPackage.sizeInBytes!
+                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
                     }
                 }))
                 { cask in

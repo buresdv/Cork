@@ -18,6 +18,8 @@ struct StartPage: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
+    
+    @State private var dragOver: Bool = false
 
     var body: some View
     {
@@ -84,7 +86,7 @@ struct StartPage: View
         }
         .task(priority: .background)
         {
-            if outdatedPackageTracker.outdatedPackages.isEmpty
+            if outdatedPackageTracker.allOutdatedPackages.isEmpty
             {
                 appState.isCheckingForPackageUpdates = true
 
@@ -92,7 +94,7 @@ struct StartPage: View
 
                 do
                 {
-                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    outdatedPackageTracker.allOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                 {
@@ -115,6 +117,25 @@ struct StartPage: View
                     appState.isCheckingForPackageUpdates = false
                 }
             }
+        }
+        .onDrop(of: [.fileURL], isTargeted: $dragOver) { providers -> Bool in
+            providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { (data, error) in
+                if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String) {
+                    
+                    if url.pathExtension == "brewbak" || url.pathExtension.isEmpty {
+                        print("Correct File Format")
+                        
+                        Task(priority: .userInitiated) 
+                        {
+                            try await importBrewfile(from: url, appState: appState, brewData: brewData)
+                        }
+                        
+                    } else {
+                        print("Incorrect file format")
+                    }
+                }
+            })
+            return true
         }
     }
 }

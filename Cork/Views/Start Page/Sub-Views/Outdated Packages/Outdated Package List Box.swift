@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OutdatedPackageListBox: View
 {
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
@@ -73,7 +75,7 @@ struct OutdatedPackageListBox: View
                                                 }, set: { toggleState in
                                                     outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
                                                         var copyOutdatedPackage = modifiedElement
-                                                        if copyOutdatedPackage.id == modifiedElement.id
+                                                        if copyOutdatedPackage.id == outdatedPackage.id
                                                         {
                                                             copyOutdatedPackage.isMarkedForUpdating = toggleState
                                                         }
@@ -131,6 +133,10 @@ struct OutdatedPackageListBox: View
                     }
                 }
             }
+        }
+        .onChange(of: displayOnlyIntentionallyInstalledPackagesByDefault) 
+        { _ in
+            outdatedPackageTracker.updateDisplayableOutdatedPackages()
         }
     }
 }

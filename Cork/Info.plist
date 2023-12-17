@@ -2,9 +2,55 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<integer>1</integer>
+			<key>CFBundleTypeName</key>
+			<string>Homebrew Backup</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.davidbures.homebrew-backup</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleHelpBookFolder</key>
 	<string>CorkHelp.help</string>
 	<key>CFBundleHelpBookName</key>
 	<string>Cork Help</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Homebrew Backup</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconText</key>
+				<string>BrewBak</string>
+			</dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.davidbures.homebrew-backup</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>brewbak</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>text/plain</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
