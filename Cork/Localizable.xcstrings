@@ -14942,7 +14942,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在警告 􀅴"
+            "value" : "查看警告 􀅴"
           }
         },
         "zh-Hant" : {
@@ -18175,7 +18175,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "􀅴 点击 \"具有警告\" 按钮以查看警告信息"
+            "value" : "􀅴 点击 \"查看警告\" 按钮以查看警告信息"
           }
         },
         "zh-Hant" : {
