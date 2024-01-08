@@ -15693,7 +15693,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homepage"
+            "value" : "Webseite"
           }
         },
         "en" : {
@@ -21874,7 +21874,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du hast %@ zwischengespeicherten Downloads"
+            "value" : "Du hast %@ zwischengespeicherte Downloads"
           }
         },
         "en" : {
@@ -23082,7 +23082,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Update"
+            "value" : "Aktualisieren"
           }
         },
         "en" : {
@@ -23833,7 +23833,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homepage"
+            "value" : "Webseite"
           }
         },
         "en" : {
