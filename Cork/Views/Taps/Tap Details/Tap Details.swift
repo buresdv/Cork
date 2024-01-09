@@ -16,7 +16,7 @@ struct TapDetailView: View, Sendable
 
     @State private var isLoadingTapInfo: Bool = true
 
-    @State private var homepage: URL = .init(string: "https://google.com")!
+    @State private var homepage: URL?
     @State private var isOfficial: Bool = false
     @State private var includedFormulae: Set<String>?
     @State private var includedCasks: Set<String>?

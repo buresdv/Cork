@@ -16,7 +16,7 @@ struct TapDetailsInfo: View
     let includedCasks: Set<String>?
 
     let numberOfPackages: Int
-    let homepage: URL
+    let homepage: URL?
 
     var body: some View
     {
@@ -55,14 +55,17 @@ struct TapDetailsInfo: View
                 Text("tap-details.package-count")
             }
 
-            LabeledContent
+            if let homepage
             {
-                Link(destination: homepage)
+                LabeledContent
                 {
-                    Text(homepage.absoluteString)
+                    Link(destination: homepage)
+                    {
+                        Text(homepage.absoluteString)
+                    }
+                } label: {
+                    Text("tap-details.homepage")
                 }
-            } label: {
-                Text("tap-details.homepage")
             }
         } header: {
             VStack(alignment: .leading, spacing: 15)

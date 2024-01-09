@@ -108,22 +108,5 @@ func loadUpTappedTaps() async -> [BrewTap]
 
 private func checkIfTapIsAdded(tapToCheck: String) async -> Bool
 {
-    async let checkingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["tap", tapToCheck])
-
-    if await checkingResult.standardOutput.isEmpty
-    {
-        print("Non-local tap \(tapToCheck) found")
-        return true
-    }
-    else
-    {
-        print("Non-local tap \(tapToCheck) not found")
-
-        Task.detached(priority: .background)
-        {
-            await shell(AppConstants.brewExecutablePath, ["untap", tapToCheck])
-        }
-
-        return false
-    }
+    return true
 }
