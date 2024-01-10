@@ -263,6 +263,13 @@ struct CorkApp: App
                 } label: {
                     Text("action.report-bugs.menu-category")
                 }
+                
+                Button
+                {
+                    NSWorkspace.shared.open(URL(string: "https://feedback.corkmac.app")!)
+                } label: {
+                    Text("action.submit-feedback")
+                }
 
                 Divider()
             }

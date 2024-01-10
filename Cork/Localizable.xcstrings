@@ -3331,6 +3331,22 @@
         }
       }
     },
+    "action.submit-feedback" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odeslat zpětnou vazbu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit Feedback"
+          }
+        }
+      }
+    },
     "action.use-without-notifications" : {
       "localizations" : {
         "cs" : {
