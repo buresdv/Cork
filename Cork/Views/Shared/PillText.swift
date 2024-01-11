@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-struct PillText: View
-{
-    @State var text: String
-    @State var color: NSColor = .tertiaryLabelColor
-    @State var font: Font = .caption
-    
-    var body: some View
-    {
-        Text(text)
-            .font(font)
-            .padding(.horizontal, 4)
-            .background(Color(color))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-    }
-}
-
 struct PillTextWithLocalizableText: View
 {
     @State var localizedText: LocalizedStringKey
@@ -52,7 +35,7 @@ struct OutlinedPillText: View
             .font(.caption2)
             .padding(.horizontal, 4)
             .foregroundColor(color)
-            .overlay(Capsule().stroke(color, lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }
 }
 
@@ -67,6 +50,6 @@ struct OutlinedPill<Content: View>: View
             .font(.caption2)
             .padding(.horizontal, 4)
             .foregroundColor(color)
-            .overlay(Capsule().stroke(color, lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }
 }
