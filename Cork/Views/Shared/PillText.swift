@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-struct PillText: View
-{
-    @State var text: String
-    @State var color: NSColor = .tertiaryLabelColor
-    @State var font: Font = .caption
-    
-    var body: some View
-    {
-        Text(text)
-            .font(font)
-            .padding(.horizontal, 4)
-            .background(Color(color))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-    }
-}
-
 struct PillTextWithLocalizableText: View
 {
     @State var localizedText: LocalizedStringKey
