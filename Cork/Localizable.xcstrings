@@ -3344,6 +3344,18 @@
             "state" : "translated",
             "value" : "Submit Feedback"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提交反馈"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提交反饋"
+          }
         }
       }
     },
