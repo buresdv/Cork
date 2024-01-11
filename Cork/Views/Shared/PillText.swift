@@ -35,7 +35,7 @@ struct OutlinedPillText: View
             .font(.caption2)
             .padding(.horizontal, 4)
             .foregroundColor(color)
-            .overlay(Capsule().stroke(color, lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }
 }
 
@@ -50,6 +50,6 @@ struct OutlinedPill<Content: View>: View
             .font(.caption2)
             .padding(.horizontal, 4)
             .foregroundColor(color)
-            .overlay(Capsule().stroke(color, lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }
 }
