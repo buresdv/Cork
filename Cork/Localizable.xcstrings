@@ -16864,27 +16864,68 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew location"
+            "value" : "Homebrew location:"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.confirmation.confirm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set Custom Location"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.confirmation.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.confirmation.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to set a custom Homebrew location?"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.error.not-a-brew-executable-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is not a Homebrew executable."
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.error.not-an-executable-at-all" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The selected file is not an executable."
           }
         }
       }
     },
     "settings.brew.custom-homebrew-path.is-using-custom-path" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using custom location"
-          }
-        }
-      }
-    },
-    "settings.brew.custom-homebrew-path.is-using-default-path" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Using system location"
           }
         }
       }
@@ -16899,12 +16940,22 @@
         }
       }
     },
+    "settings.brew.custom-homebrew-path.will-not-bother-me-with-support" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No support for Cork will be provided as long as Developer settings are enabled"
+          }
+        }
+      }
+    },
     "settings.brew.enable-advanced-settings" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Developer settings"
+            "value" : "Enable developer settings"
           }
         }
       }

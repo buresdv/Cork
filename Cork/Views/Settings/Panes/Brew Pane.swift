@@ -14,7 +14,11 @@ struct BrewPane: View
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
     @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
 
+    @EnvironmentObject var settingsState: SettingsState
+
     @State private var isPerformingBrewAnalyticsChangeCommand: Bool = false
+    @State private var isShowingCustomLocationDialog: Bool = false
+    @State private var isShowingCustomLocationConfirmation: Bool = false
 
     var body: some View
     {
@@ -65,30 +69,91 @@ struct BrewPane: View
 
                 Divider()
 
-                Toggle(isOn: $allowAdvancedHomebrewSettings, label: {
-                    Text("settings.brew.enable-advanced-settings")
-                })
-                .toggleStyle(.switch)
-                
+                VStack(alignment: .center)
+                {
+                    Toggle(isOn: $allowAdvancedHomebrewSettings, label: {
+                        Text("settings.brew.enable-advanced-settings")
+                    })
+                    .toggleStyle(.switch)
+                    
+                    Text("settings.brew.custom-homebrew-path.will-not-bother-me-with-support")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+
                 Form
                 {
-                    LabeledContent {
-                        VStack(alignment: .leading)
+                    Section
+                    {
+                        LabeledContent
                         {
-                            Text(customHomebrewPath.isEmpty ? "settings.brew.custom-homebrew-path.is-using-default-path" : "settings.brew.custom-homebrew-path.is-using-custom-path")
-                            
-                            Button {
-                                print("Ahoj")
-                            } label: {
-                                Text("settings.brew.custom-homebrew-path.select")
+                            VStack(alignment: .leading)
+                            {
+                                HStack
+                                {
+                                    Text(customHomebrewPath.isEmpty ? "settings.brew.custom-homebrew-path.is-using-default-location" : customHomebrewPath)
+                                    
+                                    Spacer()
+                                    
+                                    Button
+                                    {
+                                        isShowingCustomLocationDialog = true
+                                    } label: {
+                                        Text("settings.brew.custom-homebrew-path.select")
+                                    }
+                                }
                             }
+                        } label: {
+                            Text("settings.brew.custom-homebrew-path")
                         }
-                    } label: {
-                        Text("settings.brew.custom-homebrew-path")
                     }
-
                 }
                 .disabled(!allowAdvancedHomebrewSettings)
+                .fileImporter(
+                    isPresented: $isShowingCustomLocationDialog,
+                    allowedContentTypes: [.unixExecutable],
+                    allowsMultipleSelection: false
+                )
+                { result in
+                    switch result
+                    {
+                    case let .success(success):
+                        if success.first!.lastPathComponent == "brew"
+                        {
+                            print("Valid brew executable: \(success.first!.path)")
+
+                            isShowingCustomLocationConfirmation = true
+
+                            // customHomebrewPath = success.first!.path
+                        }
+                        else
+                        {
+                            print("Not a valid brew executable")
+
+                            settingsState.alertType = .customHomebrewLocationNotABrewExecutable(executablePath: success.first!.path)
+                            settingsState.isShowingAlert = true
+                        }
+                    case let .failure(failure):
+                        print("Failure: \(failure)")
+
+                            settingsState.alertType = .customHomebrewLocationNotAnExecutableAtAll
+                        settingsState.isShowingAlert = true
+                    }
+                }
+                .confirmationDialog(
+                    Text("settings.brew.custom-homebrew-path.confirmation.title"),
+                    isPresented: $isShowingCustomLocationConfirmation
+                )
+                {
+                    Button
+                    {
+                        print("Accepted")
+                    } label: {
+                        Text("settings.brew.custom-homebrew-path.confirmation.confirm")
+                    }
+                } message: {
+                    Text("settings.brew.custom-homebrew-path.confirmation.message")
+                }
             }
         }
     }
