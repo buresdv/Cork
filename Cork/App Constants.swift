@@ -47,13 +47,20 @@ struct AppConstants
 
     static let brewExecutablePath: URL =
     {
-        if FileManager.default.fileExists(atPath: "/opt/homebrew/bin/brew")
-        { // Apple Sillicon
-            return URL(string: "/opt/homebrew/bin/brew")!
-        }
-        else
-        { // Intel
-            return URL(string: "/usr/local/bin/brew")!
+        /// If a custom Homebrew path is defined, use it. Otherwise, use the default paths
+        if let homebrewPath = UserDefaults.standard.string(forKey: "customHomebrewPath") {
+            let customHomebrewPath = URL(string: homebrewPath)
+            
+            return customHomebrewPath!
+        } else {
+            if FileManager.default.fileExists(atPath: "/opt/homebrew/bin/brew")
+            { // Apple Sillicon
+                return URL(string: "/opt/homebrew/bin/brew")!
+            }
+            else
+            { // Intel
+                return URL(string: "/usr/local/bin/brew")!
+            }
         }
     }()
 

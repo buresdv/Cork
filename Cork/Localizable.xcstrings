@@ -16859,6 +16859,56 @@
         }
       }
     },
+    "settings.brew.custom-homebrew-path" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew location"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.is-using-custom-path" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using custom location"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.is-using-default-path" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using system location"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.select" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select custom location"
+          }
+        }
+      }
+    },
+    "settings.brew.enable-advanced-settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Developer settings"
+          }
+        }
+      }
+    },
     "settings.dangerous" : {
       "localizations" : {
         "cs" : {
