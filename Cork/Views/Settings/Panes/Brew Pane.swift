@@ -75,7 +75,7 @@ struct BrewPane: View
                         Text("settings.brew.enable-advanced-settings")
                     })
                     .toggleStyle(.switch)
-                    
+
                     Text("settings.brew.custom-homebrew-path.will-not-bother-me-with-support")
                         .font(.subheadline)
                         .foregroundColor(.gray)
@@ -89,17 +89,34 @@ struct BrewPane: View
                         {
                             VStack(alignment: .leading)
                             {
+                                if customHomebrewPath.isEmpty
+                                {
+                                    Text("settings.brew.custom-homebrew-path.is-using-default-location")
+                                }
+                                else
+                                {
+                                    Text("settings.brew.custom-homebrew-path.is-using-custom-location-\(customHomebrewPath)")
+                                }
+
+                                Spacer()
+
                                 HStack
                                 {
-                                    Text(customHomebrewPath.isEmpty ? "settings.brew.custom-homebrew-path.is-using-default-location" : customHomebrewPath)
-                                    
-                                    Spacer()
-                                    
                                     Button
                                     {
-                                        isShowingCustomLocationDialog = true
+                                        isShowingCustomLocationConfirmation = true
                                     } label: {
                                         Text("settings.brew.custom-homebrew-path.select")
+                                    }
+                                    
+                                    if !customHomebrewPath.isEmpty
+                                    {
+                                        Button
+                                        {
+                                            customHomebrewPath = ""
+                                        } label: {
+                                            Text("settings.brew.custom-homebrew-path.reset")
+                                        }
                                     }
                                 }
                             }
@@ -122,9 +139,7 @@ struct BrewPane: View
                         {
                             print("Valid brew executable: \(success.first!.path)")
 
-                            isShowingCustomLocationConfirmation = true
-
-                            // customHomebrewPath = success.first!.path
+                            customHomebrewPath = success.first!.path
                         }
                         else
                         {
@@ -136,7 +151,7 @@ struct BrewPane: View
                     case let .failure(failure):
                         print("Failure: \(failure)")
 
-                            settingsState.alertType = .customHomebrewLocationNotAnExecutableAtAll
+                        settingsState.alertType = .customHomebrewLocationNotAnExecutableAtAll
                         settingsState.isShowingAlert = true
                     }
                 }
@@ -147,7 +162,7 @@ struct BrewPane: View
                 {
                     Button
                     {
-                        print("Accepted")
+                        isShowingCustomLocationDialog = true
                     } label: {
                         Text("settings.brew.custom-homebrew-path.confirmation.confirm")
                     }

@@ -9,6 +9,7 @@ import Foundation
 
 enum FatalAlertType
 {
+    case customBrewExcutableGotDeleted
     case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions, homePathNotSet
     case couldNotObtainNotificationPermissions
 	case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled

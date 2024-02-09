@@ -3175,6 +3175,16 @@
         }
       }
     },
+    "action.reset-custom-brew-executable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset executable to default location"
+          }
+        }
+      }
+    },
     "action.restart" : {
       "localizations" : {
         "cs" : {
@@ -7698,6 +7708,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安裝套件時發生嚴重錯誤"
+          }
+        }
+      }
+    },
+    "alert.fatal.custom-brew-executable-deleted.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't find the custom Homebrew executable"
           }
         }
       }
@@ -16919,6 +16939,16 @@
         }
       }
     },
+    "settings.brew.custom-homebrew-path.is-using-custom-location-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using %@"
+          }
+        }
+      }
+    },
     "settings.brew.custom-homebrew-path.is-using-custom-path" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -16926,6 +16956,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using custom location"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.is-using-default-location" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Using default Homebrew location"
+          }
+        }
+      }
+    },
+    "settings.brew.custom-homebrew-path.reset" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset location"
           }
         }
       }
