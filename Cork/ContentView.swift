@@ -18,8 +18,10 @@ struct ContentView: View, Sendable
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
     @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
-    
+
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+
+    @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
 
     @EnvironmentObject var appState: AppState
 
@@ -45,7 +47,7 @@ struct ContentView: View, Sendable
                     .frame(minWidth: 600, minHeight: 500)
             }
             .navigationTitle("app-name")
-            .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ?  brewData.installedFormulae.filter( \.installedIntentionally ).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
+            .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
             .toolbar(id: "PackageActions")
             {
                 ToolbarItem(id: "upgradePackages", placement: .primaryAction)
@@ -121,6 +123,12 @@ struct ContentView: View, Sendable
         .onAppear
         {
             print("Brew executable path: \(AppConstants.brewExecutablePath)")
+
+            if !customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.brewExecutablePath.path)
+            {
+                appState.fatalAlertType = .customBrewExcutableGotDeleted
+                appState.isShowingFatalError = true
+            }
 
             print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
 
@@ -271,6 +279,9 @@ struct ContentView: View, Sendable
         })
         .onChange(of: sortTopPackagesBy, perform: { _ in
             sortTopPackages()
+        })
+        .onChange(of: customHomebrewPath, perform: { _ in
+            restartApp()
         })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
@@ -515,14 +526,21 @@ struct ContentView: View, Sendable
                         appState.isShowingFatalError = false
                     })
                 )
-                case .fatalPackageInstallationError:
-                    return Alert(
-                        title: Text("alert.fatal-installation.error"),
-                        message: Text(appState.fatalAlertDetails),
-                        dismissButton: .default(Text("action.close"), action: {
-                            appState.isShowingFatalError = false
-                        })
-                    )
+            case .fatalPackageInstallationError:
+                return Alert(
+                    title: Text("alert.fatal-installation.error"),
+                    message: Text(appState.fatalAlertDetails),
+                    dismissButton: .default(Text("action.close"), action: {
+                        appState.isShowingFatalError = false
+                    })
+                )
+            case .customBrewExcutableGotDeleted:
+                return Alert(
+                    title: Text("alert.fatal.custom-brew-executable-deleted.title"),
+                    dismissButton: .default(Text("action.reset-custom-brew-executable"), action: {
+                        customHomebrewPath = ""
+                    })
+                )
             }
         })
     }
