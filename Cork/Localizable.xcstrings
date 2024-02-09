@@ -3177,6 +3177,12 @@
     },
     "action.reset-custom-brew-executable" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetovat umístění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7714,6 +7720,12 @@
     },
     "alert.fatal.custom-brew-executable-deleted.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umístění Homebrew se nepovedlo najít"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16881,6 +16893,12 @@
     },
     "settings.brew.custom-homebrew-path" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umístění Homebrew:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16891,6 +16909,12 @@
     },
     "settings.brew.custom-homebrew-path.confirmation.confirm" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavit vlastní umístění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16901,6 +16925,12 @@
     },
     "settings.brew.custom-homebrew-path.confirmation.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vlastní umístění Homebrew nejsou oficiálně podporována.\nPokud si nastavíte vlastní umístění Homebrew, nebude Vám poskytnuta podpora pro Cork ani Homebrew.\nPokud si nastavíte vlastní umístění Homebrew, budete se muset sami starat o udržování vaší Homebrew instalace."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16911,6 +16941,12 @@
     },
     "settings.brew.custom-homebrew-path.confirmation.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravdu chcete nastavit vlastní umístění Homebrew?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16921,6 +16957,12 @@
     },
     "settings.brew.custom-homebrew-path.error.not-a-brew-executable-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ není spustitelný soubor Homebrew."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16931,6 +16973,12 @@
     },
     "settings.brew.custom-homebrew-path.error.not-an-executable-at-all" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybraný soubor není spustitelný."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16941,6 +16989,12 @@
     },
     "settings.brew.custom-homebrew-path.is-using-custom-location-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16962,6 +17016,12 @@
     },
     "settings.brew.custom-homebrew-path.is-using-default-location" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výchozí umístění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16972,6 +17032,12 @@
     },
     "settings.brew.custom-homebrew-path.reset" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetovat umístění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16982,6 +17048,12 @@
     },
     "settings.brew.custom-homebrew-path.select" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrat vlastní umístění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16992,6 +17064,12 @@
     },
     "settings.brew.custom-homebrew-path.will-not-bother-me-with-support" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokud budou vývojářská nastavení zapnutá, nebudeme Vám poskytovat podporu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17002,6 +17080,12 @@
     },
     "settings.brew.enable-advanced-settings" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povolit vývojářská nastavení"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
