@@ -171,5 +171,14 @@ struct BrewPane: View
                 }
             }
         }
+        .onChange(of: allowAdvancedHomebrewSettings, perform: { newValue in
+            if newValue == false
+            {
+                if !customHomebrewPath.isEmpty
+                {
+                    customHomebrewPath = ""
+                }
+            }
+        })
     }
 }
