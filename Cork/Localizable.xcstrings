@@ -3188,6 +3188,12 @@
             "state" : "translated",
             "value" : "Reset executable to default location"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将可执行文件重置为默认路径"
+          }
         }
       }
     },
@@ -7730,6 +7736,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find the custom Homebrew executable"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法找到自定义 Homebrew 可执行文件"
           }
         }
       }
@@ -16904,6 +16916,12 @@
             "state" : "translated",
             "value" : "Homebrew location:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 路径："
+          }
         }
       }
     },
@@ -16919,6 +16937,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set Custom Location"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义路径"
           }
         }
       }
@@ -16936,6 +16960,12 @@
             "state" : "translated",
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 官方不支持自定义路径。\n如果你选择自定义 Homebrew 路径，Cork 和 Homebrew 官方将不提供任何支持。你将为维护你的 Homebrew 安装承担全部责任。"
+          }
         }
       }
     },
@@ -16951,6 +16981,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to set a custom Homebrew location?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你确定要自定义 Homebrew 路径吗?"
           }
         }
       }
@@ -16968,6 +17004,12 @@
             "state" : "translated",
             "value" : "%@ is not a Homebrew executable."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 不是 Homebrew 可执行文件"
+          }
         }
       }
     },
@@ -16984,6 +17026,12 @@
             "state" : "translated",
             "value" : "The selected file is not an executable."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选中的不是可执行文件"
+          }
         }
       }
     },
@@ -16999,6 +17047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 %@"
           }
         }
       }
@@ -17027,6 +17081,12 @@
             "state" : "translated",
             "value" : "Using default Homebrew location"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用默认 Homebrew 路径"
+          }
         }
       }
     },
@@ -17042,6 +17102,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reset location"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置路径"
           }
         }
       }
@@ -17059,6 +17125,12 @@
             "state" : "translated",
             "value" : "Select custom location"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义路径"
+          }
         }
       }
     },
@@ -17075,6 +17147,12 @@
             "state" : "translated",
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果启用开发者设置，Cork 将不会得到支持"
+          }
         }
       }
     },
@@ -17090,6 +17168,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable developer settings"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用开发者设置"
           }
         }
       }
