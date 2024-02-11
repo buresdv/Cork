@@ -3189,6 +3189,12 @@
             "value" : "Reset executable to default location"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбросить путь к исполнимому файлу"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3365,6 +3371,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Submit Feedback"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обратная связь"
           }
         },
         "zh-Hans" : {
@@ -7736,6 +7748,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find the custom Homebrew executable"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось найти пользовательский исполнимый файл Homebrew"
           }
         },
         "zh-Hans" : {
@@ -16917,6 +16935,12 @@
             "value" : "Homebrew location:"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Путь к Homebrew:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16937,6 +16961,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set Custom Location"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Указать путь"
           }
         },
         "zh-Hans" : {
@@ -16961,6 +16991,12 @@
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возможность указать нестандартный путь к Homebrew официально не поддерживается.\nВ случае возникновения проблем, пожалуйста, отключите настройки разработчика, иначе мы не сможем оказать вам поддержку.\nПри указании нестандартного пути к Homebrew, вы берете на себя ответственность за все возможные проблемы."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16981,6 +17017,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to set a custom Homebrew location?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы уверены, что хотите указать нестандартный путь к Homebrew?"
           }
         },
         "zh-Hans" : {
@@ -17005,6 +17047,12 @@
             "value" : "%@ is not a Homebrew executable."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ не является исполнимым файлом Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17025,6 +17073,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The selected file is not an executable."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот файл не является исполнимым."
           }
         },
         "zh-Hans" : {
@@ -17049,6 +17103,12 @@
             "value" : "Using %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Используется %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17065,6 +17125,12 @@
             "state" : "translated",
             "value" : "Using custom location"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Используется нестандартный путь"
+          }
         }
       }
     },
@@ -17080,6 +17146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using default Homebrew location"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Используется путь по умолчанию"
           }
         },
         "zh-Hans" : {
@@ -17104,6 +17176,12 @@
             "value" : "Reset location"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбросить путь"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17124,6 +17202,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select custom location"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Указать путь"
           }
         },
         "zh-Hans" : {
@@ -17148,6 +17232,12 @@
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В случае появления проблем, перед обращением в поддержку,\nпожалуйста, попробуйте отключить настройки разработчика"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17168,6 +17258,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable developer settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки для разработчиков"
           }
         },
         "zh-Hans" : {
