@@ -3200,6 +3200,12 @@
             "state" : "translated",
             "value" : "将可执行文件重置为默认路径"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將程式檔位置重置回預設值"
+          }
         }
       }
     },
@@ -7760,6 +7766,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法找到自定义 Homebrew 可执行文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法找到自訂的 Homebrew 程式檔"
           }
         }
       }
@@ -16946,6 +16958,12 @@
             "state" : "translated",
             "value" : "Homebrew 路径："
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 位置："
+          }
         }
       }
     },
@@ -16973,6 +16991,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自定义路径"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂位置"
           }
         }
       }
@@ -17002,6 +17026,12 @@
             "state" : "translated",
             "value" : "Homebrew 官方不支持自定义路径。\n如果你选择自定义 Homebrew 路径，Cork 和 Homebrew 官方将不提供任何支持。你将为维护你的 Homebrew 安装承担全部责任。"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂 Homebrew 位置並無正式支援。\n您如果使用自訂 Homebrew 位置，將需自行維護 Homebrew 安裝，無法得到任何 Cork 或 Homebrew 的支援。"
+          }
         }
       }
     },
@@ -17029,6 +17059,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你确定要自定义 Homebrew 路径吗?"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您確定要自訂 Homebrew 位置？"
           }
         }
       }
@@ -17058,6 +17094,12 @@
             "state" : "translated",
             "value" : "%@ 不是 Homebrew 可执行文件"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 不是個 Homebrew 程式擋"
+          }
         }
       }
     },
@@ -17085,6 +17127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "选中的不是可执行文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選取的檔案不是個程式檔"
           }
         }
       }
@@ -17114,6 +17162,12 @@
             "state" : "translated",
             "value" : "使用 %@"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 %@"
+          }
         }
       }
     },
@@ -17130,6 +17184,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Используется нестандартный путь"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂位置使用中"
           }
         }
       }
@@ -17159,6 +17219,12 @@
             "state" : "translated",
             "value" : "使用默认 Homebrew 路径"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "預設的 Homebrew 位置使用中"
+          }
         }
       }
     },
@@ -17186,6 +17252,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置路径"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置位置"
           }
         }
       }
@@ -17215,6 +17287,12 @@
             "state" : "translated",
             "value" : "自定义路径"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自訂位置"
+          }
         }
       }
     },
@@ -17243,6 +17321,12 @@
             "state" : "translated",
             "value" : "如果启用开发者设置，Cork 将不会得到支持"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開發者設定啟用時，恕無法為 Cork 提供支援"
+          }
         }
       }
     },
@@ -17270,6 +17354,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "启用开发者设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟用開發者設定"
           }
         }
       }
