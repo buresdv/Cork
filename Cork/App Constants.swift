@@ -8,9 +8,13 @@
 import Foundation
 import SwiftyJSON
 import UserNotifications
+import OSLog
 
 struct AppConstants
 {
+    // MARK: - Logging
+    static let logger: Logger = Logger(subsystem: "com.davidbures.cork", category: "Cork")
+    
     // MARK: - Notification stuff
     static let notificationCenter = UNUserNotificationCenter.current()
     
