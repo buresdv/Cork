@@ -90,19 +90,19 @@ func uninstallSelectedPackage(
         }
         catch let regexError as NSError
         {
-            print("Failed to extract dependency name from output: \(regexError)")
+            AppConstants.logger.error("Failed to extract dependency name from output: \(regexError, privacy: .public)")
             throw RegexError.regexFunctionCouldNotMatchAnything
         }
     }
     else if uninstallCommandOutput.standardError.contains("sudo: a terminal is required to read the password")
     {
         #warning("TODO: So far, this only stops the package from being removed from the tracker. Implement a tutorial on how to uninstall the package")
-        
+
         print("Could not uninstall this package because sudo is required")
-        
+
         appState.packageTryingToBeUninstalledWithSudo = package
         appState.isShowingSudoRequiredForUninstallSheet = true
-        
+
         resetPackageState(package: package, brewData: brewData)
     }
     else
@@ -154,7 +154,7 @@ private func resetPackageState(package: BrewPackage, brewData: BrewDataStorage)
     if !package.isCask
     {
         brewData.installedFormulae = Set(brewData.installedFormulae.map
-                                         { formula in
+        { formula in
             var copyFormula = formula
             if copyFormula.name == package.name, copyFormula.isBeingModified == true
             {
@@ -166,7 +166,7 @@ private func resetPackageState(package: BrewPackage, brewData: BrewDataStorage)
     else
     {
         brewData.installedCasks = Set(brewData.installedCasks.map
-                                      { cask in
+        { cask in
             var copyCask = cask
             if copyCask.name == package.name, copyCask.isBeingModified == true
             {

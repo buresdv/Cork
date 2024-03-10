@@ -82,7 +82,8 @@ struct MaintenanceReadyView: View
 
                         Button
                         {
-                            print("Start")
+                            AppConstants.logger.debug("Start")
+                            
                             maintenanceSteps = .maintenanceRunning
                         } label: {
                             Text("maintenance.steps.start")

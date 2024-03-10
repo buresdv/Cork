@@ -41,12 +41,12 @@ struct MaintenanceRunningView: View
                         }
                         catch let orphanUninstallatioError as NSError
                         {
-                            print(orphanUninstallatioError)
+                            AppConstants.logger.error("Orphan uninstallation error: \(String(describing: orphanUninstallatioError))")
                         }
                     }
                     else
                     {
-                        print("Will not uninstall orphans")
+                        AppConstants.logger.info("Will not uninstall orphans")
                     }
 
                     if shouldPurgeCache
@@ -57,21 +57,21 @@ struct MaintenanceRunningView: View
                         {
                             packagesHoldingBackCachePurge = try await purgeHomebrewCacheUtility()
 
-                            print("Length of array of packages that are holding back cache purge: \(packagesHoldingBackCachePurge.count)")
+                            AppConstants.logger.info("Length of array of packages that are holding back cache purge: \(packagesHoldingBackCachePurge.count)")
                         }
                         catch let homebrewCachePurgingError
                         {
-                            print("Homebrew cache purging failed: \(homebrewCachePurgingError)")
+                            AppConstants.logger.error("Homebrew cache purging error: \(String(describing: homebrewCachePurgingError))")
                         }
                     }
                     else
                     {
-                        print("Will not purge cache")
+                        AppConstants.logger.info("Will not purge cache")
                     }
 
                     if shouldDeleteDownloads
                     {
-                        print("Will delete downloads")
+                        AppConstants.logger.info("Will delete downloads")
 
                         currentMaintenanceStepText = "maintenance.step.deleting-cached-downloads"
 
@@ -84,7 +84,7 @@ struct MaintenanceRunningView: View
                     }
                     else
                     {
-                        print("Will not delete downloads")
+                        AppConstants.logger.info("Will not delete downloads")
                     }
 
                     if shouldPerformHealthCheck
@@ -94,18 +94,18 @@ struct MaintenanceRunningView: View
                         do
                         {
                             let healthCheckOutput = try await performBrewHealthCheck()
-                            print("Health check output: \(healthCheckOutput)")
+                            AppConstants.logger.debug("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
 
                             brewHealthCheckFoundNoProblems = true
                         }
                         catch let healthCheckError as NSError
                         {
-                            print(healthCheckError)
+                            AppConstants.logger.error("\(String(describing: healthCheckError))")
                         }
                     }
                     else
                     {
-                        print("Will not perform health check")
+                        AppConstants.logger.info("Will not perform health check")
                     }
 
                     maintenanceSteps = .finished

@@ -47,7 +47,7 @@ struct BrewPane: View
                         {
                             isPerformingBrewAnalyticsChangeCommand = true
 
-                            print("Will ENABLE analytics")
+                            AppConstants.logger.debug("Will ENABLE analytics")
                             await shell(AppConstants.brewExecutablePath, ["analytics", "on"])
 
                             isPerformingBrewAnalyticsChangeCommand = false
@@ -59,7 +59,7 @@ struct BrewPane: View
                         {
                             isPerformingBrewAnalyticsChangeCommand = true
 
-                            print("Will DISABLE analytics")
+                            AppConstants.logger.debug("Will DISABLE analytics")
                             await shell(AppConstants.brewExecutablePath, ["analytics", "off"])
 
                             isPerformingBrewAnalyticsChangeCommand = false
@@ -137,19 +137,19 @@ struct BrewPane: View
                     case let .success(success):
                         if success.first!.lastPathComponent == "brew"
                         {
-                            print("Valid brew executable: \(success.first!.path)")
+                            AppConstants.logger.info("Valid brew executable: \(success.first!.path)")
 
                             customHomebrewPath = success.first!.path
                         }
                         else
                         {
-                            print("Not a valid brew executable")
+                            AppConstants.logger.error("Not a valid brew executable")
 
                             settingsState.alertType = .customHomebrewLocationNotABrewExecutable(executablePath: success.first!.path)
                             settingsState.isShowingAlert = true
                         }
                     case let .failure(failure):
-                        print("Failure: \(failure)")
+                            AppConstants.logger.error("Failure: \(failure)")
 
                         settingsState.alertType = .customHomebrewLocationNotAnExecutableAtAll
                         settingsState.isShowingAlert = true

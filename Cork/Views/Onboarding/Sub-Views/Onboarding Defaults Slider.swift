@@ -54,7 +54,7 @@ struct OnboardingDefaultsSlider: View {
                 Text("setup.level.advanced.title")
             }
             .onChange(of: sliderValue) {newValue in
-                print("New slider value: \(sliderValue)")
+                AppConstants.logger.debug("New slider value: \(sliderValue, privacy: .public)")
                 if sliderValue == 0
                 {
                     setupLevel = .basic
@@ -76,7 +76,7 @@ struct OnboardingDefaultsSlider: View {
                     setupLevel = .advanced
                 }
                 
-                print(setupLevel)
+                AppConstants.logger.debug("\(String(describing: setupLevel.name.stringValue()))")
             }
         })
     }

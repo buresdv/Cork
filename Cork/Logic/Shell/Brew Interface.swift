@@ -74,15 +74,15 @@ func getListOfAllUpgradeablePackageNames() async throws -> [String]
     let outdatedPackagesCommandOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["outdated"])
     let outdatedPackagesRaw: String = outdatedPackagesCommandOutput.standardOutput
     
-    print("Outdated packages output: \(outdatedPackagesCommandOutput)")
+    AppConstants.logger.info("Outdated packages Standard output: \(outdatedPackagesCommandOutput.standardOutput)\nStandard error: \(outdatedPackagesCommandOutput.standardError)")
     
     if outdatedPackagesCommandOutput.standardError.contains("HOME must be set")
     {
-        print("Encountered HOME error")
+        AppConstants.logger.error("Encountered HOME error")
         throw OutdatedPackageRetrievalError.homeNotSet
     }
     
-    print("All outdated packages output: \(outdatedPackagesRaw)")
+    AppConstants.logger.log("All outdated packages output: \(outdatedPackagesRaw, privacy: .public)")
     
     let outdatedPackages: [String] = outdatedPackagesRaw.components(separatedBy: "\n")
     
