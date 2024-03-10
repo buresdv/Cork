@@ -12584,6 +12584,22 @@
         }
       }
     },
+    "navigation.menu.search" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hledat"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
     "navigation.upgrade-packages" : {
       "localizations" : {
         "cs" : {
@@ -17174,6 +17190,12 @@
     "settings.brew.custom-homebrew-path.is-using-custom-path" : {
       "extractionState" : "stale",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Používá se vlastní umístění"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",

@@ -395,6 +395,19 @@ struct CorkApp: App
                     Text("navigation.menu.import-export.import-brewfile")
                 }
             }
+            
+            CommandGroup(after: .newItem)
+            {
+                Divider()
+                
+                Button
+                {
+                    appDelegate.appState.isSearchFieldFocused.toggle()
+                } label: {
+                    Text("navigation.menu.search")
+                }
+                .keyboardShortcut("f", modifiers: .command)
+            }
 
             CommandMenu("navigation.menu.packages")
             {
