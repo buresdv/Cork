@@ -402,7 +402,7 @@ struct CorkApp: App
                 
                 Button
                 {
-                    appDelegate.appState.isSearchFieldFocused.toggle()
+                    appDelegate.appState.isSearchFieldFocused = true
                 } label: {
                     Text("navigation.menu.search")
                 }
