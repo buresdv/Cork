@@ -159,10 +159,9 @@ struct MaintenanceFinishedView: View
                     .keyboardShortcut(.defaultAction)
                 }
             }
-            .fixedSize()
+            .frame(minWidth: 300, minHeight: 150)
         }
         .padding()
-        // .frame(minWidth: 300, minHeight: 150)
         .onAppear // This should stay this way, I don' want the task to be cancelled when the view disappears
         {
             Task
