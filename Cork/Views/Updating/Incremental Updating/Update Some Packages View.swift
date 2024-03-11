@@ -54,18 +54,18 @@ struct UpdateSomePackagesView: View
                             updateCommandArguments = ["reinstall", "--cask", packageBeingCurrentlyUpdated.name]
                         }
 
-                        print("Update command: \(updateCommandArguments)")
+                        AppConstants.logger.info("Update command: \(updateCommandArguments)")
 
                         for await output in shell(AppConstants.brewExecutablePath, updateCommandArguments)
                         {
                             switch output
                             {
                             case let .standardOutput(outputLine):
-                                print("Individual package updating output: \(outputLine)")
+                                    AppConstants.logger.info("Individual package updating output: \(outputLine)")
                                 updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
 
                             case let .standardError(errorLine):
-                                print("Individual package updating error: \(errorLine)")
+                                    AppConstants.logger.info("Individual package updating error: \(errorLine)")
                                 updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
 
                                     if !errorLine.contains("The post-install step did not complete successfully")
@@ -76,7 +76,7 @@ struct UpdateSomePackagesView: View
                         }
 
                         updateProgress = Double(index) + 1
-                        print("Update progress index: \(updateProgress)")
+                        AppConstants.logger.info("Update progress index: \(updateProgress)")
                     }
 
                     if !packageUpdatingErrors.isEmpty
@@ -134,7 +134,7 @@ struct UpdateSomePackagesView: View
                     .fixedSize()
                     .onAppear
                     {
-                        print("Update errors: \(packageUpdatingErrors)")
+                        AppConstants.logger.error("Update errors: \(packageUpdatingErrors, privacy: .public)")
                     }
                 }
 
