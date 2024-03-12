@@ -66,6 +66,28 @@ struct CorkApp: App
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
                 .environmentObject(topPackagesTracker)
+                .task 
+                {
+                    print("[LICENSING]: Will try to send the request")
+                    
+                    var hasUserWithThisEmailBoughtCork: Bool = false
+                    
+                    do
+                    {
+                        let licensingResponse: Data = try await downloadDataFromURL(URL(string: "https://automation.tomoserver.eu/webhook-test/38aacca6-5da8-453c-a001-804b15751319")!, parameters: [URLQueryItem(name: "requestedEmail", value: "buresdv@gmail.com")])
+                        
+                        print("[LICENSING]: Email found")
+                        
+                        hasUserWithThisEmailBoughtCork = true
+                    }
+                    catch let error
+                    {
+                        print("[LICENSING]: Email not found: \(error)")
+                        
+                        hasUserWithThisEmailBoughtCork = false
+                    }
+                    
+                }
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
