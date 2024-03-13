@@ -25,6 +25,9 @@ class AppState: ObservableObject {
     @Published var isShowingAddTapSheet: Bool = false
     @Published var isShowingUpdateSheet: Bool = false
     
+    // MARK: - Stuff for controlling the UI in general
+    @Published var isSearchFieldFocused: Bool = false
+    
     // MARK: - Brewfile importing and exporting
     @Published var isShowingBrewfileExportProgress: Bool = false
     @Published var isShowingBrewfileImportProgress: Bool = false
