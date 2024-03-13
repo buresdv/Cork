@@ -83,12 +83,25 @@ struct MaintenanceFinishedView: View
                         {
                             Text("maintenance.results.package-cache")
 
-                            if !packagesHoldingBackCachePurge.isEmpty
+                            if !displayablePackagesHoldingBackCachePurge.isEmpty
                             {
                                 
-                                Text("maintenance.results.package-cache.skipped-\(displayablePackagesHoldingBackCachePurge.formatted(.list(type: .and)))")
-                                    .font(.caption)
-                                    .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                if displayablePackagesHoldingBackCachePurge.count >= 3
+                                {
+                                    let packageNamesNotTruncated: [String] = Array(displayablePackagesHoldingBackCachePurge.prefix(3))
+                                    
+                                    let numberOfTruncatedPackages: Int = displayablePackagesHoldingBackCachePurge.count - packageNamesNotTruncated.count
+                                    
+                                    Text("maintenance.results.package-cache.skipped-\(packageNamesNotTruncated.formatted(.list(type: .and)))-and-\(numberOfTruncatedPackages)-others")
+                                        .font(.caption)
+                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                }
+                                else
+                                {
+                                    Text("maintenance.results.package-cache.skipped-\(displayablePackagesHoldingBackCachePurge.formatted(.list(type: .and)))")
+                                        .font(.caption)
+                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                }
                             }
 
                             /*

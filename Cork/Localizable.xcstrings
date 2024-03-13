@@ -10484,13 +10484,13 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil of %@ und %lld andere nicht aktuell sind"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil %@ und %lld andere nicht aktuell sind"
                 }
               }
@@ -10503,13 +10503,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Some caches weren't purged because of %@ and %lld other package not being updated"
+                  "value" : "Some caches weren't purged because of %1$@ and %2$lld other package not being updated"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Some caches weren't purged because of %@ and %lld other packages not being updated"
+                  "value" : "Some caches weren't purged because of %1$@ and %2$lld other packages not being updated"
                 }
               }
             }
@@ -10520,13 +10520,13 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autre n'ayant pas été mis à jour"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autres n'ayant pas été mis à jour"
                 }
               }
@@ -10568,25 +10568,25 @@
             "plural" : {
               "few" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакета не оновлено"
                 }
               },
               "many" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакетів не оновлено"
                 }
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Деякі кеші не були очищені через те, що %@ та %lld інший пакет не оновлено"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакетів не оновлено"
                 }
               }
