@@ -43,7 +43,7 @@ struct SanitizedPackageName: View
                     
                     if shouldShowVersion
                     {
-                        /// The version is the lenght of the package name, + 1 due to the @ character
+                        /// The version is the length of the package name, + 1 due to the @ character
                         Text("v. \(String(packageNameWithoutTapName.dropFirst(sanitizedName.count + 1)))")
                             .foregroundColor(.gray)
                             .font(.subheadline)

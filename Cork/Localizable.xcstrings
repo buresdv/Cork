@@ -3520,7 +3520,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An error occured while installing %@"
+            "value" : "An error occurred while installing %@"
           }
         },
         "fr" : {
@@ -3625,7 +3625,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An error occured during the install process"
+            "value" : "An error occurred during the install process"
           }
         },
         "fr" : {
@@ -5987,7 +5987,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An error occured while adding %@"
+            "value" : "An error occurred while adding %@"
           }
         },
         "fr" : {
@@ -10202,7 +10202,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error %@ occured"
+            "value" : "Error %@ occurred"
           }
         },
         "fr" : {
@@ -10358,7 +10358,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error %@ occured"
+            "value" : "Error %@ occurred"
           }
         },
         "fr" : {
