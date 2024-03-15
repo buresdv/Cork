@@ -20,7 +20,7 @@ enum TapInputErrors
 enum TappingError: String
 {
     case repositoryNotFound = "Repository not found"
-    case other = "An error occured while tapping"
+    case other = "An error occurred while tapping"
 }
 
 struct AddTapView: View
