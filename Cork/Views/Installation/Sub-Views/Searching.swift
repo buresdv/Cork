@@ -10,6 +10,7 @@ import SwiftUI
 struct InstallationSearchingView: View, Sendable
 {
     @Binding var packageRequested: String
+    @Binding var versionRequested: String
 
     @ObservedObject var searchResultTracker: SearchResultTracker
 
@@ -25,8 +26,8 @@ struct InstallationSearchingView: View, Sendable
                     searchResultTracker.foundFormulae = []
                     searchResultTracker.foundCasks = []
 
-                    async let foundFormulae = try searchForPackage(packageName: packageRequested, packageType: .formula)
-                    async let foundCasks = try searchForPackage(packageName: packageRequested, packageType: .cask)
+                    async let foundFormulae = try searchForPackage(packageRequested, of: .formula, withVersion: versionRequested)
+                    async let foundCasks = try searchForPackage(packageRequested, of: .cask, withVersion: versionRequested)
 
                     for formula in try await foundFormulae
                     {

@@ -5119,6 +5119,30 @@
         }
       }
     },
+    "add-package.search.prompt.version" : {
+      "comment" : "Specify a version for user's search prompt",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With version..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本号…"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本號⋯"
+          }
+        }
+      }
+    },
     "add-package.search.results.casks" : {
       "localizations" : {
         "cs" : {
@@ -9443,6 +9467,9 @@
           }
         }
       }
+    },
+    "Key" : {
+      "extractionState" : "manual"
     },
     "Loading info..." : {
       "localizations" : {

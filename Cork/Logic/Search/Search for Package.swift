@@ -7,19 +7,23 @@
 
 import Foundation
 
-func searchForPackage(packageName: String, packageType: PackageType) async throws -> [String]
+func searchForPackage(_ packageName: String, of packageType: PackageType, withVersion version: String?) async throws -> [String]
 {
     var finalPackageArray: [String]
+    
+    var searchArg = getSearchArg(from: packageName, with: version)
 
     switch packageType
     {
     case .formula:
-        let foundFormulae = await shell(AppConstants.brewExecutablePath, ["search", "--formulae", packageName])
+        print("Search arg: \(searchArg)")
+        let foundFormulae = await shell(AppConstants.brewExecutablePath, ["search", "--formulae", searchArg])
 
         finalPackageArray = foundFormulae.standardOutput.components(separatedBy: "\n")
 
     case .cask:
-        let foundCasks = await shell(AppConstants.brewExecutablePath, ["search", "--casks", packageName])
+        print("Search arg: \(searchArg)")
+        let foundCasks = await shell(AppConstants.brewExecutablePath, ["search", "--casks", searchArg])
 
         finalPackageArray = foundCasks.standardOutput.components(separatedBy: "\n")
     }
@@ -29,4 +33,25 @@ func searchForPackage(packageName: String, packageType: PackageType) async throw
     print("Search found these: \(finalPackageArray)")
     
     return finalPackageArray
+}
+
+private func getSearchArg(from packageName: String, with version: String?) -> String
+{
+    var searchPackageName = packageName
+
+    if let version = version, !version.isEmpty
+    {
+        // won't do version regex checking here
+
+        let packageNameComponents = packageName.components(separatedBy: "@")
+        
+        if (packageNameComponents.count > 0)
+        {
+            searchPackageName = packageNameComponents[0]  // truncate user's `@` input
+        }
+
+        return "\(searchPackageName)@\(version)"
+    }
+
+    return searchPackageName
 }

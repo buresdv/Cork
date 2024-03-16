@@ -12,6 +12,7 @@ struct AddFormulaView: View
     @Binding var isShowingSheet: Bool
 
     @State private var packageRequested: String = ""
+    @State private var versionRequested: String = ""
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
@@ -43,6 +44,7 @@ struct AddFormulaView: View
                         searchResultTracker: searchResultTracker,
                         isShowingSheet: $isShowingSheet,
                         packageRequested: $packageRequested,
+                        versionRequested: $versionRequested,
                         foundPackageSelection: $foundPackageSelection,
                         installationProgressTracker: installationProgressTracker,
                         packageInstallationProcessStep: $packageInstallationProcessStep
@@ -52,6 +54,7 @@ struct AddFormulaView: View
             case .searching:
                 InstallationSearchingView(
                     packageRequested: $packageRequested,
+                    versionRequested: $versionRequested,
                     searchResultTracker: searchResultTracker,
                     packageInstallationProcessStep: $packageInstallationProcessStep
                 )
