@@ -18,7 +18,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: Ap
         switch output
         {
         case let .standardOutput(outputLine):
-            print("Upgrade function output: \(outputLine)")
+                AppConstants.logger.log("Upgrade function output: \(outputLine, privacy: .public)")
 
             if showRealTimeTerminalOutputs
             {
@@ -65,11 +65,11 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: Ap
             {
                 updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-                print("Ignorable upgrade function error: \(errorLine)")
+                AppConstants.logger.log("Ignorable upgrade function error: \(errorLine, privacy: .public)")
             }
             else
             {
-                print("Upgrade function error: \(errorLine)")
+                AppConstants.logger.warning("Upgrade function error: \(errorLine, privacy: .public)")
                 updateProgressTracker.errors.append("Upgrade error: \(errorLine)")
             }
         }
