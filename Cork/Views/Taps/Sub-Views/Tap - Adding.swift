@@ -34,11 +34,11 @@ struct AddTapAddingView: View
                 tapResult = await addTap(name: requestedTap, forcedRepoAddress: forcedRepoAddress)
             }
 
-            print("Result: \(tapResult)")
+            AppConstants.logger.debug("Result: \(tapResult, privacy: .public)")
 
             if tapResult.contains("Tapped")
             {
-                print("Tapping was successful!")
+                AppConstants.logger.info("Tapping was successful!")
                 progress = .finished
             }
             else
@@ -48,7 +48,7 @@ struct AddTapAddingView: View
 
                 if tapResult.contains("Repository not found")
                 {
-                    print("Repository was not found")
+                    AppConstants.logger.error("Repository was not found")
 
                     tappingError = .repositoryNotFound
                 }

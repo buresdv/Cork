@@ -100,11 +100,11 @@ struct InstallingPackageView: View
                 do
                 {
                     let installationResult = try await installPackage(installationProgressTracker: installationProgressTracker, brewData: brewData)
-                    print("Installation result: \(installationResult)")
+                    AppConstants.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
                 }
                 catch let fatalInstallationError
                 {
-                    print("Fatal error occurred during installing a package: \(fatalInstallationError)")
+                    AppConstants.logger.error("Fatal error occurred during installing a package: \(fatalInstallationError, privacy: .public)")
                     
                     isShowingSheet = false
                     

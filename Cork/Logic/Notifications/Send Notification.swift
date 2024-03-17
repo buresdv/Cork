@@ -39,6 +39,6 @@ func sendNotification(title: String, body: String? = nil, subtitle: String? = ni
     }
     else
     {
-        print("Will not send notification because they're disabled")
+        AppConstants.logger.info("Will not send notification because they're disabled")
     }
 }
