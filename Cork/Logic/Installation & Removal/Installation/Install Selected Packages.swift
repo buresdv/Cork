@@ -23,7 +23,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
     var installationResult = TerminalOutput(standardOutput: "", standardError: "")
 
     /// For some reason, the line `fetching [package name]` appears twice during the matching process, and the first one is a dud. Ignore that first one.
-    var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
+    var hasAlreadyMatchedLineAboutInstallingPackageItself = false
 
     var packageDependencies: [String] = .init()
 
@@ -37,14 +37,14 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
             {
             case let .standardOutput(outputLine):
 
-                    AppConstants.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
+                AppConstants.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
                     installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
                 }
 
-                    AppConstants.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
+                AppConstants.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
 
                 if outputLine.contains("Fetching dependencies")
                 {
@@ -113,10 +113,10 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 installationResult.standardOutput.append(outputLine)
 
-                    AppConstants.logger.debug("Current installation stage: \(installationProgressTracker.packagesBeingInstalled[0].installationStage.description, privacy: .public)")
+                AppConstants.logger.debug("Current installation stage: \(installationProgressTracker.packagesBeingInstalled[0].installationStage.description, privacy: .public)")
 
             case let .standardError(errorLine):
-                    AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
+                AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
@@ -125,7 +125,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 if errorLine.contains("a password is required")
                 {
-                    print("Install requires sudo")
+                    AppConstants.logger.warning("Install requires sudo")
 
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .requiresSudoPassword
                 }
@@ -138,15 +138,15 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
     }
     else
     {
-        print("Package is Cask")
-        print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+        AppConstants.logger.info("Package is Cask")
+        AppConstants.logger.debug("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name, privacy: .public)")
 
         for await output in shell(AppConstants.brewExecutablePath, ["install", "--no-quarantine", installationProgressTracker.packagesBeingInstalled[0].package.name])
         {
             switch output
             {
             case let .standardOutput(outputLine):
-                print("Output line: \(outputLine)")
+                AppConstants.logger.info("Output line: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
@@ -155,7 +155,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 if outputLine.contains("Downloading")
                 {
-                    print("Will download Cask")
+                    AppConstants.logger.info("Will download Cask")
 
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
 
@@ -163,7 +163,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                 }
                 else if outputLine.contains("Installing Cask")
                 {
-                    print("Will install Cask")
+                    AppConstants.logger.info("Will install Cask")
 
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
 
@@ -171,7 +171,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                 }
                 else if outputLine.contains("Moving App")
                 {
-                    print("Moving App")
+                    AppConstants.logger.info("Moving App")
 
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
 
@@ -179,7 +179,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                 }
                 else if outputLine.contains("Linking binary")
                 {
-                    print("Linking Binary")
+                    AppConstants.logger.info("Linking Binary")
 
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + 2
 
@@ -187,7 +187,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                 }
                 else if outputLine.contains("was successfully installed")
                 {
-                    print("Finished installing app")
+                    AppConstants.logger.info("Finished installing app")
 
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .finished
 
@@ -195,7 +195,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                 }
 
             case let .standardError(errorLine):
-                print("Line had error: \(errorLine)")
+                AppConstants.logger.error("Line had error: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
@@ -204,7 +204,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 if errorLine.contains("a password is required")
                 {
-                    print("Install requires sudo")
+                    AppConstants.logger.warning("Install requires sudo")
 
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .requiresSudoPassword
                 }

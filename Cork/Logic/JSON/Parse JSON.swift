@@ -22,7 +22,7 @@ func parseJSON(from string: String) throws -> JSON
         return try JSON(data: data)
     } catch let JSONParsingError as NSError
     {
-        print("JSON parsing failed: \(JSONParsingError.localizedDescription)")
+        AppConstants.logger.error("JSON parsing failed: \(JSONParsingError.localizedDescription, privacy: .public)")
         throw JSONError.parsingFailed
     }
 }
@@ -35,7 +35,7 @@ func parseJSON(from data: Data) async throws -> JSON
     }
     catch let JSONParsingError as NSError
     {
-        print("JSON parsing failed: \(JSONParsingError.localizedDescription)")
+        AppConstants.logger.error("JSON parsing failed: \(JSONParsingError.localizedDescription, privacy: .public)")
         throw JSONError.parsingFailed
     }
 }

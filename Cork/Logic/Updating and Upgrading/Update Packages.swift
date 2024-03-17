@@ -18,7 +18,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: Ap
         switch output
         {
         case let .standardOutput(outputLine):
-                AppConstants.logger.log("Upgrade function output: \(outputLine, privacy: .public)")
+            AppConstants.logger.log("Upgrade function output: \(outputLine, privacy: .public)")
 
             if showRealTimeTerminalOutputs
             {
@@ -50,7 +50,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: Ap
                 detailStage.currentStage = .cleanup
             }
 
-            print("Current updating stage: \(detailStage.currentStage)")
+            AppConstants.logger.info("Current updating stage: \(detailStage.currentStage.description, privacy: .public)")
 
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 

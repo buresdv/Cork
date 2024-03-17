@@ -37,7 +37,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     }
 
     let untapResult = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
-    print("Untapping result: \(untapResult)")
+    AppConstants.logger.debug("Untapping result: \(untapResult)")
 
     defer
     {
@@ -46,7 +46,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
 
     if untapResult.contains("Untapped")
     {
-        print("Untapping was successful")
+        AppConstants.logger.info("Untapping was successful")
         DispatchQueue.main.async {
             withAnimation {
                 availableTaps.addedTaps.removeAll(where: { $0.name == name })
@@ -64,7 +64,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     }
     else
     {
-        print("Untapping failed")
+        AppConstants.logger.warning("Untapping failed")
 
         if untapResult.contains("because it contains the following installed formulae or casks")
         {
@@ -79,7 +79,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         }
         else
         {
-            print("Could not get index for that tap. Will loop over all of them")
+            AppConstants.logger.warning("Could not get index for that tap. Will loop over all of them")
             for (index, _) in availableTaps.addedTaps.enumerated()
             {
                 if availableTaps.addedTaps[index].isBeingModified
