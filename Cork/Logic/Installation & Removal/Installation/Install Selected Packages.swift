@@ -18,7 +18,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 {
     let showRealTimeTerminalOutputs = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
 
-    print("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+    AppConstants.logger.debug("Installing package \(installationProgressTracker.packagesBeingInstalled[0].package.name, privacy: .auto)")
 
     var installationResult = TerminalOutput(standardOutput: "", standardError: "")
 
@@ -29,7 +29,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
     if !installationProgressTracker.packagesBeingInstalled[0].package.isCask
     {
-        print("Package is Formula")
+        AppConstants.logger.info("Package \(installationProgressTracker.packagesBeingInstalled[0].package.name, privacy: .public) is Formula")
 
         for await output in shell(AppConstants.brewExecutablePath, ["install", installationProgressTracker.packagesBeingInstalled[0].package.name])
         {
@@ -37,14 +37,14 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
             {
             case let .standardOutput(outputLine):
 
-                print("Line out: \(outputLine)")
+                    AppConstants.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
                     installationProgressTracker.packagesBeingInstalled[0].realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
                 }
 
-                print("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies))")
+                    AppConstants.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
 
                 if outputLine.contains("Fetching dependencies")
                 {
@@ -53,13 +53,13 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                     var matchedDependencies = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
-                    print("Matched Dependencies: \(matchedDependencies)")
+                    AppConstants.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
 
                     packageDependencies = matchedDependencies.components(separatedBy: ", ") // Make the dependency list into an array
 
-                    print("Package Dependencies: \(packageDependencies)")
+                    AppConstants.logger.debug("Package Dependencies: \(packageDependencies)")
 
-                    print("Will fetch \(packageDependencies.count) dependencies!")
+                    AppConstants.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
 
                     installationProgressTracker.numberOfPackageDependencies = packageDependencies.count // Assign the number of dependencies to the tracker for the user to see
 
@@ -68,12 +68,12 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(installationProgressTracker.packagesBeingInstalled[0].package.name) dependency")
                 {
-                    print("Will install dependencies!")
+                    AppConstants.logger.info("Will install dependencies!")
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingDependencies
 
                     // Increment by 1 for each package that finished installing
                     installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled = installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled + 1
-                    print("Installing dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
+                    AppConstants.logger.info("Installing dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
 
                     // TODO: Add a math formula for advancing the stepper
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies)))
@@ -81,12 +81,12 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
                 {
-                    print("Will fetch dependencies!")
+                    AppConstants.logger.info("Will fetch dependencies!")
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .fetchingDependencies
 
                     installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched = installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched + 1
 
-                    print("Fetching dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
+                    AppConstants.logger.info("Fetching dependency \(installationProgressTracker.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
 
                     installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(installationProgressTracker.numberOfPackageDependencies) * Double(5))))
                 }
@@ -95,17 +95,17 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
                 {
                     if hasAlreadyMatchedLineAboutInstallingPackageItself
                     { /// Only the second line about the package being installed is valid
-                        print("Will install the package itself!")
+                        AppConstants.logger.info("Will install the package itself!")
                         installationProgressTracker.packagesBeingInstalled[0].installationStage = .installingPackage
 
                         // TODO: Add a math formula for advancing the stepper
                         installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress) + Double((Double(10) - Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress)) / Double(2))
 
-                        print("Stepper value: \(Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))")
+                        AppConstants.logger.info("Stepper value: \(Double(Double(10) / (Double(3) * Double(installationProgressTracker.numberOfPackageDependencies))))")
                     }
                     else
                     { /// When it appears for the first time, ignore it
-                        print("Matched the dud line about the package itself being installed!")
+                        AppConstants.logger.info("Matched the dud line about the package itself being installed!")
                         hasAlreadyMatchedLineAboutInstallingPackageItself = true
                         installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress = Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress) + Double((Double(10) - Double(installationProgressTracker.packagesBeingInstalled[0].packageInstallationProgress)) / Double(2))
                     }
@@ -113,10 +113,10 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                 installationResult.standardOutput.append(outputLine)
 
-                print("Current installation stage: \(installationProgressTracker.packagesBeingInstalled[0].installationStage)")
+                    AppConstants.logger.debug("Current installation stage: \(installationProgressTracker.packagesBeingInstalled[0].installationStage.description, privacy: .public)")
 
             case let .standardError(errorLine):
-                print("Errored out: \(errorLine)")
+                    AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {

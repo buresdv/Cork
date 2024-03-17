@@ -24,7 +24,7 @@ func performBrewHealthCheck() async throws -> TerminalOutput
     }
     else
     {
-        print("ERROR: \(await commandResult.standardOutput)")
+        print("Homebrew health check error: \(await commandResult.standardOutput)")
         throw HealthCheckError.errorsThrownInStandardOutput
     }
 }

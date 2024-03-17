@@ -24,7 +24,7 @@ func uninstallOrphanedPackages() async throws -> TerminalOutput
         }
         else
         {
-            print("Unexpected output: \(commandResult)")
+            AppConstants.logger.error("Unexpected orphan package removal output:\nStandard output: \(commandResult.standardOutput, privacy: .public)\nStandard error: \(commandResult.standardError, privacy: .public)")
             throw OrphanUninstallationError.unexpectedCommandOutput
         }
     }
