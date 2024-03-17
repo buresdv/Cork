@@ -71,22 +71,22 @@ class AppState: ObservableObject {
         switch authStatus
         {
             case .notDetermined:
-                print("Notification authorization status not determined. Will request notifications again")
+                AppConstants.logger.debug("Notification authorization status not determined. Will request notifications again")
                 
                 await self.requestNotificationAuthorization()
             case .denied:
-                print("Notifications were refused")
+                AppConstants.logger.debug("Notifications were refused")
             case .authorized:
-                print("Notifications were authorized")
+                AppConstants.logger.debug("Notifications were authorized")
                 
             case .provisional:
-                print("Notifications are provisional")
+                AppConstants.logger.debug("Notifications are provisional")
                 
             case .ephemeral:
-                print("Notifications are ephemeral")
+                AppConstants.logger.debug("Notifications are ephemeral")
                 
             @unknown default:
-                print("Something got really fucked up")
+                AppConstants.logger.error("Something got really fucked up about notifications setup")
         }
         
         notificationAuthStatus = authStatus

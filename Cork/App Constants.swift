@@ -30,19 +30,19 @@ struct AppConstants
             switch proxyRetrievalError
             {
             case .couldNotGetProxyStatus:
-                print("Could not get proxy status")                    
+                    AppConstants.logger.warning("Could not get proxy status")                    
                 return nil
             case .couldNotGetProxyHost:
-                print("Could not get proxy host")
+                    AppConstants.logger.warning("Could not get proxy host")
                 return nil
             case .couldNotGetProxyPort:
-                print("Could not get proxy port")
+                    AppConstants.logger.warning("Could not get proxy port")
                 return nil
             }
         }
         catch let unknownError
         {
-            print("Something got fucked up")
+            AppConstants.logger.error("Something got fucked up about retrieving proxy settings")
             return nil
         }
     }()
