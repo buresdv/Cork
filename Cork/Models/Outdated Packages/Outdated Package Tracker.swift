@@ -25,8 +25,8 @@ class OutdatedPackageTracker: ObservableObject
     
     func updateDisplayableOutdatedPackages()
     {
-        print("Updating outdated package list...")
-        print("found these outdated packages: \(self.allOutdatedPackages)")
+        AppConstants.logger.info("Updating outdated package list...")
+        AppConstants.logger.info("Found these outdated packages: \(self.allOutdatedPackages, privacy: .public)")
         
         if displayOnlyIntentionallyInstalledPackagesByDefault
         {

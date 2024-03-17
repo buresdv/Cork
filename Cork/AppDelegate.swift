@@ -63,16 +63,16 @@ class AppDelegate: NSObject, NSApplicationDelegate
     }
 
     func applicationWillTerminate(_ notification: Notification) {
-        print("Will die...")
+        AppConstants.logger.debug("Will die...")
         do
         {
             try saveTaggedIDsToDisk(appState: appState)
         }
         catch let dataSavingError as NSError
         {
-            print("Failed while trying to save data to disk: \(dataSavingError)")
+            AppConstants.logger.error("Failed while trying to save data to disk: \(dataSavingError, privacy: .public)")
         }
-        print("Died")
+        AppConstants.logger.debug("Died")
     }
     
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {

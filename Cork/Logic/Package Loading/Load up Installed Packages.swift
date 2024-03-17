@@ -12,7 +12,7 @@ import Foundation
 func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<BrewPackage>
 {
 
-    print("Started \(whatToLoad == .formula ? "Formula" : "Cask") loading task at \(Date())")
+    AppConstants.logger.info("Started \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .public)")
 
     var contentsOfFolder: Set<BrewPackage> = .init()
 
@@ -30,9 +30,9 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
         installedPackages.insert(package)
     }
 
-    print("Found \(whatToLoad == .formula ? "Formulae" : "Casks"): \(installedPackages)")
+    AppConstants.logger.info("Found \(whatToLoad == .formula ? "Formulae" : "Casks", privacy: .public): \(installedPackages)")
 
-    print("Finished \(whatToLoad == .formula ? "Formula" : "Cask") loading task at \(Date())")
+    AppConstants.logger.info("Finished \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .auto)")
 
     return installedPackages
 }

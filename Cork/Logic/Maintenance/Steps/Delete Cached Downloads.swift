@@ -18,7 +18,7 @@ func deleteCachedDownloads() -> Void
         }
         else
         {
-            print("Ignoring \(url)")
+            AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
         }
     }
     
@@ -31,7 +31,7 @@ func deleteCachedDownloads() -> Void
         }
         else
         {
-            print("Ignoring \(url)")
+            AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
         }
     }
 
@@ -40,7 +40,7 @@ func deleteCachedDownloads() -> Void
     {
         if isSymlink(at: url)
         {
-            print("Ignoring \(url)")
+            AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
         }
         else
         {

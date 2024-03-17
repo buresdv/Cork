@@ -19,11 +19,11 @@ func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage
     
     appState.brewfileImportingStage = .importing
     
-    print(url.path)
+    AppConstants.logger.info("Brewfile import path: \(url.path)")
     
     let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
     
-    print(brewfileImportingResultRaw)
+    AppConstants.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutput, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardError)")
     
     if !brewfileImportingResultRaw.standardError.isEmpty
     {

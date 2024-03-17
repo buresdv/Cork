@@ -26,10 +26,10 @@ func getPackageCompatibilityFromJSON(json: JSON, package: BrewPackage) throws ->
 
             for systemVersion in availableVersions
             {
-                print("Available version: \(systemVersion)")
+                AppConstants.logger.log("Available version for package \(package.name, privacy: .auto): \(systemVersion, privacy: .auto)")
                 if systemVersion.contains(AppConstants.osVersionString.lookupName)
                 {
-                    print("\(package.name) is compatible with \(AppConstants.osVersionString.fullName)")
+                    AppConstants.logger.debug("\(package.name, privacy: .auto) is compatible with \(AppConstants.osVersionString.fullName, privacy: .auto)")
                     checkingResult = true
                     break
                 }
@@ -42,7 +42,7 @@ func getPackageCompatibilityFromJSON(json: JSON, package: BrewPackage) throws ->
 
         if checkingResult == false
         {
-            print("\(package.name) is not compatible with \(AppConstants.osVersionString.lookupName)")
+            AppConstants.logger.warning("\(package.name, privacy: .auto) is not compatible with \(AppConstants.osVersionString.lookupName, privacy: .auto)")
         }
 
         return checkingResult

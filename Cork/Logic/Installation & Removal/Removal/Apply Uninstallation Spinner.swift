@@ -10,8 +10,12 @@ import Foundation
 @MainActor
 func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStorage) -> Void
 {
-    print("Brew data: \(brewData)")
-    print("Will try to apply uninstallation spinner to package \(package)")
+    AppConstants.logger.debug("""
+Brew data: 
+   Installed Formulae: \(brewData.installedFormulae)
+   Installed Casks: \(brewData.installedCasks)
+""")
+    AppConstants.logger.debug("Will try to apply uninstallation spinner to package \(package.name)")
     
     if !package.isCask
     {

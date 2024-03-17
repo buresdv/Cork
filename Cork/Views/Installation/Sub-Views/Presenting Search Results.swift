@@ -86,20 +86,20 @@ struct PresentingSearchResultsView: View
 
                                 installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
 
-                                print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
+                                AppConstants.logger.info("Packages to install: \(installationProgressTracker.packagesBeingInstalled, privacy: .public)")
 
                                 installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
                             }
                             catch let packageByUUIDRetrievalError
                             {
-                                print("Failed while associating package with its ID: \(packageByUUIDRetrievalError)")
+                                AppConstants.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
                                 isShowingSheet = false
                                 appState.fatalAlertType = .couldNotAssociateAnyPackageWithProvidedPackageUUID
                                 appState.isShowingFatalError = true
                             }
                         }
 
-                        print(installationProgressTracker.packagesBeingInstalled)
+                        AppConstants.logger.info("\(installationProgressTracker.packagesBeingInstalled, privacy: .public)")
 
                         packageInstallationProcessStep = .installing
                     } label: {

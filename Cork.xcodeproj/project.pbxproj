@@ -104,6 +104,7 @@
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
 		637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637410AD2ABB751B00B7915A /* Get Compatibility.swift */; };
+		637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */; };
 		637D53FC2B9E773A00F61361 /* View - Platform Conditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */; };
 		637E00642872F3CE005C9890 /* Update Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Update Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
@@ -332,6 +333,7 @@
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
 		637410AD2ABB751B00B7915A /* Get Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Compatibility.swift"; sourceTree = "<group>"; };
+		637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - LocalizedStringKey to String.swift"; sourceTree = "<group>"; };
 		637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Platform Conditional.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Update Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
@@ -1228,6 +1230,7 @@
 				6337AFEC2AE130EF00FE60A5 /* Image - Load from Disk.swift */,
 				633AA2252AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift */,
 				63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */,
+				637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */,
 				637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */,
 			);
 			path = Extensions;
@@ -1777,6 +1780,7 @@
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
 				633AA2242AFEE40500A5F3E3 /* DataFile.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
+				637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,
 				63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */,
 				63958D00287735F800E0B807 /* About View.swift in Sources */,

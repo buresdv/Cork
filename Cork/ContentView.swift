@@ -105,7 +105,7 @@ struct ContentView: View, Sendable
                  {
                      Button
                      {
-                         print("Ahoj")
+                         AppConstants.logger.info("Ahoj")
                      } label: {
                          Label
                          {
@@ -122,7 +122,7 @@ struct ContentView: View, Sendable
         }
         .onAppear
         {
-            print("Brew executable path: \(AppConstants.brewExecutablePath)")
+            AppConstants.logger.debug("Brew executable path: \(AppConstants.brewExecutablePath, privacy: .public)")
 
             if !customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.brewExecutablePath.path)
             {
@@ -130,33 +130,33 @@ struct ContentView: View, Sendable
                 appState.isShowingFatalError = true
             }
 
-            print("Documents directory: \(AppConstants.documentsDirectoryPath.path)")
+            AppConstants.logger.debug("Documents directory: \(AppConstants.documentsDirectoryPath.path, privacy: .public)")
 
-            print("System version: \(AppConstants.osVersionString)")
+            AppConstants.logger.debug("System version: \(String(describing: AppConstants.osVersionString), privacy: .public)")
 
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
             {
-                print("Documents directory does not exist, creating it...")
+                AppConstants.logger.info("Documents directory does not exist, creating it...")
                 try! FileManager.default.createDirectory(at: AppConstants.documentsDirectoryPath, withIntermediateDirectories: true)
             }
             else
             {
-                print("Documents directory exists")
+                AppConstants.logger.info("Documents directory exists")
             }
 
             if !FileManager.default.fileExists(atPath: AppConstants.metadataFilePath.path)
             {
-                print("Metadata file does not exist, creating it...")
+                AppConstants.logger.info("Metadata file does not exist, creating it...")
                 try! Data().write(to: AppConstants.metadataFilePath, options: .atomic)
             }
             else
             {
-                print("Metadata file exists")
+                AppConstants.logger.info("Metadata file exists")
             }
         }
         .task(priority: .high)
         {
-            print("Started Package Load startup action at \(Date())")
+            AppConstants.logger.info("Started Package Load startup action at \(Date())")
 
             defer
             {
@@ -178,7 +178,7 @@ struct ContentView: View, Sendable
             {
                 appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
-                print("Tagged packages in appState: \(appState.taggedPackageNames)")
+                AppConstants.logger.info("Tagged packages in appState: \(appState.taggedPackageNames)")
 
                 do
                 {
@@ -186,38 +186,38 @@ struct ContentView: View, Sendable
                 }
                 catch let taggedStateApplicationError as NSError
                 {
-                    print("Error while applying tagged state to packages: \(taggedStateApplicationError)")
+                    AppConstants.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
                     appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
                     appState.isShowingFatalError = true
                 }
             }
             catch let uuidLoadingError as NSError
             {
-                print("Failed while loading UUIDs from file: \(uuidLoadingError)")
+                AppConstants.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
                 appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
                 appState.isShowingFatalError = true
             }
         }
         .task(priority: .background)
         {
-            print("Started Analytics startup action at \(Date())")
+            AppConstants.logger.info("Started Analytics startup action at \(Date())")
 
             async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath, ["analytics"])
 
             if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
             {
                 allowBrewAnalytics = true
-                print("Analytics are ENABLED")
+                AppConstants.logger.info("Analytics are ENABLED")
             }
             else
             {
                 allowBrewAnalytics = false
-                print("Analytics are DISABLED")
+                AppConstants.logger.info("Analytics are DISABLED")
             }
         }
         .task(priority: .background)
         {
-            print("Started Discoverability startup action at \(Date())")
+            AppConstants.logger.info("Started Discoverability startup action at \(Date())")
 
             if enableDiscoverability
             {
@@ -231,7 +231,7 @@ struct ContentView: View, Sendable
         {
             if appState.cachedDownloads.isEmpty
             {
-                print("Will calculate cached downloads")
+                AppConstants.logger.info("Will calculate cached downloads")
                 await appState.loadCachedDownloadedPackages()
             }
         }
@@ -239,7 +239,7 @@ struct ContentView: View, Sendable
         { _ in
             Task(priority: .background)
             {
-                print("Will recalculate cached downloads")
+                AppConstants.logger.info("Will recalculate cached downloads")
                 appState.cachedDownloads = .init()
                 await appState.loadCachedDownloadedPackages()
             }
@@ -263,12 +263,12 @@ struct ContentView: View, Sendable
             }
             else
             {
-                print("Will purge top package trackers")
+                AppConstants.logger.info("Will purge top package trackers")
                 /// Clear out the package trackers so they don't take up RAM
                 topPackagesTracker.topFormulae = .init()
                 topPackagesTracker.topCasks = .init()
 
-                print("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
+                AppConstants.logger.info("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
             }
         })
         .onChange(of: discoverabilityDaySpan, perform: { _ in
@@ -547,7 +547,7 @@ struct ContentView: View, Sendable
 
     func loadTopPackages() async
     {
-        print("Initial setup finished, time to fetch the top packages")
+        AppConstants.logger.info("Initial setup finished, time to fetch the top packages")
 
         do
         {
@@ -559,8 +559,8 @@ struct ContentView: View, Sendable
             topPackagesTracker.topFormulae = try await topFormulae
             topPackagesTracker.topCasks = try await topCasks
 
-            print("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
-            print("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
+            AppConstants.logger.info("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
+            AppConstants.logger.info("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
 
             sortTopPackages()
 
@@ -568,7 +568,7 @@ struct ContentView: View, Sendable
         }
         catch let topPackageLoadingError
         {
-            print("Failed while loading top packages: \(topPackageLoadingError)")
+            AppConstants.logger.error("Failed while loading top packages: \(topPackageLoadingError, privacy: .public)")
 
             if topPackageLoadingError is DataDownloadingError
             {
@@ -584,21 +584,21 @@ struct ContentView: View, Sendable
         {
         case .mostDownloads:
 
-            print("Will sort top packages by most downloads")
+            AppConstants.logger.info("Will sort top packages by most downloads")
 
             topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
             topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
 
         case .fewestDownloads:
 
-            print("Will sort top packages by fewest downloads")
+            AppConstants.logger.info("Will sort top packages by fewest downloads")
 
             topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
             topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
 
         case .random:
 
-            print("Will sort top packages randomly")
+            AppConstants.logger.info("Will sort top packages randomly")
 
             topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.shuffled()
             topPackagesTracker.topCasks = topPackagesTracker.topCasks.shuffled()

@@ -110,7 +110,7 @@ struct TapDetailView: View, Sendable
             }
             catch let parsingError
             {
-                print("Failed while parsing package info: \(parsingError)")
+                AppConstants.logger.error("Failed while parsing package info: \(parsingError, privacy: .public)")
                 erroredOut = true
             }
         }

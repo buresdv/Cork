@@ -34,22 +34,22 @@ struct NotificationsPane: View
                     .toggleStyle(.switch)
                     .task
                     {
-                        print("Will re-check notification authorization status")
+                        AppConstants.logger.debug("Will re-check notification authorization status")
                         await appState.requestNotificationAuthorization()
                         
                         switch appState.notificationAuthStatus {
                             case .notDetermined:
-                                print("Not determined")
+                                AppConstants.logger.info("Not determined")
                             case .denied:
-                                print("Denied")
+                                AppConstants.logger.info("Denied")
                             case .authorized:
-                                print("Authorized")
+                                AppConstants.logger.info("Authorized")
                             case .provisional:
-                                print("Provisional")
+                                AppConstants.logger.info("Provisional")
                             case .ephemeral:
-                                print("Ephemeral")
+                                AppConstants.logger.info("Ephemeral")
                             default:
-                                print("TF")
+                                AppConstants.logger.info("TF")
                         }
                         
                         if appState.notificationAuthStatus == .denied

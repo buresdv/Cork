@@ -7,7 +7,16 @@
 
 import Foundation
 
-enum PackageUpdateAvailability
+enum PackageUpdateAvailability: CustomStringConvertible
 {
     case updatesAvailable, noUpdatesAvailable
+
+    var description: String
+    {
+        switch self
+        {
+        case .updatesAvailable: return "Updates available"
+        case .noUpdatesAvailable: return "No updates available"
+        }
+    }
 }

@@ -19,7 +19,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
     {
         let cachePurgeOutput = try await purgeBrewCache()
 
-        print("Cache purge output: \(cachePurgeOutput)")
+        AppConstants.logger.debug("Cache purge output:\nStandard output: \(cachePurgeOutput.standardOutput, privacy: .auto)\nStandard error: \(cachePurgeOutput.standardError, privacy: .public)")
 
         var packagesHoldingBackCachePurgeTracker: [String] = .init()
 
@@ -32,7 +32,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
 
             for blockingPackageRaw in packagesHoldingBackCachePurgeInitialArray
             {
-                print("Blocking package: \(blockingPackageRaw)")
+                AppConstants.logger.log("Blocking package: \(blockingPackageRaw, privacy: .public)")
 
                 let packageHoldingBackCachePurgeNameRegex = "(?<=Skipping ).*?(?=:)"
 
@@ -44,14 +44,14 @@ func purgeHomebrewCacheUtility() async throws -> [String]
                 packagesHoldingBackCachePurgeTracker.append(packageHoldingBackCachePurgeName)
             }
 
-            print("These packages are holding back cache purge: \(packagesHoldingBackCachePurgeTracker)")
+            AppConstants.logger.info("These packages are holding back cache purge: \(packagesHoldingBackCachePurgeTracker, privacy: .public)")
         }
 
         return packagesHoldingBackCachePurgeTracker
     }
     catch let purgingCommandError
     {
-        print("Homebrew cache purging command failed: \(purgingCommandError)")
+        AppConstants.logger.error("Homebrew cache purging command failed: \(purgingCommandError, privacy: .public)")
         throw HomebrewCachePurgeError.purgingCommandFailed
     }
 }

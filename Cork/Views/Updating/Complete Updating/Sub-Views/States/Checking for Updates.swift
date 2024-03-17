@@ -34,11 +34,11 @@ struct CheckingForUpdatesStateView: View
         {
             updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
 
-            print("Update availability result: \(updateAvailability)")
+            AppConstants.logger.debug("Update availability result: \(updateAvailability.description, privacy: .public)")
 
             if updateAvailability == .noUpdatesAvailable
             {
-                print("Outside update function: No updates available")
+                AppConstants.logger.debug("Outside update function: No updates available")
 
                 updateProgressTracker.realTimeOutput = .init()
 
@@ -46,7 +46,7 @@ struct CheckingForUpdatesStateView: View
             }
             else
             {
-                print("Outside update function: Updates available")
+                AppConstants.logger.debug("Outside update function: Updates available")
                 packageUpdatingStep = .updatingPackages
             }
         }

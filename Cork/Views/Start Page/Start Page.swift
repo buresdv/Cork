@@ -74,7 +74,7 @@ struct StartPage: View
 
                             Button
                             {
-                                print("Would perform maintenance")
+                                AppConstants.logger.info("Would perform maintenance")
                                 appState.isShowingMaintenanceSheet.toggle()
                             } label: {
                                 Text("start-page.open-maintenance")
@@ -104,12 +104,12 @@ struct StartPage: View
                         appState.fatalAlertType = .homePathNotSet
                         appState.isShowingFatalError = true
                     case .otherError:
-                        print("Something went wrong")
+                            AppConstants.logger.error("Something went wrong")
                     }
                 }
                 catch
                 {
-                    print("Unspecified error while pulling package updates")
+                    AppConstants.logger.error("Unspecified error while pulling package updates")
                 }
 
                 withAnimation
@@ -123,7 +123,7 @@ struct StartPage: View
                 if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String) {
                     
                     if url.pathExtension == "brewbak" || url.pathExtension.isEmpty {
-                        print("Correct File Format")
+                        AppConstants.logger.debug("Correct File Format")
                         
                         Task(priority: .userInitiated) 
                         {
@@ -131,7 +131,7 @@ struct StartPage: View
                         }
                         
                     } else {
-                        print("Incorrect file format")
+                        AppConstants.logger.error("Incorrect file format")
                     }
                 }
             })

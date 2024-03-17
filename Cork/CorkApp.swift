@@ -80,23 +80,23 @@ struct CorkApp: App
                     // Start the background update scheduler when the app starts
                     backgroundUpdateTimer.schedule
                     { (completion: NSBackgroundActivityScheduler.CompletionHandler) in
-                        print("Scheduled event fired at \(Date())")
+                        AppConstants.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
 
                         Task(priority: .background)
                         {
                             var updateResult = await shell(AppConstants.brewExecutablePath, ["update"])
 
-                            print("Update result: \(updateResult)")
+                            AppConstants.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
 
                             do
                             {
                                 var newOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
 
-                                print("Outdated packages checker output: \(newOutdatedPackages)")
+                                AppConstants.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
 
                                 defer
                                 {
-                                    print("Will purge temporary update trackers")
+                                    AppConstants.logger.log("Will purge temporary update trackers")
 
                                     updateResult = .init(standardOutput: "", standardError: "")
                                     newOutdatedPackages = .init()
@@ -104,13 +104,13 @@ struct CorkApp: App
 
                                 if newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
                                 {
-                                    print("New updates found")
+                                    AppConstants.logger.log("New updates found")
 
                                     /// Set this to `true` so the normal notification doesn't get sent
                                     sendStandardUpdatesAvailableNotification = false
 
                                     let differentPackages = newOutdatedPackages.subtracting(outdatedPackageTracker.outdatedPackages)
-                                    print("Changed packages: \(differentPackages)")
+                                    AppConstants.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
 
@@ -123,12 +123,12 @@ struct CorkApp: App
                                 }
                                 else
                                 {
-                                    print("No new updates found")
+                                    AppConstants.logger.log("No new updates found")
                                 }
                             }
                             catch
                             {
-                                print("Something got fucked up")
+                                AppConstants.logger.error("Something got fucked up about checking for outdated packages")
                             }
                         }
 
@@ -153,7 +153,7 @@ struct CorkApp: App
 
                             if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
                             {
-                                print("Will try to send notification")
+                                AppConstants.logger.log("Will try to send notification")
 
                                 /// This needs to be checked because when the background update system finds an update, we don't want to send this normal notification.
                                 /// Instead, we want to send a more succinct notification that includes only the new package
@@ -204,9 +204,9 @@ struct CorkApp: App
                     switch result
                     {
                     case let .success(success):
-                        print("Succeeded in exporting: \(success)")
+                        AppConstants.logger.log("Succeeded in exporting: \(success, privacy: .public)")
                     case let .failure(failure):
-                        print("Failed in exporting: \(failure)")
+                        AppConstants.logger.error("Failed in exporting: \(failure, privacy: .public)")
                     }
                 }
                 .fileImporter(
@@ -218,9 +218,9 @@ struct CorkApp: App
                     switch result
                     {
                     case let .success(success):
-                        print("Succeeded in importing: \(success)")
+                        AppConstants.logger.debug("Succeeded in importing: \(success, privacy: .public)")
                     case let .failure(failure):
-                        print("Failed in importing: \(failure)")
+                        AppConstants.logger.error("Failed in importing: \(failure, privacy: .public)")
                     }
                 }
         }
@@ -263,7 +263,7 @@ struct CorkApp: App
                 } label: {
                     Text("action.report-bugs.menu-category")
                 }
-                
+
                 Button
                 {
                     NSWorkspace.shared.open(URL(string: "https://feedback.corkmac.app")!)
@@ -348,17 +348,17 @@ struct CorkApp: App
                             picker.allowsMultipleSelection = false
                             picker.canChooseDirectories = false
                             picker.allowedFileTypes = ["brewbak", ""]
-                            
+
                             if picker.runModal() == .OK
                             {
-                                
-                                guard let brewfileURL = picker.url else
+                                guard let brewfileURL = picker.url
+                                else
                                 {
                                     throw BrewfileReadingError.couldNotGetBrewfileLocation
                                 }
-                                
-                                print(brewfileURL)
-                                
+
+                                AppConstants.logger.debug("\(brewfileURL.path)")
+
                                 do
                                 {
                                     try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
@@ -370,11 +370,10 @@ struct CorkApp: App
                                         appDelegate.appState.isShowingBrewfileImportProgress = false
                                         appDelegate.appState.isShowingFatalError = true
                                     }
-                                    
+
                                     appDelegate.appState.fatalAlertType = .malformedBrewfile
                                 }
                             }
-
                         }
                         catch let error as BrewfileReadingError
                         {
@@ -382,12 +381,13 @@ struct CorkApp: App
                             {
                                 appDelegate.appState.isShowingFatalError = true
                             }
-                            switch error {
-                                case .couldNotGetBrewfileLocation:
-                                    appDelegate.appState.fatalAlertType = .couldNotGetBrewfileLocation
-                                    
-                                case .couldNotImportFile:
-                                    appDelegate.appState.fatalAlertType = .couldNotImportBrewfile
+                            switch error
+                            {
+                            case .couldNotGetBrewfileLocation:
+                                appDelegate.appState.fatalAlertType = .couldNotGetBrewfileLocation
+
+                            case .couldNotImportFile:
+                                appDelegate.appState.fatalAlertType = .couldNotImportBrewfile
                             }
                         }
                     }
@@ -395,11 +395,11 @@ struct CorkApp: App
                     Text("navigation.menu.import-export.import-brewfile")
                 }
             }
-            
+
             CommandGroup(after: .newItem)
             {
                 Divider()
-                
+
                 Button
                 {
                     appDelegate.appState.isSearchFieldFocused = true
@@ -436,15 +436,6 @@ struct CorkApp: App
                     Text("navigation.menu.packages.update")
                 }
                 .keyboardShortcut("r")
-
-                /* Divider()
-
-                 Button {
-                     print("Will uninstall packages")
-                 } label: {
-                     Text("Uninstall Package")
-                 }
-                  */
             }
 
             CommandMenu("navigation.menu.maintenance")
@@ -522,7 +513,7 @@ struct CorkApp: App
                 {
                     Task(priority: .userInitiated)
                     {
-                        print("Will delete orphans")
+                        AppConstants.logger.log("Will delete orphans")
 
                         do
                         {
@@ -536,7 +527,7 @@ struct CorkApp: App
                         }
                         catch let orphanUninstallationError as OrphanRemovalError
                         {
-                            print("Failed while uninstalling orphans: \(orphanUninstallationError)")
+                            AppConstants.logger.error("Failed while uninstalling orphans: \(orphanUninstallationError, privacy: .public)")
 
                             sendNotification(
                                 title: String(localized: "maintenance.results.orphans.failure"),
@@ -560,7 +551,7 @@ struct CorkApp: App
                 {
                     Task(priority: .userInitiated)
                     {
-                        print("Will purge cache")
+                        AppConstants.logger.log("Will purge cache")
 
                         isPurgingHomebrewCache = true
 
@@ -591,7 +582,7 @@ struct CorkApp: App
                         }
                         catch let cachePurgingError
                         {
-                            print("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription)")
+                            AppConstants.logger.warning("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription, privacy: .public)")
 
                             sendNotification(
                                 title: String(localized: "maintenance.results.package-cache.failure"),
@@ -611,7 +602,7 @@ struct CorkApp: App
             {
                 Button(appDelegate.appState.cachedDownloadsFolderSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
                 {
-                    print("Will delete cached downloads")
+                    AppConstants.logger.log("Will delete cached downloads")
 
                     isDeletingCachedDownloads = true
 

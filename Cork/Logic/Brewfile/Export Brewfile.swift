@@ -45,7 +45,7 @@ func exportBrewfile(appState: AppState) async throws -> String
         throw BrewfileDumpingError.errorWhileDumpingBrewfile
     }
     
-    print("Path: \(workingDirectory)")
+    AppConstants.logger.info("Path: \(workingDirectory, privacy: .auto)")
     
     print("Brewfile dumping result: \(await brewfileDumpingResult)")
     
@@ -62,7 +62,7 @@ func exportBrewfile(appState: AppState) async throws -> String
     }
     catch let brewfileReadingError
     {
-        print("Error while reading contents of Brewfile: \(brewfileReadingError)")
+        AppConstants.logger.error("Error while reading contents of Brewfile: \(brewfileReadingError, privacy: .public)")
         throw BrewfileDumpingError.couldNotReadBrewfile
     }
 }

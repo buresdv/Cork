@@ -101,11 +101,11 @@ struct SearchResultRow: View, Sendable
         {
             if showDescriptionsInSearchResults
             {
-                print("\(packageName) came into view")
+                AppConstants.logger.info("\(packageName, privacy: .auto) came into view")
 
                 if description.isEmpty
                 {
-                    print("\(packageName) does not have its description loaded")
+                    AppConstants.logger.info("\(packageName, privacy: .auto) does not have its description loaded")
 
                     async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", packageName]).standardOutput
                     do
@@ -120,13 +120,13 @@ struct SearchResultRow: View, Sendable
                     }
                     catch let descriptionJSONRetrievalError
                     {
-                        print("Failed while retrieving description JSON: \(descriptionJSONRetrievalError)")
+                        AppConstants.logger.error("Failed while retrieving description JSON: \(descriptionJSONRetrievalError, privacy: .public)")
                         isLoadingDescription = false
                     }
                 }
                 else
                 {
-                    print("\(packageName) already has its description loaded")
+                    AppConstants.logger.info("\(packageName, privacy: .auto) already has its description loaded")
                 }
             }
         }

@@ -11,7 +11,7 @@ import Foundation
 func saveTaggedIDsToDisk(appState: AppState) throws
 {
     let namesAsString: String = appState.taggedPackageNames.compactMap { $0 }.joined(separator: ":")
-    print("Names as string: \(namesAsString)")
+    AppConstants.logger.debug("Names as string: \(namesAsString, privacy: .public)")
 
     do
     {
@@ -19,6 +19,6 @@ func saveTaggedIDsToDisk(appState: AppState) throws
     }
     catch let writingError as NSError
     {
-        print("Error while writing to file: \(writingError)")
+        AppConstants.logger.error("Error while writing to file: \(writingError, privacy: .public)")
     }
 }

@@ -70,7 +70,7 @@ func shell(
     // MARK: - Set up proxy if it's enabled
     if let proxySettings = AppConstants.proxySettings
     {
-        print("Proxy is enabled")
+        AppConstants.logger.info("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
     
@@ -80,12 +80,12 @@ func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
     
-    print("Final environment: \(finalEnvironment)")
+    AppConstants.logger.info("Final environment: \(finalEnvironment)")
     
     // MARK: - Set working directory if provided
     if let workingDirectory
     {
-        print("Working directory configured: \(workingDirectory)")
+        AppConstants.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
     
@@ -105,7 +105,7 @@ func shell(
     }
     catch
     {
-        print(error)
+        AppConstants.logger.error("\(String(describing: error))")
     }
 
     return AsyncStream { continuation in

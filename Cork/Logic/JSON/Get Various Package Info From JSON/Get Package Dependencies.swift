@@ -18,8 +18,13 @@ func getPackageDependenciesFromJSON(json: JSON, package: BrewPackage) -> [BrewPa
         for installInfo in installationInfos
         {
             for dependency in installInfo["runtime_dependencies"].arrayValue
-            {
-                print(BrewPackageDependency(name: dependency["full_name"].stringValue, version: dependency["version"].stringValue, directlyDeclared: dependency["declared_directly"].boolValue))
+            {                
+                AppConstants.logger.debug("""
+Dependency:
+  Name: \(dependency["full_name"].stringValue)
+  Version: \(dependency["version"].stringValue)
+  Directly declared: \(dependency["declared_directly"].boolValue == true ? "Yes" : "No")
+""")
                 
                 /// This has to be here because you can't append to nil array
                 /// **How It Works**

@@ -159,12 +159,12 @@ struct PackageDetailView: View, Sendable
 
                     packageDependents = await packageDependentsRaw.components(separatedBy: "\n").dropLast()
 
-                    print("Package dependents: \(String(describing: packageDependents))")
+                    AppConstants.logger.info("Package dependents: \(String(describing: packageDependents), privacy: .auto)")
                 }
             }
             catch let packageInfoDecodingError
             {
-                print("Failed while parsing package info: \(packageInfoDecodingError)")
+                AppConstants.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
                 erroredOut = true
             }

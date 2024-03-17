@@ -45,12 +45,12 @@ struct UpdatingPackageTrackerStateView: View
                         appState.fatalAlertType = .homePathNotSet
                         appState.isShowingFatalError = true
                     case .otherError:
-                        print("Something went wrong")
+                            AppConstants.logger.error("Something went wrong")
                     }
                 }
                 catch
                 {
-                    print("IDK what just happened")
+                    AppConstants.logger.error("IDK what just happened")
                 }
             }
     }

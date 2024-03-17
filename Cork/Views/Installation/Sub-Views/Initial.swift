@@ -80,7 +80,7 @@ struct InstallationInitialView: View
                 {
                     Button
                     {
-                        print("Would install package \(foundPackageSelection)")
+                        AppConstants.logger.debug("Would install package \(foundPackageSelection)")
                         
                         let topCasksSet = Set(topPackagesTracker.topCasks)
                         
@@ -103,7 +103,7 @@ struct InstallationInitialView: View
                             
                             installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
                             
-                            print("Packages to install: \(installationProgressTracker.packagesBeingInstalled)")
+                            AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packagesBeingInstalled, privacy: .public)")
                             
                             installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
                             
@@ -111,7 +111,7 @@ struct InstallationInitialView: View
                         }
                         catch let topPackageInstallationError
                         {
-                            print("Failet while trying to get top package to install: \(topPackageInstallationError)")
+                            AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
                             
                             dismiss()
                             

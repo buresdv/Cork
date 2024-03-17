@@ -20,7 +20,7 @@ func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
         tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name]).standardError
     }
 
-    print("Tapping result: \(tapResult)")
+    AppConstants.logger.debug("Tapping result: \(tapResult, privacy: .public)")
 
     return tapResult
 }
