@@ -104,7 +104,7 @@ struct InstallingPackageView: View
                 }
                 catch let fatalInstallationError
                 {
-                    print("Fatal error occured during installing a package: \(fatalInstallationError)")
+                    print("Fatal error occurred during installing a package: \(fatalInstallationError)")
                     
                     isShowingSheet = false
                     
