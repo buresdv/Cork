@@ -104,8 +104,7 @@ class AppState: ObservableObject {
         }
         catch let notificationPermissionsObtainingError as NSError
         {
-            print("Error: \(notificationPermissionsObtainingError.localizedDescription)")
-            print("Error code: \(notificationPermissionsObtainingError.code)")
+            AppConstants.logger.error("Notification permissions obtaining error: \(notificationPermissionsObtainingError.localizedDescription, privacy: .public)\nError code: \(notificationPermissionsObtainingError.code, privacy: .public)")
             
             notificationEnabledInSystemSettings = false
         }
@@ -150,7 +149,7 @@ class AppState: ObservableObject {
                 return
             }
             
-            print("Temp item name: \(itemName)")
+            AppConstants.logger.debug("Temp item name: \(itemName, privacy: .public)")
             
             if itemName.contains("--")
             {
@@ -183,10 +182,10 @@ class AppState: ObservableObject {
                 self.cachedDownloads.append(CachedDownload(packageName: itemName, sizeInBytes: itemSize))
             }
             
-            print("Others size: \(packagesThatAreTooSmallToDisplaySize)")
+            AppConstants.logger.debug("Others size: \(packagesThatAreTooSmallToDisplaySize, privacy: .public)")
         }
         
-        print("Cached downloads contents: \(self.cachedDownloads)")
+        AppConstants.logger.log("Cached downloads contents: \(self.cachedDownloads)")
         
         self.cachedDownloads = self.cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
         

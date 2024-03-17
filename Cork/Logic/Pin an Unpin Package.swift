@@ -15,7 +15,7 @@ func pinAndUnpinPackage(package: BrewPackage, pinned: Bool) async -> Void
         
         if !pinResult.standardError.isEmpty
         {
-            print("Error pinning: \(pinResult.standardError)")
+            AppConstants.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
         }
     }
     else
@@ -23,7 +23,7 @@ func pinAndUnpinPackage(package: BrewPackage, pinned: Bool) async -> Void
         let unpinResult = await shell(AppConstants.brewExecutablePath, ["unpin", package.name])
         if !unpinResult.standardError.isEmpty
         {
-            print("Error unpinning: \(unpinResult.standardError)")
+            AppConstants.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
         }
     }
 }

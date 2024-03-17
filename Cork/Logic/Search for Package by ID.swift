@@ -19,8 +19,8 @@ func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker
     var filteredPackage: BrewPackage?
 
 
-    print("Formula tracker: \(tracker.foundFormulae.count)")
-    print("Cask tracker: \(tracker.foundCasks.count)")
+    AppConstants.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
+    AppConstants.logger.log("Cask tracker: \(tracker.foundCasks.count)")
 
     if tracker.foundFormulae.count != 0
     {

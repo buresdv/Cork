@@ -27,7 +27,14 @@ func getFormulaeAvailableFromTap(json: JSON, tap: BrewTap) -> Set<String>?
         }
     }
     
-    print(availableFormulae as Any)
+    if let availableFormulae
+    {
+        AppConstants.logger.debug("Found formulae in tap \(tap.name, privacy: .public): \(availableFormulae.sorted())")
+    }
+    else
+    {
+        AppConstants.logger.warning("Couldn't find any formulae in tap \(tap.name, privacy: .public)")
+    }
     
     return availableFormulae
 }

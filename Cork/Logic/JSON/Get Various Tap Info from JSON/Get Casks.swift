@@ -28,7 +28,14 @@ func getCasksAvailableFromTap(json: JSON, tap: BrewTap) -> Set<String>?
         }
     }
     
-    print(availableCasks as Any)
+    if let availableCasks
+    {
+        AppConstants.logger.debug("Found formulae in tap \(tap.name, privacy: .public): \(availableCasks.sorted())")
+    }
+    else
+    {
+        AppConstants.logger.warning("Couldn't find any formulae in tap \(tap.name, privacy: .public)")
+    }
     
     return availableCasks
 }
