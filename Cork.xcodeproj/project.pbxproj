@@ -1205,6 +1205,7 @@
 		63ACBBE52BA8983200B26D7E /* Licensing */ = {
 			isa = PBXGroup;
 			children = (
+				63ACBBF42BA8E9A500B26D7E /* Shared */,
 				63ACBBE82BA898BF00B26D7E /* Sub-Views */,
 				63ACBBE62BA8983D00B26D7E /* Licensing View.swift */,
 			);
@@ -1243,6 +1244,13 @@
 				63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */,
 			);
 			path = Bought;
+			sourceTree = "<group>";
+		};
+		63ACBBF42BA8E9A500B26D7E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		63C1A3192AD0998E00F36371 /* Outdated Packages */ = {

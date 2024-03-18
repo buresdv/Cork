@@ -68,6 +68,7 @@ struct CorkApp: App
                     hasFinishedLicensingWorkflow = true
                 }, content: {
                     LicensingView()
+                        .interactiveDismissDisabled()
                 })
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
@@ -90,9 +91,18 @@ struct CorkApp: App
                     {
                         var timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
                         
-                        AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSince(.now).formatted()) to go on the demo")
+                        AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
                         
                         AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+                        
+                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                        { // Check if there is still time on the demo
+                            /// do stuff if there is
+                        }
+                        else
+                        {
+                            hasFinishedLicensingWorkflow = false
+                        }
                     }
                 }
                 .onAppear
@@ -311,6 +321,13 @@ struct CorkApp: App
                     Text("onboarding.start")
                 }
                 .disabled(!hasFinishedOnboarding)
+                
+                Button
+                {
+                    hasFinishedLicensingWorkflow = false
+                } label: {
+                    Text("licensing.title")
+                }
 
                 Divider()
             }
