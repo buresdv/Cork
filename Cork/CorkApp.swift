@@ -22,6 +22,7 @@ struct CorkApp: App
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
 
     @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
 
@@ -87,21 +88,24 @@ struct CorkApp: App
                 }
                 .onAppear
                 {
-                    if let demoActivatedAt
+                    if !hasValidatedEmail
                     {
-                        var timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
-                        
-                        AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-                        
-                        AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-                        
-                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
-                        { // Check if there is still time on the demo
-                            /// do stuff if there is
-                        }
-                        else
+                        if let demoActivatedAt
                         {
-                            hasFinishedLicensingWorkflow = false
+                            var timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+                            
+                            AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
+                            
+                            AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+                            
+                            if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                            { // Check if there is still time on the demo
+                              /// do stuff if there is
+                            }
+                            else
+                            {
+                                hasFinishedLicensingWorkflow = false
+                            }
                         }
                     }
                 }

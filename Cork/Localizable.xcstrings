@@ -7846,6 +7846,26 @@
         }
       }
     },
+    "alert.fatal.license-checking.could-not-encode-authorization-complex.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check if your network is working properly, then try again"
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.could-not-encode-authorization-complex.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not establish a secure connection to authorization server"
+          }
+        }
+      }
+    },
     "alert.generic.couldnt-parse-json" : {
       "comment" : "MARK: - Alerts",
       "localizations" : {
@@ -9514,6 +9534,26 @@
         }
       }
     },
+    "licensing.bought.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thank you for supporting Cork!"
+          }
+        }
+      }
+    },
+    "licensing.bought.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License Activated"
+          }
+        }
+      }
+    },
     "licensing.demo-activated.title" : {
       "localizations" : {
         "en" : {
@@ -9550,6 +9590,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
+          }
+        }
+      }
+    },
+    "licensing.invalid-email" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email not found"
           }
         }
       }
