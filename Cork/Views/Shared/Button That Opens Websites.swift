@@ -20,11 +20,7 @@ struct ButtonThatOpensWebsites: View
         {
             NSWorkspace.shared.open(websiteURL)
         } label: {
-            HStack(alignment: .center)
-            {
-                Text(buttonText)
-                Image(systemName: "safari")
-            }
+            Label(buttonText, systemImage: "safari")
         }
     }
 }

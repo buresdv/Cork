@@ -158,6 +158,12 @@
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
 		63ACBBE12BA88F6600B26D7E /* Check If User Bought Cork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE02BA88F6600B26D7E /* Check If User Bought Cork.swift */; };
+		63ACBBE42BA891E900B26D7E /* Licensing State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE32BA891E900B26D7E /* Licensing State.swift */; };
+		63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE62BA8983D00B26D7E /* Licensing View.swift */; };
+		63ACBBED2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBEC2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift */; };
+		63ACBBEF2BA8991400B26D7E /* Licensing - Demo View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBEE2BA8991400B26D7E /* Licensing - Demo View.swift */; };
+		63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */; };
+		63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBF22BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift */; };
 		63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7337A2B02E21D00366C77 /* Advanced Pane.swift */; };
 		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
 		63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */; };
@@ -387,6 +393,12 @@
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
 		63ACBBE02BA88F6600B26D7E /* Check If User Bought Cork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check If User Bought Cork.swift"; sourceTree = "<group>"; };
+		63ACBBE32BA891E900B26D7E /* Licensing State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing State.swift"; sourceTree = "<group>"; };
+		63ACBBE62BA8983D00B26D7E /* Licensing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing View.swift"; sourceTree = "<group>"; };
+		63ACBBEC2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing - Not Bought Or Activated View.swift"; sourceTree = "<group>"; };
+		63ACBBEE2BA8991400B26D7E /* Licensing - Demo View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing - Demo View.swift"; sourceTree = "<group>"; };
+		63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing - Bought View.swift"; sourceTree = "<group>"; };
+		63ACBBF22BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date - Make Saveable in AppStorage.swift"; sourceTree = "<group>"; };
 		63B7337A2B02E21D00366C77 /* Advanced Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advanced Pane.swift"; sourceTree = "<group>"; };
 		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
 		63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtitle Text.swift"; sourceTree = "<group>"; };
@@ -1026,6 +1038,7 @@
 		639A7D812871D07800B50280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63ACBBE52BA8983200B26D7E /* Licensing */,
 				6311F3D22B0A1DD9008A8067 /* Removal */,
 				63A018722AFFBCDB003A2912 /* Backups */,
 				63A8A1272AE3FC6800FA21C7 /* Onboarding */,
@@ -1107,6 +1120,7 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				63ACBBE22BA891D500B26D7E /* Licensing */,
 				63A018792AFFBF0C003A2912 /* Brewfile */,
 				63FFE5772A90CB6C00F95E54 /* Discoverability */,
 				6373D9CC29DC622B00D98607 /* Package Reinstallation */,
@@ -1180,6 +1194,57 @@
 			path = "Misc Views";
 			sourceTree = "<group>";
 		};
+		63ACBBE22BA891D500B26D7E /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBE32BA891E900B26D7E /* Licensing State.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
+		63ACBBE52BA8983200B26D7E /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBE82BA898BF00B26D7E /* Sub-Views */,
+				63ACBBE62BA8983D00B26D7E /* Licensing View.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
+		63ACBBE82BA898BF00B26D7E /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBEB2BA898D200B26D7E /* Bought */,
+				63ACBBEA2BA898CF00B26D7E /* Demo */,
+				63ACBBE92BA898C400B26D7E /* Not Bought Or Activated Demo */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		63ACBBE92BA898C400B26D7E /* Not Bought Or Activated Demo */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBEC2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift */,
+			);
+			path = "Not Bought Or Activated Demo";
+			sourceTree = "<group>";
+		};
+		63ACBBEA2BA898CF00B26D7E /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBEE2BA8991400B26D7E /* Licensing - Demo View.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		63ACBBEB2BA898D200B26D7E /* Bought */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */,
+			);
+			path = Bought;
+			sourceTree = "<group>";
+		};
 		63C1A3192AD0998E00F36371 /* Outdated Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -1235,6 +1300,7 @@
 				63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */,
 				637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */,
 				637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */,
+				63ACBBF22BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1588,6 +1654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				635E44932A891050002C034E /* Notifications Pane.swift in Sources */,
+				63ACBBEF2BA8991400B26D7E /* Licensing - Demo View.swift in Sources */,
 				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
 				634838A629C1D69F00D3C692 /* Outdated Package Tracker.swift in Sources */,
 				63A8A1292AE3FC7300FA21C7 /* Onboarding.swift in Sources */,
@@ -1634,6 +1701,7 @@
 				63219ACE2AD2ACA00037D178 /* Purge Cache Utility.swift in Sources */,
 				637260C529BE42FB00E6E81C /* Get Official Status.swift in Sources */,
 				6342117A29AA52B900E2563B /* Delete Cached Downloads.swift in Sources */,
+				63ACBBED2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift in Sources */,
 				6340657A2871AC27001A2178 /* Brew Data Storage.swift in Sources */,
 				633289E729A68A61004B2930 /* Package Installation Steps.swift in Sources */,
 				633AA2262AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift in Sources */,
@@ -1712,6 +1780,7 @@
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
 				63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */,
 				6317BF7B2ADEFD2E0018E425 /* Updating Package Tracker.swift in Sources */,
+				63ACBBE42BA891E900B26D7E /* Licensing State.swift in Sources */,
 				6387A6782AE9257800517436 /* Tap Features Category.swift in Sources */,
 				63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */,
 				63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */,
@@ -1760,6 +1829,7 @@
 				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
+				63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */,
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */,
@@ -1783,7 +1853,9 @@
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
 				633AA2242AFEE40500A5F3E3 /* DataFile.swift in Sources */,
+				63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
+				63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */,
 				637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,
 				63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */,

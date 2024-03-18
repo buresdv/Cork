@@ -21,7 +21,11 @@ struct CorkApp: App
     @StateObject var updateProgressTracker = UpdateProgressTracker()
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
+    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+
     @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
+
+    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
@@ -60,27 +64,17 @@ struct CorkApp: App
                 }, content: {
                     OnboardingView()
                 })
+                .sheet(isPresented: !$hasFinishedLicensingWorkflow, onDismiss: {
+                    hasFinishedLicensingWorkflow = true
+                }, content: {
+                    LicensingView()
+                })
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
                 .environmentObject(topPackagesTracker)
-                .task 
-                {
-                    AppConstants.logger.debug("[LICENSING]: Will try to send the request")
-                    
-                    do
-                    {
-                        var hasUserWithThisEmailBoughtCork: Bool = try await checkIfUserBoughtCork(for: "schirmag@gmail.com")
-                        
-                        AppConstants.logger.info("[LICENSING]: Has user bought Cork? \(hasUserWithThisEmailBoughtCork ? "YES" : "NO")")
-                    }
-                    catch let licensingError
-                    {
-                        AppConstants.logger.error("Could not get licensing info: \(licensingError)")
-                    }
-                }
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
@@ -88,6 +82,17 @@ struct CorkApp: App
                     if areNotificationsEnabled
                     {
                         await appDelegate.appState.setupNotifications()
+                    }
+                }
+                .onAppear
+                {
+                    if let demoActivatedAt
+                    {
+                        var timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+                        
+                        AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSince(.now).formatted()) to go on the demo")
+                        
+                        AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
                     }
                 }
                 .onAppear
@@ -148,6 +153,14 @@ struct CorkApp: App
                         }
 
                         completion(NSBackgroundActivityScheduler.Result.finished)
+                    }
+                }
+                .onChange(of: demoActivatedAt) // React to when the user activates the demo
+                { newValue in
+                    if let newValue
+                    { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
+                        AppConstants.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
+                        hasFinishedLicensingWorkflow = true
                     }
                 }
                 .onChange(of: outdatedPackageTracker.outdatedPackages.count)

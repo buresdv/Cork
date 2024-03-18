@@ -2356,6 +2356,26 @@
         }
       }
     },
+    "action.activate-demo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try Demo"
+          }
+        }
+      }
+    },
+    "action.buy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buy Cork"
+          }
+        }
+      }
+    },
     "action.cancel" : {
       "localizations" : {
         "cs" : {
@@ -2404,6 +2424,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消"
+          }
+        }
+      }
+    },
+    "action.check-license" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activate"
           }
         }
       }
@@ -9456,6 +9486,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安裝 %@"
+          }
+        }
+      }
+    },
+    "licensing.email" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email you bought Cork with:"
+          }
+        }
+      }
+    },
+    "licensing.email-field.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        }
+      }
+    },
+    "licensing.not-bought-or-activated.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
+          }
+        }
+      }
+    },
+    "licensing.not-bought-or-activated.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thank you for checking out Cork!"
+          }
+        }
+      }
+    },
+    "licensing.price.copy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "for 25€"
           }
         }
       }
