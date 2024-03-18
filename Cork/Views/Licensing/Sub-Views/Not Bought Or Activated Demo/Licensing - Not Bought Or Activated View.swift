@@ -11,15 +11,17 @@ struct Licensing_NotBoughtOrActivatedView: View
 {
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     
+    @Environment(\.dismiss) var dismiss
+    
     @State private var emailFieldContents: String = ""
     
     var isDemoButtonDisabled: Bool
     { // Disable the Demo button if the user activated it before, and if it has been at least 7 days since the user activated the demo
         if let demoActivatedAt
         {
-            var timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSince(.now)
+            var timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSinceNow
             
-            if timeIntervalSinceDemoWasActivated > AppConstants.demoLengthInSeconds
+            if timeIntervalSinceDemoWasActivated < AppConstants.demoLengthInSeconds
             {
                 return true
             }
@@ -69,13 +71,39 @@ struct Licensing_NotBoughtOrActivatedView: View
                 
                 Spacer()
                 
-                Button
+                if let demoActivatedAt
                 {
-                    demoActivatedAt = .now
-                } label: {
-                    Text("action.activate-demo")
+                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                    { // Check if there is still time on the demo
+                        Button
+                        {
+                            dismiss()
+                        } label: {
+                            Text("action.close")
+                        }
+                        .keyboardShortcut(.cancelAction)
+                    }
+                    else
+                    {
+                        Button
+                        {
+                            
+                        } label: {
+                            Text("action.activate-demo")
+                        }
+                        .disabled(isDemoButtonDisabled)
+                    }
                 }
-                .disabled(isDemoButtonDisabled)
+                else
+                {
+                    Button
+                    {
+                        demoActivatedAt = .now
+                    } label: {
+                        Text("action.activate-demo")
+                    }
+                    .disabled(isDemoButtonDisabled)
+                }
                 
                 Button
                 {
@@ -88,11 +116,12 @@ struct Licensing_NotBoughtOrActivatedView: View
             }
         }
         .padding()
+        .fixedSize()
         .onAppear
         {
             if let demoActivatedAt
             {
-                var timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSince(.now)
+                var timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSinceNow
                 AppConstants.logger.debug("Time interval since demo was activated: \(timeIntervalSinceDemoWasActivated, privacy: .public)")
             }
         }
