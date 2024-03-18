@@ -68,25 +68,18 @@ struct CorkApp: App
                 .environmentObject(topPackagesTracker)
                 .task 
                 {
-                    print("[LICENSING]: Will try to send the request")
-                    
-                    var hasUserWithThisEmailBoughtCork: Bool = false
+                    AppConstants.logger.debug("[LICENSING]: Will try to send the request")
                     
                     do
                     {
-                        let licensingResponse: Data = try await downloadDataFromURL(URL(string: "https://automation.tomoserver.eu/webhook-test/38aacca6-5da8-453c-a001-804b15751319")!, parameters: [URLQueryItem(name: "requestedEmail", value: "buresdv@gmail.com")])
+                        var hasUserWithThisEmailBoughtCork: Bool = try await checkIfUserBoughtCork(for: "schirmag@gmail.com")
                         
-                        print("[LICENSING]: Email found")
-                        
-                        hasUserWithThisEmailBoughtCork = true
+                        AppConstants.logger.info("[LICENSING]: Has user bought Cork? \(hasUserWithThisEmailBoughtCork ? "YES" : "NO")")
                     }
-                    catch let error
+                    catch let licensingError
                     {
-                        print("[LICENSING]: Email not found: \(error)")
-                        
-                        hasUserWithThisEmailBoughtCork = false
+                        AppConstants.logger.error("Could not get licensing info: \(licensingError)")
                     }
-                    
                 }
                 .task
                 {
