@@ -23349,6 +23349,16 @@
         }
       }
     },
+    "start-page.upcoming-changes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read about important changes to Cork"
+          }
+        }
+      }
+    },
     "start-page.update-incremental.package-count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {

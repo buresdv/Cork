@@ -41,9 +41,25 @@ struct StartPage: View
                                 .transition(.move(edge: .top))
                                 .animation(.easeIn, value: appState.isCheckingForPackageUpdates)
                         } header: {
-                            Text("start-page.status")
-                                .font(.title)
-                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            HStack(alignment: .center, spacing: 10)
+                            {
+                                Text("start-page.status")
+                                    .font(.title)
+                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                
+                                Button
+                                {
+                                    NSWorkspace.shared.open(URL(string: "https://blog.corkmac.app/p/upcoming-changes-to-the-install-process")!)
+                                } label: {
+                                    Text("start-page.upcoming-changes")
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 1)
+                                        .foregroundColor(.white)
+                                        .background(.blue)
+                                        .clipShape(.capsule)
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
 
                         Section
