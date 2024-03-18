@@ -541,6 +541,11 @@ struct ContentView: View, Sendable
                         customHomebrewPath = ""
                     })
                 )
+            case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
+                return Alert(
+                    title: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.title"),
+                    message: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.message")
+                )
             }
         })
     }

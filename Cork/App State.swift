@@ -67,10 +67,16 @@ class AppState: ObservableObject {
     
     @Published var corruptedPackage: String = ""
     
-    // MARK: - Licensing
-    func decideIfShouldShowLicensingSheet()
+    // MARK: - Showing errors
+    func showAlert(errorToShow: FatalAlertType)
     {
-        
+        self.fatalAlertType = errorToShow
+        self.isShowingFatalError = true
+    }
+    
+    func dismissAlert()
+    {
+        self.isShowingFatalError = false
     }
     
     // MARK: - Notification setup
