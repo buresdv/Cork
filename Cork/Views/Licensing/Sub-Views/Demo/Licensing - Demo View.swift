@@ -9,9 +9,47 @@ import SwiftUI
 
 struct Licensing_DemoView: View
 {
+    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    
+    @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject var appState: AppState
+    
     var body: some View
     {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center, spacing: 20)
+        {
+            if let demoActivatedAt
+            {
+                Text("licensing.demo-activated.title")
+                    .font(.title)
+                
+                Text("licensing.demo.time-until-\((demoActivatedAt + AppConstants.demoLengthInSeconds).formatted(date: .complete, time: .complete))")
+                
+                HStack
+                {
+                    Button
+                    {
+                        dismiss()
+                    } label: {
+                        Text("action.close")
+                    }
+                    .keyboardShortcut(.cancelAction)
+                    
+                    Spacer()
+                    
+                    Button
+                    {
+                        appState.licensingState = .notBoughtOrHasNotActivatedDemo
+                    } label: {
+                        Text("action.check-license")
+                    }
+                    .keyboardShortcut(.defaultAction)
+                }
+            }
+        }
+        .padding()
+        .fixedSize()
     }
 }
 

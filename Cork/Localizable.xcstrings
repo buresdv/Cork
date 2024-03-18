@@ -9490,6 +9490,26 @@
         }
       }
     },
+    "licensing.demo-activated.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Demo Mode"
+          }
+        }
+      }
+    },
+    "licensing.demo.time-until-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The demo is available until %@"
+          }
+        }
+      }
+    },
     "licensing.email" : {
       "localizations" : {
         "en" : {
@@ -9536,6 +9556,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "for 25€"
+          }
+        }
+      }
+    },
+    "licensing.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License…"
           }
         }
       }

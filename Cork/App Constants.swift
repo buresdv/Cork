@@ -15,9 +15,6 @@ struct AppConstants
     // MARK: - Logging
     static let logger: Logger = Logger(subsystem: "com.davidbures.cork", category: "Cork")
     
-    // MARK: - Licensing
-    static let demoLengthInSeconds: Double = 604800 // 7 days
-    
     // MARK: - Notification stuff
     static let notificationCenter = UNUserNotificationCenter.current()
     
@@ -124,7 +121,9 @@ struct AppConstants
     static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)
     
     // MARK: - Licensing
-    static let authorizationEndpointURL: URL = URL(string: "https://automation.tomoserver.eu/webhook-test/38aacca6-5da8-453c-a001-804b15751319")!
+    static let demoLengthInSeconds: Double = 604800 // 7 days
+    
+    static let authorizationEndpointURL: URL = URL(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
     static let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
     
     // MARK: - Misc Stuff
