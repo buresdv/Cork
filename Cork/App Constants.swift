@@ -15,6 +15,9 @@ struct AppConstants
     // MARK: - Logging
     static let logger: Logger = Logger(subsystem: "com.davidbures.cork", category: "Cork")
     
+    // MARK: - Licensing
+    static let demoLengthInSeconds: Double = 604800 // 7 days
+    
     // MARK: - Notification stuff
     static let notificationCenter = UNUserNotificationCenter.current()
     
