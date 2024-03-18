@@ -10,6 +10,7 @@ import SwiftUI
 struct LicensingView: View
 {
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
     
     @EnvironmentObject var appState: AppState
     
@@ -28,22 +29,26 @@ struct LicensingView: View
         }
         .onAppear
         {
-            if let demoActivatedAt
+            AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
+            
+            if hasValidatedEmail
             {
-                if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
-                { // Check if there is still time on the demo
-                    appState.licensingState = .demo
-                }
-                else
+                appState.licensingState = .bought
+            }
+            else
+            {
+                if let demoActivatedAt
                 {
-                    appState.licensingState = .notBoughtOrHasNotActivatedDemo
+                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                    { // Check if there is still time on the demo
+                        appState.licensingState = .demo
+                    }
+                    else
+                    {
+                        appState.licensingState = .notBoughtOrHasNotActivatedDemo
+                    }
                 }
             }
         }
     }
-}
-
-#Preview
-{
-    LicensingView()
 }
