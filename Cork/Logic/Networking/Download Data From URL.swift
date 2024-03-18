@@ -41,6 +41,7 @@ func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async th
     
     guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else
     {
+        AppConstants.logger.error("Received invalid networking response: \(response)")
         throw DataDownloadingError.invalidResponseCode
     }
     
