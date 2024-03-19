@@ -35,8 +35,7 @@ Cork is not just an interface for Homebrew. It has many features that are either
 
 Pre-compiled, always up-to-date versions are available from my Homebrew tap. You can get access to it in a few ways:
 
-- Buy Cork for 25€ through the [website](https://corkmac.app) or [GitHub Sponsors](https://github.com/sponsors/buresdv?frequency=one-time&sponsor=buresdv). You will get access to all future versions at no additional cost.
-- Donate at least 5€/month to support the ongoing development of Cork. You can donate through [Ko-Fi](https://ko-fi.com/buresdv) or [GitHub Sponsors](https://github.com/sponsors/buresdv). Additionally, you will also get priority support.
+- Buy Cork for 25€ through the [website](https://corkmac.app). You will get access to all future versions at no additional cost.
 - Become a contributor. For example, you can:
   - Translate Cork into your language, and keep your translation updated. I'd recommend joining the [Cork Discord](https://discord.gg/kUHg8uGHpG), as I always ping the translators there when new text is ready for translating.
     If you aren't sure how to go about translating Cork, I'd recommend asking the translation team on Discord. They have the `Linguist` role.
