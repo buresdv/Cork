@@ -1399,6 +1399,22 @@
         }
       }
     },
+    "about.privacy-policy" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Zásady ochrany osobních údajů\n](https://corkmac.app/privacy-cs.html)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
+          }
+        }
+      }
+    },
     "about.thanks" : {
       "localizations" : {
         "cs" : {
@@ -23351,6 +23367,12 @@
     },
     "start-page.upcoming-changes" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přečtěte si o změnách (EN)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",

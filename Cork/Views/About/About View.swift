@@ -136,7 +136,7 @@ struct AboutView: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                VStack
+                VStack(alignment: .leading)
                 {
                     DisclosureGroup(isExpanded: $isPackageGroupExpanded)
                     {
@@ -257,6 +257,10 @@ struct AboutView: View
                         Text("about.translators")
                     }
                     .animation(.none, value: isTranslatorGroupExpanded)
+                    
+                    Text("about.privacy-policy")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                 }
 
                 HStack
