@@ -29,15 +29,15 @@ struct AppConstants
         {
             switch proxyRetrievalError
             {
-            case .couldNotGetProxyStatus:
-                    AppConstants.logger.warning("Could not get proxy status")                    
-                return nil
-            case .couldNotGetProxyHost:
+                case .couldNotGetProxyStatus:
+                    AppConstants.logger.warning("Could not get proxy status")
+                    return nil
+                case .couldNotGetProxyHost:
                     AppConstants.logger.warning("Could not get proxy host")
-                return nil
-            case .couldNotGetProxyPort:
+                    return nil
+                case .couldNotGetProxyPort:
                     AppConstants.logger.warning("Could not get proxy port")
-                return nil
+                    return nil
             }
         }
         catch let unknownError
@@ -46,9 +46,9 @@ struct AppConstants
             return nil
         }
     }()
-
+    
     // MARK: - Basic executables and file locations
-
+    
     static let brewExecutablePath: URL =
     {
         /// If a custom Homebrew path is defined, use it. Otherwise, use the default paths
@@ -67,7 +67,7 @@ struct AppConstants
             }
         }
     }()
-
+    
     static let brewCellarPath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Cellar")
@@ -79,7 +79,7 @@ struct AppConstants
             return URL(string: "/usr/local/Cellar")!
         }
     }()
-
+    
     static let brewCaskPath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Caskroom")
@@ -91,7 +91,7 @@ struct AppConstants
             return URL(string: "/usr/local/Caskroom")!
         }
     }()
-
+    
     static let tapPath: URL =
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Library/Taps")
@@ -103,27 +103,33 @@ struct AppConstants
             return URL(string: "/usr/local/Homebrew/Library/Taps")!
         }
     }()
-
+    
     // MARK: - Storage for tagging
-
+    
     static let documentsDirectoryPath: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cork", conformingTo: .directory)
     static let metadataFilePath: URL = documentsDirectoryPath.appendingPathComponent("Metadata", conformingTo: .data)
-
+    
     // MARK: - Brew Cache
-
+    
     static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
-
+    
     /// These two have the symlinks to the actual downloads
     static let brewCachedFormulaeDownloadsPath: URL = brewCachePath
     static let brewCachedCasksDownloadsPath: URL = brewCachePath.appendingPathComponent("Cask", conformingTo: .directory)
-
+    
     /// This one has all the downloaded files themselves
     static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)
+    
+    // MARK: - Licensing
+    static let demoLengthInSeconds: Double = 604800 // 7 days
+    
+    static let authorizationEndpointURL: URL = URL(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
+    static let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
     
     // MARK: - Misc Stuff
     static let backgroundUpdateInterval: TimeInterval = 10 * 60
     static let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60
-
+    
     static let osVersionString: (lookupName: String, fullName: String) =
     {
         let versionDictionary: [Int: (lookupName: String, fullName: String)] = [
@@ -133,9 +139,9 @@ struct AppConstants
             11: ("big_sur", "Big Sur"),
             10: ("legacy", "Legacy")
         ]
-
+        
         let macOSVersionTheUserIsRunning: Int = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
-
+        
         return versionDictionary[macOSVersionTheUserIsRunning, default: ("legacy", "Legacy")]
     }()
 }

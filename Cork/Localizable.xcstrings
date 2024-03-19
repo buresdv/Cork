@@ -2414,6 +2414,16 @@
         }
       }
     },
+    "action.check-email" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check"
+          }
+        }
+      }
+    },
     "action.clear-metadata" : {
       "localizations" : {
         "cs" : {
@@ -24989,6 +24999,96 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移除 %@"
+          }
+        }
+      }
+    },
+    "temporary-licensing.email-%@-invalid" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ does not seem to be a valid email address"
+          }
+        }
+      }
+    },
+    "temporary-licensing.email-%@-valid" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is a valid email address"
+          }
+        }
+      }
+    },
+    "temporary-licensing.email-field.prompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        }
+      }
+    },
+    "temporary-licensing.sheet.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As per the [article](https://blog.corkmac.app/p/upcoming-changes-to-the-install-process), you can check if your email was correctly migrated."
+          }
+        }
+      }
+    },
+    "temporary-licensing.sheet.email-invalid-instructions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you put in the correct email address, send me a message to dev@corkmac.app and we'll get it fixed."
+          }
+        }
+      }
+    },
+    "temporary-licensing.sheet.email-title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email you bought Cork with:"
+          }
+        }
+      }
+    },
+    "temporary-licensing.sheet.email-valid-instructions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You'll be able to use this email address to validate your Cork license in the next version!"
+          }
+        }
+      }
+    },
+    "temporary-licensing.sheet.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check if your email is correct"
+          }
+        }
+      }
+    },
+    "temporary-licensing.show-sheet" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your email"
           }
         }
       }
