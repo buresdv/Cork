@@ -1418,6 +1418,12 @@
             "state" : "translated",
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Политика конфиденциальности](https://corkmac.app/privacy-ru.html)"
+          }
         }
       }
     },
@@ -2369,6 +2375,12 @@
             "state" : "translated",
             "value" : "Try Demo"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо-режим"
+          }
         }
       }
     },
@@ -2378,6 +2390,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buy Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Купить Cork"
           }
         }
       }
@@ -2440,6 +2458,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activate"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активировать"
           }
         }
       }
@@ -7853,6 +7877,12 @@
             "state" : "translated",
             "value" : "Check if your network is working properly, then try again"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, проверьте интернет-соединение и попробуйте еще раз"
+          }
         }
       }
     },
@@ -7862,6 +7892,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not establish a secure connection to authorization server"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось установить безопасное соединение с сервером авторизации"
           }
         }
       }
@@ -9541,6 +9577,12 @@
             "state" : "translated",
             "value" : "Thank you for supporting Cork!"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Благодарим вас за вашу поддержку!"
+          }
         }
       }
     },
@@ -9550,6 +9592,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License Activated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лицензия активирована"
           }
         }
       }
@@ -9561,6 +9609,12 @@
             "state" : "translated",
             "value" : "In Demo Mode"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо-режим"
+          }
         }
       }
     },
@@ -9570,6 +9624,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The demo is available until %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демонстрационный режим заканчивается в: %@"
           }
         }
       }
@@ -9581,12 +9641,24 @@
             "state" : "translated",
             "value" : "Email you bought Cork with:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите Email, указанный при покупке:"
+          }
         }
       }
     },
     "licensing.email-field.prompt" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -9601,6 +9673,12 @@
             "state" : "translated",
             "value" : "Email not found"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email не найден"
+          }
         }
       }
     },
@@ -9610,6 +9688,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы можете купить Cork, нажав на кнопку снизу или посетив [эту страницу](https://corkmac.ru).\nВы также можете активировать демо-режим и пользоваться Cork бесплатно и без ограничений на протяжении 7 дней."
           }
         }
       }
@@ -9621,6 +9705,12 @@
             "state" : "translated",
             "value" : "Thank you for checking out Cork!"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Благодарим вас за интерес к Cork!"
+          }
         }
       }
     },
@@ -9631,6 +9721,12 @@
             "state" : "translated",
             "value" : "for 25€"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "за 999 ₽"
+          }
         }
       }
     },
@@ -9640,6 +9736,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лицензия..."
           }
         }
       }
@@ -12802,6 +12904,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск"
           }
         }
       }
@@ -23651,6 +23759,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Read about important changes to Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новости о важных изменениях Cork"
           }
         }
       }
