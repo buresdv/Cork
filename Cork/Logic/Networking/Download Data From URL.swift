@@ -9,7 +9,7 @@ import Foundation
 
 enum DataDownloadingError: Error
 {
-    case invalidResponseCode, noDataReceived
+    case invalidResponseCode, noDataReceived, invalidURL
 }
 
 func downloadDataFromURL(_ url: URL) async throws -> Data
