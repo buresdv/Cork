@@ -14,6 +14,8 @@ struct Licensing_BoughtView: View
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
     
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var appState: AppState
     
     var body: some View
@@ -29,10 +31,16 @@ struct Licensing_BoughtView: View
             {
                 Button
                 {
-                    hasFinishedLicensingWorkflow = true // Make it so that the sheet doesn't show up all the time anymore
+                    dismiss()
+                    if !hasFinishedLicensingWorkflow
+                    {
+                        hasFinishedLicensingWorkflow = true // Make it so that the sheet doesn't show up all the time anymore
+                    }
                 } label: {
                     Text("action.close")
                 }
+                .keyboardShortcut(.cancelAction)
+                .keyboardShortcut(.defaultAction)
             }
         }
         .padding()

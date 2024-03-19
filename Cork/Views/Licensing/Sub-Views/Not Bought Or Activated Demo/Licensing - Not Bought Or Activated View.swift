@@ -112,7 +112,7 @@ struct Licensing_NotBoughtOrActivatedView: View
                     {
                         Button
                         {
-                            /// Nopthing should be here, since the demo cannot be activated again
+                            /// Nothing should be here, since the demo cannot be activated again
                         } label: {
                             Text("action.activate-demo")
                         }
