@@ -174,7 +174,7 @@ struct StartPage: View
     
     var temporaryLicensingSheet: some View
     {
-        VStack(alignment: .center, spacing: 20)
+        VStack(alignment: .center, spacing: 15)
         {
             Text("temporary-licensing.sheet.title")
                 .font(.title)
