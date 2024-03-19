@@ -22,6 +22,11 @@ struct Licensing_BoughtView: View
     {
         VStack(alignment: .center, spacing: 20)
         {   
+            Image(systemName: "checkmark.seal")
+                .resizable()
+                .foregroundColor(.green)
+                .frame(width: 50, height: 50)
+            
             Text("licensing.bought.title")
                 .font(.title)
             
@@ -44,6 +49,7 @@ struct Licensing_BoughtView: View
             }
         }
         .padding()
+        .fixedSize()
         .onAppear
         {
             demoActivatedAt = nil // Reset the demo, since it won't be needed anymore
