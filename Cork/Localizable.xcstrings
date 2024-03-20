@@ -1407,6 +1407,12 @@
             "value" : "[Zásady ochrany osobních údajů\n](https://corkmac.app/privacy-cs.html)"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Datenschutzerklärung](https://corkmac.app/privacy-en.html)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3199,6 +3205,12 @@
             "value" : "Resetovat umístění"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausführbare Datei auf standardmäßigen Speicherort zurücksetzen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3387,6 +3399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Odeslat zpětnou vazbu"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback absenden"
           }
         },
         "en" : {
@@ -7764,6 +7782,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Umístění Homebrew se nepovedlo najít"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konnte die benutzerdefinierte, ausführbare Homebrew-Datei nicht finden"
           }
         },
         "en" : {
@@ -12608,6 +12632,12 @@
             "value" : "Hledat"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16973,6 +17003,12 @@
             "value" : "Umístění Homebrew:"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew-Speicherort"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17005,6 +17041,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nastavit vlastní umístění"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefinierten Speicherort setzen"
           }
         },
         "en" : {
@@ -17041,6 +17083,12 @@
             "value" : "Vlastní umístění Homebrew nejsou oficiálně podporována.\nPokud si nastavíte vlastní umístění Homebrew, nebude Vám poskytnuta podpora pro Cork ani Homebrew.\nPokud si nastavíte vlastní umístění Homebrew, budete se muset sami starat o udržování vaší Homebrew instalace."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefinierte Speicherorte für Homebrew werden nicht offiziell unterstützt. Wenn du einen benutzerdefinierten Speicherort gewählt hast, wirst du keinerlei Kundenbetreuung für Cork oder Homebrew erhalten. Falls du einen benutzerdefinierten Speicherort für Homebrew wählst, bist du selbst für die Wartung deiner Homebrew-Installation verantwortlich."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17073,6 +17121,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opravdu chcete nastavit vlastní umístění Homebrew?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist du sicher, dass du einen benutzerdefinierten Homebrew Speicherort setzen möchtest?"
           }
         },
         "en" : {
@@ -17109,6 +17163,12 @@
             "value" : "%@ není spustitelný soubor Homebrew."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ist keine ausführbare Homebrew-Datei."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17143,6 +17203,12 @@
             "value" : "Vybraný soubor není spustitelný."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die ausgewählte Datei ist nicht ausführbar."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17175,6 +17241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwendet %@"
           }
         },
         "en" : {
@@ -17212,6 +17284,12 @@
             "value" : "Používá se vlastní umístění"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwendet benutzerdefinierten Speicherort"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17238,6 +17316,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Výchozí umístění"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwendet standardmäßigen  Homebrew-Speicherort"
           }
         },
         "en" : {
@@ -17274,6 +17358,12 @@
             "value" : "Resetovat umístění"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speicherort zurücksetzen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17306,6 +17396,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vybrat vlastní umístění"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefinierten Speicherort wählen"
           }
         },
         "en" : {
@@ -17342,6 +17438,12 @@
             "value" : "Dokud budou vývojářská nastavení zapnutá, nebudeme Vám poskytovat podporu"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da die Entwicklereinstellungen aktiviert sind, wird keine Kundenbetreuung gewährleistet."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17374,6 +17476,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Povolit vývojářská nastavení"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entwicklereinstellungen aktivieren"
           }
         },
         "en" : {
@@ -23371,6 +23479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Přečtěte si o změnách (EN)"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erfahre mehr über wichtige Änderungen an Cork"
           }
         },
         "en" : {
