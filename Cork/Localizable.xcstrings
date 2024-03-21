@@ -7830,6 +7830,16 @@
         }
       }
     },
+    "alert.fatal.could-not-synchronize-packages.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not synchronize packages"
+          }
+        }
+      }
+    },
     "alert.fatal.custom-brew-executable-deleted.title" : {
       "localizations" : {
         "cs" : {

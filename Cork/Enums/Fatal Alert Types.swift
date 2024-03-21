@@ -20,6 +20,7 @@ enum FatalAlertType
     case couldNotAssociateAnyPackageWithProvidedPackageUUID
     case couldNotFindPackageInParentDirectory
     case fatalPackageInstallationError
+    case couldNotSynchronizePackages
     
     //MARK: - Brewfile exporting/importing
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile, couldNotReadBrewfile
