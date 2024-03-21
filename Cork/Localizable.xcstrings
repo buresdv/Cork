@@ -1418,6 +1418,12 @@
             "state" : "translated",
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Политика конфиденциальности](https://corkmac.app/privacy-en.html)"
+          }
         }
       }
     },
@@ -12643,6 +12649,12 @@
             "state" : "translated",
             "value" : "Search"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск"
+          }
         }
       }
     },
@@ -17299,7 +17311,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Используется нестандартный путь"
+            "value" : "Используется пользовательский путь"
           }
         },
         "zh-Hant" : {
@@ -23491,6 +23503,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Read about important changes to Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предстоящие изменения в Cork"
           }
         }
       }
