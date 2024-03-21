@@ -71,6 +71,12 @@
 		6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */; };
 		6342118329AA9CF100E2563B /* Ready View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342118229AA9CF100E2563B /* Ready View.swift */; };
 		634838A629C1D69F00D3C692 /* Outdated Package Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634838A529C1D69F00D3C692 /* Outdated Package Tracker.swift */; };
+		6348D90B2BAC8D9800DBBC55 /* Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90A2BAC8D9800DBBC55 /* Service Details.swift */; };
+		6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */; };
+		6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */; };
+		6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */; };
+		6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9152BAC909600DBBC55 /* Parse Service Details.swift */; };
+		6348D9182BAC986300DBBC55 /* Service Header Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9172BAC986300DBBC55 /* Service Header Complex.swift */; };
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */; };
 		635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04D2A2B3818004DCBD8 /* Casks Section.swift */; };
@@ -318,6 +324,12 @@
 		6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance Pane.swift"; sourceTree = "<group>"; };
 		6342118229AA9CF100E2563B /* Ready View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ready View.swift"; sourceTree = "<group>"; };
 		634838A529C1D69F00D3C692 /* Outdated Package Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Tracker.swift"; sourceTree = "<group>"; };
+		6348D90A2BAC8D9800DBBC55 /* Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Details.swift"; sourceTree = "<group>"; };
+		6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Service Info View.swift"; sourceTree = "<group>"; };
+		6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locations View.swift"; sourceTree = "<group>"; };
+		6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Service Details.swift"; sourceTree = "<group>"; };
+		6348D9152BAC909600DBBC55 /* Parse Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Service Details.swift"; sourceTree = "<group>"; };
+		6348D9172BAC986300DBBC55 /* Service Header Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Header Complex.swift"; sourceTree = "<group>"; };
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpin Package.swift"; sourceTree = "<group>"; };
 		635BE04D2A2B3818004DCBD8 /* Casks Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Casks Section.swift"; sourceTree = "<group>"; };
@@ -844,6 +856,33 @@
 			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
+		6348D90C2BAC8DBC00DBBC55 /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */,
+				6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */,
+				6348D9172BAC986300DBBC55 /* Service Header Complex.swift */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		6348D9112BAC8E7800DBBC55 /* Service Details */ = {
+			isa = PBXGroup;
+			children = (
+				6348D9142BAC908A00DBBC55 /* Parsing */,
+				6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */,
+			);
+			path = "Service Details";
+			sourceTree = "<group>";
+		};
+		6348D9142BAC908A00DBBC55 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				6348D9152BAC909600DBBC55 /* Parse Service Details.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
 		635BE04C2A2B3801004DCBD8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1011,6 +1050,7 @@
 			children = (
 				637D53932BAB517000E072DA /* Services Tracker.swift */,
 				637D53952BAB517800E072DA /* Service.swift */,
+				6348D90A2BAC8D9800DBBC55 /* Service Details.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1034,6 +1074,7 @@
 		637D539D2BAB548F00E072DA /* Service Detail */ = {
 			isa = PBXGroup;
 			children = (
+				6348D90C2BAC8DBC00DBBC55 /* Sub-Views */,
 				637D539E2BAB549D00E072DA /* Service Detail.swift */,
 			);
 			path = "Service Detail";
@@ -1042,6 +1083,7 @@
 		637D53A02BAB55C500E072DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6348D9112BAC8E7800DBBC55 /* Service Details */,
 				637D53A52BAB578900E072DA /* Parsing */,
 				637D53A12BAB55E100E072DA /* Load up Services.swift */,
 			);
@@ -1786,6 +1828,7 @@
 				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
 				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
+				6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
@@ -1870,6 +1913,7 @@
 				6387A67A2AE9258B00517436 /* Extras Category.swift in Sources */,
 				63ACBBE12BA88F6600B26D7E /* Check If User Bought Cork.swift in Sources */,
 				63A8D2F129CA343F00E892FB /* Save Tagged IDs to Disk.swift in Sources */,
+				6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				6386529E2A88F1070001679E /* Send Notification.swift in Sources */,
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
@@ -1909,6 +1953,7 @@
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */,
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
+				6348D9182BAC986300DBBC55 /* Service Header Complex.swift in Sources */,
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */,
 				63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */,
@@ -1944,6 +1989,7 @@
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */,
+				6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */,
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */,
@@ -1957,6 +2003,7 @@
 				6387A66F2AE8051600517436 /* Button - Large Button.swift in Sources */,
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
 				63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */,
+				6348D90B2BAC8D9800DBBC55 /* Service Details.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				6317BF712ADEE1FD0018E425 /* Top Packages Section.swift in Sources */,
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
@@ -1971,6 +2018,7 @@
 				633AA2242AFEE40500A5F3E3 /* DataFile.swift in Sources */,
 				63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
+				6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */,
 				63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */,
 				637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,

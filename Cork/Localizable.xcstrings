@@ -9309,6 +9309,26 @@
         }
       }
     },
+    "generic.false" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        }
+      }
+    },
+    "generic.true" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        }
+      }
+    },
     "GitHub" : {
       "localizations" : {
         "cs" : {
@@ -17171,6 +17191,16 @@
         }
       }
     },
+    "service-details.contents.loading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading service info…"
+          }
+        }
+      }
+    },
     "service-status-page.active-services-%lld" : {
       "localizations" : {
         "en" : {
@@ -17329,12 +17359,32 @@
         }
       }
     },
+    "service.error-log-location.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error Log Location"
+          }
+        }
+      }
+    },
     "service.exit-code.label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exit Code"
+          }
+        }
+      }
+    },
+    "service.loaded.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Is Loaded"
           }
         }
       }
@@ -17349,6 +17399,16 @@
         }
       }
     },
+    "service.log-location.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log Location"
+          }
+        }
+      }
+    },
     "service.name.label" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -17356,6 +17416,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        }
+      }
+    },
+    "service.root-location.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Root Location"
+          }
+        }
+      }
+    },
+    "service.schedulable.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedulable"
           }
         }
       }

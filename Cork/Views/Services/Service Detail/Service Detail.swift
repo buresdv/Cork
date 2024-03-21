@@ -7,57 +7,89 @@
 
 import SwiftUI
 
+enum ReasonsForServiceLoadingFailure
+{
+    case couldNotDecipherJSON
+    case couldNotParseJSON
+}
+
 struct ServiceDetailView: View
 {
     let service: HomebrewService
 
+    @State private var serviceDetails: ServiceDetails?
+    
+    @State private var isLoadingDetails: Bool = true
+    
+    @State private var erroredOutWhileLoadingServiceDetails: Bool = false
+    
+    // TODO: Implement this
+    @State private var reasonForServiceLoadingFailure: ReasonsForServiceLoadingFailure = .couldNotDecipherJSON
+    
     var body: some View
     {
-        FullSizeGroupedForm
+        VStack(alignment: .leading, spacing: 0)
         {
-            Section
+            if isLoadingDetails
             {
-                if let serviceUser = service.user
+                ProgressView
                 {
-                    LabeledContent
+                    Text("service-details.contents.loading")
+                }
+            }
+            else
+            {
+                if erroredOutWhileLoadingServiceDetails
+                {
+                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json")
+                }
+                else
+                {
+                    FullSizeGroupedForm
                     {
-                        Text(serviceUser)
-                    } label: {
-                        Text("service.user.label")
+                        ServiceHeaderComplex(service: service)
+                        
+                        BasicServiceInfoView(service: service, serviceDetails: serviceDetails)
+                        
+                        ServiceLocationsView(service: service, serviceDetails: serviceDetails)
                     }
                 }
-                
-                LabeledContent
-                {
-                    Text(service.status.displayableName)
-                } label: {
-                    Text("service.status.label")
-                }
-
-                if let serviceExitCode = service.exitCode
-                {
-                    LabeledContent
-                    {
-                        Text(String(serviceExitCode))
-                    } label: {
-                        Text("service.exit-code.label")
-                    }
-                }
-
-            } header: {
-                Text(service.name)
-                    .font(.title)
+            }
+        }
+        .task(priority: .userInitiated)
+        {
+            AppConstants.logger.log("Service details pane for service \(service.name) appeared; will try to load details")
+            
+            defer
+            {
+                isLoadingDetails = false
             }
             
-            Section
+            do
             {
-                LabeledContent
+                serviceDetails = try await loadUpServiceDetails(serviceToLoad: service)
+            }
+            catch let servicesLoadingError
+            {
+                
+                erroredOutWhileLoadingServiceDetails = true
+                
+                // TODO: Implement this
+                if servicesLoadingError is JSONError
                 {
-                    Text(service.location.absoluteString)
-                } label: {
-                    Text("service.location.label")
+                    
+                }
+                else if servicesLoadingError is HomebrewServiceLoadingError
+                {
+                    
                 }
             }
+        }
+        .onDisappear
+        {
+            AppConstants.logger.log("Service details pane for \(service.name) disappeared; will purge details tracker")
+            
+            serviceDetails = nil
         }
     }
 }
