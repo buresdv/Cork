@@ -2428,6 +2428,12 @@
     },
     "action.check-email" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolovat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25053,6 +25059,12 @@
     },
     "temporary-licensing.email-%@-invalid" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ zřejmě není platný email"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25075,6 +25087,12 @@
     },
     "temporary-licensing.email-%@-valid" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ je platný email"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25097,6 +25115,12 @@
     },
     "temporary-licensing.email-field.prompt" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25119,6 +25143,12 @@
     },
     "temporary-licensing.sheet.body" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jak bylo [avizováno (EN)](https://blog.corkmac.app/p/upcoming-changes-to-the-install-process), v další verzi Corku se budete muset ověřit emailem.\nZde si zkontrolujete, jestli byl váš email správně přemigrován."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25141,6 +25171,12 @@
     },
     "temporary-licensing.sheet.email-invalid-instructions" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokud si jste jistí, že jste zadali správný email, napište mi na email dev@corkmac.app a pořešíme to."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25163,6 +25199,12 @@
     },
     "temporary-licensing.sheet.email-title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email, který jste použili při kupování Corku:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25185,6 +25227,12 @@
     },
     "temporary-licensing.sheet.email-valid-instructions" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V další verzi Corku použijte tento email pro aktivaci vaší licence."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25207,6 +25255,12 @@
     },
     "temporary-licensing.sheet.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolujte, jestli je váš email v systému"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25229,6 +25283,12 @@
     },
     "temporary-licensing.show-sheet" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolovat email"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
