@@ -1424,6 +1424,12 @@
             "state" : "translated",
             "value" : "[Политика конфиденциальности](https://corkmac.app/privacy-ru.html)"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[隐私政策](https://corkmac.app/privacy-en.html)"
+          }
         }
       }
     },
@@ -2381,6 +2387,12 @@
             "state" : "translated",
             "value" : "Демо-режим"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "试用 demo 版本"
+          }
         }
       }
     },
@@ -2396,6 +2408,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Купить Cork"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "购买 Cork"
           }
         }
       }
@@ -2464,6 +2482,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Активировать"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "激活"
           }
         }
       }
@@ -7837,6 +7861,12 @@
             "state" : "translated",
             "value" : "Could not synchronize packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法同步软件包"
+          }
         }
       }
     },
@@ -7893,6 +7923,12 @@
             "state" : "translated",
             "value" : "Пожалуйста, проверьте интернет-соединение и попробуйте еще раз"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请检查你的网络是否正常，然后重试"
+          }
         }
       }
     },
@@ -7908,6 +7944,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось установить безопасное соединение с сервером авторизации"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法与认证服务器建立安全连接"
           }
         }
       }
@@ -9593,6 +9635,12 @@
             "state" : "translated",
             "value" : "Благодарим вас за вашу поддержку!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢你对 Cork 的支持!"
+          }
         }
       }
     },
@@ -9608,6 +9656,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Лицензия активирована"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许可证已激活"
           }
         }
       }
@@ -9625,6 +9679,12 @@
             "state" : "translated",
             "value" : "Демо-режим"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在试用 demo 模式"
+          }
         }
       }
     },
@@ -9640,6 +9700,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Демонстрационный режим заканчивается в: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "demo 版本将于 %@ 过期"
           }
         }
       }
@@ -9657,6 +9723,12 @@
             "state" : "translated",
             "value" : "Введите Email, указанный при покупке:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你购买 Cork 的电子邮件"
+          }
         }
       }
     },
@@ -9669,6 +9741,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -9689,6 +9767,12 @@
             "state" : "translated",
             "value" : "Email не найден"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法找到电子邮件"
+          }
         }
       }
     },
@@ -9704,6 +9788,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы можете купить Cork, нажав на кнопку снизу или посетив [эту страницу](https://corkmac.ru).\nВы также можете активировать демо-режим и пользоваться Cork бесплатно и без ограничений на протяжении 7 дней."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你可以使用下面的按钮购买 Cork，或者访问[官网](https://corkmac.app)。\n不确定 Cork 是否适合你？试用 demo 版本，有效期为 7 天"
           }
         }
       }
@@ -9721,6 +9811,12 @@
             "state" : "translated",
             "value" : "Благодарим вас за интерес к Cork!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢下载 Cork!"
+          }
         }
       }
     },
@@ -9737,6 +9833,12 @@
             "state" : "translated",
             "value" : "за 999 ₽"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "价格 25€"
+          }
         }
       }
     },
@@ -9752,6 +9854,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Лицензия..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许可证..."
           }
         }
       }
@@ -12920,6 +13028,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索"
           }
         }
       }
@@ -23775,6 +23889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новости о важных изменениях Cork"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于 Cork 的重要变化"
           }
         }
       }
