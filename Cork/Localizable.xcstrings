@@ -1430,7 +1430,7 @@
             "state" : "translated",
             "value" : "[隐私政策](https://corkmac.app/privacy-en.html)"
           }
-        }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2399,6 +2399,12 @@
             "state" : "translated",
             "value" : "试用 demo 版本"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試用"
+          }
         }
       }
     },
@@ -2420,6 +2426,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "购买 Cork"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購買 Cork"
           }
         }
       }
@@ -2494,6 +2506,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "激活"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "啟用"
           }
         }
       }
@@ -7873,6 +7891,12 @@
             "state" : "translated",
             "value" : "无法同步软件包"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法同步套件"
+          }
         }
       }
     },
@@ -7935,6 +7959,12 @@
             "state" : "translated",
             "value" : "请检查你的网络是否正常，然后重试"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請檢查您的網路連線，然後重試"
+          }
         }
       }
     },
@@ -7956,6 +7986,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法与认证服务器建立安全连接"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法與授權伺服器設立安全連線"
           }
         }
       }
@@ -9647,6 +9683,12 @@
             "state" : "translated",
             "value" : "感谢你对 Cork 的支持!"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感謝您支持 Cork！"
+          }
         }
       }
     },
@@ -9668,6 +9710,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "许可证已激活"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授權啟動"
           }
         }
       }
@@ -9691,6 +9739,12 @@
             "state" : "translated",
             "value" : "正在试用 demo 模式"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試用模式"
+          }
         }
       }
     },
@@ -9712,6 +9766,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "demo 版本将于 %@ 过期"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "試用期將於 %@ 截止"
           }
         }
       }
@@ -9735,6 +9795,12 @@
             "state" : "translated",
             "value" : "你购买 Cork 的电子邮件"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您購買 Cork 時使用的的電郵地址："
+          }
         }
       }
     },
@@ -9753,6 +9819,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -9779,6 +9851,12 @@
             "state" : "translated",
             "value" : "无法找到电子邮件"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查無此電郵帳號"
+          }
         }
       }
     },
@@ -9800,6 +9878,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你可以使用下面的按钮购买 Cork，或者访问[官网](https://corkmac.app)。\n不确定 Cork 是否适合你？试用 demo 版本，有效期为 7 天"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可以用下方按鈕或至[網站](https://corkmac.app)購買 Cork。\n不確定 Cork 符合您需求嗎？可以先試用七天。"
           }
         }
       }
@@ -9823,6 +9907,12 @@
             "state" : "translated",
             "value" : "感谢下载 Cork!"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "謝謝您試用 Cork！"
+          }
         }
       }
     },
@@ -9845,6 +9935,12 @@
             "state" : "translated",
             "value" : "价格 25€"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "25 歐元"
+          }
         }
       }
     },
@@ -9866,6 +9962,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "许可证..."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授權⋯"
           }
         }
       }
@@ -13041,7 +13143,7 @@
             "state" : "translated",
             "value" : "搜索"
           }
-        }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23908,7 +24010,7 @@
             "state" : "translated",
             "value" : "关于 Cork 的重要变化"
           }
-        }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
