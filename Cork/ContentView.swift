@@ -541,6 +541,18 @@ struct ContentView: View, Sendable
                         customHomebrewPath = ""
                     })
                 )
+            case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
+                return Alert(
+                    title: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.title"),
+                    message: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.message")
+                )
+            case .couldNotSynchronizePackages:
+                return Alert(
+                    title: Text("alert.fatal.could-not-synchronize-packages.title"),
+                    dismissButton: .default(Text("action.restart"), action: {
+                        restartApp()
+                    })
+                )
             }
         })
     }

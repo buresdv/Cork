@@ -67,6 +67,11 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
                 AppConstants.logger.warning("Received no data from Brew")
                 
                 throw brewApiError
+                
+            case .invalidURL:
+                print("Invalid URL")
+                
+                throw brewApiError
         }
     }
 }
