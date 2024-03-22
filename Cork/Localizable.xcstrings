@@ -1424,6 +1424,12 @@
             "state" : "translated",
             "value" : "[Политика конфиденциальности](https://corkmac.app/privacy-ru.html)"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[隐私政策](https://corkmac.app/privacy-en.html)"
+          }
         }
       }
     },
@@ -2432,6 +2438,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверить"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查"
           }
         }
       }
@@ -12670,6 +12682,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜索"
           }
         }
       }
@@ -23526,6 +23544,12 @@
             "state" : "translated",
             "value" : "Новости о важных изменениях в Cork"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于 Cork 的重要变化"
+          }
         }
       }
     },
@@ -25040,6 +25064,12 @@
             "state" : "translated",
             "value" : "%@ не зарегистрирован"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 似乎不是有效的电子邮件地址"
+          }
         }
       }
     },
@@ -25056,6 +25086,12 @@
             "state" : "translated",
             "value" : "%@ зарегистрирован"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 是有效的电子邮件地址"
+          }
         }
       }
     },
@@ -25068,6 +25104,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -25088,6 +25130,12 @@
             "state" : "translated",
             "value" : "Cork переходит на новую схему лицензирования.\nЗдесь вы можете проверить, правильно ли был перенесен нами ваш адрес электронной почты.\nВы можете узнать подробности [в этой статье](https://blog.corkmac.app/p/upcoming-changes-to-the-install-process)."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根据这篇[文章](https://blog.corkmac.app/p/upcoming-changes-to-the-install-process)，你可以检查电子邮件是否已正确迁移"
+          }
         }
       }
     },
@@ -25103,6 +25151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Если вы ввели правильный адрес электронной почты,\nпожалуйста, напишите на dev@corkmac.app, и мы решим проблему."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果你输入的是正确的邮件地址，请发一条消息到 dev@corkmac.app 然后我们会修复它的"
           }
         }
       }
@@ -25120,6 +25174,12 @@
             "state" : "translated",
             "value" : "Введите Email, который вы указали при покупке Cork:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你用来购买 Cork 的电子邮件:"
+          }
         }
       }
     },
@@ -25135,6 +25195,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы сможете использовать этот Email для подтверждения вашей лицензии в следующей версии!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你将可以在下一个版本使用该邮件地址激活你的 Cork 许可证!"
           }
         }
       }
@@ -25152,6 +25218,12 @@
             "state" : "translated",
             "value" : "Проверка переноса вашего Email"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查你的电子邮件是否正确"
+          }
         }
       }
     },
@@ -25167,6 +25239,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Проверить свой Email"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查邮件"
           }
         }
       }
