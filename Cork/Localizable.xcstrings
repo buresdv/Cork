@@ -1430,6 +1430,12 @@
             "state" : "translated",
             "value" : "[隐私政策](https://corkmac.app/privacy-en.html)"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[隱私政策](https://corkmac.app/privacy-en.html)"
+          }
         }
       }
     },
@@ -2450,6 +2456,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "检查"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢查"
           }
         }
       }
@@ -12694,6 +12706,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜索"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "搜尋"
           }
         }
       }
@@ -23556,6 +23574,12 @@
             "state" : "translated",
             "value" : "关于 Cork 的重要变化"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關於 Cork 的重要公告"
+          }
         }
       }
     },
@@ -25082,6 +25106,12 @@
             "state" : "translated",
             "value" : "%@ 似乎不是有效的电子邮件地址"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 似乎不是個有效的電郵地址"
+          }
         }
       }
     },
@@ -25110,6 +25140,12 @@
             "state" : "translated",
             "value" : "%@ 是有效的电子邮件地址"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 是個有效的電郵地址"
+          }
         }
       }
     },
@@ -25134,6 +25170,12 @@
           }
         },
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -25166,6 +25208,12 @@
             "state" : "translated",
             "value" : "根据这篇[文章](https://blog.corkmac.app/p/upcoming-changes-to-the-install-process)，你可以检查电子邮件是否已正确迁移"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可以依[本文](https://blog.corkmac.app/p/upcoming-changes-to-the-install-process)所述方式檢查您的電子郵件是否有成功轉移。"
+          }
         }
       }
     },
@@ -25193,6 +25241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "如果你输入的是正确的邮件地址，请发一条消息到 dev@corkmac.app 然后我们会修复它的"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您如果輸入了正確的電郵地址，請發信給 dev@corkmac.app 讓我們改正。"
           }
         }
       }
@@ -25222,6 +25276,12 @@
             "state" : "translated",
             "value" : "你用来购买 Cork 的电子邮件:"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您購買 Cork 時使用的的電郵地址："
+          }
         }
       }
     },
@@ -25249,6 +25309,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你将可以在下一个版本使用该邮件地址激活你的 Cork 许可证!"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您將能使用這個電郵地址來驗證您下個 Cork 版本的授權。"
           }
         }
       }
@@ -25278,6 +25344,12 @@
             "state" : "translated",
             "value" : "检查你的电子邮件是否正确"
           }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢查您的電郵是否正確"
+          }
         }
       }
     },
@@ -25305,6 +25377,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "检查邮件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "檢查您的電郵"
           }
         }
       }
