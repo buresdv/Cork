@@ -20,7 +20,14 @@ struct StartPage: View
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
     
     @State private var dragOver: Bool = false
-
+    
+    @State private var isShowingTemporaryLicensingSheet: Bool = false
+    @State private var emailToCheck: String = ""
+    
+    @State private var isEmailValid: Bool?
+    
+    @State private var isCheckingEmail: Bool = false
+    
     var body: some View
     {
         VStack
@@ -59,6 +66,13 @@ struct StartPage: View
                                         .clipShape(.capsule)
                                 }
                                 .buttonStyle(.plain)
+                                
+                                Button
+                                {
+                                    isShowingTemporaryLicensingSheet.toggle()
+                                } label: {
+                                    Text("temporary-licensing.show-sheet")
+                                }
                             }
                         }
 
@@ -98,6 +112,9 @@ struct StartPage: View
                         }
                     }
                 }
+                .sheet(isPresented: $isShowingTemporaryLicensingSheet, content: {
+                    temporaryLicensingSheet
+                })
             }
         }
         .task(priority: .background)
@@ -152,6 +169,94 @@ struct StartPage: View
                 }
             })
             return true
+        }
+    }
+    
+    var temporaryLicensingSheet: some View
+    {
+        VStack(alignment: .center, spacing: 15)
+        {
+            Text("temporary-licensing.sheet.title")
+                .font(.title)
+            
+            Text("temporary-licensing.sheet.body")
+            
+            VStack(alignment: .leading, spacing: 5)
+            {
+                Text("temporary-licensing.sheet.email-title")
+                
+                TextField(text: $emailToCheck, prompt: Text("temporary-licensing.email-field.prompt")) {
+                    
+                }
+            }
+            
+            if isCheckingEmail
+            {
+                ProgressView()
+            }
+            else
+            {
+                if let isEmailValid
+                {
+                    if isEmailValid
+                    {
+                        VStack(spacing: 10)
+                        {
+                            Label("temporary-licensing.email-\(emailToCheck)-valid", systemImage: "checkmark.circle")
+                                .foregroundColor(.green)
+                            
+                            Text("temporary-licensing.sheet.email-valid-instructions")
+                        }
+                    }
+                    else
+                    {
+                        VStack(spacing: 10)
+                        {
+                            Label("temporary-licensing.email-\(emailToCheck)-invalid", systemImage: "xmark.circle")
+                                .foregroundColor(.red)
+                            
+                            Text("temporary-licensing.sheet.email-invalid-instructions")
+                        }
+                    }
+                }
+            }
+            
+            HStack(alignment: .center, spacing: 5)
+            {
+                Button
+                {
+                    isShowingTemporaryLicensingSheet.toggle()
+                } label: {
+                    Text("action.close")
+                }
+                .keyboardShortcut(.cancelAction)
+                
+                Spacer()
+                
+                Button
+                {
+                    Task(priority: .userInitiated)
+                    {
+                        isCheckingEmail = true
+                        
+                        defer
+                        {
+                            isCheckingEmail = false
+                        }
+                        
+                        isEmailValid = try await checkIfUserBoughtCork(for: emailToCheck)
+                    }
+                } label: {
+                    Text("action.check-email")
+                }
+                .keyboardShortcut(.defaultAction)
+            }
+        }
+        .padding()
+        .fixedSize()
+        .onChange(of: emailToCheck)
+        { _ in
+            isEmailValid = nil
         }
     }
 }
