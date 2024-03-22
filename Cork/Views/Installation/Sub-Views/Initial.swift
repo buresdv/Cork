@@ -27,6 +27,7 @@ struct InstallationInitialView: View
 
     @Binding var isShowingSheet: Bool
     @Binding var packageRequested: String
+    @Binding var versionRequested: String
 
     @Binding var foundPackageSelection: Set<UUID>
 
@@ -69,6 +70,8 @@ struct InstallationInitialView: View
             {
                 isSearchFieldFocused.toggle()
             }
+            
+            TextField("add-package.search.prompt.version", text: $versionRequested)
 
             HStack
             {
