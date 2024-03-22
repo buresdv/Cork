@@ -43,7 +43,7 @@ struct Licensing_NotBoughtOrActivatedView: View
 
     var body: some View
     {
-        VStack(alignment: .center, spacing: 20)
+        VStack(alignment: .center, spacing: 15)
         {
             Text("licensing.not-bought-or-activated.title")
                 .font(.title)

@@ -20,7 +20,7 @@ struct Licensing_BoughtView: View
     
     var body: some View
     {
-        VStack(alignment: .center, spacing: 20)
+        VStack(alignment: .center, spacing: 15)
         {   
             Image(systemName: "checkmark.seal")
                 .resizable()

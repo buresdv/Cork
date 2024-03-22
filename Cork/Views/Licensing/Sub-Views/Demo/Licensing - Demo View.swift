@@ -17,7 +17,7 @@ struct Licensing_DemoView: View
     
     var body: some View
     {
-        VStack(alignment: .center, spacing: 20)
+        VStack(alignment: .center, spacing: 15)
         {
             if let demoActivatedAt
             {
