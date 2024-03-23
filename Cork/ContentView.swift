@@ -22,6 +22,8 @@ struct ContentView: View, Sendable
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
+    
+    @Environment(\.openWindow) var openWindow
 
     @EnvironmentObject var appState: AppState
 
@@ -98,6 +100,29 @@ struct ContentView: View, Sendable
                     }
                     .help("navigation.install-package.help")
                 }
+                
+                ToolbarItem(id: "manageServices", placement: .primaryAction)
+                {
+                    Button
+                    {
+                        openWindow(id: "services")
+                    } label: {
+                        Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
+                    }
+                }
+                .defaultCustomization(.hidden)
+                
+                ToolbarItem(id: "spacer", placement: .primaryAction)
+                {
+                    Spacer()
+                }
+                .defaultCustomization(.hidden)
+                
+                ToolbarItem(id: "divider", placement: .primaryAction)
+                {
+                    Divider()
+                }
+                .defaultCustomization(.hidden)
 
                 #warning("TODO: Implement this button")
                 /*

@@ -511,6 +511,15 @@ struct CorkApp: App
         }
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
+        
+        Window("Homebrew Services", id: "services")
+        {
+            HomebrewServicesView()
+        }
+        .commands {
+            
+        }
+        .windowToolbarStyle(.unifiedCompact)
 
         Settings
         {
