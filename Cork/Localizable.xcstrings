@@ -24393,6 +24393,7 @@
       }
     },
     "start-page.upcoming-changes" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
