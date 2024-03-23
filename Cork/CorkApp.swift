@@ -57,7 +57,7 @@ struct CorkApp: App
 
     var body: some Scene
     {
-        Window("Main Window", id: "main")
+        Window("Main Window", id: .mainWindowID)
         {
             ContentView()
                 .sheet(isPresented: !$hasFinishedOnboarding, onDismiss: {
@@ -272,7 +272,7 @@ struct CorkApp: App
             {
                 Button
                 {
-                    appDelegate.showAboutPanel()
+                    openWindow(id: .aboutWindowID)
                 } label: {
                     Text("navigation.about")
                 }
@@ -512,7 +512,7 @@ struct CorkApp: App
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
         
-        Window("Homebrew Services", id: "services")
+        Window("Homebrew Services", id: .servicesWindowID)
         {
             HomebrewServicesView()
         }
@@ -520,6 +520,12 @@ struct CorkApp: App
             
         }
         .windowToolbarStyle(.unifiedCompact)
+        
+        Window("About", id: .aboutWindowID)
+        {
+            AboutView()
+        }
+        .windowResizability(.contentSize)
 
         Settings
         {

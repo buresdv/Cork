@@ -105,7 +105,7 @@ struct ContentView: View, Sendable
                 {
                     Button
                     {
-                        openWindow(id: "services")
+                        openWindow(id: .servicesWindowID)
                     } label: {
                         Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
                     }

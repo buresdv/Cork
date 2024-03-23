@@ -286,5 +286,6 @@ struct AboutView: View
             .transaction { $0.animation = nil }
         }
         .padding()
+        //.fixedSize()
     }
 }

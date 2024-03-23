@@ -47,6 +47,9 @@
         }
       }
     },
+    "About" : {
+
+    },
     "about.contact" : {
       "localizations" : {
         "cs" : {
@@ -1597,6 +1600,7 @@
     },
     "about.title" : {
       "comment" : "MARK: - About",
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
