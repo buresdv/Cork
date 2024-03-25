@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 struct HomebrewService: Identifiable, Hashable, Codable
 {
@@ -19,4 +20,11 @@ struct HomebrewService: Identifiable, Hashable, Codable
     let location: URL
     
     let exitCode: Int?
+    
+    func revealInFinder()
+    {
+        let serviceParentFolder: URL = location.deletingLastPathComponent()
+        
+        NSWorkspace.shared.selectFile(location.path, inFileViewerRootedAtPath: serviceParentFolder.path)
+    }
 }
