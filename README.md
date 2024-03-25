@@ -117,6 +117,6 @@ Prerequisites:
 
 Cork is licensed under [Commons Clause](https://commonsclause.com).
 
-This means that Cork open-source and you can do whatever you want with Cork's source, like modifying it, contributing to it etc., but you can't sell Cork or modified versions of it.
+This means that Cork open-source and you can do whatever you want with Cork's source, like modifying it, contributing to it etc., but you can't sell or distribute Cork or modified versions of it.
 
 Moreover, you can’t distribute compiled versions of Cork without consulting me first. Compiling versions for your personal use is fine.
