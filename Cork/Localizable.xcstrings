@@ -49,6 +49,12 @@
     },
     "About" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2393,6 +2399,12 @@
     },
     "action.activate-demo" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyzkoušet demo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2427,6 +2439,12 @@
     },
     "action.buy" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koupit Cork"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2513,6 +2531,12 @@
     },
     "action.check-license" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivovat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7909,6 +7933,12 @@
     },
     "alert.fatal.could-not-synchronize-packages.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se synchronizovat balíčky"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9452,6 +9482,12 @@
     },
     "generic.false" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9468,6 +9504,12 @@
     },
     "generic.true" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ano"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17585,6 +17627,36 @@
     },
     "service-status-page.active-services-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld aktivní služby"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld aktivních služeb"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte jednu aktivní službu"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld aktivních služeb"
+                }
+              }
+            }
+          }
+        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -17681,6 +17753,12 @@
     },
     "service-status-page.errored-out-services.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyto služby buď zhavarovaly, nebo se je nepovedlo spustit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17697,6 +17775,36 @@
     },
     "service-status-page.inactive-services-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld neaktivní služby"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld neaktivních služeb"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte jednu neaktivní službu"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld neaktivních služeb"
+                }
+              }
+            }
+          }
+        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -17737,6 +17845,12 @@
     },
     "service-status-page.inactive-services.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyto služby právě neběží"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17769,6 +17883,12 @@
     },
     "service-status-page.no-services-found" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebyly nalezeny žádné služby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17785,6 +17905,12 @@
     },
     "service-status-page.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stav služby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17841,6 +17967,12 @@
     },
     "service-status-page.unknown-services.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stav těchto služeb se nepovedlo zjistit"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17889,6 +18021,12 @@
     },
     "service.loaded.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načtena"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17954,6 +18092,12 @@
     },
     "service.root-location.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umístění"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18131,6 +18275,12 @@
     },
     "services.status.started" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spuštěna"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18147,6 +18297,12 @@
     },
     "services.status.stopped" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastavena"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
