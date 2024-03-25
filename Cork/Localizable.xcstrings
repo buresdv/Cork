@@ -48,7 +48,14 @@
       }
     },
     "About" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über"
+          }
+        }
+      }
     },
     "about.contact" : {
       "localizations" : {
@@ -2386,6 +2393,12 @@
     },
     "action.activate-demo" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teste die Demo"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2414,6 +2427,12 @@
     },
     "action.buy" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaufe Cork"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2494,6 +2513,12 @@
     },
     "action.check-license" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7884,6 +7909,12 @@
     },
     "alert.fatal.could-not-synchronize-packages.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pakete konnten nicht synchronisiert werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7946,6 +7977,12 @@
     },
     "alert.fatal.license-checking.could-not-encode-authorization-complex.message" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überprüfe,, ob dein Netzwerk ordnungsgemäß funktioniert, und versuche es dann erneut"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7974,6 +8011,12 @@
     },
     "alert.fatal.license-checking.could-not-encode-authorization-complex.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es konnte keine sichere Verbindung zum Autorisierungsserver hergestellt werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9409,6 +9452,12 @@
     },
     "generic.false" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nein"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9419,6 +9468,12 @@
     },
     "generic.true" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9532,7 +9587,14 @@
       }
     },
     "Homebrew Services" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Dienste"
+          }
+        }
+      }
     },
     "homebrew/core" : {
       "localizations" : {
@@ -9693,6 +9755,12 @@
     },
     "licensing.bought.body" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen dank für die Unterstützung von Cork!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9721,6 +9789,12 @@
     },
     "licensing.bought.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lizenz aktiviert"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9749,6 +9823,12 @@
     },
     "licensing.demo-activated.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Demomodus"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9777,6 +9857,12 @@
     },
     "licensing.demo.time-until-%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Demo ist bis zum %@ verfügbar"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9805,6 +9891,12 @@
     },
     "licensing.email" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email mit der du Cork gekauft hast:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9833,6 +9925,12 @@
     },
     "licensing.email-field.prompt" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9861,6 +9959,12 @@
     },
     "licensing.invalid-email" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email Adresse nicht gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9889,6 +9993,12 @@
     },
     "licensing.not-bought-or-activated.body" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst Cork über die Schaltfläche unten kaufen oder die Webseite [website](https://corkmac.app) besuchen.\nBist du nicht sicher ob Cork das richtige für dich ist? Probiere die Demo, welche auf 7 Tage begrenzt ist."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9917,6 +10027,12 @@
     },
     "licensing.not-bought-or-activated.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für das ausprobieren von Cork!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9945,6 +10061,12 @@
     },
     "licensing.price.copy" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "für 25€"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9973,6 +10095,12 @@
     },
     "licensing.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lizenz..."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11039,14 +11167,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil of %@ und %lld andere nicht aktuell sind"
+                  "state" : "translated",
+                  "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil of %1$@ und %2$lld andere nicht aktuell sind"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil %@ und %lld andere nicht aktuell sind"
+                  "state" : "translated",
+                  "value" : "Einige Zwischenspeicher wurden nicht bereinigt, weil %1$@ und %2$lld andere nicht aktuell sind"
                 }
               }
             }
@@ -12621,6 +12749,12 @@
     },
     "navigation.manage-services" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienste verwalten..."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17435,6 +17569,12 @@
     },
     "service-details.contents.loading" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienstinformation wird geladen..."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17445,6 +17585,24 @@
     },
     "service-status-page.active-services-%lld" : {
       "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Do hast %lld aktiven Dienst"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld aktive Dienste"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -17467,6 +17625,12 @@
     },
     "service-status-page.active-services.description" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Dienste werden normal ausgeführt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17477,6 +17641,24 @@
     },
     "service-status-page.errored-out-services-%lld" : {
       "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld fehlerhaften Dienst"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld fehlerhaften Dienste"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -17499,6 +17681,12 @@
     },
     "service-status-page.errored-out-services.description" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Dienste sind entweder abgestürzt oder konnten gar nicht gestartet werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17509,6 +17697,24 @@
     },
     "service-status-page.inactive-services-%lld" : {
       "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld inaktiven Dienst"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld inaktiven Dienst"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -17531,6 +17737,12 @@
     },
     "service-status-page.inactive-services.description" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Dienste laufen derzeit nicht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17541,6 +17753,12 @@
     },
     "service-status-page.loading" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lade Dienste..."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17551,6 +17769,12 @@
     },
     "service-status-page.no-services-found" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es wurden keine Dienste gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17561,6 +17785,12 @@
     },
     "service-status-page.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienststatus"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17571,6 +17801,24 @@
     },
     "service-status-page.unknown-services-%lld" : {
       "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld Dienst mit unbekanntem Status"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Du hast %lld Dienste mit unbekanntem Status"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -17593,6 +17841,12 @@
     },
     "service-status-page.unknown-services.description" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Status dieser Dienste konnte nicht ermittelt werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17603,6 +17857,12 @@
     },
     "service.error-log-location.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speicherort der Fehlerprotokolle"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17613,6 +17873,12 @@
     },
     "service.exit-code.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exit-Code"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17623,6 +17889,12 @@
     },
     "service.loaded.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geladen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17633,6 +17905,12 @@
     },
     "service.location.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speicherort"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17643,6 +17921,12 @@
     },
     "service.log-location.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speicherort der Protokolle"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17654,6 +17938,12 @@
     "service.name.label" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17664,6 +17954,12 @@
     },
     "service.root-location.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wurzelverzeichnis"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17674,6 +17970,12 @@
     },
     "service.schedulable.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitplan"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17684,6 +17986,12 @@
     },
     "service.status.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17694,6 +18002,12 @@
     },
     "service.user.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzer"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17704,6 +18018,12 @@
     },
     "services-sidebar.search.prompt" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienst"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17714,6 +18034,12 @@
     },
     "services.count.%lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Dienste gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17725,6 +18051,12 @@
     "services.loading" : {
       "extractionState" : "stale",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lade Dienste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17735,6 +18067,12 @@
     },
     "services.status.error" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehlerhaft"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17745,6 +18083,12 @@
     },
     "services.status.none" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17755,6 +18099,12 @@
     },
     "services.status.other" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17765,6 +18115,12 @@
     },
     "services.status.scheduled" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geplant"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17775,6 +18131,12 @@
     },
     "services.status.started" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestartet"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17785,6 +18147,12 @@
     },
     "services.status.stopped" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestoppt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17795,6 +18163,12 @@
     },
     "services.status.unknown" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17805,6 +18179,12 @@
     },
     "services.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Dienste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18210,7 +18590,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verwendet benutzerdefinierten Speicherort"
+            "value" : "Verwendet einen benutzerdefinierten Speicherort"
           }
         },
         "en" : {
@@ -18652,7 +19032,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Meinst Downloads"
+            "value" : "Meinste Downloads"
           }
         },
         "en" : {
