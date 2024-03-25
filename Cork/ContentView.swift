@@ -22,6 +22,8 @@ struct ContentView: View, Sendable
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
+    
+    @Environment(\.openWindow) var openWindow
 
     @EnvironmentObject var appState: AppState
 
@@ -98,6 +100,29 @@ struct ContentView: View, Sendable
                     }
                     .help("navigation.install-package.help")
                 }
+                
+                ToolbarItem(id: "manageServices", placement: .primaryAction)
+                {
+                    Button
+                    {
+                        openWindow(id: .servicesWindowID)
+                    } label: {
+                        Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
+                    }
+                }
+                .defaultCustomization(.hidden)
+                
+                ToolbarItem(id: "spacer", placement: .primaryAction)
+                {
+                    Spacer()
+                }
+                .defaultCustomization(.hidden)
+                
+                ToolbarItem(id: "divider", placement: .primaryAction)
+                {
+                    Divider()
+                }
+                .defaultCustomization(.hidden)
 
                 #warning("TODO: Implement this button")
                 /*
@@ -539,6 +564,18 @@ struct ContentView: View, Sendable
                     title: Text("alert.fatal.custom-brew-executable-deleted.title"),
                     dismissButton: .default(Text("action.reset-custom-brew-executable"), action: {
                         customHomebrewPath = ""
+                    })
+                )
+            case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
+                return Alert(
+                    title: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.title"),
+                    message: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.message")
+                )
+            case .couldNotSynchronizePackages:
+                return Alert(
+                    title: Text("alert.fatal.could-not-synchronize-packages.title"),
+                    dismissButton: .default(Text("action.restart"), action: {
+                        restartApp()
                     })
                 )
             }

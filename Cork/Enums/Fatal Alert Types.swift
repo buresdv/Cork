@@ -9,6 +9,7 @@ import Foundation
 
 enum FatalAlertType
 {
+    case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly
     case customBrewExcutableGotDeleted
     case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions, homePathNotSet
     case couldNotObtainNotificationPermissions
@@ -19,6 +20,7 @@ enum FatalAlertType
     case couldNotAssociateAnyPackageWithProvidedPackageUUID
     case couldNotFindPackageInParentDirectory
     case fatalPackageInstallationError
+    case couldNotSynchronizePackages
     
     //MARK: - Brewfile exporting/importing
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile, couldNotReadBrewfile

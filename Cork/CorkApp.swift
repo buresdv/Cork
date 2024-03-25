@@ -21,7 +21,12 @@ struct CorkApp: App
     @StateObject var updateProgressTracker = UpdateProgressTracker()
     @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
 
+    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+
     @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
+
+    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
     @Environment(\.openWindow) private var openWindow
     @AppStorage("showInMenuBar") var showInMenuBar = false
@@ -52,13 +57,19 @@ struct CorkApp: App
 
     var body: some Scene
     {
-        Window("Main Window", id: "main")
+        Window("Main Window", id: .mainWindowID)
         {
             ContentView()
                 .sheet(isPresented: !$hasFinishedOnboarding, onDismiss: {
                     hasFinishedOnboarding = true
                 }, content: {
                     OnboardingView()
+                })
+                .sheet(isPresented: !$hasFinishedLicensingWorkflow, onDismiss: {
+                    hasFinishedLicensingWorkflow = true
+                }, content: {
+                    LicensingView()
+                        .interactiveDismissDisabled()
                 })
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
@@ -73,6 +84,29 @@ struct CorkApp: App
                     if areNotificationsEnabled
                     {
                         await appDelegate.appState.setupNotifications()
+                    }
+                }
+                .onAppear
+                {
+                    if !hasValidatedEmail
+                    {
+                        if let demoActivatedAt
+                        {
+                            var timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+                            
+                            AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
+                            
+                            AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+                            
+                            if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                            { // Check if there is still time on the demo
+                              /// do stuff if there is
+                            }
+                            else
+                            {
+                                hasFinishedLicensingWorkflow = false
+                            }
+                        }
                     }
                 }
                 .onAppear
@@ -133,6 +167,14 @@ struct CorkApp: App
                         }
 
                         completion(NSBackgroundActivityScheduler.Result.finished)
+                    }
+                }
+                .onChange(of: demoActivatedAt) // React to when the user activates the demo
+                { newValue in
+                    if let newValue
+                    { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
+                        AppConstants.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
+                        hasFinishedLicensingWorkflow = true
                     }
                 }
                 .onChange(of: outdatedPackageTracker.outdatedPackages.count)
@@ -230,7 +272,7 @@ struct CorkApp: App
             {
                 Button
                 {
-                    appDelegate.showAboutPanel()
+                    openWindow(id: .aboutWindowID)
                 } label: {
                     Text("navigation.about")
                 }
@@ -283,6 +325,13 @@ struct CorkApp: App
                     Text("onboarding.start")
                 }
                 .disabled(!hasFinishedOnboarding)
+                
+                Button
+                {
+                    hasFinishedLicensingWorkflow = false
+                } label: {
+                    Text("licensing.title")
+                }
 
                 Divider()
             }
@@ -462,6 +511,22 @@ struct CorkApp: App
         }
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
+        
+        Window("Homebrew Services", id: .servicesWindowID)
+        {
+            HomebrewServicesView()
+        }
+        .commands {
+            
+        }
+        .windowToolbarStyle(.unifiedCompact)
+        
+        Window("About", id: .aboutWindowID)
+        {
+            AboutView()
+        }
+        .windowResizability(.contentSize)
+        .defaultPosition(.center)
 
         Settings
         {

@@ -71,6 +71,12 @@
 		6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */; };
 		6342118329AA9CF100E2563B /* Ready View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342118229AA9CF100E2563B /* Ready View.swift */; };
 		634838A629C1D69F00D3C692 /* Outdated Package Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634838A529C1D69F00D3C692 /* Outdated Package Tracker.swift */; };
+		6348D90B2BAC8D9800DBBC55 /* Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90A2BAC8D9800DBBC55 /* Service Details.swift */; };
+		6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */; };
+		6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */; };
+		6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */; };
+		6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9152BAC909600DBBC55 /* Parse Service Details.swift */; };
+		6348D9182BAC986300DBBC55 /* Service Header Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9172BAC986300DBBC55 /* Service Header Complex.swift */; };
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */; };
 		635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04D2A2B3818004DCBD8 /* Casks Section.swift */; };
@@ -104,6 +110,17 @@
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
 		637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637410AD2ABB751B00B7915A /* Get Compatibility.swift */; };
+		637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637A7A1D2BAB8A270013667C /* View - On Window Close.swift */; };
+		637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */; };
+		637D53912BAB514400E072DA /* Services Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53902BAB514400E072DA /* Services Sidebar.swift */; };
+		637D53942BAB517000E072DA /* Services Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53932BAB517000E072DA /* Services Tracker.swift */; };
+		637D53962BAB517800E072DA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53952BAB517800E072DA /* Service.swift */; };
+		637D53992BAB51B300E072DA /* Service Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53982BAB51B300E072DA /* Service Status.swift */; };
+		637D539C2BAB544400E072DA /* Sidebar Service Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D539B2BAB544400E072DA /* Sidebar Service Row.swift */; };
+		637D539F2BAB549D00E072DA /* Service Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D539E2BAB549D00E072DA /* Service Detail.swift */; };
+		637D53A22BAB55E100E072DA /* Load up Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A12BAB55E100E072DA /* Load up Services.swift */; };
+		637D53A42BAB563200E072DA /* Services State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A32BAB563200E072DA /* Services State.swift */; };
+		637D53A72BAB579800E072DA /* Parse Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A62BAB579800E072DA /* Parse Services.swift */; };
 		637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */; };
 		637D53FC2B9E773A00F61361 /* View - Platform Conditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */; };
 		637E00642872F3CE005C9890 /* Update Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Update Packages.swift */; };
@@ -157,6 +174,13 @@
 		63A9778529A7D5800091DF2E /* Synchnorize Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */; };
 		63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */; };
 		63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */; };
+		63ACBBE12BA88F6600B26D7E /* Check If User Bought Cork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE02BA88F6600B26D7E /* Check If User Bought Cork.swift */; };
+		63ACBBE42BA891E900B26D7E /* Licensing State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE32BA891E900B26D7E /* Licensing State.swift */; };
+		63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE62BA8983D00B26D7E /* Licensing View.swift */; };
+		63ACBBED2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBEC2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift */; };
+		63ACBBEF2BA8991400B26D7E /* Licensing - Demo View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBEE2BA8991400B26D7E /* Licensing - Demo View.swift */; };
+		63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */; };
+		63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBF22BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift */; };
 		63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7337A2B02E21D00366C77 /* Advanced Pane.swift */; };
 		63B8D4FA299E442300AA7CFA /* View - Conditional Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */; };
 		63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */; };
@@ -173,7 +197,6 @@
 		63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBCC492AC9835400E1E95B /* Package Caveat Full Display.swift */; };
 		63CBCC4D2AC983FB00E1E95B /* Package Caveat Minified Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBCC4C2AC983FB00E1E95B /* Package Caveat Minified Display.swift */; };
 		63CBCC4F2AC9B46E00E1E95B /* Copy to Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CBCC4E2AC9B46E00E1E95B /* Copy to Clipboard.swift */; };
-		63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CD0275288B22D9004AE2EC /* View - New Windows.swift */; };
 		63D024E32AC769AC0050F9D0 /* Presenting Search Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */; };
 		63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D024E42AC76DCD0050F9D0 /* Installing.swift */; };
 		63D51F65299A992900203F3F /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51F64299A992900203F3F /* Settings View.swift */; };
@@ -208,6 +231,7 @@
 		63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
 		63F44AC62AF6CB6000CA0C16 /* Cached Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */; };
+		63F6226F2BAF5B9700FBDB20 /* String - Window IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F6226E2BAF5B9700FBDB20 /* String - Window IDs.swift */; };
 		63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */; };
 		63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */; };
 		63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5782A90CB8700F95E54 /* Top Package.swift */; };
@@ -300,6 +324,12 @@
 		6342117F29AA9CBB00E2563B /* Maintenance Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance Pane.swift"; sourceTree = "<group>"; };
 		6342118229AA9CF100E2563B /* Ready View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ready View.swift"; sourceTree = "<group>"; };
 		634838A529C1D69F00D3C692 /* Outdated Package Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Tracker.swift"; sourceTree = "<group>"; };
+		6348D90A2BAC8D9800DBBC55 /* Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Details.swift"; sourceTree = "<group>"; };
+		6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Service Info View.swift"; sourceTree = "<group>"; };
+		6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locations View.swift"; sourceTree = "<group>"; };
+		6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Service Details.swift"; sourceTree = "<group>"; };
+		6348D9152BAC909600DBBC55 /* Parse Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Service Details.swift"; sourceTree = "<group>"; };
+		6348D9172BAC986300DBBC55 /* Service Header Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Header Complex.swift"; sourceTree = "<group>"; };
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpin Package.swift"; sourceTree = "<group>"; };
 		635BE04D2A2B3818004DCBD8 /* Casks Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Casks Section.swift"; sourceTree = "<group>"; };
@@ -333,6 +363,17 @@
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
 		637410AD2ABB751B00B7915A /* Get Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Compatibility.swift"; sourceTree = "<group>"; };
+		637A7A1D2BAB8A270013667C /* View - On Window Close.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - On Window Close.swift"; sourceTree = "<group>"; };
+		637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Homebrew Services View.swift"; sourceTree = "<group>"; };
+		637D53902BAB514400E072DA /* Services Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services Sidebar.swift"; sourceTree = "<group>"; };
+		637D53932BAB517000E072DA /* Services Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services Tracker.swift"; sourceTree = "<group>"; };
+		637D53952BAB517800E072DA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		637D53982BAB51B300E072DA /* Service Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Status.swift"; sourceTree = "<group>"; };
+		637D539B2BAB544400E072DA /* Sidebar Service Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar Service Row.swift"; sourceTree = "<group>"; };
+		637D539E2BAB549D00E072DA /* Service Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Detail.swift"; sourceTree = "<group>"; };
+		637D53A12BAB55E100E072DA /* Load up Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Services.swift"; sourceTree = "<group>"; };
+		637D53A32BAB563200E072DA /* Services State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services State.swift"; sourceTree = "<group>"; };
+		637D53A62BAB579800E072DA /* Parse Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Services.swift"; sourceTree = "<group>"; };
 		637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - LocalizedStringKey to String.swift"; sourceTree = "<group>"; };
 		637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Platform Conditional.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Update Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Packages.swift"; sourceTree = "<group>"; };
@@ -385,6 +426,13 @@
 		63A9778429A7D5800091DF2E /* Synchnorize Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchnorize Installed Packages.swift"; sourceTree = "<group>"; };
 		63AB6C482A9FEC2E00E58B93 /* Top Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package List Item.swift"; sourceTree = "<group>"; };
 		63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Contains Element in Array.swift"; sourceTree = "<group>"; };
+		63ACBBE02BA88F6600B26D7E /* Check If User Bought Cork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check If User Bought Cork.swift"; sourceTree = "<group>"; };
+		63ACBBE32BA891E900B26D7E /* Licensing State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing State.swift"; sourceTree = "<group>"; };
+		63ACBBE62BA8983D00B26D7E /* Licensing View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing View.swift"; sourceTree = "<group>"; };
+		63ACBBEC2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing - Not Bought Or Activated View.swift"; sourceTree = "<group>"; };
+		63ACBBEE2BA8991400B26D7E /* Licensing - Demo View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing - Demo View.swift"; sourceTree = "<group>"; };
+		63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Licensing - Bought View.swift"; sourceTree = "<group>"; };
+		63ACBBF22BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date - Make Saveable in AppStorage.swift"; sourceTree = "<group>"; };
 		63B7337A2B02E21D00366C77 /* Advanced Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Advanced Pane.swift"; sourceTree = "<group>"; };
 		63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Conditional Modifiers.swift"; sourceTree = "<group>"; };
 		63BE67E32B0EBCB2000FD594 /* Subtitle Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtitle Text.swift"; sourceTree = "<group>"; };
@@ -401,7 +449,6 @@
 		63CBCC492AC9835400E1E95B /* Package Caveat Full Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Caveat Full Display.swift"; sourceTree = "<group>"; };
 		63CBCC4C2AC983FB00E1E95B /* Package Caveat Minified Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Caveat Minified Display.swift"; sourceTree = "<group>"; };
 		63CBCC4E2AC9B46E00E1E95B /* Copy to Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Copy to Clipboard.swift"; sourceTree = "<group>"; };
-		63CD0275288B22D9004AE2EC /* View - New Windows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - New Windows.swift"; sourceTree = "<group>"; };
 		63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presenting Search Results.swift"; sourceTree = "<group>"; };
 		63D024E42AC76DCD0050F9D0 /* Installing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installing.swift; sourceTree = "<group>"; };
 		63D51F64299A992900203F3F /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
@@ -435,6 +482,7 @@
 		63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo - CPU Architecture.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
 		63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Download.swift"; sourceTree = "<group>"; };
+		63F6226E2BAF5B9700FBDB20 /* String - Window IDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Window IDs.swift"; sourceTree = "<group>"; };
 		63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load up Top Packages.swift"; sourceTree = "<group>"; };
 		63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Download Data From URL.swift"; sourceTree = "<group>"; };
 		63FFE5782A90CB8700F95E54 /* Top Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package.swift"; sourceTree = "<group>"; };
@@ -734,6 +782,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				637D53A02BAB55C500E072DA /* Services */,
 				633AA21E2AFEDD8500A5F3E3 /* Brewfile */,
 				63FFE5722A90CB3F00F95E54 /* Discoverability */,
 				635E448F2A890FAE002C034E /* Networking */,
@@ -761,6 +810,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				637D53922BAB516200E072DA /* Services */,
 				63738C7D2AA38BEA009278B8 /* Updating */,
 				63FFE57A2A90D60400F95E54 /* Discoverability */,
 				63E716DE29DDC025004FD2B4 /* Outdated Packages */,
@@ -806,6 +856,33 @@
 			path = "Sub-Views";
 			sourceTree = "<group>";
 		};
+		6348D90C2BAC8DBC00DBBC55 /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */,
+				6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */,
+				6348D9172BAC986300DBBC55 /* Service Header Complex.swift */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		6348D9112BAC8E7800DBBC55 /* Service Details */ = {
+			isa = PBXGroup;
+			children = (
+				6348D9142BAC908A00DBBC55 /* Parsing */,
+				6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */,
+			);
+			path = "Service Details";
+			sourceTree = "<group>";
+		};
+		6348D9142BAC908A00DBBC55 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				6348D9152BAC909600DBBC55 /* Parse Service Details.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
 		635BE04C2A2B3801004DCBD8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +899,7 @@
 			children = (
 				63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */,
 				635E44902A890FD8002C034E /* Get Proxy Settings.swift */,
+				63ACBBE02BA88F6600B26D7E /* Check If User Bought Cork.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -947,6 +1025,79 @@
 			path = Sidebar;
 			sourceTree = "<group>";
 		};
+		637D538C2BAB01DC00E072DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				637D539D2BAB548F00E072DA /* Service Detail */,
+				637D538F2BAB513500E072DA /* Services Sidebar */,
+				637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */,
+				637D53A32BAB563200E072DA /* Services State.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		637D538F2BAB513500E072DA /* Services Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				637D539A2BAB542900E072DA /* Sub-Views */,
+				637D53902BAB514400E072DA /* Services Sidebar.swift */,
+			);
+			path = "Services Sidebar";
+			sourceTree = "<group>";
+		};
+		637D53922BAB516200E072DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				637D53932BAB517000E072DA /* Services Tracker.swift */,
+				637D53952BAB517800E072DA /* Service.swift */,
+				6348D90A2BAC8D9800DBBC55 /* Service Details.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		637D53972BAB51A800E072DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				637D53982BAB51B300E072DA /* Service Status.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		637D539A2BAB542900E072DA /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				637D539B2BAB544400E072DA /* Sidebar Service Row.swift */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		637D539D2BAB548F00E072DA /* Service Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6348D90C2BAC8DBC00DBBC55 /* Sub-Views */,
+				637D539E2BAB549D00E072DA /* Service Detail.swift */,
+			);
+			path = "Service Detail";
+			sourceTree = "<group>";
+		};
+		637D53A02BAB55C500E072DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6348D9112BAC8E7800DBBC55 /* Service Details */,
+				637D53A52BAB578900E072DA /* Parsing */,
+				637D53A12BAB55E100E072DA /* Load up Services.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		637D53A52BAB578900E072DA /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				637D53A62BAB579800E072DA /* Parse Services.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
 		637E006928734032005C9890 /* Installation & Removal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,6 +1174,8 @@
 		639A7D812871D07800B50280 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				637D538C2BAB01DC00E072DA /* Services */,
+				63ACBBE52BA8983200B26D7E /* Licensing */,
 				6311F3D22B0A1DD9008A8067 /* Removal */,
 				63A018722AFFBCDB003A2912 /* Backups */,
 				63A8A1272AE3FC6800FA21C7 /* Onboarding */,
@@ -1104,6 +1257,8 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				637D53972BAB51A800E072DA /* Services */,
+				63ACBBE22BA891D500B26D7E /* Licensing */,
 				63A018792AFFBF0C003A2912 /* Brewfile */,
 				63FFE5772A90CB6C00F95E54 /* Discoverability */,
 				6373D9CC29DC622B00D98607 /* Package Reinstallation */,
@@ -1177,6 +1332,65 @@
 			path = "Misc Views";
 			sourceTree = "<group>";
 		};
+		63ACBBE22BA891D500B26D7E /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBE32BA891E900B26D7E /* Licensing State.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
+		63ACBBE52BA8983200B26D7E /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBF42BA8E9A500B26D7E /* Shared */,
+				63ACBBE82BA898BF00B26D7E /* Sub-Views */,
+				63ACBBE62BA8983D00B26D7E /* Licensing View.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
+		63ACBBE82BA898BF00B26D7E /* Sub-Views */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBEB2BA898D200B26D7E /* Bought */,
+				63ACBBEA2BA898CF00B26D7E /* Demo */,
+				63ACBBE92BA898C400B26D7E /* Not Bought Or Activated Demo */,
+			);
+			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		63ACBBE92BA898C400B26D7E /* Not Bought Or Activated Demo */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBEC2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift */,
+			);
+			path = "Not Bought Or Activated Demo";
+			sourceTree = "<group>";
+		};
+		63ACBBEA2BA898CF00B26D7E /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBEE2BA8991400B26D7E /* Licensing - Demo View.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		63ACBBEB2BA898D200B26D7E /* Bought */ = {
+			isa = PBXGroup;
+			children = (
+				63ACBBF02BA8991F00B26D7E /* Licensing - Bought View.swift */,
+			);
+			path = Bought;
+			sourceTree = "<group>";
+		};
+		63ACBBF42BA8E9A500B26D7E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		63C1A3192AD0998E00F36371 /* Outdated Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,7 +1434,6 @@
 		63CD0274288B22C8004AE2EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				63CD0275288B22D9004AE2EC /* View - New Windows.swift */,
 				63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */,
 				63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */,
 				63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */,
@@ -1232,6 +1445,9 @@
 				63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */,
 				637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */,
 				637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */,
+				63ACBBF22BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift */,
+				637A7A1D2BAB8A270013667C /* View - On Window Close.swift */,
+				63F6226E2BAF5B9700FBDB20 /* String - Window IDs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1585,6 +1801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				635E44932A891050002C034E /* Notifications Pane.swift in Sources */,
+				63ACBBEF2BA8991400B26D7E /* Licensing - Demo View.swift in Sources */,
 				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
 				634838A629C1D69F00D3C692 /* Outdated Package Tracker.swift in Sources */,
 				63A8A1292AE3FC7300FA21C7 /* Onboarding.swift in Sources */,
@@ -1611,16 +1828,20 @@
 				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
 				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
+				6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
 				63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
+				637D53942BAB517000E072DA /* Services Tracker.swift in Sources */,
 				639246E529A26BB4008149E2 /* REGEX Match.swift in Sources */,
 				63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */,
+				637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */,
 				63006E1929AD215000243E29 /* Get Caveats.swift in Sources */,
 				633289ED29A68B1E004B2930 /* Installation Progress Tracker.swift in Sources */,
+				637D53912BAB514400E072DA /* Services Sidebar.swift in Sources */,
 				63CBCC4F2AC9B46E00E1E95B /* Copy to Clipboard.swift in Sources */,
 				63A38B9629BA0B6E0080158C /* Update Packages View.swift in Sources */,
 				63E716D929DDB918004FD2B4 /* Package And Tap Overview Box.swift in Sources */,
@@ -1631,6 +1852,7 @@
 				63219ACE2AD2ACA00037D178 /* Purge Cache Utility.swift in Sources */,
 				637260C529BE42FB00E6E81C /* Get Official Status.swift in Sources */,
 				6342117A29AA52B900E2563B /* Delete Cached Downloads.swift in Sources */,
+				63ACBBED2BA898EB00B26D7E /* Licensing - Not Bought Or Activated View.swift in Sources */,
 				6340657A2871AC27001A2178 /* Brew Data Storage.swift in Sources */,
 				633289E729A68A61004B2930 /* Package Installation Steps.swift in Sources */,
 				633AA2262AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift in Sources */,
@@ -1641,10 +1863,11 @@
 				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
 				63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */,
-				63CD0276288B22D9004AE2EC /* View - New Windows.swift in Sources */,
+				637D539C2BAB544400E072DA /* Sidebar Service Row.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
 				63D67B782AC5E205002EB992 /* Tap Title.swift in Sources */,
 				63CBCC4D2AC983FB00E1E95B /* Package Caveat Minified Display.swift in Sources */,
+				63F6226F2BAF5B9700FBDB20 /* String - Window IDs.swift in Sources */,
 				63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */,
 				63219ACC2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift in Sources */,
 				63AB6C492A9FEC2E00E58B93 /* Top Package List Item.swift in Sources */,
@@ -1656,6 +1879,7 @@
 				63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,
+				637D53A22BAB55E100E072DA /* Load up Services.swift in Sources */,
 				63A96F6E2AA4B3D90029E33B /* Add Tap.swift in Sources */,
 				6342117829AA500300E2563B /* Check if URL is Symlink.swift in Sources */,
 				63A96F742AA520120029E33B /* Inline Fatal Error.swift in Sources */,
@@ -1666,6 +1890,7 @@
 				6317BF792ADEFCA70018E425 /* Updating Packages.swift in Sources */,
 				6387A6722AE9254200517436 /* Basic Category.swift in Sources */,
 				637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */,
+				637D53A42BAB563200E072DA /* Services State.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
 				6382C90C299DA46100354B19 /* Perform Brew Health Check.swift in Sources */,
 				632FD292299596790029FC49 /* HelpButton.swift in Sources */,
@@ -1686,11 +1911,15 @@
 				63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */,
 				6392FD132A921BAB00711B92 /* Initial.swift in Sources */,
 				6387A67A2AE9258B00517436 /* Extras Category.swift in Sources */,
+				63ACBBE12BA88F6600B26D7E /* Check If User Bought Cork.swift in Sources */,
 				63A8D2F129CA343F00E892FB /* Save Tagged IDs to Disk.swift in Sources */,
+				6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				6386529E2A88F1070001679E /* Send Notification.swift in Sources */,
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
+				637D53962BAB517800E072DA /* Service.swift in Sources */,
+				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,
 				63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */,
 				6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */,
 				6317BF832ADEFEAC0018E425 /* Finished Stage.swift in Sources */,
@@ -1708,6 +1937,7 @@
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
 				63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */,
 				6317BF7B2ADEFD2E0018E425 /* Updating Package Tracker.swift in Sources */,
+				63ACBBE42BA891E900B26D7E /* Licensing State.swift in Sources */,
 				6387A6782AE9257800517436 /* Tap Features Category.swift in Sources */,
 				63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */,
 				63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */,
@@ -1723,12 +1953,14 @@
 				6382C908299DA02700354B19 /* Uninstall Orphaned Packages.swift in Sources */,
 				63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */,
 				637260C329BE40FC00E6E81C /* Get Homepage.swift in Sources */,
+				6348D9182BAC986300DBBC55 /* Service Header Complex.swift in Sources */,
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */,
 				63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
+				637D53992BAB51B300E072DA /* Service Status.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
@@ -1756,6 +1988,8 @@
 				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
+				63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */,
+				6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */,
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,
 				63AC993029A7814700B38D7C /* String - Contains Element in Array.swift in Sources */,
 				632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */,
@@ -1769,17 +2003,23 @@
 				6387A66F2AE8051600517436 /* Button - Large Button.swift in Sources */,
 				637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */,
 				63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */,
+				6348D90B2BAC8D9800DBBC55 /* Service Details.swift in Sources */,
 				63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */,
 				6317BF712ADEE1FD0018E425 /* Top Packages Section.swift in Sources */,
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
 				63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */,
+				637D53A72BAB579800E072DA /* Parse Services.swift in Sources */,
+				637D539F2BAB549D00E072DA /* Service Detail.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
 				63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */,
 				633513F12A91592800524165 /* Collapsible Section Header.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
 				633AA2242AFEE40500A5F3E3 /* DataFile.swift in Sources */,
+				63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
+				6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */,
+				63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */,
 				637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */,
 				637260C729BE466700E6E81C /* Get Formulae.swift in Sources */,
 				63689FA82ACCC04E00BD354C /* Array - Prepend.swift in Sources */,

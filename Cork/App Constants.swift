@@ -120,6 +120,12 @@ struct AppConstants
     /// This one has all the downloaded files themselves
     static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)
     
+    // MARK: - Licensing
+    static let demoLengthInSeconds: Double = 604800 // 7 days
+    
+    static let authorizationEndpointURL: URL = URL(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
+    static let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
+    
     // MARK: - Misc Stuff
     static let backgroundUpdateInterval: TimeInterval = 10 * 60
     static let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60

@@ -11,8 +11,14 @@ import UserNotifications
 
 @MainActor
 class AppState: ObservableObject {
+    // MARK: - Licensing
+    @Published var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
+    @Published var isShowingLicensingSheet: Bool = false
+    
+    // MARK: - Navigation
     @Published var navigationSelection: UUID?
     
+    // MARK: - Notifications
     @Published var notificationEnabledInSystemSettings: Bool?
     @Published var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
     
@@ -60,6 +66,18 @@ class AppState: ObservableObject {
     @Published var taggedPackageNames: Set<String> = .init()
     
     @Published var corruptedPackage: String = ""
+    
+    // MARK: - Showing errors
+    func showAlert(errorToShow: FatalAlertType)
+    {
+        self.fatalAlertType = errorToShow
+        self.isShowingFatalError = true
+    }
+    
+    func dismissAlert()
+    {
+        self.isShowingFatalError = false
+    }
     
     // MARK: - Notification setup
     func setupNotifications() async

@@ -47,6 +47,7 @@ struct StartPage: View
                                     .font(.title)
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 
+                                /*
                                 Button
                                 {
                                     NSWorkspace.shared.open(URL(string: "https://blog.corkmac.app/p/upcoming-changes-to-the-install-process")!)
@@ -59,6 +60,7 @@ struct StartPage: View
                                         .clipShape(.capsule)
                                 }
                                 .buttonStyle(.plain)
+                                 */
                             }
                         }
 
