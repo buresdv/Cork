@@ -526,6 +526,7 @@ struct CorkApp: App
             AboutView()
         }
         .windowResizability(.contentSize)
+        .defaultPosition(.center)
 
         Settings
         {
