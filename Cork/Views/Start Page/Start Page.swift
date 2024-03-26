@@ -136,24 +136,17 @@ struct StartPage: View
                 }
             }
         }
-        .onDrop(of: [.fileURL], isTargeted: $dragOver) { providers -> Bool in
-            providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { (data, error) in
-                if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String) {
-                    
-                    if url.pathExtension == "brewbak" || url.pathExtension.isEmpty {
-                        AppConstants.logger.debug("Correct File Format")
-                        
-                        Task(priority: .userInitiated) 
-                        {
-                            try await importBrewfile(from: url, appState: appState, brewData: brewData)
-                        }
-                        
-                    } else {
-                        AppConstants.logger.error("Incorrect file format")
-                    }
-                }
-            })
+        .dropDestination(for: StringFile.self, action: { items, location in
+            guard let backup = items.first else
+            {
+                return false
+            }
+            
+            print(backup)
+            
             return true
+        }) { targeted in
+            
         }
     }
 }

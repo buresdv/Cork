@@ -9,10 +9,24 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct StringFile: FileDocument
+struct StringFile: FileDocument, Transferable
 {
     static var readableContentTypes: [UTType] { [.homebrewBackup, .plainText] }
     static var writableContentTypes: [UTType] { [.homebrewBackup] }
+    
+    static var transferRepresentation: some TransferRepresentation
+    {
+        FileRepresentation(importedContentType: .homebrewBackup) { received in
+            do
+            {
+                return try StringFile(initialText: String(contentsOf: received.file))
+            }
+            catch
+            {
+                throw CocoaError(.fileReadCorruptFile)
+            }
+        }
+    }
 
     var text: String
 
@@ -39,10 +53,24 @@ struct StringFile: FileDocument
     }
 }
 
-struct DataFile: FileDocument
+struct DataFile: FileDocument, Transferable
 {
     static var readableContentTypes: [UTType] { [.data, .homebrewBackup] }
     static var writableContentTypes: [UTType] { [.data, .homebrewBackup] }
+    
+    static var transferRepresentation: some TransferRepresentation
+    {
+        FileRepresentation(importedContentType: .homebrewBackup) { received in
+            do
+            {
+                return try DataFile(initialData: Data(contentsOf: received.file))
+            }
+            catch
+            {
+                throw CocoaError(.fileReadCorruptFile)
+            }
+        }
+    }
 
     var data: Data
 
