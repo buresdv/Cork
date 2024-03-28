@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SudoRequiredForRemovalSheet: View 
+struct SudoRequiredForRemovalSheet: View, Sendable 
 {
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
