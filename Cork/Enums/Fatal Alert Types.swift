@@ -11,7 +11,7 @@ enum FatalAlertType
 {
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly
     case customBrewExcutableGotDeleted
-    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions, homePathNotSet
+    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), homePathNotSet
     case couldNotObtainNotificationPermissions
 	case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
     case couldNotParseTopPackages
@@ -19,7 +19,7 @@ enum FatalAlertType
     case topPackageArrayFilterCouldNotRetrieveAnyPackages
     case couldNotAssociateAnyPackageWithProvidedPackageUUID
     case couldNotFindPackageInParentDirectory
-    case fatalPackageInstallationError
+    case fatalPackageInstallationError(String)
     case couldNotSynchronizePackages
     
     //MARK: - Brewfile exporting/importing

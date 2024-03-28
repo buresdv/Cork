@@ -13,7 +13,7 @@ struct ReinstallCorruptedPackageView: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @State var corruptedPackageToReinstall: String
+    let corruptedPackageToReinstall: CorruptedPackage
 
     @State var corruptedPackageReinstallationStage: PackageReinstallationStage = .installing
 
@@ -24,13 +24,13 @@ struct ReinstallCorruptedPackageView: View
         case .installing:
             ProgressView
             {
-                Text("repair-package.repair-process-\(corruptedPackageToReinstall)")
+                Text("repair-package.repair-process-\(corruptedPackageToReinstall.name)")
             }
             .progressViewStyle(.linear)
             .padding()
             .task(priority: .userInitiated)
             {
-                let reinstallationResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["reinstall", corruptedPackageToReinstall])
+                let reinstallationResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
                 AppConstants.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutput, privacy: .public)\nStandard error:\(reinstallationResult.standardError, privacy: .public)")
 
                 corruptedPackageReinstallationStage = .finished
@@ -42,7 +42,7 @@ struct ReinstallCorruptedPackageView: View
                 ComplexWithIcon(systemName: "checkmark.seal")
                 {
                     HeadlineWithSubheadline(
-                        headline: "repair-package.repairing-finished.headline-\(corruptedPackageToReinstall)",
+                        headline: "repair-package.repairing-finished.headline-\(corruptedPackageToReinstall.name)",
                         subheadline: "repair-package.repairing-finished.subheadline",
                         alignment: .leading
                     )

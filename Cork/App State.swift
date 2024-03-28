@@ -7,7 +7,7 @@
 
 import Foundation
 import AppKit
-import UserNotifications
+@preconcurrency import UserNotifications
 
 @MainActor
 class AppState: ObservableObject {
@@ -44,7 +44,6 @@ class AppState: ObservableObject {
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
-    @Published var fatalAlertDetails: String = ""
     
     @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
@@ -68,14 +67,9 @@ class AppState: ObservableObject {
     @Published var corruptedPackage: String = ""
     
     // MARK: - Showing errors
-    func showAlert(errorToShow: FatalAlertType, alertDetails: String? = nil)
+    func showAlert(errorToShow: FatalAlertType)
     {
         self.fatalAlertType = errorToShow
-        
-        if let alertDetails
-        {
-            self.fatalAlertDetails = alertDetails
-        }
         
         self.isShowingFatalError = true
     }
@@ -140,11 +134,6 @@ class AppState: ObservableObject {
         self.isShowingUpdateSheet = true
         
         sendNotification(title: String(localized: "notification.upgrade-process-started"))
-    }
-    
-    func setCorruptedPackage(_ name: String) {
-        corruptedPackage = name
-        showAlert(errorToShow: .installedPackageHasNoVersions)
     }
     
     func setCouldNotParseTopPackages() {

@@ -36,6 +36,8 @@ struct ContentView: View, Sendable
 
     @State private var multiSelection = Set<UUID>()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
+    
+    @State private var corruptedPackage: CorruptedPackage?
 
     var body: some View
     {
@@ -309,10 +311,11 @@ struct ContentView: View, Sendable
         {
             AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet, packageInstallationProcessStep: .ready)
         }
-        .sheet(isPresented: $appState.isShowingPackageReinstallationSheet)
-        {
-            ReinstallCorruptedPackageView(corruptedPackageToReinstall: appState.corruptedPackage)
-        }
+        .sheet(item: $corruptedPackage, onDismiss: {
+            corruptedPackage = nil
+        }, content: { corruptedPackageInternal in
+            ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
+        })
         .sheet(isPresented: $appState.isShowingSudoRequiredForUninstallSheet)
         {
             SudoRequiredForRemovalSheet(isShowingSheet: $appState.isShowingSudoRequiredForUninstallSheet)
@@ -420,12 +423,12 @@ struct ContentView: View, Sendable
                         restartApp()
                     })
                 )
-            case .installedPackageHasNoVersions:
+            case .installedPackageHasNoVersions(let corruptedPackageName):
                 return Alert(
-                    title: Text("alert.package-corrupted.title-\(appState.corruptedPackage)"),
+                    title: Text("alert.package-corrupted.title-\(corruptedPackageName)"),
                     message: Text("alert.package-corrupted.message"),
-                    dismissButton: .default(Text("action.repair-\(appState.corruptedPackage)"), action: {
-                        appState.isShowingPackageReinstallationSheet = true
+                    dismissButton: .default(Text("action.repair-\(corruptedPackageName)"), action: {
+                        self.corruptedPackage = .init(name: corruptedPackageName)
                     })
                 )
             case .homePathNotSet:
@@ -548,10 +551,10 @@ struct ContentView: View, Sendable
                         appState.dismissAlert()
                     })
                 )
-            case .fatalPackageInstallationError:
+            case .fatalPackageInstallationError(let errorDetails):
                 return Alert(
                     title: Text("alert.fatal-installation.error"),
-                    message: Text(appState.fatalAlertDetails),
+                    message: Text(errorDetails),
                     dismissButton: .default(Text("action.close"), action: {
                         appState.dismissAlert()
                     })

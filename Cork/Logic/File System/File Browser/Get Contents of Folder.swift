@@ -72,7 +72,7 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Set<Bre
                     else
                     {
                         AppConstants.logger.error("\(item, privacy: .public) does not have any versions installed")
-                        await appState.setCorruptedPackage(item)
+                        await appState.showAlert(errorToShow: .installedPackageHasNoVersions(corruptedPackageName: item))
                     }
                 }
                 else
