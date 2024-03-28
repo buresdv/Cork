@@ -91,8 +91,7 @@ struct SidebarPackageRow: View {
                     }
                     catch
                     {
-                        appState.fatalAlertType = .couldNotFindPackageInParentDirectory
-                        appState.isShowingFatalError = true
+                        appState.showAlert(errorToShow: .couldNotFindPackageInParentDirectory)
                     }
                 } label: {
                     Text("action.reveal-in-finder")

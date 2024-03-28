@@ -151,8 +151,7 @@ struct ContentView: View, Sendable
 
             if !customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.brewExecutablePath.path)
             {
-                appState.fatalAlertType = .customBrewExcutableGotDeleted
-                appState.isShowingFatalError = true
+                appState.showAlert(errorToShow: .customBrewExcutableGotDeleted)
             }
 
             AppConstants.logger.debug("Documents directory: \(AppConstants.documentsDirectoryPath.path, privacy: .public)")
@@ -212,15 +211,13 @@ struct ContentView: View, Sendable
                 catch let taggedStateApplicationError as NSError
                 {
                     AppConstants.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
-                    appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
-                    appState.isShowingFatalError = true
+                    appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
             }
             catch let uuidLoadingError as NSError
             {
                 AppConstants.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
-                appState.fatalAlertType = .couldNotApplyTaggedStateToPackages
-                appState.isShowingFatalError = true
+                appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
             }
         }
         .task(priority: .background)
@@ -348,7 +345,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.unable-to-uninstall-dependency.title"),
                     message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
 
@@ -444,7 +441,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.notifications-error-while-obtaining-permissions.title"),
                     message: Text("alert.notifications-error-while-obtaining-permissions.message"),
                     dismissButton: .cancel(Text("action.use-without-notifications"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .couldNotParseTopPackages:
@@ -452,7 +449,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.notifications-error-while-parsing-top-packages.title"),
                     message: Text("alert.notifications-error-while-parsing-top-packages.message"),
                     dismissButton: .cancel(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .receivedInvalidResponseFromBrew:
@@ -460,7 +457,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.notifications-error-while-getting-top-packages.title"),
                     message: Text("alert.notifications-error-while-getting-top-package.message"),
                     dismissButton: .cancel(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                         enableDiscoverability = false
                     })
                 )
@@ -489,7 +486,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title"),
                     message: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
 
@@ -498,7 +495,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-find-package-in-parent-directory.title"),
                     message: Text("message.try-again-or-restart"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
 
@@ -507,7 +504,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-get-brewfile-working-directory.title"),
                     message: Text("message.try-again-or-restart"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .couldNotDumpBrewfile:
@@ -515,7 +512,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-dump-brewfile.title"),
                     message: Text("message.try-again-or-restart"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
 
@@ -524,7 +521,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-read-brewfile.title"),
                     message: Text("message.try-again-or-restart"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .couldNotGetBrewfileLocation:
@@ -532,7 +529,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-get-brewfile-location.title"),
                     message: Text("alert.could-not-get-brewfile-location.message"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .couldNotImportBrewfile:
@@ -540,7 +537,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.could-not-import-brewfile.title"),
                     message: Text("alert.could-not-import-brewfile.message"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .malformedBrewfile:
@@ -548,7 +545,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.malformed-brewfile.title"),
                     message: Text("alert.malformed-brewfile.message"),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .fatalPackageInstallationError:
@@ -556,7 +553,7 @@ struct ContentView: View, Sendable
                     title: Text("alert.fatal-installation.error"),
                     message: Text(appState.fatalAlertDetails),
                     dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingFatalError = false
+                        appState.dismissAlert()
                     })
                 )
             case .customBrewExcutableGotDeleted:
@@ -609,8 +606,7 @@ struct ContentView: View, Sendable
 
             if topPackageLoadingError is DataDownloadingError
             {
-                appState.fatalAlertType = .receivedInvalidResponseFromBrew
-                appState.isShowingFatalError = true
+                appState.showAlert(errorToShow: .receivedInvalidResponseFromBrew)
             }
         }
     }

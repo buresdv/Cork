@@ -18,7 +18,7 @@ struct StartPage: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
-    
+
     @State private var dragOver: Bool = false
 
     var body: some View
@@ -46,21 +46,21 @@ struct StartPage: View
                                 Text("start-page.status")
                                     .font(.title)
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                
+
                                 /*
-                                Button
-                                {
-                                    NSWorkspace.shared.open(URL(string: "https://blog.corkmac.app/p/upcoming-changes-to-the-install-process")!)
-                                } label: {
-                                    Text("start-page.upcoming-changes")
-                                        .padding(.horizontal, 6)
-                                        .padding(.vertical, 1)
-                                        .foregroundColor(.white)
-                                        .background(.blue)
-                                        .clipShape(.capsule)
-                                }
-                                .buttonStyle(.plain)
-                                 */
+                                 Button
+                                 {
+                                     NSWorkspace.shared.open(URL(string: "https://blog.corkmac.app/p/upcoming-changes-to-the-install-process")!)
+                                 } label: {
+                                     Text("start-page.upcoming-changes")
+                                         .padding(.horizontal, 6)
+                                         .padding(.vertical, 1)
+                                         .foregroundColor(.white)
+                                         .background(.blue)
+                                         .clipShape(.capsule)
+                                 }
+                                 .buttonStyle(.plain)
+                                  */
                             }
                         }
 
@@ -84,7 +84,7 @@ struct StartPage: View
                     }
                     .scrollDisabled(!isOutdatedPackageDropdownExpanded)
 
-                    ButtonBottomRow 
+                    ButtonBottomRow
                     {
                         HStack
                         {
@@ -119,10 +119,9 @@ struct StartPage: View
                     switch outdatedPackageRetrievalError
                     {
                     case .homeNotSet:
-                        appState.fatalAlertType = .homePathNotSet
-                        appState.isShowingFatalError = true
+                        appState.showAlert(errorToShow: .homePathNotSet)
                     case .otherError:
-                            AppConstants.logger.error("Something went wrong")
+                        AppConstants.logger.error("Something went wrong")
                     }
                 }
                 catch
@@ -136,19 +135,22 @@ struct StartPage: View
                 }
             }
         }
-        .onDrop(of: [.fileURL], isTargeted: $dragOver) { providers -> Bool in
-            providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { (data, error) in
-                if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String) {
-                    
-                    if url.pathExtension == "brewbak" || url.pathExtension.isEmpty {
+        .onDrop(of: [.fileURL], isTargeted: $dragOver)
+        { providers -> Bool in
+            providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { data, _ in
+                if let data = data, let path = String(data: data, encoding: .utf8), let url = URL(string: path as String)
+                {
+                    if url.pathExtension == "brewbak" || url.pathExtension.isEmpty
+                    {
                         AppConstants.logger.debug("Correct File Format")
-                        
-                        Task(priority: .userInitiated) 
+
+                        Task(priority: .userInitiated)
                         {
                             try await importBrewfile(from: url, appState: appState, brewData: brewData)
                         }
-                        
-                    } else {
+                    }
+                    else
+                    {
                         AppConstants.logger.error("Incorrect file format")
                     }
                 }

@@ -108,9 +108,8 @@ struct InstallingPackageView: View
                     
                     isShowingSheet = false
                     
-                    appState.fatalAlertDetails = fatalInstallationError.localizedDescription
-                    appState.fatalAlertType = .fatalPackageInstallationError
-                    appState.isShowingFatalError = true
+                    appState.showAlert(errorToShow: .fatalPackageInstallationError, alertDetails: fatalInstallationError.localizedDescription)
+                    
                 }
             }
         }

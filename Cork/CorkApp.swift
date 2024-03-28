@@ -366,20 +366,16 @@ struct CorkApp: App
                         }
                         catch let brewfileExportError as BrewfileDumpingError
                         {
-                            defer
-                            {
-                                appDelegate.appState.isShowingFatalError = true
-                            }
                             switch brewfileExportError
                             {
                             case .couldNotDetermineWorkingDirectory:
-                                appDelegate.appState.fatalAlertType = .couldNotGetWorkingDirectory
+                                    appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
 
                             case .errorWhileDumpingBrewfile:
-                                appDelegate.appState.fatalAlertType = .couldNotDumpBrewfile
+                                appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile)
 
                             case .couldNotReadBrewfile:
-                                appDelegate.appState.fatalAlertType = .couldNotReadBrewfile
+                                appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
                             }
                         }
                     }
@@ -414,29 +410,21 @@ struct CorkApp: App
                                 }
                                 catch
                                 {
-                                    defer
-                                    {
-                                        appDelegate.appState.isShowingBrewfileImportProgress = false
-                                        appDelegate.appState.isShowingFatalError = true
-                                    }
-
-                                    appDelegate.appState.fatalAlertType = .malformedBrewfile
+                                    appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
+                                    
+                                    appDelegate.appState.isShowingBrewfileImportProgress = false
                                 }
                             }
                         }
                         catch let error as BrewfileReadingError
                         {
-                            defer
-                            {
-                                appDelegate.appState.isShowingFatalError = true
-                            }
                             switch error
                             {
                             case .couldNotGetBrewfileLocation:
-                                appDelegate.appState.fatalAlertType = .couldNotGetBrewfileLocation
+                                appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
 
                             case .couldNotImportFile:
-                                appDelegate.appState.fatalAlertType = .couldNotImportBrewfile
+                                appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
                             }
                         }
                     }

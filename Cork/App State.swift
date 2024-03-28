@@ -68,9 +68,15 @@ class AppState: ObservableObject {
     @Published var corruptedPackage: String = ""
     
     // MARK: - Showing errors
-    func showAlert(errorToShow: FatalAlertType)
+    func showAlert(errorToShow: FatalAlertType, alertDetails: String? = nil)
     {
         self.fatalAlertType = errorToShow
+        
+        if let alertDetails
+        {
+            self.fatalAlertDetails = alertDetails
+        }
+        
         self.isShowingFatalError = true
     }
     
@@ -138,13 +144,11 @@ class AppState: ObservableObject {
     
     func setCorruptedPackage(_ name: String) {
         corruptedPackage = name
-        fatalAlertType = .installedPackageHasNoVersions
-        isShowingFatalError = true 
+        showAlert(errorToShow: .installedPackageHasNoVersions)
     }
     
     func setCouldNotParseTopPackages() {
-        fatalAlertType = .couldNotParseTopPackages
-        isShowingFatalError = true
+        showAlert(errorToShow: .couldNotParseTopPackages)
     }
     
     func loadCachedDownloadedPackages() async

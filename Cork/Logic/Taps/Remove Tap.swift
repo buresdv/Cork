@@ -69,8 +69,8 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         if untapResult.contains("because it contains the following installed formulae or casks")
         {
             appState.offendingTapProhibitingRemovalOfTap = name
-            appState.fatalAlertType = .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
-            appState.isShowingFatalError = true
+            
+            appState.showAlert(errorToShow: .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled)
         }
 
         if let indexToReplaceGlobal

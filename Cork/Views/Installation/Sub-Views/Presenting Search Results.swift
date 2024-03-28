@@ -94,8 +94,8 @@ struct PresentingSearchResultsView: View
                             {
                                 AppConstants.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
                                 isShowingSheet = false
-                                appState.fatalAlertType = .couldNotAssociateAnyPackageWithProvidedPackageUUID
-                                appState.isShowingFatalError = true
+                                
+                                appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
                             }
                         }
 

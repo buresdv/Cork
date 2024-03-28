@@ -42,8 +42,7 @@ struct UpdatingPackageTrackerStateView: View
                     switch outdatedPackageRetrievalError
                     {
                     case .homeNotSet:
-                        appState.fatalAlertType = .homePathNotSet
-                        appState.isShowingFatalError = true
+                        appState.showAlert(errorToShow: .homePathNotSet)
                     case .otherError:
                             AppConstants.logger.error("Something went wrong")
                     }
