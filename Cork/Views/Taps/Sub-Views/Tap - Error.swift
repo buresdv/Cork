@@ -39,7 +39,7 @@ struct AddTapErrorView: View
 
                 HStack
                 {
-                    DismissSheetButton(isShowingSheet: $isShowingSheet)
+                    DismissSheetButton()
 
                     Spacer()
                     

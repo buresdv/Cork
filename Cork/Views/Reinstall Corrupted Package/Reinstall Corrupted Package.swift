@@ -37,7 +37,7 @@ struct ReinstallCorruptedPackageView: View
             }
 
         case .finished:
-            DisappearableSheet(isShowingSheet: $appState.isShowingPackageReinstallationSheet)
+            DisappearableSheet
             {
                 ComplexWithIcon(systemName: "checkmark.seal")
                 {

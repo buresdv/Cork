@@ -72,7 +72,7 @@ struct InstallationInitialView: View
 
             HStack
             {
-                DismissSheetButton(isShowingSheet: $isShowingSheet)
+                DismissSheetButton()
 
                 Spacer()
 

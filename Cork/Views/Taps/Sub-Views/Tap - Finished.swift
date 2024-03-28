@@ -19,7 +19,7 @@ struct AddTapFinishedView: View
     {
         ComplexWithIcon(systemName: "checkmark.seal")
         {
-            DisappearableSheet(isShowingSheet: $isShowingSheet)
+            DisappearableSheet
             {
                 HeadlineWithSubheadline(
                     headline: "add-tap.complete-\(requestedTap)",

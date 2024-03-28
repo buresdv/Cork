@@ -104,7 +104,7 @@ struct UpdateSomePackagesView: View
                     // outdatedPackageTracker.outdatedPackages = removeUpdatedPackages(outdatedPackageTracker: outdatedPackageTracker, namesOfUpdatedPackages: selectedPackages.map(\.package.name))
                 }
             case .finished:
-                DisappearableSheet(isShowingSheet: $isShowingSheet)
+                DisappearableSheet
                 {
                     ComplexWithIcon(systemName: "checkmark.seal")
                     {
@@ -141,7 +141,7 @@ struct UpdateSomePackagesView: View
                         HStack
                         {
                             Spacer()
-                            DismissSheetButton(isShowingSheet: $isShowingSheet, customButtonText: "action.close")
+                            DismissSheetButton(customButtonText: "action.close")
                         }
                     }
                     .fixedSize()

@@ -74,7 +74,7 @@ struct AddFormulaView: View
                 )
 
             case .finished:
-                DisappearableSheet(isShowingSheet: $isShowingSheet)
+                DisappearableSheet
                 {
                     ComplexWithIcon(systemName: "checkmark.seal")
                     {
@@ -129,7 +129,7 @@ struct AddFormulaView: View
 
                         Spacer()
 
-                        DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        DismissSheetButton()
                     }
                 }
 
@@ -163,7 +163,7 @@ struct AddFormulaView: View
                                     isShowingSheet.toggle()
                                 }
                                 Spacer()
-                                DismissSheetButton(isShowingSheet: $isShowingSheet)
+                                DismissSheetButton()
                             }
                         }
                     }
@@ -186,7 +186,7 @@ struct AddFormulaView: View
                     {
                         Spacer()
 
-                        DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        DismissSheetButton()
                     }
                 }
             }

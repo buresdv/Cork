@@ -59,7 +59,7 @@ struct PresentingSearchResultsView: View
 
             HStack
             {
-                DismissSheetButton(isShowingSheet: $isShowingSheet)
+                DismissSheetButton()
 
                 Spacer()
 

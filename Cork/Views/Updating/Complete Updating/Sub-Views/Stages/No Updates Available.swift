@@ -16,7 +16,7 @@ struct NoUpdatesAvailableStageView: View
 
     var body: some View
     {
-        DisappearableSheet(isShowingSheet: $isShowingSheet)
+        DisappearableSheet
         {
             ComplexWithIcon(systemName: "checkmark.seal")
             {

@@ -9,14 +9,15 @@ import SwiftUI
 
 struct DismissSheetButton: View
 {
-    @Binding var isShowingSheet: Bool
+    @Environment(\.dismiss) var dismiss
+    
     @State var customButtonText: LocalizedStringKey?
 
     var body: some View
     {
         Button
         {
-            isShowingSheet.toggle()
+            dismiss()
         } label: {
             if let customButtonText
             {

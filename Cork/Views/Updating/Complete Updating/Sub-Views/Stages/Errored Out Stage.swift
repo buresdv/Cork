@@ -41,7 +41,7 @@ struct ErroredOutStageView: View
                 HStack
                 {
                     Spacer()
-                    DismissSheetButton(isShowingSheet: $appState.isShowingUpdateSheet, customButtonText: "action.close")
+                    DismissSheetButton(customButtonText: "action.close")
                 }
             }
             .fixedSize()

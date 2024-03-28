@@ -76,7 +76,7 @@ struct MaintenanceReadyView: View
                 {
                     HStack
                     {
-                        DismissSheetButton(isShowingSheet: $isShowingSheet)
+                        DismissSheetButton()
 
                         Spacer()
 

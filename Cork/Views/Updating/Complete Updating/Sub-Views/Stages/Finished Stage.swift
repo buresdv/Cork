@@ -14,7 +14,7 @@ struct FinishedStageView: View {
     @Binding var isShowingSheet: Bool
 
     var body: some View {
-        DisappearableSheet(isShowingSheet: $isShowingSheet)
+        DisappearableSheet
         {
             ComplexWithIcon(systemName: "checkmark.seal")
             {
