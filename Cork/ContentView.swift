@@ -22,7 +22,7 @@ struct ContentView: View, Sendable
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
-    
+
     @Environment(\.openWindow) var openWindow
 
     @EnvironmentObject var appState: AppState
@@ -36,8 +36,70 @@ struct ContentView: View, Sendable
 
     @State private var multiSelection = Set<UUID>()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
-    
+
     @State private var corruptedPackage: CorruptedPackage?
+
+    // MARK: - ViewBuilders
+    @ViewBuilder private var upgradePackagesButton: some View
+    {
+        Button
+        {
+            appState.isShowingUpdateSheet = true
+        } label: {
+            Label
+            {
+                Text("navigation.upgrade-packages")
+            } icon: {
+                Image(systemName: "arrow.clockwise")
+            }
+        }
+        .help("navigation.upgrade-packages.help")
+        .disabled(appState.isCheckingForPackageUpdates)
+    }
+    
+    @ViewBuilder private var addTapButton: some View
+    {
+        Button
+        {
+            appState.isShowingAddTapSheet.toggle()
+        } label: {
+            Label
+            {
+                Text("navigation.add-tap")
+            } icon: {
+                Image(systemName: "spigot")
+            }
+        }
+        .help("navigation.add-tap.help")
+    }
+    
+    @ViewBuilder private var installPackageButton: some View
+    {
+        Button
+        {
+            appState.isShowingInstallationSheet.toggle()
+        } label: {
+            Label
+            {
+                Text("navigation.install-package")
+            } icon: {
+                Image(systemName: "plus")
+            }
+        }
+        .help("navigation.install-package.help")
+    }
+    
+    @ViewBuilder private var manageServicesButton: some View
+    {
+        Button
+        {
+            openWindow(id: .servicesWindowID)
+        } label: {
+            Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
+        }
+    }
+    
+    // MARK: - The main view
 
     var body: some View
     {
@@ -56,70 +118,31 @@ struct ContentView: View, Sendable
             {
                 ToolbarItem(id: "upgradePackages", placement: .primaryAction)
                 {
-                    Button
-                    {
-                        appState.isShowingUpdateSheet = true
-                    } label: {
-                        Label
-                        {
-                            Text("navigation.upgrade-packages")
-                        } icon: {
-                            Image(systemName: "arrow.clockwise")
-                        }
-                    }
-                    .help("navigation.upgrade-packages.help")
-                    .disabled(appState.isCheckingForPackageUpdates)
+                    upgradePackagesButton
                 }
 
                 ToolbarItem(id: "addTap", placement: .primaryAction)
                 {
-                    Button
-                    {
-                        appState.isShowingAddTapSheet.toggle()
-                    } label: {
-                        Label
-                        {
-                            Text("navigation.add-tap")
-                        } icon: {
-                            Image(systemName: "spigot")
-                        }
-                    }
-                    .help("navigation.add-tap.help")
+                    addTapButton
                 }
 
                 ToolbarItem(id: "installPackage", placement: .primaryAction)
                 {
-                    Button
-                    {
-                        appState.isShowingInstallationSheet.toggle()
-                    } label: {
-                        Label
-                        {
-                            Text("navigation.install-package")
-                        } icon: {
-                            Image(systemName: "plus")
-                        }
-                    }
-                    .help("navigation.install-package.help")
+                    installPackageButton
                 }
-                
+
                 ToolbarItem(id: "manageServices", placement: .primaryAction)
                 {
-                    Button
-                    {
-                        openWindow(id: .servicesWindowID)
-                    } label: {
-                        Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
-                    }
+                    manageServicesButton
                 }
                 .defaultCustomization(.hidden)
-                
+
                 ToolbarItem(id: "spacer", placement: .primaryAction)
                 {
                     Spacer()
                 }
                 .defaultCustomization(.hidden)
-                
+
                 ToolbarItem(id: "divider", placement: .primaryAction)
                 {
                     Divider()
@@ -318,7 +341,7 @@ struct ContentView: View, Sendable
         })
         .sheet(isPresented: $appState.isShowingSudoRequiredForUninstallSheet)
         {
-            SudoRequiredForRemovalSheet(isShowingSheet: $appState.isShowingSudoRequiredForUninstallSheet)
+            SudoRequiredForRemovalSheet()
         }
         .sheet(isPresented: $appState.isShowingAddTapSheet)
         {
@@ -423,7 +446,7 @@ struct ContentView: View, Sendable
                         restartApp()
                     })
                 )
-            case .installedPackageHasNoVersions(let corruptedPackageName):
+            case let .installedPackageHasNoVersions(corruptedPackageName):
                 return Alert(
                     title: Text("alert.package-corrupted.title-\(corruptedPackageName)"),
                     message: Text("alert.package-corrupted.message"),
@@ -551,7 +574,7 @@ struct ContentView: View, Sendable
                         appState.dismissAlert()
                     })
                 )
-            case .fatalPackageInstallationError(let errorDetails):
+            case let .fatalPackageInstallationError(errorDetails):
                 return Alert(
                     title: Text("alert.fatal-installation.error"),
                     message: Text(errorDetails),

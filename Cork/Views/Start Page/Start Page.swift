@@ -157,5 +157,30 @@ struct StartPage: View
             })
             return true
         }
+        .overlay
+        {
+            if dragOver
+            {
+                ZStack(alignment: .center)
+                {
+                    Rectangle()
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .foregroundColor(Color(nsColor: .gridColor))
+                    
+                    VStack(alignment: .center, spacing: 10)
+                    {
+                        Image(systemName: "square.and.arrow.down")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100)
+                        
+                        Text("navigation.menu.import-export.import-brewfile")
+                            .font(.largeTitle)
+                    }
+                    .foregroundColor(Color(nsColor: .secondaryLabelColor))
+                }
+            }
+        }
+        .animation(.easeInOut, value: dragOver)
     }
 }
