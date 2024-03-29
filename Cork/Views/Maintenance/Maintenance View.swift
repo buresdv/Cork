@@ -14,8 +14,6 @@ enum MaintenanceSteps
 
 struct MaintenanceView: View
 {
-    @Binding var isShowingSheet: Bool
-
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
@@ -50,7 +48,6 @@ struct MaintenanceView: View
                     shouldPurgeCache: $shouldPurgeCache,
                     shouldDeleteDownloads: $shouldDeleteDownloads,
                     shouldPerformHealthCheck: $shouldPerformHealthCheck,
-                    isShowingSheet: $isShowingSheet,
                     maintenanceSteps: $maintenanceSteps,
                     isShowingControlButtons: true,
                     forcedOptions: forcedOptions!
@@ -79,8 +76,7 @@ struct MaintenanceView: View
                     numberOfOrphansRemoved: numberOfOrphansRemoved,
                     reclaimedSpaceAfterCachePurge: reclaimedSpaceAfterCachePurge,
                     brewHealthCheckFoundNoProblems: brewHealthCheckFoundNoProblems,
-                    maintenanceFoundNoProblems: $maintenanceFoundNoProblems,
-                    isShowingSheet: $isShowingSheet
+                    maintenanceFoundNoProblems: $maintenanceFoundNoProblems
                 )
             }
         }

@@ -332,7 +332,7 @@ struct ContentView: View, Sendable
         })
         .sheet(isPresented: $appState.isShowingInstallationSheet)
         {
-            AddFormulaView(isShowingSheet: $appState.isShowingInstallationSheet, packageInstallationProcessStep: .ready)
+            AddFormulaView(packageInstallationProcessStep: .ready)
         }
         .sheet(item: $corruptedPackage, onDismiss: {
             corruptedPackage = nil
@@ -345,15 +345,15 @@ struct ContentView: View, Sendable
         }
         .sheet(isPresented: $appState.isShowingAddTapSheet)
         {
-            AddTapView(isShowingSheet: $appState.isShowingAddTapSheet)
+            AddTapView()
         }
         .sheet(isPresented: $appState.isShowingUpdateSheet)
         {
-            UpdatePackagesView(isShowingSheet: $appState.isShowingUpdateSheet)
+            UpdatePackagesView()
         }
         .sheet(isPresented: $appState.isShowingIncrementalUpdateSheet)
         {
-            UpdateSomePackagesView(isShowingSheet: $appState.isShowingIncrementalUpdateSheet)
+            UpdateSomePackagesView()
         }
         .sheet(isPresented: $appState.isShowingBrewfileExportProgress)
         {

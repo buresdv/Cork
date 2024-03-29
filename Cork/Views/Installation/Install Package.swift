@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddFormulaView: View
 {
-    @Binding var isShowingSheet: Bool
+    @Environment(\.dismiss) var dismiss
 
     @State private var packageRequested: String = ""
 
@@ -41,7 +41,6 @@ struct AddFormulaView: View
                 {
                     InstallationInitialView(
                         searchResultTracker: searchResultTracker,
-                        isShowingSheet: $isShowingSheet,
                         packageRequested: $packageRequested,
                         foundPackageSelection: $foundPackageSelection,
                         installationProgressTracker: installationProgressTracker,
@@ -61,7 +60,6 @@ struct AddFormulaView: View
                     searchResultTracker: searchResultTracker,
                     packageRequested: $packageRequested,
                     foundPackageSelection: $foundPackageSelection,
-                    isShowingSheet: $isShowingSheet,
                     packageInstallationProcessStep: $packageInstallationProcessStep,
                     installationProgressTracker: installationProgressTracker
                 )
@@ -69,8 +67,7 @@ struct AddFormulaView: View
             case .installing:
                 InstallingPackageView(
                     installationProgressTracker: installationProgressTracker,
-                    packageInstallationProcessStep: $packageInstallationProcessStep,
-                    isShowingSheet: $isShowingSheet
+                    packageInstallationProcessStep: $packageInstallationProcessStep
                 )
 
             case .finished:
@@ -134,7 +131,7 @@ struct AddFormulaView: View
                 }
 
             case .requiresSudoPassword:
-                SudoRequiredView(installationProgressTracker: installationProgressTracker, isShowingSheet: $isShowingSheet)
+                SudoRequiredView(installationProgressTracker: installationProgressTracker)
 
             case .anotherProcessAlreadyRunning:
                 VStack(alignment: .leading)
@@ -160,7 +157,7 @@ struct AddFormulaView: View
                                         }
                                     }
                                     
-                                    isShowingSheet.toggle()
+                                    dismiss()
                                 }
                                 Spacer()
                                 DismissSheetButton()

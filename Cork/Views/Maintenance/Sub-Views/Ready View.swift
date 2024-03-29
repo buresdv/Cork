@@ -19,8 +19,6 @@ struct MaintenanceReadyView: View
     @Binding var shouldDeleteDownloads: Bool
     @Binding var shouldPerformHealthCheck: Bool
 
-    @Binding var isShowingSheet: Bool
-
     @Binding var maintenanceSteps: MaintenanceSteps
 
     @State var isShowingControlButtons: Bool

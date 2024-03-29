@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct SudoRequiredView: View
+struct SudoRequiredView: View, Sendable
 {
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var brewData: BrewDataStorage
     
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
-    
-    @Binding var isShowingSheet: Bool
     
     var body: some View
     {
@@ -39,7 +39,7 @@ struct SudoRequiredView: View
             {
                 Button
                 {
-                    isShowingSheet = false
+                    dismiss()
 
                     Task.detached
                     {

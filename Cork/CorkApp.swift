@@ -485,16 +485,14 @@ struct CorkApp: App
                 }
                 .keyboardShortcut("m", modifiers: [.command, .shift])
 
-                if appDelegate.appState.cachedDownloadsFolderSize != 0
+                Button
                 {
-                    Button
-                    {
-                        appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
-                    } label: {
-                        Text("navigation.menu.maintenance.delete-cached-downloads")
-                    }
-                    .keyboardShortcut("m", modifiers: [.command, .option])
+                    appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
+                } label: {
+                    Text("navigation.menu.maintenance.delete-cached-downloads")
                 }
+                .keyboardShortcut("m", modifiers: [.command, .option])
+                .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
             }
         }
         .windowStyle(.automatic)

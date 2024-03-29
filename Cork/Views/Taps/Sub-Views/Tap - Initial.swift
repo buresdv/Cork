@@ -9,9 +9,10 @@ import SwiftUI
 
 struct AddTapInitialView: View
 {
+    @Environment(\.dismiss) var dismiss
+    
     @Binding var requestedTap: String
     @Binding var forcedRepoAddress: String
-    @Binding var isShowingSheet: Bool
     @Binding var progress: TapAddingStates
 
     @State private var isShowingErrorPopover: Bool = false
@@ -71,7 +72,7 @@ struct AddTapInitialView: View
             {
                 Button
                 {
-                    isShowingSheet.toggle()
+                    dismiss()
                 } label: {
                     Text("action.cancel")
                 }

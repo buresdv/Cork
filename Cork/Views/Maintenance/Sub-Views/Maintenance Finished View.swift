@@ -11,6 +11,8 @@ struct MaintenanceFinishedView: View
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var outdatedPackageTacker: OutdatedPackageTracker
@@ -28,7 +30,6 @@ struct MaintenanceFinishedView: View
     let brewHealthCheckFoundNoProblems: Bool
 
     @Binding var maintenanceFoundNoProblems: Bool
-    @Binding var isShowingSheet: Bool
     
     var displayablePackagesHoldingBackCachePurge: [String]
     {
@@ -162,7 +163,7 @@ struct MaintenanceFinishedView: View
 
                     Button
                     {
-                        isShowingSheet.toggle()
+                        dismiss()
 
                         appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
                     } label: {

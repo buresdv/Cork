@@ -13,8 +13,6 @@ struct AddTapFinishedView: View
     
     let requestedTap: String
     
-    @Binding var isShowingSheet: Bool
-    
     var body: some View
     {
         ComplexWithIcon(systemName: "checkmark.seal")

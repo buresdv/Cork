@@ -12,8 +12,6 @@ struct NoUpdatesAvailableStageView: View
 
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
 
-    @Binding var isShowingSheet: Bool
-
     var body: some View
     {
         DisappearableSheet

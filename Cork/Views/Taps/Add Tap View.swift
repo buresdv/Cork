@@ -25,8 +25,6 @@ enum TappingError: String
 
 struct AddTapView: View
 {
-    @Binding var isShowingSheet: Bool
-
     @State var progress: TapAddingStates = .ready
 
     @State private var requestedTap: String = ""
@@ -48,7 +46,6 @@ struct AddTapView: View
                 AddTapInitialView(
                     requestedTap: $requestedTap,
                     forcedRepoAddress: $forcedRepoAddress,
-                    isShowingSheet: $isShowingSheet,
                     progress: $progress,
                     isShowingManualRepoAddressInputField: false
                 )
@@ -63,15 +60,13 @@ struct AddTapView: View
 
             case .finished:
                 AddTapFinishedView(
-                    requestedTap: requestedTap,
-                    isShowingSheet: $isShowingSheet
+                    requestedTap: requestedTap
                 )
 
             case .error:
                 AddTapErrorView(
                     tappingError: tappingError,
                     requestedTap: requestedTap,
-                    isShowingSheet: $isShowingSheet,
                     progress: $progress
                 )
 
@@ -79,7 +74,6 @@ struct AddTapView: View
                 AddTapInitialView(
                     requestedTap: $requestedTap,
                     forcedRepoAddress: $forcedRepoAddress,
-                    isShowingSheet: $isShowingSheet,
                     progress: $progress,
                     isShowingManualRepoAddressInputField: true
                 )

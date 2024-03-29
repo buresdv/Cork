@@ -9,8 +9,6 @@ import SwiftUI
 
 struct UpdatePackagesView: View
 {
-    @Binding var isShowingSheet: Bool
-
     @State var packageUpdatingStage: PackageUpdatingStage = .updating
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
 
@@ -66,12 +64,10 @@ struct UpdatePackagesView: View
                 }
 
             case .noUpdatesAvailable:
-                NoUpdatesAvailableStageView(
-                    isShowingSheet: $isShowingSheet
-                )
+                NoUpdatesAvailableStageView()
 
             case .finished:
-                FinishedStageView(isShowingSheet: $isShowingSheet)
+                FinishedStageView()
 
             case .erroredOut:
                 ErroredOutStageView()

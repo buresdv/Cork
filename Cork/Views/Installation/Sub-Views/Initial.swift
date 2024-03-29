@@ -25,7 +25,6 @@ struct InstallationInitialView: View
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
 
-    @Binding var isShowingSheet: Bool
     @Binding var packageRequested: String
 
     @Binding var foundPackageSelection: Set<UUID>

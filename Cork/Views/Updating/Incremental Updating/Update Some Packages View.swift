@@ -14,8 +14,6 @@ struct UpdateSomePackagesView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
-    @Binding var isShowingSheet: Bool
-
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
     @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", isCask: false, installedOn: nil, versions: [], sizeInBytes: nil)
     @State private var updateProgress: Double = 0.0
