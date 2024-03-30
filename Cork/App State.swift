@@ -43,7 +43,7 @@ class AppState: ObservableObject {
     
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
-    @Published var fatalAlertType: FatalAlertType = .uninstallationNotPossibleDueToDependency
+    @Published var fatalAlertType: FatalAlertType = .couldNotApplyTaggedStateToPackages
     
     @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
@@ -58,6 +58,7 @@ class AppState: ObservableObject {
     @Published var isLoadingCasks: Bool = true
     
     @Published var isLoadingTopPackages: Bool = false
+    @Published var failedWhileLoadingTopPackages: Bool = false
     
     @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
     @Published var cachedDownloads: [CachedDownload] = .init()

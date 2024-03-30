@@ -84,7 +84,7 @@ func uninstallSelectedPackage(
 
             appState.offendingDependencyProhibitingUninstallation = dependencyName
             
-            appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency)
+            appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: package))
 
             AppConstants.logger.warning("Name of offending dependency: \(dependencyName, privacy: .public)")
         }

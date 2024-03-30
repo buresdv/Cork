@@ -3692,6 +3692,16 @@
         }
       }
     },
+    "add-package.error.timed-out.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading of top packages timed out"
+          }
+        }
+      }
+    },
     "add-package.fatal-error-%@" : {
       "localizations" : {
         "cs" : {
@@ -9011,59 +9021,28 @@
         }
       }
     },
-    "alert.unable-to-uninstall-dependency.message-%@" : {
+    "alert.unable-to-uninstall-%@.title" : {
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tento balíček je závislostí balíčku %@"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dieses Paket ist eine Abhängigkeit von %@"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This package is a dependency of %@"
+            "value" : "Couldn't Uninstall %@"
           }
-        },
-        "fr" : {
+        }
+      }
+    },
+    "alert.unable-to-uninstall-dependency.message-%@-%@" : {
+      "localizations" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ce paquet est une dépendance de %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Этот пакет — зависимость %@"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Цей пакет є залежністю %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "该软件包是 %@ 的依赖"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本套件受 %@ 依存"
+            "value" : "%2$@ is a dependency of %1$@"
           }
         }
       }
     },
     "alert.unable-to-uninstall-dependency.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

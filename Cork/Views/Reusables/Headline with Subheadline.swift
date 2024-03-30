@@ -9,10 +9,10 @@ import SwiftUI
 
 struct HeadlineWithSubheadline: View
 {
-    @State var headline: LocalizedStringKey
-    @State var subheadline: LocalizedStringKey
+    let headline: LocalizedStringKey
+    let subheadline: LocalizedStringKey
 
-    @State var alignment: HorizontalAlignment
+    let alignment: HorizontalAlignment
 
     var body: some View
     {

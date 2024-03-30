@@ -11,7 +11,7 @@ enum FatalAlertType
 {
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly
     case customBrewExcutableGotDeleted
-    case uninstallationNotPossibleDueToDependency, couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), homePathNotSet
+    case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), homePathNotSet
     case couldNotObtainNotificationPermissions
 	case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
     case couldNotParseTopPackages
