@@ -50,5 +50,14 @@ struct PackageListItem: View
                 .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
             #endif
         }
+        .dropDestination(for: HomebrewBackup.self) { items, location in
+            print(items)
+            print(location)
+            
+            return true
+        } isTargeted: { isTargeted in
+            ProgressView()
+        }
+
     }
 }

@@ -86,6 +86,7 @@
 		63581BDB2BB86DF1009A8E03 /* Menu Bar - Cached Downloads Cleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BDA2BB86DF1009A8E03 /* Menu Bar - Cached Downloads Cleanup.swift */; };
 		63581BDD2BB86E5B009A8E03 /* Open Cork Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BDC2BB86E5B009A8E03 /* Open Cork Button.swift */; };
 		63581BDF2BB87A09009A8E03 /* Quit Cork Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BDE2BB87A09009A8E03 /* Quit Cork Button.swift */; };
+		63581BE12BB8BE98009A8E03 /* Homebrew Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BE02BB8BE98009A8E03 /* Homebrew Backup.swift */; };
 		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */; };
 		635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04D2A2B3818004DCBD8 /* Casks Section.swift */; };
@@ -354,6 +355,7 @@
 		63581BDA2BB86DF1009A8E03 /* Menu Bar - Cached Downloads Cleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar - Cached Downloads Cleanup.swift"; sourceTree = "<group>"; };
 		63581BDC2BB86E5B009A8E03 /* Open Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Open Cork Button.swift"; sourceTree = "<group>"; };
 		63581BDE2BB87A09009A8E03 /* Quit Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quit Cork Button.swift"; sourceTree = "<group>"; };
+		63581BE02BB8BE98009A8E03 /* Homebrew Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Homebrew Backup.swift"; sourceTree = "<group>"; };
 		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpin Package.swift"; sourceTree = "<group>"; };
 		635BE04D2A2B3818004DCBD8 /* Casks Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Casks Section.swift"; sourceTree = "<group>"; };
@@ -856,6 +858,7 @@
 				63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */,
 				633AA2232AFEE40500A5F3E3 /* Data File.swift */,
 				63771DF52BB5C03500A53B93 /* Corrupted Package.swift */,
+				63581BE02BB8BE98009A8E03 /* Homebrew Backup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1894,6 +1897,7 @@
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
 				63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */,
+				63581BE12BB8BE98009A8E03 /* Homebrew Backup.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
 				637D53942BAB517000E072DA /* Services Tracker.swift in Sources */,
