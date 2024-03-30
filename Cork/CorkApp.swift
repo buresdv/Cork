@@ -521,7 +521,11 @@ struct CorkApp: App
         }
         MenuBarExtra("app-name", systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
-            MenuBarItem(appState: appDelegate.appState, brewData: brewData, availableTaps: availableTaps, outdatedPackageTracker: outdatedPackageTracker, isUninstallingOrphanedPackages: $isUninstallingOrphanedPackages, isPurgingHomebrewCache: $isPurgingHomebrewCache, isDeletingCachedDownloads: $isDeletingCachedDownloads)
+            MenuBarItem(isUninstallingOrphanedPackages: $isUninstallingOrphanedPackages, isPurgingHomebrewCache: $isPurgingHomebrewCache, isDeletingCachedDownloads: $isDeletingCachedDownloads)
+                .environmentObject(appDelegate.appState)
+                .environmentObject(brewData)
+                .environmentObject(availableTaps)
+                .environmentObject(outdatedPackageTracker)
         }
     }
 
