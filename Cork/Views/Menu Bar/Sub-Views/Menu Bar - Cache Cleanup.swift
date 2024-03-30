@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuBar_CacheCleanup: View
 {
     
-    @Binding var isPurgingHomebrewCache: Bool
+    @State private var isPurgingHomebrewCache: Bool = false
     
     var body: some View
     {

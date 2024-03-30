@@ -18,10 +18,6 @@ struct MenuBarItem: View
     
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
-    @Binding var isUninstallingOrphanedPackages: Bool
-    @Binding var isPurgingHomebrewCache: Bool
-    @Binding var isDeletingCachedDownloads: Bool
-    
     var body: some View
     {
         MenuBar_PackageOverview()
@@ -36,9 +32,9 @@ struct MenuBarItem: View
 
         Divider()
 
-        MenuBar_OrphanCleanup(isUninstallingOrphanedPackages: $isUninstallingOrphanedPackages)
-        MenuBar_CacheCleanup(isPurgingHomebrewCache: $isPurgingHomebrewCache)
-        MenuBar_CachedDownloadsCleanup(isDeletingCachedDownloads: $isDeletingCachedDownloads)
+        MenuBar_OrphanCleanup()
+        MenuBar_CacheCleanup()
+        MenuBar_CachedDownloadsCleanup()
 
         Divider()
 

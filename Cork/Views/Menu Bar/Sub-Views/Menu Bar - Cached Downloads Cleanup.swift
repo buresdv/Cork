@@ -11,7 +11,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 {
     @EnvironmentObject var appState: AppState
     
-    @Binding var isDeletingCachedDownloads: Bool
+    @State private var isDeletingCachedDownloads: Bool = false
     
     var body: some View
     {

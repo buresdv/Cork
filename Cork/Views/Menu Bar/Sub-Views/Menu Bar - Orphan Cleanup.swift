@@ -12,7 +12,7 @@ struct MenuBar_OrphanCleanup: View
     
     @EnvironmentObject var brewData: BrewDataStorage
     
-    @Binding var isUninstallingOrphanedPackages: Bool
+    @State private var isUninstallingOrphanedPackages: Bool = false
     
     var body: some View
     {

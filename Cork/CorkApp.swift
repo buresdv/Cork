@@ -36,10 +36,6 @@ struct CorkApp: App
 
     @State private var sendStandardUpdatesAvailableNotification: Bool = true
 
-    @State private var isUninstallingOrphanedPackages: Bool = false
-    @State private var isPurgingHomebrewCache: Bool = false
-    @State private var isDeletingCachedDownloads: Bool = false
-
     @State private var brewfileContents: String = .init()
     @State private var isShowingBrewfileExporter: Bool = false
 
@@ -521,7 +517,7 @@ struct CorkApp: App
         }
         MenuBarExtra("app-name", systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
-            MenuBarItem(isUninstallingOrphanedPackages: $isUninstallingOrphanedPackages, isPurgingHomebrewCache: $isPurgingHomebrewCache, isDeletingCachedDownloads: $isDeletingCachedDownloads)
+            MenuBarItem()
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
