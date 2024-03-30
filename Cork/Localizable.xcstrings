@@ -9026,7 +9026,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't uninstall %@"
+            "value" : "Couldn't Uninstall %@"
           }
         }
       }
