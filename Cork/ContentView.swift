@@ -366,10 +366,10 @@ struct ContentView: View, Sendable
         .alert(isPresented: $appState.isShowingFatalError, content: {
             switch appState.fatalAlertType
             {
-            case .uninstallationNotPossibleDueToDependency:
+            case .uninstallationNotPossibleDueToDependency(let packageThatTheUserIsTryingToUninstall):
                 return Alert(
-                    title: Text("alert.unable-to-uninstall-dependency.title"),
-                    message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)"),
+                    title: Text("alert.unable-to-uninstall-\(packageThatTheUserIsTryingToUninstall.name).title"),
+                    message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)-\(packageThatTheUserIsTryingToUninstall.name)"),
                     dismissButton: .default(Text("action.close"), action: {
                         appState.dismissAlert()
                     })
