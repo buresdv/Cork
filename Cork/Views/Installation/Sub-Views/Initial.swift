@@ -54,8 +54,15 @@ struct InstallationInitialView: View
                 }
                 else
                 {
-                    ProgressView("Loading top packages…")
-                        .frame(minHeight: 200)
+                    if appState.failedWhileLoadingTopPackages
+                    {
+                        NoContentAvailableView(title: "add-package.error.timed-out.title", systemImage: "exclamationmark.magnifyingglass")
+                    }
+                    else
+                    {
+                        ProgressView("Loading top packages…")
+                            .frame(minHeight: 200)
+                    }
                 }
             }
 

@@ -3692,6 +3692,16 @@
         }
       }
     },
+    "add-package.error.timed-out.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading of top packages timed out"
+          }
+        }
+      }
+    },
     "add-package.fatal-error-%@" : {
       "localizations" : {
         "cs" : {

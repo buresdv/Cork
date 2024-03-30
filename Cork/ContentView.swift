@@ -634,6 +634,10 @@ struct ContentView: View, Sendable
             {
                 appState.showAlert(errorToShow: .receivedInvalidResponseFromBrew)
             }
+            else
+            {
+                appState.failedWhileLoadingTopPackages = true
+            }
         }
     }
 
