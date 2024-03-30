@@ -52,8 +52,11 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
             }
             else
             {
-                AppConstants.logger.warning("Update function error: \(errorLine, privacy: .public)")
-                updateProgressTracker.errors.append("Update error: \(errorLine)")
+                if !errorLine.contains("==> Updating Homebrew...")
+                {
+                    AppConstants.logger.warning("Update function error: \(errorLine, privacy: .public)")
+                    updateProgressTracker.errors.append("Update error: \(errorLine)")
+                }
             }
         }
     }
