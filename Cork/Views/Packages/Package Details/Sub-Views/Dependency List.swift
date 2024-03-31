@@ -43,7 +43,7 @@ struct DependencyList: View
                 {
                     TableColumn("package-details.dependencies.results.name")
                     { dependency in
-                        Text(dependency.name)
+                        SanitizedPackageName(packageName: dependency.name, shouldShowVersion: false)
                     }
                     TableColumn("package-details.dependencies.results.version")
                     { dependency in
@@ -62,7 +62,6 @@ struct DependencyList: View
                     }
                 }
                 .tableStyle(.bordered)
-                .frame(height: 100)
             }
             else
             {
@@ -71,7 +70,6 @@ struct DependencyList: View
                     Text(dependency.name)
                 }
                 .listStyle(.bordered(alternatesRowBackgrounds: true))
-                .frame(height: 100)
             }
         }
     }

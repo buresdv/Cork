@@ -8,11 +8,16 @@
 import Foundation
 
 @discardableResult
-func shell(_ launchPath: String, _ arguments: [String], environment: [String: String]? = nil) async -> TerminalOutput
+func shell(
+    _ launchPath: URL,
+    _ arguments: [String],
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
+) async -> TerminalOutput
 {
     var allOutput: [String] = .init()
     var allErrors: [String] = .init()
-    for await streamedOutput in shell(launchPath, arguments, environment: environment)
+    for await streamedOutput in shell(launchPath, arguments, environment: environment, workingDirectory: workingDirectory)
     {
         switch streamedOutput
         {
@@ -31,7 +36,7 @@ func shell(_ launchPath: String, _ arguments: [String], environment: [String: St
 
 
 /// # Usage:
-/// for await output in shell(AppConstants.brewExecutablePath.absoluteString, ["install", package.name])
+/// for await output in shell(AppConstants.brewExecutablePath, ["install", package.name])
 /// {
 ///    switch output
 ///    {
@@ -42,9 +47,10 @@ func shell(_ launchPath: String, _ arguments: [String], environment: [String: St
 ///    }
 ///}
 func shell(
-    _ launchPath: String,
+    _ launchPath: URL,
     _ arguments: [String],
-    environment: [String: String]? = nil
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
 ) -> AsyncStream<StreamedTerminalOutput> {
     let task = Process()
     
@@ -64,12 +70,27 @@ func shell(
     // MARK: - Set up proxy if it's enabled
     if let proxySettings = AppConstants.proxySettings
     {
-        print("Proxy is enabled")
+        AppConstants.logger.info("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
     
+    // MARK: - Block automatic cleanup is configured
+    if !UserDefaults.standard.bool(forKey: "isAutomaticCleanupEnabled")
+    {
+        finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
+    }
+    
+    AppConstants.logger.info("Final environment: \(finalEnvironment)")
+    
+    // MARK: - Set working directory if provided
+    if let workingDirectory
+    {
+        AppConstants.logger.info("Working directory configured: \(workingDirectory)")
+        task.currentDirectoryURL = workingDirectory
+    }
+    
     task.environment = finalEnvironment
-    task.launchPath = launchPath
+    task.launchPath = launchPath.absoluteString
     task.arguments = arguments
 
     let pipe = Pipe()
@@ -84,7 +105,7 @@ func shell(
     }
     catch
     {
-        print(error)
+        AppConstants.logger.error("\(String(describing: error))")
     }
 
     return AsyncStream { continuation in

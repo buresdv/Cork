@@ -14,7 +14,6 @@ struct MaintenancePane: View
     @AppStorage("default_shouldDeleteDownloads") var default_shouldDeleteDownloads: Bool = true
     @AppStorage("default_shouldPerformHealthCheck") var default_shouldPerformHealthCheck: Bool = false
 
-    @State var isShowingSheetDummy: Bool = false
     @State var maintenanceStepsDummy: MaintenanceSteps = .ready
 
     var body: some View
@@ -25,7 +24,16 @@ struct MaintenancePane: View
             {
                 Text("settings.maintenance.default-steps")
                     .font(.headline)
-                MaintenanceReadyView(shouldUninstallOrphans: $default_shouldUninstallOrphans, shouldPurgeCache: $default_shouldPurgeCache, shouldDeleteDownloads: $default_shouldDeleteDownloads, shouldPerformHealthCheck: $default_shouldPerformHealthCheck, isShowingSheet: $isShowingSheetDummy, maintenanceSteps: $maintenanceStepsDummy, isShowingControlButtons: false, forcedOptions: false)
+                MaintenanceReadyView(
+                    shouldUninstallOrphans: $default_shouldUninstallOrphans,
+                    shouldPurgeCache: $default_shouldPurgeCache,
+                    shouldDeleteDownloads: $default_shouldDeleteDownloads,
+                    shouldPerformHealthCheck: $default_shouldPerformHealthCheck,
+                    maintenanceSteps: $maintenanceStepsDummy,
+                    isShowingControlButtons: false,
+                    forcedOptions: false,
+                    enablePadding: false
+                )
             }
         }
     }

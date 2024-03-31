@@ -14,6 +14,8 @@ struct GroupBoxHeadlineGroup: View
     let title: LocalizedStringKey
     let mainText: LocalizedStringKey
 
+    var animateNumberChanges: Bool = false
+
     var body: some View
     {
         HStack(spacing: 15)
@@ -28,13 +30,60 @@ struct GroupBoxHeadlineGroup: View
 
             VStack(alignment: .leading, spacing: 2)
             {
-                Text(title)
+                if animateNumberChanges
+                {
+                    Text(title)
+                        .contentTransition(.numericText())
+                }
+                else
+                {
+                    Text(title)
+                }
                 Text(mainText)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
         }
-        .padding(7)
+        .padding(2)
+    }
+}
+
+// For any arbitrary image
+struct GroupBoxHeadlineGroupWithArbitraryImage: View
+{
+    let image: Image
+    
+    let title: LocalizedStringKey
+    let mainText: LocalizedStringKey
+    
+    var animateNumberChanges: Bool = false
+    
+    var body: some View
+    {
+        HStack(spacing: 15)
+        {
+            image
+                .resizable()
+                .scaledToFit()
+                .frame(width: 26, height: 26)
+            
+            VStack(alignment: .leading, spacing: 2)
+            {
+                if animateNumberChanges
+                {
+                    Text(title)
+                        .contentTransition(.numericText())
+                }
+                else
+                {
+                    Text(title)
+                }
+                Text(mainText)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(2)
     }
 }
 
@@ -58,6 +107,6 @@ struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
 
             content
         }
-        .padding(7)
+        .padding(2)
     }
 }

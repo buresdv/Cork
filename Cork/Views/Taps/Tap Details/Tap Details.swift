@@ -7,47 +7,35 @@
 
 import SwiftUI
 
-struct TapDetailView: View
+struct TapDetailView: View, Sendable
 {
-    @State var tap: BrewTap
-    
+    let tap: BrewTap
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @State private var isLoadingTapInfo: Bool = true
 
-    @State private var homepage: URL = .init(string: "https://google.com")!
+    @State private var homepage: URL?
     @State private var isOfficial: Bool = false
-    @State private var includedFormulae: [String]?
-    @State private var includedCasks: [String]?
+    @State private var includedFormulae: Set<String>?
+    @State private var includedCasks: Set<String>?
     @State private var numberOfPackages: Int = 0
 
     @State private var erroredOut: Bool = false
 
     var body: some View
     {
-        VStack(alignment: .leading, spacing: 15)
+        VStack(alignment: .leading)
         {
-            VStack(alignment: .leading, spacing: 5)
-            {
-                HStack(alignment: .center, spacing: 5)
-                {
-                    Text(tap.name)
-                        .font(.title)
-
-                    if isOfficial
-                    {
-                        Image(systemName: "checkmark.shield")
-                            .help("tap-details.official-\(tap.name)")
-                    }
-                }
-            }
-
             if isLoadingTapInfo
             {
-                HStack(alignment: .center) {
-                    VStack(alignment: .center) {
-                        ProgressView {
+                HStack(alignment: .center)
+                {
+                    VStack(alignment: .center)
+                    {
+                        ProgressView
+                        {
                             Text("tap-details.loading")
                         }
                     }
@@ -64,118 +52,48 @@ struct TapDetailView: View
                 {
                     VStack(alignment: .leading, spacing: 10)
                     {
-                        Text("tap-details.info")
-                            .font(.title2)
-
-                        GroupBox
+                        FullSizeGroupedForm
                         {
-                            Grid(alignment: .leading, horizontalSpacing: 20)
-                            {
-                                GridRow(alignment: .firstTextBaseline) {
-                                    Text("tap-details.contents")
+                            TapDetailsInfo(
+                                tap: tap,
+                                isOfficial: isOfficial,
+                                includedFormulae: includedFormulae,
+                                includedCasks: includedCasks,
+                                numberOfPackages: numberOfPackages,
+                                homepage: homepage
+                            )
 
-                                    if includedFormulae == nil && includedCasks == nil
-                                    {
-                                        Text("tap-details.contents.none")
-                                    }
-                                    else if includedFormulae != nil && includedCasks == nil
-                                    {
-                                        Text("tap-details.contents.formulae-only")
-                                    }
-                                    else if includedCasks != nil && includedFormulae == nil
-                                    {
-                                        Text("tap-details.contents.casks-only")
-                                    }
-                                    else if includedFormulae?.count ?? 0 > includedCasks?.count ?? 0
-                                    {
-                                        Text("tap-details.contents.formulae-mostly")
-                                    }
-                                    else if includedFormulae?.count ?? 0 < includedCasks?.count ?? 0
-                                    {
-                                        Text("tap-details.contents.casks-mostly")
-                                    }
-                                }
-
-                                Divider()
-
-                                GridRow(alignment: .firstTextBaseline) {
-                                    Text("tap-details.package-count")
-                                    Text(numberOfPackages.formatted())
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-
-                                Divider()
-
-                                GridRow(alignment: .firstTextBaseline)
-                                {
-                                    Text("tap-details.homepage")
-                                    Link(destination: homepage)
-                                    {
-                                        Text(homepage.absoluteString)
-                                    }
-                                }
-                            }
+                            TapDetailsIncludedPackages(includedFormulae: includedFormulae, includedCasks: includedCasks)
                         }
+                        .scrollDisabled(true)
 
-                        if includedFormulae != nil || includedCasks != nil
+                        ButtonBottomRow
                         {
-                            GroupBox
+                            HStack
                             {
-                                VStack
+                                Spacer()
+
+                                UninstallationProgressWheel()
+
+                                Button
                                 {
-                                    if let includedFormulae
+                                    Task(priority: .userInitiated)
                                     {
-                                        DisclosureGroup("tap-details.included-formulae")
-                                        {
-                                            PackagesIncludedInTapList(packages: includedFormulae)
-                                        }
-                                        .disclosureGroupStyle(NoPadding())
+                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
                                     }
-
-                                    if includedFormulae != nil && includedCasks != nil
-                                    {
-                                        Divider()
-                                    }
-
-                                    if let includedCasks
-                                    {
-                                        DisclosureGroup("tap-details.included-casks")
-                                        {
-                                            PackagesIncludedInTapList(packages: includedCasks)
-                                        }
-                                        .disclosureGroupStyle(NoPadding())
-                                    }
+                                } label: {
+                                    Text("tap-details.remove-\(tap.name)")
                                 }
                             }
-                        }
-
-                        Spacer()
-
-                        HStack
-                        {
-                            Spacer()
-
-                            UninstallationProgressWheel()
-
-                            Button {
-                                Task(priority: .userInitiated)
-                                {
-                                    try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
-                                }
-                            } label: {
-                                Text("tap-details.remove-\(tap.name)")
-                            }
-
                         }
                     }
                 }
             }
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)
         {
-            async let tapInfo = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap-info", "--json", tap.name]).standardOutput
+            async let tapInfo = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
 
             do
             {
@@ -192,7 +110,7 @@ struct TapDetailView: View
             }
             catch let parsingError
             {
-                print("Failed while parsing package info: \(parsingError)")
+                AppConstants.logger.error("Failed while parsing package info: \(parsingError, privacy: .public)")
                 erroredOut = true
             }
         }

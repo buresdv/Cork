@@ -12,28 +12,24 @@ func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStora
 {
     for taggedName in appState.taggedPackageNames
     {
-        print("Will attempt to place package name \(taggedName)")
-        if let formulaIndexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == taggedName })
-        {
-            print("Formula index to replace: \(formulaIndexToReplace)")
-            
-            brewData.installedFormulae[formulaIndexToReplace].changeTaggedStatus()
-        }
-        else
-        {
-            print("\(taggedName) not found in Formulae")
-        }
-        
-        if let caskIndexToReplace = brewData.installedCasks.firstIndex(where: { $0.name == taggedName })
-        {
-            print("Cask index to replace: \(caskIndexToReplace)")
-            
-            brewData.installedCasks[caskIndexToReplace].changeTaggedStatus()
-        }
-        else
-        {
-            print("\(taggedName) not found in Casks")
-        }
+        AppConstants.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
+        brewData.installedFormulae = Set(brewData.installedFormulae.map({ formula in
+            var copyFormula = formula
+            if copyFormula.name == taggedName
+            {
+                copyFormula.changeTaggedStatus()
+            }
+            return copyFormula
+        }))
+
+        brewData.installedCasks = Set(brewData.installedCasks.map({ cask in
+            var copyCask = cask
+            if copyCask.name == taggedName
+            {
+                copyCask.changeTaggedStatus()
+            }
+            return copyCask
+        }))
     }
     
 }

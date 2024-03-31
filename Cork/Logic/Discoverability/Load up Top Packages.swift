@@ -45,9 +45,8 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
             }
             catch let packageParsingError
             {
-                print("Failed while parsing top packages: \(packageParsingError)")
-                appState.fatalAlertType = .couldNotParseTopPackages
-                appState.isShowingFatalError = true
+                AppConstants.logger.error("Failed while parsing top packages: \(packageParsingError, privacy: .public)")
+                await appState.setCouldNotParseTopPackages()
                 
                 throw packageParsingError
             }
@@ -61,11 +60,16 @@ func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState)
     {
         switch brewApiError {
             case .invalidResponseCode:
-                print("Received invalid response code from Brew")
+                AppConstants.logger.warning("Received invalid response code from Brew")
                 
                 throw brewApiError
             case .noDataReceived:
-                print("Received no data from Brew")
+                AppConstants.logger.warning("Received no data from Brew")
+                
+                throw brewApiError
+                
+            case .invalidURL:
+                print("Invalid URL")
                 
                 throw brewApiError
         }
@@ -77,7 +81,7 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDay
     /// The magic number here is the result of 1000/30, a base limit for 30 days: If the user selects the number of days to be 30, only show packages with more than 1000 downloads
     let packageDownloadsCutoff: Int = 33 * numberOfDays
     
-    print("Cutoff for package downloads: \(packageDownloadsCutoff)")
+    AppConstants.logger.debug("Cutoff for package downloads: \(packageDownloadsCutoff, privacy: .public)")
     
     do
     {
@@ -85,7 +89,7 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDay
         
         let parsedJSON: JSON = try await parseJSON(from: data)
         
-        print("Parsed JSON, time to decode")
+        AppConstants.logger.debug("Parsed JSON, time to decode")
         
         let packageArray = parsedJSON["formulae"]
         
@@ -113,7 +117,7 @@ private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDay
     }
     catch let JSONParsingError
     {
-        print("Failed while parsing JSON: \(JSONParsingError.localizedDescription)")
+        AppConstants.logger.error("Failed while parsing JSON: \(JSONParsingError.localizedDescription, privacy: .public)")
         
         throw JSONParsingError
     }

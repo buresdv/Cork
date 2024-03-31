@@ -10,24 +10,33 @@ import Foundation
 @MainActor
 func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStorage) -> Void
 {
-    print("Brew data: \(brewData)")
-    print("Will try to apply uninstallation spinner to package \(package)")
+    AppConstants.logger.debug("""
+Brew data: 
+   Installed Formulae: \(brewData.installedFormulae)
+   Installed Casks: \(brewData.installedCasks)
+""")
+    AppConstants.logger.debug("Will try to apply uninstallation spinner to package \(package.name)")
     
     if !package.isCask
     {
-        if let indexToReplace = brewData.installedFormulae.firstIndex(where: { $0.name == package.name })
-        {
-            print("Found formula at index \(indexToReplace)")
-            brewData.installedFormulae[indexToReplace].changeBeingModifiedStatus()
-        }
-        
+        brewData.installedFormulae = Set(brewData.installedFormulae.map({ formula in
+            var copyFormula = formula
+            if copyFormula.name == package.name
+            {
+                copyFormula.changeBeingModifiedStatus()
+            }
+            return copyFormula
+        }))
     }
     else
     {
-        if let indextoReplace = brewData.installedCasks.firstIndex(where: { $0.name == package.name })
-        {
-            print("Found cask at index \(indextoReplace)")
-            brewData.installedCasks[indextoReplace].changeBeingModifiedStatus()
-        }
+        brewData.installedFormulae = Set(brewData.installedCasks.map({ cask in
+            var copyCask = cask
+            if copyCask.name == package.name
+            {
+                copyCask.changeBeingModifiedStatus()
+            }
+            return copyCask
+        }))
     }
 }

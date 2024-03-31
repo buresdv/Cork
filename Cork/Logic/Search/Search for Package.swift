@@ -14,19 +14,19 @@ func searchForPackage(packageName: String, packageType: PackageType) async throw
     switch packageType
     {
     case .formula:
-        let foundFormulae = await shell(AppConstants.brewExecutablePath.absoluteString, ["search", "--formulae", packageName])
+        let foundFormulae = await shell(AppConstants.brewExecutablePath, ["search", "--formulae", packageName])
 
         finalPackageArray = foundFormulae.standardOutput.components(separatedBy: "\n")
 
     case .cask:
-        let foundCasks = await shell(AppConstants.brewExecutablePath.absoluteString, ["search", "--casks", packageName])
+        let foundCasks = await shell(AppConstants.brewExecutablePath, ["search", "--casks", packageName])
 
         finalPackageArray = foundCasks.standardOutput.components(separatedBy: "\n")
     }
 
     finalPackageArray.removeLast()
     
-    print("Search found these: \(finalPackageArray)")
+    AppConstants.logger.info("Search found these packages: \(finalPackageArray, privacy: .auto)")
     
     return finalPackageArray
 }

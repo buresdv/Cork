@@ -7,11 +7,20 @@
 
 import Foundation
 
-func addTap(name: String) async -> String
+func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
 {
-    let tapResult = await shell(AppConstants.brewExecutablePath.absoluteString, ["tap", name]).standardError
+    var tapResult: String
+    
+    if let forcedRepoAddress
+    {
+        tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardError
+    }
+    else
+    {
+        tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name]).standardError
+    }
 
-    print("Tapping result: \(tapResult)")
+    AppConstants.logger.debug("Tapping result: \(tapResult, privacy: .public)")
 
     return tapResult
 }

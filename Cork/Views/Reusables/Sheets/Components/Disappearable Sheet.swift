@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DisappearableSheet<Content: View>: View
 {
-    @Binding var isShowingSheet: Bool
+    @Environment(\.dismiss) var dismiss
 
     @ViewBuilder var sheetContent: Content
 
@@ -20,7 +20,7 @@ struct DisappearableSheet<Content: View>: View
             {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3)
                 {
-                    isShowingSheet = false
+                    dismiss()
                 }
             }
     }

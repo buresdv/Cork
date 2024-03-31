@@ -7,31 +7,32 @@
 
 import SwiftUI
 
-struct TapsSection: View {
-    
+struct TapsSection: View
+{
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var availableTaps: AvailableTaps
-    
-    @Binding var searchText: String
-    
-    var body: some View {
+
+    let searchText: String
+
+    var body: some View
+    {
         Section("sidebar.section.added-taps")
         {
             if availableTaps.addedTaps.count != 0
             {
-                ForEach(searchText.isEmpty || searchText.contains("#") ? availableTaps.addedTaps : availableTaps.addedTaps.filter { $0.name.contains(searchText) })
+                ForEach(displayedTaps)
                 { tap in
-                    
-                    NavigationLink(tag: tap.id, selection: $appState.navigationSelection)
+                    NavigationLink
                     {
                         TapDetailView(tap: tap)
+                            .id(tap.id)
                     } label: {
                         Text(tap.name)
 
                         if tap.isBeingModified
                         {
                             Spacer()
-                            
+
                             ProgressView()
                                 .frame(height: 5)
                                 .scaleEffect(0.5)
@@ -43,7 +44,8 @@ struct TapsSection: View {
                         {
                             Task(priority: .userInitiated)
                             {
-                                print("Would remove \(tap.name)")
+                                AppConstants.logger.debug("Would remove \(tap.name, privacy: .public)")
+                                
                                 try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
                             }
                         } label: {
@@ -56,6 +58,18 @@ struct TapsSection: View {
             {
                 ProgressView()
             }
+        }
+    }
+
+    private var displayedTaps: [BrewTap]
+    {
+        if searchText.isEmpty || searchText.contains("#")
+        {
+            return availableTaps.addedTaps
+        }
+        else
+        {
+            return availableTaps.addedTaps.filter { $0.name.contains(searchText) }
         }
     }
 }

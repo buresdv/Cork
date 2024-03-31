@@ -8,10 +8,10 @@
 import Foundation
 import SwiftyJSON
 
-func getCasksAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
+func getCasksAvailableFromTap(json: JSON, tap: BrewTap) -> Set<String>?
 {
-    var availableCasks: [String]? = nil
-    
+    var availableCasks: Set<String>? = nil
+
     let availableCasksFromTap = json[0, "cask_tokens"].arrayValue
     
     for availableCask in availableCasksFromTap
@@ -24,11 +24,18 @@ func getCasksAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
         }
         else
         {
-            availableCasks?.append(availableCaskFinal)
+            availableCasks?.insert(availableCaskFinal)
         }
     }
     
-    print(availableCasks as Any)
+    if let availableCasks
+    {
+        AppConstants.logger.debug("Found formulae in tap \(tap.name, privacy: .public): \(availableCasks.sorted())")
+    }
+    else
+    {
+        AppConstants.logger.warning("Couldn't find any formulae in tap \(tap.name, privacy: .public)")
+    }
     
     return availableCasks
 }

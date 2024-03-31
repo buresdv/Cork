@@ -6,18 +6,24 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct GeneralPane: View
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .none
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
 
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
+    
+    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
     
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
     @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     var body: some View
     {
@@ -33,20 +39,8 @@ struct GeneralPane: View
                         .tag(PackageSortingOptions.byInstallDate)
                     Text("settings.general.sort-packages.size")
                         .tag(PackageSortingOptions.bySize)
-
-                    Divider()
-
-                    Text("settings.general.sort-packages.none")
-                        .tag(PackageSortingOptions.none)
                 } label: {
                     Text("settings.general.sort-packages")
-                }
-
-                if sortPackagesBy == .none
-                {
-                    Text("settings.general.sort-packages.restart")
-                        .font(.caption)
-                        .foregroundColor(Color(nsColor: NSColor.systemGray))
                 }
 
                 LabeledContent
@@ -62,6 +56,17 @@ struct GeneralPane: View
                     Text("settings.general.dependencies")
                 }
 
+                Picker(selection: $displayOnlyIntentionallyInstalledPackagesByDefault)
+                {
+                    Text("settings.general.display-only-intentionally-installed-packages.yes")
+                        .tag(true)
+                    Text("settings.general.display-only-intentionally-installed-packages.no")
+                        .tag(false)
+                } label: {
+                    Text("settings.general.display-only-intentionally-installed-packages")
+                }
+                .pickerStyle(.radioGroup)
+                
                 Picker(selection: $caveatDisplayOptions)
                 {
                     Text("settings.general.package-caveats.full")
@@ -91,8 +96,15 @@ struct GeneralPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails) {
-                        Text("settings.general.package-details.toggle")
+                    VStack(alignment: .leading)
+                    {
+                        Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails) {
+                            Text("settings.general.package-details.toggle")
+                        }
+                        
+                        Toggle(isOn: $enableRevealInFinder) {
+                            Text("settings.general.package-details.reveal-in-finder.toggle")
+                        }
                     }
                 } label: {
                     Text("settings.general.package-details")
@@ -100,13 +112,41 @@ struct GeneralPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $showInMenuBar)
+                    VStack(alignment: .leading, spacing: 4)
                     {
-                        Text("settings.general.menubar.toggle")
+                        Toggle(isOn: $showInMenuBar)
+                        {
+                            Text("settings.general.menubar.toggle")
+                        }
+                        
+                        Toggle(isOn: $startWithoutWindow) 
+                        {
+                            Text("settings.general.menubar.start-minimized.toggle")
+                        }
+                        .padding([.leading])
+                        .disabled(!showInMenuBar)
+                        .onChange(of: showInMenuBar)
+                        { newValue in
+                            if newValue == false
+                            {
+                                startWithoutWindow = false
+                            }
+                        }
                     }
                 } label: {
                     Text("settings.general.menubar")
                 }
+
+                LabeledContent 
+                {
+                    LaunchAtLogin.Toggle
+                    {
+                        Text("settings.general.launch-at-login.toggle")
+                    }
+                } label: {
+                    Text("settings.general.launch-at-login")
+                }
+
             }
         }
     }

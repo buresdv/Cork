@@ -8,7 +8,12 @@
 import Foundation
 import SwiftyJSON
 
-func getTapHomepageFromJSON(json: JSON) -> URL
+func getTapHomepageFromJSON(json: JSON) -> URL?
 {
-    return URL(string: json[0, "remote"].stringValue)!
+    guard let tapHomepage: URL = URL(string: json[0, "remote"].stringValue) else
+    {
+        return nil
+    }
+    
+    return tapHomepage
 }

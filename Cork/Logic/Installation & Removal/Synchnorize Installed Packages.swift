@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 /// What this function does:
 /// **Background**
 /// When a package is installed or uninstalled, its dependencies don't show up in the package list, because there's no system for getting them. I needed a way for all new packages to show up/disappear even when they were not installed manually
@@ -33,97 +34,28 @@ import SwiftUI
 @MainActor
 func synchronizeInstalledPackages(brewData: BrewDataStorage) async -> Void
 {
-    let oldBrewData: BrewDataStorage = brewData
-    
-    let oldFormulaeSorted: [BrewPackage] = sortPackagesAlphabetically(oldBrewData.installedFormulae)
-    let oldCasksSorted: [BrewPackage] = sortPackagesAlphabetically(oldBrewData.installedCasks)
-    
+
     let dummyAppState: AppState = AppState()
     dummyAppState.isLoadingFormulae = false
     dummyAppState.isLoadingCasks = false
-    
+
     /// These have to use this dummy AppState, which forces them to not activate the "loading" animation. We don't want the entire thing to re-draw
-    let newFormulaeSorted: [BrewPackage] = await loadUpFormulae(appState: dummyAppState, sortBy: .byInstallDate)
-    let newCasksSorted: [BrewPackage] = await loadUpCasks(appState: dummyAppState, sortBy: .byInstallDate)
-    
-    var formulaeDifference: [BrewPackage] = .init()
-    var casksDifference: [BrewPackage] = .init()
-    
-    // MARK: Packages have been added
-    if oldFormulaeSorted.count < newFormulaeSorted.count
+    let newFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: dummyAppState)
+    let newCasks: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: dummyAppState)
+
+    if newFormulae.count != brewData.installedFormulae.count
     {
-        print("Formulae have been added")
-        formulaeDifference = Array(newFormulaeSorted.dropFirst(oldFormulaeSorted.count))
-        
-        withAnimation {
-            brewData.installedFormulae.append(contentsOf: formulaeDifference)
+        withAnimation 
+        {
+            brewData.installedFormulae = newFormulae
         }
     }
-    if oldCasksSorted.count < newCasksSorted.count
+
+    if newCasks.count != brewData.installedCasks.count
     {
-        print("Casks have been added")
-        casksDifference = Array(newCasksSorted.dropFirst(oldCasksSorted.count))
-        
-        withAnimation {
-            brewData.installedCasks.append(contentsOf: casksDifference)
-        }
-    }
-    
-    // MARK: Packages have been removed
-    if oldFormulaeSorted.count > newFormulaeSorted.count
-    {
-        print("Formulae have been removed")
-        
-        var oldFormulaeMutable: [BrewPackage] = oldFormulaeSorted
-        
-        for _ in oldFormulaeSorted
+        withAnimation 
         {
-            for newFormula in newFormulaeSorted
-            {
-                withAnimation {
-                    oldFormulaeMutable.removeAll(where: { $0.name == newFormula.name })
-                }
-            }
-        }
-        
-        print("Different formulae (\(oldFormulaeMutable.count)): \(oldFormulaeMutable)")
-        
-        for _ in brewData.installedFormulae
-        {
-            for differentPackage in oldFormulaeMutable
-            {
-                withAnimation {
-                    brewData.installedFormulae.removeAll(where: { $0.name == differentPackage.name })
-                }
-            }
-        }
-    }
-    if oldCasksSorted.count > newCasksSorted.count
-    {
-        print("Casks have been removed")
-        
-        var oldCasksMutable: [BrewPackage] = oldCasksSorted
-        
-        for _ in oldCasksSorted
-        {
-            for newCask in newCasksSorted
-            {
-                withAnimation {
-                    oldCasksMutable.removeAll(where: { $0.name == newCask.name })
-                }
-            }
-        }
-        
-        print("Different casks (\(oldCasksMutable.count)): \(oldCasksMutable)")
-        
-        for _ in brewData.installedCasks
-        {
-            for differentPackage in oldCasksMutable
-            {
-                withAnimation {
-                    brewData.installedCasks.removeAll(where: { $0.name == differentPackage.name })
-                }
-            }
+            brewData.installedCasks = newCasks
         }
     }
 }

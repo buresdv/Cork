@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct RealTimeTerminalLine: Identifiable, Hashable, Equatable
+{
+    let id = UUID()
+    let line: String
+}
+
 struct PackageInProgressOfBeingInstalled: Identifiable
 {
     let id = UUID()
@@ -15,5 +21,5 @@ struct PackageInProgressOfBeingInstalled: Identifiable
     var installationStage: PackageInstallationStage
     var packageInstallationProgress: Double
     
-    var realTimeTerminalOutput: String?
+    var realTimeTerminalOutput: [RealTimeTerminalLine] = .init()
 }

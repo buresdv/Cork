@@ -12,4 +12,6 @@ class UpdateProgressTracker: ObservableObject
 {
     @Published var updateProgress: Float = 0
     @Published var errors: [String] = .init()
+
+    @Published var realTimeOutput: [RealTimeTerminalLine] = .init()
 }

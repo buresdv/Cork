@@ -17,11 +17,10 @@ func isSymlink(at url: URL) -> Bool
         let fileAttributes = try url.resourceValues(forKeys: [.isSymbolicLinkKey])
         
         isSymlink = fileAttributes.isSymbolicLink
-        print(isSymlink as Any)
     }
     catch let symlinkCheckingError as NSError
     {
-        print(symlinkCheckingError.localizedDescription)
+        AppConstants.logger.error("\(symlinkCheckingError.localizedDescription, privacy: .public)")
     }
     
     return isSymlink!

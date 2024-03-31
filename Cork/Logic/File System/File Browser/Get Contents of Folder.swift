@@ -8,9 +8,10 @@
 import Foundation
 import SwiftyJSON
 
-func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPackage]
+
+func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> Set<BrewPackage>
 {
-    var contentsOfFolder: [BrewPackage] = .init()
+    var contentsOfFolder: Set<BrewPackage> = .init()
 
     var temporaryVersionStorage: [String] = .init()
     var temporaryURLStorage: [URL] = .init()
@@ -27,25 +28,25 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPa
 
                 for version in versions
                 { // Check if what we're about to add are actual versions or just some supporting folders
-                    print("Scanned version: \(version)")
+                    AppConstants.logger.debug("Scanned version: \(version)")
 
-                    print("Found desirable version: \(version). Appending to temporary package list")
+                    AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
                     
                     temporaryURLStorage.append(targetFolder.appendingPathComponent(item, conformingTo: .folder).appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
                     
-                    print("URL to package \(item) is \(temporaryURLStorage)")
+                    AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
 
                     temporaryVersionStorage.append(version.lastPathComponent)
                 }
 
-                print("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
+                AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
 
                 /// What the fuck?
                 let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
 
                 let folderSizeRaw: Int64? = directorySize(url: targetFolder.appendingPathComponent(item, conformingTo: .directory))
 
-                print("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
+                AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
 
                 // let installedOn: Date? = try? URL(string: item)!.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
 
@@ -64,21 +65,19 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPa
                             wasPackageInstalledIntentionally = try! await localPackageInfoJSON["installed_on_request"].boolValue
                         }
 
-                        print("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
+                        AppConstants.logger.info("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
                         
-                        contentsOfFolder.append(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw))
+                        contentsOfFolder.insert(BrewPackage(name: item, isCask: false, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw))
                     }
                     else
                     {
-                        print("\(item) does not have any versions installed")
-                        appState.corruptedPackage = item
-                        appState.fatalAlertType = .installedPackageHasNoVersions
-                        appState.isShowingFatalError = true
+                        AppConstants.logger.error("\(item, privacy: .public) does not have any versions installed")
+                        await appState.showAlert(errorToShow: .installedPackageHasNoVersions(corruptedPackageName: item))
                     }
                 }
                 else
                 {
-                    contentsOfFolder.append(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
+                    contentsOfFolder.insert(BrewPackage(name: item, isCask: true, installedOn: installedOn, versions: temporaryVersionStorage, sizeInBytes: folderSizeRaw))
                 }
 
                 temporaryVersionStorage = [String]()
@@ -86,13 +85,13 @@ func getContentsOfFolder(targetFolder: URL, appState: AppState) async -> [BrewPa
             }
             catch let error as NSError
             {
-                print("Failed while getting package version: \(error)")
+                AppConstants.logger.error("Failed while getting package version: \(error)")
             }
         }
     }
     catch let error as NSError
     {
-        print("Failed while accessing foldeR: \(error)")
+        AppConstants.logger.error("Failed while accessing folder: \(error)")
     }
 
     return contentsOfFolder
@@ -115,7 +114,7 @@ func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumer
     }
     catch let folderReadingError as NSError
     {
-        print(folderReadingError.localizedDescription)
+        AppConstants.logger.error("\(folderReadingError.localizedDescription)")
     }
 
     return contentsOfFolder

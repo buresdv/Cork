@@ -8,10 +8,10 @@
 import Foundation
 import SwiftyJSON
 
-func getFormulaeAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
+func getFormulaeAvailableFromTap(json: JSON, tap: BrewTap) -> Set<String>?
 {
-    var availableFormulae: [String]? = nil
-    
+    var availableFormulae: Set<String>? = nil
+
     let availableFormulaeFromTap = json[0, "formula_names"].arrayValue
     
     for availableFormula in availableFormulaeFromTap {
@@ -23,11 +23,18 @@ func getFormulaeAvailableFromTap(json: JSON, tap: BrewTap) -> [String]?
         }
         else
         {
-            availableFormulae?.append(availableFormulaFinal)
+            availableFormulae?.insert(availableFormulaFinal)
         }
     }
     
-    print(availableFormulae as Any)
+    if let availableFormulae
+    {
+        AppConstants.logger.debug("Found formulae in tap \(tap.name, privacy: .public): \(availableFormulae.sorted())")
+    }
+    else
+    {
+        AppConstants.logger.warning("Couldn't find any formulae in tap \(tap.name, privacy: .public)")
+    }
     
     return availableFormulae
 }

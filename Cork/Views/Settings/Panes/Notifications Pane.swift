@@ -34,47 +34,32 @@ struct NotificationsPane: View
                     .toggleStyle(.switch)
                     .task
                     {
-                        print("Will re-check notification authorization status")
+                        AppConstants.logger.debug("Will re-check notification authorization status")
                         await appState.requestNotificationAuthorization()
                         
-                        switch appState.notificationStatus?.authorizationStatus {
+                        switch appState.notificationAuthStatus {
                             case .notDetermined:
-                                print("Not determined")
+                                AppConstants.logger.info("Not determined")
                             case .denied:
-                                print("Denied")
+                                AppConstants.logger.info("Denied")
                             case .authorized:
-                                print("Authorized")
+                                AppConstants.logger.info("Authorized")
                             case .provisional:
-                                print("Provisional")
+                                AppConstants.logger.info("Provisional")
                             case .ephemeral:
-                                print("Ephemeral")
-                            case nil:
-                                print("Nil")
+                                AppConstants.logger.info("Ephemeral")
                             default:
-                                print("TF")
+                                AppConstants.logger.info("TF")
                         }
                         
-                        if appState.notificationStatus?.authorizationStatus == .denied
+                        if appState.notificationAuthStatus == .denied
                         {
                             areNotificationsEnabled = false
                         }
                     }
-                    .onChange(of: areNotificationsEnabled, perform: { newValue in
-                        Task(priority: .background) {
-                            let notificationsEnabledInSystemSettings: Bool = await appState.requestNotificationAuthorization()
-                            if notificationsEnabledInSystemSettings
-                            {
-                                await appState.requestNotificationAuthorization()
-                                if appState.notificationStatus?.authorizationStatus == .denied
-                                {
-                                    areNotificationsEnabled = false
-                                }
-                            }
-                        }
-                    })
-                    .disabled(appState.notificationStatus?.authorizationStatus == .denied)
+                    .disabled(appState.notificationAuthStatus == .denied)
                     
-                    if appState.notificationStatus?.authorizationStatus == .denied 
+                    if appState.notificationAuthStatus == .denied
                     {
                         Text("settings.notifications.notifications-disabled-in-settings.tooltip")
                             .font(.caption)

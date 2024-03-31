@@ -7,185 +7,70 @@
 
 import SwiftUI
 
+
 struct FormulaeSection: View {
-    
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-    
+    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
-    @Binding var currentTokens: [PackageSearchToken]
-    @Binding var searchText: String
-    
+    let currentTokens: [PackageSearchToken]
+    let searchText: String
+
     var body: some View {
         Section("sidebar.section.installed-formulae")
         {
-            if !appState.isLoadingFormulae
-            {
-                
-                if currentTokens.contains(where: { $0.tokenSearchResultType == .intentionallyInstalledPackage })
-                {
-                    ForEach(searchText.isEmpty ? brewData.installedFormulae.filter({ $0.installedIntentionally == true }) : brewData.installedFormulae.filter({ $0.installedIntentionally == true && $0.name.contains(searchText)}))
-                    { formula in
-                        NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
-                        {
-                            PackageDetailView(package: formula)
-                        } label: {
-                            PackageListItem(packageItem: formula)
-                        }
-                        .contextMenu
-                        {
-                            if !formula.isTagged
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
-                                }
-                            }
-                            else
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
-                                }
-                            }
-                            
-                            Divider()
-                            
-                            Button
-                            {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(
-                                        package: formula,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false,
-                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                    )
-                                }
-                            } label: {
-                                Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
-                            }
-                            if allowMoreCompleteUninstallations
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(
-                                            package: formula,
-                                            brewData: brewData,
-                                            appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: true,
-                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                        )
-                                    }
-                                } label: {
-                                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
-                                }
-                            }
-                            
-                        }
-                    }
-                }
-                else
-                {
-                    ForEach(searchText.isEmpty || searchText.contains("#") ? brewData.installedFormulae : brewData.installedFormulae.filter { $0.name.contains(searchText) })
-                    { formula in
-                        NavigationLink(tag: formula.id, selection: $appState.navigationSelection)
-                        {
-                            PackageDetailView(package: formula)
-                        } label: {
-                            PackageListItem(packageItem: formula)
-                        }
-                        .contextMenu
-                        {
-                            if !formula.isTagged
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await tagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.tag-\(formula.name)")
-                                }
-                            }
-                            else
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        await untagPackage(package: formula, brewData: brewData, appState: appState)
-                                    }
-                                } label: {
-                                    Text("sidebar.section.all.contextmenu.untag-\(formula.name)")
-                                }
-                            }
-                            
-                            Divider()
-                            
-                            Button
-                            {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(
-                                        package: formula,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false,
-                                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                    )
-                                }
-                            } label: {
-                                Text("sidebar.section.installed-formulae.contextmenu.uninstall-\(formula.name)")
-                            }
-                            
-                            if allowMoreCompleteUninstallations
-                            {
-                                Button
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(
-                                            package: formula,
-                                            brewData: brewData,
-                                            appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: true,
-                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                                        )
-                                    }
-                                } label: {
-                                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(formula.name)")
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else
+            if appState.isLoadingFormulae
             {
                 ProgressView()
             }
+            else
+            {
+                ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
+                    switch sortPackagesBy {
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                    }
+                }))
+                { formula in
+                    SidebarPackageRow(package: formula)
+                }
+            }
         }
         .collapsible(true)
+    }
+
+    private var displayedFormulae: Set<BrewPackage>
+    {
+        let filter: (BrewPackage) -> Bool
+
+        if currentTokens.contains(.intentionallyInstalledPackage) || displayOnlyIntentionallyInstalledPackagesByDefault
+        {
+            if searchText.isEmpty
+            {
+                filter = \.installedIntentionally
+            } else
+            {
+                filter = { $0.installedIntentionally && $0.name.contains(searchText)  }
+            }
+        } 
+        else
+        {
+            if searchText.isEmpty || searchText.contains("#")
+            {
+                filter = { _ in true }
+            } 
+            else
+            {
+                filter = { $0.name.contains(searchText) }
+            }
+        }
+
+        return brewData.installedFormulae.filter(filter)
     }
 }

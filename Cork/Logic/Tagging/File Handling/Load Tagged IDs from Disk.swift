@@ -24,10 +24,10 @@ func loadTaggedIDsFromDisk() throws -> Set<String>
     }
     catch let dataReadingError as NSError
     {
-        print("Failed while reading data from disk: \(dataReadingError)")
+        AppConstants.logger.error("Failed while reading data from disk: \(dataReadingError, privacy: .public)")
     }
     
-    print("Loaded name set: \(nameSet)")
+    AppConstants.logger.debug("Loaded name set: \(nameSet, privacy: .public)")
     
     return nameSet
 }

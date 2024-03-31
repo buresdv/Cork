@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AboutView: View
 {
-    @State private var usedPackages: [UsedPackage] = [
+    private let usedPackages: [UsedPackage] = [
         UsedPackage(
             name: "about.packages.1.name",
             whyIsItUsed: "about.packages.1.purpose",
@@ -20,10 +20,15 @@ struct AboutView: View
             name: "about.packages.2.name",
             whyIsItUsed: "about.packages.2.purpose",
             packageURL: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!
+        ),
+        UsedPackage(
+            name: "about.packages.3.name",
+            whyIsItUsed: "about.packages.3.purpose",
+            packageURL: URL(string: "https://github.com/sindresorhus/LaunchAtLogin-Modern")!
         )
     ]
 
-    @State private var specialThanks: [AcknowledgedContributor] = [
+    private let specialThanks: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.thanks.1.name",
             reasonForAcknowledgement: "about.thanks.1.purpose",
@@ -31,7 +36,7 @@ struct AboutView: View
             profileURL: URL(string: "https://github.com/sebj")!)
         ,
     ]
-    @State private var acknowledgedContributors: [AcknowledgedContributor] = [
+    private let acknowledgedContributors: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.contributors.1.name",
             reasonForAcknowledgement: "about.contributors.1.purpose",
@@ -70,12 +75,12 @@ struct AboutView: View
         ),
     ]
     
-    @State private var translators: [AcknowledgedContributor] = [
+    private let translators: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.translator.1.name",
             reasonForAcknowledgement: "about.translator.1.purpose",
-            profileService: .mastodon,
-            profileURL: URL(string: "https://mastodon.social/@Jerry23011")!
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/Jerry23011")!
         ),
         AcknowledgedContributor(
             name: "about.translator.2.name",
@@ -86,7 +91,22 @@ struct AboutView: View
             name: "about.translator.3.name",
             reasonForAcknowledgement: "about.translator.3.purpose",
             profileService: .github,
-            profileURL: URL(string: "https://github.com/hecaex")!)
+            profileURL: URL(string: "https://github.com/hecaex")!),
+		AcknowledgedContributor(
+			name: "about.translator.4.name",
+			reasonForAcknowledgement: "about.translator.4.purpose",
+			profileService: .github,
+			profileURL: URL(string: "https://github.com/louchebem06")!),
+        AcknowledgedContributor(
+            name: "about.translator.5.name",
+            reasonForAcknowledgement: "about.translator.5.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/utkinn")!),
+        AcknowledgedContributor(
+            name: "about.translator.6.name",
+            reasonForAcknowledgement: "about.translator.6.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/smitt14ua")!),
     ]
 
     @State private var isPackageGroupExpanded: Bool = false
@@ -116,7 +136,7 @@ struct AboutView: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                VStack
+                VStack(alignment: .leading)
                 {
                     DisclosureGroup(isExpanded: $isPackageGroupExpanded)
                     {
@@ -237,6 +257,10 @@ struct AboutView: View
                         Text("about.translators")
                     }
                     .animation(.none, value: isTranslatorGroupExpanded)
+                    
+                    Text("about.privacy-policy")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                 }
 
                 HStack
@@ -252,7 +276,7 @@ struct AboutView: View
 
                     Button
                     {
-                        NSWorkspace.shared.open(URL(string: "https://elk.zone/mstdn.social/@davidbures")!)
+                        NSWorkspace.shared.open(URL(string: "https://mstdn.social/@davidbures")!)
                     } label: {
                         Label("about.contact", systemImage: "paperplane")
                     }
@@ -262,5 +286,6 @@ struct AboutView: View
             .transaction { $0.animation = nil }
         }
         .padding()
+        //.fixedSize()
     }
 }
