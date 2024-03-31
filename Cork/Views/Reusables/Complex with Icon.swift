@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ComplexWithIcon<Content: View>: View
 {
-    @State var systemName: String
+    let systemName: String
 
     @ViewBuilder var content: Content
 

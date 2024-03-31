@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PillTextWithLocalizableText: View
 {
-    @State var localizedText: LocalizedStringKey
-    @State var color: NSColor = .tertiaryLabelColor
-    @State var font: Font = .caption
+    let localizedText: LocalizedStringKey
+    let color: NSColor = .tertiaryLabelColor
+    let font: Font = .caption
     
     var body: some View
     {
