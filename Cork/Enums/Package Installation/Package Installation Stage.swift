@@ -13,7 +13,7 @@ enum PackageInstallationStage: CustomStringConvertible
 
     case downloadingCask, installingCask, movingCask, linkingCaskBinary // For Casks
 
-    case requiresSudoPassword // For Both
+    case requiresSudoPassword, wrongArchitecture // For Both
 
     var description: String
     {
@@ -41,6 +41,8 @@ enum PackageInstallationStage: CustomStringConvertible
             return "Linking Cask Binary"
         case .requiresSudoPassword:
             return "Sudo PasswordRequired"
+        case .wrongArchitecture:
+            return "Wrong package architecture"
         }
     }
 }

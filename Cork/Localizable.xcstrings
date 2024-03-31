@@ -4847,6 +4847,27 @@
         }
       }
     },
+    "add-package.install.wrong-architecture-%@.user-architecture-is-%@" : {
+      "comment" : "Final string: (package) doesn't support (Apple Silicon / Intel) chips",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ doesn't support %2$@ chips"
+          }
+        }
+      }
+    },
+    "add-package.install.wrong-architecture.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This package doesn't support your chip"
+          }
+        }
+      }
+    },
     "add-package.network-error" : {
       "localizations" : {
         "cs" : {

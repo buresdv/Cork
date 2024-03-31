@@ -133,6 +133,9 @@ struct AddFormulaView: View
             case .requiresSudoPassword:
                 SudoRequiredView(installationProgressTracker: installationProgressTracker)
 
+            case .wrongArchitecture:
+                WrongArchitectureView(installationProgressTracker: installationProgressTracker)
+
             case .anotherProcessAlreadyRunning:
                 VStack(alignment: .leading)
                 {
@@ -156,7 +159,7 @@ struct AddFormulaView: View
                                             try? FileManager.default.removeItem(at: lockURL)
                                         }
                                     }
-                                    
+
                                     dismiss()
                                 }
                                 Spacer()

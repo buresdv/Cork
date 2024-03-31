@@ -33,6 +33,7 @@
 		6317BF832ADEFEAC0018E425 /* Finished Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317BF822ADEFEAC0018E425 /* Finished Stage.swift */; };
 		6317BF852ADEFEE90018E425 /* Errored Out Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317BF842ADEFEE90018E425 /* Errored Out Stage.swift */; };
 		63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
+		631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C2D342BB9DB75006EDCD1 /* Wrong Architecture.swift */; };
 		63219ACC2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63219ACB2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift */; };
 		63219ACE2AD2ACA00037D178 /* Purge Cache Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63219ACD2AD2ACA00037D178 /* Purge Cache Utility.swift */; };
 		632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */; };
@@ -301,6 +302,7 @@
 		6317BF822ADEFEAC0018E425 /* Finished Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Finished Stage.swift"; sourceTree = "<group>"; };
 		6317BF842ADEFEE90018E425 /* Errored Out Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Errored Out Stage.swift"; sourceTree = "<group>"; };
 		63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Installed Packages.swift"; sourceTree = "<group>"; };
+		631C2D342BB9DB75006EDCD1 /* Wrong Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wrong Architecture.swift"; sourceTree = "<group>"; };
 		63219ACB2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Orphans - Utility.swift"; sourceTree = "<group>"; };
 		63219ACD2AD2ACA00037D178 /* Purge Cache Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purge Cache Utility.swift"; sourceTree = "<group>"; };
 		632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full-Size Grouped Form.swift"; sourceTree = "<group>"; };
@@ -1207,6 +1209,7 @@
 				63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */,
 				63D024E42AC76DCD0050F9D0 /* Installing.swift */,
 				6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */,
+				631C2D342BB9DB75006EDCD1 /* Wrong Architecture.swift */,
 			);
 			path = "Sub-Views";
 			sourceTree = "<group>";
@@ -2035,6 +2038,7 @@
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
 				637D53992BAB51B300E072DA /* Service Status.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
+				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
 				637E006B28734041005C9890 /* Install Selected Packages.swift in Sources */,
