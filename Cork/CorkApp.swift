@@ -40,6 +40,8 @@ struct CorkApp: App
     @State private var isShowingBrewfileExporter: Bool = false
 
     @State private var isShowingBrewfileImporter: Bool = false
+    
+    @AppStorage("hasSuccessfullySubmittedOSVersion") var hasSuccessfullySubmittedOSVersion: Bool = false
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
@@ -80,6 +82,13 @@ struct CorkApp: App
                     if areNotificationsEnabled
                     {
                         await appDelegate.appState.setupNotifications()
+                    }
+                }
+                .task // TODO: Remove this later
+                {
+                    if !hasSuccessfullySubmittedOSVersion
+                    {
+                        try? await submitSystemVersion()
                     }
                 }
                 .onAppear
