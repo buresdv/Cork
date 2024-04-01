@@ -208,7 +208,7 @@ func installPackage(installationProgressTracker: InstallationProgressTracker, br
 
                     installationProgressTracker.packagesBeingInstalled[0].installationStage = .requiresSudoPassword
                 }
-                else if errorLine.contains("depends on hardware architecture being.+but you are running")
+                else if errorLine.contains(/depends on hardware architecture being.+but you are running/)
                 {
                     AppConstants.logger.warning("Package is wrong architecture")
 
