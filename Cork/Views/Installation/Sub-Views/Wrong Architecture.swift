@@ -44,5 +44,6 @@ struct WrongArchitectureView: View, Sendable {
                 }
             }
         }
+        .fixedSize()
     }
 }
