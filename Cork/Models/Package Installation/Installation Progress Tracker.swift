@@ -29,9 +29,13 @@ class InstallationProgressTracker: ObservableObject
         }
     }
 
+    private var showRealTimeTerminalOutputs: Bool
+    {
+        UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
+    }
+
     @MainActor
     func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput {
-        let showRealTimeTerminalOutputs = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
         let package = packageBeingInstalled.package
 
         AppConstants.logger.debug("Installing package \(package.name, privacy: .auto)")
@@ -155,87 +159,96 @@ class InstallationProgressTracker: ObservableObject
         else
         {
             AppConstants.logger.info("Package is Cask")
-            AppConstants.logger.debug("Installing package \(package.name, privacy: .public)")
-
-            for await output in shell(AppConstants.brewExecutablePath, ["install", "--no-quarantine", package.name])
-            {
-                switch output
-                {
-                case let .standardOutput(outputLine):
-                    AppConstants.logger.info("Output line: \(outputLine, privacy: .public)")
-
-                    if showRealTimeTerminalOutputs
-                    {
-                        packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
-                    }
-
-                    if outputLine.contains("Downloading")
-                    {
-                        AppConstants.logger.info("Will download Cask")
-
-                        packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
-
-                        packageBeingInstalled.installationStage = .downloadingCask
-                    }
-                    else if outputLine.contains("Installing Cask")
-                    {
-                        AppConstants.logger.info("Will install Cask")
-
-                        packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
-
-                        packageBeingInstalled.installationStage = .installingCask
-                    }
-                    else if outputLine.contains("Moving App")
-                    {
-                        AppConstants.logger.info("Moving App")
-
-                        packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
-
-                        packageBeingInstalled.installationStage = .movingCask
-                    }
-                    else if outputLine.contains("Linking binary")
-                    {
-                        AppConstants.logger.info("Linking Binary")
-
-                        packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
-
-                        packageBeingInstalled.installationStage = .linkingCaskBinary
-                    }
-                    else if outputLine.contains("was successfully installed")
-                    {
-                        AppConstants.logger.info("Finished installing app")
-
-                        packageBeingInstalled.installationStage = .finished
-
-                        packageBeingInstalled.packageInstallationProgress = 10
-                    }
-
-                case let .standardError(errorLine):
-                    AppConstants.logger.error("Line had error: \(errorLine, privacy: .public)")
-
-                    if showRealTimeTerminalOutputs
-                    {
-                        packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
-                    }
-
-                    if errorLine.contains("a password is required")
-                    {
-                        AppConstants.logger.warning("Install requires sudo")
-
-                        packageBeingInstalled.installationStage = .requiresSudoPassword
-                    }
-                    else if errorLine.contains(/depends on hardware architecture being.+but you are running/)
-                    {
-                        AppConstants.logger.warning("Package is wrong architecture")
-
-                        packageBeingInstalled.installationStage = .wrongArchitecture
-                    }
-                }
-            }
+            try await installCask(using: brewData)
         }
 
         await synchronizeInstalledPackages(brewData: brewData)
 
         return installationResult
+    }
+
+    @MainActor
+    func installCask(using brewData: BrewDataStorage) async throws
+    {
+        let package = packageBeingInstalled.package
+
+        AppConstants.logger.info("Package is Cask")
+        AppConstants.logger.debug("Installing package \(package.name, privacy: .public)")
+
+        for await output in shell(AppConstants.brewExecutablePath, ["install", "--no-quarantine", package.name])
+        {
+            switch output
+            {
+            case let .standardOutput(outputLine):
+                AppConstants.logger.info("Output line: \(outputLine, privacy: .public)")
+
+                if showRealTimeTerminalOutputs
+                {
+                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
+                }
+
+                if outputLine.contains("Downloading")
+                {
+                    AppConstants.logger.info("Will download Cask")
+
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
+
+                    packageBeingInstalled.installationStage = .downloadingCask
+                }
+                else if outputLine.contains("Installing Cask")
+                {
+                    AppConstants.logger.info("Will install Cask")
+
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
+
+                    packageBeingInstalled.installationStage = .installingCask
+                }
+                else if outputLine.contains("Moving App")
+                {
+                    AppConstants.logger.info("Moving App")
+
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
+
+                    packageBeingInstalled.installationStage = .movingCask
+                }
+                else if outputLine.contains("Linking binary")
+                {
+                    AppConstants.logger.info("Linking Binary")
+
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
+
+                    packageBeingInstalled.installationStage = .linkingCaskBinary
+                }
+                else if outputLine.contains("was successfully installed")
+                {
+                    AppConstants.logger.info("Finished installing app")
+
+                    packageBeingInstalled.installationStage = .finished
+
+                    packageBeingInstalled.packageInstallationProgress = 10
+                }
+
+            case let .standardError(errorLine):
+                AppConstants.logger.error("Line had error: \(errorLine, privacy: .public)")
+
+                if showRealTimeTerminalOutputs
+                {
+                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
+                }
+
+                if errorLine.contains("a password is required")
+                {
+                    AppConstants.logger.warning("Install requires sudo")
+
+                    packageBeingInstalled.installationStage = .requiresSudoPassword
+                }
+                else if errorLine.contains(/depends on hardware architecture being.+but you are running/)
+                {
+                    AppConstants.logger.warning("Package is wrong architecture")
+
+                    packageBeingInstalled.installationStage = .wrongArchitecture
+                }
+            }
+        }
     }
 }
