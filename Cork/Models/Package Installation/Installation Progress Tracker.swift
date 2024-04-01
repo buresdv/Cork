@@ -16,4 +16,9 @@ class InstallationProgressTracker: ObservableObject
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
+
+    @MainActor
+    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput {
+        try await Cork.installPackage(installationProgressTracker: self, brewData: brewData)
+    }
 }
