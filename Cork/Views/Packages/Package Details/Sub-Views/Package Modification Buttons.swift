@@ -18,6 +18,8 @@ struct PackageModificationButtons: View
     let package: BrewPackage
 
     @Binding var pinned: Bool
+    @State private var isShowingUninstallConfirmation = false
+    @State private var removeAllAssociatedFiles = false
 
     let isLoadingDetails: Bool
 
@@ -27,7 +29,7 @@ struct PackageModificationButtons: View
         {
             if !isLoadingDetails
             {
-                ButtonBottomRow 
+                ButtonBottomRow
                 {
                     if !package.isCask
                     {
@@ -57,56 +59,86 @@ struct PackageModificationButtons: View
 
                         if !allowMoreCompleteUninstallations
                         {
-                            Button(role: .destructive)
+                            Button
                             {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(
-                                        package: package,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false
-                                    )
-                                }
+                                isShowingUninstallConfirmation = true
+                                removeAllAssociatedFiles = false
                             } label: {
                                 Text("package-details.action.uninstall-\(package.name)")
                             }
-                        }
-                        else
-                        {
-                            Menu
+                            .confirmationDialog(
+                                Text("package-details.action.uninstall-\(package.name)"),
+                                isPresented: $isShowingUninstallConfirmation
+                            )
                             {
                                 Button(role: .destructive)
                                 {
-                                    Task
+                                    Task(priority: .userInitiated)
                                     {
                                         try await uninstallSelectedPackage(
                                             package: package,
                                             brewData: brewData,
                                             appState: appState,
                                             outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: true
+                                            shouldRemoveAllAssociatedFiles: removeAllAssociatedFiles
                                         )
                                     }
+                                } label: {
+                                    Text("package-details.action.uninstall-\("")")
+                                }
+                            } message: {
+                                Text("package-details.action.uninstall.message-\(package.name)")
+                            }
+                            .dialogIcon(Image(systemName: "trash.circle.fill"))
+                        }
+                        else
+                        {
+                            Menu
+                            {
+                                Button
+                                {
+                                    isShowingUninstallConfirmation = true
+                                    removeAllAssociatedFiles = true
                                 } label: {
                                     Text("package-details.action.uninstall-deep-\(package.name)")
                                 }
                             } label: {
                                 Text("package-details.action.uninstall-\(package.name)")
                             } primaryAction: {
-                                Task(priority: .userInitiated)
-                                {
-                                    try! await uninstallSelectedPackage(
-                                        package: package,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false
-                                    )
-                                }
+                                isShowingUninstallConfirmation = true
+                                removeAllAssociatedFiles = false
                             }
                             .fixedSize()
+                            .confirmationDialog(
+                                Text(removeAllAssociatedFiles ?
+                                    "package-details.action.uninstall-deep-\(package.name)" :
+                                    "package-details.action.uninstall-\(package.name)"),
+                                isPresented: $isShowingUninstallConfirmation
+                            )
+                            {
+                                Button(role: .destructive)
+                                {
+                                    Task(priority: .userInitiated)
+                                    {
+                                        try await uninstallSelectedPackage(
+                                            package: package,
+                                            brewData: brewData,
+                                            appState: appState,
+                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            shouldRemoveAllAssociatedFiles: removeAllAssociatedFiles
+                                        )
+                                    }
+                                } label: {
+                                    Text(removeAllAssociatedFiles ?
+                                        "package-details.action.uninstall-deep-\("")" :
+                                        "package-details.action.uninstall-\("")")
+                                }
+                            } message: {
+                                Text(removeAllAssociatedFiles ?
+                                    "package-details.action.uninstall-deep.message-\(package.name)" :
+                                    "package-details.action.uninstall.message-\(package.name)")
+                            }
+                            .dialogIcon(Image(systemName: "trash.circle.fill"))
                         }
                     }
                 }

@@ -15732,6 +15732,26 @@
         }
       }
     },
+    "package-details.action.uninstall-deep.message-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to purge %@ ?"
+          }
+        }
+      }
+    },
+    "package-details.action.uninstall.message-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to uninstall %@ ?"
+          }
+        }
+      }
+    },
     "package-details.action.unpin-version-%@" : {
       "localizations" : {
         "cs" : {
