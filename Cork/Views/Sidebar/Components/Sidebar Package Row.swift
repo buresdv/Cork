@@ -42,22 +42,7 @@ struct SidebarPackageRow: View {
             }
             Divider()
 
-            Button
-            {
-                Task
-                {
-                    try await uninstallSelectedPackage(
-                        package: package,
-                        brewData: brewData,
-                        appState: appState,
-                        outdatedPackageTracker: outdatedPackageTracker,
-                        shouldRemoveAllAssociatedFiles: false,
-                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                    )
-                }
-            } label: {
-                Text("sidebar.section.installed-casks.contextmenu.uninstall-\(package.name)")
-            }
+            UninstallPackageButton(package: package, isCalledFromSidebar: true)
 
             if allowMoreCompleteUninstallations
             {
@@ -75,7 +60,7 @@ struct SidebarPackageRow: View {
                         )
                     }
                 } label: {
-                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(package.name)")
+                    Text("action.purge-\(package.name)")
                 }
             }
             

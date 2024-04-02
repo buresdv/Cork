@@ -57,43 +57,15 @@ struct PackageModificationButtons: View
 
                         if !allowMoreCompleteUninstallations
                         {
-                            Button(role: .destructive)
-                            {
-                                Task
-                                {
-                                    try await uninstallSelectedPackage(
-                                        package: package,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false
-                                    )
-                                }
-                            } label: {
-                                Text("package-details.action.uninstall-\(package.name)")
-                            }
+                            UninstallPackageButton(package: package, isCalledFromSidebar: false)
                         }
                         else
                         {
                             Menu
                             {
-                                Button(role: .destructive)
-                                {
-                                    Task
-                                    {
-                                        try await uninstallSelectedPackage(
-                                            package: package,
-                                            brewData: brewData,
-                                            appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: true
-                                        )
-                                    }
-                                } label: {
-                                    Text("package-details.action.uninstall-deep-\(package.name)")
-                                }
+                                PurgePackageButton(package: package, isCalledFromSidebar: false)
                             } label: {
-                                Text("package-details.action.uninstall-\(package.name)")
+                                Text("action.uninstall-\(package.name)")
                             } primaryAction: {
                                 Task(priority: .userInitiated)
                                 {
