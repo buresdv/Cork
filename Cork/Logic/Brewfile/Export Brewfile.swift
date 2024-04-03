@@ -18,15 +18,16 @@ func exportBrewfile(appState: AppState) async throws -> String
 {
     appState.isShowingBrewfileExportProgress = true
     
-    defer {
+    defer
+    {
         appState.isShowingBrewfileExportProgress = false
     }
     
-    let brewfileParentLocation: URL = URL.temporaryDirectory
+    let brewfileParentLocation = URL.temporaryDirectory
     
     let pathRawOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])
     
-    async let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "dump"], workingDirectory: brewfileParentLocation)
+    async let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
 
     /// Throw an error if the working directory could not be determined
     if !pathRawOutput.standardError.isEmpty
@@ -35,7 +36,8 @@ func exportBrewfile(appState: AppState) async throws -> String
     }
 
     /// Throw an error if the working directory is so fucked up it's unusable
-    guard let workingDirectory: URL = URL(string: pathRawOutput.standardOutput.replacingOccurrences(of: "\n", with: "")) else
+    guard let workingDirectory = URL(string: pathRawOutput.standardOutput.replacingOccurrences(of: "\n", with: ""))
+    else
     {
         throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
     }
