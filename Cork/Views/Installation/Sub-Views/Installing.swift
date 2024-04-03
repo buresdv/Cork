@@ -105,7 +105,7 @@ struct InstallingPackageView: View
             {
                 do
                 {
-                    let installationResult = try await installPackage(installationProgressTracker: installationProgressTracker, brewData: brewData)
+                    let installationResult = try await installationProgressTracker.installPackage(using: brewData)
                     AppConstants.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
                 }
                 catch let fatalInstallationError
