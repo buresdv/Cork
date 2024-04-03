@@ -101,6 +101,7 @@ Prerequisites:
 
 **Compiling Cork**
 
+0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
 1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open Cork.xcodeproj`. Xcode will open the project
 2. Wait until all the dependencies are resolved. It should take a couple minutes at most
 3. In the file browser on the left, click `Cork` at the very top. It's the icon with the App Store logo
