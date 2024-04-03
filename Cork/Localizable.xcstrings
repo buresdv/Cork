@@ -3694,6 +3694,12 @@
     },
     "add-package.error.timed-out.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitüberschreitung beim Laden der Top-Pakete"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4850,6 +4856,12 @@
     "add-package.install.wrong-architecture-%@.user-architecture-is-%@" : {
       "comment" : "Final string: (package) doesn't support (Apple Silicon / Intel) chips",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ unterstützt %2$@ Prozessoren nicht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4860,6 +4872,12 @@
     },
     "add-package.install.wrong-architecture.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Paket unterstützt deinen Prozessor nicht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9044,6 +9062,12 @@
     },
     "alert.unable-to-uninstall-%@.title" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ konnte nicht entfernt werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9054,6 +9078,12 @@
     },
     "alert.unable-to-uninstall-dependency.message-%@-%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@ steht in Abhängigkeit von %1$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
