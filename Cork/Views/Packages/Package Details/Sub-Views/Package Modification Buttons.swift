@@ -10,10 +10,12 @@ import SwiftUI
 struct PackageModificationButtons: View
 {
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     let package: BrewPackage
 
@@ -67,15 +69,27 @@ struct PackageModificationButtons: View
                             } label: {
                                 Text("action.uninstall-\(package.name)")
                             } primaryAction: {
-                                Task(priority: .userInitiated)
+                                // TODO: This is a duplicate of the logic already present in RemovePackageButton. Find a way to merge them.
+                                if !shouldRequestPackageRemovalConfirmation
                                 {
-                                    try! await uninstallSelectedPackage(
-                                        package: package,
-                                        brewData: brewData,
-                                        appState: appState,
-                                        outdatedPackageTracker: outdatedPackageTracker,
-                                        shouldRemoveAllAssociatedFiles: false
-                                    )
+                                    Task
+                                    {
+                                        AppConstants.logger.debug("Confirmation of package removal NOT needed")
+                                        
+                                        try await uninstallSelectedPackage(
+                                            package: package,
+                                            brewData: brewData,
+                                            appState: appState,
+                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            shouldRemoveAllAssociatedFiles: false,
+                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: false
+                                        )
+                                    }
+                                }
+                                else
+                                {
+                                    AppConstants.logger.debug("Confirmation of package removal needed")
+                                    uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: false, isCalledFromSidebar: false)
                                 }
                             }
                             .fixedSize()
