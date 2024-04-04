@@ -42,41 +42,11 @@ struct SidebarPackageRow: View {
             }
             Divider()
 
-            Button
-            {
-                Task
-                {
-                    try await uninstallSelectedPackage(
-                        package: package,
-                        brewData: brewData,
-                        appState: appState,
-                        outdatedPackageTracker: outdatedPackageTracker,
-                        shouldRemoveAllAssociatedFiles: false,
-                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                    )
-                }
-            } label: {
-                Text("sidebar.section.installed-casks.contextmenu.uninstall-\(package.name)")
-            }
+            UninstallPackageButton(package: package, isCalledFromSidebar: true)
 
             if allowMoreCompleteUninstallations
             {
-                Button
-                {
-                    Task
-                    {
-                        try await uninstallSelectedPackage(
-                            package: package,
-                            brewData: brewData,
-                            appState: appState,
-                            outdatedPackageTracker: outdatedPackageTracker,
-                            shouldRemoveAllAssociatedFiles: true,
-                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                        )
-                    }
-                } label: {
-                    Text("sidebar.section.installed-formulae.contextmenu.uninstall-deep-\(package.name)")
-                }
+                PurgePackageButton(package: package, isCalledFromSidebar: true)
             }
             
             if enableRevealInFinder
