@@ -98,6 +98,7 @@
 		6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355929BDF67A00CC0760 /* Update Availability.swift */; };
 		63603BA92BBC1C9F0083AEDB /* DavidFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 63603BA82BBC1C9F0083AEDB /* DavidFoundation */; };
 		63603BAC2BBC6B360083AEDB /* Remove Packages Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63603BAB2BBC6B360083AEDB /* Remove Packages Buttons.swift */; };
+		63603BBC2BBEB0110083AEDB /* Uninstallation Confirmation Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63603BBB2BBEB0110083AEDB /* Uninstallation Confirmation Tracker.swift */; };
 		63689F7D2ACC6CFF00BD354C /* Package Detail Header Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F7C2ACC6CFF00BD354C /* Package Detail Header Complex.swift */; };
 		63689F7F2ACC8FDC00BD354C /* Package Modification Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */; };
 		63689F832ACC9FE000BD354C /* Button Bottom Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63689F822ACC9FE000BD354C /* Button Bottom Row.swift */; };
@@ -370,6 +371,7 @@
 		6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Updating Stages.swift"; sourceTree = "<group>"; };
 		6360355929BDF67A00CC0760 /* Update Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Availability.swift"; sourceTree = "<group>"; };
 		63603BAB2BBC6B360083AEDB /* Remove Packages Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Remove Packages Buttons.swift"; sourceTree = "<group>"; };
+		63603BBB2BBEB0110083AEDB /* Uninstallation Confirmation Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstallation Confirmation Tracker.swift"; sourceTree = "<group>"; };
 		63689F7C2ACC6CFF00BD354C /* Package Detail Header Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Detail Header Complex.swift"; sourceTree = "<group>"; };
 		63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Modification Buttons.swift"; sourceTree = "<group>"; };
 		63689F822ACC9FE000BD354C /* Button Bottom Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button Bottom Row.swift"; sourceTree = "<group>"; };
@@ -847,6 +849,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63603BBA2BBEAFFF0083AEDB /* Package Uninstallation */,
 				637D53922BAB516200E072DA /* Services */,
 				63738C7D2AA38BEA009278B8 /* Updating */,
 				63FFE57A2A90D60400F95E54 /* Discoverability */,
@@ -981,6 +984,14 @@
 				63603BAB2BBC6B360083AEDB /* Remove Packages Buttons.swift */,
 			);
 			path = Uninstallation;
+			sourceTree = "<group>";
+		};
+		63603BBA2BBEAFFF0083AEDB /* Package Uninstallation */ = {
+			isa = PBXGroup;
+			children = (
+				63603BBB2BBEB0110083AEDB /* Uninstallation Confirmation Tracker.swift */,
+			);
+			path = "Package Uninstallation";
 			sourceTree = "<group>";
 		};
 		63690F7829C9FBCE008F952C /* File System */ = {
@@ -1960,6 +1971,7 @@
 				63FFE57E2A90D9E300F95E54 /* Day Spans.swift in Sources */,
 				639D45DD2BB830D200459DE3 /* Menu Bar Item.swift in Sources */,
 				63689FAB2ACDCA1A00BD354C /* Maintenance Running View.swift in Sources */,
+				63603BBC2BBEB0110083AEDB /* Uninstallation Confirmation Tracker.swift in Sources */,
 				63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */,
 				6340657F2871AF68001A2178 /* App Constants.swift in Sources */,
 				639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */,

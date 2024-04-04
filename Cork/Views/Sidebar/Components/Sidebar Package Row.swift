@@ -46,22 +46,7 @@ struct SidebarPackageRow: View {
 
             if allowMoreCompleteUninstallations
             {
-                Button
-                {
-                    Task
-                    {
-                        try await uninstallSelectedPackage(
-                            package: package,
-                            brewData: brewData,
-                            appState: appState,
-                            outdatedPackageTracker: outdatedPackageTracker,
-                            shouldRemoveAllAssociatedFiles: true,
-                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: true
-                        )
-                    }
-                } label: {
-                    Text("action.purge-\(package.name)")
-                }
+                PurgePackageButton(package: package, isCalledFromSidebar: true)
             }
             
             if enableRevealInFinder

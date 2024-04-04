@@ -3091,7 +3091,14 @@
       }
     },
     "action.purge.confirm.title.%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to purge %@?"
+          }
+        }
+      }
     },
     "action.quit" : {
       "localizations" : {
@@ -3696,7 +3703,14 @@
       }
     },
     "action.uninstall.confirm.title.%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to uninstall %@?"
+          }
+        }
+      }
     },
     "action.use-without-notifications" : {
       "localizations" : {
@@ -3751,7 +3765,14 @@
       }
     },
     "action.warning.cannot-be-undone" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This action cannot be undone"
+          }
+        }
+      }
     },
     "add-package.clear-brew-locks" : {
       "localizations" : {
@@ -9592,9 +9613,6 @@
           }
         }
       }
-    },
-    "DEBUG" : {
-
     },
     "generic.false" : {
       "localizations" : {
@@ -21383,10 +21401,24 @@
       }
     },
     "settings.install-uninstall.package-removal.label" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package removal:"
+          }
+        }
+      }
     },
     "settings.install-uninstall.request-removal-confirmation.toggle" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Require confirmation when removing packages"
+          }
+        }
+      }
     },
     "settings.install-uninstall.uninstallation" : {
       "extractionState" : "manual",

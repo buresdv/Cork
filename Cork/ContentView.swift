@@ -33,6 +33,9 @@ struct ContentView: View, Sendable
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     @State private var multiSelection = Set<UUID>()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
@@ -603,6 +606,38 @@ struct ContentView: View, Sendable
                 )
             }
         })
+        .confirmationDialog(uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: $uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation) {
+            Button(role: .destructive)
+            {
+                uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation = false
+                
+                Task
+                {
+                    try await uninstallSelectedPackage(
+                        package: uninstallationConfirmationTracker.packageThatNeedsConfirmation,
+                        brewData: brewData,
+                        appState: appState,
+                        outdatedPackageTracker: outdatedPackageTracker,
+                        shouldRemoveAllAssociatedFiles: uninstallationConfirmationTracker.shouldPurge,
+                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: uninstallationConfirmationTracker.isCalledFromSidebar
+                    )
+                }
+            } label: {
+                Text(uninstallationConfirmationTracker.shouldPurge ? "action.purge-\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall-\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)")
+            }
+            .keyboardShortcut(.defaultAction)
+            
+            Button(role: .cancel)
+            {
+                uninstallationConfirmationTracker.dismissConfirmationDialog()
+            } label: {
+                Text("action.cancel")
+            }
+            .keyboardShortcut(.cancelAction)
+        } message: {
+            Text("action.warning.cannot-be-undone")
+        }
+
     }
 
     func loadTopPackages() async
