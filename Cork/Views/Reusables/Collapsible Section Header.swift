@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CollapsibleSectionHeader: View {
     
-    var headerText: LocalizedStringKey
+    let headerText: LocalizedStringKey
     
     @Binding var isCollapsed: Bool
     

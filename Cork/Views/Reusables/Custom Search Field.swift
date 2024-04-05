@@ -12,7 +12,7 @@ struct CustomSearchField: NSViewRepresentable
 {
     @Binding var search: String
 
-    @State var customPromptText: String?
+    let customPromptText: String?
 
     class Coordinator: NSObject, NSSearchFieldDelegate
     {

@@ -11,8 +11,8 @@ import SwiftUI
 
 struct ButtonThatOpensWebsites: View
 {
-    @State var websiteURL: URL
-    @State var buttonText: LocalizedStringKey
+    let websiteURL: URL
+    let buttonText: LocalizedStringKey
 
     var body: some View
     {

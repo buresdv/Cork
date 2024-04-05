@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SheetWithTitle<Content: View>: View
 {
-    @State var title: LocalizedStringKey
+    let title: LocalizedStringKey
 
     @ViewBuilder var sheetContent: Content
 
