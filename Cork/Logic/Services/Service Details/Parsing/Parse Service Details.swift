@@ -28,6 +28,8 @@ func parseServiceDetails(rawOutput: String) throws -> ServiceDetails
     }
     catch let parsingError
     {
+        AppConstants.logger.error("Failed while parsing service details: \(parsingError.localizedDescription)")
+        
         throw JSONError.parsingFailed
     }
 }
