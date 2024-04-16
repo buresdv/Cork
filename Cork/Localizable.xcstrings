@@ -6593,6 +6593,18 @@
             }
           }
         },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 다운로드"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -9603,6 +9615,12 @@
             "value" : "Impossible de trouver le dossier des métadonnées"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메타데이터 폴더를 찾을 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12156,6 +12174,24 @@
             }
           }
         },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 고아 패키지 제거됨"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "고아 패키지를 찾을 수 없음"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -12755,6 +12791,18 @@
                 "stringUnit" : {
                   "state" : "needs_review",
                   "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autres n'ayant pas été mis à jour"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$@ 및 %2$lld 다른 패키지가 업데이트되지 않았기 때문에 일부 캐시가 지워지지 않았습니다."
                 }
               }
             }
@@ -14343,6 +14391,18 @@
             }
           }
         },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 패키지가 설치됨"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -15397,6 +15457,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Vous avez %lld packages obsolètes"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "오래된 패키지 %lld 가 있습니다."
                 }
               }
             }
@@ -19768,6 +19840,18 @@
               }
             }
           }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "활성 서비스 %lld가 있습니다."
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -19826,6 +19910,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld services with errors"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "오류가 있는 %lld 서비스가 있습니다."
                 }
               }
             }
@@ -19924,6 +20020,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld inactive services"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "비활성 서비스가 %lld 있습니다."
                 }
               }
             }
@@ -20070,6 +20178,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld services with an unknown status"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "알 수 없는 상태의 %lld 서비스가 있습니다."
                 }
               }
             }
@@ -26368,6 +26488,18 @@
             }
           }
         },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 탭을 추가했습니다."
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -27185,6 +27317,18 @@
             }
           }
         },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Casks 가 설치되었습니다."
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -27417,6 +27561,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Vous avez installé %lld Formules"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Formulae가 설치되어 있습니다."
                 }
               }
             }
@@ -27881,6 +28037,18 @@
             }
           }
         },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 패키지 업데이트"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -28223,6 +28391,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Il y a %lld packages obsolètes"
+                }
+              }
+            }
+          }
+        },
+        "ko" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "오래된 패키지 %lld가 있습니다."
                 }
               }
             }
