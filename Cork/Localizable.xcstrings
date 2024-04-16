@@ -60,6 +60,12 @@
             "state" : "translated",
             "value" : "Über"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відомості"
+          }
         }
       }
     },
@@ -1441,6 +1447,12 @@
             "value" : "[Политика конфиденциальности](https://corkmac.app/privacy-ru.html)"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Privacy policy](https://corkmac.app/privacy-uk.html)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2423,6 +2435,12 @@
             "value" : "Демо-режим"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо-версія"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2461,6 +2479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Купить Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Придбати"
           }
         },
         "zh-Hans" : {
@@ -2553,6 +2577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Активировать"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активувати"
           }
         },
         "zh-Hans" : {
@@ -3097,6 +3127,12 @@
             "state" : "translated",
             "value" : "Are you sure you want to purge %@?"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви впевнені, що хочете повністю видалити %@?"
+          }
         }
       }
     },
@@ -3440,6 +3476,12 @@
             "value" : "Сбросить путь к исполнимому файлу"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скинути шлях до виконуваного файлу"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3636,6 +3678,12 @@
             "value" : "Обратная связь"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відправити відгук"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3709,6 +3757,12 @@
             "state" : "translated",
             "value" : "Are you sure you want to uninstall %@?"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви впевнені, що хочете видалити %@?"
+          }
         }
       }
     },
@@ -3770,6 +3824,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This action cannot be undone"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цю дію неможливо відмінити"
           }
         }
       }
@@ -3838,6 +3898,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading of top packages timed out"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Час на завантаження найкращих пакетів перевищено"
           }
         }
       }
@@ -5001,6 +5067,12 @@
             "state" : "translated",
             "value" : "%1$@ doesn't support %2$@ chips"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ не підтримує процесори %2$@"
+          }
         }
       }
     },
@@ -5016,6 +5088,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This package doesn't support your chip"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей пакет не підтримує Ваш процесор"
           }
         }
       }
@@ -8134,6 +8212,12 @@
             "value" : "Could not synchronize packages"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо синхронізувати пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8174,6 +8258,12 @@
             "value" : "Не удалось найти пользовательский исполнимый файл Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо знайти виконуваний файл Homebrew за вказаним шляхом"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8208,6 +8298,12 @@
             "value" : "Пожалуйста, проверьте интернет-соединение и попробуйте еще раз"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірте зʼєднання з інтернетом та спробуйте знову"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8240,6 +8336,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось установить безопасное соединение с сервером авторизации"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо створити безпечне зʼєднання із сервером авторизації"
           }
         },
         "zh-Hans" : {
@@ -9207,6 +9309,12 @@
             "state" : "translated",
             "value" : "Couldn't Uninstall %@"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо видалити %@"
+          }
         }
       }
     },
@@ -9222,6 +9330,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%2$@ is a dependency of %1$@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@ є залежністю %1$@"
           }
         }
       }
@@ -9663,6 +9777,12 @@
             "state" : "translated",
             "value" : "No"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ні"
+          }
         }
       }
     },
@@ -9684,6 +9804,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Так"
           }
         }
       }
@@ -9798,6 +9924,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Dienste"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіси Homebrew"
           }
         }
       }
@@ -9979,6 +10111,12 @@
             "value" : "Благодарим вас за вашу поддержку!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякую за підтримку Cork!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10011,6 +10149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Лицензия активирована"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ліцензію активовано"
           }
         },
         "zh-Hans" : {
@@ -10047,6 +10191,12 @@
             "value" : "Демо-режим"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо-версія"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10079,6 +10229,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Демонстрационный режим заканчивается в: %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Демо-версія доступна до %@"
           }
         },
         "zh-Hans" : {
@@ -10115,6 +10271,12 @@
             "value" : "Введите Email, указанный при покупке:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адреса електронної пошти на яку Ви придбали Cork:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10144,6 +10306,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -10183,6 +10351,12 @@
             "value" : "Email не найден"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адресу електронної пошти не знайдено"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10215,6 +10389,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы можете купить Cork, нажав на кнопку снизу или посетив [эту страницу](https://corkmac.ru).\nВы также можете активировать демо-режим и пользоваться Cork бесплатно и без ограничений на протяжении 7 дней."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете придбати Cork за допомогою кнопки нижче або відвідавши [веб-сайт](https://corkmac.app).\nНе впевнені, що хочете придбати Cork? Спробуйте демо-версію на тиждень."
           }
         },
         "zh-Hans" : {
@@ -10251,6 +10431,12 @@
             "value" : "Благодарим вас за интерес к Cork!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякую за придбання Cork!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10285,6 +10471,12 @@
             "value" : "за 999 ₽"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "за 25€"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10317,6 +10509,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Лицензия..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ліцензія..."
           }
         },
         "zh-Hans" : {
@@ -12966,6 +13164,12 @@
             "state" : "translated",
             "value" : "Manage Services…"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Керувати сервісами..."
+          }
         }
       }
     },
@@ -13513,6 +13717,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поиск"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук"
           }
         },
         "zh-Hans" : {
@@ -17682,6 +17892,12 @@
             "state" : "translated",
             "value" : "Loading service info…"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження інформації про сервіс..."
+          }
         }
       }
     },
@@ -17752,6 +17968,36 @@
               }
             }
           }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld активних сервіса"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld активних сервісів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld активний сервіс"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld активних сервісів"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -17767,6 +18013,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "These services are running normally"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ці сервіси працюють нормально"
           }
         }
       }
@@ -17808,6 +18060,36 @@
               }
             }
           }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервіса з помилками"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервісів з помилками"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервіс з помилками"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервісів з помилками"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -17829,6 +18111,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "These services either crashed, or could not be started at all"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ці сервіси припинено або неможливо запустити"
           }
         }
       }
@@ -17900,6 +18188,36 @@
               }
             }
           }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld неактивних сервіса"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld неактивних сервісів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld неактивний сервіс"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld неактивних сервісів"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -17922,6 +18240,12 @@
             "state" : "translated",
             "value" : "These services are not currently running"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ці сервіси наразі не запущено"
+          }
         }
       }
     },
@@ -17937,6 +18261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading services…"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження сервісів..."
           }
         }
       }
@@ -17960,6 +18290,12 @@
             "state" : "translated",
             "value" : "No services found"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіси не знайдено"
+          }
         }
       }
     },
@@ -17981,6 +18317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services Status"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус сервісів"
           }
         }
       }
@@ -18022,6 +18364,36 @@
               }
             }
           }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервіса із невідомим статусом"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервісів із невідомим статусом"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервіс із невідомим статусом"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ви маєте %lld сервісів із невідомим статусом"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -18044,6 +18416,12 @@
             "state" : "translated",
             "value" : "The status of these services could not be determined"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус цих сервісів неможливо визначити"
+          }
         }
       }
     },
@@ -18060,6 +18438,12 @@
             "state" : "translated",
             "value" : "Error Log Location"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місцезнаходження журналу"
+          }
         }
       }
     },
@@ -18075,6 +18459,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exit Code"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код завершення"
           }
         }
       }
@@ -18098,6 +18488,12 @@
             "state" : "translated",
             "value" : "Is Loaded"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажений"
+          }
         }
       }
     },
@@ -18113,6 +18509,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Location"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місцезнаходження"
           }
         }
       }
@@ -18130,6 +18532,12 @@
             "state" : "translated",
             "value" : "Log Location"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місцезнаходження журналу"
+          }
         }
       }
     },
@@ -18146,6 +18554,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назва"
           }
         }
       }
@@ -18169,6 +18583,12 @@
             "state" : "translated",
             "value" : "Root Location"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місцезнаходження кореню"
+          }
         }
       }
     },
@@ -18184,6 +18604,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schedulable"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Плановий"
           }
         }
       }
@@ -18201,6 +18627,12 @@
             "state" : "translated",
             "value" : "Status"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус"
+          }
         }
       }
     },
@@ -18216,6 +18648,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "User"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Користувач"
           }
         }
       }
@@ -18233,6 +18671,12 @@
             "state" : "translated",
             "value" : "Services"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіси"
+          }
         }
       }
     },
@@ -18248,6 +18692,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld services found"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld сервісів знайдено"
           }
         }
       }
@@ -18266,6 +18716,12 @@
             "state" : "translated",
             "value" : "Loading services"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження сервісів"
+          }
         }
       }
     },
@@ -18281,6 +18737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Errored Out"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершений з помилкою"
           }
         }
       }
@@ -18298,6 +18760,12 @@
             "state" : "translated",
             "value" : "None"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає"
+          }
         }
       }
     },
@@ -18314,6 +18782,12 @@
             "state" : "translated",
             "value" : "Other"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інший"
+          }
         }
       }
     },
@@ -18329,6 +18803,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scheduled"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запланований"
           }
         }
       }
@@ -18352,6 +18832,12 @@
             "state" : "translated",
             "value" : "Started"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запущений"
+          }
         }
       }
     },
@@ -18374,6 +18860,12 @@
             "state" : "translated",
             "value" : "Stopped"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершений"
+          }
         }
       }
     },
@@ -18390,6 +18882,12 @@
             "state" : "translated",
             "value" : "Unknown"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невідомий"
+          }
         }
       }
     },
@@ -18405,6 +18903,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Services"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіси Homebrew"
           }
         }
       }
@@ -18540,6 +19044,12 @@
             "value" : "Путь к Homebrew:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місцезнаходження Homebrew:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18578,6 +19088,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Указать путь"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вказати інше місцезнаходження"
           }
         },
         "zh-Hans" : {
@@ -18620,6 +19136,12 @@
             "value" : "Возможность указать нестандартный путь к Homebrew официально не поддерживается.\nВ случае возникновения проблем, пожалуйста, отключите настройки разработчика, иначе мы не сможем оказать вам поддержку.\nПри указании нестандартного пути к Homebrew, вы берете на себя ответственность за все возможные проблемы."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інше місцезнаходження офіційно не підтримується. Якщо Ви маєте інше місцезнаходження Homebrew, Ви не зможете отримати підтримку Cork або Homebrew. Якщо Ви оберете інше місцезнаходження, лише Ви будете відповідальні за налаштування Вашого Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18658,6 +19180,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы уверены, что хотите указать нестандартный путь к Homebrew?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви впевнені, що хочете вказати інше місцезнаходження Homebrew?"
           }
         },
         "zh-Hans" : {
@@ -18700,6 +19228,12 @@
             "value" : "%@ не является исполнимым файлом Homebrew."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ не є виконуваним файлом Homebrew."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18740,6 +19274,12 @@
             "value" : "Этот файл не является исполнимым."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обраний файл не є виконуваним."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18778,6 +19318,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Используется %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовується %@"
           }
         },
         "zh-Hans" : {
@@ -18821,6 +19367,12 @@
             "value" : "Используется нестандартный путь"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовується інше місцезнаходження"
+          }
+        },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18853,6 +19405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Используется путь по умолчанию"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовується місцезнаходження Homebrew за замовчуванням"
           }
         },
         "zh-Hans" : {
@@ -18895,6 +19453,12 @@
             "value" : "Сбросить путь"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скинути місцезнаходження"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18933,6 +19497,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Указать путь"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обрати інше місцезнаходження"
           }
         },
         "zh-Hans" : {
@@ -18975,6 +19545,12 @@
             "value" : "В случае появления проблем, перед обращением в поддержку,\nпожалуйста, попробуйте отключить настройки разработчика"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнення режиму розробника не дасть змогу отримати підтримку Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19013,6 +19589,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Настройки для разработчиков"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути налаштування розробника"
           }
         },
         "zh-Hans" : {
@@ -21437,6 +22019,12 @@
             "state" : "translated",
             "value" : "Package removal:"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видаляємий пакет:"
+          }
         }
       }
     },
@@ -21446,6 +22034,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Require confirmation when removing packages"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Потребувати підтвердження при видаленні пакетів"
           }
         }
       }
@@ -24880,6 +25474,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новости о важных изменениях Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прочитати про важливі зміни Cork"
           }
         },
         "zh-Hans" : {
