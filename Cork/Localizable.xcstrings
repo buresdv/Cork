@@ -60,6 +60,12 @@
             "state" : "translated",
             "value" : "Über"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정보"
+          }
         }
       }
     },
@@ -87,6 +93,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contact Moi"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문의하기"
           }
         },
         "ru" : {
@@ -141,6 +153,12 @@
             "value" : "Contribuer"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기여하기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -188,6 +206,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub"
@@ -245,6 +269,12 @@
             "value" : "Mastodon"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mastodon"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -295,6 +325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Site internet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
           }
         },
         "ru" : {
@@ -349,6 +385,12 @@
             "value" : "Contributeurs"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인정된 기여자"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -396,6 +438,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rob Napier"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rob Napier"
@@ -453,6 +501,12 @@
             "value" : "A apporté une aide inestimable pour résoudre toutes sortes de problèmes, de Swift asynchrone aux installations de paquets bloquantes."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "비동기 Swift에서 패키지 설치 차단에 이르기까지 모든 종류의 문제에 대해 귀중한 도움을 제공했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -500,6 +554,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Łukasz Rutkowski"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Łukasz Rutkowski"
@@ -557,6 +617,12 @@
             "value" : "A corrigé de nombreux problèmes liés à l'asynchronisme et à SwiftUI"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "많은 비동기 및 SwiftUI 문제 수정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -604,6 +670,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jierong Li"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jierong Li"
@@ -661,6 +733,12 @@
             "value" : "A corrigé le problème de mise à jour des paquets sur la page de démarrage"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시작 페이지의 패키지 수가 업데이트되지 않는 문제 수정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -708,6 +786,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscar Bazaldua"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oscar Bazaldua"
@@ -765,6 +849,12 @@
             "value" : "A fait la première PR approuvée; A corrigé les mise a jour des paquets, en collaboration avec Jierong Li."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "첫 번째 승인된 풀 리퀘스트, Jierong Li와 함께 패키지 수를 수정했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -812,6 +902,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andrey Radchishin"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Andrey Radchishin"
@@ -869,6 +965,12 @@
             "value" : "A ajouté un moyen de revenir à la page de statut de Homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 상태 페이지로 돌아가는 방법이 추가되었습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -916,6 +1018,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christian Tietze"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Christian Tietze"
@@ -973,6 +1081,12 @@
             "value" : "A proposé de nombreuses optimisations de logique avancées et a continuellement offert un précieux soutien en Swift"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "많은 고급 로직 최적화를 제안하고 귀중한 Swift 지원을 지속적으로 제공합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1023,6 +1137,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "© 2023 David Bureš est ces contributeurs."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2023 David Bureš 및 기여자."
           }
         },
         "ru" : {
@@ -1077,6 +1197,12 @@
             "value" : "Paquets utilisé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1124,6 +1250,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DavidFoundation"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DavidFoundation"
@@ -1181,6 +1313,12 @@
             "value" : "Mon propre paquet qui offre quelques fonctionnalités de base."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몇 가지 기본 편의 기능을 제공하는 나만의 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1228,6 +1366,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SwiftyJSON"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "SwiftyJSON"
@@ -1285,6 +1429,12 @@
             "value" : "Je déteste l'analyse JSON par défaut en Swift. Pourquoi réinventer la roue quand on peut simplement utiliser une bibliothèque pour la rendre supportable ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON 파싱에 대한 스위프트의 기본 방식이 마음에 들지 않습니다. 왜 굳이 지레짐작해서 힘든 일을 하겠습니까? 라이브러리를 사용하면 JSON 파싱이 훨씬 더 쉬워집니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1332,6 +1482,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "LaunchAtLogin"
@@ -1389,6 +1545,12 @@
             "value" : "Un package qui permet à Cork de démarrer lorsque vous vous connectez"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인 시 Cork를 시작할 수 있는 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1430,6 +1592,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
@@ -1481,6 +1649,12 @@
             "value" : "Remerciements spéciaux"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "특별한 감사"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1528,6 +1702,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seb Jachec"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seb Jachec"
@@ -1585,6 +1765,12 @@
             "value" : "Implémentation d'une fonction pour obtenir les sorties en temps réel des commandes, rendant plus de la moitié de toutes les fonctionnalités de Cork beaucoup plus rapides."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "명령어를 실시간으로 출력하는 기능을 구현하여 Cork의 모든 기능 중 절반 이상이 훨씬 빨라졌습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1639,6 +1825,12 @@
             "value" : "A propos de Cork"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 정보"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1686,6 +1878,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jerry Zhang"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jerry Zhang"
@@ -1743,6 +1941,12 @@
             "value" : "Traduction de Cork en Chinois Simplifié"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코크를 중국어 간체로 번역"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1790,6 +1994,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sh95014"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "sh95014"
@@ -1847,6 +2057,12 @@
             "value" : "Traduction de Cork en Chinois Traditionnel"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코르크 중국어 번체 번역"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1894,6 +2110,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maurice Meysel"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maurice Meysel"
@@ -1951,6 +2173,12 @@
             "value" : "Traduction de Cork en Allemand"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코크를 독일어로 번역"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1998,6 +2226,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bryan Ledda"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bryan Ledda"
@@ -2055,6 +2289,12 @@
             "value" : "Traduction de Cork en Français"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코크를 프랑스어로 번역"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2103,6 +2343,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nikita Utkin"
@@ -2161,6 +2407,12 @@
             "value" : "Traduction de Cork en Russe"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "러시아어로 코르크 번역"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2209,6 +2461,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Igor Petruchek"
@@ -2267,6 +2525,12 @@
             "value" : "Traduction de Cork en Ukrainien"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코크를 우크라이나어로 번역"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2317,6 +2581,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Traductions"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "번역자"
           }
         },
         "ru" : {
@@ -2371,6 +2641,12 @@
             "value" : "Version %@ (%@)"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@ (%@)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2417,6 +2693,12 @@
             "value" : "Try Demo"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데모 체험"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2455,6 +2737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buy Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 구매"
           }
         },
         "ru" : {
@@ -2503,6 +2791,12 @@
             "value" : "Annuler"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "취소"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2549,6 +2843,12 @@
             "value" : "Activate"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2593,6 +2893,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Netoyage metadata"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메타데이터 지우기"
           }
         },
         "ru" : {
@@ -2647,6 +2953,12 @@
             "value" : "Fermer"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닫기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2697,6 +3009,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copier"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "복사"
           }
         },
         "ru" : {
@@ -2751,6 +3069,12 @@
             "value" : "Copier dans le presse-papiers"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클립보드로 복사"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2801,6 +3125,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terminé"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
           }
         },
         "ru" : {
@@ -2856,6 +3186,12 @@
             "value" : "Accédez à la page de status de Homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상태 페이지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2906,6 +3242,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Allez à la Page de Status"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상태페이지로 이동"
           }
         },
         "ru" : {
@@ -2960,6 +3302,12 @@
             "value" : "Cacher"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "숨기기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3010,6 +3358,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir le Terminal"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "터미널 열기"
           }
         },
         "ru" : {
@@ -3064,6 +3418,12 @@
             "value" : "Purger %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purge %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3097,6 +3457,12 @@
             "state" : "translated",
             "value" : "Are you sure you want to purge %@?"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " %@ 을 삭제 하시겠습니까?"
+          }
         }
       }
     },
@@ -3124,6 +3490,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quitter Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 종료"
           }
         },
         "ru" : {
@@ -3176,6 +3548,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réparation %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "복구 %@"
           }
         },
         "ru" : {
@@ -3231,6 +3609,12 @@
             "value" : "Réparer Homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브류 복구"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3283,6 +3667,12 @@
             "value" : "Envoyer un Email…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이메일 보내기..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3333,6 +3723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signalez sur GitHub…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub에 보고..."
           }
         },
         "ru" : {
@@ -3388,6 +3784,12 @@
             "value" : "Signalez un problemme"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버그 신고"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3434,6 +3836,12 @@
             "value" : "Reset executable to default location"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "실행 파일을 기본 위치로 재설정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3478,6 +3886,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Redémarrer Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 재실행"
           }
         },
         "ru" : {
@@ -3532,6 +3946,12 @@
             "value" : "Afficher dans le Finder"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder에서 보기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3584,6 +4004,12 @@
             "value" : "Afficher"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3628,6 +4054,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Submit Feedback"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "피드백 제출"
           }
         },
         "ru" : {
@@ -3676,6 +4108,12 @@
             "value" : "Désinstaller %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 제거"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3709,6 +4147,12 @@
             "state" : "translated",
             "value" : "Are you sure you want to uninstall %@?"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 를 제거 하시겠습니까??"
+          }
         }
       }
     },
@@ -3736,6 +4180,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utilisez Cork sans notifications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림 없이 Cork 사용"
           }
         },
         "ru" : {
@@ -3771,6 +4221,12 @@
             "state" : "translated",
             "value" : "This action cannot be undone"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 작업은 되돌릴 수 없습니다."
+          }
         }
       }
     },
@@ -3798,6 +4254,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Arrêt"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중지"
           }
         },
         "ru" : {
@@ -3839,6 +4301,12 @@
             "state" : "translated",
             "value" : "Loading of top packages timed out"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 패키지 로딩 시간 초과"
+          }
         }
       }
     },
@@ -3866,6 +4334,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur s'est produite lors de l'installation de %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " %@을(를) 설치하는 동안 오류가 발생했습니다."
           }
         },
         "ru" : {
@@ -3918,6 +4392,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayez d'installer le package à nouveau, ou redémarrez Cork.\nSi le problème persiste, redémarrez votre Mac"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 패키지를 다시 설치하거나 Cork를 재시작해 보세요.\n문제가 지속되면 Mac을 재시동하세요."
           }
         },
         "ru" : {
@@ -3973,6 +4453,12 @@
             "value" : "Une erreur s'est produite lors du processus d'installation"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 설치 프로세스 중에 오류가 발생했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4023,6 +4509,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquet installer avec success"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 패키지가 성공적으로 설치되었습니다."
           }
         },
         "ru" : {
@@ -4077,6 +4569,12 @@
             "value" : "Il n'y a eu aucune erreur"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 오류 없음"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4127,6 +4625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installer"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치"
           }
         },
         "ru" : {
@@ -4181,6 +4685,12 @@
             "value" : "Vous pouvez soit attendre que ce processus se termine, soit le forcer à s'arrêter.\nForcer son arrêt peut entraîner la suppression de votre installation Homebrew."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 이 프로세스가 완료될 때까지 기다리거나 강제로 중지할 수 있습니다.\n강제로 중지하면 홈브루 설치가 중단될 수 있습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4231,6 +4741,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un autre processus Homebrew est déjà en cours"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 다른 홈브루 프로세스가 이미 실행 중입니다."
           }
         },
         "ru" : {
@@ -4285,6 +4801,12 @@
             "value" : "Téléchargement %@…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 다운로드 중…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4335,6 +4857,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Récuperation des dépendances…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 종속성 가져오기..."
           }
         },
         "ru" : {
@@ -4389,6 +4917,12 @@
             "value" : "Terminé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4439,6 +4973,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masquer les détails"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 세부 정보 숨기기"
           }
         },
         "ru" : {
@@ -4493,6 +5033,12 @@
             "value" : "Installation %@…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 설치중…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4543,6 +5089,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installation de dépendance %lld/%lld"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 종속성 %lld/%lld 설치하기"
           }
         },
         "ru" : {
@@ -4597,6 +5149,12 @@
             "value" : "Installation du paquet…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 설치중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4647,6 +5205,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liens des binaires…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 바이너리 연결 중..."
           }
         },
         "ru" : {
@@ -4701,6 +5265,12 @@
             "value" : "Chargement des dépendances…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 종속성 로드 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4751,6 +5321,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déplacement de %@ dans le répertoire du Cask…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 응용 프로그램 폴더로 %@을 이동 중..."
           }
         },
         "ru" : {
@@ -4805,6 +5381,12 @@
             "value" : "Construction du graphique des dépendances…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성 그래프 구축..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4855,6 +5437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Des permissions élevées sont nécessaires pour installer %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 를 설치하려면 관리자 권한이 필요합니다."
           }
         },
         "ru" : {
@@ -4909,6 +5497,12 @@
             "value" : "Vous devrez installer ce package via le Terminal.\nUtilisez la commande ci-dessous."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "터미널을 통해 이 패키지를 설치해야 합니다.\n아래 명령을 사용합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4961,6 +5555,12 @@
             "value" : "Afficher les détails"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세부 정보 보기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5001,6 +5601,12 @@
             "state" : "translated",
             "value" : "%1$@ doesn't support %2$@ chips"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 은(는) %2$@ 칩을 지원하지 않습니다."
+          }
         }
       }
     },
@@ -5016,6 +5622,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This package doesn't support your chip"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 패키지는 해당 칩을 지원하지 않습니다."
           }
         }
       }
@@ -5044,6 +5656,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veuillez vérifier votre accès à Internet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네트워크 연결이 충분하지 않음"
           }
         },
         "ru" : {
@@ -5098,6 +5716,12 @@
             "value" : "Votre connexion internet n'est pas suffisamment stable pour garantir une installation réussie"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "성공적인 설치를 보장할 만큼 네트워크 연결이 안정적이지 않습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5148,6 +5772,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actuellement installer"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이미 설치됨"
           }
         },
         "ru" : {
@@ -5203,6 +5833,12 @@
             "value" : "Aucune description fournie"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설명이 제공되지 않았습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5253,6 +5889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement de la description…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설명 로드 중..."
           }
         },
         "ru" : {
@@ -5308,6 +5950,12 @@
             "value" : "Impossible de charger la description"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설명을 로드할 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5359,6 +6007,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non optimisé pour %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@에 최적화되지 않음"
           }
         },
         "ru" : {
@@ -5413,6 +6067,12 @@
             "value" : "Rechercher"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "찾기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5463,6 +6123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chercher un package…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 검색..."
           }
         },
         "ru" : {
@@ -5517,6 +6183,12 @@
             "value" : "Casks trouver"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발견한 Casks"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5569,6 +6241,12 @@
             "value" : "Formule trouver"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발견한 Formulae"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5619,6 +6297,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche pour %@…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 검색 중..."
           }
         },
         "ru" : {
@@ -5674,6 +6358,12 @@
             "value" : "Installer un paquet"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 설치"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5726,6 +6416,12 @@
             "value" : "Applications populaires"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 Casks"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5776,6 +6472,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Formules populaires"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 Formulae"
           }
         },
         "ru" : {
@@ -6003,6 +6705,12 @@
             "value" : "Des autorisations élevées sont requises pour désinstaller %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 를 제거하려면 관리자 권한이 필요합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6053,6 +6761,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous devrez désinstaller ce package via le Terminal.\nUtilisez la commande ci-dessous."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "터미널을 통해 이 패키지를 제거해야 합니다.\n아래 명령을 사용하세요."
           }
         },
         "ru" : {
@@ -6108,6 +6822,12 @@
             "value" : "Ajouter un tap"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 추가"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6158,6 +6878,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajouter"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "추가"
           }
         },
         "ru" : {
@@ -6212,6 +6938,12 @@
             "value" : "Ajouté avec succès %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 를 성공적으로 추가했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6262,6 +6994,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il n'y a eu aucune erreur"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 없음"
           }
         },
         "ru" : {
@@ -6316,6 +7054,12 @@
             "value" : "Essayez à nouveau"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다시 시도"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6366,6 +7110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur s'est produite lors de la tentative de tap %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 을(를) 추가하는 동안 오류가 발생했습니다."
           }
         },
         "ru" : {
@@ -6420,6 +7170,12 @@
             "value" : "Essayez d'ajouter le Tap à nouveau dans quelques minutes"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몇 분 후에 다시 추가해 보세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6470,6 +7226,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ cela n'existe pas"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이 존재하지 않습니다."
           }
         },
         "ru" : {
@@ -6524,6 +7286,12 @@
             "value" : "Vérifiez à nouveau que vous avez bien écrit le nom"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름을 올바르게 썼는지 다시 확인하세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6574,6 +7342,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adresse d'un Tap:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 주소:"
           }
         },
         "ru" : {
@@ -6628,6 +7402,12 @@
             "value" : "Utiliser l'adresse externe"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "외부 주소 사용"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6680,6 +7460,12 @@
             "value" : "Ajouter un Tap à partir d'une adresse externe"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "외부 주소에서 탭 추가"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6730,6 +7516,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajout de Tap %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 추가"
           }
         },
         "ru" : {
@@ -6785,6 +7577,12 @@
             "value" : "Nom du tap vide"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 이름 비어있음"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6836,6 +7634,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous n'avez pas saisi de nom de tap"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 이름을 입력하지 않았습니다."
           }
         },
         "ru" : {
@@ -6890,6 +7694,12 @@
             "value" : "Le nom du tap doit contenir un slash"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 이름에 슬래시가 필요합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6940,6 +7750,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les noms de tap doivent toujours contenir un slash"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 이름에는 항상 슬래시가 포함되어야 합니다."
           }
         },
         "ru" : {
@@ -6994,6 +7810,12 @@
             "value" : "Cliquez sur \"Ouvrir le Terminal\" ci-dessous.\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Entrée) pour exécuter la commande.\nSuivez les instructions pour installer %@, puis revenez à Cork et fermez cette boîte de dialogue"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아래의 '터미널 열기'를 클릭합니다.\n⌘+V를 사용하여 명령을 입력한 다음 (Return)을 눌러 명령을 실행합니다.\n지침에 따라 %@을 설치하고 Cork로 돌아가서 이 대화 상자를 닫습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7044,6 +7866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquez sur \"Ouvrir le terminal\" ci-dessous\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Retour) pour exécuter la commande\nSuivez les instructions pour désinstaller %@, retournez à Cork et fermez cette boîte de dialogue"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아래의 '터미널 열기'를 클릭합니다.\n⌘+V를 사용하여 명령을 입력한 다음 (Return)을 눌러 명령을 실행합니다.\n지침에 따라 %@을 제거하고 Cork로 돌아가서 이 대화 상자를 닫습니다."
           }
         },
         "ru" : {
@@ -7098,6 +7926,12 @@
             "value" : "Essayez de redémarrer Cork. Si le problème persiste, effacez les métadonnées de Cork"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork를 재시작해 보세요. 문제가 지속되면 Cork 메타데이터를 지우세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7148,6 +7982,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible d'appliquer l'état tagué aux paquets"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "태그된 상태를 패키지에 적용할 수 없습니다."
           }
         },
         "ru" : {
@@ -7202,6 +8042,12 @@
             "value" : "Cork n'a pas pu trouver ce package dans la base de données des packages"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork가 패키지 데이터베이스에서 이 패키지를 찾을 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7252,6 +8098,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de trouver le package dans la base de données"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데이터베이스에서 패키지를 찾을 수 없습니다."
           }
         },
         "ru" : {
@@ -7306,6 +8158,12 @@
             "value" : "Supprimez manuellement le dossier des métadonnées ou essayez de redémarrer Cork"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메타데이터 폴더를 수동으로 삭제하거나 Cork를 재시작해 보세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7356,6 +8214,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible d'effacer les métadonnées"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메타데이터를 지울 수 없습니다."
           }
         },
         "ru" : {
@@ -7410,6 +8274,12 @@
             "value" : "Assurez-vous d'avoir donné à Cork l'autorisation d'accéder à votre dossier Documents."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork에 문서 폴더에 액세스할 수 있는 권한을 부여했는지 확인하세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7460,6 +8330,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de créer le dossier des métadonnées"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메타데이터 폴더를 만들 수 없습니다."
           }
         },
         "ru" : {
@@ -7514,6 +8390,12 @@
             "value" : "Impossible de créer le fichier de métadonnées"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메타데이터 파일을 만들 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7564,6 +8446,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible d'écrire une sauvegarde Homebrew"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 백업을 작성할 수 없습니다."
           }
         },
         "ru" : {
@@ -7618,6 +8506,12 @@
             "value" : "Impossible de trouver ce paquet"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 패키지를 찾을 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7668,6 +8562,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déplacez le fichier de sauvegarde vers un autre emplacement, puis réessayez"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업 파일을 다른 위치로 옮긴 다음 다시 시도하세요."
           }
         },
         "ru" : {
@@ -7722,6 +8622,12 @@
             "value" : "Autorisations insuffisantes pour lire le fichier de sauvegarde"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업 파일을 읽을 수 있는 권한이 부족합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7772,6 +8678,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de créer le dossier parent de sauvegarde"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업 상위 폴더를 만들 수 없습니다."
           }
         },
         "ru" : {
@@ -7827,6 +8739,12 @@
             "value" : "Il y a eu une erreur lors de l'analyse des paquets obsolètes"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래된 패키지를 파싱하는 동안 오류가 발생했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7878,6 +8796,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de récupérer les paquets obsolètes"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래된 패키지를 검색할 수 없습니다."
           }
         },
         "ru" : {
@@ -7932,6 +8856,12 @@
             "value" : "Déplacez le fichier de sauvegarde vers un autre emplacement, puis réessayez"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업 파일을 다른 위치로 옮긴 다음 다시 시도하세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7982,6 +8912,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de lire le fichier de sauvegarde"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업 파일을 읽을 수 없습니다."
           }
         },
         "ru" : {
@@ -8036,6 +8972,12 @@
             "value" : "Impossible de lire la sauvegarde"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업을 읽을 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8088,6 +9030,12 @@
             "value" : "Une erreur fatale s'est produite lors de l'installation du package"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 설치 중 치명적인 오류가 발생했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8134,6 +9082,12 @@
             "value" : "Could not synchronize packages"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지를 동기화할 수 없습니다."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8166,6 +9120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find the custom Homebrew executable"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 홈브루 실행 파일을 찾을 수 없습니다."
           }
         },
         "ru" : {
@@ -8202,6 +9162,12 @@
             "value" : "Check if your network is working properly, then try again"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네트워크가 제대로 작동하는지 확인한 다음 다시 시도하세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8234,6 +9200,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not establish a secure connection to authorization server"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인증 서버에 보안 연결을 설정할 수 없습니다."
           }
         },
         "ru" : {
@@ -8281,6 +9253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de déchiffrer la response de Homebrew"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 응답을 해독할 수 없습니다."
           }
         },
         "ru" : {
@@ -8335,6 +9313,12 @@
             "value" : "Cork ne peut pas accéder à votre installation Homebrew\nNous enquêtons sur la cause de ce problème, qui est apparu dans la dernière version de Homebrew ou de macOS\nJusqu'à ce que ce problème soit résolu, Cork ne fonctionnera pas. Dès que ce problème sera résolu, Cork sera mis à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork가 홈브루 설치에 액세스할 수 없습니다.\n최신 Homebrew 또는 macOS 릴리스에서 나타난 이 문제의 원인을 조사 중입니다.\n그때까지는 Cork가 작동하지 않습니다. 이 문제가 해결되는 대로 Cork가 업데이트될 예정입니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8385,6 +9369,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew n'est pas configuré correctement pour Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루가 Cork에 올바르게 구성되지 않았습니다."
           }
         },
         "ru" : {
@@ -8439,6 +9429,12 @@
             "value" : "Le fichier à partir duquel vous avez essayé de restaurer n'a pas la bonne structure"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "복원하려는 파일의 구조가 올바르지 않습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8491,6 +9487,12 @@
             "value" : "Fichier de sauvegarde cassé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업 파일 손상"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8541,6 +9543,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinstallez Cork et essayez à nouveau"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork를 다시 설치하고 다시 시도하세요."
           }
         },
         "ru" : {
@@ -8647,6 +9655,12 @@
             "value" : "Vous avez toujours des paquets installés de %@\nDésinstallez-les et réessayez"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아직 %@에서 패키지가 설치되어 있습니다.\n제거한 후 다시 시도하세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8697,6 +9711,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew a envoyé une réponse invalide à Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루가 Cork에 잘못된 응답을 보냈습니다."
           }
         },
         "ru" : {
@@ -8751,6 +9771,12 @@
             "value" : "Impossible d'obtenir les paquets les plus populaires"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 패키지를 받을 수 없음"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8803,6 +9829,12 @@
             "value" : "Vous pouvez continuer à utiliser Cork sans notifications"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림 없이 Cork를 계속 사용할 수 있습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8853,6 +9885,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il y a eu un problème pour obtenir les autorisations de notifications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림 권한을 얻는 데 문제가 발생했습니다."
           }
         },
         "ru" : {
@@ -8908,6 +9946,12 @@
             "value" : "Cork n'a pas pu comprendre la réponse de Homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork는 홈브루의 응답을 이해할 수 없었습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8958,6 +10002,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de déchiffrer les paquets les plus populaires"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 패키지를 해독할 수 없음"
           }
         },
         "ru" : {
@@ -9012,6 +10062,12 @@
             "value" : "Ce paquet doit être réparé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 패키지를 복구해야 합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9062,6 +10118,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ est corrompu"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이(가) 손상되었습니다."
           }
         },
         "ru" : {
@@ -9116,6 +10178,12 @@
             "value" : "Le paquet sélectionné n'a pas pu être installé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택한 패키지를 설치할 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9168,6 +10236,12 @@
             "value" : "Impossible d'obtenir le paquet le plus populaire sélectionné"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 패키지를 선택할 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9207,6 +10281,12 @@
             "state" : "translated",
             "value" : "Couldn't Uninstall %@"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@을(를) 제거할 수 없습니다."
+          }
         }
       }
     },
@@ -9222,6 +10302,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%2$@ is a dependency of %1$@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@는 %1$@의 종속성입니다."
           }
         }
       }
@@ -9251,6 +10337,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de désinstaller"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "제거할 수 없음"
           }
         },
         "ru" : {
@@ -9301,6 +10393,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork"
@@ -9358,6 +10456,12 @@
             "value" : "%@ Sauvegarde homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 홈브루 백업"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9408,6 +10512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sauvegarde de Homebrew…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 백업 중..."
           }
         },
         "ru" : {
@@ -9462,6 +10572,12 @@
             "value" : "Il n'y a eu aucune erreur"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 없음"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9512,6 +10628,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restauré avec succès à partir de la sauvegarde"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업에서 성공적으로 복원"
           }
         },
         "ru" : {
@@ -9566,6 +10688,12 @@
             "value" : "Restauration à partir d'une sauvegarde…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업에서 복원하기..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9618,6 +10746,12 @@
             "value" : "Patiente un instant! Ceci pourrait prendre quelques minutes"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "잠시만 기다려주세요! 몇 분 정도 걸릴 수 있습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9663,6 +10797,12 @@
             "state" : "translated",
             "value" : "No"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아니오"
+          }
         }
       }
     },
@@ -9684,6 +10824,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "네"
           }
         }
       }
@@ -9712,6 +10858,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Github"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
           }
         },
         "ru" : {
@@ -9766,6 +10918,12 @@
             "value" : "Hello, World!"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, World!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9799,6 +10957,12 @@
             "state" : "translated",
             "value" : "Homebrew Dienste"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Services"
+          }
         }
       }
     },
@@ -9823,6 +10987,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
@@ -9875,6 +11045,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
@@ -9933,6 +11109,12 @@
             "value" : "Installation de %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 설치 중"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9973,6 +11155,12 @@
             "value" : "Thank you for supporting Cork!"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork를 응원해 주셔서 감사합니다!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10005,6 +11193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License Activated"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "라이선스 활성화"
           }
         },
         "ru" : {
@@ -10041,6 +11235,12 @@
             "value" : "In Demo Mode"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데모 모드 사용 시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10073,6 +11273,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The demo is available until %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "데모는 %@까지 사용할 수 있습니다."
           }
         },
         "ru" : {
@@ -10109,6 +11315,12 @@
             "value" : "Email you bought Cork with:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork를 구매한 이메일:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10138,6 +11350,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -10177,6 +11395,12 @@
             "value" : "Email not found"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이메일을 찾을 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10209,6 +11433,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아래 버튼을 사용하거나 [웹사이트](https://corkmac.app)를 방문하여 Cork를 구매할 수 있습니다.\nCork가 자신에게 적합한지 잘 모르시겠어요? 7일 동안만 제공되는 데모를 사용해 보세요."
           }
         },
         "ru" : {
@@ -10245,6 +11475,12 @@
             "value" : "Thank you for checking out Cork!"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코크를 구매해 주셔서 감사합니다!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10279,6 +11515,12 @@
             "value" : "for 25€"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "25유로"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10311,6 +11553,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "라이선스..."
           }
         },
         "ru" : {
@@ -10357,6 +11605,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des informations..."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정보 로드 중..."
           }
         },
         "ru" : {
@@ -10411,6 +11665,12 @@
             "value" : "Chargement des meilleurs packages…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상위 패키지 로드 중... "
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10461,6 +11721,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fenêtre principale"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메인 창"
           }
         },
         "ru" : {
@@ -10515,6 +11781,12 @@
             "value" : "Maintenance terminée"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유지 관리 완료"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10565,6 +11837,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargements mis en cache supprimés"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 삭제됨"
           }
         },
         "ru" : {
@@ -10619,6 +11897,12 @@
             "value" : "Cache récupéré %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@을 회수했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10671,6 +11955,12 @@
             "value" : "Quelques problèmes ont été trouvés avec Homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브라우저에서 몇 가지 문제 발견"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10721,6 +12011,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun problème détecté avec Homebrew"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루에 문제가 발견되지 않았습니다."
           }
         },
         "ru" : {
@@ -10996,6 +12292,12 @@
             "value" : "Les packages orphelins ont été désinstallés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고아 패키지 제거"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11046,6 +12348,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de désinstaller les packages orphelins"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고아 패키지를 제거할 수 없습니다."
           }
         },
         "ru" : {
@@ -11100,6 +12408,12 @@
             "value" : "Une erreur %@ s'est produite"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 %@가 발생했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11150,6 +12464,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cache des paquets purgé"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 캐시 삭제"
           }
         },
         "ru" : {
@@ -11204,6 +12524,12 @@
             "value" : "Impossible de purger le cache des packages"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 캐시를 제거할 수 없습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11254,6 +12580,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur %@ s'est produite"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 %@가 발생했습니다."
           }
         },
         "ru" : {
@@ -11307,6 +12639,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certains caches n'ont pas été purgés en raison de %@ qui n'a pas été mis à jour"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트되지 않은 %@로 인해 일부 캐시가 제거되지 않았습니다."
           }
         },
         "ru" : {
@@ -11546,6 +12884,12 @@
             "value" : "Suppression des téléchargements mis en cache…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 삭제하기..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11597,6 +12941,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Initialisation…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시작 중..."
           }
         },
         "ru" : {
@@ -11651,6 +13001,12 @@
             "value" : "Purge du cache…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시 삭제 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11701,6 +13057,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Désinstallation des paquets orphelins…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고아 삭제 중..."
           }
         },
         "ru" : {
@@ -11755,6 +13117,12 @@
             "value" : "Exécution de la vérification de l'état…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상태 확인 실행 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11805,6 +13173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargements:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다운로드:"
           }
         },
         "ru" : {
@@ -11859,6 +13233,12 @@
             "value" : "Supprimer les téléchargements mis en cache"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 삭제"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11909,6 +13289,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purger le cache Homebrew"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 캐시 삭제"
           }
         },
         "ru" : {
@@ -11963,6 +13349,12 @@
             "value" : "Autres:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기타:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12013,6 +13405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Effectuer une vérification de l'état"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상태 확인 수행"
           }
         },
         "ru" : {
@@ -12067,6 +13465,12 @@
             "value" : "Paquets:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12119,6 +13523,12 @@
             "value" : "Désinstaller les paquets orphelins"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고아 패키지 제거"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12169,6 +13579,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Démarrer"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시작"
           }
         },
         "ru" : {
@@ -12224,6 +13640,12 @@
             "value" : "Maintenance"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유지 관리"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12272,6 +13694,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
@@ -12330,6 +13758,12 @@
             "value" : "Ouvrir Cork"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 열기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12380,6 +13814,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réessayez ou redémarrez Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다시 시도하거나 Cork를 다시 시작하세요."
           }
         },
         "ru" : {
@@ -12435,6 +13875,12 @@
             "value" : "En savoir plus Cork"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork 정보"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12485,6 +13931,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajouter Tap"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 추가"
           }
         },
         "ru" : {
@@ -12539,6 +13991,12 @@
             "value" : "Ajouter un nouveau tap"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새로운 탭 추가"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12589,6 +14047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installer paquet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 설치"
           }
         },
         "ru" : {
@@ -12644,6 +14108,12 @@
             "value" : "Installer paquet directement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지를 직접 설치"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12697,6 +14167,12 @@
             "value" : "Installer un paquet directement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색을 우회하여 이름으로 패키지 설치하기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12747,6 +14223,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installer un nouveau paquet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새 패키지 설치"
           }
         },
         "ru" : {
@@ -12966,6 +14448,12 @@
             "state" : "translated",
             "value" : "Manage Services…"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 관리..."
+          }
         }
       }
     },
@@ -12993,6 +14481,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exporter la sauvegarde Homebrew…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 백업 내보내기..."
           }
         },
         "ru" : {
@@ -13047,6 +14541,12 @@
             "value" : "Restore depuis une sauvergarde…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "백업에서 복원..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13097,6 +14597,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenance"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유지 관리"
           }
         },
         "ru" : {
@@ -13151,6 +14657,12 @@
             "value" : "Suprimer le cache des téléchargements"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 삭제"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13201,6 +14713,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pas de téléchargements mis en cache à supprimer"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "삭제할 캐시된 다운로드 없음"
           }
         },
         "ru" : {
@@ -13255,6 +14773,12 @@
             "value" : "Effectuer la maintenance…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유지 관리 수행..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13305,6 +14829,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquets"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지"
           }
         },
         "ru" : {
@@ -13359,6 +14889,12 @@
             "value" : "Ajouter un Tap…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 추가..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13409,6 +14945,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installer des Taps…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 설치..."
           }
         },
         "ru" : {
@@ -13463,6 +15005,12 @@
             "value" : "Mise à jour des Paquets…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 패키지..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13509,6 +15057,12 @@
             "value" : "Search"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13553,6 +15107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise a jours des Paquets"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 업데이트"
           }
         },
         "ru" : {
@@ -13607,6 +15167,12 @@
             "value" : "Mettre à jour les paquets installés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치된 패키지 업데이트"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13659,6 +15225,12 @@
             "value" : "Processus d'installation terminé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installation process finished"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13709,6 +15281,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouveau paquet obsolète"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새로운 구형 패키지"
           }
         },
         "ru" : {
@@ -13943,6 +15521,12 @@
             "value" : "Packages obsolète trouvé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래된 패키지 발견"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13994,6 +15578,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les mises à jour ont échoué"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 실패"
           }
         },
         "ru" : {
@@ -14048,6 +15638,12 @@
             "value" : "Packages mis à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 업데이트"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14098,6 +15694,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il y a eu des erreurs lors de la mise à jour"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 중 몇 가지 오류가 발생했습니다."
           }
         },
         "ru" : {
@@ -14152,6 +15754,12 @@
             "value" : "Mise à jour des paquets…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 업데이트 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14202,6 +15810,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toutes les fonctionnalités optionnelles sont activées"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 옵션 기능 활성화"
           }
         },
         "ru" : {
@@ -14256,6 +15870,12 @@
             "value" : "Fonctionnalités de base"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본 기능"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14306,6 +15926,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Découvrabilité"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색 가능성"
           }
         },
         "ru" : {
@@ -14360,6 +15986,12 @@
             "value" : "Fonctionnalités supplémentaires"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "추가 기능"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14410,6 +16042,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fonctionnalités du package"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 특징"
           }
         },
         "ru" : {
@@ -14464,6 +16102,12 @@
             "value" : "Fonctionnalités du Tap"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 기능"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14514,6 +16158,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérification de la compatibilité du package"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 호환성 확인"
           }
         },
         "ru" : {
@@ -14568,6 +16218,12 @@
             "value" : "Plus d'informations sur les dépendances"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성에 대한 자세한 정보"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14618,6 +16274,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche dans les dépendances du package"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 종속성 검색"
           }
         },
         "ru" : {
@@ -14672,6 +16334,12 @@
             "value" : "Avis complets sur le package"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전체 패키지 주의 사항"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14722,6 +16390,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher des packages populaires"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인기 패키지 찾기"
           }
         },
         "ru" : {
@@ -14776,6 +16450,12 @@
             "value" : "Maintenance Homebrew"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 유지 관리"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14826,6 +16506,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actions rapides dans la barre de menu"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴 표시줄의 빠른 작업"
           }
         },
         "ru" : {
@@ -14880,6 +16566,12 @@
             "value" : "Notifications concernant diverses actions"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다양한 작업에 대한 알림"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14930,6 +16622,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Descriptions des packages dans la recherche"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색에 포함된 패키지 설명"
           }
         },
         "ru" : {
@@ -14984,6 +16682,12 @@
             "value" : "Détails du package"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 세부 정보"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15034,6 +16738,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purge de paquet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거"
           }
         },
         "ru" : {
@@ -15088,6 +16798,12 @@
             "value" : "Révéler les paquets dans Finder"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder에서 패키지 표시하기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15138,6 +16854,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche dans les paquets installés"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치된 패키지 검색"
           }
         },
         "ru" : {
@@ -15192,6 +16914,12 @@
             "value" : "Recherche de paquet"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 검색"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15242,6 +16970,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher tous les packages"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 패키지 보기"
           }
         },
         "ru" : {
@@ -15296,6 +17030,12 @@
             "value" : "Afficher les packages installés manuellement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수동으로 설치된 패키지 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15348,6 +17088,12 @@
             "value" : "Étiquetage de paquet"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 태그 지정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15398,6 +17144,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détails du Tap"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "세부 정보 탭하기"
           }
         },
         "ru" : {
@@ -15453,6 +17205,12 @@
             "value" : "Masquer les détails de"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다음에 대한 세부 정보 숨기기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15503,6 +17261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous pouvez toujours personnaliser votre expérience dans les paramètres"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정에서 언제든지 환경을 사용자 지정할 수 있습니다."
           }
         },
         "ru" : {
@@ -15558,6 +17322,12 @@
             "value" : "Afficher les détails de"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다음에 대한 세부 정보 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15608,6 +17378,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher la première utilisation…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "온보딩 표시..."
           }
         },
         "ru" : {
@@ -15662,6 +17438,12 @@
             "value" : "Découvrez les applications du monde entier"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전 세계 앱과 인사하기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15712,6 +17494,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bienvenue dans l'avenir de Homebrew !"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루의 미래에 오신 것을 환영합니다!"
           }
         },
         "ru" : {
@@ -15766,6 +17554,12 @@
             "value" : "Épingler à la version %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전 %@에 고정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15816,6 +17610,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détacher de la version %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전 %@에서 고정 해제"
           }
         },
         "ru" : {
@@ -15870,6 +17670,12 @@
             "value" : "Présence d'avertissements 􀅴"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "주의 사항 있음 􀅴"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15920,6 +17726,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réduire"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "접기"
           }
         },
         "ru" : {
@@ -15974,6 +17786,12 @@
             "value" : "Étendre"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확장"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16024,6 +17842,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquez pour voir les avertissements"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "주의 사항을 보려면 클릭"
           }
         },
         "ru" : {
@@ -16078,6 +17902,12 @@
             "value" : "Chargement des informations sur le package…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 정보 로드 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16128,6 +17958,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dépendance de %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@의 종속성"
           }
         },
         "ru" : {
@@ -16182,6 +18018,12 @@
             "value" : "Chargement des dépendants…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속 항목 로드 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16232,6 +18074,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dépendances"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성"
           }
         },
         "ru" : {
@@ -16286,6 +18134,12 @@
             "value" : "Type de déclaration"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선언 유형"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16336,6 +18190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Direct"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "직접"
           }
         },
         "ru" : {
@@ -16390,6 +18250,12 @@
             "value" : "Indirect"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "간접"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16442,6 +18308,12 @@
             "value" : "Nom"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16492,6 +18364,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전"
           }
         },
         "ru" : {
@@ -16547,6 +18425,12 @@
             "value" : "Dépendances"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16597,6 +18481,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ n'a pas de description"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@에 설명이 없습니다."
           }
         },
         "ru" : {
@@ -16651,6 +18541,12 @@
             "value" : "Page d'accueil"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈페이지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16701,6 +18597,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Info"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정보"
           }
         },
         "ru" : {
@@ -16755,6 +18657,12 @@
             "value" : "Installé le"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치된 위치"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16805,6 +18713,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dépassé"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구형"
           }
         },
         "ru" : {
@@ -16860,6 +18774,12 @@
             "value" : "%@ est épinglé. Il ne sera pas mis à jour."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이 고정되었습니다. 업데이트되지 않습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16910,6 +18830,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Taille"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "크기"
           }
         },
         "ru" : {
@@ -16964,6 +18890,12 @@
             "value" : "Pourquoi la taille est-elle si petite ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "크기가 왜 이렇게 작은가요?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17014,6 +18946,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les Casks ne sont pas installés dans le même répertoire d'installation que les Formules. Les Casks sont installés dans le répertoire Applications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks는 공식과 같은 설치 디렉터리에 설치되지 않습니다. Casks는 애플리케이션 디렉터리에 설치됩니다."
           }
         },
         "ru" : {
@@ -17068,6 +19006,12 @@
             "value" : "Étant donné que Cork n'a pas accès à votre répertoire Applications, il ne peut pas obtenir la taille de l'application réelle, seulement celle des métadonnées associées au Cask."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork는 애플리케이션 디렉토리에 액세스할 수 없으므로 실제 앱의 크기는 알 수 없고 캐스크와 관련된 메타데이터의 크기만 알 수 있습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17120,6 +19064,12 @@
             "value" : "Type"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유형"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17167,6 +19117,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cask"
@@ -17224,6 +19180,12 @@
             "value" : "Formule"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formula"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17275,6 +19237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réparation %@…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 복구 중..."
           }
         },
         "ru" : {
@@ -17329,6 +19297,12 @@
             "value" : "%@ a été réparé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@이(가) 복구되었습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17381,6 +19355,12 @@
             "value" : "Aucun autre problème n'a été trouvé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "더 이상 문제가 발견되지 않았습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17431,6 +19411,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Casks"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask"
           }
         },
         "ru" : {
@@ -17486,6 +19472,12 @@
             "value" : "Formules"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formula"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17536,6 +19528,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installation manuel"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수동 설치"
           }
         },
         "ru" : {
@@ -17591,6 +19589,12 @@
             "value" : "Packages étiquetés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "태그가 지정된 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17643,6 +19647,12 @@
             "value" : "Taps"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17681,6 +19691,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading service info…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 정보 로드 중..."
           }
         }
       }
@@ -17768,6 +19784,12 @@
             "state" : "translated",
             "value" : "These services are running normally"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다음 서비스가 정상적으로 실행 중입니다."
+          }
         }
       }
     },
@@ -17829,6 +19851,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "These services either crashed, or could not be started at all"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이러한 서비스가 충돌했거나 전혀 시작할 수 없었습니다."
           }
         }
       }
@@ -17922,6 +19950,12 @@
             "state" : "translated",
             "value" : "These services are not currently running"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이러한 서비스는 현재 실행되고 있지 않습니다."
+          }
         }
       }
     },
@@ -17937,6 +19971,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading services…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 로드 중..."
           }
         }
       }
@@ -17960,6 +20000,12 @@
             "state" : "translated",
             "value" : "No services found"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스를 찾을 수 없습니다."
+          }
         }
       }
     },
@@ -17981,6 +20027,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services Status"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 상태"
           }
         }
       }
@@ -18044,6 +20096,12 @@
             "state" : "translated",
             "value" : "The status of these services could not be determined"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이러한 서비스의 상태를 확인할 수 없습니다."
+          }
         }
       }
     },
@@ -18060,6 +20118,12 @@
             "state" : "translated",
             "value" : "Error Log Location"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 로그 위치"
+          }
         }
       }
     },
@@ -18075,6 +20139,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exit Code"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종료 코드"
           }
         }
       }
@@ -18098,6 +20168,12 @@
             "state" : "translated",
             "value" : "Is Loaded"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로드됨"
+          }
         }
       }
     },
@@ -18113,6 +20189,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Location"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위치"
           }
         }
       }
@@ -18130,6 +20212,12 @@
             "state" : "translated",
             "value" : "Log Location"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그 위치"
+          }
         }
       }
     },
@@ -18146,6 +20234,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름"
           }
         }
       }
@@ -18169,6 +20263,12 @@
             "state" : "translated",
             "value" : "Root Location"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "루트 위치"
+          }
         }
       }
     },
@@ -18184,6 +20284,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schedulable"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "예약 가능"
           }
         }
       }
@@ -18201,6 +20307,12 @@
             "state" : "translated",
             "value" : "Status"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상태"
+          }
         }
       }
     },
@@ -18216,6 +20328,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "User"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유저"
           }
         }
       }
@@ -18233,6 +20351,12 @@
             "state" : "translated",
             "value" : "Services"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스"
+          }
         }
       }
     },
@@ -18248,6 +20372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld services found"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 서비스를 찾았습니다."
           }
         }
       }
@@ -18266,6 +20396,12 @@
             "state" : "translated",
             "value" : "Loading services"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 로딩 중"
+          }
         }
       }
     },
@@ -18281,6 +20417,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Errored Out"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 발생"
           }
         }
       }
@@ -18298,6 +20440,12 @@
             "state" : "translated",
             "value" : "None"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "없음"
+          }
         }
       }
     },
@@ -18314,6 +20462,12 @@
             "state" : "translated",
             "value" : "Other"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기타"
+          }
         }
       }
     },
@@ -18329,6 +20483,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scheduled"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "예약됨"
           }
         }
       }
@@ -18352,6 +20512,12 @@
             "state" : "translated",
             "value" : "Started"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시작됨"
+          }
         }
       }
     },
@@ -18374,6 +20540,12 @@
             "state" : "translated",
             "value" : "Stopped"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중지됨"
+          }
         }
       }
     },
@@ -18390,6 +20562,12 @@
             "state" : "translated",
             "value" : "Unknown"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알 수 없음"
+          }
         }
       }
     },
@@ -18405,6 +20583,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Services"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 서비스"
           }
         }
       }
@@ -18434,6 +20618,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Analytiques:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "분석:"
           }
         },
         "ru" : {
@@ -18488,6 +20678,12 @@
             "value" : "Collecter des données analytiques"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "분석 수집"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18534,6 +20730,12 @@
             "value" : "Homebrew location:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 위치:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18572,6 +20774,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set Custom Location"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 위치 설정"
           }
         },
         "ru" : {
@@ -18614,6 +20822,12 @@
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 홈브루 위치는 공식적으로 지원되지 않습니다.\n사용자 지정 홈브루 위치를 선택한 경우 Cork 또는 홈브루에 대한 지원을 받지 못합니다.\n사용자 지정 홈브루 위치를 선택하면 홈브루 설치를 유지 관리할 책임은 전적으로 회원님에게 있습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18652,6 +20866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to set a custom Homebrew location?"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 홈브루 위치를 설정하시겠습니까?"
           }
         },
         "ru" : {
@@ -18694,6 +20914,12 @@
             "value" : "%@ is not a Homebrew executable."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은 홈브루 실행 파일이 아닙니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18734,6 +20960,12 @@
             "value" : "The selected file is not an executable."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택한 파일은 실행 파일이 아닙니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18772,6 +21004,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 사용"
           }
         },
         "ru" : {
@@ -18815,6 +21053,12 @@
             "value" : "Using custom location"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 위치 사용"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18847,6 +21091,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using default Homebrew location"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본 홈브루 위치 사용"
           }
         },
         "ru" : {
@@ -18889,6 +21139,12 @@
             "value" : "Reset location"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "위치 재설정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18927,6 +21183,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select custom location"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용자 지정 위치 선택"
           }
         },
         "ru" : {
@@ -18969,6 +21231,12 @@
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개발자 설정이 활성화되어 있는 한 Cork에 대한 지원은 제공되지 않습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19007,6 +21275,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable developer settings"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개발자 설정 사용"
           }
         },
         "ru" : {
@@ -19053,6 +21327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avancé:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고급:"
           }
         },
         "ru" : {
@@ -19107,6 +21387,12 @@
             "value" : "Découvrabilité"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색 가능성"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19157,6 +21443,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trier les meilleurs paquets par:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인기 패키지를 기준으로 정렬합니다:"
           }
         },
         "ru" : {
@@ -19211,6 +21503,12 @@
             "value" : "Le moins grand nombre de téléchargements"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가장 적은 다운로드 수"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19261,6 +21559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Le plus grand nombre de téléchargements"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최다 다운로드"
           }
         },
         "ru" : {
@@ -19315,6 +21619,12 @@
             "value" : "Au hasard"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "랜덤"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19365,6 +21675,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir les meilleurs paquets pour:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최고의 패키지를 받으세요:"
           }
         },
         "ru" : {
@@ -19419,6 +21735,12 @@
             "value" : "Le mois dernier"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지난 달"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19471,6 +21793,12 @@
             "value" : "Les trois derniers mois"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "지난 3개월"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19521,6 +21849,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'année dernière"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "작년"
           }
         },
         "ru" : {
@@ -19576,6 +21910,12 @@
             "value" : "Activer la découvrabilité"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색 기능 활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19627,6 +21967,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Général"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "일반"
           }
         },
         "ru" : {
@@ -19681,6 +22027,12 @@
             "value" : "Dépendances:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19731,6 +22083,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Affichez plus d'informations sur les dépendances"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성에 대한 자세한 정보 표시"
           }
         },
         "ru" : {
@@ -19785,6 +22143,12 @@
             "value" : "Filtrage des packages:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 필터링:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19835,6 +22199,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher tous les packages, y compris les dépendances"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성을 포함한 모든 패키지 표시"
           }
         },
         "ru" : {
@@ -19889,6 +22259,12 @@
             "value" : "Afficher uniquement les packages installés manuellement"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수동으로 설치된 패키지만 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19939,6 +22315,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Démarrage automatique :"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동 시작:"
           }
         },
         "ru" : {
@@ -19994,6 +22376,12 @@
             "value" : "Ouvrir au démarrage"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인 시 열기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20044,6 +22432,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Barre de menu:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴바:"
           }
         },
         "ru" : {
@@ -20098,6 +22492,12 @@
             "value" : "Ouvrir Cork sans sa fenêtre principale"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메인 창 없이 Cork 열기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20148,6 +22548,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher dans la barre de menu"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "메뉴바에 표시"
           }
         },
         "ru" : {
@@ -20202,6 +22608,12 @@
             "value" : "Avertissements des paquets:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 주의 사항:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20252,6 +22664,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Complet"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전체"
           }
         },
         "ru" : {
@@ -20306,6 +22724,12 @@
             "value" : "Minimisé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최소화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20356,6 +22780,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀅴 Cliquez sur la pastille \"A des avertissements\" pour voir les avertissements"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 주의 사항을 보려면 '주의 사항 있음'을 클릭하세요."
           }
         },
         "ru" : {
@@ -20410,6 +22840,12 @@
             "value" : "Détails du paquet:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 세부 정보:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20460,6 +22896,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Autoriser la révélation des paquets dans Finder"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finder에서 패키지 공개 허용"
           }
         },
         "ru" : {
@@ -20514,6 +22956,12 @@
             "value" : "Afficher le champ de recherche pour les dépendances"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "종속성 검색 필드 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20566,6 +23014,12 @@
             "value" : "Résultats de la recherche:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색 결과:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20616,6 +23070,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher les descriptions de paquets"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 설명 표시"
           }
         },
         "ru" : {
@@ -20671,6 +23131,12 @@
             "value" : "Trié les paquets par:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 정렬 기준:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20721,6 +23187,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nom"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이름"
           }
         },
         "ru" : {
@@ -20775,6 +23247,12 @@
             "value" : "Date d'installation"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치 날짜"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20827,6 +23305,12 @@
             "value" : "Taille"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "크기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20874,6 +23358,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew"
@@ -20931,6 +23421,12 @@
             "value" : "Paquets"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packages"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20984,6 +23480,12 @@
             "value" : "Compatibilité:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "호환성:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21035,6 +23537,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérifier la compatibilité du package"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 호환성 확인"
           }
         },
         "ru" : {
@@ -21091,6 +23599,12 @@
             "value" : "Installation:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21141,6 +23655,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nettoyer les anciens packages"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래된 패키지 정리"
           }
         },
         "ru" : {
@@ -21195,6 +23715,12 @@
             "value" : "Désactiver le nettoyage automatique"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동 정리 비활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21245,6 +23771,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La désactivation des nettoyages automatiques pourrait compromettre votre installation Homebrew."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동 정리를 비활성화하면 홈브루 설치가 중단될 수 있습니다."
           }
         },
         "ru" : {
@@ -21299,6 +23831,12 @@
             "value" : "Êtes-vous sûr de vouloir désactiver les nettoyages automatiques ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동 정리를 비활성화하시겠습니까?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21349,6 +23887,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La désactivation du nettoyage des packages accélères l'installation,\nmais ralentit globalement Homebrew.\nLa désactivation de cette option pourrait compromettre votre installation Homebrew.\nCette option contrôle également les nettoyages automatiques qui se produisent\naprès 30 jours d'inactivité de Homebrew."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정리를 비활성화하면 패키지를 더 빠르게 설치할 수 있습니다,\n하지만 전체적으로 홈브루의 속도가 느려집니다. \n이 옵션을 비활성화하면 Homebrew 설치가 중단될 수 있습니다.\n이 옵션은 또한 30일 이상 홈브루를 사용하지 않은 후에 발생하는 자동 정리\n자동 정리도 제어합니다."
           }
         },
         "ru" : {
@@ -21404,6 +23948,12 @@
             "value" : "Afficher la liste des paquets actuellement en cours d'installation"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 설치 중인 패키지 목록 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21437,6 +23987,12 @@
             "state" : "translated",
             "value" : "Package removal:"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거:"
+          }
         }
       }
     },
@@ -21446,6 +24002,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Require confirmation when removing packages"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거 시 확인 필요"
           }
         }
       }
@@ -21475,6 +24037,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Désinstallation:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "제거:"
           }
         },
         "ru" : {
@@ -21529,6 +24097,12 @@
             "value" : "Activer la suppression des paquets"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거 활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21579,6 +24153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La suppression peut endommager vos autres paquets\nÊtes-vous sûr de vouloir continuer ?"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "제거하면 다른 패키지가 손상될 수 있습니다.\n계속하시겠습니까?"
           }
         },
         "ru" : {
@@ -21633,6 +24213,12 @@
             "value" : "Activer la suppression des paquets"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거 활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21685,6 +24271,12 @@
             "value" : "Autoriser la suppression des paquets ?"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거 허용하나요?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21735,6 +24327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La purge supprime tous les fichiers associés à un paquet.\nCela peut entraîner la suppression de fichiers partagés et affecter d'autres de vos paquets"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "제거하면 패키지와 관련된 모든 파일이 제거됩니다.\n이렇게 하면 공유 파일이 제거되고 다른 패키지가 손상될 수 있습니다."
           }
         },
         "ru" : {
@@ -21790,6 +24388,12 @@
             "value" : "Purger le cache après la désinstallation des paquets"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거 후 캐시 제거"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21841,6 +24445,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Supprimer les paquets orphelins après la désinstallation"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 제거 후 고아 제거하기"
           }
         },
         "ru" : {
@@ -21895,6 +24505,12 @@
             "value" : "Afficher les sorties en temps réel des opérations"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "작업의 실시간 결과물 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21947,6 +24563,12 @@
             "value" : "Afficher les sorties en temps réel par défaut"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본적으로 실시간 출력 표시"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21997,6 +24619,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenance"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "유지 관리"
           }
         },
         "ru" : {
@@ -22052,6 +24680,12 @@
             "value" : "Définir les étapes par défaut"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본 단계 설정"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22103,6 +24737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림"
           }
         },
         "ru" : {
@@ -22157,6 +24797,12 @@
             "value" : "Activer les notifications"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림 활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22207,6 +24853,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les notifications ne s'afficheront que lorsque Cork ne sera pas la fenêtre active"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림은 코크가 활성 창이 아닐 때만 표시됩니다."
           }
         },
         "ru" : {
@@ -22261,6 +24913,12 @@
             "value" : "􀅴 Activer les notifications pour Cork dans les paramètres système"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 시스템 설정에서 Cork 알림 활성화하기"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22311,6 +24969,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Résultats de l'installation"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치 결과"
           }
         },
         "ru" : {
@@ -22365,6 +25029,12 @@
             "value" : "Résultats de la mise à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 결과"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22415,6 +25085,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifier à propos de:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림 정보:"
           }
         },
         "ru" : {
@@ -22469,6 +25145,12 @@
             "value" : "Type d'alerte pour les paquets obsolètes:"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래된 패키지 알림 유형:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22519,6 +25201,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Badge"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "뱃지"
           }
         },
         "ru" : {
@@ -22573,6 +25261,12 @@
             "value" : "Badge et Notification"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Badge and Notification"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22623,6 +25317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucun"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "없음"
           }
         },
         "ru" : {
@@ -22677,6 +25377,12 @@
             "value" : "Notification"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22727,6 +25433,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Avancé"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고급"
           }
         },
         "ru" : {
@@ -22781,6 +25493,12 @@
             "value" : "Basique"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22831,6 +25549,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Équilibré"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "균형의"
           }
         },
         "ru" : {
@@ -22885,6 +25609,12 @@
             "value" : "Légèrement avancé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "약간 고급"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22937,6 +25667,12 @@
             "value" : "Légèrement basique"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "약간 기본"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22987,6 +25723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comment souhaiteriez-vous découvrir Cork ?"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코크를 어떻게 경험하고 싶으신가요?"
           }
         },
         "ru" : {
@@ -23042,6 +25784,12 @@
             "value" : "Paquets installées"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치된 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23094,6 +25842,12 @@
             "value" : "Taps ajoutés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 추가"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23144,6 +25898,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Supprimer %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 제거"
           }
         },
         "ru" : {
@@ -23199,6 +25959,12 @@
             "value" : "Réessayez dans quelques minutes, ou redémarrez Cork"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몇 분 후에 다시 시도하거나 Cork를 다시 시작하세요."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23249,6 +26015,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de supprimer %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@을(를) 제거할 수 없습니다."
           }
         },
         "ru" : {
@@ -23303,6 +26075,12 @@
             "value" : "Tag %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 태그"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23353,6 +26131,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Retirer le tag %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 언태그"
           }
         },
         "ru" : {
@@ -23407,6 +26191,12 @@
             "value" : "Casks installées"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치된 Casks"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23457,6 +26247,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Formules installées"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설치된 Formulae"
           }
         },
         "ru" : {
@@ -23690,6 +26486,12 @@
             "value" : "Les Taps fournissent des paquets supplémentaires"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭은 추가 패키지를 제공합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23740,6 +26542,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les analyses Homebrew sont désactivées"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 분석이 비활성화됨"
           }
         },
         "ru" : {
@@ -23794,6 +26602,12 @@
             "value" : "Homebrew ne collecte aucune donnée sur la façon dont vous l'utilisez"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루는 사용자의 사용 방식에 대한 데이터를 수집하지 않습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23844,6 +26658,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les analyses Homebrew sont activées"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 분석이 활성화되었습니다."
           }
         },
         "ru" : {
@@ -23898,6 +26718,12 @@
             "value" : "Homebrew collecte diverses données anonymisées, telles que les paquets que vous avez installés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루는 사용자가 설치한 패키지와 같은 다양한 익명화된 데이터를 수집합니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23948,6 +26774,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous avez %@ de téléchargements mis en cache"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드가 %@개 있습니다."
           }
         },
         "ru" : {
@@ -24002,6 +26834,12 @@
             "value" : "Supprimer les téléchargements mis en cache…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 삭제..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24052,6 +26890,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ces fichiers sont des restes d'installations de paquets terminées. Ils peuvent être supprimés en toute sécurité."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이러한 파일은 완료된 패키지 설치에서 남은 파일입니다. 제거해도 안전합니다."
           }
         },
         "ru" : {
@@ -24106,6 +26950,12 @@
             "value" : "Autres"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기타"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24158,6 +27008,12 @@
             "value" : "Nom du paquet téléchargé en cache"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 패키지 이름"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24208,6 +27064,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Taille du téléchargement en cache"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시된 다운로드 크기"
           }
         },
         "ru" : {
@@ -24441,6 +27303,12 @@
             "value" : "Les Casks sont des paquets qui ont des interfaces graphiques"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks는 그래픽 창이 있는 패키지입니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24672,6 +27540,12 @@
             "value" : "Les formules sont des paquets que vous utilisez via un terminal"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae는 터미널을 통해 사용하는 패키지입니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24723,6 +27597,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement Paquets…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 로드 중..."
           }
         },
         "ru" : {
@@ -24777,6 +27657,12 @@
             "value" : "Brew Maintenance…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "브루 유지 관리..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24829,6 +27715,12 @@
             "value" : "Homebrew Statut"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈브루 상태"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24874,6 +27766,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Read about important changes to Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork의 중요한 변경 사항에 대해 읽어보세요."
           }
         },
         "ru" : {
@@ -25095,6 +27993,12 @@
             "value" : "Désélectionner tout"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모두 선택 해제"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25147,6 +28051,12 @@
             "value" : "Tout sélectionner"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모두 선택"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25197,6 +28107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mettre à jour"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트"
           }
         },
         "ru" : {
@@ -25430,6 +28346,12 @@
             "value" : "Paquets obsolètes"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오래된 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25480,6 +28402,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérification des mises à jour des paquets…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 업데이트 확인 중..."
           }
         },
         "ru" : {
@@ -25534,6 +28462,12 @@
             "value" : "Désactivé"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "비활성화"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25584,6 +28518,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭"
           }
         },
         "ru" : {
@@ -25638,6 +28578,12 @@
             "value" : "Contenus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "콘텐츠"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25688,6 +28634,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Principalement des Casks"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "대부분 Casks"
           }
         },
         "ru" : {
@@ -25742,6 +28694,12 @@
             "value" : "Uniquement des Casks"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오직 Casks"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25792,6 +28750,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Principalement des formules"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "대부분 Formulae"
           }
         },
         "ru" : {
@@ -25846,6 +28810,12 @@
             "value" : "Uniquement des formules"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오직 Formulae"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25896,6 +28866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rien"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "없음"
           }
         },
         "ru" : {
@@ -25950,6 +28926,12 @@
             "value" : "Page d'accueil"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈페이지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26002,6 +28984,12 @@
             "value" : "Casks incluses"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks 포함"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26052,6 +29040,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Formules incluses"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae 포함"
           }
         },
         "ru" : {
@@ -26107,6 +29101,12 @@
             "value" : "Paquets inclus"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 포함"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26159,6 +29159,12 @@
             "value" : "Info"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정보"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26209,6 +29215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des informations du Tap…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭 정보 로드 중..."
           }
         },
         "ru" : {
@@ -26264,6 +29276,12 @@
             "value" : "%@ est un Tap officiel\nLes paquets inclus dans celui-ci sont audités pour s'assurer qu'ils sont sécurisés."
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은 공식 탭입니다.\n여기에 포함된 패키지는 안전성을 확인하기 위해 감사를 받습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26314,6 +29332,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre de paquets"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 수"
           }
         },
         "ru" : {
@@ -26368,6 +29392,12 @@
             "value" : "Supprimer %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 제거"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26418,6 +29448,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Récupérer l'ancienne version…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이전 버전 백업하기..."
           }
         },
         "ru" : {
@@ -26472,6 +29508,12 @@
             "value" : "Nettoyage en cours…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정리 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26522,6 +29564,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargement en cours…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다운로드 중..."
           }
         },
         "ru" : {
@@ -26576,6 +29624,12 @@
             "value" : "Lier la nouvelle version…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새 버전 연결 중..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26626,6 +29680,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise à jour en cours…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 중..."
           }
         },
         "ru" : {
@@ -26680,6 +29740,12 @@
             "value" : "Paquets mis à jour avec des erreurs"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류로 업데이트된 패키지"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26730,6 +29796,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il y a eu des erreurs lors de la mise à jour.\nVeuillez vérifier ci-dessous pour plus d'informations"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트하는 동안 몇 가지 오류가 발생했습니다.\n자세한 내용은 아래에서 확인하세요."
           }
         },
         "ru" : {
@@ -26784,6 +29856,12 @@
             "value" : "Mise à jour des paquets réussie"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 업데이트 성공"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26834,6 +29912,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il n'y a eu aucune erreur"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오류 없음"
           }
         },
         "ru" : {
@@ -26888,6 +29972,12 @@
             "value" : "Mise à jour réussie des paquets sélectionnés"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택한 패키지를 성공적으로 업데이트했습니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26938,6 +30028,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je ne sais pas ce que vous avez fait pour que cela apparaisse"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "어떻게 해서 이렇게 표시되었는지 모르겠습니다."
           }
         },
         "ru" : {
@@ -26992,6 +30088,12 @@
             "value" : "Mise à jour %@…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 업데이트 중 ..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27042,6 +30144,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune mise à jour disponible"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용 가능한 업데이트가 없습니다."
           }
         },
         "ru" : {
@@ -27096,6 +30204,12 @@
             "value" : "Vous êtes entièrement à jour"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모두 최신 상태입니다."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27148,6 +30262,12 @@
             "value" : "Récupération des mises à jour…"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "업데이트 가져오기..."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27198,6 +30318,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terminé"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
           }
         },
         "ru" : {
@@ -27253,6 +30379,12 @@
             "value" : "Prêt"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "준비"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27303,6 +30435,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise à jour des paquets…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 업데이트 중..."
           }
         },
         "ru" : {
@@ -27357,6 +30495,12 @@
             "value" : "Mise à jour des caches de paquets"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패키지 캐시 업데이트"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27409,6 +30553,12 @@
             "value" : "v. %@"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27456,6 +30606,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"
