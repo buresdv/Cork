@@ -5633,6 +5633,7 @@
       }
     },
     "add-package.network-error" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -5691,6 +5692,7 @@
       }
     },
     "add-package.network-error.description" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

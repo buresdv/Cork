@@ -170,6 +170,7 @@ struct AddFormulaView: View
                 }
                 .fixedSize()
 
+                    /*
             default:
                 VStack(alignment: .leading)
                 {
@@ -189,6 +190,7 @@ struct AddFormulaView: View
                         DismissSheetButton()
                     }
                 }
+                     */
             }
         }
         .padding()

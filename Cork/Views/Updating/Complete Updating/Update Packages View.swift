@@ -75,6 +75,6 @@ struct UpdatePackagesView: View
         }
         .padding()
         .fixedSize()
-        .animation(.none)
+        .allAnimationsDisabled()
     }
 }

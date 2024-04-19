@@ -76,9 +76,8 @@ struct PackageModificationButtons: View
                                     {
                                         AppConstants.logger.debug("Confirmation of package removal NOT needed")
                                         
-                                        try await uninstallSelectedPackage(
+                                        try await brewData.uninstallSelectedPackage(
                                             package: package,
-                                            brewData: brewData,
                                             appState: appState,
                                             outdatedPackageTracker: outdatedPackageTracker,
                                             shouldRemoveAllAssociatedFiles: false,

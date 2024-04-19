@@ -15,6 +15,7 @@ struct UninstallationProgressWheel: View
     {
         if appState.isShowingUninstallationProgressView
         {
+            // TODO: Replace the modifiers with .controlSize
             ProgressView()
                 .scaleEffect(0.5, anchor: .center)
                 .frame(width: 1, height: 1)

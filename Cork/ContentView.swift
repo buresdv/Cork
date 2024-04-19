@@ -613,9 +613,8 @@ struct ContentView: View, Sendable
                 
                 Task
                 {
-                    try await uninstallSelectedPackage(
+                    try await brewData.uninstallSelectedPackage(
                         package: uninstallationConfirmationTracker.packageThatNeedsConfirmation,
-                        brewData: brewData,
                         appState: appState,
                         outdatedPackageTracker: outdatedPackageTracker,
                         shouldRemoveAllAssociatedFiles: uninstallationConfirmationTracker.shouldPurge,

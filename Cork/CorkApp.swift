@@ -100,7 +100,7 @@ struct CorkApp: App
                     {
                         if let demoActivatedAt
                         {
-                            var timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+                            let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
                             
                             AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
                             
