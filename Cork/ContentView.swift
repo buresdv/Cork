@@ -33,7 +33,7 @@ struct ContentView: View, Sendable
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
-    
+
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
@@ -43,6 +43,7 @@ struct ContentView: View, Sendable
     @State private var corruptedPackage: CorruptedPackage?
 
     // MARK: - ViewBuilders
+
     @ViewBuilder private var upgradePackagesButton: some View
     {
         Button
@@ -59,7 +60,7 @@ struct ContentView: View, Sendable
         .help("navigation.upgrade-packages.help")
         .disabled(appState.isCheckingForPackageUpdates)
     }
-    
+
     @ViewBuilder private var addTapButton: some View
     {
         Button
@@ -75,7 +76,7 @@ struct ContentView: View, Sendable
         }
         .help("navigation.add-tap.help")
     }
-    
+
     @ViewBuilder private var installPackageButton: some View
     {
         Button
@@ -91,7 +92,7 @@ struct ContentView: View, Sendable
         }
         .help("navigation.install-package.help")
     }
-    
+
     @ViewBuilder private var manageServicesButton: some View
     {
         Button
@@ -101,7 +102,7 @@ struct ContentView: View, Sendable
             Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
         }
     }
-    
+
     // MARK: - The main view
 
     var body: some View
@@ -369,7 +370,7 @@ struct ContentView: View, Sendable
         .alert(isPresented: $appState.isShowingFatalError, content: {
             switch appState.fatalAlertType
             {
-            case .uninstallationNotPossibleDueToDependency(let packageThatTheUserIsTryingToUninstall):
+            case let .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall):
                 return Alert(
                     title: Text("alert.unable-to-uninstall-\(packageThatTheUserIsTryingToUninstall.name).title"),
                     message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)-\(packageThatTheUserIsTryingToUninstall.name)"),
@@ -604,13 +605,29 @@ struct ContentView: View, Sendable
                         restartApp()
                     })
                 )
+            case let .couldNotLoadAnyPackages(error):
+                return Alert(
+                    title: Text("alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title"),
+                    message: Text("alert.restart-or-reinstall"),
+                    dismissButton: .default(Text("action.restart"), action: {
+                        restartApp()
+                    })
+                )
+            case let .couldNotLoadCertainPackage(offendingPackage):
+                return Alert(
+                    title: Text("alert.fatal-\(offendingPackage)-prevented-loading.title"),
+                    dismissButton: .default(Text("action.restart"), action: {
+                        restartApp()
+                    })
+                )
             }
         })
-        .confirmationDialog(uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: $uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation) {
+        .confirmationDialog(uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: $uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
+        {
             Button(role: .destructive)
             {
                 uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation = false
-                
+
                 Task
                 {
                     try await brewData.uninstallSelectedPackage(
@@ -625,7 +642,7 @@ struct ContentView: View, Sendable
                 Text(uninstallationConfirmationTracker.shouldPurge ? "action.purge-\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall-\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)")
             }
             .keyboardShortcut(.defaultAction)
-            
+
             Button(role: .cancel)
             {
                 uninstallationConfirmationTracker.dismissConfirmationDialog()
@@ -636,7 +653,6 @@ struct ContentView: View, Sendable
         } message: {
             Text("action.warning.cannot-be-undone")
         }
-
     }
 
     func loadTopPackages() async
