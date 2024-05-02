@@ -61,6 +61,12 @@
             "value" : "Über"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -92,7 +98,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Contact Moi"
+            "value" : "Contactez-moi"
           }
         },
         "ko" : {
@@ -1597,6 +1603,12 @@
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Politique de confidentialité](https://corkmac.app/privacy-fr.html)"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2693,6 +2705,12 @@
             "value" : "Try Demo"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayer la démonstration"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2737,6 +2755,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buy Cork"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acheter Cork"
           }
         },
         "ko" : {
@@ -2841,6 +2865,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer"
           }
         },
         "ko" : {
@@ -3452,10 +3482,22 @@
     },
     "action.purge.confirm.title.%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist du sicher, dass du %@ löschen möchtest?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to purge %@?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes-vous sûr de vouloir purger %@ ?"
           }
         },
         "ko" : {
@@ -3836,6 +3878,12 @@
             "value" : "Reset executable to default location"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser l'exécutable à l'emplacement par défaut"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4056,6 +4104,12 @@
             "value" : "Submit Feedback"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Envoyer un retour"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4142,10 +4196,22 @@
     },
     "action.uninstall.confirm.title.%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist du sicher, dass du %@ deinstallieren möchtest?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to uninstall %@?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes-vous sûr de vouloir désinstaller %@ ?"
           }
         },
         "ko" : {
@@ -4216,10 +4282,22 @@
     },
     "action.warning.cannot-be-undone" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Aktion kann nicht rückgängig gemacht werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "This action cannot be undone"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette action ne pourra pas être annulée"
           }
         },
         "ko" : {
@@ -4300,6 +4378,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading of top packages timed out"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le chargement des paquets les plus importants a été interrompu"
           }
         },
         "ko" : {
@@ -5602,6 +5686,12 @@
             "value" : "%1$@ doesn't support %2$@ chips"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ ne supporte pas les processeurs %2$@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5622,6 +5712,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This package doesn't support your chip"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce paquet n'est pas compatible avec votre processeur"
           }
         },
         "ko" : {
@@ -9096,6 +9192,12 @@
             "value" : "Could not synchronize packages"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de synchroniser les paquets"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9134,6 +9236,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find the custom Homebrew executable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver l'exécutable Homebrew personnalisé"
           }
         },
         "ko" : {
@@ -9176,6 +9284,12 @@
             "value" : "Check if your network is working properly, then try again"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez que votre réseau fonctionne correctement, puis réessayez"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9214,6 +9328,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not establish a secure connection to authorization server"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'établir une connexion sécurisée avec le serveur d'autorisation"
           }
         },
         "ko" : {
@@ -10302,6 +10422,12 @@
             "value" : "Couldn't Uninstall %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de désinstaller %@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10322,6 +10448,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%2$@ is a dependency of %1$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@ est une dépendance de %1$@"
           }
         },
         "ko" : {
@@ -10818,6 +10950,12 @@
             "value" : "No"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10844,6 +10982,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oui"
           }
         },
         "ko" : {
@@ -10976,6 +11120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Dienste"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services Homebrew"
           }
         },
         "ko" : {
@@ -11175,6 +11325,12 @@
             "value" : "Thank you for supporting Cork!"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci de supporter Cork !"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11213,6 +11369,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License Activated"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licence activée"
           }
         },
         "ko" : {
@@ -11255,6 +11417,12 @@
             "value" : "In Demo Mode"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode démonstration"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11293,6 +11461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The demo is available until %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette démo est disponible jusqu'au %@"
           }
         },
         "ko" : {
@@ -11335,6 +11509,12 @@
             "value" : "Email you bought Cork with:"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email avec lequel vous avez acheté Cork :"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11370,6 +11550,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -11415,6 +11601,12 @@
             "value" : "Email not found"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email introuvable"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11453,6 +11645,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez acheter Cork en utilisant le bouton ci-dessous ou en vous rendant sur le [site](https://corkmac.app).\nPas certain de la nécessité de Cork ? Essayez la démonstration, disponible pendant 7 jours."
           }
         },
         "ko" : {
@@ -11495,6 +11693,12 @@
             "value" : "Thank you for checking out Cork!"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci d'utiliser Cork !"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11535,6 +11739,12 @@
             "value" : "for 25€"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pour 25€"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11573,6 +11783,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licence..."
           }
         },
         "ko" : {
@@ -12785,13 +13001,13 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autre n'ayant pas été mis à jour"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "Certains caches n'ont pas été purgés en raison de %@ et %lld autres n'ayant pas été mis à jour"
                 }
               }
@@ -14511,6 +14727,12 @@
             "value" : "Manage Services…"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gestion des services..."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15117,6 +15339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche"
           }
         },
         "ko" : {
@@ -19767,6 +19995,12 @@
             "value" : "Loading service info…"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des informations du service..."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19843,6 +20077,24 @@
             }
           }
         },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld service actif"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld services actifs"
+                }
+              }
+            }
+          }
+        },
         "ko" : {
           "variations" : {
             "plural" : {
@@ -19869,6 +20121,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "These services are running normally"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces services fonctionnent normalement"
           }
         },
         "ko" : {
@@ -19917,6 +20175,24 @@
             }
           }
         },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld service avec des erreurs"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld services avec des erreurs"
+                }
+              }
+            }
+          }
+        },
         "ko" : {
           "variations" : {
             "plural" : {
@@ -19949,6 +20225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "These services either crashed, or could not be started at all"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces services se sont plantés ou n'ont pas pu être démarrés du tout"
           }
         },
         "ko" : {
@@ -20027,6 +20309,24 @@
             }
           }
         },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld service inactif"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld services inactifs"
+                }
+              }
+            }
+          }
+        },
         "ko" : {
           "variations" : {
             "plural" : {
@@ -20061,6 +20361,12 @@
             "value" : "These services are not currently running"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ces services ne sont pas en cours d'exécution"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20081,6 +20387,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading services…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des services..."
           }
         },
         "ko" : {
@@ -20111,6 +20423,12 @@
             "value" : "No services found"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service introuvable..."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20137,6 +20455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services Status"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statut du service"
           }
         },
         "ko" : {
@@ -20185,6 +20509,24 @@
             }
           }
         },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld service avec un statut inconnu"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vous avez %lld services avec un statut inconnu"
+                }
+              }
+            }
+          }
+        },
         "ko" : {
           "variations" : {
             "plural" : {
@@ -20219,6 +20561,12 @@
             "value" : "The status of these services could not be determined"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le statut de ces services n'a pas pu être déterminé"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20241,6 +20589,12 @@
             "value" : "Error Log Location"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emplacement des erreurs"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20261,6 +20615,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exit Code"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code de sortie"
           }
         },
         "ko" : {
@@ -20291,6 +20651,12 @@
             "value" : "Is Loaded"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Est chargé"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20311,6 +20677,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Location"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emplacement"
           }
         },
         "ko" : {
@@ -20335,6 +20707,12 @@
             "value" : "Log Location"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emplacement des logs"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20356,6 +20734,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
           }
         },
         "ko" : {
@@ -20386,6 +20770,12 @@
             "value" : "Root Location"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emplacement racine"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20406,6 +20796,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schedulable"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planifiable"
           }
         },
         "ko" : {
@@ -20430,6 +20826,12 @@
             "value" : "Status"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statut"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20452,6 +20854,12 @@
             "value" : "User"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisateur"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20469,6 +20877,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services"
@@ -20496,6 +20910,12 @@
             "value" : "%lld services found"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld service(s) trouvés"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20517,6 +20937,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading services"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charger les services"
           }
         },
         "ko" : {
@@ -20541,6 +20967,12 @@
             "value" : "Errored Out"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur de sortie"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20561,6 +20993,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "None"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun"
           }
         },
         "ko" : {
@@ -20585,6 +21023,12 @@
             "value" : "Other"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autre"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20605,6 +21049,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scheduled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prévu"
           }
         },
         "ko" : {
@@ -20635,6 +21085,12 @@
             "value" : "Started"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarré"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20663,6 +21119,12 @@
             "value" : "Stopped"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêté"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20685,6 +21147,12 @@
             "value" : "Unknown"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inconnu"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20705,6 +21173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Services"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services Homebrew"
           }
         },
         "ko" : {
@@ -20852,6 +21326,12 @@
             "value" : "Homebrew location:"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emplacement d'Homebrew :"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20896,6 +21376,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set Custom Location"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Définir un emplacement personnalité"
           }
         },
         "ko" : {
@@ -20944,6 +21430,12 @@
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les emplacements personnalisés d'Homebrew ne sont pas officiellement pris en charge.\nSi vous avez un emplacement d'Homebrew personnalisé, vous n'aurez droit à aucune assistance de Cork ou Homebrew.\nSi vous sélectionnez un emplacement Homebrew personnalisé, vous serez seul responsable de la maintenance de votre installation Homebrew."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20988,6 +21480,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to set a custom Homebrew location?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes-vous sûr de vouloir définir un emplacement Homebrew personnalisé ?"
           }
         },
         "ko" : {
@@ -21036,6 +21534,12 @@
             "value" : "%@ is not a Homebrew executable."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ n'est pas un exécutable Homebrew."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21082,6 +21586,12 @@
             "value" : "The selected file is not an executable."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le fichier sélectionné n'est pas un exécutable."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21126,6 +21636,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisation de %@"
           }
         },
         "ko" : {
@@ -21175,6 +21691,12 @@
             "value" : "Using custom location"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisation d'un emplacement personnalisé"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21213,6 +21735,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using default Homebrew location"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utilisation de l'emplacement par défaut de Homebrew"
           }
         },
         "ko" : {
@@ -21261,6 +21789,12 @@
             "value" : "Reset location"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser l'emplacement"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21305,6 +21839,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select custom location"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionner un emplacement personnalisé"
           }
         },
         "ko" : {
@@ -21353,6 +21893,12 @@
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun support pour Cork ne sera fourni tant que les paramètres du développeur seront activés."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21397,6 +21943,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable developer settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer les paramètres développeur"
           }
         },
         "ko" : {
@@ -21448,7 +22000,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avancé:"
+            "value" : "Avancé :"
           }
         },
         "ko" : {
@@ -21564,7 +22116,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trier les meilleurs paquets par:"
+            "value" : "Trier les meilleurs paquets par :"
           }
         },
         "ko" : {
@@ -21622,7 +22174,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le moins grand nombre de téléchargements"
+            "value" : "Le plus petit nombre de téléchargements"
           }
         },
         "ko" : {
@@ -21796,7 +22348,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Obtenir les meilleurs paquets pour:"
+            "value" : "Obtenir les meilleurs paquets pour :"
           }
         },
         "ko" : {
@@ -22029,7 +22581,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activer la découvrabilité"
+            "value" : "Activer la découverte"
           }
         },
         "ko" : {
@@ -22146,7 +22698,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dépendances:"
+            "value" : "Dépendances :"
           }
         },
         "ko" : {
@@ -22262,7 +22814,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filtrage des packages:"
+            "value" : "Filtrage des packages :"
           }
         },
         "ko" : {
@@ -22553,7 +23105,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Barre de menu:"
+            "value" : "Barre de menu :"
           }
         },
         "ko" : {
@@ -22727,7 +23279,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avertissements des paquets:"
+            "value" : "Avertissements des paquets :"
           }
         },
         "ko" : {
@@ -22959,7 +23511,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Détails du paquet:"
+            "value" : "Détails du paquet :"
           }
         },
         "ko" : {
@@ -23133,7 +23685,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Résultats de la recherche:"
+            "value" : "Résultats de la recherche :"
           }
         },
         "ko" : {
@@ -23250,7 +23802,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trié les paquets par:"
+            "value" : "Trié les paquets par :"
           }
         },
         "ko" : {
@@ -23599,7 +24151,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Compatibilité:"
+            "value" : "Compatibilité :"
           }
         },
         "ko" : {
@@ -23718,7 +24270,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Installation:"
+            "value" : "Installation :"
           }
         },
         "ko" : {
@@ -24104,10 +24656,22 @@
     },
     "settings.install-uninstall.package-removal.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfernung des Pakets:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package removal:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suppression des paquets :"
           }
         },
         "ko" : {
@@ -24120,10 +24684,22 @@
     },
     "settings.install-uninstall.request-removal-confirmation.toggle" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Entfernen von Paketen eine Bestätigung verlangen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Require confirmation when removing packages"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demander une confirmation lors de la suppression de paquets"
           }
         },
         "ko" : {
@@ -25206,7 +25782,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notifier à propos de:"
+            "value" : "Notifier à propos de :"
           }
         },
         "ko" : {
@@ -25264,7 +25840,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Type d'alerte pour les paquets obsolètes:"
+            "value" : "Type d'alerte pour les paquets obsolètes :"
           }
         },
         "ko" : {
@@ -27556,13 +28132,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Vous avez installé %lld Formule"
+                  "value" : "Vous avez installé %lld formule"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Vous avez installé %lld Formules"
+                  "value" : "Vous avez installé %lld formules"
                 }
               }
             }
@@ -27754,7 +28330,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement Paquets…"
+            "value" : "Chargement des paquets…"
           }
         },
         "ko" : {
@@ -27812,7 +28388,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Brew Maintenance…"
+            "value" : "Maintenance Brew…"
           }
         },
         "ko" : {
@@ -27870,7 +28446,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew Statut"
+            "value" : "Statut Homebrew"
           }
         },
         "ko" : {
@@ -27924,6 +28500,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Read about important changes to Cork"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Découvrez les changements importants apportés à Cork"
           }
         },
         "ko" : {
@@ -30383,7 +30965,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous êtes entièrement à jour"
+            "value" : "Vous êtes à jour"
           }
         },
         "ko" : {
