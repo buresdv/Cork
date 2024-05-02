@@ -504,7 +504,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A apporté une aide inestimable pour résoudre toutes sortes de problèmes, de Swift asynchrone aux installations de paquets bloquantes."
+            "value" : "A apporté une aide précieuse pour toutes sortes de problèmes, de l'asynchrone Swift au blocage des installations de paquets."
           }
         },
         "ko" : {
@@ -852,7 +852,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A fait la première PR approuvée; A corrigé les mise a jour des paquets, en collaboration avec Jierong Li."
+            "value" : "A fait la première pull request approuvée ; a corrigé les mise a jour des paquets, en collaboration avec Jierong Li."
           }
         },
         "ko" : {
@@ -1142,7 +1142,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© 2023 David Bureš est ces contributeurs."
+            "value" : "© 2023 David Bureš et ses contributeurs."
           }
         },
         "ko" : {
@@ -1200,7 +1200,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paquets utilisé"
+            "value" : "Paquets utilisés"
           }
         },
         "ko" : {
@@ -2922,7 +2922,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Netoyage metadata"
+            "value" : "Effacer les métadonnées"
           }
         },
         "ko" : {
@@ -3213,7 +3213,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accédez à la page de status de Homebrew"
+            "value" : "Page de statut"
           }
         },
         "ko" : {
@@ -3271,7 +3271,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Allez à la Page de Status"
+            "value" : "Allez à la page de statut"
           }
         },
         "ko" : {
@@ -3589,7 +3589,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Réparation %@"
+            "value" : "Réparer %@"
           }
         },
         "ko" : {
@@ -3823,7 +3823,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Signalez un problemme"
+            "value" : "Signalez un problème"
           }
         },
         "ko" : {
@@ -4592,7 +4592,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paquet installer avec success"
+            "value" : "Paquet installé avec succès"
           }
         },
         "ko" : {
@@ -4824,7 +4824,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Un autre processus Homebrew est déjà en cours"
+            "value" : "Un autre processus Homebrew est déjà en cours d'exécution"
           }
         },
         "ko" : {
@@ -5288,7 +5288,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Liens des binaires…"
+            "value" : "Liaisons des binaires…"
           }
         },
         "ko" : {
@@ -5404,7 +5404,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Déplacement de %@ dans le répertoire du Cask…"
+            "value" : "Déplacement de %@ dans le répertoire des applications…"
           }
         },
         "ko" : {
@@ -5462,7 +5462,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Construction du graphique des dépendances…"
+            "value" : "Construction du graphe des dépendances…"
           }
         },
         "ko" : {
@@ -5811,7 +5811,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Votre connexion internet n'est pas suffisamment stable pour garantir une installation réussie"
+            "value" : "Votre connexion internet n'est pas suffisamment stable pour garantir la réussite de l'installation"
           }
         },
         "ko" : {
@@ -5869,7 +5869,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actuellement installer"
+            "value" : "Déjà installé"
           }
         },
         "ko" : {
@@ -6220,7 +6220,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chercher un package…"
+            "value" : "Rechercher un package…"
           }
         },
         "ko" : {
@@ -6278,7 +6278,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Casks trouver"
+            "value" : "Cask trouvés"
           }
         },
         "ko" : {
@@ -6336,7 +6336,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Formule trouver"
+            "value" : "Formules trouvées"
           }
         },
         "ko" : {
@@ -6511,7 +6511,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Applications populaires"
+            "value" : "Casks populaires"
           }
         },
         "ko" : {
@@ -7045,7 +7045,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ajouté avec succès %@"
+            "value" : "Ajouté avec succès de %@"
           }
         },
         "ko" : {
@@ -7219,7 +7219,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une erreur s'est produite lors de la tentative de tap %@"
+            "value" : "Une erreur s'est produite lors de l'ajout de %@"
           }
         },
         "ko" : {
@@ -7277,7 +7277,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essayez d'ajouter le Tap à nouveau dans quelques minutes"
+            "value" : "Essayez de l'ajouter à nouveau dans quelques minutes"
           }
         },
         "ko" : {
@@ -7335,7 +7335,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ cela n'existe pas"
+            "value" : "%@ n'existe pas"
           }
         },
         "ko" : {
@@ -7393,7 +7393,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérifiez à nouveau que vous avez bien écrit le nom"
+            "value" : "Vérifiez que vous avez correctement saisi le nom"
           }
         },
         "ko" : {
@@ -7451,7 +7451,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adresse d'un Tap:"
+            "value" : "Adresse du tap :"
           }
         },
         "ko" : {
@@ -7509,7 +7509,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utiliser l'adresse externe"
+            "value" : "Utiliser une adresse externe"
           }
         },
         "ko" : {
@@ -7567,7 +7567,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ajouter un Tap à partir d'une adresse externe"
+            "value" : "Ajouter un tap à partir d'une adresse externe"
           }
         },
         "ko" : {
@@ -7625,7 +7625,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ajout de Tap %@"
+            "value" : "Ajout de %@"
           }
         },
         "ko" : {
@@ -8149,7 +8149,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cork n'a pas pu trouver ce package dans la base de données des packages"
+            "value" : "Cork n'a pas pu trouver ce paquet dans la base de données des paquets"
           }
         },
         "ko" : {
@@ -8207,7 +8207,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de trouver le package dans la base de données"
+            "value" : "Impossible de trouver le paquet dans la base de données"
           }
         },
         "ko" : {
@@ -9140,7 +9140,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une erreur fatale s'est produite lors de l'installation du package"
+            "value" : "Une erreur fatale s'est produite lors de l'installation du paquet"
           }
         },
         "ko" : {
@@ -10614,7 +10614,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Sauvegarde homebrew"
+            "value" : "%@ sauvegarde Homebrew"
           }
         },
         "ko" : {
@@ -10788,7 +10788,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restauré avec succès à partir de la sauvegarde"
+            "value" : "Saveugarde restaurée avec succès"
           }
         },
         "ko" : {
@@ -10904,7 +10904,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Patiente un instant! Ceci pourrait prendre quelques minutes"
+            "value" : "Patientez un instant ! Cela peut prendre quelques minutes"
           }
         },
         "ko" : {
@@ -11030,7 +11030,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Github"
+            "value" : "GitHub"
           }
         },
         "ko" : {
@@ -12139,7 +12139,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cache récupéré %@"
+            "value" : "Vous avez récupéré %@"
           }
         },
         "ko" : {
@@ -12383,19 +12383,19 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld package orphelin supprimé"
+                  "value" : "%lld paquet orphelin supprimé"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld packages orphelin supprimé"
+                  "value" : "%lld paquets orphelins supprimés"
                 }
               },
               "zero" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Aucun package orphelin trouvé"
+                  "value" : "Aucun paquet orphelin trouvé"
                 }
               }
             }
@@ -12552,7 +12552,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les packages orphelins ont été désinstallés"
+            "value" : "Les paquets orphelins ont été désinstallés"
           }
         },
         "ko" : {
@@ -12610,7 +12610,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de désinstaller les packages orphelins"
+            "value" : "Impossible de désinstaller les paquets orphelins"
           }
         },
         "ko" : {
@@ -12784,7 +12784,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de purger le cache des packages"
+            "value" : "Impossible de purger le cache des paquets"
           }
         },
         "ko" : {
@@ -13447,7 +13447,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Téléchargements:"
+            "value" : "Téléchargements :"
           }
         },
         "ko" : {
@@ -13621,7 +13621,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autres:"
+            "value" : "Autres :"
           }
         },
         "ko" : {
@@ -13737,7 +13737,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paquets:"
+            "value" : "Paquets :"
           }
         },
         "ko" : {
@@ -14205,7 +14205,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ajouter Tap"
+            "value" : "Ajouter un Tap"
           }
         },
         "ko" : {
@@ -14831,7 +14831,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restore depuis une sauvergarde…"
+            "value" : "Restorer depuis une sauvergarde…"
           }
         },
         "ko" : {
@@ -15237,7 +15237,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Installer des Taps…"
+            "value" : "Installer des paquets…"
           }
         },
         "ko" : {
@@ -15689,13 +15689,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Vous avez %lld package obsolète"
+                  "value" : "Vous avez %lld paquet obsolète"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Vous avez %lld packages obsolètes"
+                  "value" : "Vous avez %lld paquets obsolètes"
                 }
               }
             }
@@ -15829,7 +15829,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Packages obsolète trouvé"
+            "value" : "Paquets obsolètes détectés"
           }
         },
         "ko" : {
@@ -16352,7 +16352,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fonctionnalités du package"
+            "value" : "Fonctionnalités du paquet"
           }
         },
         "ko" : {
@@ -16410,7 +16410,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fonctionnalités du Tap"
+            "value" : "Fonctionnalités du tap"
           }
         },
         "ko" : {
@@ -16468,7 +16468,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérification de la compatibilité du package"
+            "value" : "Vérification de la compatibilité du paquet"
           }
         },
         "ko" : {
@@ -16584,7 +16584,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Recherche dans les dépendances du package"
+            "value" : "Recherche dans les dépendances du paquet"
           }
         },
         "ko" : {
@@ -16642,7 +16642,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avis complets sur le package"
+            "value" : "Avertissements sur le paquet complet"
           }
         },
         "ko" : {
@@ -16700,7 +16700,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechercher des packages populaires"
+            "value" : "Rechercher des paquets populaires"
           }
         },
         "ko" : {
@@ -16932,7 +16932,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descriptions des packages dans la recherche"
+            "value" : "Descriptions des paquets dans la recherche"
           }
         },
         "ko" : {
@@ -16990,7 +16990,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Détails du package"
+            "value" : "Détails du paquet"
           }
         },
         "ko" : {
@@ -17280,7 +17280,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher tous les packages"
+            "value" : "Afficher tous les paquets"
           }
         },
         "ko" : {
@@ -17338,7 +17338,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher les packages installés manuellement"
+            "value" : "Afficher les paquets installés manuellement"
           }
         },
         "ko" : {
@@ -17454,7 +17454,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Détails du Tap"
+            "value" : "Détails du tap"
           }
         },
         "ko" : {
@@ -17571,7 +17571,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez toujours personnaliser votre expérience dans les paramètres"
+            "value" : "Vous pouvez toujours personnaliser votre expérience dans les Paramètres"
           }
         },
         "ko" : {
@@ -17688,7 +17688,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher la première utilisation…"
+            "value" : "Fenêtre de premier démarrage..."
           }
         },
         "ko" : {
@@ -17978,7 +17978,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Présence d'avertissements 􀅴"
+            "value" : "Avertissements 􀅴"
           }
         },
         "ko" : {
@@ -18210,7 +18210,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des informations sur le package…"
+            "value" : "Chargement des informations sur le paquet…"
           }
         },
         "ko" : {
@@ -19023,7 +19023,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dépassé"
+            "value" : "Obsolète"
           }
         },
         "ko" : {
@@ -19256,7 +19256,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les Casks ne sont pas installés dans le même répertoire d'installation que les Formules. Les Casks sont installés dans le répertoire Applications"
+            "value" : "Les Casks ne sont pas installés dans le même répertoire d'installation que les Formules. Les Casks sont installés dans le dossier Applications."
           }
         },
         "ko" : {
@@ -19314,7 +19314,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Étant donné que Cork n'a pas accès à votre répertoire Applications, il ne peut pas obtenir la taille de l'application réelle, seulement celle des métadonnées associées au Cask."
+            "value" : "Comme Cork n'a pas accès à votre répertoire Applications, il ne peut pas obtenir la taille réelle de l'application, mais seulement celle des métadonnées associées au Cask."
           }
         },
         "ko" : {
@@ -19547,7 +19547,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Réparation %@…"
+            "value" : "Réparation de %@…"
           }
         },
         "ko" : {
@@ -19838,7 +19838,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Installation manuel"
+            "value" : "Installation manuelle"
           }
         },
         "ko" : {
@@ -19897,7 +19897,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Packages étiquetés"
+            "value" : "Paquets étiquetés"
           }
         },
         "ko" : {
@@ -19955,7 +19955,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taps"
+            "value" : "Tap"
           }
         },
         "ko" : {
@@ -20601,7 +20601,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Emplacement des erreurs"
+            "value" : "Emplacement du journal des erreurs"
           }
         },
         "ko" : {
@@ -20719,7 +20719,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Emplacement des logs"
+            "value" : "Emplacement des journaux"
           }
         },
         "ko" : {
@@ -20922,7 +20922,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld service(s) trouvés"
+            "value" : "%lld services trouvés"
           }
         },
         "ko" : {
@@ -21222,7 +21222,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analytiques:"
+            "value" : "Analytiques :"
           }
         },
         "ko" : {
@@ -21905,7 +21905,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucun support pour Cork ne sera fourni tant que les paramètres du développeur seront activés."
+            "value" : "Aucun support pour Cork ne sera fourni tant que les paramètres développeur seront activés."
           }
         },
         "ko" : {
@@ -22823,7 +22823,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filtrage des packages :"
+            "value" : "Filtrage des paquets :"
           }
         },
         "ko" : {
@@ -22881,7 +22881,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher tous les packages, y compris les dépendances"
+            "value" : "Afficher tous les paquets, y compris les dépendances"
           }
         },
         "ko" : {
@@ -22939,7 +22939,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Afficher uniquement les packages installés manuellement"
+            "value" : "Afficher uniquement les paquets installés manuellement"
           }
         },
         "ko" : {
@@ -23462,7 +23462,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "􀅴 Cliquez sur la pastille \"A des avertissements\" pour voir les avertissements"
+            "value" : "􀅴 Cliquez sur la pastille \"Avertissements\" pour voir les avertissements"
           }
         },
         "ko" : {
@@ -24219,7 +24219,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérifier la compatibilité du package"
+            "value" : "Vérifier la compatibilité du paquet"
           }
         },
         "ko" : {
@@ -24337,7 +24337,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nettoyer les anciens packages"
+            "value" : "Nettoyer les anciens paquets"
           }
         },
         "ko" : {
@@ -24743,7 +24743,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Désinstallation:"
+            "value" : "Désinstallation :"
           }
         },
         "ko" : {
@@ -24859,7 +24859,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La suppression peut endommager vos autres paquets\nÊtes-vous sûr de vouloir continuer ?"
+            "value" : "La purge peut endommager vos autres paquets\nÊtes-vous sûr de vouloir continuer ?"
           }
         },
         "ko" : {
@@ -24917,7 +24917,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Activer la suppression des paquets"
+            "value" : "Activer la purge des paquets"
           }
         },
         "ko" : {
@@ -24975,7 +24975,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autoriser la suppression des paquets ?"
+            "value" : "Autoriser la purge des paquets ?"
           }
         },
         "ko" : {
@@ -25617,7 +25617,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "􀅴 Activer les notifications pour Cork dans les paramètres système"
+            "value" : "􀅴 Activer les notifications pour Cork dans les Réglages Système"
           }
         },
         "ko" : {
@@ -28280,7 +28280,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les formules sont des paquets que vous utilisez via un terminal"
+            "value" : "Les Formules sont des paquets que vous utilisez via un terminal"
           }
         },
         "ko" : {
@@ -28339,7 +28339,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des paquets…"
+            "value" : "Chargement des Paquets…"
           }
         },
         "ko" : {
@@ -28618,13 +28618,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Mise à jour de %lld package"
+                  "value" : "Mise à jour de %lld paquet"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Mise à jour de %lld packages"
+                  "value" : "Mise à jour de %lld paquets"
                 }
               }
             }
@@ -28977,13 +28977,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Il y a %lld package obsolète"
+                  "value" : "Il y a %lld paquet obsolète"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Il y a %lld packages obsolètes"
+                  "value" : "Il y a %lld paquets obsolètes"
                 }
               }
             }
@@ -29522,7 +29522,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Principalement des formules"
+            "value" : "Principalement des Formules"
           }
         },
         "ko" : {
@@ -29580,7 +29580,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uniquement des formules"
+            "value" : "Uniquement des Formules"
           }
         },
         "ko" : {
@@ -29754,7 +29754,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Casks incluses"
+            "value" : "Casks inclus"
           }
         },
         "ko" : {
@@ -29987,7 +29987,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des informations du Tap…"
+            "value" : "Chargement des informations du tap…"
           }
         },
         "ko" : {
@@ -30046,7 +30046,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ est un Tap officiel\nLes paquets inclus dans celui-ci sont audités pour s'assurer qu'ils sont sécurisés."
+            "value" : "%@ est un tap officiel.\nLes paquets inclus dans celui-ci sont audités pour s'assurer qu'ils sont sécurisés."
           }
         },
         "ko" : {
@@ -30220,7 +30220,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Récupérer l'ancienne version…"
+            "value" : "Sauvegarde de l'ancienne version..."
           }
         },
         "ko" : {
@@ -30568,7 +30568,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il y a eu des erreurs lors de la mise à jour.\nVeuillez vérifier ci-dessous pour plus d'informations"
+            "value" : "Des erreurs se sont produites lors de la mise à jour.\nVoir ci-dessous pour plus d'informations"
           }
         },
         "ko" : {
@@ -30858,7 +30858,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mise à jour %@…"
+            "value" : "Mise à jour de %@…"
           }
         },
         "ko" : {
