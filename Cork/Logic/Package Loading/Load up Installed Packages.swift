@@ -16,23 +16,32 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
 
     var contentsOfFolder: Set<BrewPackage> = .init()
 
-    switch whatToLoad {
-        case .formula:
-            contentsOfFolder = await getContentsOfFolder(targetFolder: AppConstants.brewCellarPath, appState: appState)
-        case .cask:
-            contentsOfFolder = await getContentsOfFolder(targetFolder: AppConstants.brewCaskPath, appState: appState)
-    }
-
-    var installedPackages: Set<BrewPackage> = .init() // Empty the tracker in case there is already something in it
-
-    for package in contentsOfFolder
+    do
     {
-        installedPackages.insert(package)
+        switch whatToLoad {
+            case .formula:
+                contentsOfFolder = try await getContentsOfFolder(targetFolder: AppConstants.brewCellarPath)
+            case .cask:
+                contentsOfFolder = try await getContentsOfFolder(targetFolder: AppConstants.brewCaskPath)
+        }
     }
-
-    AppConstants.logger.info("Found \(whatToLoad == .formula ? "Formulae" : "Casks", privacy: .public): \(installedPackages)")
+    catch let packageLoadingError as PackageLoadingError
+    {
+        switch packageLoadingError {
+            case .failedWhileLoadingPackages:
+                appState.showAlert(errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
+            case .failedWhileLoadingCertainPackage(let offendingPackage):
+                appState.showAlert(errorToShow: .couldNotLoadCertainPackage(offendingPackage))
+            case .packageDoesNotHaveAnyVersionsInstalled(let offendingPackage):
+                appState.showAlert(errorToShow: .installedPackageHasNoVersions(corruptedPackageName: offendingPackage))
+        }
+    }
+    catch
+    {
+        print("Something got completely fucked up while loading packages")
+    }
 
     AppConstants.logger.info("Finished \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .auto)")
 
-    return installedPackages
+    return contentsOfFolder
 }

@@ -9,6 +9,7 @@ import Foundation
 
 enum FatalAlertType
 {
+    case couldNotLoadAnyPackages(Error), couldNotLoadCertainPackage(String)
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly
     case customBrewExcutableGotDeleted
     case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), homePathNotSet

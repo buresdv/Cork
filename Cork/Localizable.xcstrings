@@ -9114,6 +9114,9 @@
         }
       }
     },
+    "alert.fatal-%@-prevented-loading.title" : {
+
+    },
     "alert.fatal-installation.error" : {
       "localizations" : {
         "cs" : {
@@ -9171,6 +9174,9 @@
           }
         }
       }
+    },
+    "alert.fatal.could-not-load-any-packages-%@.title" : {
+
     },
     "alert.fatal.could-not-synchronize-packages.title" : {
       "localizations" : {
@@ -10291,6 +10297,9 @@
           }
         }
       }
+    },
+    "alert.restart-or-reinstall" : {
+
     },
     "alert.top-package-retrieval-function-turned-up-empty.message" : {
       "localizations" : {
