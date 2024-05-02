@@ -3482,6 +3482,12 @@
     },
     "action.purge.confirm.title.%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist du sicher, dass du %@ löschen möchtest?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4190,6 +4196,12 @@
     },
     "action.uninstall.confirm.title.%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist du sicher, dass du %@ deinstallieren möchtest?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4270,6 +4282,12 @@
     },
     "action.warning.cannot-be-undone" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Aktion kann nicht rückgängig gemacht werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24636,6 +24654,12 @@
     },
     "settings.install-uninstall.package-removal.label" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfernung des Pakets:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24658,6 +24682,12 @@
     },
     "settings.install-uninstall.request-removal-confirmation.toggle" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Entfernen von Paketen eine Bestätigung verlangen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
