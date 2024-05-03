@@ -48,6 +48,7 @@
       }
     },
     "About" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -11151,6 +11152,7 @@
       }
     },
     "Homebrew Services" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -31381,6 +31383,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "v. %@"
+          }
+        }
+      }
+    },
+    "window.about" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        }
+      }
+    },
+    "window.services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services"
           }
         }
       }

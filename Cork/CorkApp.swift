@@ -506,7 +506,7 @@ struct CorkApp: App
         .windowStyle(.automatic)
         .windowToolbarStyle(.automatic)
         
-        Window("Homebrew Services", id: .servicesWindowID)
+        Window("window.services", id: .servicesWindowID)
         {
             HomebrewServicesView()
         }
@@ -515,7 +515,7 @@ struct CorkApp: App
         }
         .windowToolbarStyle(.unifiedCompact)
         
-        Window("About", id: .aboutWindowID)
+        Window("window.about", id: .aboutWindowID)
         {
             AboutView()
         }
