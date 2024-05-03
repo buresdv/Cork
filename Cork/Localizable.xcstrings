@@ -61,6 +61,12 @@
             "value" : "Über"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9115,7 +9121,14 @@
       }
     },
     "alert.fatal-%@-prevented-loading.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package %@ prevented loading"
+          }
+        }
+      }
     },
     "alert.fatal-installation.error" : {
       "localizations" : {
@@ -9176,7 +9189,14 @@
       }
     },
     "alert.fatal.could-not-load-any-packages-%@.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load packages (%@)"
+          }
+        }
+      }
     },
     "alert.fatal.could-not-synchronize-packages.title" : {
       "localizations" : {
@@ -10299,7 +10319,14 @@
       }
     },
     "alert.restart-or-reinstall" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restart Cork, and if the problem persists, reinstall it"
+          }
+        }
+      }
     },
     "alert.top-package-retrieval-function-turned-up-empty.message" : {
       "localizations" : {
