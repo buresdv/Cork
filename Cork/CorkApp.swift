@@ -276,52 +276,58 @@ struct CorkApp: App
         }
         .commands
         {
-            CommandGroup(replacing: .appInfo)
+            Group // These groups have to be here otherwise SwiftUI shits the bed. No other reason at all 🤦
             {
-                aboutMenuBarSection
-            }
-            CommandGroup(before: .help) // The "Report Bugs" section
-            {
-                bugReportingMenuBarSection
-            }
-
-            CommandGroup(before: .systemServices)
-            {
-                onboardingMenuBarSection
-            }
-
-            SidebarCommands()
-            CommandGroup(replacing: .newItem) // Disables "New Window"
-            {}
-
-            CommandGroup(before: .sidebar)
-            {
-                goToHomeScreenMenuBarSection
-            }
-
-            CommandGroup(before: .newItem)
-            {
-                backupAndRestoreMenuBarSection
-            }
-
-            CommandGroup(after: .newItem)
-            {
-                searchMenuBarSection
-            }
-
-            CommandMenu("navigation.menu.packages")
-            {
-                packagesMenuBarSection
+                CommandGroup(replacing: .appInfo)
+                {
+                    aboutMenuBarSection
+                }
+                CommandGroup(before: .help) // The "Report Bugs" section
+                {
+                    bugReportingMenuBarSection
+                }
+                
+                CommandGroup(before: .systemServices)
+                {
+                    onboardingMenuBarSection
+                }
+                
+                SidebarCommands()
+                CommandGroup(replacing: .newItem) // Disables "New Window"
+                {}
+                
+                CommandGroup(before: .sidebar)
+                {
+                    goToHomeScreenMenuBarSection
+                }
             }
             
-            CommandMenu("navigation.menu.services")
+            Group
             {
-                servicesMenuBarSection
-            }
-
-            CommandMenu("navigation.menu.maintenance")
-            {
-                maintenanceMenuBarSection
+                CommandGroup(before: .newItem)
+                {
+                    backupAndRestoreMenuBarSection
+                }
+                
+                CommandGroup(after: .newItem)
+                {
+                    searchMenuBarSection
+                }
+                
+                CommandMenu("navigation.menu.packages")
+                {
+                    packagesMenuBarSection
+                }
+                
+                CommandMenu("navigation.menu.services")
+                {
+                    servicesMenuBarSection
+                }
+                
+                CommandMenu("navigation.menu.maintenance")
+                {
+                    maintenanceMenuBarSection
+                }
             }
         }
         .windowStyle(.automatic)
@@ -581,6 +587,7 @@ struct CorkApp: App
         } label: {
             Text("navigation.menu.services.open-window")
         }
+        .keyboardShortcut("s", modifiers: .command)
     }
     
     @ViewBuilder

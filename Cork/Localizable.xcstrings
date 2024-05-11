@@ -15411,6 +15411,26 @@
         }
       }
     },
+    "navigation.menu.services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services"
+          }
+        }
+      }
+    },
+    "navigation.menu.services.open-window" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Services Manager…"
+          }
+        }
+      }
+    },
     "navigation.upgrade-packages" : {
       "localizations" : {
         "cs" : {
