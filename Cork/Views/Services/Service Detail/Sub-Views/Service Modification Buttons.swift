@@ -19,6 +19,8 @@ struct ServiceModificationButtons: View
     {
         HStack(alignment: .center)
         {
+            Spacer()
+            
             Button
             {
                 Task
@@ -28,6 +30,7 @@ struct ServiceModificationButtons: View
             } label: {
                 Text("service.stop-\(service.name)")
             }
+            .disabled(service.status != .started)
             
             Button
             {
@@ -38,6 +41,7 @@ struct ServiceModificationButtons: View
             } label: {
                 Text("service.start-\(service.name)")
             }
+            .disabled(service.status == .scheduled || service.status == .started)
         }
         .padding()
     }
