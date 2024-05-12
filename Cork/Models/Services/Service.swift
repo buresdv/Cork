@@ -13,7 +13,7 @@ struct HomebrewService: Identifiable, Hashable, Codable
     var id: UUID = UUID()
     
     let name: String
-    let status: ServiceStatus
+    var status: ServiceStatus
     
     let user: String?
     

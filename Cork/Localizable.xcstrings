@@ -10967,6 +10967,9 @@
         }
       }
     },
+    "error.service-startup.could-not-start-service.description" : {
+
+    },
     "generic.false" : {
       "localizations" : {
         "cs" : {
@@ -20870,6 +20873,16 @@
         }
       }
     },
+    "service.start-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start %@"
+          }
+        }
+      }
+    },
     "service.status.label" : {
       "localizations" : {
         "de" : {
@@ -20894,6 +20907,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "상태"
+          }
+        }
+      }
+    },
+    "service.stop-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop %@"
           }
         }
       }

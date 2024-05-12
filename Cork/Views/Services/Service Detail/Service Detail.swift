@@ -53,6 +53,10 @@ struct ServiceDetailView: View
                         
                         ServiceLocationsView(service: service, serviceDetails: serviceDetails)
                     }
+                    
+                    Spacer()
+                    
+                    ServiceModificationButtons(service: service)
                 }
             }
         }

@@ -11,4 +11,18 @@ import Foundation
 class ServicesTracker: ObservableObject
 {
     @Published var services: Set<HomebrewService> = .init()
+
+    func changeServiceStatus(_ serviceToChange: HomebrewService, newStatus: ServiceStatus)
+    {       
+        self.services = Set(self.services.map({ service in
+            var copyService = service
+            
+            if copyService.name == serviceToChange.name
+            {
+                copyService.status = newStatus
+            }
+            
+            return copyService
+        }))
+    }
 }

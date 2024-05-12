@@ -251,6 +251,9 @@
 		63F6226F2BAF5B9700FBDB20 /* String - Window IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F6226E2BAF5B9700FBDB20 /* String - Window IDs.swift */; };
 		63F622712BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 63F622702BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy */; };
 		63F622722BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 63F622702BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy */; };
+		63FD6C342BF023C90015A672 /* Start Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD6C332BF023C90015A672 /* Start Service.swift */; };
+		63FD6C362BF0240F0015A672 /* Stop Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD6C352BF0240F0015A672 /* Stop Service.swift */; };
+		63FD6C382BF0251D0015A672 /* Service Modification Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD6C372BF0251D0015A672 /* Service Modification Buttons.swift */; };
 		63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */; };
 		63FFE5762A90CB5900F95E54 /* Download Data From URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */; };
 		63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE5782A90CB8700F95E54 /* Top Package.swift */; };
@@ -520,6 +523,9 @@
 		63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Download.swift"; sourceTree = "<group>"; };
 		63F6226E2BAF5B9700FBDB20 /* String - Window IDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Window IDs.swift"; sourceTree = "<group>"; };
 		63F622702BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		63FD6C332BF023C90015A672 /* Start Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start Service.swift"; sourceTree = "<group>"; };
+		63FD6C352BF0240F0015A672 /* Stop Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stop Service.swift"; sourceTree = "<group>"; };
+		63FD6C372BF0251D0015A672 /* Service Modification Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Modification Buttons.swift"; sourceTree = "<group>"; };
 		63FFE5732A90CB3F00F95E54 /* Load up Top Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Load up Top Packages.swift"; sourceTree = "<group>"; };
 		63FFE5752A90CB5900F95E54 /* Download Data From URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Download Data From URL.swift"; sourceTree = "<group>"; };
 		63FFE5782A90CB8700F95E54 /* Top Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package.swift"; sourceTree = "<group>"; };
@@ -895,6 +901,7 @@
 				6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */,
 				6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */,
 				6348D9172BAC986300DBBC55 /* Service Header Complex.swift */,
+				63FD6C372BF0251D0015A672 /* Service Modification Buttons.swift */,
 			);
 			path = "Sub-Views";
 			sourceTree = "<group>";
@@ -1147,6 +1154,7 @@
 		637D53A02BAB55C500E072DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				63FD6C322BF023990015A672 /* Modification */,
 				6348D9112BAC8E7800DBBC55 /* Service Details */,
 				637D53A52BAB578900E072DA /* Parsing */,
 				637D53A12BAB55E100E072DA /* Load up Services.swift */,
@@ -1689,6 +1697,15 @@
 			path = "Incremental Updating";
 			sourceTree = "<group>";
 		};
+		63FD6C322BF023990015A672 /* Modification */ = {
+			isa = PBXGroup;
+			children = (
+				63FD6C332BF023C90015A672 /* Start Service.swift */,
+				63FD6C352BF0240F0015A672 /* Stop Service.swift */,
+			);
+			path = Modification;
+			sourceTree = "<group>";
+		};
 		63FFE5722A90CB3F00F95E54 /* Discoverability */ = {
 			isa = PBXGroup;
 			children = (
@@ -1881,6 +1898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FD6C382BF0251D0015A672 /* Service Modification Buttons.swift in Sources */,
 				635E44932A891050002C034E /* Notifications Pane.swift in Sources */,
 				63ACBBEF2BA8991400B26D7E /* Licensing - Demo View.swift in Sources */,
 				63A8746C2990477A009F9533 /* Uninstall Packages.swift in Sources */,
@@ -1997,6 +2015,7 @@
 				6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */,
 				63BE67E62B0EC015000FD594 /* No Updates Available Box.swift in Sources */,
 				63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */,
+				63FD6C362BF0240F0015A672 /* Stop Service.swift in Sources */,
 				6387A6742AE9255700517436 /* Discoverability Category.swift in Sources */,
 				63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */,
 				6392FD132A921BAB00711B92 /* Initial.swift in Sources */,
@@ -2007,6 +2026,7 @@
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
 				6386529E2A88F1070001679E /* Send Notification.swift in Sources */,
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
+				63FD6C342BF023C90015A672 /* Start Service.swift in Sources */,
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				637D53962BAB517800E072DA /* Service.swift in Sources */,
 				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,

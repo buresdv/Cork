@@ -20,7 +20,6 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
             }
             return copyFormula
         }))
-
     }
     else
     {
