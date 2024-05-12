@@ -38,7 +38,7 @@ extension ServicesTracker
                             AppConstants.logger.debug("Service started, but there were some problems")
                     }
                     
-                    self.changeServiceStatus(serviceToStart, newStatus: .started)
+                    //self.changeServiceStatus(serviceToStart, newStatus: .started)
             case let .standardError(errorLine):
                     switch errorLine
                     {
@@ -49,8 +49,10 @@ extension ServicesTracker
                             throw ServiceStartingError.couldNotStartService(errorLine)
                     }
                     
-                    self.changeServiceStatus(serviceToStart, newStatus: .error)
+                    //self.changeServiceStatus(serviceToStart, newStatus: .error)
             }
         }
+        
+        try! await synchronizeServices(preserveIDs: true)
     }
 }

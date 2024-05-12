@@ -35,10 +35,12 @@ extension ServicesTracker
                     AppConstants.logger.debug("Unknown step in stopping \(serviceToStop.name)")
                 }
 
-                changeServiceStatus(serviceToStop, newStatus: .stopped)
+                //changeServiceStatus(serviceToStop, newStatus: .stopped)
             case let .standardError(errorLine):
                 AppConstants.logger.warning("Service stopping error: \(errorLine)")
             }
         }
+        
+        try! await synchronizeServices(preserveIDs: true)
     }
 }
