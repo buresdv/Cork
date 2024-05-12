@@ -222,6 +222,7 @@
 		63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51F6D299AAFE500203F3F /* Maintenance View.swift */; };
 		63D51F71299AEE5100203F3F /* Complex with Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D51F70299AEE5100203F3F /* Complex with Icon.swift */; };
 		63D5829E2BF14AD4004538FD /* Synchronize Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D5829D2BF14AD4004538FD /* Synchronize Services.swift */; };
+		63D582A02BF14F67004538FD /* Services Fatal Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D5829F2BF14F67004538FD /* Services Fatal Errors.swift */; };
 		63D67B712AC5A27F002EB992 /* Package System Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D67B702AC5A27F002EB992 /* Package System Info.swift */; };
 		63D67B732AC5AC78002EB992 /* Package Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D67B722AC5AC78002EB992 /* Package Dependencies.swift */; };
 		63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */; };
@@ -497,6 +498,7 @@
 		63D51F6D299AAFE500203F3F /* Maintenance View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Maintenance View.swift"; sourceTree = "<group>"; };
 		63D51F70299AEE5100203F3F /* Complex with Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Complex with Icon.swift"; sourceTree = "<group>"; };
 		63D5829D2BF14AD4004538FD /* Synchronize Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Synchronize Services.swift"; sourceTree = "<group>"; };
+		63D5829F2BF14F67004538FD /* Services Fatal Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services Fatal Errors.swift"; sourceTree = "<group>"; };
 		63D67B702AC5A27F002EB992 /* Package System Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package System Info.swift"; sourceTree = "<group>"; };
 		63D67B722AC5AC78002EB992 /* Package Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Dependencies.swift"; sourceTree = "<group>"; };
 		63D67B742AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding - Reverse Bool Value.swift"; sourceTree = "<group>"; };
@@ -1132,6 +1134,7 @@
 			isa = PBXGroup;
 			children = (
 				637D53982BAB51B300E072DA /* Service Status.swift */,
+				63D5829F2BF14F67004538FD /* Services Fatal Errors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1935,6 +1938,7 @@
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
 				63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */,
+				63D582A02BF14F67004538FD /* Services Fatal Errors.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
 				6322B5AE2BC4364C00D7E380 /* View - Disable animations.swift in Sources */,

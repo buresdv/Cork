@@ -90,7 +90,20 @@ struct HomebrewServicesView: View
         .task(priority: .userInitiated)
         {
             print("Control active state: \(controlActiveState)")
-            servicesTracker.services = try! await loadUpServices(servicesState: servicesState)
+            do
+            {
+                servicesTracker.services = try await loadUpServices(servicesState: servicesState)
+            }
+            catch let servicesLoadingError
+            {
+                servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
+            }
+        }
+        .alert(isPresented: $servicesState.isShowingError, error: servicesState.errorToShow)
+        { error in
+            
+        } message: { error in
+            Text(error.failureReason)
         }
     }
 }

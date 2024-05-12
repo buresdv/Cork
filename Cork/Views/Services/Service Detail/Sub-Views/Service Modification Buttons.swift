@@ -11,6 +11,7 @@ struct ServiceModificationButtons: View
 {
     
     @EnvironmentObject var servicesTracker: ServicesTracker
+    @EnvironmentObject var servicesState: ServicesState
     
     let service: HomebrewService
     
@@ -22,7 +23,7 @@ struct ServiceModificationButtons: View
             {
                 Task
                 {
-                    await servicesTracker.stopService(service)
+                    await servicesTracker.stopService(service, servicesState: servicesState)
                 }
             } label: {
                 Text("service.stop-\(service.name)")
@@ -32,18 +33,7 @@ struct ServiceModificationButtons: View
             {
                 Task
                 {
-                    do
-                    {
-                        try await servicesTracker.startService(service)
-                    }
-                    catch let serviceStartingError as ServiceStartingError
-                    {
-                        switch serviceStartingError
-                        {
-                            case .couldNotStartService(let serviceStartingError):
-                                AppConstants.logger.error("Could not start service: \(serviceStartingError)")
-                        }
-                    }
+                    await servicesTracker.startService(service, servicesState: servicesState)
                 }
             } label: {
                 Text("service.start-\(service.name)")

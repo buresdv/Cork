@@ -10967,9 +10967,6 @@
         }
       }
     },
-    "error.service-startup.could-not-start-service.description" : {
-
-    },
     "generic.false" : {
       "localizations" : {
         "cs" : {
@@ -21001,6 +20998,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld 서비스를 찾았습니다."
+          }
+        }
+      }
+    },
+    "services.error.could-not-load-services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load services"
+          }
+        }
+      }
+    },
+    "services.error.could-not-start-service.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not start %@"
+          }
+        }
+      }
+    },
+    "services.error.could-not-stop-service.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not stop %@"
+          }
+        }
+      }
+    },
+    "services.error.could-not-synchronize-services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not synchronize services"
+          }
+        }
+      }
+    },
+    "services.error.must-be-run-as-root" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This service must be started as root"
           }
         }
       }
