@@ -31,7 +31,7 @@ struct LicensingView: View
         }
         .onAppear
         {
-            #if DEBUG
+            #if SELF_COMPILED
             appState.licensingState = .selfCompiled
             #else
             AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
