@@ -22,6 +22,7 @@
 		630D08B929B67E4300802201 /* Brew Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630D08B829B67E4300802201 /* Brew Pane.swift */; };
 		631145492BF22633007C9A65 /* Gauge - Mini Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631145482BF22633007C9A65 /* Gauge - Mini Gauge.swift */; };
 		6311454B2BF23821007C9A65 /* Kill Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311454A2BF23821007C9A65 /* Kill Service.swift */; };
+		6311454E2BF23E1D007C9A65 /* Self-Compiled View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311454D2BF23E1D007C9A65 /* Self-Compiled View.swift */; };
 		6311F3D42B0A1DE7008A8067 /* Sudo Required For Removal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311F3D32B0A1DE7008A8067 /* Sudo Required For Removal.swift */; };
 		6311F3D62B0A1E3C008A8067 /* Sudo Required.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */; };
 		6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311F3D72B0A1EB6008A8067 /* Open Terminal.swift */; };
@@ -300,6 +301,7 @@
 		630D08B829B67E4300802201 /* Brew Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Pane.swift"; sourceTree = "<group>"; };
 		631145482BF22633007C9A65 /* Gauge - Mini Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gauge - Mini Gauge.swift"; sourceTree = "<group>"; };
 		6311454A2BF23821007C9A65 /* Kill Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kill Service.swift"; sourceTree = "<group>"; };
+		6311454D2BF23E1D007C9A65 /* Self-Compiled View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Self-Compiled View.swift"; sourceTree = "<group>"; };
 		6311F3D32B0A1DE7008A8067 /* Sudo Required For Removal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sudo Required For Removal.swift"; sourceTree = "<group>"; };
 		6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sudo Required.swift"; sourceTree = "<group>"; };
 		6311F3D72B0A1EB6008A8067 /* Open Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Open Terminal.swift"; sourceTree = "<group>"; };
@@ -639,6 +641,14 @@
 				63689F7E2ACC8FDC00BD354C /* Package Modification Buttons.swift */,
 			);
 			path = "Sub-Views";
+			sourceTree = "<group>";
+		};
+		6311454C2BF23E11007C9A65 /* Self-Compiled */ = {
+			isa = PBXGroup;
+			children = (
+				6311454D2BF23E1D007C9A65 /* Self-Compiled View.swift */,
+			);
+			path = "Self-Compiled";
 			sourceTree = "<group>";
 		};
 		6311F3D22B0A1DD9008A8067 /* Removal */ = {
@@ -1445,6 +1455,7 @@
 		63ACBBE82BA898BF00B26D7E /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
+				6311454C2BF23E11007C9A65 /* Self-Compiled */,
 				63ACBBEB2BA898D200B26D7E /* Bought */,
 				63ACBBEA2BA898CF00B26D7E /* Demo */,
 				63ACBBE92BA898C400B26D7E /* Not Bought Or Activated Demo */,
@@ -2090,6 +2101,7 @@
 				6311454B2BF23821007C9A65 /* Kill Service.swift in Sources */,
 				63006E1729AD143D00243E29 /* Dependency List.swift in Sources */,
 				637D53992BAB51B300E072DA /* Service Status.swift in Sources */,
+				6311454E2BF23E1D007C9A65 /* Self-Compiled View.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
 				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
@@ -2211,6 +2223,125 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6311454F2BF249A9007C9A65 /* Self-Compiled */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SELF_COMPILED;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+			};
+			name = "Self-Compiled";
+		};
+		631145502BF249A9007C9A65 /* Self-Compiled */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 55;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
+				DEVELOPMENT_TEAM = ZSVA6DVZHM;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cork/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SELF_COMPILED;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = "Self-Compiled";
+		};
+		631145512BF249A9007C9A65 /* Self-Compiled */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CorkHelp/CorkHelp-Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.corkhelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = help;
+			};
+			name = "Self-Compiled";
+		};
 		6340656E2871AA42001A2178 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2346,7 +2477,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 55;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2360,7 +2491,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2378,7 +2509,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 55;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2392,7 +2523,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2460,6 +2591,7 @@
 			buildConfigurations = (
 				6340656E2871AA42001A2178 /* Debug */,
 				6340656F2871AA42001A2178 /* Release */,
+				6311454F2BF249A9007C9A65 /* Self-Compiled */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2469,6 +2601,7 @@
 			buildConfigurations = (
 				634065712871AA42001A2178 /* Debug */,
 				634065722871AA42001A2178 /* Release */,
+				631145502BF249A9007C9A65 /* Self-Compiled */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2478,6 +2611,7 @@
 			buildConfigurations = (
 				C4C2A0E12A9108DA00E6F172 /* Debug */,
 				C4C2A0E22A9108DA00E6F172 /* Release */,
+				631145512BF249A9007C9A65 /* Self-Compiled */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

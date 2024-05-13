@@ -11809,6 +11809,26 @@
         }
       }
     },
+    "licensing.self-compiled.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you'd like to support the development of my apps, consider [buying Cork](https://corkmac.app)"
+          }
+        }
+      }
+    },
+    "licensing.self-compiled.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have compiled Cork yourself"
+          }
+        }
+      }
+    },
     "licensing.title" : {
       "localizations" : {
         "de" : {

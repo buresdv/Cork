@@ -25,10 +25,15 @@ struct LicensingView: View
                     Licensing_DemoView()
                 case .bought:
                     Licensing_BoughtView()
+                case .selfCompiled:
+                    Licensing_SelfCompiledView()
             }
         }
         .onAppear
         {
+            #if SELF_COMPILED
+            appState.licensingState = .selfCompiled
+            #else
             AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
             
             if hasValidatedEmail
@@ -49,6 +54,7 @@ struct LicensingView: View
                     }
                 }
             }
+            #endif
         }
     }
 }
