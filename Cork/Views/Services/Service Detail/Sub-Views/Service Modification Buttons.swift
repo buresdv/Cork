@@ -37,48 +37,52 @@ struct ServiceModificationButtons: View
                     .transition(.move(edge: .trailing).combined(with: .opacity))
             }
             
-            if service.status == .started || service.status == .scheduled
+            Group
             {
-                Button
+                if service.status == .started || service.status == .scheduled
                 {
-                    Task
+                    Button
                     {
-                        isModifyingDestructively = true
-                        
-                        isModifyingService = true
-                        
-                        defer
+                        Task
                         {
-                            isModifyingService = false
+                            isModifyingDestructively = true
+                            
+                            isModifyingService = true
+                            
+                            defer
+                            {
+                                isModifyingService = false
+                            }
+                            
+                            await servicesTracker.stopService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
                         }
-                        
-                        await servicesTracker.stopService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
+                    } label: {
+                        Text("service.stop-\(service.name)")
                     }
-                } label: {
-                    Text("service.stop-\(service.name)")
+                }
+                else
+                {
+                    Button
+                    {
+                        Task
+                        {
+                            isModifyingDestructively = false
+                            
+                            isModifyingService = true
+                            
+                            defer
+                            {
+                                isModifyingService = false
+                            }
+                            
+                            await servicesTracker.startService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
+                        }
+                    } label: {
+                        Text("service.start-\(service.name)")
+                    }
                 }
             }
-            else
-            {
-                Button
-                {
-                    Task
-                    {
-                        isModifyingDestructively = false
-                        
-                        isModifyingService = true
-                        
-                        defer
-                        {
-                            isModifyingService = false
-                        }
-                        
-                        await servicesTracker.startService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
-                    }
-                } label: {
-                    Text("service.start-\(service.name)")
-                }
-            }
+            .disabled(isModifyingService)
         }
         .padding()
         .animation(.easeIn, value: serviceModificationProgress.progress)
