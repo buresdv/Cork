@@ -13,4 +13,6 @@ enum LicensingState
     
     case demo
     case bought
+    
+    case selfCompiled
 }

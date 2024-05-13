@@ -96,26 +96,37 @@ struct CorkApp: App
                 }
                 .onAppear
                 {
+                    print("Licensing state: \(appDelegate.appState.licensingState)")
+                    #if DEBUG
+                    AppConstants.logger.debug("Will set licensing state to Self Compiled")
+                    appDelegate.appState.licensingState = .selfCompiled
+                    
+                    print("Licensing state: \(appDelegate.appState.licensingState)")
+                    #else
                     if !hasValidatedEmail
                     {
-                        if let demoActivatedAt
+                        if appDelegate.appState.licensingState != .selfCompiled
                         {
-                            let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
-                            
-                            AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-                            
-                            AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-                            
-                            if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
-                            { // Check if there is still time on the demo
-                              /// do stuff if there is
-                            }
-                            else
+                            if let demoActivatedAt
                             {
-                                hasFinishedLicensingWorkflow = false
+                                let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+                                
+                                AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
+                                
+                                AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+                                
+                                if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                                { // Check if there is still time on the demo
+                                  /// do stuff if there is
+                                }
+                                else
+                                {
+                                    hasFinishedLicensingWorkflow = false
+                                }
                             }
                         }
                     }
+                    #endif
                 }
                 .onAppear
                 {
