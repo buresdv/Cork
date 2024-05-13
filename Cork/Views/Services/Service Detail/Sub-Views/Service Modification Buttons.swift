@@ -30,12 +30,6 @@ struct ServiceModificationButtons: View
         HStack(alignment: .center)
         {
             Spacer()
-
-            if isModifyingService
-            {
-                ServiceModificationProgressView(serviceModificationProgress: serviceModificationProgress, isModifyingDestructively: isModifyingDestructively)
-                    .transition(.move(edge: .trailing).combined(with: .opacity))
-            }
             
             Group
             {
@@ -57,7 +51,15 @@ struct ServiceModificationButtons: View
                             await servicesTracker.stopService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
                         }
                     } label: {
-                        Text("service.stop-\(service.name)")
+                        HStack(alignment: .center)
+                        {
+                            if isModifyingService
+                            {
+                                ServiceModificationProgressView(serviceModificationProgress: serviceModificationProgress, isModifyingDestructively: isModifyingDestructively)
+                                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                            }
+                            Text("service.stop-\(service.name)")
+                        }
                     }
                 }
                 else
@@ -78,7 +80,15 @@ struct ServiceModificationButtons: View
                             await servicesTracker.startService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
                         }
                     } label: {
-                        Text("service.start-\(service.name)")
+                        HStack(alignment: .center)
+                        {
+                            if isModifyingService
+                            {
+                                ServiceModificationProgressView(serviceModificationProgress: serviceModificationProgress, isModifyingDestructively: isModifyingDestructively)
+                                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                            }
+                            Text("service.start-\(service.name)")
+                        }
                     }
                 }
             }
@@ -102,10 +112,8 @@ struct ServiceModificationProgressView: View
         {
             
         }
-        .gaugeStyle(.accessoryCircularCapacity)
-        .tint(isModifyingDestructively ? .red : .blue)
+        .gaugeStyle(MiniGaugeStyle(tint: isModifyingDestructively ? .red : .blue))
         .frame(width: 10, height: 10)
         .scaleEffect(0.35)
-        .padding(.trailing, 10)
     }
 }
