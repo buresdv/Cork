@@ -276,231 +276,58 @@ struct CorkApp: App
         }
         .commands
         {
-            CommandGroup(replacing: .appInfo)
+            Group // These groups have to be here otherwise SwiftUI shits the bed. No other reason at all 🤦
             {
-                Button
+                CommandGroup(replacing: .appInfo)
                 {
-                    openWindow(id: .aboutWindowID)
-                } label: {
-                    Text("navigation.about")
+                    aboutMenuBarSection
                 }
-            }
-            CommandGroup(before: .help) // The "Report Bugs" section
-            {
-                Menu
+                CommandGroup(before: .help) // The "Report Bugs" section
                 {
-                    Button
-                    {
-                        NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.md")!)
-                    } label: {
-                        Text("action.report-bugs.git-hub")
-                    }
-
-                    Button
-                    {
-                        let emailSubject: String = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
-                        let emailBody: String = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
-
-                        let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
-                        emailService?.recipients = ["bug-reporting@corkmac.app"]
-                        emailService?.subject = emailSubject
-                        emailService?.perform(withItems: [emailBody])
-
-                    } label: {
-                        Text("action.report-bugs.email")
-                    }
-
-                } label: {
-                    Text("action.report-bugs.menu-category")
+                    bugReportingMenuBarSection
                 }
-
-                Button
-                {
-                    NSWorkspace.shared.open(URL(string: "https://feedback.corkmac.app")!)
-                } label: {
-                    Text("action.submit-feedback")
-                }
-
-                Divider()
-            }
-
-            CommandGroup(before: .systemServices)
-            {
-                Button
-                {
-                    hasFinishedOnboarding = false
-                } label: {
-                    Text("onboarding.start")
-                }
-                .disabled(!hasFinishedOnboarding)
                 
-                Button
+                CommandGroup(before: .systemServices)
                 {
-                    hasFinishedLicensingWorkflow = false
-                } label: {
-                    Text("licensing.title")
+                    onboardingMenuBarSection
                 }
-
-                Divider()
-            }
-
-            SidebarCommands()
-            CommandGroup(replacing: .newItem) // Disables "New Window"
-            {}
-
-            CommandGroup(before: .sidebar)
-            {
-                Button
+                
+                SidebarCommands()
+                CommandGroup(replacing: .newItem) // Disables "New Window"
+                {}
+                
+                CommandGroup(before: .sidebar)
                 {
-                    appDelegate.appState.navigationSelection = nil
-                } label: {
-                    Text("action.go-to-status-page.menu-bar")
-                }
-                .disabled(appDelegate.appState.navigationSelection == nil)
-                Divider()
-            }
-
-            CommandGroup(before: .newItem)
-            {
-                Button
-                {
-                    Task(priority: .userInitiated)
-                    {
-                        do
-                        {
-                            brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
-
-                            isShowingBrewfileExporter = true
-                        }
-                        catch let brewfileExportError as BrewfileDumpingError
-                        {
-                            switch brewfileExportError
-                            {
-                            case .couldNotDetermineWorkingDirectory:
-                                    appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
-
-                            case .errorWhileDumpingBrewfile:
-                                appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile)
-
-                            case .couldNotReadBrewfile:
-                                appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
-                            }
-                        }
-                    }
-                } label: {
-                    Text("navigation.menu.import-export.export-brewfile")
-                }
-
-                Button
-                {
-                    Task(priority: .userInitiated)
-                    {
-                        do
-                        {
-                            let picker = NSOpenPanel()
-                            picker.allowsMultipleSelection = false
-                            picker.canChooseDirectories = false
-                            picker.allowedFileTypes = ["brewbak", ""]
-
-                            if picker.runModal() == .OK
-                            {
-                                guard let brewfileURL = picker.url
-                                else
-                                {
-                                    throw BrewfileReadingError.couldNotGetBrewfileLocation
-                                }
-
-                                AppConstants.logger.debug("\(brewfileURL.path)")
-
-                                do
-                                {
-                                    try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
-                                }
-                                catch
-                                {
-                                    appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
-                                    
-                                    appDelegate.appState.isShowingBrewfileImportProgress = false
-                                }
-                            }
-                        }
-                        catch let error as BrewfileReadingError
-                        {
-                            switch error
-                            {
-                            case .couldNotGetBrewfileLocation:
-                                appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
-
-                            case .couldNotImportFile:
-                                appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
-                            }
-                        }
-                    }
-                } label: {
-                    Text("navigation.menu.import-export.import-brewfile")
+                    goToHomeScreenMenuBarSection
                 }
             }
-
-            CommandGroup(after: .newItem)
+            
+            Group
             {
-                Divider()
-
-                Button
+                CommandGroup(before: .newItem)
                 {
-                    appDelegate.appState.isSearchFieldFocused = true
-                } label: {
-                    Text("navigation.menu.search")
+                    backupAndRestoreMenuBarSection
                 }
-                .keyboardShortcut("f", modifiers: .command)
-            }
-
-            CommandMenu("navigation.menu.packages")
-            {
-                Button
+                
+                CommandGroup(after: .newItem)
                 {
-                    appDelegate.appState.isShowingInstallationSheet.toggle()
-                } label: {
-                    Text("navigation.menu.packages.install")
+                    searchMenuBarSection
                 }
-                .keyboardShortcut("n")
-
-                Button
+                
+                CommandMenu("navigation.menu.packages")
                 {
-                    appDelegate.appState.isShowingAddTapSheet.toggle()
-                } label: {
-                    Text("navigation.menu.packages.add-tap")
+                    packagesMenuBarSection
                 }
-                .keyboardShortcut("n", modifiers: [.command, .option])
-
-                Divider()
-
-                Button
+                
+                CommandMenu("navigation.menu.services")
                 {
-                    appDelegate.appState.isShowingUpdateSheet = true
-                } label: {
-                    Text("navigation.menu.packages.update")
+                    servicesMenuBarSection
                 }
-                .keyboardShortcut("r")
-            }
-
-            CommandMenu("navigation.menu.maintenance")
-            {
-                Button
+                
+                CommandMenu("navigation.menu.maintenance")
                 {
-                    appDelegate.appState.isShowingMaintenanceSheet.toggle()
-                } label: {
-                    Text("navigation.menu.maintenance.perform")
+                    maintenanceMenuBarSection
                 }
-                .keyboardShortcut("m", modifiers: [.command, .shift])
-
-                Button
-                {
-                    appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
-                } label: {
-                    Text("navigation.menu.maintenance.delete-cached-downloads")
-                }
-                .keyboardShortcut("m", modifiers: [.command, .option])
-                .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
             }
         }
         .windowStyle(.automatic)
@@ -527,6 +354,8 @@ struct CorkApp: App
             SettingsView()
                 .environmentObject(appDelegate.appState)
         }
+        
+        // MARK: - Menu Bar Extra
         MenuBarExtra("app-name", systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
@@ -536,7 +365,253 @@ struct CorkApp: App
                 .environmentObject(outdatedPackageTracker)
         }
     }
+    
+    // MARK: - Menu Bar ViewBuilders
+    @ViewBuilder
+    var aboutMenuBarSection: some View
+    {
+        Button
+        {
+            openWindow(id: .aboutWindowID)
+        } label: {
+            Text("navigation.about")
+        }
+    }
+    
+    @ViewBuilder
+    var bugReportingMenuBarSection: some View
+    {
+        Menu
+        {
+            Button
+            {
+                NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.md")!)
+            } label: {
+                Text("action.report-bugs.git-hub")
+            }
+            
+            Button
+            {
+                let emailSubject: String = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
+                let emailBody: String = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
+                
+                let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
+                emailService?.recipients = ["bug-reporting@corkmac.app"]
+                emailService?.subject = emailSubject
+                emailService?.perform(withItems: [emailBody])
+                
+            } label: {
+                Text("action.report-bugs.email")
+            }
+            
+        } label: {
+            Text("action.report-bugs.menu-category")
+        }
+        
+        Button
+        {
+            NSWorkspace.shared.open(URL(string: "https://feedback.corkmac.app")!)
+        } label: {
+            Text("action.submit-feedback")
+        }
+        
+        Divider()
+    }
+    
+    @ViewBuilder
+    var onboardingMenuBarSection: some View
+    {
+        Button
+        {
+            hasFinishedOnboarding = false
+        } label: {
+            Text("onboarding.start")
+        }
+        .disabled(!hasFinishedOnboarding)
+        
+        Button
+        {
+            hasFinishedLicensingWorkflow = false
+        } label: {
+            Text("licensing.title")
+        }
+        
+        Divider()
+    }
+    
+    @ViewBuilder
+    var goToHomeScreenMenuBarSection: some View
+    {
+        Button
+        {
+            appDelegate.appState.navigationSelection = nil
+        } label: {
+            Text("action.go-to-status-page.menu-bar")
+        }
+        .disabled(appDelegate.appState.navigationSelection == nil)
+        Divider()
+    }
+    
+    @ViewBuilder
+    var backupAndRestoreMenuBarSection: some View
+    {
+        Button
+        {
+            Task(priority: .userInitiated)
+            {
+                do
+                {
+                    brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+                    
+                    isShowingBrewfileExporter = true
+                }
+                catch let brewfileExportError as BrewfileDumpingError
+                {
+                    switch brewfileExportError
+                    {
+                        case .couldNotDetermineWorkingDirectory:
+                            appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
+                            
+                        case .errorWhileDumpingBrewfile:
+                            appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile)
+                            
+                        case .couldNotReadBrewfile:
+                            appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
+                    }
+                }
+            }
+        } label: {
+            Text("navigation.menu.import-export.export-brewfile")
+        }
+        
+        Button
+        {
+            Task(priority: .userInitiated)
+            {
+                do
+                {
+                    let picker = NSOpenPanel()
+                    picker.allowsMultipleSelection = false
+                    picker.canChooseDirectories = false
+                    picker.allowedFileTypes = ["brewbak", ""]
+                    
+                    if picker.runModal() == .OK
+                    {
+                        guard let brewfileURL = picker.url
+                        else
+                        {
+                            throw BrewfileReadingError.couldNotGetBrewfileLocation
+                        }
+                        
+                        AppConstants.logger.debug("\(brewfileURL.path)")
+                        
+                        do
+                        {
+                            try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
+                        }
+                        catch
+                        {
+                            appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
+                            
+                            appDelegate.appState.isShowingBrewfileImportProgress = false
+                        }
+                    }
+                }
+                catch let error as BrewfileReadingError
+                {
+                    switch error
+                    {
+                        case .couldNotGetBrewfileLocation:
+                            appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
+                            
+                        case .couldNotImportFile:
+                            appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
+                    }
+                }
+            }
+        } label: {
+            Text("navigation.menu.import-export.import-brewfile")
+        }
+    }
+    
+    @ViewBuilder
+    var searchMenuBarSection: some View
+    {
+        Divider()
+        
+        Button
+        {
+            appDelegate.appState.isSearchFieldFocused = true
+        } label: {
+            Text("navigation.menu.search")
+        }
+        .keyboardShortcut("f", modifiers: .command)
+    }
+    
+    @ViewBuilder
+    var packagesMenuBarSection: some View
+    {
+        Button
+        {
+            appDelegate.appState.isShowingInstallationSheet.toggle()
+        } label: {
+            Text("navigation.menu.packages.install")
+        }
+        .keyboardShortcut("n")
+        
+        Button
+        {
+            appDelegate.appState.isShowingAddTapSheet.toggle()
+        } label: {
+            Text("navigation.menu.packages.add-tap")
+        }
+        .keyboardShortcut("n", modifiers: [.command, .option])
+        
+        Divider()
+        
+        Button
+        {
+            appDelegate.appState.isShowingUpdateSheet = true
+        } label: {
+            Text("navigation.menu.packages.update")
+        }
+        .keyboardShortcut("r")
+    }
+    
+    @ViewBuilder
+    var servicesMenuBarSection: some View
+    {
+        Button
+        {
+            openWindow(id: .servicesWindowID)
+        } label: {
+            Text("navigation.menu.services.open-window")
+        }
+        .keyboardShortcut("s", modifiers: .command)
+    }
+    
+    @ViewBuilder
+    var maintenanceMenuBarSection: some View
+    {
+        Button
+        {
+            appDelegate.appState.isShowingMaintenanceSheet.toggle()
+        } label: {
+            Text("navigation.menu.maintenance.perform")
+        }
+        .keyboardShortcut("m", modifiers: [.command, .shift])
+        
+        Button
+        {
+            appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
+        } label: {
+            Text("navigation.menu.maintenance.delete-cached-downloads")
+        }
+        .keyboardShortcut("m", modifiers: [.command, .option])
+        .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
+    }
 
+    // MARK: - Functions
     func setAppBadge(outdatedPackageNotificationType: OutdatedPackageNotificationType)
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both

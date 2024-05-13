@@ -15411,6 +15411,26 @@
         }
       }
     },
+    "navigation.menu.services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services"
+          }
+        }
+      }
+    },
+    "navigation.menu.services.open-window" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Services Manager…"
+          }
+        }
+      }
+    },
     "navigation.upgrade-packages" : {
       "localizations" : {
         "cs" : {
@@ -20850,6 +20870,16 @@
         }
       }
     },
+    "service.start-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start %@"
+          }
+        }
+      }
+    },
     "service.status.label" : {
       "localizations" : {
         "de" : {
@@ -20874,6 +20904,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "상태"
+          }
+        }
+      }
+    },
+    "service.stop-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop %@"
           }
         }
       }
@@ -20958,6 +20998,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld 서비스를 찾았습니다."
+          }
+        }
+      }
+    },
+    "services.error.could-not-load-services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load services"
+          }
+        }
+      }
+    },
+    "services.error.could-not-start-service.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not start %@"
+          }
+        }
+      }
+    },
+    "services.error.could-not-stop-service.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not stop %@"
+          }
+        }
+      }
+    },
+    "services.error.could-not-synchronize-services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not synchronize services"
+          }
+        }
+      }
+    },
+    "services.error.must-be-run-as-root" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This service must be started as root"
           }
         }
       }
