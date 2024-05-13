@@ -14,7 +14,7 @@ enum ServiceStoppingError: Error
 
 extension ServicesTracker
 {
-    func stopService(_ serviceToStop: HomebrewService, servicesState: ServicesState) async
+    func stopService(_ serviceToStop: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
     {
         for await output in shell(AppConstants.brewExecutablePath, ["services", "stop", serviceToStop.name])
         {
@@ -35,7 +35,10 @@ extension ServicesTracker
                     AppConstants.logger.debug("Unknown step in stopping \(serviceToStop.name)")
                 }
 
-            // changeServiceStatus(serviceToStop, newStatus: .stopped)
+                // changeServiceStatus(serviceToStop, newStatus: .stopped)
+
+                serviceModificationProgress.progress += 1
+
             case let .standardError(errorLine):
                 AppConstants.logger.error("Service stopping error: \(errorLine)")
 
@@ -45,6 +48,8 @@ extension ServicesTracker
 
         do
         {
+            serviceModificationProgress.progress = 5.0
+            
             try await synchronizeServices(preserveIDs: true)
         }
         catch let servicesSynchronizationError

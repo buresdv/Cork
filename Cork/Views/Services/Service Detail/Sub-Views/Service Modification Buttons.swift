@@ -7,36 +7,70 @@
 
 import SwiftUI
 
+class ServiceModificationProgress: ObservableObject
+{
+    @Published var progress: Double = 0.1
+}
+
 struct ServiceModificationButtons: View
 {
-    
     @EnvironmentObject var servicesTracker: ServicesTracker
     @EnvironmentObject var servicesState: ServicesState
-    
+
     let service: HomebrewService
+    
+    @ObservedObject private var serviceModificationProgress: ServiceModificationProgress = .init()
+    
+    @State private var isModifyingService: Bool = false
+    
+    @State private var isModifyingDestructively: Bool = false
     
     var body: some View
     {
         HStack(alignment: .center)
         {
             Spacer()
+
+            if isModifyingService
+            {
+                ServiceModificationProgressView(serviceModificationProgress: serviceModificationProgress, isModifyingDestructively: isModifyingDestructively)
+                    .transition(.move(edge: .trailing).combined(with: .opacity))
+            }
             
             Button
             {
                 Task
                 {
-                    await servicesTracker.stopService(service, servicesState: servicesState)
+                    isModifyingDestructively = true
+                    
+                    isModifyingService = true
+                    
+                    defer
+                    {
+                        isModifyingService = false
+                    }
+                    
+                    await servicesTracker.stopService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
                 }
             } label: {
                 Text("service.stop-\(service.name)")
             }
             .disabled(service.status != .started)
-            
+
             Button
             {
                 Task
                 {
-                    await servicesTracker.startService(service, servicesState: servicesState)
+                    isModifyingDestructively = false
+                    
+                    isModifyingService = true
+                    
+                    defer
+                    {
+                        isModifyingService = false
+                    }
+                    
+                    await servicesTracker.startService(service, servicesState: servicesState, serviceModificationProgress: serviceModificationProgress)
                 }
             } label: {
                 Text("service.start-\(service.name)")
@@ -44,5 +78,27 @@ struct ServiceModificationButtons: View
             .disabled(service.status == .scheduled || service.status == .started)
         }
         .padding()
+        .animation(.easeIn, value: serviceModificationProgress.progress)
+        .animation(.easeIn, value: isModifyingService)
+    }
+}
+
+struct ServiceModificationProgressView: View
+{
+    @ObservedObject var serviceModificationProgress: ServiceModificationProgress
+    
+    let isModifyingDestructively: Bool
+    
+    var body: some View
+    {
+        Gauge(value: serviceModificationProgress.progress, in: 0.0...5.0)
+        {
+            
+        }
+        .gaugeStyle(.accessoryCircularCapacity)
+        .tint(isModifyingDestructively ? .red : .blue)
+        .frame(width: 10, height: 10)
+        .scaleEffect(0.35)
+        .padding(.trailing, 10)
     }
 }
