@@ -97,10 +97,7 @@ struct CorkApp: App
                 .onAppear
                 {
                     print("Licensing state: \(appDelegate.appState.licensingState)")
-                    
-                    demoActivatedAt = nil
-                    hasValidatedEmail = false
-                    hasFinishedLicensingWorkflow = false
+
                     #if SELF_COMPILED
                     AppConstants.logger.debug("Will set licensing state to Self Compiled")
                     appDelegate.appState.licensingState = .selfCompiled
