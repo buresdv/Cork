@@ -1822,6 +1822,54 @@
         }
       }
     },
+    "about.thanks.2-3.purpose" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Implementovali způsob přeskočení licensí pro uživatele, kteří si Cork zkompilovali sami"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Implemented the way of skipping licensing for users who compiled Cork themselves"
+          }
+        }
+      }
+    },
+    "about.thanks.2.name" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
+        }
+      }
+    },
+    "about.thanks.3.name" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        }
+      }
+    },
     "about.title" : {
       "comment" : "MARK: - About",
       "extractionState" : "stale",
