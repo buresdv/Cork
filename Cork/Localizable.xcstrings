@@ -1829,7 +1829,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O Corku"
+            "value" : "O aplikaci Cork"
           }
         },
         "de" : {
@@ -3513,6 +3513,12 @@
     },
     "action.purge.confirm.title.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Určitě chcete balíček %@ odinstalovat a vymazat včechny jeho soubory?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4245,6 +4251,12 @@
     },
     "action.uninstall.confirm.title.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Určitě chcete odinstalovat balíček %@?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4337,6 +4349,12 @@
     },
     "action.warning.cannot-be-undone" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuto akci nemůžete vzít zpět"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4429,6 +4447,12 @@
     },
     "add-package.error.timed-out.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání nejoblíbenějších balíčků se nezdařilo"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5741,6 +5765,12 @@
     "add-package.install.wrong-architecture-%@.user-architecture-is-%@" : {
       "comment" : "Final string: (package) doesn't support (Apple Silicon / Intel) chips",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %1$@ nepodporuje čipy %2$@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5775,6 +5805,12 @@
     },
     "add-package.install.wrong-architecture.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček nepodporuje váš procesor"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9195,6 +9231,12 @@
     },
     "alert.fatal-%@-prevented-loading.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ zamezil načítání"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9263,6 +9305,12 @@
     },
     "alert.fatal.could-not-load-any-packages-%@.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání balíčků se nezdařilo (%@)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9328,7 +9376,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Umístění Homebrew se nepovedlo najít"
+            "value" : "Umístění Homebrew se nepodařilo najít"
           }
         },
         "de" : {
@@ -9383,6 +9431,12 @@
     },
     "alert.fatal.license-checking.could-not-encode-authorization-complex.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolujte, jestli správně funguje připojení k síti, a zkustě to znovu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9435,6 +9489,12 @@
     },
     "alert.fatal.license-checking.could-not-encode-authorization-complex.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se bezpečně připojit k autorizačnímu serveru"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10417,6 +10477,12 @@
     },
     "alert.restart-or-reinstall" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork znovu spusťte, popřípadě jej znovu nainstalujte"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10543,6 +10609,12 @@
     },
     "alert.unable-to-uninstall-%@.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ se nepodařilo odinstalovat"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10577,6 +10649,12 @@
     },
     "alert.unable-to-uninstall-dependency.message-%@-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@ je závislostí balíčku %1$@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11477,6 +11555,12 @@
     },
     "licensing.bought.body" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Děkuji za vaši podporu!"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11529,6 +11613,12 @@
     },
     "licensing.bought.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaše licence byla aktivována"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11581,6 +11671,12 @@
     },
     "licensing.demo-activated.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demo režim aktivní"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11633,6 +11729,12 @@
     },
     "licensing.demo.time-until-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demo můžete používat do %@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11685,6 +11787,12 @@
     },
     "licensing.email" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email, se kterým jste si koupili Cork:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11737,6 +11845,12 @@
     },
     "licensing.email-field.prompt" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11789,6 +11903,12 @@
     },
     "licensing.invalid-email" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento email nebyl nalezen"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11841,6 +11961,12 @@
     },
     "licensing.not-bought-or-activated.body" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork si můžete koupit kliknutím na tlačítko níže, nebo na [stránce Corku](https://corkmac.app).\nNejste si jistí, jestli je Cork pro vás? Vyzkoušejte zdarma sedmidenní demo."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11893,6 +12019,12 @@
     },
     "licensing.not-bought-or-activated.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Děkuji, že jste si stáhli Cork!"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11945,6 +12077,12 @@
     },
     "licensing.price.copy" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "za 25€"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11997,6 +12135,12 @@
     },
     "licensing.self-compiled.body" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokud chcete podpořit vývoj mých aplikací, zvažte si Cork [koupit](https://corkmac.app)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12007,6 +12151,12 @@
     },
     "licensing.self-compiled.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork jste si sami zkompilovali"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12017,6 +12167,12 @@
     },
     "licensing.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licence…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14370,7 +14526,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O Corku"
+            "value" : "O aplikaci Cork"
           }
         },
         "de" : {
@@ -14965,6 +15121,12 @@
     },
     "navigation.manage-services" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spravovat služby…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15637,6 +15799,12 @@
     },
     "navigation.menu.services" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Služby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15647,6 +15815,12 @@
     },
     "navigation.menu.services.open-window" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Správce služeb…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20265,6 +20439,12 @@
     },
     "service-details.contents.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání informací o službě…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20429,6 +20609,12 @@
     },
     "service-status-page.active-services.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyto služby běží normálně"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20463,6 +20649,36 @@
     },
     "service-status-page.errored-out-services-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld služby byly ukončeny s chybou"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld služeb bylo ukončeno s chybou"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jedna služba byla ukončena s chybou"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld služeb bylo ukončeno s chybou"
+                }
+              }
+            }
+          }
+        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -20566,7 +20782,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tyto služby buď zhavarovaly, nebo se je nepovedlo spustit"
+            "value" : "Tyto služby buď zhavarovaly, nebo se je nepodařilo spustit"
           }
         },
         "de" : {
@@ -20773,6 +20989,12 @@
     },
     "service-status-page.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání služeb…"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20887,6 +21109,36 @@
     },
     "service-status-page.unknown-services-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld služby mají neznámý stav"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld služeb má neznámý stav"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jedna služba má neznámý stav"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld služeb má neznámý stav"
+                }
+              }
+            }
+          }
+        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -20990,7 +21242,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stav těchto služeb se nepovedlo zjistit"
+            "value" : "Stav těchto služeb se nepodařilo zjistit"
           }
         },
         "de" : {
@@ -21027,6 +21279,12 @@
     },
     "service.error-log-location.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umístění protokolu chyb"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21061,6 +21319,12 @@
     },
     "service.exit-code.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výstupní kód"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21135,6 +21399,12 @@
     },
     "service.location.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umístění"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21169,6 +21439,12 @@
     },
     "service.log-location.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umístění protokolu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21278,6 +21554,12 @@
     },
     "service.schedulable.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naplánovatelné"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21312,6 +21594,12 @@
     },
     "service.start-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spustit %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21322,6 +21610,12 @@
     },
     "service.status.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stav"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21356,6 +21650,12 @@
     },
     "service.stop-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ukončit %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21366,6 +21666,12 @@
     },
     "service.user.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uživatel"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21400,6 +21706,12 @@
     },
     "services-sidebar.search.prompt" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Služby"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21434,40 +21746,136 @@
     },
     "services.count.%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezeny %lld služby"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezeno %lld služeb"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezena jedna služba"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nalezeno %lld služeb"
+                }
+              }
+            }
+          }
+        },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld Dienste gefunden"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld Dienste gefunden"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Dienste gefunden"
+                }
+              }
+            }
           }
         },
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld services found"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld service found"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld services found"
+                }
+              }
+            }
           }
         },
         "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld services trouvés"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld services trouvés"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld services trouvés"
+                }
+              }
+            }
           }
         },
         "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld 서비스를 찾았습니다."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld 서비스를 찾았습니다."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 서비스를 찾았습니다."
+                }
+              }
+            }
           }
         },
         "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld сервісів знайдено"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld сервісів знайдено"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld сервісів знайдено"
+                }
+              }
+            }
           }
         }
       }
     },
     "services.error.could-not-load-services" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání služeb se nezdařilo"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21478,6 +21886,12 @@
     },
     "services.error.could-not-start-service.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Službu %@ se nepodařilo spustit"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21488,6 +21902,12 @@
     },
     "services.error.could-not-stop-service.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Službu %@ se nepodařilo zastavit"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21498,6 +21918,12 @@
     },
     "services.error.could-not-synchronize-services" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Synchronizace služeb se nezdařila"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21508,6 +21934,12 @@
     },
     "services.error.must-be-run-as-root" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuto službu musíte spustit jako správce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21553,6 +21985,12 @@
     },
     "services.status.error" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zhavarovala"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21587,6 +22025,12 @@
     },
     "services.status.none" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádné"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21621,6 +22065,12 @@
     },
     "services.status.other" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ostatní"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21655,6 +22105,12 @@
     },
     "services.status.scheduled" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naplánováno"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21769,6 +22225,12 @@
     },
     "services.status.unknown" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neznámý"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21803,6 +22265,12 @@
     },
     "services.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Služby Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22131,7 +22599,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Opravdu chcete nastavit vlastní umístění Homebrew?"
+            "value" : "Určitě chcete nastavit vlastní umístění Homebrew?"
           }
         },
         "de" : {
@@ -25208,7 +25676,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Opravdu chcete vypnout automatické čištění zastaralých souborů?"
+            "value" : "Určitě chcete vypnout automatické čištění zastaralých souborů?"
           }
         },
         "de" : {
@@ -25380,6 +25848,12 @@
     },
     "settings.install-uninstall.package-removal.label" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalace balíčků:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25414,6 +25888,12 @@
     },
     "settings.install-uninstall.request-removal-confirmation.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Před mazáním balíčků požadovat potvrzení"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25568,7 +26048,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mazání podpůrných souborů může způsobit, že ostatní balíčky přestanou fungovat\nOpravdu chcete tuto možnost zapnout?"
+            "value" : "Mazání podpůrných souborů může způsobit, že ostatní balíčky přestanou fungovat\nUrčitě chcete tuto možnost zapnout?"
           }
         },
         "de" : {
@@ -32093,6 +32573,12 @@
     },
     "window.about" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O aplikaci Cork"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -32109,6 +32595,12 @@
     },
     "window.services" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Služby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
