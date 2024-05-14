@@ -1830,6 +1830,12 @@
             "value" : "Implementovali způsob přeskočení licensí pro uživatele, kteří si Cork zkompilovali sami"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einführung der Möglichkeit, die Lizenzierung für Benutzer zu überspringen, die Cork selbst kompiliert haben"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1852,6 +1858,12 @@
             "value" : "Dimitri Bouniol"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1869,6 +1881,12 @@
     "about.thanks.3.name" : {
       "localizations" : {
         "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ben Carlsson"
@@ -9339,6 +9357,12 @@
             "value" : "Balíček %@ zamezil načítání"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket %@ verhindert das Laden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9417,6 +9441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Načítání balíčků se nezdařilo (%@)"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pakete konnten nicht geladen werden (%@)"
           }
         },
         "en" : {
@@ -10601,6 +10631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork znovu spusťte, popřípadě jej znovu nainstalujte"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starten Sie Cork neu, und wenn das Problem weiterhin besteht, installieren Sie es neu"
           }
         },
         "en" : {
@@ -12291,6 +12327,12 @@
             "value" : "Pokud chcete podpořit vývoj mých aplikací, zvažte si Cork [koupit](https://corkmac.app)"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn du die Entwicklung meiner Anwendungen unterstützen möchtest, könntest du [Cork kaufen] (https://corkmac.app)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12311,6 +12353,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork jste si sami zkompilovali"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du hast Cork selbst kompiliert"
           }
         },
         "en" : {
@@ -15973,6 +16021,12 @@
             "value" : "Služby"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15993,6 +16047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Otevřít Správce služeb…"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienstemanager öffnen"
           }
         },
         "en" : {
@@ -21990,6 +22050,12 @@
             "value" : "Spustit %@"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starte %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22056,6 +22122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ukončit %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stoppe %@"
           }
         },
         "en" : {
@@ -22201,8 +22273,8 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "%lld Dienste gefunden"
+                  "state" : "translated",
+                  "value" : "%lld Dienst gefunden"
                 }
               },
               "other" : {
@@ -22326,6 +22398,12 @@
             "value" : "Načítání služeb se nezdařilo"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienste konnten nicht geladen werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22346,6 +22424,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Službu %@ se nepodařilo spustit"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ konnte nicht gestartet werden"
           }
         },
         "en" : {
@@ -22370,6 +22454,12 @@
             "value" : "Službu %@ se nepodařilo zastavit"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ konnte nicht gestoppt werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22392,6 +22482,12 @@
             "value" : "Synchronizace služeb se nezdařila"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konnte Dienste nicht synchronisieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22412,6 +22508,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tuto službu musíte spustit jako správce"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Dienst muss als root-Benutzer gestartet werden"
           }
         },
         "en" : {
@@ -33119,6 +33221,12 @@
             "value" : "O aplikaci Cork"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33145,6 +33253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Služby"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienste"
           }
         },
         "en" : {
