@@ -1835,6 +1835,12 @@
             "state" : "translated",
             "value" : "Implemented the way of skipping licensing for users who compiled Cork themselves"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реализовали отключения механизма лицензии для тех, кто скомпилировал Cork сам"
+          }
         }
       }
     },
@@ -1851,6 +1857,12 @@
             "state" : "translated",
             "value" : "Dimitri Bouniol"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
         }
       }
     },
@@ -1863,6 +1875,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ben Carlsson"
@@ -3591,6 +3609,12 @@
             "value" : " %@ 을 삭제 하시겠습니까?"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы точно хотите искоренить %@?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4329,6 +4353,12 @@
             "value" : "%@ 를 제거 하시겠습니까??"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы точно хотите удалить %@?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4427,6 +4457,12 @@
             "value" : "이 작업은 되돌릴 수 없습니다."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это действие невозможно отменить"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4523,6 +4559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "상위 패키지 로딩 시간 초과"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить популярные пакеты за выделенное время"
           }
         },
         "uk" : {
@@ -5843,6 +5885,12 @@
             "value" : "%1$@ 은(는) %2$@ 칩을 지원하지 않습니다."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ не поддерживает архитектуру %2$@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5881,6 +5929,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이 패키지는 해당 칩을 지원하지 않습니다."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот пакет не поддерживает архитектуру вашего компьютера"
           }
         },
         "uk" : {
@@ -9290,6 +9344,12 @@
             "state" : "translated",
             "value" : "Package %@ prevented loading"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork не удалось запуститься из-за пакета %@"
+          }
         }
       }
     },
@@ -9364,6 +9424,12 @@
             "state" : "translated",
             "value" : "Could not load packages (%@)"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить пакеты (%@)"
+          }
         }
       }
     },
@@ -9397,6 +9463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지를 동기화할 수 없습니다."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось синхронизировать проекты"
           }
         },
         "uk" : {
@@ -10536,6 +10608,12 @@
             "state" : "translated",
             "value" : "Restart Cork, and if the problem persists, reinstall it"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перезапустите Cork, и если проблема сохраняется, попробуйте переустановить его"
+          }
         }
       }
     },
@@ -10687,6 +10765,12 @@
             "value" : "%@을(를) 제거할 수 없습니다."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось удалить %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10725,6 +10809,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%2$@는 %1$@의 종속성입니다."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@ является зависимостью %1$@"
           }
         },
         "uk" : {
@@ -11233,6 +11323,12 @@
             "value" : "아니오"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11271,6 +11367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "네"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Да"
           }
         },
         "uk" : {
@@ -12194,6 +12296,12 @@
             "state" : "translated",
             "value" : "If you'd like to support the development of my apps, consider [buying Cork](https://corkmac.app)"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Если вы хотите поддержать разработку моих приложений, пожалуйста, [купите Cork](https://corkmac.app)"
+          }
         }
       }
     },
@@ -12209,6 +12317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You have compiled Cork yourself"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы собрали Cork самостоятельно"
           }
         }
       }
@@ -15199,6 +15313,12 @@
             "value" : "서비스 관리..."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Управление службами..."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15858,6 +15978,12 @@
             "state" : "translated",
             "value" : "Services"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Службы"
+          }
         }
       }
     },
@@ -15873,6 +15999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open Services Manager…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть диспетчер служб..."
           }
         }
       }
@@ -20517,6 +20649,12 @@
             "value" : "서비스 정보 로드 중..."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка информации о службах..."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20623,6 +20761,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld службы запущены"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб запущено"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служба запущена"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб запущено"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -20685,6 +20853,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "다음 서비스가 정상적으로 실행 중입니다."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эти службы работают штатно"
           }
         },
         "uk" : {
@@ -20793,6 +20967,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld службы завершились с ошибками"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб завершилось с ошибками"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служба завершилась с ошибками"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб завершилось с ошибками"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -20855,6 +21059,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이러한 서비스가 충돌했거나 전혀 시작할 수 없었습니다."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эти службы завершились с ошибкой, либо их не удалось запустить совсем"
           }
         },
         "uk" : {
@@ -20963,6 +21173,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld службы не запущены"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб не запущено"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служба не запущена"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб не запущено"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -21027,6 +21267,12 @@
             "value" : "이러한 서비스는 현재 실행되고 있지 않습니다."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эти службы сейчас не запущены"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21065,6 +21311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "서비스 로드 중..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка служб..."
           }
         },
         "uk" : {
@@ -21107,6 +21359,12 @@
             "value" : "서비스를 찾을 수 없습니다."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Служб не найдено"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21145,6 +21403,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "서비스 상태"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Состояние служб"
           }
         },
         "uk" : {
@@ -21253,6 +21517,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld службы в неизвестном состоянии"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб в неизвестном состоянии"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служба в неизвестном состоянии"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld служб в неизвестном состоянии"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -21317,6 +21611,12 @@
             "value" : "이러한 서비스의 상태를 확인할 수 없습니다."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Состояние этих служб не удается определить"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21355,6 +21655,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "오류 로그 위치"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл журнала ошибок"
           }
         },
         "uk" : {
@@ -21397,6 +21703,12 @@
             "value" : "종료 코드"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Код завершения"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21435,6 +21747,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "로드됨"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загружена?"
           }
         },
         "uk" : {
@@ -21477,6 +21795,12 @@
             "value" : "위치"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл описания службы"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21515,6 +21839,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "로그 위치"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл журнала"
           }
         },
         "uk" : {
@@ -21592,6 +21922,12 @@
             "value" : "루트 위치"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Корневая директория"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21632,6 +21968,12 @@
             "value" : "예약 가능"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поддерживает запланированный запуск"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21652,6 +21994,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Start %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запустить %@"
           }
         }
       }
@@ -21688,6 +22036,12 @@
             "value" : "상태"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Состояние"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21708,6 +22062,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stop %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остановить %@"
           }
         }
       }
@@ -21742,6 +22102,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "유저"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пользователь"
           }
         },
         "uk" : {
@@ -21782,6 +22148,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "서비스"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Службы"
           }
         },
         "uk" : {
@@ -21896,6 +22268,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%ld службы"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%ld служб"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%ld служба"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%ld служб"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -21929,6 +22331,12 @@
             "state" : "translated",
             "value" : "Could not load services"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить службы"
+          }
         }
       }
     },
@@ -21944,6 +22352,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not start %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось запустить %@"
           }
         }
       }
@@ -21961,6 +22375,12 @@
             "state" : "translated",
             "value" : "Could not stop %@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось остановить %@"
+          }
         }
       }
     },
@@ -21977,6 +22397,12 @@
             "state" : "translated",
             "value" : "Could not synchronize services"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось синхронизировать службы"
+          }
         }
       }
     },
@@ -21992,6 +22418,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This service must be started as root"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эта служба должен быть запущен от имени суперпользователя"
           }
         }
       }
@@ -22063,6 +22495,12 @@
             "value" : "오류 발생"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершена аварийно"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22101,6 +22539,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "없음"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отсутствует"
           }
         },
         "uk" : {
@@ -22143,6 +22587,12 @@
             "value" : "기타"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Другое"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22181,6 +22631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "예약됨"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запуск запланирован"
           }
         },
         "uk" : {
@@ -22223,6 +22679,12 @@
             "value" : "시작됨"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запущена"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22261,6 +22723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "중지됨"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Остановлена"
           }
         },
         "uk" : {
@@ -22303,6 +22771,12 @@
             "value" : "알 수 없음"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестен"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22341,6 +22815,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "홈브루 서비스"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Службы Homebrew"
           }
         },
         "uk" : {
@@ -25812,7 +26292,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Установка без очистки быстрее, но делает сам Homebrew медленнее.\nОтключение этой опции может сломать Homebrew.\nЭта опция также отвечает за автоматическую очистку в случае, если вы не использовали Homebrew больше 30 дней."
+            "value" : "Установка без очистки быстрее, но делает сам Homebrew медленнее.\nОтключение этой опции может сломать Homebrew.\nЭта опция также отвечает за автоматическую очистку в случае,\nесли вы не использовали Homebrew больше 30 дней."
           }
         },
         "uk" : {
@@ -25926,6 +26406,12 @@
             "value" : "패키지 제거:"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удаление пакетов:"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25964,6 +26450,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 제거 시 확인 필요"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запрашивать подтверждение при удалении пакетов"
           }
         },
         "uk" : {
@@ -32633,6 +33125,12 @@
             "value" : "About"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О приложении"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -32653,6 +33151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Службы"
           }
         }
       }
