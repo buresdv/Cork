@@ -224,12 +224,12 @@ extension AppState
         
         for cachedDownload in self.cachedDownloads
         {
-            if brewData.installedFormulae.contains(where: { $0.name.contains(cachedDownload.packageName) })
+            if brewData.installedFormulae.contains(where: { $0.name.contains(cachedDownload.packageName.onlyLetters) })
             { /// The cached package is a formula
                 AppConstants.logger.debug("Cached package \(cachedDownload.packageName) is a formula")
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula))
             }
-            else if brewData.installedCasks.contains(where: { $0.name.contains(cachedDownload.packageName) })
+            else if brewData.installedCasks.contains(where: { $0.name.contains(cachedDownload.packageName.onlyLetters) })
             { /// The cached package is a cask
                 AppConstants.logger.debug("Cached package \(cachedDownload.packageName) is a cask")
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask))
