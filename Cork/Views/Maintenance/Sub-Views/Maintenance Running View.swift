@@ -10,6 +10,7 @@ import SwiftUI
 struct MaintenanceRunningView: View
 {
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var brewData: BrewDataStorage
 
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
 

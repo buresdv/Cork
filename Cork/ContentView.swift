@@ -226,6 +226,8 @@ struct ContentView: View, Sendable
             brewData.installedCasks = await availableCasks
 
             tapData.addedTaps = await availableTaps
+            
+            appState.assignPackageTypeToCachedDownloads(brewData: brewData)
 
             do
             {

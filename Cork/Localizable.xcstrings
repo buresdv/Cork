@@ -11411,6 +11411,9 @@
         }
       }
     },
+    "cached-downloads.type.unknown" : {
+
+    },
     "generic.false" : {
       "localizations" : {
         "cs" : {
@@ -29947,6 +29950,7 @@
       }
     },
     "start-page.cached-downloads.graph.package-name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
