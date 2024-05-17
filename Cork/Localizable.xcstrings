@@ -1847,6 +1847,12 @@
             "state" : "translated",
             "value" : "Реализовали отключения механизма лицензии для тех, кто скомпилировал Cork сам"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实现了让用户跳过授权自行编译 Cork 的方法"
+          }
         }
       }
     },
@@ -1875,6 +1881,12 @@
             "state" : "translated",
             "value" : "Dimitri Bouniol"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
         }
       }
     },
@@ -1899,6 +1911,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ben Carlsson"
@@ -3638,6 +3656,12 @@
             "state" : "translated",
             "value" : "Ви впевнені, що хочете повністю видалити %@?"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你确认要移除 %@ 吗?"
+          }
         }
       }
     },
@@ -4382,6 +4406,12 @@
             "state" : "translated",
             "value" : "Ви впевнені, що хочете видалити %@?"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你确定要卸载 %@?"
+          }
         }
       }
     },
@@ -4486,6 +4516,12 @@
             "state" : "translated",
             "value" : "Цю дію неможливо відмінити"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此操作无法撤销"
+          }
         }
       }
     },
@@ -4589,6 +4625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Час на завантаження найкращих пакетів перевищено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载热门软件包超时"
           }
         }
       }
@@ -5914,6 +5956,12 @@
             "state" : "translated",
             "value" : "%1$@ не підтримує процесори %2$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ 不支持 %2$@ 芯片"
+          }
         }
       }
     },
@@ -5959,6 +6007,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Цей пакет не підтримує Ваш процесор"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的芯片不支持该软件包"
           }
         }
       }
@@ -9374,6 +9428,12 @@
             "state" : "translated",
             "value" : "Cork не удалось запуститься из-за пакета %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包 %@ 阻止了加载"
+          }
         }
       }
     },
@@ -9459,6 +9519,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось загрузить пакеты (%@)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包 (%@)"
           }
         }
       }
@@ -10650,6 +10716,12 @@
             "state" : "translated",
             "value" : "Перезапустите Cork, и если проблема сохраняется, попробуйте переустановить его"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请尝试重启 Cork。 如果问题仍然存在，请尝试重新安装"
+          }
         }
       }
     },
@@ -10812,6 +10884,12 @@
             "state" : "translated",
             "value" : "Неможливо видалити %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法卸载 %@"
+          }
         }
       }
     },
@@ -10857,6 +10935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%2$@ є залежністю %1$@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@ 是 %1$@ 的依赖"
           }
         }
       }
@@ -11370,6 +11454,12 @@
             "state" : "translated",
             "value" : "Ні"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "否"
+          }
         }
       }
     },
@@ -11415,6 +11505,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Так"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是"
           }
         }
       }
@@ -12344,6 +12440,12 @@
             "state" : "translated",
             "value" : "Если вы хотите поддержать разработку моих приложений, пожалуйста, [купите Cork](https://corkmac.app)"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "如果你想支持我的应用，请考虑[购买 Cork](https://corkmac.app)"
+          }
         }
       }
     },
@@ -12371,6 +12473,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы собрали Cork самостоятельно"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你自行编译了 Cork"
           }
         }
       }
@@ -15372,6 +15480,12 @@
             "state" : "translated",
             "value" : "Керувати сервісами.."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "管理服务..."
+          }
         }
       }
     },
@@ -16038,6 +16152,12 @@
             "state" : "translated",
             "value" : "Службы"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务"
+          }
         }
       }
     },
@@ -16065,6 +16185,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открыть диспетчер служб..."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开服务管理器..."
           }
         }
       }
@@ -20720,6 +20846,12 @@
             "state" : "translated",
             "value" : "Завантаження інформації про сервіс..."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载服务信息..."
+          }
         }
       }
     },
@@ -20880,6 +21012,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你有 %lld 个活跃服务"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -20925,6 +21069,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ці сервіси працюють нормально"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一下服务运行正常"
           }
         }
       }
@@ -21086,6 +21236,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你有 %lld 个服务存在错误"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -21131,6 +21293,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ці сервіси припинено або неможливо запустити"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这些服务可能崩溃或无法启动"
           }
         }
       }
@@ -21292,6 +21460,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你有 %lld 个非活跃服务"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -21337,6 +21517,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ці сервіси наразі не запущено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一下服务目前不在运行"
           }
         }
       }
@@ -21384,6 +21570,12 @@
             "state" : "translated",
             "value" : "Завантаження сервісів..."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载服务..."
+          }
         }
       }
     },
@@ -21430,6 +21622,12 @@
             "state" : "translated",
             "value" : "Сервіси не знайдено"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "没有找到任何服务"
+          }
         }
       }
     },
@@ -21475,6 +21673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Статус сервісів"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务状态"
           }
         }
       }
@@ -21636,6 +21840,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "你有 %lld 个服务处于未知状态"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -21681,6 +21897,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Статус цих сервісів неможливо визначити"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法确定这些服务状态"
           }
         }
       }
@@ -21728,6 +21950,12 @@
             "state" : "translated",
             "value" : "Місцезнаходження журналу"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "报错日志目录"
+          }
         }
       }
     },
@@ -21773,6 +22001,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Код завершення"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出 Cork"
           }
         }
       }
@@ -21820,6 +22054,12 @@
             "state" : "translated",
             "value" : "Завантажений"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已加载"
+          }
         }
       }
     },
@@ -21866,6 +22106,12 @@
             "state" : "translated",
             "value" : "Місцезнаходження"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目录"
+          }
         }
       }
     },
@@ -21911,6 +22157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Місцезнаходження журналу"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日志目录"
           }
         }
       }
@@ -21993,6 +22245,12 @@
             "state" : "translated",
             "value" : "Місцезнаходження кореню"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根目录"
+          }
         }
       }
     },
@@ -22039,6 +22297,12 @@
             "state" : "translated",
             "value" : "Плановий"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可定时"
+          }
         }
       }
     },
@@ -22066,6 +22330,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запустить %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动 %@"
           }
         }
       }
@@ -22113,6 +22383,12 @@
             "state" : "translated",
             "value" : "Статус"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状态"
+          }
         }
       }
     },
@@ -22140,6 +22416,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Остановить %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "停止 %@"
           }
         }
       }
@@ -22187,6 +22469,12 @@
             "state" : "translated",
             "value" : "Користувач"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用户"
+          }
         }
       }
     },
@@ -22232,6 +22520,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сервіси"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务"
           }
         }
       }
@@ -22387,6 +22681,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "已找到 %lld 个服务"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -22414,6 +22720,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось загрузить службы"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载服务"
           }
         }
       }
@@ -22443,6 +22755,12 @@
             "state" : "translated",
             "value" : "Не удалось запустить %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法启动 %@"
+          }
         }
       }
     },
@@ -22470,6 +22788,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось остановить %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法停止 %@"
           }
         }
       }
@@ -22499,6 +22823,12 @@
             "state" : "translated",
             "value" : "Не удалось синхронизировать службы"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法同步服务"
+          }
         }
       }
     },
@@ -22526,6 +22856,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Эта служба должен быть запущен от имени суперпользователя"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此服务必须以 root 身份启动"
           }
         }
       }
@@ -22608,6 +22944,12 @@
             "state" : "translated",
             "value" : "Завершений з помилкою"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "出现错误"
+          }
         }
       }
     },
@@ -22653,6 +22995,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Немає"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无"
           }
         }
       }
@@ -22700,6 +23048,12 @@
             "state" : "translated",
             "value" : "Інший"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他"
+          }
         }
       }
     },
@@ -22745,6 +23099,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запланований"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已定时"
           }
         }
       }
@@ -22792,6 +23152,12 @@
             "state" : "translated",
             "value" : "Запущений"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已启动"
+          }
         }
       }
     },
@@ -22837,6 +23203,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Завершений"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已停止"
           }
         }
       }
@@ -22884,6 +23256,12 @@
             "state" : "translated",
             "value" : "Невідомий"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
+          }
         }
       }
     },
@@ -22929,6 +23307,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сервіси Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 服务"
           }
         }
       }
@@ -26519,6 +26903,12 @@
             "state" : "translated",
             "value" : "Видаляємий пакет:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包移除:"
+          }
         }
       }
     },
@@ -26564,6 +26954,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Потребувати підтвердження при видаленні пакетів"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "删除软件包时需要确认"
           }
         }
       }
@@ -33244,6 +33640,12 @@
             "state" : "translated",
             "value" : "Відомості"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
+          }
         }
       }
     },
@@ -33271,6 +33673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Службы"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务"
           }
         }
       }
