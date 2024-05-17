@@ -203,7 +203,7 @@ class AppState: ObservableObject {
         
         self.cachedDownloads = self.cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
         
-        self.cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize))
+        self.cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
     }
 }
 
@@ -237,6 +237,7 @@ extension AppState
             else
             { /// The cached package cannot be found
                 AppConstants.logger.debug("Cached package \(cachedDownload.packageName) is unknown")
+                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .unknown))
             }
         }
         

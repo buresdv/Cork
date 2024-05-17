@@ -11,10 +11,10 @@ import Charts
 
 struct CachedDownload: Identifiable, Hashable
 {
-    var id: String { packageName }
+    var id: UUID = UUID()
 
     let packageName: String
     let sizeInBytes: Int
     
-    var packageType: PackageType?
+    var packageType: CachedDownloadType?
 }
