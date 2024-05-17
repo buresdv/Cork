@@ -28,7 +28,7 @@ struct PackagesIncludedInTapList: View
                     { package in
                         HStack(alignment: .center)
                         {
-                            Text(package)
+                            SanitizedPackageName(packageName: package, shouldShowVersion: true)
 
                             if brewData.installedFormulae.contains(where: { $0.name == package }) || brewData.installedCasks.contains(where: { $0.name == package })
                             {
