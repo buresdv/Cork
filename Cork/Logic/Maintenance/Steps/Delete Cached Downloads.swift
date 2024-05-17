@@ -12,7 +12,7 @@ func deleteCachedDownloads() -> Void
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedFormulaeDownloadsPath)
     {
-        if isSymlink(at: url)
+        if url.isSymlink()
         {
             try? FileManager.default.removeItem(at: url)
         }
@@ -25,7 +25,7 @@ func deleteCachedDownloads() -> Void
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedCasksDownloadsPath)
     {
-        if isSymlink(at: url)
+        if url.isSymlink()
         {
             try? FileManager.default.removeItem(at: url)
         }
@@ -38,7 +38,7 @@ func deleteCachedDownloads() -> Void
     /// This folder has the downloads themselves, so we have do **DELETE EVERYTHING THAT IS NOT A SYMLINK**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedDownloadsPath)
     {
-        if isSymlink(at: url)
+        if url.isSymlink()
         {
             AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
         }

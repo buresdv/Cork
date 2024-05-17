@@ -17,7 +17,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 {
     do
     {
-        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter{ !$0.hasPrefix(".") }
+        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter { !$0.hasPrefix(".") }
 
         let loadedPackages: Set<BrewPackage> = try await withThrowingTaskGroup(of: BrewPackage.self, returning: Set<BrewPackage>.self)
         { taskGroup in
@@ -30,7 +30,19 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         var temporaryURLStorage: [URL] = .init()
                         var temporaryVersionStorage: [String] = .init()
 
-                        let versions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
+                        let rawVersions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey, .isSymbolicLinkKey], options: .skipsHiddenFiles)
+
+                        let versions: [URL] = rawVersions.map
+                        { rawVersion in
+                            if rawVersion.isSymlink()
+                            {
+                                return rawVersion.resolvingSymlinksInPath()
+                            }
+                            else
+                            {
+                                return rawVersion
+                            }
+                        }
 
                         for version in versions
                         {

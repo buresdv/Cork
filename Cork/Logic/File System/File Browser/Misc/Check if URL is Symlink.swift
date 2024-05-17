@@ -7,21 +7,23 @@
 
 import Foundation
 
-func isSymlink(at url: URL) -> Bool
+extension URL
 {
-    
-    var isSymlink: Bool?
-    
-    do
+    func isSymlink() -> Bool
     {
-        let fileAttributes = try url.resourceValues(forKeys: [.isSymbolicLinkKey])
+        var isFileSymlink: Bool?
         
-        isSymlink = fileAttributes.isSymbolicLink
+        do
+        {
+            let fileAttributes = try self.resourceValues(forKeys: [.isSymbolicLinkKey])
+            
+            isFileSymlink = fileAttributes.isSymbolicLink
+        }
+        catch let symlinkCheckingError as NSError
+        {
+            AppConstants.logger.error("Symlink checking error: \(symlinkCheckingError.localizedDescription, privacy: .public)")
+        }
+        
+        return isFileSymlink!
     }
-    catch let symlinkCheckingError as NSError
-    {
-        AppConstants.logger.error("\(symlinkCheckingError.localizedDescription, privacy: .public)")
-    }
-    
-    return isSymlink!
 }
