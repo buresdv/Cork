@@ -24,6 +24,8 @@ struct InstallationAndUninstallationPane: View
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
     @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled = true
+    
+    @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
 
     @EnvironmentObject var settingsState: SettingsState
 
@@ -123,6 +125,7 @@ struct InstallationAndUninstallationPane: View
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))
                         }
+                        .disabled(!allowAdvancedHomebrewSettings)
 
                         VStack(alignment: .leading)
                         {
@@ -147,6 +150,7 @@ struct InstallationAndUninstallationPane: View
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))
                         }
+                        .disabled(!allowAdvancedHomebrewSettings)
                     }
                 } label: {
                     Text("settings.dangerous")
