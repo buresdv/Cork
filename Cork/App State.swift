@@ -63,6 +63,8 @@ class AppState: ObservableObject {
     @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
     @Published var cachedDownloads: [CachedDownload] = .init()
     
+    private var cachedDownloadsTemp: [CachedDownload] = .init()
+    
     @Published var taggedPackageNames: Set<String> = .init()
     
     @Published var corruptedPackage: String = ""
@@ -208,5 +210,36 @@ class AppState: ObservableObject {
 private extension UNUserNotificationCenter {
     func authorizationStatus() async -> UNAuthorizationStatus {
         await notificationSettings().authorizationStatus
+    }
+}
+
+
+extension AppState
+{
+    func assignPackageTypeToCachedDownloads(brewData: BrewDataStorage) -> Void
+    {
+        var cachedDownloadsTracker: [CachedDownload] = .init()
+        
+        AppConstants.logger.debug("Package tracker in cached download assignment function has \(brewData.installedFormulae.count + brewData.installedCasks.count) packages")
+        
+        for cachedDownload in self.cachedDownloads
+        {
+            if brewData.installedFormulae.contains(where: { $0.name.contains(cachedDownload.packageName) })
+            { /// The cached package is a formula
+                AppConstants.logger.debug("Cached package \(cachedDownload.packageName) is a formula")
+                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula))
+            }
+            else if brewData.installedCasks.contains(where: { $0.name.contains(cachedDownload.packageName) })
+            { /// The cached package is a cask
+                AppConstants.logger.debug("Cached package \(cachedDownload.packageName) is a cask")
+                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask))
+            }
+            else
+            { /// The cached package cannot be found
+                AppConstants.logger.debug("Cached package \(cachedDownload.packageName) is unknown")
+            }
+        }
+        
+        self.cachedDownloads = cachedDownloadsTracker
     }
 }

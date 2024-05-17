@@ -13,6 +13,44 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     var id = UUID()
     let name: String
     
+    lazy var sanitizedName: String? =
+    {
+        var packageNameWithoutTap: String
+        { /// First, remove the tap name from the package name if it has it
+            if self.name.contains("/")
+            { /// Check if the package name contains slashes (this would mean it includes the tap name)
+                if let sanitizedName = try? regexMatch(from: self.name, regex: "[^\\/]*$")
+                {
+                    return sanitizedName
+                }
+                else
+                {
+                    return self.name
+                }
+            }
+            else
+            {
+                return self.name
+            }
+        }
+        
+        if packageNameWithoutTap.contains("@")
+        { /// Only do the matching if the name contains @
+            if let sanitizedName = try? regexMatch(from: packageNameWithoutTap, regex: ".+?(?=@)")
+            { /// Try to REGEX-match the name out of the raw name
+                return sanitizedName
+            }
+            else
+            { /// If the REGEX matching fails, just show the entire name
+                return packageNameWithoutTap
+            }
+        }
+        else
+        { /// If the name doesn't contain the @, don't do anything
+            return packageNameWithoutTap
+        }
+    }()
+    
     let isCask: Bool
     var isTagged: Bool = false
     
@@ -33,6 +71,11 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     mutating func changeBeingModifiedStatus() -> Void
     {
         self.isBeingModified.toggle()
+    }
+    
+    mutating func purgeSanitizedName() -> Void
+    {
+        self.sanitizedName = nil
     }
     
     /// Open the location of this package in Finder

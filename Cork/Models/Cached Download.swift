@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Charts
 
 struct CachedDownload: Identifiable, Hashable
 {
@@ -13,4 +15,6 @@ struct CachedDownload: Identifiable, Hashable
 
     let packageName: String
     let sizeInBytes: Int
+    
+    var packageType: PackageType?
 }

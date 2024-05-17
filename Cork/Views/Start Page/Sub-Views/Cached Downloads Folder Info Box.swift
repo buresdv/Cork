@@ -40,10 +40,24 @@ struct CachedDownloadsFolderInfoBox: View
                 {
                     ForEach(appState.cachedDownloads)
                     { cachedPackage in
+                        
+                        var cachedPackageColor: Color
+                        {
+                            switch cachedPackage.packageType
+                            {
+                                case .formula:
+                                    return .purple
+                                case .cask:
+                                    return .orange
+                                default:
+                                    return .mint
+                            }
+                        }
+                        
                         BarMark(
                             x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
                         )
-                        .foregroundStyle(by: .value("start-page.cached-downloads.graph.package-name", cachedPackage.packageName))
+                        .foregroundStyle(cachedPackageColor)
                         .annotation(position: .overlay, alignment: .center) {
                             Text(cachedPackage.packageName)
                                 .foregroundColor(.white)
@@ -62,7 +76,11 @@ struct CachedDownloadsFolderInfoBox: View
                 }
                 .chartXAxis(.hidden)
                 .chartXScale(type: .linear)
-                .chartLegend(.hidden)
+                .chartForegroundStyleScale([
+                    PackageType.formula: .purple,
+                    PackageType.cask: .orange
+                ])
+                .chartLegend(position: .bottomLeading, spacing: 10)
                 .cornerRadius(2)
                 .frame(height: 20)
             }

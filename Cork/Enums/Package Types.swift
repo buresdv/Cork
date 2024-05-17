@@ -6,8 +6,21 @@
 //
 
 import Foundation
+import Charts
 
-enum PackageType
+enum PackageType: String, CustomStringConvertible, Plottable
 {
-    case formula, cask
+    case formula
+    case cask
+    
+    var description: String
+    {
+        switch self
+        {
+            case .formula:
+                return String(localized: "package-details.type.formula")
+            case .cask:
+                return String(localized: "package-details.type.cask")
+        }
+    }
 }
