@@ -17,7 +17,21 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 {
     do
     {
-        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter { !$0.hasPrefix(".") }
+        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter { !$0.hasPrefix(".") }.filter { item in
+            /// Filter out all symlinks from the folder
+            let completeURLtoItem: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
+            
+            print(completeURLtoItem)
+            
+            guard let isSymlink = completeURLtoItem.isSymlink() else
+            {
+                print("Couldn't determine if \(completeURLtoItem) is symlink")
+                return false
+            }
+            
+            print("Is \(item) symlink? \(isSymlink)")
+            return !isSymlink
+        }
 
         let loadedPackages: Set<BrewPackage> = try await withThrowingTaskGroup(of: BrewPackage.self, returning: Set<BrewPackage>.self)
         { taskGroup in
@@ -30,26 +44,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         var temporaryURLStorage: [URL] = .init()
                         var temporaryVersionStorage: [String] = .init()
 
-                        let rawVersions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey, .isSymbolicLinkKey], options: .skipsHiddenFiles)
-
-                        let versions: [URL] = rawVersions.map
-                        { rawVersion in
-                            if let isSymlink = rawVersion.isSymlink()
-                            {
-                                if isSymlink
-                                {
-                                    return rawVersion.resolvingSymlinksInPath()
-                                }
-                                else
-                                {
-                                    return rawVersion
-                                }
-                            }
-                            else
-                            {
-                                return rawVersion
-                            }
-                        }
+                        let versions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
 
                         for version in versions
                         {
