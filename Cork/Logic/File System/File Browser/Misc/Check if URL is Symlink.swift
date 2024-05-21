@@ -9,21 +9,19 @@ import Foundation
 
 extension URL
 {
-    func isSymlink() -> Bool
+    func isSymlink() -> Bool?
     {
-        var isFileSymlink: Bool?
-        
         do
         {
             let fileAttributes = try self.resourceValues(forKeys: [.isSymbolicLinkKey])
             
-            isFileSymlink = fileAttributes.isSymbolicLink
+            return fileAttributes.isSymbolicLink
         }
-        catch let symlinkCheckingError as NSError
+        catch let symlinkCheckingError
         {
-            AppConstants.logger.error("Symlink checking error: \(symlinkCheckingError.localizedDescription, privacy: .public)")
+            AppConstants.logger.error("Error checking if \(self) is symlink: \(symlinkCheckingError)")
+            
+            return nil
         }
-        
-        return isFileSymlink!
     }
 }

@@ -12,39 +12,60 @@ func deleteCachedDownloads() -> Void
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedFormulaeDownloadsPath)
     {
-        if url.isSymlink()
+        if let isSymlink = url.isSymlink()
         {
-            try? FileManager.default.removeItem(at: url)
+            if isSymlink
+            {
+                try? FileManager.default.removeItem(at: url)
+            }
+            else
+            {
+                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+            }
         }
         else
         {
-            AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+            AppConstants.logger.warning("Could not check symlink status of \(url)")
         }
     }
     
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedCasksDownloadsPath)
     {
-        if url.isSymlink()
+        if let isSymlink = url.isSymlink()
         {
-            try? FileManager.default.removeItem(at: url)
+            if isSymlink
+            {
+                try? FileManager.default.removeItem(at: url)
+            }
+            else
+            {
+                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+            }
         }
         else
         {
-            AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+            AppConstants.logger.warning("Could not check symlink status of \(url)")
         }
     }
 
     /// This folder has the downloads themselves, so we have do **DELETE EVERYTHING THAT IS NOT A SYMLINK**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedDownloadsPath)
     {
-        if url.isSymlink()
+        if let isSymlink = url.isSymlink()
         {
-            AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+            if isSymlink
+            {
+                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+            }
+            else
+            {
+                try? FileManager.default.removeItem(at: url)
+            }
         }
         else
         {
-            try? FileManager.default.removeItem(at: url)
+            AppConstants.logger.warning("Could not check symlink status of \(url)")
         }
     }
 }

@@ -34,9 +34,16 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 
                         let versions: [URL] = rawVersions.map
                         { rawVersion in
-                            if rawVersion.isSymlink()
+                            if let isSymlink = rawVersion.isSymlink()
                             {
-                                return rawVersion.resolvingSymlinksInPath()
+                                if isSymlink
+                                {
+                                    return rawVersion.resolvingSymlinksInPath()
+                                }
+                                else
+                                {
+                                    return rawVersion
+                                }
                             }
                             else
                             {
