@@ -21,15 +21,11 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
             /// Filter out all symlinks from the folder
             let completeURLtoItem: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
             
-            print(completeURLtoItem)
-            
             guard let isSymlink = completeURLtoItem.isSymlink() else
             {
-                print("Couldn't determine if \(completeURLtoItem) is symlink")
                 return false
             }
             
-            print("Is \(item) symlink? \(isSymlink)")
             return !isSymlink
         }
 

@@ -111,7 +111,7 @@ struct AppConstants
 
     // MARK: - Brew Cache
 
-    static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
+    static let brewCachePath: URL = URL.libraryDirectory.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
 
     /// These two have the symlinks to the actual downloads
     static let brewCachedFormulaeDownloadsPath: URL = brewCachePath
