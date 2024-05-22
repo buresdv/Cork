@@ -23799,6 +23799,7 @@
       }
     },
     "settings.brew.custom-homebrew-path.is-using-custom-location-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -23910,6 +23911,7 @@
       }
     },
     "settings.brew.custom-homebrew-path.is-using-default-location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
