@@ -421,7 +421,7 @@ struct CorkApp: App
         
         Button
         {
-            NSWorkspace.shared.open(URL(string: "https://feedback.corkmac.app")!)
+            NSWorkspace.shared.open(URL(string: "https://forum.corkmac.app/t/cork")!)
         } label: {
             Text("action.submit-feedback")
         }
