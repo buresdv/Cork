@@ -27,9 +27,12 @@ struct CustomHomebrewExecutableView: View
                 {
                     VStack(alignment: .leading)
                     {
-                        #warning("Replace this monstrosity with a better URL path")
-                        PathControl(urlToShow: URL(filePath: AppConstants.brewExecutablePath.path), style: .standard)
-                            .disabled(true)
+                        GroupBox
+                        {
+                            #warning("Replace this monstrosity with a better URL path")
+                            PathControl(urlToShow: URL(filePath: AppConstants.brewExecutablePath.path), style: .standard)
+                                .disabled(true)
+                        }
 
                         Spacer()
 
