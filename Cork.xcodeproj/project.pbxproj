@@ -42,6 +42,7 @@
 		6322B5AE2BC4364C00D7E380 /* View - Disable animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6322B5AD2BC4364C00D7E380 /* View - Disable animations.swift */; };
 		632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */; };
 		6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */; };
+		632C9A172BFE1083000912CD /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
 		632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap View.swift */; };
@@ -322,6 +323,7 @@
 		6322B5AD2BC4364C00D7E380 /* View - Disable animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Disable animations.swift"; sourceTree = "<group>"; };
 		632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full-Size Grouped Form.swift"; sourceTree = "<group>"; };
 		6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Apply Uninstallation Spinner.swift"; sourceTree = "<group>"; };
+		632C9A162BFE1083000912CD /* String - Letters Only.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String - Letters Only.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
 		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		632FD2942995A3920029FC49 /* Add Tap View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap View.swift"; sourceTree = "<group>"; };
@@ -1548,6 +1550,7 @@
 		63CD0274288B22C8004AE2EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				632C9A162BFE1083000912CD /* String - Letters Only.swift */,
 				63B8D4F9299E442300AA7CFA /* View - Conditional Modifiers.swift */,
 				63AC992F29A7814700B38D7C /* String - Contains Element in Array.swift */,
 				63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */,
@@ -2187,6 +2190,7 @@
 				63085AFC2BB99C9C005F92FD /* Submit System Version.swift in Sources */,
 				639D45DF2BB85D3100459DE3 /* No Content Available.swift in Sources */,
 				634065652871AA42001A2178 /* CorkApp.swift in Sources */,
+				632C9A172BFE1083000912CD /* String - Letters Only.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
