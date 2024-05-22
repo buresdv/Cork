@@ -33,7 +33,7 @@ struct InstallationInitialView: View
     
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
-    @FocusState var isSearchFieldFocused: Bool
+    @State var isSearchFieldFocused: Bool = true
 
     var body: some View
     {
@@ -65,15 +65,9 @@ struct InstallationInitialView: View
                     }
                 }
             }
-
-            TextField("add-package.search.prompt", text: $packageRequested)
-            { _ in
+            
+            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt")) {
                 foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
-            }
-            .focused($isSearchFieldFocused)
-            .onAppear
-            {
-                isSearchFieldFocused.toggle()
             }
 
             HStack
