@@ -286,6 +286,7 @@ struct ContentView: View, Sendable
             {
                 AppConstants.logger.info("Will calculate cached downloads")
                 await appState.loadCachedDownloadedPackages()
+                appState.assignPackageTypeToCachedDownloads(brewData: brewData)
             }
         }
         .onChange(of: appState.cachedDownloadsFolderSize)
@@ -295,6 +296,7 @@ struct ContentView: View, Sendable
                 AppConstants.logger.info("Will recalculate cached downloads")
                 appState.cachedDownloads = .init()
                 await appState.loadCachedDownloadedPackages()
+                appState.assignPackageTypeToCachedDownloads(brewData: brewData)
             }
         }
         .onChange(of: areNotificationsEnabled, perform: { newValue in

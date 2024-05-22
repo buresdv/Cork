@@ -194,5 +194,8 @@ struct AddFormulaView: View
             }
         }
         .padding()
+        .onDisappear {
+            appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+        }
     }
 }
