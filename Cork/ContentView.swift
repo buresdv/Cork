@@ -418,7 +418,7 @@ struct ContentView: View, Sendable
                     secondaryButton: .default(Text("action.reveal-in-finder"), action: {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
                         {
-                            NSWorkspace.shared.open(AppConstants.documentsDirectoryPath)
+                            AppConstants.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
                         }
                         else
                         {

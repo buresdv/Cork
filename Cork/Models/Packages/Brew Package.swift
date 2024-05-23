@@ -109,7 +109,9 @@ struct BrewPackage: Identifiable, Equatable, Hashable
             throw FinderRevealError.couldNotFindPackageInParent
         }
         
-        NSWorkspace.shared.selectFile(packageURL.path, inFileViewerRootedAtPath: packageURL.deletingLastPathComponent().path)
+        packageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
+        
+        //NSWorkspace.shared.selectFile(packageURL.path, inFileViewerRootedAtPath: packageURL.deletingLastPathComponent().path)
     }
 }
 

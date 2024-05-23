@@ -23,8 +23,6 @@ struct HomebrewService: Identifiable, Hashable, Codable
     
     func revealInFinder()
     {
-        let serviceParentFolder: URL = location.deletingLastPathComponent()
-        
-        NSWorkspace.shared.selectFile(location.path, inFileViewerRootedAtPath: serviceParentFolder.path)
+        location.revealInFinder(.openParentDirectoryAndHighlightTarget)
     }
 }
