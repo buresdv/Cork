@@ -107,6 +107,14 @@ struct StartPage: View
             if outdatedPackageTracker.allOutdatedPackages.isEmpty
             {
                 appState.isCheckingForPackageUpdates = true
+                
+                defer
+                {
+                    withAnimation
+                    {
+                        appState.isCheckingForPackageUpdates = false
+                    }
+                }
 
                 await shell(AppConstants.brewExecutablePath, ["update"])
 
@@ -127,11 +135,6 @@ struct StartPage: View
                 catch
                 {
                     AppConstants.logger.error("Unspecified error while pulling package updates")
-                }
-
-                withAnimation
-                {
-                    appState.isCheckingForPackageUpdates = false
                 }
             }
         }

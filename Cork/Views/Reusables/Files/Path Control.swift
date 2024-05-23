@@ -14,12 +14,20 @@ struct PathControl: NSViewRepresentable
     let urlToShow: URL
     let style: NSPathControl.Style
 
+    let width: CGFloat?
+    
     func makeNSView(context _: Context) -> NSPathControl
     {
         let pathControl = NSPathControl()
 
         pathControl.pathStyle = style
         pathControl.url = urlToShow
+        
+        if let width
+        {
+            pathControl.translatesAutoresizingMaskIntoConstraints = false
+            pathControl.widthAnchor.constraint(lessThanOrEqualToConstant: width).isActive = true
+        }
 
         return pathControl
     }
