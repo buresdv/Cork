@@ -30,7 +30,7 @@ struct CustomHomebrewExecutableView: View
                         GroupBox
                         {
                             #warning("Replace this monstrosity with a better URL path")
-                            PathControl(urlToShow: URL(filePath: AppConstants.brewExecutablePath.path), style: .standard, width: 250)
+                            PathControl(urlToShow: URL(filePath: AppConstants.brewExecutablePath.path), style: .standard, width: 295)
                                 .disabled(true)
                         }
 
