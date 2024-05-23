@@ -22,8 +22,17 @@ func submitSystemVersion() async throws -> Void
     
     let session: URLSession = URLSession(configuration: sessionConfiguration)
     
+    var isSelfCompiled: Bool = false
+    #if SELF_COMPILED
+    isSelfCompiled = true
+    #endif
+    
     var urlComponents = URLComponents(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
-    urlComponents?.queryItems = await [URLQueryItem(name: "systemVersion", value: String(ProcessInfo.processInfo.operatingSystemVersion.majorVersion)), URLQueryItem(name: "corkVersion", value: String(NSApplication.appVersion!))]
+    urlComponents?.queryItems = await [
+        URLQueryItem(name: "systemVersion", value: String(ProcessInfo.processInfo.operatingSystemVersion.majorVersion)),
+        URLQueryItem(name: "corkVersion", value: String(NSApplication.appVersion!)),
+        URLQueryItem(name: "isSelfCompiled", value: String(isSelfCompiled))
+    ]
     guard let modifiedURL = urlComponents?.url else {
         return
     }

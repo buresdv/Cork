@@ -88,7 +88,7 @@ struct CorkApp: App
                     }
                 }
                 .task // TODO: Remove this later
-                {
+                {                    
                     if !hasSuccessfullySubmittedOSVersion
                     {
                         try? await submitSystemVersion()

@@ -17,7 +17,17 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 {
     do
     {
-        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter{ !$0.hasPrefix(".") }
+        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter { !$0.hasPrefix(".") }.filter { item in
+            /// Filter out all symlinks from the folder
+            let completeURLtoItem: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
+            
+            guard let isSymlink = completeURLtoItem.isSymlink() else
+            {
+                return false
+            }
+            
+            return !isSymlink
+        }
 
         let loadedPackages: Set<BrewPackage> = try await withThrowingTaskGroup(of: BrewPackage.self, returning: Set<BrewPackage>.self)
         { taskGroup in

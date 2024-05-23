@@ -72,11 +72,11 @@ struct AppConstants
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Cellar")
         { // Apple Sillicon
-            return URL(string: "/opt/homebrew/Cellar")!
+            return URL(filePath: "/opt/homebrew/Cellar")
         }
         else
         { // Intel
-            return URL(string: "/usr/local/Cellar")!
+            return URL(filePath: "/usr/local/Cellar")
         }
     }()
 
@@ -84,11 +84,11 @@ struct AppConstants
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Caskroom")
         { // Apple Sillicon
-            return URL(string: "/opt/homebrew/Caskroom")!
+            return URL(filePath: "/opt/homebrew/Caskroom")
         }
         else
         { // Intel
-            return URL(string: "/usr/local/Caskroom")!
+            return URL(filePath: "/usr/local/Caskroom")
         }
     }()
 
@@ -96,11 +96,11 @@ struct AppConstants
     {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Library/Taps")
         { // Apple Sillicon
-            return URL(string: "/opt/homebrew/Library/Taps")!
+            return URL(filePath: "/opt/homebrew/Library/Taps")
         }
         else
         { // Intel
-            return URL(string: "/usr/local/Homebrew/Library/Taps")!
+            return URL(filePath: "/usr/local/Homebrew/Library/Taps")
         }
     }()
 
@@ -111,7 +111,7 @@ struct AppConstants
 
     // MARK: - Brew Cache
 
-    static let brewCachePath: URL = URL(string: NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!)!.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
+    static let brewCachePath: URL = URL.libraryDirectory.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
 
     /// These two have the symlinks to the actual downloads
     static let brewCachedFormulaeDownloadsPath: URL = brewCachePath
