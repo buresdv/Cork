@@ -24,6 +24,6 @@ enum FatalAlertType
     case couldNotSynchronizePackages
     
     //MARK: - Brewfile exporting/importing
-    case couldNotGetWorkingDirectory, couldNotDumpBrewfile, couldNotReadBrewfile
+    case couldNotGetWorkingDirectory, couldNotDumpBrewfile(error: String), couldNotReadBrewfile
     case couldNotGetBrewfileLocation, couldNotImportBrewfile, malformedBrewfile
 }

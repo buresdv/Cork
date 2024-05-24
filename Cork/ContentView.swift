@@ -541,10 +541,10 @@ struct ContentView: View, Sendable
                         appState.dismissAlert()
                     })
                 )
-            case .couldNotDumpBrewfile:
+            case .couldNotDumpBrewfile(let error):
                 return Alert(
                     title: Text("alert.could-not-dump-brewfile.title"),
-                    message: Text("message.try-again-or-restart"),
+                    message: Text("message.try-again-or-restart-\(error)"),
                     dismissButton: .default(Text("action.close"), action: {
                         appState.dismissAlert()
                     })

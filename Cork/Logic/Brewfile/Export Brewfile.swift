@@ -9,7 +9,7 @@ import Foundation
 
 enum BrewfileDumpingError: Error
 {
-    case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile, couldNotReadBrewfile
+    case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile
 }
 
 /// Exports the Brewfile and returns the contents of the Brewfile itself for further manipulation. Does not preserve the Brewfile
@@ -44,7 +44,7 @@ func exportBrewfile(appState: AppState) async throws -> String
     
     if await !brewfileDumpingResult.standardError.isEmpty
     {
-        throw BrewfileDumpingError.errorWhileDumpingBrewfile
+        throw await BrewfileDumpingError.errorWhileDumpingBrewfile(error: brewfileDumpingResult.standardError)
     }
     
     AppConstants.logger.info("Path: \(workingDirectory, privacy: .auto)")

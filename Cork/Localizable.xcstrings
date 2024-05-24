@@ -14854,6 +14854,64 @@
         }
       }
     },
+    "message.try-again-or-restart-%@" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\nZkuste to znovu nebo restartujte Cork"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\nVersuche es erneut, oder starte Cork neu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\nTry again, or restart Cork"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\nRéessayez ou redémarrez Cork"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\n다시 시도하거나 Cork를 다시 시작하세요."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\nПопробуйте еще раз, либо перезапустите Cork"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\nСпробуйте ще раз або перезапустіть Cork"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\n请重试，或重启 Cork"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@\n請重試或重啟 Cork"
+          }
+        }
+      }
+    },
     "navigation.about" : {
       "comment" : "MARK: - Navigation",
       "localizations" : {

@@ -483,8 +483,8 @@ struct CorkApp: App
                         case .couldNotDetermineWorkingDirectory:
                             appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
                             
-                        case .errorWhileDumpingBrewfile:
-                            appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile)
+                        case .errorWhileDumpingBrewfile(let error):
+                            appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile(error: error))
                             
                         case .couldNotReadBrewfile:
                             appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
