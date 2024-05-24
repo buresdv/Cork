@@ -44,8 +44,8 @@
 		6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */; };
 		632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A1A2BFE2544000912CD /* Custom Homebrew Executable View.swift */; };
 		632C9A1E2BFE26A6000912CD /* Path Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A1D2BFE26A6000912CD /* Path Control.swift */; };
-		632C9A252BFF94B4000912CD /* URL - Reveal in Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */; };
 		632C9A212BFE62D0000912CD /* Install Process Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A202BFE62D0000912CD /* Install Process Custom Search Field.swift */; };
+		632C9A252BFF94B4000912CD /* URL - Reveal in Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
 		632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap View.swift */; };
@@ -2363,7 +2363,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2547,7 +2547,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2579,7 +2579,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 56;
+				CURRENT_PROJECT_VERSION = 57;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
