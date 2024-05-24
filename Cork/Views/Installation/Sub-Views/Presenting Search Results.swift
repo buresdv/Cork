@@ -26,20 +26,15 @@ struct PresentingSearchResultsView: View
     @State private var isFormulaeSectionCollapsed: Bool = false
     @State private var isCasksSectionCollapsed: Bool = false
 
-    @FocusState var isSearchFieldFocused: Bool
+    @State var isSearchFieldFocused: Bool = true
 
     var body: some View
     {
         VStack
         {
-            TextField("add-package.search.prompt", text: $packageRequested)
-            { _ in
-                foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
-            }
-            .focused($isSearchFieldFocused)
-            .onAppear
+            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt")) 
             {
-                isSearchFieldFocused = true
+                foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
             }
 
             List(selection: $foundPackageSelection)

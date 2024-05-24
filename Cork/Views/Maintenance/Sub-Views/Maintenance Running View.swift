@@ -82,6 +82,7 @@ struct MaintenanceRunningView: View
                         reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
                         
                         await appState.loadCachedDownloadedPackages()
+                        appState.assignPackageTypeToCachedDownloads(brewData: brewData)
                     }
                     else
                     {

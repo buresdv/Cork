@@ -45,6 +45,7 @@
 		632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A1A2BFE2544000912CD /* Custom Homebrew Executable View.swift */; };
 		632C9A1E2BFE26A6000912CD /* Path Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A1D2BFE26A6000912CD /* Path Control.swift */; };
 		632C9A252BFF94B4000912CD /* URL - Reveal in Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */; };
+		632C9A212BFE62D0000912CD /* Install Process Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A202BFE62D0000912CD /* Install Process Custom Search Field.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
 		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
 		632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap View.swift */; };
@@ -330,6 +331,7 @@
 		632C9A162BFE1083000912CD /* String - Letters Only.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String - Letters Only.swift"; sourceTree = "<group>"; };
 		632C9A1A2BFE2544000912CD /* Custom Homebrew Executable View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Homebrew Executable View.swift"; sourceTree = "<group>"; };
 		632C9A1D2BFE26A6000912CD /* Path Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Path Control.swift"; sourceTree = "<group>"; };
+		632C9A202BFE62D0000912CD /* Install Process Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Process Custom Search Field.swift"; sourceTree = "<group>"; };
 		632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Reveal in Finder.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
 		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
@@ -759,6 +761,15 @@
 				632C9A1D2BFE26A6000912CD /* Path Control.swift */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		632C9A1F2BFE62BD000912CD /* Search Fields */ = {
+			isa = PBXGroup;
+			children = (
+				633EB30529BE65EB006CB872 /* Custom Search Field.swift */,
+				632C9A202BFE62D0000912CD /* Install Process Custom Search Field.swift */,
+			);
+			path = "Search Fields";
 			sourceTree = "<group>";
 		};
 		632FD2932995A3870029FC49 /* Taps */ = {
@@ -1679,6 +1690,7 @@
 		63D830FD2999279800FA802F /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				632C9A1F2BFE62BD000912CD /* Search Fields */,
 				632C9A1C2BFE2698000912CD /* Files */,
 				63603BAA2BBC6B210083AEDB /* Uninstallation */,
 				63D51F69299A9ABA00203F3F /* Settings */,
@@ -1687,7 +1699,6 @@
 				6330531A2996A16600F34F94 /* GroupBox Headline Group.swift */,
 				63D83102299928B400FA802F /* Headline with Subheadline.swift */,
 				63D51F70299AEE5100203F3F /* Complex with Icon.swift */,
-				633EB30529BE65EB006CB872 /* Custom Search Field.swift */,
 				633513F02A91592800524165 /* Collapsible Section Header.swift */,
 				632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */,
 				639D45DE2BB85D3100459DE3 /* No Content Available.swift */,
@@ -2016,6 +2027,7 @@
 				639246E529A26BB4008149E2 /* REGEX Match.swift in Sources */,
 				63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */,
 				637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */,
+				632C9A212BFE62D0000912CD /* Install Process Custom Search Field.swift in Sources */,
 				63006E1929AD215000243E29 /* Get Caveats.swift in Sources */,
 				633289ED29A68B1E004B2930 /* Installation Progress Tracker.swift in Sources */,
 				637D53912BAB514400E072DA /* Services Sidebar.swift in Sources */,
