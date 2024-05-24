@@ -9,8 +9,10 @@ import Foundation
 import AppKit
 @preconcurrency import UserNotifications
 
+/// Class that holds the global state of the app, excluding services
 @MainActor
-class AppState: ObservableObject {
+class AppState: ObservableObject 
+{
     // MARK: - Licensing
     @Published var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
     @Published var isShowingLicensingSheet: Bool = false
