@@ -8,26 +8,12 @@
 import Foundation
 
 class InstallationProgressTracker: ObservableObject
-{
-    @Published var packageBeingCurrentlyInstalled: String = ""
-
-    @Published var packagesBeingInstalled: [PackageInProgressOfBeingInstalled] = .init()
+{  
+    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", isCask: false, installedOn: nil, versions: [], sizeInBytes: 0), installationStage: .downloadingCask, packageInstallationProgress: 0)
     
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
-
-    private var packageBeingInstalled: PackageInProgressOfBeingInstalled
-    {
-        get
-        {
-            self.packagesBeingInstalled[0]
-        }
-        set
-        {
-            self.packagesBeingInstalled[0] = newValue
-        }
-    }
 
     private var showRealTimeTerminalOutputs: Bool
     {
@@ -35,7 +21,8 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput {
+    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput 
+    {
         let package = packageBeingInstalled.package
 
         AppConstants.logger.debug("Installing package \(package.name, privacy: .auto)")

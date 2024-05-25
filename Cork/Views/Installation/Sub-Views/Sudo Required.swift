@@ -23,14 +23,14 @@ struct SudoRequiredView: View, Sendable
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+                    Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packageBeingInstalled.package.name)")
                         .font(.headline)
 
                     ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
                 }
             }
 
-            Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packagesBeingInstalled[0].package.name)")
+            Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packageBeingInstalled.package.name)")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -71,7 +71,7 @@ private struct ManualInstallInstructions: View
     
     var manualInstallCommand: String
     {
-        return "brew install \(installationProgressTracker.packagesBeingInstalled[0].package.isCask ? "--cask" : "") \(installationProgressTracker.packagesBeingInstalled[0].package.name)"
+        return "brew install \(installationProgressTracker.packageBeingInstalled.package.isCask ? "--cask" : "") \(installationProgressTracker.packageBeingInstalled.package.name)"
     }
     
     var body: some View
