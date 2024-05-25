@@ -21,14 +21,14 @@ struct InstalledPackagesProvider: TimelineProvider
     func placeholder(in _: Context) -> InstalledPackagesEntry
     {
         InstalledPackagesEntry(date: Date(), packages: [
-            MinimalHomebrewPackage(name: "Cork", type: .cask),
+            MinimalHomebrewPackage(name: "Cork", type: .cask, installedIntentionally: true),
         ])
     }
 
     func getSnapshot(in _: Context, completion: @escaping (InstalledPackagesEntry) -> Void)
     {
         let entry = InstalledPackagesEntry(date: Date(), packages: [
-            MinimalHomebrewPackage(name: "Cork", type: .cask)
+            MinimalHomebrewPackage(name: "Cork", type: .cask, installedIntentionally: true)
         ])
         completion(entry)
     }

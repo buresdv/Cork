@@ -32,7 +32,7 @@ struct GetInstalledFormulaeIntent: AppIntent
             AppConstants.brewCellarPath.stopAccessingSecurityScopedResource()
             
             let minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map { package in
-                return .init(name: package.name, type: .formula)
+                return .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
             }
             
             return .result(value: minimalPackages)

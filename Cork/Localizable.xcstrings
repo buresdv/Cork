@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "⚠️" : {
       "localizations" : {
         "cs" : {
@@ -11853,6 +11856,12 @@
     },
     "intent.get-installed-casks.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načte seznam nainstalovaných soudků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11863,6 +11872,12 @@
     },
     "intent.get-installed-casks.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načíst nainstalované soudky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11873,6 +11888,12 @@
     },
     "intent.get-installed-formulae.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načte seznam nainstalovaných vzorců"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11883,6 +11904,12 @@
     },
     "intent.get-installed-formulae.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načíst nainstalované vzorce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11893,6 +11920,12 @@
     },
     "intent.get-installed-packages.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načíst nainstalované vzorce a soudky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11903,6 +11936,12 @@
     },
     "intent.get-installed-packages.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načíst nainstalované balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11913,6 +11952,12 @@
     },
     "intents.type.minimal-homebrew-package" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11923,6 +11968,12 @@
     },
     "intents.type.minimal-homebrew-package.representation.subtitle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reprezentace balíčku Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11932,7 +11983,14 @@
       }
     },
     "intents.type.minimal-homebrew-package.representation.title" : {
+      "extractionState" : "stale",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",

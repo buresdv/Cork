@@ -27,7 +27,7 @@ struct GetInstalledCasksIntent: AppIntent
             AppConstants.brewCaskPath.stopAccessingSecurityScopedResource()
             
             let minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map { package in
-                return .init(name: package.name, type: .cask)
+                return .init(name: package.name, type: .cask, installDate: package.installedOn, installedIntentionally: true)
             }
             
             return .result(value: minimalPackages)

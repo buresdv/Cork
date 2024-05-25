@@ -15,13 +15,17 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
     var name: String
 
     var type: PackageType
+    
+    var installDate: Date?
+    
+    var installedIntentionally: Bool
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
 
     var displayRepresentation: DisplayRepresentation
     {
         DisplayRepresentation(
-            title: "intents.type.minimal-homebrew-package.representation.title",
+            title: "\(self.name)",
             subtitle: "intents.type.minimal-homebrew-package.representation.subtitle"
         )
     }
