@@ -70,6 +70,36 @@
 		63405A4D2C02800800C6E0F2 /* Minimal Homebrew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */; };
 		63405A4E2C02812C00C6E0F2 /* Minimal Homebrew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */; };
 		63405A4F2C02813200C6E0F2 /* Package Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A87467298FE811009F9533 /* Package Types.swift */; };
+		63405A512C028AE800C6E0F2 /* Get Installed Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */; };
+		63405A522C028B3B00C6E0F2 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
+		63405A532C028B4200C6E0F2 /* Get Contents of Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065812871B0BE001A2178 /* Get Contents of Folder.swift */; };
+		63405A542C028B4B00C6E0F2 /* Brew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6340657C2871AC65001A2178 /* Brew Package.swift */; };
+		63405A552C028B5100C6E0F2 /* App Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6340657E2871AF68001A2178 /* App Constants.swift */; };
+		63405A562C028B5800C6E0F2 /* App State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746D29904A7F009F9533 /* App State.swift */; };
+		63405A572C028B5E00C6E0F2 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
+		63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */; };
+		63405A5A2C028CC200C6E0F2 /* URL - Reveal in Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */; };
+		63405A5B2C028CC900C6E0F2 /* Check if URL is Symlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117729AA500300E2563B /* Check if URL is Symlink.swift */; };
+		63405A5C2C028CCD00C6E0F2 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
+		63405A5D2C028CDB00C6E0F2 /* REGEX Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639246E429A26BB4008149E2 /* REGEX Match.swift */; };
+		63405A5E2C028CF700C6E0F2 /* Parse JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFF29AC073D00243E29 /* Parse JSON.swift */; };
+		63405A5F2C028CFD00C6E0F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
+		63405A602C028D0200C6E0F2 /* Licensing State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE32BA891E900B26D7E /* Licensing State.swift */; };
+		63405A612C028D0700C6E0F2 /* Cached Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */; };
+		63405A622C028D0D00C6E0F2 /* Send Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386529D2A88F1070001679E /* Send Notification.swift */; };
+		63405A632C028D2700C6E0F2 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
+		63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
+		63405A652C028D3000C6E0F2 /* Brew Data Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065792871AC27001A2178 /* Brew Data Storage.swift */; };
+		63405A662C028D3E00C6E0F2 /* Outdated Package Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFBC2BF78E7400E67153 /* Outdated Package Type.swift */; };
+		63405A672C028D4D00C6E0F2 /* Brew Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD29A2995C1C20029FC49 /* Brew Tap.swift */; };
+		63405A682C028D5200C6E0F2 /* Brewfile Import Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A0187A2AFFBF1A003A2912 /* Brewfile Import Stage.swift */; };
+		63405A692C028D6300C6E0F2 /* Get Proxy Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E44902A890FD8002C034E /* Get Proxy Settings.swift */; };
+		63405A6B2C028DC000C6E0F2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 63405A6A2C028DC000C6E0F2 /* SwiftyJSON */; };
+		63405A712C02918800C6E0F2 /* Installed Packages Entry View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A702C02918800C6E0F2 /* Installed Packages Entry View.swift */; };
+		63405A752C02921B00C6E0F2 /* Installed Packages Entry View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A702C02918800C6E0F2 /* Installed Packages Entry View.swift */; };
+		63405A762C0293E700C6E0F2 /* Get Installed Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */; };
+		63405A772C0293EA00C6E0F2 /* Get Installed Casks Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */; };
+		63405A782C0293EC00C6E0F2 /* Get Installed Formulae Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
 		634065692871AA42001A2178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634065682871AA42001A2178 /* Assets.xcassets */; };
@@ -386,6 +416,9 @@
 		633EB30529BE65EB006CB872 /* Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Search Field.swift"; sourceTree = "<group>"; };
 		63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Installed Formulae Intent.swift"; sourceTree = "<group>"; };
 		63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Minimal Homebrew Package.swift"; sourceTree = "<group>"; };
+		63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Installed Packages Intent.swift"; sourceTree = "<group>"; };
+		63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Installed Casks Intent.swift"; sourceTree = "<group>"; };
+		63405A702C02918800C6E0F2 /* Installed Packages Entry View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installed Packages Entry View.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634065642871AA42001A2178 /* CorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorkApp.swift; sourceTree = "<group>"; };
 		634065662871AA42001A2178 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -625,6 +658,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63405A6B2C028DC000C6E0F2 /* SwiftyJSON in Frameworks */,
 				63E5FBB72C027E55005AAE92 /* SwiftUI.framework in Frameworks */,
 				63E5FBB52C027E55005AAE92 /* WidgetKit.framework in Frameworks */,
 			);
@@ -886,6 +920,8 @@
 			isa = PBXGroup;
 			children = (
 				63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */,
+				63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */,
+				63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */,
 			);
 			path = "App Intents";
 			sourceTree = "<group>";
@@ -896,6 +932,13 @@
 				63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */,
 			);
 			path = Intents;
+			sourceTree = "<group>";
+		};
+		63405A722C0291A200C6E0F2 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		634065582871AA42001A2178 = {
@@ -1828,6 +1871,7 @@
 				63E5FBCC2C027E80005AAE92 /* Enums */,
 				63E5FBCB2C027E78005AAE92 /* Models */,
 				63E5FBCA2C027E6F005AAE92 /* Views */,
+				63405A722C0291A200C6E0F2 /* Providers */,
 				63E5FBC92C027E6B005AAE92 /* Logic */,
 				63E5FBB92C027E55005AAE92 /* WidgetsBundle.swift */,
 				63E5FBBB2C027E55005AAE92 /* Widgets.swift */,
@@ -1848,6 +1892,7 @@
 		63E5FBCA2C027E6F005AAE92 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				63405A702C02918800C6E0F2 /* Installed Packages Entry View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2003,6 +2048,9 @@
 			dependencies = (
 			);
 			name = WidgetsExtension;
+			packageProductDependencies = (
+				63405A6A2C028DC000C6E0F2 /* SwiftyJSON */,
+			);
 			productName = WidgetsExtension;
 			productReference = 63E5FBB22C027E54005AAE92 /* WidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -2154,6 +2202,7 @@
 				63A90D8B2AA268C700CEC48E /* Sanitized Package Name.swift in Sources */,
 				6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */,
 				6311F3D42B0A1DE7008A8067 /* Sudo Required For Removal.swift in Sources */,
+				63405A512C028AE800C6E0F2 /* Get Installed Packages Intent.swift in Sources */,
 				63D67B712AC5A27F002EB992 /* Package System Info.swift in Sources */,
 				63D831052999331D00FA802F /* Sheet with Title.swift in Sources */,
 				6382C90A299DA11F00354B19 /* Purge Brew Cache.swift in Sources */,
@@ -2209,6 +2258,7 @@
 				63A8A12C2AE3FDEC00FA21C7 /* Onboarding Defaults Slider.swift in Sources */,
 				6369AFC22BF7B87300E67153 /* String - Letters Only.swift in Sources */,
 				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
+				63405A712C02918800C6E0F2 /* Installed Packages Entry View.swift in Sources */,
 				63581BD92BB86D8A009A8E03 /* Menu Bar - Cache Cleanup.swift in Sources */,
 				63603BAC2BBC6B360083AEDB /* Remove Packages Buttons.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
@@ -2329,6 +2379,7 @@
 				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
+				63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */,
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6317BF752ADEFB060018E425 /* Ready to Update.swift in Sources */,
 				632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */,
@@ -2389,6 +2440,7 @@
 				633AA2242AFEE40500A5F3E3 /* Data File.swift in Sources */,
 				63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
+				63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */,
 				6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */,
 				63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */,
 				637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */,
@@ -2409,10 +2461,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63405A752C02921B00C6E0F2 /* Installed Packages Entry View.swift in Sources */,
+				63405A5D2C028CDB00C6E0F2 /* REGEX Match.swift in Sources */,
+				63405A622C028D0D00C6E0F2 /* Send Notification.swift in Sources */,
+				63405A532C028B4200C6E0F2 /* Get Contents of Folder.swift in Sources */,
 				63405A4E2C02812C00C6E0F2 /* Minimal Homebrew Package.swift in Sources */,
+				63405A5E2C028CF700C6E0F2 /* Parse JSON.swift in Sources */,
 				63E5FBBA2C027E55005AAE92 /* WidgetsBundle.swift in Sources */,
+				63405A5B2C028CC900C6E0F2 /* Check if URL is Symlink.swift in Sources */,
+				63405A522C028B3B00C6E0F2 /* Load up Installed Packages.swift in Sources */,
+				63405A762C0293E700C6E0F2 /* Get Installed Packages Intent.swift in Sources */,
+				63405A662C028D3E00C6E0F2 /* Outdated Package Type.swift in Sources */,
+				63405A552C028B5100C6E0F2 /* App Constants.swift in Sources */,
+				63405A772C0293EA00C6E0F2 /* Get Installed Casks Intent.swift in Sources */,
+				63405A5C2C028CCD00C6E0F2 /* Get Folder Size.swift in Sources */,
+				63405A562C028B5800C6E0F2 /* App State.swift in Sources */,
+				63405A612C028D0700C6E0F2 /* Cached Download.swift in Sources */,
+				63405A682C028D5200C6E0F2 /* Brewfile Import Stage.swift in Sources */,
+				63405A5F2C028CFD00C6E0F2 /* Network Proxy.swift in Sources */,
+				63405A672C028D4D00C6E0F2 /* Brew Tap.swift in Sources */,
 				63E5FBBC2C027E55005AAE92 /* Widgets.swift in Sources */,
+				63405A542C028B4B00C6E0F2 /* Brew Package.swift in Sources */,
+				63405A632C028D2700C6E0F2 /* String - Letters Only.swift in Sources */,
+				63405A692C028D6300C6E0F2 /* Get Proxy Settings.swift in Sources */,
+				63405A5A2C028CC200C6E0F2 /* URL - Reveal in Finder.swift in Sources */,
 				63405A4F2C02813200C6E0F2 /* Package Types.swift in Sources */,
+				63405A652C028D3000C6E0F2 /* Brew Data Storage.swift in Sources */,
+				63405A572C028B5E00C6E0F2 /* Fatal Alert Types.swift in Sources */,
+				63405A782C0293EC00C6E0F2 /* Get Installed Formulae Intent.swift in Sources */,
+				63405A602C028D0200C6E0F2 /* Licensing State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3002,6 +3079,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		63405A6A2C028DC000C6E0F2 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		63603BA82BBC1C9F0083AEDB /* DavidFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63603BA72BBC1C9F0083AEDB /* XCRemoteSwiftPackageReference "DavidFoundation" */;

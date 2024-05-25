@@ -11851,6 +11851,33 @@
         }
       }
     },
+    "intent.get-installed-casks.description" : {
+
+    },
+    "intent.get-installed-casks.title" : {
+
+    },
+    "intent.get-installed-formulae.description" : {
+
+    },
+    "intent.get-installed-formulae.title" : {
+
+    },
+    "intent.get-installed-packages.description" : {
+
+    },
+    "intent.get-installed-packages.title" : {
+
+    },
+    "intents.type.minimal-homebrew-package" : {
+
+    },
+    "intents.type.minimal-homebrew-package.representation.subtitle" : {
+
+    },
+    "intents.type.minimal-homebrew-package.representation.title" : {
+
+    },
     "licensing.bought.body" : {
       "localizations" : {
         "cs" : {

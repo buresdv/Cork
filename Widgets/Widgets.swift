@@ -5,71 +5,89 @@
 //  Created by David Bureš on 25.05.2024.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+private extension String
+{
+    static var installedPackagesWidget: String
+    {
+        return "InstalledPackagesWidget"
+    }
+}
+
+struct InstalledPackagesProvider: TimelineProvider
+{
+    func placeholder(in _: Context) -> InstalledPackagesEntry
+    {
+        InstalledPackagesEntry(date: Date(), packages: [
+            MinimalHomebrewPackage(name: "Cork", type: .cask),
+        ])
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+    func getSnapshot(in _: Context, completion: @escaping (InstalledPackagesEntry) -> Void)
+    {
+        let entry = InstalledPackagesEntry(date: Date(), packages: [
+            MinimalHomebrewPackage(name: "Cork", type: .cask)
+        ])
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
-            entries.append(entry)
+    func getTimeline(in _: Context, completion: @escaping (Timeline<Entry>) -> Void)
+    {
+        Task
+        {
+            var entries: [InstalledPackagesEntry] = []
+            
+            let resultOfPackagesIntent: [MinimalHomebrewPackage] = try! await GetInstalledPackagesIntent().perform().value!
+            
+            entries.append(.init(date: .now, packages: resultOfPackagesIntent))
+            
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let emoji: String
-}
-
-struct WidgetsEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
+struct InstalledPackagesWidgetView: View
+{
+    var entry: InstalledPackagesProvider.Entry
+    
+    var body: some View
+    {
         VStack {
-            HStack {
-                Text("Time:")
-                Text(entry.date, style: .time)
-            }
-
             Text("Emoji:")
-            Text(entry.emoji)
+            Text(String(entry.packages.count))
         }
     }
 }
 
-struct Widgets: Widget {
-    let kind: String = "Widgets"
+struct InstalledPackagesEntry: TimelineEntry
+{
+    let date: Date
 
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            if #available(macOS 14.0, *) {
-                WidgetsEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
-            } else {
-                WidgetsEntryView(entry: entry)
+    let packages: [MinimalHomebrewPackage]
+}
+
+struct InstalledPackagesWidget: Widget
+{
+    let kind: String = .installedPackagesWidget
+
+    var body: some WidgetConfiguration
+    {
+        StaticConfiguration(kind: kind, provider: InstalledPackagesProvider())
+        { entry in
+            if #available(macOS 14.0, *)
+            {
+                InstalledPackagesWidgetView(entry: entry)
+                    .containerBackground(.cyan.gradient, for: .widget)
+            }
+            else
+            {
+                InstalledPackagesWidgetView(entry: entry)
                     .padding()
                     .background()
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
     }
 }
