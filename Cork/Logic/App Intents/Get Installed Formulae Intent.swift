@@ -15,6 +15,9 @@ enum FolderAccessingError: Error
 
 struct GetInstalledFormulaeIntent: AppIntent
 {
+    @Parameter(title: "intent.get-installed-packages.limit-to-manually-installed-packages")
+    var getOnlyManuallyInstalledPackages: Bool
+    
     static var title: LocalizedStringResource = "intent.get-installed-formulae.title"
     static var description: LocalizedStringResource = "intent.get-installed-formulae.description"
 
@@ -31,8 +34,13 @@ struct GetInstalledFormulaeIntent: AppIntent
             
             AppConstants.brewCellarPath.stopAccessingSecurityScopedResource()
             
-            let minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map { package in
+            var minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map { package in
                 return .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
+            }
+            
+            if getOnlyManuallyInstalledPackages
+            {
+                minimalPackages = minimalPackages.filter({$0.installedIntentionally})
             }
             
             return .result(value: minimalPackages)

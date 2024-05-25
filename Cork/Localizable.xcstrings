@@ -11934,6 +11934,22 @@
         }
       }
     },
+    "intent.get-installed-packages.limit-to-manually-installed-packages" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načíst pouze záměrně nainstalované balíčky"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Load only manually installed packages"
+          }
+        }
+      }
+    },
     "intent.get-installed-packages.title" : {
       "localizations" : {
         "cs" : {
