@@ -11852,31 +11852,94 @@
       }
     },
     "intent.get-installed-casks.description" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get a list of installed Casks"
+          }
+        }
+      }
     },
     "intent.get-installed-casks.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get installed Casks"
+          }
+        }
+      }
     },
     "intent.get-installed-formulae.description" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get a list of installed Formulae"
+          }
+        }
+      }
     },
     "intent.get-installed-formulae.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get installed Formulae"
+          }
+        }
+      }
     },
     "intent.get-installed-packages.description" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get a list of installed Formulae and Casks"
+          }
+        }
+      }
     },
     "intent.get-installed-packages.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get installed packages"
+          }
+        }
+      }
     },
     "intents.type.minimal-homebrew-package" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Package"
+          }
+        }
+      }
     },
     "intents.type.minimal-homebrew-package.representation.subtitle" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A lightweight representation of a package"
+          }
+        }
+      }
     },
     "intents.type.minimal-homebrew-package.representation.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Package"
+          }
+        }
+      }
     },
     "licensing.bought.body" : {
       "localizations" : {

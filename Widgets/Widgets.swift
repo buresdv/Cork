@@ -89,5 +89,8 @@ struct InstalledPackagesWidget: Widget
                     .background()
             }
         }
+        .configurationDisplayName(Text("widget.installed-packages.name"))
+        .description(Text("widget.installed-packages.description"))
+        .supportedFamilies([.systemLarge, .systemMedium])
     }
 }
