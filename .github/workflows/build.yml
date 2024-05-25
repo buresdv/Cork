@@ -1,0 +1,43 @@
+name: Build New Version
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build-app:
+    runs-on: macos-14
+
+    steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Xcodebuild
+        run: xcodebuild -project Cork.xcodeproj -scheme Cork -destination platform=macOS build -derivedDataPath ./build
+
+      - name: Notarize Release Build
+        uses: lando/notarize-action@v2
+        with:
+          product-path: "build/Build/Products/Debug/Cork.app"
+          appstore-connect-username: ${{ secrets.PROD_MACOS_NOTARIZATION_APPLE_ID }}
+          appstore-connect-password: ${{ secrets.PROD_MACOS_NOTARIZATION_PWD }}
+          appstore-connect-team-id: ${{ secrets.PROD_MACOS_NOTARIZATION_TEAM_ID }}
+          verbose: true
+
+      - name: "Staple Release Build"
+        uses: BoundfoxStudios/action-xcode-staple@v1
+        with:
+          product-path: "build/Build/Products/Debug/Cork.app"
+      
+      - name: Create zip file
+        run: cp -r build/Build/Products/Debug/Cork.app . && zip -r Cork.zip Cork.app
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: Cork.zip
