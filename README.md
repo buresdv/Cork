@@ -55,25 +55,39 @@ However, if you don't want to do any of the above, you can always compile Cork y
 ![Start Page](https://i.imgur.com/DNCsucp.png)
 
 ### Package Info
-![Package Info](https://i.imgur.com/U8nCdlc.png)
-![Package Info - Full-size Caveats](https://i.imgur.com/lm2AhnX.png)
-![Package Info - Minimized Caveats](https://i.imgur.com/KFonAHx.png)
+<p align="center">
+  <img alt="Package Info" src="https://i.imgur.com/U8nCdlc.png" width="28%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Package Info - Full-size Caveats" src="https://i.imgur.com/lm2AhnX.png" width="28%">
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Package Info - Minimized Caveats" src="https://i.imgur.com/KFonAHx.png" width="28%">
+</p>
 
 ### Tap Info
-![Tap Info - Formulae Only](https://i.imgur.com/VZi6jKK.png)
-![Tap Info - Formulae and Casks](https://i.imgur.com/ZCDlel6.png)
+<p align="center">
+  <img alt="Tap Info - Formulae Only" src="https://i.imgur.com/VZi6jKK.png" width="47%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Tap Info - Formulae and Casks" src="https://i.imgur.com/ZCDlel6.png" width="47%">
+</p>
 
 ### Install Package
-![Install Package](https://i.imgur.com/c5BNkl3.png)
-![Install Package - Fetching Dependencies](https://i.imgur.com/x8qWBMO.png)
-![Install Package - Installing Dependencies](https://i.imgur.com/dIgYKoj.png)
+<p align="center">
+  <img alt="Install Package" src="https://i.imgur.com/c5BNkl3.png" width="28%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Install Package - Fetching Dependencies" src="https://i.imgur.com/x8qWBMO.png" width="28%">
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Install Package - Installing Dependencies" src="https://i.imgur.com/dIgYKoj.png" width="28%">
+</p>
 
 ### Add Taps
 ![Tap Taps](https://i.imgur.com/RKMUgM8.png)
 
 ### Brew Maintenance
-![Brew Maintenance](https://i.imgur.com/Ky9kjPo.png)
-![Brew Maintenance Results](https://i.imgur.com/sxjbRg2.png)
+<p align="center">
+  <img alt="Brew Maintenance" src="https://i.imgur.com/Ky9kjPo.png" width="47%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Brew Maintenance Results" src="https://i.imgur.com/sxjbRg2.png" width="47%">
+</p>
 
 ## Media
 Do you run a blog, a magazine, make videos, or just make content about apps for fun? Get in touch at dev@corkmac.app!
