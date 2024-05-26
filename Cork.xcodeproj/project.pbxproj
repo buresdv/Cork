@@ -69,36 +69,9 @@
 		633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB30529BE65EB006CB872 /* Custom Search Field.swift */; };
 		63405A4A2C027F1300C6E0F2 /* Get Installed Formulae Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */; };
 		63405A4D2C02800800C6E0F2 /* Minimal Homebrew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */; };
-		63405A4E2C02812C00C6E0F2 /* Minimal Homebrew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */; };
-		63405A4F2C02813200C6E0F2 /* Package Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A87467298FE811009F9533 /* Package Types.swift */; };
 		63405A512C028AE800C6E0F2 /* Get Installed Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */; };
-		63405A522C028B3B00C6E0F2 /* Load up Installed Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */; };
-		63405A532C028B4200C6E0F2 /* Get Contents of Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065812871B0BE001A2178 /* Get Contents of Folder.swift */; };
-		63405A542C028B4B00C6E0F2 /* Brew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6340657C2871AC65001A2178 /* Brew Package.swift */; };
-		63405A552C028B5100C6E0F2 /* App Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6340657E2871AF68001A2178 /* App Constants.swift */; };
-		63405A562C028B5800C6E0F2 /* App State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8746D29904A7F009F9533 /* App State.swift */; };
-		63405A572C028B5E00C6E0F2 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
 		63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */; };
-		63405A5A2C028CC200C6E0F2 /* URL - Reveal in Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */; };
-		63405A5B2C028CC900C6E0F2 /* Check if URL is Symlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342117729AA500300E2563B /* Check if URL is Symlink.swift */; };
-		63405A5C2C028CCD00C6E0F2 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
-		63405A5D2C028CDB00C6E0F2 /* REGEX Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639246E429A26BB4008149E2 /* REGEX Match.swift */; };
-		63405A5E2C028CF700C6E0F2 /* Parse JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFF29AC073D00243E29 /* Parse JSON.swift */; };
-		63405A5F2C028CFD00C6E0F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
-		63405A602C028D0200C6E0F2 /* Licensing State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ACBBE32BA891E900B26D7E /* Licensing State.swift */; };
-		63405A612C028D0700C6E0F2 /* Cached Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44AC52AF6CB6000CA0C16 /* Cached Download.swift */; };
-		63405A622C028D0D00C6E0F2 /* Send Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386529D2A88F1070001679E /* Send Notification.swift */; };
-		63405A632C028D2700C6E0F2 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
 		63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
-		63405A652C028D3000C6E0F2 /* Brew Data Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065792871AC27001A2178 /* Brew Data Storage.swift */; };
-		63405A662C028D3E00C6E0F2 /* Outdated Package Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFBC2BF78E7400E67153 /* Outdated Package Type.swift */; };
-		63405A672C028D4D00C6E0F2 /* Brew Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD29A2995C1C20029FC49 /* Brew Tap.swift */; };
-		63405A682C028D5200C6E0F2 /* Brewfile Import Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A0187A2AFFBF1A003A2912 /* Brewfile Import Stage.swift */; };
-		63405A692C028D6300C6E0F2 /* Get Proxy Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635E44902A890FD8002C034E /* Get Proxy Settings.swift */; };
-		63405A6B2C028DC000C6E0F2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 63405A6A2C028DC000C6E0F2 /* SwiftyJSON */; };
-		63405A762C0293E700C6E0F2 /* Get Installed Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */; };
-		63405A772C0293EA00C6E0F2 /* Get Installed Casks Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */; };
-		63405A782C0293EC00C6E0F2 /* Get Installed Formulae Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
 		634065692871AA42001A2178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634065682871AA42001A2178 /* Assets.xcassets */; };
@@ -181,9 +154,6 @@
 		637D53A72BAB579800E072DA /* Parse Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A62BAB579800E072DA /* Parse Services.swift */; };
 		637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */; };
 		637D53FC2B9E773A00F61361 /* View - Platform Conditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */; };
-		637DF9BB2C033ED700919152 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E5FBB62C027E55005AAE92 /* SwiftUI.framework */; };
-		637DF9BE2C033ED900919152 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E5FBB42C027E54005AAE92 /* WidgetKit.framework */; };
-		637DF9C12C03406E00919152 /* Widget Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF9C02C03402D00919152 /* Widget Constants.swift */; };
 		637DF9C72C03691C00919152 /* Refresh Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */; };
 		637E00642872F3CE005C9890 /* Update Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Update Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
@@ -286,10 +256,6 @@
 		63D8C957287A1D0800483A52 /* Loading View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C956287A1D0800483A52 /* Loading View.swift */; };
 		63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
 		63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */; };
-		63E5FBBA2C027E55005AAE92 /* WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5FBB92C027E55005AAE92 /* WidgetsBundle.swift */; };
-		63E5FBBC2C027E55005AAE92 /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5FBBB2C027E55005AAE92 /* Widgets.swift */; };
-		63E5FBBE2C027E57005AAE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63E5FBBD2C027E57005AAE92 /* Assets.xcassets */; };
-		63E5FBC32C027E57005AAE92 /* WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 63E5FBB22C027E54005AAE92 /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */; };
 		63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */; };
 		63E716D929DDB918004FD2B4 /* Package And Tap Overview Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */; };
@@ -324,13 +290,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		63E5FBC12C027E57005AAE92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 634065592871AA42001A2178 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 63E5FBB12C027E54005AAE92;
-			remoteInfo = WidgetsExtension;
-		};
 		C4C2A0E52A9109EB00E6F172 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 634065592871AA42001A2178 /* Project object */;
@@ -347,7 +306,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				63E5FBC32C027E57005AAE92 /* WidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +461,6 @@
 		637D53A62BAB579800E072DA /* Parse Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Services.swift"; sourceTree = "<group>"; };
 		637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - LocalizedStringKey to String.swift"; sourceTree = "<group>"; };
 		637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Platform Conditional.swift"; sourceTree = "<group>"; };
-		637DF9C02C03402D00919152 /* Widget Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget Constants.swift"; sourceTree = "<group>"; };
 		637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Packages Intent.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Update Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
@@ -604,14 +561,8 @@
 		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
 		63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Second to Last Element.swift"; sourceTree = "<group>"; };
-		63E5FBB22C027E54005AAE92 /* WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E5FBB42C027E54005AAE92 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		63E5FBB62C027E55005AAE92 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		63E5FBB92C027E55005AAE92 /* WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsBundle.swift; sourceTree = "<group>"; };
-		63E5FBBB2C027E55005AAE92 /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
-		63E5FBBD2C027E57005AAE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		63E5FBBF2C027E57005AAE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63E5FBC02C027E57005AAE92 /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
 		63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package List Box.swift"; sourceTree = "<group>"; };
 		63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Loader Box.swift"; sourceTree = "<group>"; };
 		63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package And Tap Overview Box.swift"; sourceTree = "<group>"; };
@@ -654,16 +605,6 @@
 				63689FB62ACFF18900BD354C /* LaunchAtLogin in Frameworks */,
 				63603BA92BBC1C9F0083AEDB /* DavidFoundation in Frameworks */,
 				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		63E5FBAF2C027E54005AAE92 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				63405A6B2C028DC000C6E0F2 /* SwiftyJSON in Frameworks */,
-				637DF9BB2C033ED700919152 /* SwiftUI.framework in Frameworks */,
-				637DF9BE2C033ED900919152 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,20 +887,12 @@
 			path = Intents;
 			sourceTree = "<group>";
 		};
-		63405A722C0291A200C6E0F2 /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Providers;
-			sourceTree = "<group>";
-		};
 		634065582871AA42001A2178 = {
 			isa = PBXGroup;
 			children = (
 				63F622702BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy */,
 				634065632871AA42001A2178 /* Cork */,
 				C4C2A0E82A910B0A00E6F172 /* CorkHelp */,
-				63E5FBB82C027E55005AAE92 /* Widgets */,
 				63E5FBB32C027E54005AAE92 /* Frameworks */,
 				634065622871AA42001A2178 /* Products */,
 			);
@@ -970,7 +903,6 @@
 			children = (
 				634065612871AA42001A2178 /* Cork.app */,
 				C4C2A0E02A9108DA00E6F172 /* CorkHelp.help */,
-				63E5FBB22C027E54005AAE92 /* WidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1910,52 +1842,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		63E5FBB82C027E55005AAE92 /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				63E5FBCC2C027E80005AAE92 /* Enums */,
-				63E5FBCB2C027E78005AAE92 /* Models */,
-				63E5FBCA2C027E6F005AAE92 /* Views */,
-				63405A722C0291A200C6E0F2 /* Providers */,
-				63E5FBC92C027E6B005AAE92 /* Logic */,
-				63E5FBB92C027E55005AAE92 /* WidgetsBundle.swift */,
-				63E5FBBB2C027E55005AAE92 /* Widgets.swift */,
-				63E5FBBD2C027E57005AAE92 /* Assets.xcassets */,
-				63E5FBBF2C027E57005AAE92 /* Info.plist */,
-				63E5FBC02C027E57005AAE92 /* Widgets.entitlements */,
-				637DF9C02C03402D00919152 /* Widget Constants.swift */,
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
-		63E5FBC92C027E6B005AAE92 /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		63E5FBCA2C027E6F005AAE92 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		63E5FBCB2C027E78005AAE92 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		63E5FBCC2C027E80005AAE92 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 		63E716D329DDA815004FD2B4 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2068,7 +1954,6 @@
 			);
 			dependencies = (
 				C4C2A0E62A9109EB00E6F172 /* PBXTargetDependency */,
-				63E5FBC22C027E57005AAE92 /* PBXTargetDependency */,
 			);
 			name = Cork;
 			packageProductDependencies = (
@@ -2079,26 +1964,6 @@
 			productName = Cork;
 			productReference = 634065612871AA42001A2178 /* Cork.app */;
 			productType = "com.apple.product-type.application";
-		};
-		63E5FBB12C027E54005AAE92 /* WidgetsExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 63E5FBC82C027E57005AAE92 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
-			buildPhases = (
-				63E5FBAE2C027E54005AAE92 /* Sources */,
-				63E5FBAF2C027E54005AAE92 /* Frameworks */,
-				63E5FBB02C027E54005AAE92 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WidgetsExtension;
-			packageProductDependencies = (
-				63405A6A2C028DC000C6E0F2 /* SwiftyJSON */,
-			);
-			productName = WidgetsExtension;
-			productReference = 63E5FBB22C027E54005AAE92 /* WidgetsExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 		C4C2A0DF2A9108DA00E6F172 /* CorkHelp */ = {
 			isa = PBXNativeTarget;
@@ -2130,9 +1995,6 @@
 				TargetAttributes = {
 					634065602871AA42001A2178 = {
 						CreatedOnToolsVersion = 14.0;
-					};
-					63E5FBB12C027E54005AAE92 = {
-						CreatedOnToolsVersion = 15.3;
 					};
 					C4C2A0DF2A9108DA00E6F172 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -2166,7 +2028,6 @@
 			targets = (
 				634065602871AA42001A2178 /* Cork */,
 				C4C2A0DF2A9108DA00E6F172 /* CorkHelp */,
-				63E5FBB12C027E54005AAE92 /* WidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -2181,14 +2042,6 @@
 				C45C26112ABCC2C600290D26 /* Localizable.xcstrings in Resources */,
 				63F622712BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy in Resources */,
 				634065692871AA42001A2178 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		63E5FBB02C027E54005AAE92 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				63E5FBBE2C027E57005AAE92 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2503,42 +2356,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63E5FBAE2C027E54005AAE92 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				637DF9C12C03406E00919152 /* Widget Constants.swift in Sources */,
-				63405A5D2C028CDB00C6E0F2 /* REGEX Match.swift in Sources */,
-				63405A622C028D0D00C6E0F2 /* Send Notification.swift in Sources */,
-				63405A532C028B4200C6E0F2 /* Get Contents of Folder.swift in Sources */,
-				63405A4E2C02812C00C6E0F2 /* Minimal Homebrew Package.swift in Sources */,
-				63405A5E2C028CF700C6E0F2 /* Parse JSON.swift in Sources */,
-				63E5FBBA2C027E55005AAE92 /* WidgetsBundle.swift in Sources */,
-				63405A5B2C028CC900C6E0F2 /* Check if URL is Symlink.swift in Sources */,
-				63405A522C028B3B00C6E0F2 /* Load up Installed Packages.swift in Sources */,
-				63405A762C0293E700C6E0F2 /* Get Installed Packages Intent.swift in Sources */,
-				63405A662C028D3E00C6E0F2 /* Outdated Package Type.swift in Sources */,
-				63405A552C028B5100C6E0F2 /* App Constants.swift in Sources */,
-				63405A772C0293EA00C6E0F2 /* Get Installed Casks Intent.swift in Sources */,
-				63405A5C2C028CCD00C6E0F2 /* Get Folder Size.swift in Sources */,
-				63405A562C028B5800C6E0F2 /* App State.swift in Sources */,
-				63405A612C028D0700C6E0F2 /* Cached Download.swift in Sources */,
-				63405A682C028D5200C6E0F2 /* Brewfile Import Stage.swift in Sources */,
-				63405A5F2C028CFD00C6E0F2 /* Network Proxy.swift in Sources */,
-				63405A672C028D4D00C6E0F2 /* Brew Tap.swift in Sources */,
-				63E5FBBC2C027E55005AAE92 /* Widgets.swift in Sources */,
-				63405A542C028B4B00C6E0F2 /* Brew Package.swift in Sources */,
-				63405A632C028D2700C6E0F2 /* String - Letters Only.swift in Sources */,
-				63405A692C028D6300C6E0F2 /* Get Proxy Settings.swift in Sources */,
-				63405A5A2C028CC200C6E0F2 /* URL - Reveal in Finder.swift in Sources */,
-				63405A4F2C02813200C6E0F2 /* Package Types.swift in Sources */,
-				63405A652C028D3000C6E0F2 /* Brew Data Storage.swift in Sources */,
-				63405A572C028B5E00C6E0F2 /* Fatal Alert Types.swift in Sources */,
-				63405A782C0293EC00C6E0F2 /* Get Installed Formulae Intent.swift in Sources */,
-				63405A602C028D0200C6E0F2 /* Licensing State.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C4C2A0DC2A9108DA00E6F172 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2549,11 +2366,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		63E5FBC22C027E57005AAE92 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 63E5FBB12C027E54005AAE92 /* WidgetsExtension */;
-			targetProxy = 63E5FBC12C027E57005AAE92 /* PBXContainerItemProxy */;
-		};
 		C4C2A0E62A9109EB00E6F172 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4C2A0DF2A9108DA00E6F172 /* CorkHelp */;
@@ -2900,106 +2712,6 @@
 			};
 			name = Release;
 		};
-		63E5FBC52C027E57005AAE92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork.Widgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		63E5FBC62C027E57005AAE92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork.Widgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		63E5FBC72C027E57005AAE92 /* Self-Compiled */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZSVA6DVZHM;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidbures.Cork.Widgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = "Self-Compiled";
-		};
 		C4C2A0E12A9108DA00E6F172 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3075,16 +2787,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		63E5FBC82C027E57005AAE92 /* Build configuration list for PBXNativeTarget "WidgetsExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				63E5FBC52C027E57005AAE92 /* Debug */,
-				63E5FBC62C027E57005AAE92 /* Release */,
-				63E5FBC72C027E57005AAE92 /* Self-Compiled */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C4C2A0E32A9108DA00E6F172 /* Build configuration list for PBXNativeTarget "CorkHelp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3125,11 +2827,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		63405A6A2C028DC000C6E0F2 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
 		63603BA82BBC1C9F0083AEDB /* DavidFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63603BA72BBC1C9F0083AEDB /* XCRemoteSwiftPackageReference "DavidFoundation" */;
