@@ -39,9 +39,16 @@ struct InstalledPackagesProvider: TimelineProvider
         {
             var entries: [InstalledPackagesEntry] = []
             
-            let resultOfPackagesIntent: [MinimalHomebrewPackage] = try! await GetInstalledPackagesIntent().perform().value!
-            
-            entries.append(.init(date: .now, packages: resultOfPackagesIntent))
+            do
+            {
+                let resultOfPackagesIntent: [MinimalHomebrewPackage] = try await GetInstalledPackagesIntent().perform().value ?? .init()
+                
+                entries.append(.init(date: .now, packages: resultOfPackagesIntent))
+            }
+            catch let packageLoadingError
+            {
+                WidgetConstants.logger.error("Error while retrieving packages: \(packageLoadingError)")
+            }
             
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
@@ -55,9 +62,17 @@ struct InstalledPackagesWidgetView: View
     
     var body: some View
     {
-        VStack {
-            Text("Emoji:")
-            Text(String(entry.packages.count))
+        VStack 
+        {
+            if !entry.packages.isEmpty
+            {
+                Text("widget.installed-packages.count.title")
+                Text(String(entry.packages.count))
+            }
+            else
+            {
+                Text("widget.installed-packages.could-not-load")
+            }
         }
     }
 }
