@@ -86,11 +86,9 @@ struct InstalledPackagesEntry: TimelineEntry
 
 struct InstalledPackagesWidget: Widget
 {
-    let kind: String = .installedPackagesWidget
-
     var body: some WidgetConfiguration
     {
-        StaticConfiguration(kind: kind, provider: InstalledPackagesProvider())
+        StaticConfiguration(kind: .installedPackagesWidget, provider: InstalledPackagesProvider())
         { entry in
             if #available(macOS 14.0, *)
             {
@@ -104,8 +102,8 @@ struct InstalledPackagesWidget: Widget
                     .background()
             }
         }
-        .configurationDisplayName(Text("widget.installed-packages.name"))
-        .description(Text("widget.installed-packages.description"))
+        .configurationDisplayName("widget.installed-packages.name")
+        .description("widget.installed-packages.description")
         .supportedFamilies([.systemLarge, .systemMedium])
     }
 }
