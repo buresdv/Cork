@@ -97,22 +97,11 @@ struct AddFormulaView: View
                 {
                     ComplexWithIcon(systemName: "exclamationmark.triangle")
                     {
-                        if let packageBeingInstalled = installationProgressTracker.packagesBeingInstalled.first
-                        { /// Show this when we can pull out which package was being installed
-                            HeadlineWithSubheadline(
-                                headline: "add-package.fatal-error-\(packageBeingInstalled.package.name)",
-                                subheadline: "add-package.fatal-error.description",
-                                alignment: .leading
-                            )
-                        }
-                        else
-                        { /// Otherwise, show a generic error
-                            HeadlineWithSubheadline(
-                                headline: "add-package.fatal-error.generic",
-                                subheadline: "add-package.fatal-error.description",
-                                alignment: .leading
-                            )
-                        }
+                        HeadlineWithSubheadline(
+                            headline: "add-package.fatal-error-\(installationProgressTracker.packageBeingInstalled.package.name)",
+                            subheadline: "add-package.fatal-error.description",
+                            alignment: .leading
+                        )
                     }
 
                     HStack

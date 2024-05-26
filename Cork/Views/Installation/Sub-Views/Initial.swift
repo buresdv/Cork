@@ -101,11 +101,9 @@ struct InstallationInitialView: View
                         {
                             let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection.first!, isCask: selectedTopPackageIsCask, topPackageTracker: topPackagesTracker)
                             
-                            installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
+                            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
                             
-                            AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packagesBeingInstalled, privacy: .public)")
-                            
-                            installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
+                            AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
                             
                             packageInstallationProcessStep = .installing
                         }

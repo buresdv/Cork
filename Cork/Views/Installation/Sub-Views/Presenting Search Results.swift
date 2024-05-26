@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-
 struct PresentingSearchResultsView: View
 {
     @Environment(\.dismiss) var dismiss
-    
+
     @EnvironmentObject var appState: AppState
 
     @ObservedObject var searchResultTracker: SearchResultTracker
@@ -32,7 +31,7 @@ struct PresentingSearchResultsView: View
     {
         VStack
         {
-            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt")) 
+            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
             {
                 foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
             }
@@ -73,29 +72,7 @@ struct PresentingSearchResultsView: View
                 {
                     Button
                     {
-                        for requestedPackage in foundPackageSelection
-                        {
-                            do
-                            {
-                                let packageToInstall: BrewPackage = try getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
-
-                                installationProgressTracker.packagesBeingInstalled.append(PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0))
-
-                                AppConstants.logger.info("Packages to install: \(installationProgressTracker.packagesBeingInstalled, privacy: .public)")
-
-                                installationProgressTracker.packageBeingCurrentlyInstalled = packageToInstall.name
-                            }
-                            catch let packageByUUIDRetrievalError
-                            {
-                                AppConstants.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
-                                
-                                dismiss()
-                                
-                                appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
-                            }
-                        }
-
-                        AppConstants.logger.info("\(installationProgressTracker.packagesBeingInstalled, privacy: .public)")
+                        getRequestedPackages()
 
                         packageInstallationProcessStep = .installing
                     } label: {
@@ -104,6 +81,33 @@ struct PresentingSearchResultsView: View
                     .keyboardShortcut(.defaultAction)
                     .disabled(foundPackageSelection.isEmpty)
                 }
+            }
+        }
+    }
+
+    private func getRequestedPackages()
+    {
+        for requestedPackage in foundPackageSelection
+        {
+            do
+            {
+                let packageToInstall: BrewPackage = try getPackageFromUUID(requestedPackageUUID: requestedPackage, tracker: searchResultTracker)
+
+                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
+
+                #if DEBUG
+                    AppConstants.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                #endif
+            }
+            catch let packageByUUIDRetrievalError
+            {
+                #if DEBUG
+                    AppConstants.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
+                #endif
+
+                dismiss()
+
+                appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
             }
         }
     }
