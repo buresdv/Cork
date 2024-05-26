@@ -11966,6 +11966,66 @@
         }
       }
     },
+    "intent.refresh.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Look for updates to installed Packages"
+          }
+        }
+      }
+    },
+    "intent.refresh.result.display-representation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package refreshing result"
+          }
+        }
+      }
+    },
+    "intent.refresh.result.failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refreshing of packages failed"
+          }
+        }
+      }
+    },
+    "intent.refresh.result.refreshed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packages refreshed"
+          }
+        }
+      }
+    },
+    "intent.refresh.result.refreshed-with-errors" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Packages refreshed with errors"
+          }
+        }
+      }
+    },
+    "intent.refresh.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh Packages"
+          }
+        }
+      }
+    },
     "intents.type.minimal-homebrew-package" : {
       "localizations" : {
         "cs" : {

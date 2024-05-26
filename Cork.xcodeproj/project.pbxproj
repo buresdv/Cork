@@ -184,6 +184,7 @@
 		637DF9BB2C033ED700919152 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E5FBB62C027E55005AAE92 /* SwiftUI.framework */; };
 		637DF9BE2C033ED900919152 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E5FBB42C027E54005AAE92 /* WidgetKit.framework */; };
 		637DF9C12C03406E00919152 /* Widget Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF9C02C03402D00919152 /* Widget Constants.swift */; };
+		637DF9C72C03691C00919152 /* Refresh Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */; };
 		637E00642872F3CE005C9890 /* Update Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Update Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
@@ -503,6 +504,7 @@
 		637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - LocalizedStringKey to String.swift"; sourceTree = "<group>"; };
 		637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Platform Conditional.swift"; sourceTree = "<group>"; };
 		637DF9C02C03402D00919152 /* Widget Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget Constants.swift"; sourceTree = "<group>"; };
+		637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Packages Intent.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Update Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
@@ -928,10 +930,10 @@
 		63405A482C027EE300C6E0F2 /* App Intents */ = {
 			isa = PBXGroup;
 			children = (
+				637DF9C42C0368FF00919152 /* Package Updating */,
+				637DF9C32C0368D300919152 /* Package Installation */,
+				637DF9C22C0368C300919152 /* Currently Installed Packages */,
 				6323441E2C029D9B00E836A2 /* Shortcuts Provider */,
-				63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */,
-				63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */,
-				63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */,
 			);
 			path = "App Intents";
 			sourceTree = "<group>";
@@ -1369,6 +1371,39 @@
 				637D53A62BAB579800E072DA /* Parse Services.swift */,
 			);
 			path = Parsing;
+			sourceTree = "<group>";
+		};
+		637DF9C22C0368C300919152 /* Currently Installed Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */,
+				63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */,
+				63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */,
+			);
+			path = "Currently Installed Packages";
+			sourceTree = "<group>";
+		};
+		637DF9C32C0368D300919152 /* Package Installation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Package Installation";
+			sourceTree = "<group>";
+		};
+		637DF9C42C0368FF00919152 /* Package Updating */ = {
+			isa = PBXGroup;
+			children = (
+				637DF9C52C03690900919152 /* Package Refreshing */,
+			);
+			path = "Package Updating";
+			sourceTree = "<group>";
+		};
+		637DF9C52C03690900919152 /* Package Refreshing */ = {
+			isa = PBXGroup;
+			children = (
+				637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */,
+			);
+			path = "Package Refreshing";
 			sourceTree = "<group>";
 		};
 		637E006928734032005C9890 /* Installation & Removal */ = {
@@ -2425,6 +2460,7 @@
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
 				635BE0522A2B382C004DCBD8 /* Taps Section.swift in Sources */,
 				63C49EA62B1E964B00DAD508 /* Tap - Adding.swift in Sources */,
+				637DF9C72C03691C00919152 /* Refresh Packages Intent.swift in Sources */,
 				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
 				632C9A1E2BFE26A6000912CD /* Path Control.swift in Sources */,
 				635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */,

@@ -29,6 +29,11 @@ enum PackageType: String, CustomStringConvertible, Plottable, AppEntity
     
     var displayRepresentation: DisplayRepresentation
     {
-        DisplayRepresentation(title: "package-details.type")
+        switch self {
+            case .formula:
+                DisplayRepresentation(title: "package-details.type.formula")
+            case .cask:
+                DisplayRepresentation(title: "package-details.type.cask")
+        }
     }
 }
