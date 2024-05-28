@@ -121,7 +121,8 @@ struct InstallationInitialView: View
                         }
                         else
                         {
-                            appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
+                            AppConstants.logger.warning("Could not find the UUID in the package list")
+                            //appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
                         }
                     } label: {
                         Text("add-package.install.action")

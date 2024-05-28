@@ -8975,7 +8975,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Could not find the selected package in the list of available apckages"
+            "value" : "Could not find the selected package in the list of available packages"
           }
         }
       }
