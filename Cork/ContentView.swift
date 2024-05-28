@@ -226,7 +226,7 @@ struct ContentView: View, Sendable
             brewData.installedCasks = await availableCasks
 
             tapData.addedTaps = await availableTaps
-            
+
             appState.assignPackageTypeToCachedDownloads(brewData: brewData)
 
             do
@@ -381,6 +381,11 @@ struct ContentView: View, Sendable
                     dismissButton: .default(Text("action.close"), action: {
                         appState.dismissAlert()
                     })
+                )
+
+            case .couldNotFindPackageUUIDInList:
+                return Alert(
+                    title: Text("alert.could-not-find-package-uuid-in-list")
                 )
 
             case .couldNotApplyTaggedStateToPackages:
@@ -541,7 +546,7 @@ struct ContentView: View, Sendable
                         appState.dismissAlert()
                     })
                 )
-            case .couldNotDumpBrewfile(let error):
+            case let .couldNotDumpBrewfile(error):
                 return Alert(
                     title: Text("alert.could-not-dump-brewfile.title"),
                     message: Text("message.try-again-or-restart-\(error)"),

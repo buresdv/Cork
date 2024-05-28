@@ -76,6 +76,13 @@ struct InstallingPackageView: View
                                 {
                                     packageInstallationProcessStep = .wrongArchitecture
                                 }
+
+                        case .binaryAlreadyExists:
+                            Text("add-package.install.binary-already-exists-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                                .onAppear
+                                {
+                                    packageInstallationProcessStep = .binaryAlreadyExists
+                                }
                         }
                         LiveTerminalOutputView(
                             lineArray: $installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput,
@@ -105,9 +112,9 @@ struct InstallingPackageView: View
             catch let fatalInstallationError
             {
                 AppConstants.logger.error("Fatal error occurred during installing a package: \(fatalInstallationError, privacy: .public)")
-                
+
                 dismiss()
-                
+
                 appState.showAlert(errorToShow: .fatalPackageInstallationError(fatalInstallationError.localizedDescription))
             }
         }

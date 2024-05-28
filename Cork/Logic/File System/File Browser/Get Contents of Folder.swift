@@ -44,24 +44,24 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 
                         for version in versions
                         {
-                            AppConstants.logger.debug("Scanned version: \(version)")
+                            //AppConstants.logger.debug("Scanned version: \(version)")
 
-                            AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
+                            //AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
 
                             temporaryURLStorage.append(targetFolder.appendingPathComponent(item, conformingTo: .folder).appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
 
-                            AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
+                            //AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
 
                             temporaryVersionStorage.append(version.lastPathComponent)
                         }
 
-                        AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
+                        //AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
 
                         let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
 
                         let folderSizeRaw: Int64? = directorySize(url: targetFolder.appendingPathComponent(item, conformingTo: .directory))
 
-                        AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
+                        //AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
 
                         var wasPackageInstalledIntentionally = false
                         if targetFolder.path.contains("Cellar"),
@@ -74,11 +74,11 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                                 wasPackageInstalledIntentionally = try! await localPackageInfoJSON["installed_on_request"].boolValue
                             }
                         }
-                        AppConstants.logger.info("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
+                        //AppConstants.logger.info("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
 
                         let foundPackage = BrewPackage(name: item, isCask: !targetFolder.path.contains("Cellar"), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
 
-                        print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
+                        //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
 
                         return foundPackage
                     }

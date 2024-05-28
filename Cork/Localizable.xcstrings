@@ -4134,6 +4134,16 @@
         }
       }
     },
+    "action.reveal-applications-folder-in-finder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reveal Applications in Finder"
+          }
+        }
+      }
+    },
     "action.reveal-in-finder" : {
       "localizations" : {
         "cs" : {
@@ -5099,6 +5109,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "另一個 Homebrew 行程已經在執行"
+          }
+        }
+      }
+    },
+    "add-package.install.binary-already-exists-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ was installed outside of Homebrew"
+          }
+        }
+      }
+    },
+    "add-package.install.binary-already-exists.subheadline" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
           }
         }
       }
@@ -8936,6 +8966,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到此套件"
+          }
+        }
+      }
+    },
+    "alert.could-not-find-package-uuid-in-list" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not find the selected package in the list of available apckages"
           }
         }
       }

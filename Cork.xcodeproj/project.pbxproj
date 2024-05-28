@@ -136,6 +136,7 @@
 		637260C929BE4D8700E6E81C /* Get Casks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260C829BE4D8700E6E81C /* Get Casks.swift */; };
 		637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */; };
 		63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */; };
+		63739B862C0660F100DE6A17 /* Binary Already Exists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63739B852C0660F100DE6A17 /* Binary Already Exists.swift */; };
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
@@ -443,6 +444,7 @@
 		637260C829BE4D8700E6E81C /* Get Casks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Casks.swift"; sourceTree = "<group>"; };
 		637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Packages Included in Tap.swift"; sourceTree = "<group>"; };
 		63738C7E2AA38BF9009278B8 /* Updating Process Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Updating Process Details.swift"; sourceTree = "<group>"; };
+		63739B852C0660F100DE6A17 /* Binary Already Exists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binary Already Exists.swift"; sourceTree = "<group>"; };
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
@@ -1205,6 +1207,16 @@
 			path = Updating;
 			sourceTree = "<group>";
 		};
+		63739B842C0660DF00DE6A17 /* Status Views */ = {
+			isa = PBXGroup;
+			children = (
+				6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */,
+				631C2D342BB9DB75006EDCD1 /* Wrong Architecture.swift */,
+				63739B852C0660F100DE6A17 /* Binary Already Exists.swift */,
+			);
+			path = "Status Views";
+			sourceTree = "<group>";
+		};
 		6373D9C929DC60B700D98607 /* Reinstall Corrupted Package */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,14 +1403,13 @@
 		6392FD112A921B9600711B92 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
+				63739B842C0660DF00DE6A17 /* Status Views */,
 				6317BF6F2ADEE1EC0018E425 /* Initial */,
 				63AB6C472A9FEBEF00E58B93 /* Misc Views */,
 				6392FD122A921BAB00711B92 /* Initial.swift */,
 				6392FD142A921D5100711B92 /* Searching.swift */,
 				63D024E22AC769AC0050F9D0 /* Presenting Search Results.swift */,
 				63D024E42AC76DCD0050F9D0 /* Installing.swift */,
-				6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */,
-				631C2D342BB9DB75006EDCD1 /* Wrong Architecture.swift */,
 			);
 			path = "Sub-Views";
 			sourceTree = "<group>";
@@ -2275,6 +2286,7 @@
 				6311454E2BF23E1D007C9A65 /* Self-Compiled View.swift in Sources */,
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
 				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
+				63739B862C0660F100DE6A17 /* Binary Already Exists.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
 				63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */,

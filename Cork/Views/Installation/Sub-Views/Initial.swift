@@ -27,7 +27,7 @@ struct InstallationInitialView: View
 
     @Binding var packageRequested: String
 
-    @Binding var foundPackageSelection: Set<UUID>
+    @Binding var foundPackageSelection: UUID?
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
     
@@ -67,7 +67,7 @@ struct InstallationInitialView: View
             }
             
             InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt")) {
-                foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
+                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
             }
 
             HStack
@@ -80,48 +80,54 @@ struct InstallationInitialView: View
                 {
                     Button
                     {
-                        AppConstants.logger.debug("Would install package \(foundPackageSelection)")
-                        
-                        let topCasksSet = Set(topPackagesTracker.topCasks)
-                        
-                        var selectedTopPackageIsCask: Bool
+                        if let foundPackageSelection
                         {
-                            // If this UUID is in the top casks tracker, it means it's a cask. Otherwise, it's a formula. So we test if the result of looking for the selected package in the cask tracker returns nothing; if it does return nothing, it's a formula (since the package is not in the cask tracker)
-                            if topCasksSet.filter({ $0.id == foundPackageSelection.first }).isEmpty
+                            AppConstants.logger.debug("Would install package \(foundPackageSelection)")
+                            
+                            let topCasksSet = Set(topPackagesTracker.topCasks)
+                            
+                            var selectedTopPackageIsCask: Bool
                             {
-                                return false
+                                // If this UUID is in the top casks tracker, it means it's a cask. Otherwise, it's a formula. So we test if the result of looking for the selected package in the cask tracker returns nothing; if it does return nothing, it's a formula (since the package is not in the cask tracker)
+                                if topCasksSet.filter({ $0.id == foundPackageSelection }).isEmpty
+                                {
+                                    return false
+                                }
+                                else
+                                {
+                                    return true
+                                }
                             }
-                            else
+                            
+                            do
                             {
-                                return true
+                                let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection, isCask: selectedTopPackageIsCask, topPackageTracker: topPackagesTracker)
+                                
+                                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
+                                
+                                AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                                
+                                packageInstallationProcessStep = .installing
+                            }
+                            catch let topPackageInstallationError
+                            {
+                                AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
+                                
+                                dismiss()
+                                
+                                appState.showAlert(errorToShow: .topPackageArrayFilterCouldNotRetrieveAnyPackages)
+                                
                             }
                         }
-                        
-                        do
+                        else
                         {
-                            let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection.first!, isCask: selectedTopPackageIsCask, topPackageTracker: topPackagesTracker)
-                            
-                            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-                            
-                            AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
-                            
-                            packageInstallationProcessStep = .installing
+                            appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
                         }
-                        catch let topPackageInstallationError
-                        {
-                            AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
-                            
-                            dismiss()
-                            
-                            appState.showAlert(errorToShow: .topPackageArrayFilterCouldNotRetrieveAnyPackages)
-                            
-                        }
-                        
                     } label: {
                         Text("add-package.install.action")
                     }
-                    .keyboardShortcut(!foundPackageSelection.isEmpty ? .defaultAction : .init(.end))
-                    .disabled(foundPackageSelection.isEmpty)
+                    .keyboardShortcut(foundPackageSelection != nil ? .defaultAction : .init(.end))
+                    .disabled(foundPackageSelection == nil)
                 }
 
                 Button
@@ -130,7 +136,7 @@ struct InstallationInitialView: View
                 } label: {
                     Text("add-package.search.action")
                 }
-                .keyboardShortcut(foundPackageSelection.isEmpty ? .defaultAction : .init(.end))
+                .keyboardShortcut(foundPackageSelection == nil ? .defaultAction : .init(.end))
                 .disabled(packageRequested.isEmpty)
             }
         }
