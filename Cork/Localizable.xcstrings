@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "⚠️" : {
       "localizations" : {
@@ -4136,6 +4143,12 @@
     },
     "action.reveal-applications-folder-in-finder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit Aplikace ve Finderu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5115,6 +5128,12 @@
     },
     "add-package.install.binary-already-exists-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudek %@ byl nainstalován mimo Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5125,6 +5144,12 @@
     },
     "add-package.install.binary-already-exists.subheadline" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento soudek už ve složce Aplikace existuje Odinstalujte jej a zkuste to znovu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8972,6 +8997,12 @@
     },
     "alert.could-not-find-package-uuid-in-list" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrané balíčky se nepodařilo najít v seznamu dostupných baíšků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12008,6 +12039,12 @@
     },
     "intent.refresh.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledá aktualizace databáze balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12018,6 +12055,12 @@
     },
     "intent.refresh.result.display-representation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výsledek aktualizace databáze balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12028,6 +12071,12 @@
     },
     "intent.refresh.result.failed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace databáze balíčků selhala"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12038,6 +12087,12 @@
     },
     "intent.refresh.result.refreshed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Databáze balíčků byla aktualizována"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12048,6 +12103,12 @@
     },
     "intent.refresh.result.refreshed-with-errors" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Databáze balíčků byla aktualizována, ale vyskytly se chyby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12058,6 +12119,12 @@
     },
     "intent.refresh.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat databázi balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
