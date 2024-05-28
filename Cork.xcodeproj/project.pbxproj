@@ -40,6 +40,7 @@
 		63219ACC2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63219ACB2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift */; };
 		63219ACE2AD2ACA00037D178 /* Purge Cache Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63219ACD2AD2ACA00037D178 /* Purge Cache Utility.swift */; };
 		6322B5AE2BC4364C00D7E380 /* View - Disable animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6322B5AD2BC4364C00D7E380 /* View - Disable animations.swift */; };
+		632344202C029DAA00E836A2 /* Cork Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6323441F2C029DAA00E836A2 /* Cork Shortcuts.swift */; };
 		632459E92AC5E4D800D6D71A /* Full-Size Grouped Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */; };
 		6325561E2AA3CDE50032133D /* Apply Uninstallation Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */; };
 		632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A1A2BFE2544000912CD /* Custom Homebrew Executable View.swift */; };
@@ -66,6 +67,11 @@
 		633AA2242AFEE40500A5F3E3 /* Data File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633AA2232AFEE40500A5F3E3 /* Data File.swift */; };
 		633AA2262AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633AA2252AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift */; };
 		633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633EB30529BE65EB006CB872 /* Custom Search Field.swift */; };
+		63405A4A2C027F1300C6E0F2 /* Get Installed Formulae Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */; };
+		63405A4D2C02800800C6E0F2 /* Minimal Homebrew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */; };
+		63405A512C028AE800C6E0F2 /* Get Installed Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */; };
+		63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */; };
+		63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
 		634065692871AA42001A2178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634065682871AA42001A2178 /* Assets.xcassets */; };
@@ -148,6 +154,7 @@
 		637D53A72BAB579800E072DA /* Parse Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A62BAB579800E072DA /* Parse Services.swift */; };
 		637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */; };
 		637D53FC2B9E773A00F61361 /* View - Platform Conditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */; };
+		637DF9C72C03691C00919152 /* Refresh Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */; };
 		637E00642872F3CE005C9890 /* Update Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00632872F3CE005C9890 /* Update Packages.swift */; };
 		637E00662872F629005C9890 /* Update Progress Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E00652872F629005C9890 /* Update Progress Tracker.swift */; };
 		637E006828733C1C005C9890 /* Search for Package by ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E006728733C1C005C9890 /* Search for Package by ID.swift */; };
@@ -292,6 +299,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		63E5FBC42C027E57005AAE92 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisclosureGroup - No Padding.swift"; sourceTree = "<group>"; };
 		63006DFF29AC073D00243E29 /* Parse JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse JSON.swift"; sourceTree = "<group>"; };
@@ -326,6 +346,7 @@
 		63219ACB2AD2AA5A0037D178 /* Uninstall Orphans - Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uninstall Orphans - Utility.swift"; sourceTree = "<group>"; };
 		63219ACD2AD2ACA00037D178 /* Purge Cache Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purge Cache Utility.swift"; sourceTree = "<group>"; };
 		6322B5AD2BC4364C00D7E380 /* View - Disable animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Disable animations.swift"; sourceTree = "<group>"; };
+		6323441F2C029DAA00E836A2 /* Cork Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cork Shortcuts.swift"; sourceTree = "<group>"; };
 		632459E82AC5E4D800D6D71A /* Full-Size Grouped Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Full-Size Grouped Form.swift"; sourceTree = "<group>"; };
 		6325561D2AA3CDE50032133D /* Apply Uninstallation Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Apply Uninstallation Spinner.swift"; sourceTree = "<group>"; };
 		632C9A162BFE1083000912CD /* String - Letters Only.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String - Letters Only.swift"; sourceTree = "<group>"; };
@@ -353,6 +374,10 @@
 		633AA2232AFEE40500A5F3E3 /* Data File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data File.swift"; sourceTree = "<group>"; };
 		633AA2252AFEF78700A5F3E3 /* UTType - Homebrew Backup Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType - Homebrew Backup Format.swift"; sourceTree = "<group>"; };
 		633EB30529BE65EB006CB872 /* Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Search Field.swift"; sourceTree = "<group>"; };
+		63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Installed Formulae Intent.swift"; sourceTree = "<group>"; };
+		63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Minimal Homebrew Package.swift"; sourceTree = "<group>"; };
+		63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Installed Packages Intent.swift"; sourceTree = "<group>"; };
+		63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Installed Casks Intent.swift"; sourceTree = "<group>"; };
 		634065612871AA42001A2178 /* Cork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634065642871AA42001A2178 /* CorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorkApp.swift; sourceTree = "<group>"; };
 		634065662871AA42001A2178 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -436,6 +461,7 @@
 		637D53A62BAB579800E072DA /* Parse Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Services.swift"; sourceTree = "<group>"; };
 		637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - LocalizedStringKey to String.swift"; sourceTree = "<group>"; };
 		637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Platform Conditional.swift"; sourceTree = "<group>"; };
+		637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Packages Intent.swift"; sourceTree = "<group>"; };
 		637E00632872F3CE005C9890 /* Update Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Packages.swift"; sourceTree = "<group>"; };
 		637E00652872F629005C9890 /* Update Progress Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Progress Tracker.swift"; sourceTree = "<group>"; };
 		637E006728733C1C005C9890 /* Search for Package by ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search for Package by ID.swift"; sourceTree = "<group>"; };
@@ -535,6 +561,8 @@
 		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
 		63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Second to Last Element.swift"; sourceTree = "<group>"; };
+		63E5FBB42C027E54005AAE92 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		63E5FBB62C027E55005AAE92 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package List Box.swift"; sourceTree = "<group>"; };
 		63E716D629DDB8C5004FD2B4 /* Outdated Package Loader Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Loader Box.swift"; sourceTree = "<group>"; };
 		63E716D829DDB918004FD2B4 /* Package And Tap Overview Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package And Tap Overview Box.swift"; sourceTree = "<group>"; };
@@ -730,6 +758,14 @@
 			path = "Utility Functions";
 			sourceTree = "<group>";
 		};
+		6323441E2C029D9B00E836A2 /* Shortcuts Provider */ = {
+			isa = PBXGroup;
+			children = (
+				6323441F2C029DAA00E836A2 /* Cork Shortcuts.swift */,
+			);
+			path = "Shortcuts Provider";
+			sourceTree = "<group>";
+		};
 		6325561B2AA3CDBB0032133D /* Removal */ = {
 			isa = PBXGroup;
 			children = (
@@ -832,12 +868,32 @@
 			path = "Raw Files";
 			sourceTree = "<group>";
 		};
+		63405A482C027EE300C6E0F2 /* App Intents */ = {
+			isa = PBXGroup;
+			children = (
+				637DF9C42C0368FF00919152 /* Package Updating */,
+				637DF9C32C0368D300919152 /* Package Installation */,
+				637DF9C22C0368C300919152 /* Currently Installed Packages */,
+				6323441E2C029D9B00E836A2 /* Shortcuts Provider */,
+			);
+			path = "App Intents";
+			sourceTree = "<group>";
+		};
+		63405A4B2C027FDB00C6E0F2 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
 		634065582871AA42001A2178 = {
 			isa = PBXGroup;
 			children = (
 				63F622702BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy */,
 				634065632871AA42001A2178 /* Cork */,
 				C4C2A0E82A910B0A00E6F172 /* CorkHelp */,
+				63E5FBB32C027E54005AAE92 /* Frameworks */,
 				634065622871AA42001A2178 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -885,6 +941,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				63405A482C027EE300C6E0F2 /* App Intents */,
 				637D53A02BAB55C500E072DA /* Services */,
 				633AA21E2AFEDD8500A5F3E3 /* Brewfile */,
 				63FFE5722A90CB3F00F95E54 /* Discoverability */,
@@ -914,6 +971,7 @@
 		6340657B2871AC4F001A2178 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63405A4B2C027FDB00C6E0F2 /* Intents */,
 				63603BBA2BBEAFFF0083AEDB /* Package Uninstallation */,
 				637D53922BAB516200E072DA /* Services */,
 				63738C7D2AA38BEA009278B8 /* Updating */,
@@ -1245,6 +1303,39 @@
 				637D53A62BAB579800E072DA /* Parse Services.swift */,
 			);
 			path = Parsing;
+			sourceTree = "<group>";
+		};
+		637DF9C22C0368C300919152 /* Currently Installed Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63405A492C027F1300C6E0F2 /* Get Installed Formulae Intent.swift */,
+				63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */,
+				63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */,
+			);
+			path = "Currently Installed Packages";
+			sourceTree = "<group>";
+		};
+		637DF9C32C0368D300919152 /* Package Installation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Package Installation";
+			sourceTree = "<group>";
+		};
+		637DF9C42C0368FF00919152 /* Package Updating */ = {
+			isa = PBXGroup;
+			children = (
+				637DF9C52C03690900919152 /* Package Refreshing */,
+			);
+			path = "Package Updating";
+			sourceTree = "<group>";
+		};
+		637DF9C52C03690900919152 /* Package Refreshing */ = {
+			isa = PBXGroup;
+			children = (
+				637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */,
+			);
+			path = "Package Refreshing";
 			sourceTree = "<group>";
 		};
 		637E006928734032005C9890 /* Installation & Removal */ = {
@@ -1742,6 +1833,15 @@
 			path = Searching;
 			sourceTree = "<group>";
 		};
+		63E5FBB32C027E54005AAE92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63E5FBB42C027E54005AAE92 /* WidgetKit.framework */,
+				63E5FBB62C027E55005AAE92 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63E716D329DDA815004FD2B4 /* Sub-Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1848,6 +1948,7 @@
 				6340655D2871AA42001A2178 /* Sources */,
 				6340655E2871AA42001A2178 /* Frameworks */,
 				6340655F2871AA42001A2178 /* Resources */,
+				63E5FBC42C027E57005AAE92 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -1889,7 +1990,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					634065602871AA42001A2178 = {
@@ -1999,12 +2100,14 @@
 				63A90D8B2AA268C700CEC48E /* Sanitized Package Name.swift in Sources */,
 				6382C8F9299D6C1D00354B19 /* Package Sorting.swift in Sources */,
 				6311F3D42B0A1DE7008A8067 /* Sudo Required For Removal.swift in Sources */,
+				63405A512C028AE800C6E0F2 /* Get Installed Packages Intent.swift in Sources */,
 				63D67B712AC5A27F002EB992 /* Package System Info.swift in Sources */,
 				63D831052999331D00FA802F /* Sheet with Title.swift in Sources */,
 				6382C90A299DA11F00354B19 /* Purge Brew Cache.swift in Sources */,
 				63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */,
 				634065782871AB3A001A2178 /* Shell Interface.swift in Sources */,
 				63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */,
+				63405A4A2C027F1300C6E0F2 /* Get Installed Formulae Intent.swift in Sources */,
 				632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */,
 				63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */,
 				635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */,
@@ -2138,6 +2241,7 @@
 				63689F8B2ACCB5B600BD354C /* Load Image from Local URL.swift in Sources */,
 				63690F7D29C9FC0F008F952C /* Save Data do Disk.swift in Sources */,
 				63771DF62BB5C03500A53B93 /* Corrupted Package.swift in Sources */,
+				632344202C029DAA00E836A2 /* Cork Shortcuts.swift in Sources */,
 				6330531929966E9F00F34F94 /* Start Page.swift in Sources */,
 				63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */,
 				6317BF7B2ADEFD2E0018E425 /* Updating Package Tracker.swift in Sources */,
@@ -2173,6 +2277,7 @@
 				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
+				63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */,
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6317BF752ADEFB060018E425 /* Ready to Update.swift in Sources */,
 				632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */,
@@ -2208,6 +2313,7 @@
 				63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */,
 				635BE0522A2B382C004DCBD8 /* Taps Section.swift in Sources */,
 				63C49EA62B1E964B00DAD508 /* Tap - Adding.swift in Sources */,
+				637DF9C72C03691C00919152 /* Refresh Packages Intent.swift in Sources */,
 				63E716DB29DDB9D0004FD2B4 /* Analytics Status Box.swift in Sources */,
 				632C9A1E2BFE26A6000912CD /* Path Control.swift in Sources */,
 				635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */,
@@ -2229,9 +2335,11 @@
 				63581BCF2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift in Sources */,
 				63D51F68299A9A6000203F3F /* Installation Pane.swift in Sources */,
 				633289EF29A68B36004B2930 /* Search Result Tracker.swift in Sources */,
+				63405A4D2C02800800C6E0F2 /* Minimal Homebrew Package.swift in Sources */,
 				633AA2242AFEE40500A5F3E3 /* Data File.swift in Sources */,
 				63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
+				63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */,
 				6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */,
 				63ACBBE72BA8983D00B26D7E /* Licensing View.swift in Sources */,
 				637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */,
@@ -2356,6 +2464,7 @@
 		631145502BF249A9007C9A65 /* Self-Compiled */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
@@ -2540,6 +2649,7 @@
 		634065712871AA42001A2178 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;
@@ -2572,6 +2682,7 @@
 		634065722871AA42001A2178 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cork/Cork.entitlements;

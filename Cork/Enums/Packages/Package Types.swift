@@ -7,8 +7,9 @@
 
 import Foundation
 import Charts
+import AppIntents
 
-enum PackageType: String, CustomStringConvertible, Plottable
+enum PackageType: String, CustomStringConvertible, Plottable, AppEntity
 {
     case formula
     case cask
@@ -21,6 +22,18 @@ enum PackageType: String, CustomStringConvertible, Plottable
                 return String(localized: "package-details.type.formula")
             case .cask:
                 return String(localized: "package-details.type.cask")
+        }
+    }
+    
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
+    
+    var displayRepresentation: DisplayRepresentation
+    {
+        switch self {
+            case .formula:
+                DisplayRepresentation(title: "package-details.type.formula")
+            case .cask:
+                DisplayRepresentation(title: "package-details.type.cask")
         }
     }
 }
