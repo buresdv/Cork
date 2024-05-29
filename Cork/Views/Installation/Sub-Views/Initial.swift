@@ -143,7 +143,7 @@ struct InstallationInitialView: View
         }
         .onAppear
         {
-            foundPackageSelection = .init()
+            foundPackageSelection = nil
         }
     }
 }

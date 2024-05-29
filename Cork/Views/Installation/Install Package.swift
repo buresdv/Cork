@@ -16,7 +16,7 @@ struct AddFormulaView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
-    @State private var foundPackageSelection: UUID?
+    @State private var foundPackageSelection: UUID? = nil
 
     @ObservedObject var searchResultTracker = SearchResultTracker()
     @ObservedObject var installationProgressTracker = InstallationProgressTracker()
