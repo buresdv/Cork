@@ -8,6 +8,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -4154,6 +4160,12 @@
             "state" : "translated",
             "value" : "Reveal Applications in Finder"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在访达中显示应用程序"
+          }
         }
       }
     },
@@ -5139,6 +5151,12 @@
             "state" : "translated",
             "value" : "%@ was installed outside of Homebrew"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 于 Homebrew 外部安装"
+          }
         }
       }
     },
@@ -5154,6 +5172,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个 Cask 已在应用程序文件夹中存在\n请卸载它然后尝试重试安装"
           }
         }
       }
@@ -9008,6 +9032,12 @@
             "state" : "translated",
             "value" : "Could not find the selected package in the list of available packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法在可用软件包中找到所选软件包"
+          }
         }
       }
     },
@@ -11498,6 +11528,12 @@
             "state" : "translated",
             "value" : "Unknown"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
+          }
         }
       }
     },
@@ -11938,6 +11974,12 @@
             "state" : "translated",
             "value" : "Get a list of installed Casks"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Cask 列表"
+          }
         }
       }
     },
@@ -11953,6 +11995,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Casks"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Cask "
           }
         }
       }
@@ -11970,6 +12018,12 @@
             "state" : "translated",
             "value" : "Get a list of installed Formulae"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Formula 列表"
+          }
         }
       }
     },
@@ -11985,6 +12039,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Formulae"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Formula"
           }
         }
       }
@@ -12002,6 +12062,12 @@
             "state" : "translated",
             "value" : "Get a list of installed Formulae and Casks"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Formula 和 Cask 列表"
+          }
         }
       }
     },
@@ -12017,6 +12083,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Load only manually installed packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅加载手动安装的软件包"
           }
         }
       }
@@ -12034,6 +12106,12 @@
             "state" : "translated",
             "value" : "Get installed packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装软件包"
+          }
         }
       }
     },
@@ -12049,6 +12127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Look for updates to installed Packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查找已安装软件包更新"
           }
         }
       }
@@ -12066,6 +12150,12 @@
             "state" : "translated",
             "value" : "Package refreshing result"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包刷新结果"
+          }
         }
       }
     },
@@ -12081,6 +12171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refreshing of packages failed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包刷新失败"
           }
         }
       }
@@ -12098,6 +12194,12 @@
             "state" : "translated",
             "value" : "Packages refreshed"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包已更新"
+          }
         }
       }
     },
@@ -12113,6 +12215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages refreshed with errors"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包刷新出现错误"
           }
         }
       }
@@ -12130,6 +12238,12 @@
             "state" : "translated",
             "value" : "Refresh Packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新软件包"
+          }
         }
       }
     },
@@ -12146,6 +12260,12 @@
             "state" : "translated",
             "value" : "Homebrew Package"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 软件包"
+          }
         }
       }
     },
@@ -12161,6 +12281,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A lightweight representation of a package"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一个轻量的软件包摘要"
           }
         }
       }
