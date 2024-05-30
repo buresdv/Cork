@@ -46,7 +46,7 @@ Pre-compiled, always up-to-date versions are available from my Homebrew tap. You
     If you aren't sure how to go about translating Cork, I'd recommend asking the translation team on Discord. They have the `Linguist` role.
     If you'd prefer to learn on your own, this Apple documentation article is a nice introduction to the process: [Internalization](https://developer.apple.com/documentation/xcode/adding-support-for-languages-and-regions).
   - Implement a feature tagged with `Help Wanted` in the [Issue Tracker](https://github.com/buresdv/Cork/issues?q=is%3Aissue+is%3Aopen+label%3A%22Help+Wanted%22).
-    Please espect the coding style. The main deviation from the Swift convention is that [brackets are on their own lines](https://github.com/buresdv/Cork/blob/83e6ac9977d780328d7bfeddaf4df66dc3260521/Cork/Logic/JSON/Parse%20JSON.swift#L16).
+    Please respect the coding style. The main deviation from the Swift convention is that [brackets are on their own lines](https://github.com/buresdv/Cork/blob/83e6ac9977d780328d7bfeddaf4df66dc3260521/Cork/Logic/JSON/Parse%20JSON.swift#L16).
 
 However, if you don't want to do any of the above, you can always compile Cork yourself. See below for instructions.
 
