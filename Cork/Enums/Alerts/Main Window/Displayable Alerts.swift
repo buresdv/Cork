@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FatalAlertType
+enum DisplayableAlert: LocalizedError
 {
     case couldNotLoadAnyPackages(Error), couldNotLoadCertainPackage(String)
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly
@@ -15,7 +15,7 @@ enum FatalAlertType
     case couldNotFindPackageUUIDInList
     case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), homePathNotSet
     case couldNotObtainNotificationPermissions
-	case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled
+    case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: String)
     case couldNotParseTopPackages
     case receivedInvalidResponseFromBrew
     case topPackageArrayFilterCouldNotRetrieveAnyPackages
@@ -23,8 +23,8 @@ enum FatalAlertType
     case couldNotFindPackageInParentDirectory
     case fatalPackageInstallationError(String)
     case couldNotSynchronizePackages
-    
-    //MARK: - Brewfile exporting/importing
+
+    // MARK: - Brewfile exporting/importing
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile(error: String), couldNotReadBrewfile
     case couldNotGetBrewfileLocation, couldNotImportBrewfile, malformedBrewfile
 }

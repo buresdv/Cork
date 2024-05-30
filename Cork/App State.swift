@@ -45,13 +45,12 @@ class AppState: ObservableObject
     
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
-    @Published var fatalAlertType: FatalAlertType = .couldNotApplyTaggedStateToPackages
+    @Published var fatalAlertType: DisplayableAlert = .couldNotApplyTaggedStateToPackages
     
     @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
     
     @Published var offendingDependencyProhibitingUninstallation: String = ""
-    @Published var offendingTapProhibitingRemovalOfTap: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false
     
     @Published var isShowingIncrementalUpdateSheet: Bool = false
@@ -72,7 +71,7 @@ class AppState: ObservableObject
     @Published var corruptedPackage: String = ""
     
     // MARK: - Showing errors
-    func showAlert(errorToShow: FatalAlertType)
+    func showAlert(errorToShow: DisplayableAlert)
     {
         self.fatalAlertType = errorToShow
         

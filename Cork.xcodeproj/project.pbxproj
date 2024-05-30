@@ -255,6 +255,7 @@
 		63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83109299982EA00FA802F /* Search Result Row.swift */; };
 		63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D86EB129C0972A00AD64D2 /* Package Search Token.swift */; };
 		63D8C957287A1D0800483A52 /* Loading View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C956287A1D0800483A52 /* Loading View.swift */; };
+		63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */; };
 		63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
 		63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */; };
 		63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */; };
@@ -281,7 +282,7 @@
 		63FFE57E2A90D9E300F95E54 /* Day Spans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57D2A90D9E300F95E54 /* Day Spans.swift */; };
 		63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
-		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
+		63FFEF5029CB5EEE00D6FFC4 /* Displayable Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Displayable Alerts.swift */; };
 		9606D0AD2AAB8B8E005B7DBA /* Sidebar Package Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */; };
 		C45945172A91232900271D99 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C45945192A91232900271D99 /* index.html */; };
 		C459451A2A91232E00271D99 /* topic1.html in Resources */ = {isa = PBXBuildFile; fileRef = C459451C2A91232E00271D99 /* topic1.html */; };
@@ -562,6 +563,8 @@
 		63D83109299982EA00FA802F /* Search Result Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Row.swift"; sourceTree = "<group>"; };
 		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
+		63DD440C2C093CC40084DA07 /* askForSudoPassword.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = askForSudoPassword.sh; sourceTree = "<group>"; };
+		63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Descriptions.swift"; sourceTree = "<group>"; };
 		63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Second to Last Element.swift"; sourceTree = "<group>"; };
 		63E5FBB42C027E54005AAE92 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		63E5FBB62C027E55005AAE92 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -588,7 +591,7 @@
 		63FFE57D2A90D9E300F95E54 /* Day Spans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day Spans.swift"; sourceTree = "<group>"; };
 		63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discoverability Pane.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
-		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
+		63FFEF4F29CB5EEE00D6FFC4 /* Displayable Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts.swift"; sourceTree = "<group>"; };
 		9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar Package Row.swift"; sourceTree = "<group>"; };
 		C45945182A91232900271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/index.html; sourceTree = "<group>"; wrapsLines = 0; };
 		C459451B2A91232E00271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic1.html; sourceTree = "<group>"; };
@@ -1160,6 +1163,7 @@
 		6371EA1F2871E0EC00300E1B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				63DD440B2C093CAC0084DA07 /* Scripts */,
 				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
 				639246E429A26BB4008149E2 /* REGEX Match.swift */,
 				63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */,
@@ -1518,6 +1522,7 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				63DD440D2C093E180084DA07 /* Alerts */,
 				6369AFBB2BF78E6600E67153 /* Packages */,
 				637D53972BAB51A800E072DA /* Services */,
 				63ACBBE22BA891D500B26D7E /* Licensing */,
@@ -1528,7 +1533,6 @@
 				6360355529BDE79D00CC0760 /* Package Updating */,
 				6382C8F8299D6C1D00354B19 /* Package Sorting.swift */,
 				63936A4C29AE6D710069C988 /* Package Caveats.swift */,
-				63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */,
 				635E44942A891078002C034E /* Outdated Packages Notification Type.swift */,
 			);
 			path = Enums;
@@ -1844,6 +1848,47 @@
 			path = Searching;
 			sourceTree = "<group>";
 		};
+		63DD440B2C093CAC0084DA07 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				63DD440C2C093CC40084DA07 /* askForSudoPassword.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		63DD440D2C093E180084DA07 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				63DD440E2C093E260084DA07 /* Main Window */,
+				63DD440F2C093E2A0084DA07 /* Services */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		63DD440E2C093E260084DA07 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				63DD44122C093E7B0084DA07 /* Error Details */,
+				63FFEF4F29CB5EEE00D6FFC4 /* Displayable Alerts.swift */,
+			);
+			path = "Main Window";
+			sourceTree = "<group>";
+		};
+		63DD440F2C093E2A0084DA07 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		63DD44122C093E7B0084DA07 /* Error Details */ = {
+			isa = PBXGroup;
+			children = (
+				63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */,
+			);
+			path = "Error Details";
+			sourceTree = "<group>";
+		};
 		63E5FBB32C027E54005AAE92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2125,7 +2170,7 @@
 				63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */,
 				63D51F65299A992900203F3F /* Settings View.swift in Sources */,
 				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
-				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
+				63FFEF5029CB5EEE00D6FFC4 /* Displayable Alerts.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
@@ -2237,6 +2282,7 @@
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				637D53962BAB517800E072DA /* Service.swift in Sources */,
 				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,
+				63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */,
 				63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */,
 				6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */,
 				6317BF832ADEFEAC0018E425 /* Finished Stage.swift in Sources */,
