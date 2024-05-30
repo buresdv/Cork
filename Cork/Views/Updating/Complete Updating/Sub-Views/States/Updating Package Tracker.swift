@@ -34,7 +34,7 @@ struct UpdatingPackageTrackerStateView: View
                     }
                     else
                     {
-                        packageUpdatingStage = .erroredOut
+                        packageUpdatingStage = .erroredOut(packagesRequireSudo: updateProgressTracker.errors.contains("a terminal is required to read the password"))
                     }
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError

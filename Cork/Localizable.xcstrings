@@ -3338,6 +3338,16 @@
         }
       }
     },
+    "action.finish-updating-in-terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish in Terminal"
+          }
+        }
+      }
+    },
     "action.go-to-status-page" : {
       "comment" : "MARK: - Misc Actions",
       "localizations" : {
@@ -33384,6 +33394,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "請詳查下方資訊"
+          }
+        }
+      }
+    },
+    "update-packages.error.sudo-required" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Action is needed to finish updating"
+          }
+        }
+      }
+    },
+    "update-packages.error.sudo-required.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
           }
         }
       }

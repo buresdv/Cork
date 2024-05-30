@@ -13,7 +13,7 @@ struct UpdatePackagesView: View
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
 
     @State var updateAvailability: PackageUpdateAvailability = .updatesAvailable
-    
+
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @StateObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
@@ -39,8 +39,8 @@ struct UpdatePackagesView: View
                     case .checkingForUpdates:
                         CheckingForUpdatesStateView(
                             packageUpdatingStep: $packageUpdatingStep,
-                            packageUpdatingStage: $packageUpdatingStage, 
-                            updateAvailability: $updateAvailability, 
+                            packageUpdatingStage: $packageUpdatingStage,
+                            updateAvailability: $updateAvailability,
                             isShowingRealTimeTerminalOutput: $isRealTimeTerminalOutputExpanded
                         )
 
@@ -52,9 +52,9 @@ struct UpdatePackagesView: View
                         )
 
                     case .updatingOutdatedPackageTracker:
-                            UpdatingPackageTrackerStateView(
-                                packageUpdatingStage: $packageUpdatingStage
-                            )
+                        UpdatingPackageTrackerStateView(
+                            packageUpdatingStage: $packageUpdatingStage
+                        )
 
                     case .finished:
                         UpdatingFinishedStateView(
@@ -69,8 +69,8 @@ struct UpdatePackagesView: View
             case .finished:
                 FinishedStageView()
 
-            case .erroredOut:
-                ErroredOutStageView()
+            case .erroredOut(let packagesRequireSudoToUpdate):
+                ErroredOutStageView(sudoRequiredForUpdate: packagesRequireSudoToUpdate)
             }
         }
         .padding()
