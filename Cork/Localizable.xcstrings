@@ -9,6 +9,12 @@
             "value" : "%@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4161,6 +4167,12 @@
             "value" : "Reveal Applications in Finder"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать папку приложений в Finder"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5152,6 +5164,12 @@
             "value" : "%@ was installed outside of Homebrew"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ был установлен не с помощью Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5172,6 +5190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это приложение уже находится в папке \"Приложения\". Удалите его и попробуйте еще раз."
           }
         },
         "zh-Hans" : {
@@ -9033,6 +9057,12 @@
             "value" : "Could not find the selected package in the list of available packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось найти выбранный пакет в списке доступных"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11529,6 +11559,12 @@
             "value" : "Unknown"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестные"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11975,6 +12011,12 @@
             "value" : "Get a list of installed Casks"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение списка приложений macOS, установленных с помощью Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11995,6 +12037,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Casks"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить установленные приложения macOS"
           }
         },
         "zh-Hans" : {
@@ -12019,6 +12067,12 @@
             "value" : "Get a list of installed Formulae"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение списка консольных приложений и библиотек, установленных с помощью Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12039,6 +12093,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Formulae"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить установленные программы/библиотеки"
           }
         },
         "zh-Hans" : {
@@ -12063,6 +12123,12 @@
             "value" : "Get a list of installed Formulae and Casks"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение списка установленных пакетов Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12083,6 +12149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Load only manually installed packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Только установленные вручную"
           }
         },
         "zh-Hans" : {
@@ -12107,6 +12179,12 @@
             "value" : "Get installed packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить установленные пакеты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12127,6 +12205,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Look for updates to installed Packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение актуальной информации о пакетах Homebrew и проверка на наличие новых версий установленных пакетов"
           }
         },
         "zh-Hans" : {
@@ -12151,6 +12235,12 @@
             "value" : "Package refreshing result"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Результат обновления информации о пакетах"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12171,6 +12261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refreshing of packages failed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информацию о пакетах не удалось обновить"
           }
         },
         "zh-Hans" : {
@@ -12195,6 +12291,12 @@
             "value" : "Packages refreshed"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация о пакетах обновлена"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12215,6 +12317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages refreshed with errors"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновление пакетов завершено с ошибками"
           }
         },
         "zh-Hans" : {
@@ -12239,6 +12347,12 @@
             "value" : "Refresh Packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить информацию о пакетах"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12261,6 +12375,12 @@
             "value" : "Homebrew Package"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12281,6 +12401,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A lightweight representation of a package"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основные данные о пакете Homebrew"
           }
         },
         "zh-Hans" : {
