@@ -45,12 +45,11 @@ class AppState: ObservableObject
     
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
-    @Published var fatalAlertType: DisplayableAlert = .couldNotApplyTaggedStateToPackages
+    @Published var fatalAlertType: DisplayableAlert? = nil
     
     @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
     
-    @Published var offendingDependencyProhibitingUninstallation: String = ""
     @Published var isShowingRemoveTapFailedAlert: Bool = false
     
     @Published var isShowingIncrementalUpdateSheet: Bool = false
@@ -81,6 +80,8 @@ class AppState: ObservableObject
     func dismissAlert()
     {
         self.isShowingFatalError = false
+        
+        self.fatalAlertType = nil
     }
     
     // MARK: - Notification setup

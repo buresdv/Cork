@@ -34,7 +34,7 @@ func parseServices(rawOutput: String) throws -> Set<HomebrewService>
         
         return servicesTracker
     }
-    catch let parsingError
+    catch
     {
         throw JSONError.parsingFailed
     }
