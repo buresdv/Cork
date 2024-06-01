@@ -89,6 +89,10 @@ func shell(
         task.currentDirectoryURL = workingDirectory
     }
     
+    let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
+    
+    finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
+    
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
     task.arguments = arguments
