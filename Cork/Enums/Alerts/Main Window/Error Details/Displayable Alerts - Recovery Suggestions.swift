@@ -68,7 +68,7 @@ extension DisplayableAlert
         case .couldNotImportBrewfile:
             return String(localized: "alert.could-not-import-brewfile.message")
         case .malformedBrewfile:
-            return String(localized: "alert.malformed-brewfile.messages")
+            return String(localized: "alert.malformed-brewfile.message")
         }
     }
 }

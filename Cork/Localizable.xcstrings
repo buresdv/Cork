@@ -10081,7 +10081,6 @@
       }
     },
     "alert.malformed-brewfile.message" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -10138,9 +10137,6 @@
           }
         }
       }
-    },
-    "alert.malformed-brewfile.messages" : {
-
     },
     "alert.malformed-brewfile.title" : {
       "localizations" : {
