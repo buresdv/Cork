@@ -1662,7 +1662,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Inicio al Iniciar Sesión"
           }
         },
@@ -1724,6 +1724,12 @@
             "value" : "A package that lets Cork start when you log in"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un paquete que permite a Cork iniciarse cuando inicias sesión"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1777,6 +1783,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
@@ -1840,6 +1852,12 @@
             "value" : "Special Thanks"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agradecimientos especiales"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1893,6 +1911,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seb Jachec"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seb Jachec"
@@ -1956,6 +1980,12 @@
             "value" : "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Implementó una función para obtener resultados de comandos en tiempo real, lo que hace que más de la mitad de todas las funciones de Cork sean mucho más rápidas."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2014,6 +2044,12 @@
             "value" : "Implemented the way of skipping licensing for users who compiled Cork themselves"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Implementó la forma de omitir licencias para los usuarios que compilaron Cork ellos mismos."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2048,6 +2084,12 @@
             "value" : "Dimitri Bouniol"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2077,6 +2119,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ben Carlsson"
@@ -2182,6 +2230,12 @@
             "value" : "Jerry Zhang"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jerry Zhang"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2240,6 +2294,12 @@
             "value" : "Translated Cork into Simplified Chinese"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradujo Cork al chino simplificado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2293,6 +2353,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sh95014"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "sh95014"
@@ -2356,6 +2422,12 @@
             "value" : "Translated Cork into Traditional Chinese"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradujo Cork al chino tradicional"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2409,6 +2481,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maurice Meysel"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maurice Meysel"
@@ -2472,6 +2550,12 @@
             "value" : "Translated Cork into German"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradujo Cork al aleman"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2525,6 +2609,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bryan Ledda"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bryan Ledda"
@@ -2588,6 +2678,12 @@
             "value" : "Translated Cork into French"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradujo Cork al francés"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2642,6 +2738,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nikita Utkin"
@@ -2706,6 +2808,12 @@
             "value" : "Translated Cork into Russian"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradujo Cork al ruso"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2760,6 +2868,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Igor Petruchek"
@@ -2824,6 +2938,12 @@
             "value" : "Translated Cork into Ukraininan"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradujo Cork al ucraniano"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2880,6 +3000,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translators"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traductores"
           }
         },
         "fr" : {
@@ -2940,6 +3066,12 @@
             "value" : "Version %@ (%@)"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión %@ (%@)"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2996,6 +3128,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try Demo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probar"
           }
         },
         "fr" : {
@@ -3056,6 +3194,12 @@
             "value" : "Buy Cork"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprar Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3112,6 +3256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         },
         "fr" : {
@@ -3172,6 +3322,12 @@
             "value" : "Activate"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3228,6 +3384,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Clear metadata"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpiar metadatos"
           }
         },
         "fr" : {
@@ -3288,6 +3450,12 @@
             "value" : "Close"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar "
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3344,6 +3512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copy"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar"
           }
         },
         "fr" : {
@@ -3404,6 +3578,12 @@
             "value" : "Copy to Clipboard"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar al portapapeles"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3460,6 +3640,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Done"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho"
           }
         },
         "fr" : {
@@ -3521,6 +3707,12 @@
             "value" : "Status page"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página de estado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3577,6 +3769,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Go to Status Page"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir a la página de estado"
           }
         },
         "fr" : {
@@ -3701,6 +3899,12 @@
             "value" : "Open Terminal"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Terminal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3757,6 +3961,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purge %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purgar %@"
           }
         },
         "fr" : {
@@ -3817,6 +4027,12 @@
             "value" : "Are you sure you want to purge %@?"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres purgar% @?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3867,6 +4083,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quit Cork"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salir de Cork"
           }
         },
         "fr" : {
@@ -3925,6 +4147,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Repair %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reparar %@"
           }
         },
         "fr" : {
@@ -4050,6 +4278,12 @@
             "value" : "Send an Email…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mandar como E-mail"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4106,6 +4340,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Report on GitHub…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reportar en GitHub…"
           }
         },
         "fr" : {
@@ -4167,6 +4407,12 @@
             "value" : "Report Bugs"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informar errores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4223,6 +4469,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reset executable to default location"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer el ejecutable a la ubicación predeterminada"
           }
         },
         "fr" : {
@@ -4283,6 +4535,12 @@
             "value" : "Restart Cork"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4339,6 +4597,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reveal in Finder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revelar en Finder"
           }
         },
         "fr" : {
@@ -4399,6 +4663,12 @@
             "value" : "Show"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4455,6 +4725,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Submit Feedback"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar comentarios"
           }
         },
         "fr" : {
@@ -4515,6 +4791,12 @@
             "value" : "Uninstall %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstalar %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4573,6 +4855,12 @@
             "value" : "Are you sure you want to uninstall %@?"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres desinstalar% @?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4623,6 +4911,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Use Cork without notifications"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa Cork sin notificaciones"
           }
         },
         "fr" : {
@@ -4683,6 +4977,12 @@
             "value" : "This action cannot be undone"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta acción no se puede deshacer"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4733,6 +5033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stop"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detener"
           }
         },
         "fr" : {
@@ -4793,6 +5099,12 @@
             "value" : "Loading of top packages timed out"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se agotó el tiempo de carga de los paquetes populares"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4843,6 +5155,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occurred while installing %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se produjo un error al instalar %@"
           }
         },
         "fr" : {
@@ -4968,6 +5286,12 @@
             "value" : "An error occurred during the install process"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se produjo un error durante el proceso de instalación."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5024,6 +5348,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages successfully installed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes instalados exitosamente"
           }
         },
         "fr" : {
@@ -5084,6 +5414,12 @@
             "value" : "There were no errors"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hubo errores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5140,6 +5476,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Install"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar"
           }
         },
         "fr" : {
@@ -5200,6 +5542,12 @@
             "value" : "You can either wait for this process to finish, or force it to stop.\nForcing it to stop might lead to breaking your Homebrew installation."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puede esperar a que finalice este proceso o forzar su detención.\nForzar su detención podría provocar que se rompa la instalación de Homebrew."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5256,6 +5604,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Another Homebrew process is already running"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya se está ejecutando otro proceso de Homebrew"
           }
         },
         "fr" : {
@@ -5444,6 +5798,12 @@
             "value" : "Done"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5500,6 +5860,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hide details"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar detalles"
           }
         },
         "fr" : {
@@ -5560,6 +5926,12 @@
             "value" : "Installing %@…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalando %@…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5616,6 +5988,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installing Dependency %lld/%lld"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalando dependencia %lld/%lld"
           }
         },
         "fr" : {
@@ -5676,6 +6054,12 @@
             "value" : "Installing Package…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalando el paquete…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5732,6 +6116,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Linking Binaries…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vinculando binarios..."
           }
         },
         "fr" : {
@@ -5792,6 +6182,12 @@
             "value" : "Loading Dependencies…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando dependencias…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5848,6 +6244,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Moving %@ into the Applications Directory…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moviendo %@ al directorio de aplicaciones..."
           }
         },
         "fr" : {
@@ -5972,6 +6374,12 @@
             "value" : "Elevated permissions are required to install %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se requieren permisos elevados para instalar %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6030,6 +6438,12 @@
             "value" : "You will have to install this package through the Terminal.\nUse the command below."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tendrás que instalar este paquete a través de la Terminal.\nUtilice el siguiente comando."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6086,6 +6500,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show details"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar detalles"
           }
         },
         "fr" : {
@@ -6147,6 +6567,12 @@
             "value" : "%1$@ doesn't support %2$@ chips"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ no admite chips %2$@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6197,6 +6623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This package doesn't support your chip"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este paquete no es compatible con su chip"
           }
         },
         "fr" : {
@@ -6250,6 +6682,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Network Connection Not Sufficient"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conexión de red no suficiente"
           }
         },
         "fr" : {
@@ -6311,6 +6749,12 @@
             "value" : "Your network connection is not stable enough to guarantee a successful installation"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Su conexión de red no es lo suficientemente estable para garantizar una instalación exitosa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6367,6 +6811,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Already Installed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ya instalado"
           }
         },
         "fr" : {
@@ -6428,6 +6878,12 @@
             "value" : "No description provided"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se proporciona descripción"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6484,6 +6940,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading description…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando descripción…"
           }
         },
         "fr" : {
@@ -6545,6 +7007,12 @@
             "value" : "Couldn't load description"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo cargar la descripción"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6602,6 +7070,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Not optimized for %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No optimizado para %@"
           }
         },
         "fr" : {
@@ -6726,6 +7200,12 @@
             "value" : "Search for packages…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar paquetes…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6782,6 +7262,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Found Casks"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks encontrados"
           }
         },
         "fr" : {
@@ -6844,7 +7330,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Fórmulas encontradas"
           }
         },
@@ -6906,6 +7392,12 @@
             "value" : "Searching for %@…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscando %@…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6963,6 +7455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Install packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar paquetes"
           }
         },
         "fr" : {
@@ -7023,6 +7521,12 @@
             "value" : "Top Casks"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks populares"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7079,6 +7583,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Top Formulae"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fórmulas populares"
           }
         },
         "fr" : {
@@ -7183,6 +7693,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld downloads"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld descarga"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld descargas"
                 }
               }
             }
@@ -7324,6 +7852,12 @@
             "value" : "Elevated permissions are required to uninstall %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se requieren permisos elevados para desinstalar %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7380,6 +7914,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You will have to uninstall this package through the Terminal.\nUse the command below."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tendrás que desinstalar este paquete a través de la Terminal.\nUtilice el siguiente comando."
           }
         },
         "fr" : {
@@ -7441,6 +7981,12 @@
             "value" : "Add a tap"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir un tap"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7497,6 +8043,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir"
           }
         },
         "fr" : {
@@ -7557,6 +8109,12 @@
             "value" : "Successfully added %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadido con éxito %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7613,6 +8171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "There were no errors"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hubo errores"
           }
         },
         "fr" : {
@@ -7673,6 +8237,12 @@
             "value" : "Try Again"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intentar otra vez"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7729,6 +8299,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occurred while adding %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se produjo un error al agregar %@"
           }
         },
         "fr" : {
@@ -7789,6 +8365,12 @@
             "value" : "Try adding it again in a few minutes"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intente agregarlo nuevamente en unos minutos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7845,6 +8427,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ doesn't exist"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ no existe"
           }
         },
         "fr" : {
@@ -7905,6 +8493,12 @@
             "value" : "Double-check that you wrote the name right"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuelve a verificar que hayas escrito bien el nombre."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7961,6 +8555,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap address:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dirección de tap:"
           }
         },
         "fr" : {
@@ -8021,6 +8621,12 @@
             "value" : "Use external address"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usar dirección externa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8079,6 +8685,12 @@
             "value" : "Add a tap from an external address "
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregar un tap desde una dirección externa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8135,6 +8747,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adding %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregando %@"
           }
         },
         "fr" : {
@@ -8196,6 +8814,12 @@
             "value" : "Tap name empty"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de tap vacío"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8253,6 +8877,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You didn't put in any tap name"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No pusiste ningún nombre de tap."
           }
         },
         "fr" : {
@@ -8313,6 +8943,12 @@
             "value" : "Tap name needs a slash"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El nombre del Tap necesita una barra"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8369,6 +9005,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap names always have to contain a slash"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los nombres de los Taps siempre deben contener una barra diagonal."
           }
         },
         "fr" : {
@@ -8429,6 +9071,12 @@
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haga clic en \"Abrir terminal\" a continuación\nUtilice ⌘+V para insertar el comando y luego presione ↩ (Retorno) para ejecutar el comando\nSiga las instrucciones para instalar %@, regrese a Cork y cierre este cuadro de diálogo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8485,6 +9133,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to uninstall %@, return to Cork and close this dialog"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haga clic en \"Abrir terminal\" a continuación\nUtilice ⌘+V para insertar el comando y luego presione ↩ (Retorno) para ejecutar el comando\nSiga las instrucciones para desinstalar %@, regrese a Cork y cierre este cuadro de diálogo"
           }
         },
         "fr" : {
@@ -8545,6 +9199,12 @@
             "value" : "Try restarting Cork. If the problem persists, clear Cork metadata"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intente reiniciar Cork. Si el problema persiste, borre los metadatos de Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8601,6 +9261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't apply tagged state to packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo aplicar el estado etiquetado a los paquetes"
           }
         },
         "fr" : {
@@ -8661,6 +9327,12 @@
             "value" : "Cork could not find this package in the package database"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork no pudo encontrar este paquete en la base de datos de paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8717,6 +9389,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't find package in database"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar el paquete en la base de datos"
           }
         },
         "fr" : {
@@ -8777,6 +9455,12 @@
             "value" : "Delete the metadata folder manually, or try restarting Cork"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimine la carpeta de metadatos manualmente o intente reiniciar Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8833,6 +9517,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't clear metadata"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron borrar los metadatos"
           }
         },
         "fr" : {
@@ -8893,6 +9583,12 @@
             "value" : "Make sure you've given Cork permission to access your Documents folder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asegúrate de haberle dado permiso a Cork para acceder a tu carpeta de Documentos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8949,6 +9645,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't create Metadata folder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo crear la carpeta de metadatos"
           }
         },
         "fr" : {
@@ -9009,6 +9711,12 @@
             "value" : "Couldn't create metadata file"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo crear el archivo de metadatos\n"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9065,6 +9773,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't write Homebrew backup"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo escribir la copia de seguridad de Homebrew"
           }
         },
         "fr" : {
@@ -9125,6 +9839,12 @@
             "value" : "Could not find this package"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar este paquete"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9181,6 +9901,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Move the backup file to a different location, then try again"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mueva el archivo de copia de seguridad a una ubicación diferente y vuelva a intentarlo"
           }
         },
         "fr" : {
@@ -9305,6 +10031,12 @@
             "value" : "Couldn't create backup parent folder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo crear la carpeta principal de respaldo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9362,6 +10094,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "There was an error while parsing outdated packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubo un error al analizar paquetes obsoletos"
           }
         },
         "fr" : {
@@ -9423,6 +10161,12 @@
             "value" : "Couldn't retrieve outdated packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron recuperar paquetes obsoletos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9479,6 +10223,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Move the backup file to a different location, then try again"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mueva el archivo de copia de seguridad a una ubicación diferente y vuelva a intentarlo"
           }
         },
         "fr" : {
@@ -9539,6 +10289,12 @@
             "value" : "Couldn't read backup file"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo leer el archivo de respaldo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9595,6 +10351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't read backup"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo leer la copia de seguridad"
           }
         },
         "fr" : {
@@ -9655,6 +10417,12 @@
             "value" : "Package %@ prevented loading"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El paquete %@ impidió la carga"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9687,6 +10455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A fatal error occurred during package installation"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se produjo un error fatal durante la instalación del paquete."
           }
         },
         "fr" : {
@@ -9747,6 +10521,12 @@
             "value" : "Could not load packages (%@)"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron cargar paquetes (%@)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9779,6 +10559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not synchronize packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron sincronizar los paquetes"
           }
         },
         "fr" : {
@@ -9839,6 +10625,12 @@
             "value" : "Couldn't find the custom Homebrew executable"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar el ejecutable Homebrew personalizado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9897,6 +10689,12 @@
             "value" : "Check if your network is working properly, then try again"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compruebe si su red funciona correctamente y vuelva a intentarlo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9953,6 +10751,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not establish a secure connection to authorization server"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo establecer una conexión segura con el servidor de autorización"
           }
         },
         "fr" : {
@@ -10014,6 +10818,12 @@
             "value" : "Couldn't decipher Homebrew response"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo descifrar la respuesta de Homebrew"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10070,6 +10880,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork no puede acceder a su instalación Homebrew\nEstamos investigando la causa de este problema, que apareció en la versión más reciente de Homebrew o macOS.\nHasta entonces, Cork no funcionará. Tan pronto como se solucione este problema, Cork se actualizará"
           }
         },
         "fr" : {
@@ -10130,6 +10946,12 @@
             "value" : "Homebrew is not configured properly for Cork"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew no está configurado correctamente para Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10186,6 +11008,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The file you tried to restore from doesn't have the correct structure"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El archivo que intentaste restaurar no tiene la estructura correcta"
           }
         },
         "fr" : {
@@ -10246,6 +11074,12 @@
             "value" : "Backup File Broken"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivo de copia de seguridad roto"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10302,6 +11136,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reinstall Cork and try again"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstale Cork e inténtelo de nuevo"
           }
         },
         "fr" : {
@@ -10362,6 +11202,12 @@
             "value" : "Couldn't find metadata folder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar la carpeta de metadatos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10418,6 +11264,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You still have packages installed from %@\nUninstall them and try again"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todavía tienes paquetes instalados desde %@\nDesinstálalos y vuelve a intentarlo."
           }
         },
         "fr" : {
@@ -10478,6 +11330,12 @@
             "value" : "Homebrew sent Cork an invalid response"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew envió a Cork una respuesta no válida"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10534,6 +11392,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't get top packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron obtener los mejores paquetes"
           }
         },
         "fr" : {
@@ -10594,6 +11458,12 @@
             "value" : "You can keep using Cork without notifications"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes seguir usando Cork sin notificaciones"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10650,6 +11520,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "There was a problem obtaining notifications permissions"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubo un problema al obtener permisos de notificaciones."
           }
         },
         "fr" : {
@@ -10711,6 +11587,12 @@
             "value" : "Cork couldn't understand the response from Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork no pudo entender la respuesta de Homebrew"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10767,6 +11649,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't decipher top packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron descifrar los paquetes principales"
           }
         },
         "fr" : {
@@ -10827,6 +11715,12 @@
             "value" : "This package needs to be repaired"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este paquete necesita ser reparado."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10883,6 +11777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ is corrupted"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ está dañado"
           }
         },
         "fr" : {
@@ -10943,6 +11843,12 @@
             "value" : "Restart Cork, and if the problem persists, reinstall it"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinicie Cork y, si el problema persiste, vuelva a instalarlo."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10975,6 +11881,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The selected package couldn't be installed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El paquete seleccionado no se pudo instalar"
           }
         },
         "fr" : {
@@ -11035,6 +11947,12 @@
             "value" : "Couldn't get selected top package"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo seleccionar el paquete principal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11091,6 +12009,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't Uninstall %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo desinstalar %@"
           }
         },
         "fr" : {
@@ -11204,6 +12128,12 @@
             "value" : "Could Not Uninstall"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo desinstalar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11258,6 +12188,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork"
@@ -11319,6 +12255,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ Homebrew Backup"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Copia de seguridad casera"
           }
         },
         "fr" : {
@@ -11443,6 +12385,12 @@
             "value" : "There were no errors"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hubo errores"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11499,6 +12447,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Successfully restored from backup"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurado exitosamente desde la copia de seguridad"
           }
         },
         "fr" : {
@@ -11559,6 +12513,12 @@
             "value" : "Restoring from backup…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurando desde la copia de seguridad…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11617,6 +12577,12 @@
             "value" : "Hang tight! This might take a few minutes"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Aguanta! Esto puede tardar unos minutos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11668,6 +12634,12 @@
             "state" : "translated",
             "value" : "Unknown"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desconocido"
+          }
         }
       }
     },
@@ -11686,6 +12658,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No"
@@ -11741,6 +12719,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sí"
           }
         },
         "fr" : {
@@ -11859,6 +12843,12 @@
             "value" : "Hello, World!"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hola, mundo!"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11952,6 +12942,12 @@
             "value" : "homebrew/core"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12005,6 +13001,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
@@ -12069,6 +13071,12 @@
             "value" : "Installing %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalando %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12120,6 +13128,12 @@
             "state" : "translated",
             "value" : "Get a list of installed Casks"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenga una lista de barriles instalados"
+          }
         }
       }
     },
@@ -12135,6 +13149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Casks"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar Casks"
           }
         }
       }
@@ -12152,6 +13172,12 @@
             "state" : "translated",
             "value" : "Get a list of installed Formulae"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenga una lista de fórmulas instaladas"
+          }
         }
       }
     },
@@ -12167,6 +13193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Formulae"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtener fórmulas instaladas"
           }
         }
       }
@@ -12184,6 +13216,12 @@
             "state" : "translated",
             "value" : "Get a list of installed Formulae and Casks"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenga una lista de fórmulas y barriles instalados"
+          }
         }
       }
     },
@@ -12199,6 +13237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Load only manually installed packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargue solo paquetes instalados manualmente"
           }
         }
       }
@@ -12232,6 +13276,12 @@
             "state" : "translated",
             "value" : "Look for updates to installed Packages"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busque actualizaciones de los paquetes instalados"
+          }
         }
       }
     },
@@ -12241,6 +13291,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package refreshing result"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resultado de actualización de paquetes"
           }
         }
       }
@@ -12252,6 +13308,12 @@
             "state" : "translated",
             "value" : "Refreshing of packages failed"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al actualizar los paquetes"
+          }
         }
       }
     },
@@ -12261,6 +13323,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages refreshed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes actualizados"
           }
         }
       }
@@ -12272,6 +13340,12 @@
             "state" : "translated",
             "value" : "Packages refreshed with errors"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes actualizados con errores"
+          }
         }
       }
     },
@@ -12281,6 +13355,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refresh Packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar paquetes"
           }
         }
       }
@@ -12298,6 +13378,12 @@
             "state" : "translated",
             "value" : "Homebrew Package"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquete de Homerbew"
+          }
         }
       }
     },
@@ -12313,6 +13399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A lightweight representation of a package"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una representación ligera de un paquete."
           }
         }
       }
@@ -12330,6 +13422,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Package"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquete de Homebrew"
           }
         }
       }
@@ -12352,6 +13450,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thank you for supporting Cork!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Gracias por apoyar Cork!"
           }
         },
         "fr" : {
@@ -12412,6 +13516,12 @@
             "value" : "License Activated"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licencia activada"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12468,6 +13578,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "In Demo Mode"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En modo prueba"
           }
         },
         "fr" : {
@@ -12528,6 +13644,12 @@
             "value" : "The demo is available until %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta prueba está disponible hasta  %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12586,6 +13708,12 @@
             "value" : "Email you bought Cork with:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-mail con el que compraste Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12639,6 +13767,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -12702,6 +13836,12 @@
             "value" : "Email not found"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-mail no he encontrado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12760,6 +13900,12 @@
             "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puede comprar Cork usando el botón a continuación o visitando el [sitio web](https://corkmac.app).\n¿No estás seguro de si Cork es adecuado para ti? Pruebe la demostración, que está limitada a 7 días."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12816,6 +13962,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Thank you for checking out Cork!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Gracias por utilizar Cork!"
           }
         },
         "fr" : {
@@ -12940,6 +14092,12 @@
             "value" : "If you'd like to support the development of my apps, consider [buying Cork](https://corkmac.app)"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si quisieras apoyar al desarrollo de mis aplicaciones, considera [comprar Cork](https://corkmac.app)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12974,6 +14132,12 @@
             "value" : "You have compiled Cork yourself"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz compilado Cork por ti mismo"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13006,6 +14170,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licencia…"
           }
         },
         "fr" : {
@@ -13130,6 +14300,12 @@
             "value" : "Loading top packages… "
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando paquetes principales…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13186,6 +14362,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Main Window"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ventana principal"
           }
         },
         "fr" : {
@@ -13246,6 +14428,12 @@
             "value" : "Maintenance finished"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenimiento finalizado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13302,6 +14490,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cached downloads deleted"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descargas en el caché borradas"
           }
         },
         "fr" : {
@@ -13362,6 +14556,12 @@
             "value" : "You reclaimed %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reclamaste %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13420,6 +14620,12 @@
             "value" : "Found some problems with Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se encontraron algunos problemas con Homebrew"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13476,6 +14682,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No problems with Homebrew found"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontraron problemas con Homebrew"
           }
         },
         "fr" : {
@@ -13598,6 +14810,30 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "No orphaned packages found"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld paquete huérfano eliminado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld paquetes huérfanos eliminados"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "No se encontraron paquetes huérfanos"
                 }
               }
             }
@@ -13839,6 +15075,12 @@
             "value" : "Couldn't uninstall orphaned packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron desinstalar los paquetes huérfanos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13897,6 +15139,12 @@
             "value" : "Error %@ occurred"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió error %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13953,6 +15201,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package cache purged"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caché del paquete purgado"
           }
         },
         "fr" : {
@@ -14077,6 +15331,12 @@
             "value" : "Error %@ occurred"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió error %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14134,6 +15394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some caches weren't purged because of %@ not being updated"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algunos caches no pudieron ser purgados debido a que %@ no estaba actualizado"
           }
         },
         "fr" : {
@@ -14238,6 +15504,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Some caches weren't purged because of %1$@ and %2$lld other packages not being updated"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Algún caché no se purgó debido a que %1$@ y %2$lld otros paquetes no se actualizaron"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Algunos cachés no se purgaron debido a que %1$@ y %2$lld otros paquetes no se actualizaron"
                 }
               }
             }
@@ -14456,6 +15740,12 @@
             "value" : "Firing up…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disparando…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14512,6 +15802,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purging cache…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purgando el caché…"
           }
         },
         "fr" : {
@@ -14572,6 +15868,12 @@
             "value" : "Uninstalling orphans…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstalado huérfanos…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14628,6 +15930,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Running health check…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Realizado chequeo de salud…"
           }
         },
         "fr" : {
@@ -14688,6 +15996,12 @@
             "value" : "Downloads:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descargas:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14744,6 +16058,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Delete cached downloads"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar descargas en el caché"
           }
         },
         "fr" : {
@@ -14804,6 +16124,12 @@
             "value" : "Purge Homebrew cache"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purgar el caché de Homebrew"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14860,6 +16186,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Other:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otro:"
           }
         },
         "fr" : {
@@ -14920,6 +16252,12 @@
             "value" : "Perform health check"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Realizar chequeo de salud"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14976,6 +16314,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes:"
           }
         },
         "fr" : {
@@ -15036,6 +16380,12 @@
             "value" : "Uninstall orphaned packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar paquetes huérfanos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15092,6 +16442,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Start"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar"
           }
         },
         "fr" : {
@@ -15153,6 +16509,12 @@
             "value" : "Maintenance"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenimiento"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15207,6 +16569,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
@@ -15271,6 +16639,12 @@
             "value" : "Open Cork"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15327,6 +16701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try again, or restart Cork"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prueba de nuevo, o reinicia Cork"
           }
         },
         "fr" : {
@@ -15452,6 +16832,12 @@
             "value" : "About Cork"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sobre Cork"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15508,6 +16894,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add Tap"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir Tap"
           }
         },
         "fr" : {
@@ -15568,6 +16960,12 @@
             "value" : "Add a new tap"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadir un nuevo Tap"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15624,6 +17022,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Install Package"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar paquete"
           }
         },
         "fr" : {
@@ -15685,6 +17089,12 @@
             "value" : "Install Package Directly"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar paquete directamente"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15744,6 +17154,12 @@
             "value" : "Install a package by name, bypassing search"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar un paquete por nombre, evitando buscarlo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15800,6 +17216,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Install a new package"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar un nuevo paquete"
           }
         },
         "fr" : {
@@ -15903,6 +17325,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld packages installed"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Paquete %lld instalado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Paquetes %lld instalados"
                 }
               }
             }
@@ -16050,6 +17490,12 @@
             "value" : "Manage Services…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Administrar servicios…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16166,6 +17612,12 @@
             "value" : "Restore from Backup…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurar desde la copia de seguridad"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16222,6 +17674,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenance"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenimiento"
           }
         },
         "fr" : {
@@ -16282,6 +17740,12 @@
             "value" : "Delete Cached Downloads"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar descargas en el caché"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16340,6 +17804,12 @@
             "value" : "No cached downloads to delete"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay descargas en el caché para borrar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16396,6 +17866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Perform Maintenance…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Realizar mantenimiento…"
           }
         },
         "fr" : {
@@ -16584,6 +18060,12 @@
             "value" : "Install Packages…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalar paquetes…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16706,6 +18188,12 @@
             "value" : "Search"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16764,6 +18252,12 @@
             "value" : "Services"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicios"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16796,6 +18290,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open Services Manager…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir administrador de servicios…"
           }
         },
         "ru" : {
@@ -16896,6 +18396,12 @@
             "value" : "Update installed packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar paquetes instalados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16954,6 +18460,12 @@
             "value" : "Installation process finished"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proceso instalación finalizado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17010,6 +18522,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "New outdated package"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuevo paquete, desactualizado"
           }
         },
         "fr" : {
@@ -17114,6 +18632,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld outdated packages"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld paquete desactualizado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld paquetes desactualizados"
                 }
               }
             }
@@ -17262,6 +18798,12 @@
             "value" : "Found outdated packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes obsoletos encontrados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17319,6 +18861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Updates failed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizaciones fallidas"
           }
         },
         "fr" : {
@@ -17379,6 +18927,12 @@
             "value" : "Packages updated"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para que te actualizados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17435,6 +18989,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "There were some errors during updating"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hubieron unos errores durante la actualización"
           }
         },
         "fr" : {
@@ -17495,6 +19055,12 @@
             "value" : "Updating packages…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizando paquetes…"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17551,6 +19117,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All optional features enabled"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas las funciones opcionales habilitadas"
           }
         },
         "fr" : {
@@ -17611,6 +19183,12 @@
             "value" : "Basic Features"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Características básicas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17667,6 +19245,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Discoverability"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descubríbilidad"
           }
         },
         "fr" : {
@@ -17727,6 +19311,12 @@
             "value" : "Extra Features"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Características adicionales"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17783,6 +19373,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package Features"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Características del paquete"
           }
         },
         "fr" : {
@@ -17843,6 +19439,12 @@
             "value" : "Tap Features"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Características del Tap"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17899,6 +19501,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package compatibility checking"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verificación de compatibilidad de paquetes"
           }
         },
         "fr" : {
@@ -18023,6 +19631,12 @@
             "value" : "Searching through package dependencies"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar dentro de las dependencias de los paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18079,6 +19693,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Full package caveats"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advertencias completas de paquetes"
           }
         },
         "fr" : {
@@ -18139,6 +19759,12 @@
             "value" : "Find popular packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar paquetes populares"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18195,6 +19821,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew maintenance"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenimiento de Homebrew"
           }
         },
         "fr" : {
@@ -18255,6 +19887,12 @@
             "value" : "Quick actions in Menu Bar"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acciones rápidas en la barra de menú"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18311,6 +19949,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications about various actions"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificaciones sobre varias acciones"
           }
         },
         "fr" : {
@@ -18371,6 +20015,12 @@
             "value" : "Package descriptions in search"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descripciones de paquetes en búsqueda"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18427,6 +20077,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package details"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalles de paquetes"
           }
         },
         "fr" : {
@@ -18487,6 +20143,12 @@
             "value" : "Package purging"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purgado de paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18543,6 +20205,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Revealing packages in Finder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revelar paquetes en Finder"
           }
         },
         "fr" : {
@@ -18603,6 +20271,12 @@
             "value" : "Searching through installed packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar dentro de los paquetes instalados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18659,6 +20333,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package searching"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Búsqueda de paquetes"
           }
         },
         "fr" : {
@@ -18719,6 +20399,12 @@
             "value" : "Show all packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar todos los paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18775,6 +20461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show manually installed packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar paquetes instalados manualmente"
           }
         },
         "fr" : {
@@ -18835,6 +20527,12 @@
             "value" : "Package tagging"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiquetado de paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18891,6 +20589,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap details"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalles de tap"
           }
         },
         "fr" : {
@@ -18952,6 +20656,12 @@
             "value" : "Hide details about"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar detalles sobre"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19008,6 +20718,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can always customize your experience in the Settings"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siempre siempre puedes costumizar experiencia en las configuraciones"
           }
         },
         "fr" : {
@@ -19069,6 +20785,12 @@
             "value" : "Show details about"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar detalles sobre"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19125,6 +20847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show Onboarding…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar inducción…"
           }
         },
         "fr" : {
@@ -19185,6 +20913,12 @@
             "value" : "Say hello to the world's apps"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Di hola a las aplicaciones del mundo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19241,6 +20975,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Welcome to the future of Homebrew!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bienvenido al futuro de Homebrew"
           }
         },
         "fr" : {
@@ -19301,6 +21041,12 @@
             "value" : "Pin to version %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fijar a versión %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19357,6 +21103,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unpin from version %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desfijar de versión %@"
           }
         },
         "fr" : {
@@ -19417,6 +21169,12 @@
             "value" : "Has caveats 􀅴"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiene advertencias 􀅴"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19473,6 +21231,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Collapse"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colapsar"
           }
         },
         "fr" : {
@@ -19597,6 +21361,12 @@
             "value" : "Click to see caveats"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clic para ver advertencias"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19653,6 +21423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading package info…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obteniendo información del paquete…"
           }
         },
         "fr" : {
@@ -19713,6 +21489,12 @@
             "value" : "Dependency of %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependencia de %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19769,6 +21551,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading Dependants…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando dependientes…"
           }
         },
         "fr" : {
@@ -19829,6 +21617,12 @@
             "value" : "Dependencies"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependencias"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19885,6 +21679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Declaration Type"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo de declaración"
           }
         },
         "fr" : {
@@ -19945,6 +21745,12 @@
             "value" : "Direct"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Directa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20001,6 +21807,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Indirect"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indirecta"
           }
         },
         "fr" : {
@@ -20061,6 +21873,12 @@
             "value" : "Name"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20117,6 +21935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión"
           }
         },
         "fr" : {
@@ -20178,6 +22002,12 @@
             "value" : "Dependencies"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependencias"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20234,6 +22064,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ has no description"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ no tiene descripción"
           }
         },
         "fr" : {
@@ -20294,6 +22130,12 @@
             "value" : "Homepage"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página de inicio"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20350,6 +22192,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Info"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
           }
         },
         "fr" : {
@@ -20410,6 +22258,12 @@
             "value" : "Installed On"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalado en"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20466,6 +22320,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Outdated"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactualizado"
           }
         },
         "fr" : {
@@ -20527,6 +22387,12 @@
             "value" : "%@ is pinned. It will not be updated."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ está fijado. No se va a actualizar."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20583,6 +22449,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Size"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamaño"
           }
         },
         "fr" : {
@@ -20643,6 +22515,12 @@
             "value" : "Why is the size so small?"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué el tamaño es tan pequeño?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20699,6 +22577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los Casks no se instalan en el mismo directorio de instalación que las Fórmulas. Los Casks se instalan en el directorio de Aplicaciones."
           }
         },
         "fr" : {
@@ -20759,6 +22643,12 @@
             "value" : "Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dado que Cork no tiene acceso a tu directorio de Aplicaciones, no puede obtener el tamaño de la aplicación real, solo de los metadatos asociados con el Cask."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20817,6 +22707,12 @@
             "value" : "Type"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20870,6 +22766,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cask"
@@ -20933,6 +22835,12 @@
             "value" : "Formula"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fórmula"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20990,6 +22898,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Repairing %@…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reparando %@…"
           }
         },
         "fr" : {
@@ -21050,6 +22964,12 @@
             "value" : "%@ was repaired"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se reparó %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21108,6 +23028,12 @@
             "value" : "No further problems were found"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nos encontraron más problemas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21161,6 +23087,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cask"
@@ -21225,6 +23157,12 @@
             "value" : "Formula"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fórmula"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21281,6 +23219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Manually Installed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manualmente instalados"
           }
         },
         "fr" : {
@@ -21342,6 +23286,12 @@
             "value" : "Tagged Packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes etiquetados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21395,6 +23345,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap"
@@ -21456,6 +23412,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading service info…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando información del servicio…"
           }
         },
         "fr" : {
@@ -21553,6 +23515,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld active services"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicio activo"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicios activos"
                 }
               }
             }
@@ -21682,6 +23662,12 @@
             "value" : "These services are running normally"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éstos servicios están ejecutando normalmente"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21777,6 +23763,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld services with errors"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicio con error"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicios con errores"
                 }
               }
             }
@@ -21906,6 +23910,12 @@
             "value" : "These services either crashed, or could not be started at all"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estos servicios se bloquearon o no pudieron iniciarse en absoluto."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22001,6 +24011,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld inactive services"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicio inactivo"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicios inactivos"
                 }
               }
             }
@@ -22130,6 +24158,12 @@
             "value" : "These services are not currently running"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los servicios no se están ejecutando actualmente"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22180,6 +24214,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading services…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando servicios…"
           }
         },
         "fr" : {
@@ -22234,6 +24274,12 @@
             "value" : "No services found"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontró servicio"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22284,6 +24330,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services Status"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado de servicios"
           }
         },
         "fr" : {
@@ -22381,6 +24433,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "You have %lld services with an unknown status"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicio con un estado desconocido."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tienes %lld servicios con un estado desconocido."
                 }
               }
             }
@@ -22510,6 +24580,12 @@
             "value" : "The status of these services could not be determined"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo determinar el estado de estos servicios."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22560,6 +24636,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error Log Location"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación del registro de errores"
           }
         },
         "fr" : {
@@ -22614,6 +24696,12 @@
             "value" : "Exit Code"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Código de salida"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22664,6 +24752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Is Loaded"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta cargado"
           }
         },
         "fr" : {
@@ -22718,6 +24812,12 @@
             "value" : "Location"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22770,6 +24870,12 @@
             "value" : "Log Location"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación de registro"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22817,6 +24923,12 @@
             "value" : "Name"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22855,6 +24967,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Root Location"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación de root"
           }
         },
         "fr" : {
@@ -22967,6 +25085,12 @@
             "value" : "Start %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22999,6 +25123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Status"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado"
           }
         },
         "fr" : {
@@ -23053,6 +25183,12 @@
             "value" : "Stop %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detener %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23085,6 +25221,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "User"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usuario"
           }
         },
         "fr" : {
@@ -23137,6 +25279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicios"
           }
         },
         "fr" : {
@@ -23234,6 +25382,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld services found"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld servicio encontrado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld servicios encontrados"
                 }
               }
             }
@@ -23357,6 +25523,12 @@
             "value" : "Could not load services"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se lograron cargar los servicios"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23389,6 +25561,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not start %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No pudo iniciar %@"
           }
         },
         "ru" : {
@@ -23425,6 +25603,12 @@
             "value" : "Could not stop %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No pudo parar %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23457,6 +25641,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not synchronize services"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron sincronizar los servicios"
           }
         },
         "ru" : {
@@ -23493,6 +25683,12 @@
             "value" : "This service must be started as root"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este servicio debe de ser iniciado como root"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23520,6 +25716,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading services"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicios de carga"
           }
         },
         "fr" : {
@@ -23618,6 +25820,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "None"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nada"
           }
         },
         "fr" : {
@@ -23730,6 +25938,12 @@
             "value" : "Scheduled"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23780,6 +25994,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Started"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciado"
           }
         },
         "fr" : {
@@ -23834,6 +26054,12 @@
             "value" : "Stopped"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detenido"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23884,6 +26110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unknown"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desconocido"
           }
         },
         "fr" : {
@@ -23938,6 +26170,12 @@
             "value" : "Homebrew Services"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicios de Homebrew"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23989,6 +26227,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Analytics:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Análisis:"
           }
         },
         "fr" : {
@@ -24049,6 +26293,12 @@
             "value" : "Collect analytics"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recopilar análisis"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24105,6 +26355,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew location:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación de Homebrew:"
           }
         },
         "fr" : {
@@ -24165,6 +26421,12 @@
             "value" : "Set Custom Location"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establecer Ubicación Personalizada"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24221,6 +26483,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las ubicaciones personalizadas de Homebrew no están oficialmente respaldadas.\nSi tienes una ubicación personalizada de Homebrew seleccionada, no recibirás ningún tipo de soporte para Cork o Homebrew.\nSi seleccionas una ubicación personalizada de Homebrew, serás el único responsable de mantener tu instalación de Homebrew."
           }
         },
         "fr" : {
@@ -24281,6 +26549,12 @@
             "value" : "Are you sure you want to set a custom Homebrew location?"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres establecer una ubicación personalizada para Homebrew?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24339,6 +26613,12 @@
             "value" : "%@ is not a Homebrew executable."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ no es un ejecutable de Homebrew."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24395,6 +26675,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The selected file is not an executable."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El archivo seleccionado no es ejecutable."
           }
         },
         "fr" : {
@@ -24456,6 +26742,12 @@
             "value" : "Using %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usando %@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24515,6 +26807,12 @@
             "value" : "Using custom location"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usando una ubicación personalizada"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24566,6 +26864,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Using default Homebrew location"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usando la ubicación predeterminada de Homebrew"
           }
         },
         "fr" : {
@@ -24626,6 +26930,12 @@
             "value" : "Reset location"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurar ubicación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24682,6 +26992,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select custom location"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar ubicación personalizada"
           }
         },
         "fr" : {
@@ -24742,6 +27058,12 @@
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se proporcionará soporte para Cork mientras los ajustes de desarrollador estén habilitados."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24798,6 +27120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable developer settings"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar configuraciones para desarrollador"
           }
         },
         "fr" : {
@@ -24858,6 +27186,12 @@
             "value" : "Advanced:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avanzado:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24914,6 +27248,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Discoverability"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descubribilidad"
           }
         },
         "fr" : {
@@ -24974,6 +27314,12 @@
             "value" : "Sort top packages by:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar los paquetes principales por:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25032,6 +27378,12 @@
             "value" : "Fewest downloads"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menos descargas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25088,6 +27440,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Most downloads"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más descargas"
           }
         },
         "fr" : {
@@ -25276,6 +27634,12 @@
             "value" : "Last month"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Último mes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25334,6 +27698,12 @@
             "value" : "Last three months"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Últimos tres meses"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25390,6 +27760,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Last year"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Año pasado"
           }
         },
         "fr" : {
@@ -25451,6 +27827,12 @@
             "value" : "Enable Discoverability"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar Descubribilidad"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25505,6 +27887,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "General"
@@ -25568,6 +27956,12 @@
             "value" : "Dependencies:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependencias:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25624,6 +28018,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show more info about dependencies"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar más información sobre las dependencias"
           }
         },
         "fr" : {
@@ -25684,6 +28084,12 @@
             "value" : "Package filtering:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtrado de paquetes:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25740,6 +28146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show all packages, including dependencies"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar todos los paquetes, incluyendo las dependencias"
           }
         },
         "fr" : {
@@ -25800,6 +28212,12 @@
             "value" : "Show only manually installed packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar sólo los paquetes instalados manualmente"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25856,6 +28274,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automatic startup:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicio automático:"
           }
         },
         "fr" : {
@@ -25981,6 +28405,12 @@
             "value" : "Menu Bar:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra de menú:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26039,6 +28469,12 @@
             "value" : "Open Cork without its main window"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Cork sin su ventana principal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26095,6 +28531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show in Menu Bar"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar en la barra de menú"
           }
         },
         "fr" : {
@@ -26157,7 +28599,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Advertencias de paquete:"
           }
         },
@@ -26283,6 +28725,12 @@
             "value" : "Minified"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimizado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26339,6 +28787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀅴 Click on the \"Has caveats\" pill to see the caveats"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 Haz clic en la etiqueta \"Tiene advertencias\" para ver las advertencias."
           }
         },
         "fr" : {
@@ -26399,6 +28853,12 @@
             "value" : "Package details:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalles del paquete"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26455,6 +28915,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Allow revealing packages in Finder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permitir revelar paquetes en Finder"
           }
         },
         "fr" : {
@@ -26515,6 +28981,12 @@
             "value" : "Show search field for dependencies"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar el campo de búsqueda para dependencias"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26573,6 +29045,12 @@
             "value" : "Search results:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resultados de búsqueda:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26629,6 +29107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show package descriptions"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar descripciones del paquete"
           }
         },
         "fr" : {
@@ -26754,6 +29238,12 @@
             "value" : "Name"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26810,6 +29300,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installation Date"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha de instalación"
           }
         },
         "fr" : {
@@ -26870,6 +29366,12 @@
             "value" : "Size"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamaño"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26923,6 +29425,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew"
@@ -26986,6 +29494,12 @@
             "value" : "Packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27045,6 +29559,12 @@
             "value" : "Compatibility:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compatibilidad:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27102,6 +29622,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check package compatibility"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprobar compatibilidad del paquete"
           }
         },
         "fr" : {
@@ -27164,6 +29690,12 @@
             "value" : "Installation:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalación:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27220,6 +29752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Clean up after old packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpiar paquetes viejos"
           }
         },
         "fr" : {
@@ -27280,6 +29818,12 @@
             "value" : "Disable Automatic Cleanup"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar la limpieza automática"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27336,6 +29880,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disabling automatic cleanups might break your Homebrew installation."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar las limpiezas automáticas podría afectar la instalación de Homebrew."
           }
         },
         "fr" : {
@@ -27396,6 +29946,12 @@
             "value" : "Are you sure you want to disable automatic cleanups?"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres desactivar las limpiezas automáticas?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27452,6 +30008,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disabling cleanup makes installing packages faster,\nbut makes Homebrew slower overall. \nDisabling this option might break your Homebrew installation.\nThis option also controls automatic cleanups that occur\nafter you have not used Homebrew for more than 30 days."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar la limpieza hace que la instalación de paquetes sea más rápida, pero ralentiza Homebrew en general. Deshabilitar esta opción podría afectar la instalación de Homebrew. Esta opción también controla las limpiezas automáticas que ocurren después de que no hayas usado Homebrew durante más de 30 días."
           }
         },
         "fr" : {
@@ -27513,6 +30075,12 @@
             "value" : "Show list of packages currently being installed"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar lista de paquetes que se están instalando actualmente"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27571,6 +30139,12 @@
             "value" : "Package removal:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminación de paquetes:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27621,6 +30195,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Require confirmation when removing packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requerir confirmación al eliminar paquetes"
           }
         },
         "fr" : {
@@ -27674,6 +30254,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Uninstallation:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstalación:"
           }
         },
         "fr" : {
@@ -27734,6 +30320,12 @@
             "value" : "Enable package purging"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar la purga de paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27790,6 +30382,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purging may break your other packages.\nAre you sure you want to continue?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purgar puede afectar a otros paquetes.\n¿Estás seguro de que quieres continuar?"
           }
         },
         "fr" : {
@@ -27850,6 +30448,12 @@
             "value" : "Enable Package Purging"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar la purga de paquetes"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -27906,6 +30510,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Allow purging packages?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Permitir purgar paquetes?"
           }
         },
         "fr" : {
@@ -27966,6 +30576,12 @@
             "value" : "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purgar elimina todos los archivos asociados con un paquete.\nEsto puede eliminar archivos compartidos y romper otros paquetes."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28023,6 +30639,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purge cache after uninstalling packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpiar la caché después de desinstalar paquetes"
           }
         },
         "fr" : {
@@ -28148,6 +30770,12 @@
             "value" : "Show real-time outputs of operations"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar salidas en tiempo real de las operaciones"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28204,6 +30832,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show real-time outputs by default"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar salidas en tiempo real de forma predeterminada"
           }
         },
         "fr" : {
@@ -28329,6 +30963,12 @@
             "value" : "Set default steps"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establecer pasos predeterminados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28386,6 +31026,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificaciones"
           }
         },
         "fr" : {
@@ -28446,6 +31092,12 @@
             "value" : "Enable notifications"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar notificaciones"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28504,6 +31156,12 @@
             "value" : "Notifications will get shown only when Cork is not the active window"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las notificaciones se mostrarán sólo cuando Cork no sea la ventana activa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28560,6 +31218,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀅴 Enable notifications for Cork in System Settings"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 habilita las notificaciones para Cork en configuración del sistema"
           }
         },
         "fr" : {
@@ -28684,6 +31348,12 @@
             "value" : "Update results"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar resultados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28740,6 +31410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notify about:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificar sobre:"
           }
         },
         "fr" : {
@@ -28800,6 +31476,12 @@
             "value" : "Outdated packages alert type:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo de alerta para paquetes desactualizados:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28856,6 +31538,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Badge"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insignia"
           }
         },
         "fr" : {
@@ -28916,6 +31604,12 @@
             "value" : "Badge and Notification"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insignia y notificación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28972,6 +31666,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "None"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nada"
           }
         },
         "fr" : {
@@ -29032,6 +31732,12 @@
             "value" : "Notification"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29088,6 +31794,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Advanced"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avanzado"
           }
         },
         "fr" : {
@@ -29148,6 +31860,12 @@
             "value" : "Basic"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Básico"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29204,6 +31922,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Balanced"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balanceado"
           }
         },
         "fr" : {
@@ -29264,6 +31988,12 @@
             "value" : "Slightly Advanced"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligeramente avanzado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29322,6 +32052,12 @@
             "value" : "Slightly Basic"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligeramente básico"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29378,6 +32114,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "How would you like to experience Cork?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo te gustaría experimentar Cork?"
           }
         },
         "fr" : {
@@ -29439,6 +32181,12 @@
             "value" : "Installed Packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes instalados"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29497,6 +32245,12 @@
             "value" : "Added Taps"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiquetas agregadas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29553,6 +32307,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Remove %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover %@"
           }
         },
         "fr" : {
@@ -30784,6 +33544,12 @@
             "value" : "Cached Download Package Name"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre del paquete de descarga en caché"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31644,6 +34410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Read about important changes to Cork"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lea sobre cambios importantes en Cork"
           }
         },
         "fr" : {
