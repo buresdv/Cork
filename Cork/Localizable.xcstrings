@@ -30013,7 +30013,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Desactivar la limpieza hace que la instalación de paquetes sea más rápida, pero ralentiza Homebrew en general. Deshabilitar esta opción podría afectar la instalación de Homebrew. Esta opción también controla las limpiezas automáticas que ocurren después de que no hayas usado Homebrew durante más de 30 días."
+            "value" : "Desactivar la limpieza hace que la instalación de paquetes sea más rápida, pero ralentiza Homebrew en general.\nDeshabilitar esta opción podría afectar la instalación de Homebrew.\nEsta opción también controla las limpiezas automáticas que ocurren después de que no hayas usado Homebrew durante más de 30 días."
           }
         },
         "fr" : {
@@ -32248,7 +32248,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Etiquetas agregadas"
+            "value" : "Taps agregados"
           }
         },
         "fr" : {
