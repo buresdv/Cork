@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct UpdateSomePackagesView: View
 {
     @EnvironmentObject var appState: AppState
@@ -60,18 +59,18 @@ struct UpdateSomePackagesView: View
                         {
                             switch output
                             {
-                            case let .standardOutput(outputLine):
-                                    AppConstants.logger.info("Individual package updating output: \(outputLine)")
+                            case .standardOutput(let outputLine):
+                                AppConstants.logger.info("Individual package updating output: \(outputLine)")
                                 updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
 
-                            case let .standardError(errorLine):
-                                    AppConstants.logger.info("Individual package updating error: \(errorLine)")
+                            case .standardError(let errorLine):
+                                AppConstants.logger.info("Individual package updating error: \(errorLine)")
                                 updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
 
-                                    if !errorLine.contains("The post-install step did not complete successfully")
-                                    {
-                                        packageUpdatingErrors.append("\(packageBeingCurrentlyUpdated.name): \(errorLine)")
-                                    }
+                                if !errorLine.contains("The post-install step did not complete successfully")
+                                {
+                                    packageUpdatingErrors.append("\(packageBeingCurrentlyUpdated.name): \(errorLine)")
+                                }
                             }
                         }
 
@@ -81,13 +80,13 @@ struct UpdateSomePackagesView: View
 
                     if !packageUpdatingErrors.isEmpty
                     {
-                        packageUpdatingStage = .erroredOut
+                        packageUpdatingStage = .erroredOut(packagesRequireSudo: packageUpdatingErrors.contains("a terminal is required to read the password"))
                     }
                     else
                     {
                         packageUpdatingStage = .finished
                     }
-                    
+
                     do
                     {
                         outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
@@ -97,7 +96,7 @@ struct UpdateSomePackagesView: View
                         AppConstants.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
                         appState.showAlert(errorToShow: .couldNotSynchronizePackages)
                     }
-                    
+
                     /// Old way of synchronizing outdated packages that sometimes didn't synchronize properly
                     // outdatedPackageTracker.outdatedPackages = removeUpdatedPackages(outdatedPackageTracker: outdatedPackageTracker, namesOfUpdatedPackages: selectedPackages.map(\.package.name))
                 }
@@ -113,41 +112,8 @@ struct UpdateSomePackagesView: View
                     }
                 }
 
-            case .erroredOut:
-                ComplexWithIcon(systemName: "checkmark.seal")
-                {
-                    VStack(alignment: .leading, spacing: 5)
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "update-packages.error",
-                            subheadline: "update-packages.error.description",
-                            alignment: .leading
-                        )
-                        List
-                        {
-                            ForEach(packageUpdatingErrors, id: \.self)
-                            { error in
-                                HStack(alignment: .firstTextBaseline, spacing: 5)
-                                {
-                                    Text("⚠️")
-                                    Text(error)
-                                }
-                            }
-                        }
-                        .listStyle(.bordered(alternatesRowBackgrounds: false))
-                        .frame(height: 100, alignment: .leading)
-                        HStack
-                        {
-                            Spacer()
-                            DismissSheetButton(customButtonText: "action.close")
-                        }
-                    }
-                    .fixedSize()
-                    .onAppear
-                    {
-                        AppConstants.logger.error("Update errors: \(packageUpdatingErrors, privacy: .public)")
-                    }
-                }
+            case .erroredOut(let packagesRequireSudoToUpdate):
+                ErroredOutStageView(sudoRequiredForUpdate: packagesRequireSudoToUpdate)
 
             case .noUpdatesAvailable:
                 Text("update-packages.incremental.impossible-case")
@@ -155,13 +121,14 @@ struct UpdateSomePackagesView: View
         }
         .padding()
     }
-    
+
     func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> Set<OutdatedPackage>
     {
-        outdatedPackageTracker.outdatedPackages = outdatedPackageTracker.outdatedPackages.filter { outdatedPackage in
-            return !namesOfUpdatedPackages.contains(outdatedPackage.package.name)
+        outdatedPackageTracker.outdatedPackages = outdatedPackageTracker.outdatedPackages.filter
+        { outdatedPackage in
+            !namesOfUpdatedPackages.contains(outdatedPackage.package.name)
         }
-        
+
         return outdatedPackageTracker.outdatedPackages
     }
 }

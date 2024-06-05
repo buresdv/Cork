@@ -16,7 +16,7 @@ struct PresentingSearchResultsView: View
     @ObservedObject var searchResultTracker: SearchResultTracker
 
     @Binding var packageRequested: String
-    @Binding var foundPackageSelection: Set<UUID>
+    @Binding var foundPackageSelection: UUID?
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
@@ -33,7 +33,7 @@ struct PresentingSearchResultsView: View
         {
             InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
             {
-                foundPackageSelection = Set<UUID>() // Clear all selected items when the user looks for a different package
+                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
             }
 
             List(selection: $foundPackageSelection)
@@ -79,7 +79,7 @@ struct PresentingSearchResultsView: View
                         Text("add-package.install.action")
                     }
                     .keyboardShortcut(.defaultAction)
-                    .disabled(foundPackageSelection.isEmpty)
+                    .disabled(foundPackageSelection == nil)
                 }
             }
         }
@@ -87,7 +87,7 @@ struct PresentingSearchResultsView: View
 
     private func getRequestedPackages()
     {
-        for requestedPackage in foundPackageSelection
+        if let requestedPackage = foundPackageSelection
         {
             do
             {

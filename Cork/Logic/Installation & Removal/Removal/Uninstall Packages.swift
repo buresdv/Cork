@@ -83,9 +83,7 @@ extension BrewDataStorage
 
                 dependencyName = try String(regexMatch(from: uninstallCommandOutput.standardError, regex: dependencyNameExtractionRegex))
 
-                appState.offendingDependencyProhibitingUninstallation = dependencyName
-
-                appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: package))
+                appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: package, offendingDependencyProhibitingUninstallation: dependencyName))
 
                 AppConstants.logger.warning("Name of offending dependency: \(dependencyName, privacy: .public)")
             }

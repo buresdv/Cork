@@ -8,9 +8,9 @@
 import Foundation
 
 class InstallationProgressTracker: ObservableObject
-{  
+{
     @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", isCask: false, installedOn: nil, versions: [], sizeInBytes: 0), installationStage: .downloadingCask, packageInstallationProgress: 0)
-    
+
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
@@ -21,7 +21,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput 
+    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput
     {
         let package = packageBeingInstalled.package
 
@@ -53,7 +53,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    private func installFormula(using brewData: BrewDataStorage) async throws -> [String]
+    private func installFormula(using _: BrewDataStorage) async throws -> [String]
     {
         let package = packageBeingInstalled.package
         var packageDependencies: [String] = .init()
@@ -81,7 +81,7 @@ class InstallationProgressTracker: ObservableObject
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
-                    let dependencyMatchingRegex: String = "(?<=\(package.name): ).*?(.*)"
+                    let dependencyMatchingRegex = "(?<=\(package.name): ).*?(.*)"
                     var matchedDependencies = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
@@ -93,7 +93,7 @@ class InstallationProgressTracker: ObservableObject
 
                     AppConstants.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
 
-                    self.numberOfPackageDependencies = packageDependencies.count // Assign the number of dependencies to the tracker for the user to see
+                    numberOfPackageDependencies = packageDependencies.count // Assign the number of dependencies to the tracker for the user to see
 
                     packageBeingInstalled.packageInstallationProgress = 1
                 }
@@ -104,11 +104,11 @@ class InstallationProgressTracker: ObservableObject
                     packageBeingInstalled.installationStage = .installingDependencies
 
                     // Increment by 1 for each package that finished installing
-                    self.numberInLineOfPackageCurrentlyBeingInstalled = self.numberInLineOfPackageCurrentlyBeingInstalled + 1
+                    numberInLineOfPackageCurrentlyBeingInstalled = numberInLineOfPackageCurrentlyBeingInstalled + 1
                     AppConstants.logger.info("Installing dependency \(self.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
 
                     // TODO: Add a math formula for advancing the stepper
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * Double(self.numberOfPackageDependencies)))
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * Double(numberOfPackageDependencies)))
                 }
 
                 else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
@@ -116,11 +116,11 @@ class InstallationProgressTracker: ObservableObject
                     AppConstants.logger.info("Will fetch dependencies!")
                     packageBeingInstalled.installationStage = .fetchingDependencies
 
-                    self.numberInLineOfPackageCurrentlyBeingFetched = self.numberInLineOfPackageCurrentlyBeingFetched + 1
+                    numberInLineOfPackageCurrentlyBeingFetched = numberInLineOfPackageCurrentlyBeingFetched + 1
 
                     AppConstants.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
 
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(self.numberOfPackageDependencies) * Double(5))))
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(numberOfPackageDependencies) * Double(5))))
                 }
 
                 else if outputLine.contains("Fetching \(package.name)") || outputLine.contains("Installing \(package.name)")
@@ -145,7 +145,7 @@ class InstallationProgressTracker: ObservableObject
 
                 installOutput.append(outputLine)
 
-                AppConstants.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
+                    AppConstants.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
 
             case let .standardError(errorLine):
                 AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
@@ -172,7 +172,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installCask(using brewData: BrewDataStorage) async throws
+    func installCask(using _: BrewDataStorage) async throws
     {
         let package = packageBeingInstalled.package
 
@@ -223,6 +223,14 @@ class InstallationProgressTracker: ObservableObject
 
                     packageBeingInstalled.installationStage = .linkingCaskBinary
                 }
+                else if outputLine.contains("Purging files")
+                {
+                    AppConstants.logger.info("Purging old version of cask \(package.name)")
+                    
+                    packageBeingInstalled.installationStage = .installingCask
+                    
+                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 1
+                }
                 else if outputLine.contains("was successfully installed")
                 {
                     AppConstants.logger.info("Finished installing app")
@@ -245,6 +253,12 @@ class InstallationProgressTracker: ObservableObject
                     AppConstants.logger.warning("Install requires sudo")
 
                     packageBeingInstalled.installationStage = .requiresSudoPassword
+                }
+                else if errorLine.contains("there is already an App at")
+                {
+                    AppConstants.logger.warning("The app already exists")
+                    
+                    packageBeingInstalled.installationStage = .binaryAlreadyExists
                 }
                 else if errorLine.contains(/depends on hardware architecture being.+but you are running/)
                 {

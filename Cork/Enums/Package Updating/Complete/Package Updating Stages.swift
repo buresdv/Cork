@@ -9,5 +9,5 @@ import Foundation
 
 enum PackageUpdatingStage
 {
-    case updating, finished, erroredOut, noUpdatesAvailable
+    case updating, finished, erroredOut(packagesRequireSudo: Bool), noUpdatesAvailable
 }

@@ -2,7 +2,26 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "⚠️" : {
       "localizations" : {
@@ -3325,6 +3344,16 @@
         }
       }
     },
+    "action.finish-updating-in-terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish in Terminal"
+          }
+        }
+      }
+    },
     "action.go-to-status-page" : {
       "comment" : "MARK: - Misc Actions",
       "localizations" : {
@@ -4130,6 +4159,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重啟 Cork"
+          }
+        }
+      }
+    },
+    "action.reveal-applications-folder-in-finder" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit Aplikace ve Finderu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reveal Applications in Finder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать папку приложений в Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在访达中显示应用程序"
           }
         }
       }
@@ -5099,6 +5156,62 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "另一個 Homebrew 行程已經在執行"
+          }
+        }
+      }
+    },
+    "add-package.install.binary-already-exists-%@" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soudek %@ byl nainstalován mimo Homebrew"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ was installed outside of Homebrew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ был установлен не с помощью Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 于 Homebrew 外部安装"
+          }
+        }
+      }
+    },
+    "add-package.install.binary-already-exists.subheadline" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento soudek už ve složce Aplikace existuje Odinstalujte jej a zkuste to znovu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Это приложение уже находится в папке \"Приложения\". Удалите его и попробуйте еще раз."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个 Cask 已在应用程序文件夹中存在\n请卸载它然后尝试重试安装"
           }
         }
       }
@@ -8940,6 +9053,34 @@
         }
       }
     },
+    "alert.could-not-find-package-uuid-in-list" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrané balíčky se nepodařilo najít v seznamu dostupných baíšků"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not find the selected package in the list of available packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось найти выбранный пакет в списке доступных"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法在可用软件包中找到所选软件包"
+          }
+        }
+      }
+    },
     "alert.could-not-get-brewfile-location.message" : {
       "localizations" : {
         "cs" : {
@@ -11427,6 +11568,18 @@
             "state" : "translated",
             "value" : "Unknown"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестные"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未知"
+          }
         }
       }
     },
@@ -11867,6 +12020,18 @@
             "state" : "translated",
             "value" : "Get a list of installed Casks"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение списка приложений macOS, установленных с помощью Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Cask 列表"
+          }
         }
       }
     },
@@ -11882,6 +12047,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Casks"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить установленные приложения macOS"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Cask "
           }
         }
       }
@@ -11899,6 +12076,18 @@
             "state" : "translated",
             "value" : "Get a list of installed Formulae"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение списка консольных приложений и библиотек, установленных с помощью Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Formula 列表"
+          }
         }
       }
     },
@@ -11914,6 +12103,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get installed Formulae"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить установленные программы/библиотеки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Formula"
           }
         }
       }
@@ -11931,6 +12132,18 @@
             "state" : "translated",
             "value" : "Get a list of installed Formulae and Casks"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение списка установленных пакетов Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装 Formula 和 Cask 列表"
+          }
         }
       }
     },
@@ -11946,6 +12159,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Load only manually installed packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Только установленные вручную"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅加载手动安装的软件包"
           }
         }
       }
@@ -11963,65 +12188,185 @@
             "state" : "translated",
             "value" : "Get installed packages"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получить установленные пакеты"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取已安装软件包"
+          }
         }
       }
     },
     "intent.refresh.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledá aktualizace databáze balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Look for updates to installed Packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Получение актуальной информации о пакетах Homebrew и проверка на наличие новых версий установленных пакетов"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查找已安装软件包更新"
           }
         }
       }
     },
     "intent.refresh.result.display-representation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výsledek aktualizace databáze balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package refreshing result"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Результат обновления информации о пакетах"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包刷新结果"
           }
         }
       }
     },
     "intent.refresh.result.failed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace databáze balíčků selhala"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refreshing of packages failed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информацию о пакетах не удалось обновить"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包刷新失败"
           }
         }
       }
     },
     "intent.refresh.result.refreshed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Databáze balíčků byla aktualizována"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages refreshed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация о пакетах обновлена"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包已更新"
           }
         }
       }
     },
     "intent.refresh.result.refreshed-with-errors" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Databáze balíčků byla aktualizována, ale vyskytly se chyby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Packages refreshed with errors"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновление пакетов завершено с ошибками"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包刷新出现错误"
           }
         }
       }
     },
     "intent.refresh.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat databázi balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refresh Packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить информацию о пакетах"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新软件包"
           }
         }
       }
@@ -12039,6 +12384,18 @@
             "state" : "translated",
             "value" : "Homebrew Package"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 软件包"
+          }
         }
       }
     },
@@ -12054,6 +12411,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A lightweight representation of a package"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основные данные о пакете Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一个轻量的软件包摘要"
           }
         }
       }
@@ -33151,6 +33520,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "請詳查下方資訊"
+          }
+        }
+      }
+    },
+    "update-packages.error.sudo-required" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Action is needed to finish updating"
+          }
+        }
+      }
+    },
+    "update-packages.error.sudo-required.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
           }
         }
       }

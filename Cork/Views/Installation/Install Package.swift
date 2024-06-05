@@ -16,7 +16,7 @@ struct AddFormulaView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
-    @State private var foundPackageSelection = Set<UUID>()
+    @State private var foundPackageSelection: UUID? = nil
 
     @ObservedObject var searchResultTracker = SearchResultTracker()
     @ObservedObject var installationProgressTracker = InstallationProgressTracker()
@@ -125,6 +125,9 @@ struct AddFormulaView: View
             case .wrongArchitecture:
                 WrongArchitectureView(installationProgressTracker: installationProgressTracker)
 
+            case .binaryAlreadyExists:
+                BinaryAlreadyExistsView(installationProgressTracker: installationProgressTracker)
+
             case .anotherProcessAlreadyRunning:
                 VStack(alignment: .leading)
                 {
@@ -159,31 +162,32 @@ struct AddFormulaView: View
                 }
                 .fixedSize()
 
-                    /*
-            default:
-                VStack(alignment: .leading)
-                {
-                    ComplexWithIcon(systemName: "wifi.exclamationmark")
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "add-package.network-error",
-                            subheadline: "add-package.network-error.description",
-                            alignment: .leading
-                        )
-                    }
+                /*
+                 default:
+                     VStack(alignment: .leading)
+                     {
+                         ComplexWithIcon(systemName: "wifi.exclamationmark")
+                         {
+                             HeadlineWithSubheadline(
+                                 headline: "add-package.network-error",
+                                 subheadline: "add-package.network-error.description",
+                                 alignment: .leading
+                             )
+                         }
 
-                    HStack
-                    {
-                        Spacer()
+                         HStack
+                         {
+                             Spacer()
 
-                        DismissSheetButton()
-                    }
-                }
-                     */
+                             DismissSheetButton()
+                         }
+                     }
+                          */
             }
         }
         .padding()
-        .onDisappear {
+        .onDisappear
+        {
             appState.assignPackageTypeToCachedDownloads(brewData: brewData)
         }
     }
