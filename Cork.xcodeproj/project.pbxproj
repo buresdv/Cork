@@ -180,6 +180,7 @@
 		63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63936A4C29AE6D710069C988 /* Package Caveats.swift */; };
 		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
+		6397E1552C0BBED500E5F3FB /* Sudo Helper in Resources */ = {isa = PBXBuildFile; fileRef = 6397E1542C0BBED500E5F3FB /* Sudo Helper */; };
 		639A7D832871D08200B50280 /* Install Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D822871D08200B50280 /* Install Package.swift */; };
 		639A7D862871D78C00B50280 /* Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D852871D78C00B50280 /* Package Details.swift */; };
 		639D45DD2BB830D200459DE3 /* Menu Bar Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D45DC2BB830D200459DE3 /* Menu Bar Item.swift */; };
@@ -490,6 +491,7 @@
 		63936A4C29AE6D710069C988 /* Package Caveats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Caveats.swift"; sourceTree = "<group>"; };
 		63958CFC2877341F00E0B807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63958CFF287735F800E0B807 /* About View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About View.swift"; sourceTree = "<group>"; };
+		6397E1542C0BBED500E5F3FB /* Sudo Helper */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "Sudo Helper"; sourceTree = "<group>"; };
 		639A7D822871D08200B50280 /* Install Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Package.swift"; sourceTree = "<group>"; };
 		639A7D852871D78C00B50280 /* Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Details.swift"; sourceTree = "<group>"; };
 		639D45DC2BB830D200459DE3 /* Menu Bar Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar Item.swift"; sourceTree = "<group>"; };
@@ -565,7 +567,6 @@
 		63D83109299982EA00FA802F /* Search Result Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Row.swift"; sourceTree = "<group>"; };
 		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
-		63DD440C2C093CC40084DA07 /* askForSudoPassword.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = askForSudoPassword.sh; sourceTree = "<group>"; };
 		63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Descriptions.swift"; sourceTree = "<group>"; };
 		63DD44132C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Recovery Suggestions.swift"; sourceTree = "<group>"; };
 		63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart Cork Button.swift"; sourceTree = "<group>"; };
@@ -1167,7 +1168,7 @@
 		6371EA1F2871E0EC00300E1B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				63DD440B2C093CAC0084DA07 /* Scripts */,
+				63DD440B2C093CAC0084DA07 /* Programs */,
 				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
 				639246E429A26BB4008149E2 /* REGEX Match.swift */,
 				63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */,
@@ -1853,12 +1854,12 @@
 			path = Searching;
 			sourceTree = "<group>";
 		};
-		63DD440B2C093CAC0084DA07 /* Scripts */ = {
+		63DD440B2C093CAC0084DA07 /* Programs */ = {
 			isa = PBXGroup;
 			children = (
-				63DD440C2C093CC40084DA07 /* askForSudoPassword.sh */,
+				6397E1542C0BBED500E5F3FB /* Sudo Helper */,
 			);
-			path = Scripts;
+			path = Programs;
 			sourceTree = "<group>";
 		};
 		63DD440D2C093E180084DA07 /* Alerts */ = {
@@ -2101,6 +2102,7 @@
 			files = (
 				C4C2A0E72A910A0D00E6F172 /* CorkHelp.help in Resources */,
 				6340656C2871AA42001A2178 /* Preview Assets.xcassets in Resources */,
+				6397E1552C0BBED500E5F3FB /* Sudo Helper in Resources */,
 				C45C26112ABCC2C600290D26 /* Localizable.xcstrings in Resources */,
 				63F622712BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy in Resources */,
 				634065692871AA42001A2178 /* Assets.xcassets in Resources */,
