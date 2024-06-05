@@ -79,13 +79,18 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         let foundPackage = BrewPackage(name: item, isCask: !targetFolder.path.contains("Cellar"), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
 
                         //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
+                        
+                        if foundPackage.versions.isEmpty
+                        {
+                            throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
+                        }
 
                         return foundPackage
                     }
                     catch
                     {
                         AppConstants.logger.error("Failed while getting package version: \(error)")
-                        throw PackageLoadingError.failedWhileLoadingCertainPackage(item)
+                        throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                     }
                 }
             }

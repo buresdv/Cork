@@ -371,31 +371,37 @@ struct ContentView: View, Sendable
         {
             BrewfileImportProgressView()
         }
-        .alert(isPresented: $appState.isShowingFatalError, content: {
-            switch appState.fatalAlertType
+        .alert(isPresented: $appState.isShowingFatalError, error: appState.fatalAlertType)
+        { error in
+            switch error
             {
-            case let .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall):
-                return Alert(
-                    title: Text("alert.unable-to-uninstall-\(packageThatTheUserIsTryingToUninstall.name).title"),
-                    message: Text("alert.unable-to-uninstall-dependency.message-\(appState.offendingDependencyProhibitingUninstallation)-\(packageThatTheUserIsTryingToUninstall.name)"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
+            case .uninstallationNotPossibleDueToDependency(let packageThatTheUserIsTryingToUninstall, let offendingDependencyProhibitingUninstallation):
+                EmptyView()
 
+            case .couldNotLoadAnyPackages:
+                RestartCorkButton()
+
+            case .couldNotLoadCertainPackage:
+                RestartCorkButton()
+
+            case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
+                EmptyView()
+
+            case .customBrewExcutableGotDeleted:
+                Button
+                {
+                    customHomebrewPath = ""
+                } label: {
+                    Text("action.reset-custom-brew-executable")
+                }
             case .couldNotFindPackageUUIDInList:
-                return Alert(
-                    title: Text("alert.could-not-find-package-uuid-in-list")
-                )
+                EmptyView()
 
             case .couldNotApplyTaggedStateToPackages:
-                return Alert(
-                    title: Text("alert.could-not-apply-tags.title"),
-                    message: Text("alert.could-not-apply-tags.message"),
-                    primaryButton: .cancel(Text("action.quit"), action: {
-                        NSApplication.shared.terminate(self)
-                    }),
-                    secondaryButton: .destructive(Text("action.clear-metadata"), action: {
+                VStack
+                {
+                    Button(role: .destructive)
+                    {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
                         {
                             do
@@ -412,17 +418,18 @@ struct ContentView: View, Sendable
                         {
                             appState.fatalAlertType = .metadataFolderDoesNotExist
                         }
-                    })
-                )
+                    } label: {
+                        Text("action.clear-metadata")
+                    }
+
+                    QuitCorkButton()
+                }
 
             case .couldNotClearMetadata:
-                return Alert(
-                    title: Text("alert.could-not-clear-metadata.title"),
-                    message: Text("alert.could-not-clear-metadata.message"),
-                    primaryButton: .cancel(Text("action.restart"), action: {
-                        restartApp()
-                    }),
-                    secondaryButton: .default(Text("action.reveal-in-finder"), action: {
+                VStack
+                {
+                    Button
+                    {
                         if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
                         {
                             AppConstants.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
@@ -431,206 +438,99 @@ struct ContentView: View, Sendable
                         {
                             appState.fatalAlertType = .metadataFolderDoesNotExist
                         }
-                    })
-                )
+                    } label: {
+                        Text("action.reveal-in-finder")
+                    }
 
+                    QuitCorkButton()
+                }
             case .metadataFolderDoesNotExist:
-                return Alert(
-                    title: Text("alert.metadata-folder-does-not-exist.title"),
-                    message: Text("alert.metadata-folder-does-not-exist.message"),
-                    dismissButton: .default(Text("action.quit"), action: {
-                        NSApplication.shared.terminate(self)
-                    })
-                )
+                QuitCorkButton()
 
             case .couldNotCreateCorkMetadataDirectory:
-                return Alert(
-                    title: Text("alert.could-not-create-metadata-directory.title"),
-                    message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
-                    dismissButton: .default(Text("action.restart"), action: {
-                        restartApp()
-                    })
-                )
-            case .couldNotCreateCorkMetadataFile:
-                return Alert(
-                    title: Text("alert.could-not-create-metadata-file.title"),
-                    message: Text("alert.could-not-create-metadata-directory-or-folder.message"),
-                    dismissButton: .default(Text("action.restart"), action: {
-                        restartApp()
-                    })
-                )
-            case let .installedPackageHasNoVersions(corruptedPackageName):
-                return Alert(
-                    title: Text("alert.package-corrupted.title-\(corruptedPackageName)"),
-                    message: Text("alert.package-corrupted.message"),
-                    dismissButton: .default(Text("action.repair-\(corruptedPackageName)"), action: {
-                        self.corruptedPackage = .init(name: corruptedPackageName)
-                    })
-                )
-            case .homePathNotSet:
-                return Alert(
-                    title: Text("alert.home-not-set.title"),
-                    message: Text("alert.home-not-set.message"),
-                    dismissButton: .destructive(Text("action.quit"), action: {
-                        exit(0)
-                    })
-                )
-            case .couldNotObtainNotificationPermissions:
-                return Alert(
-                    title: Text("alert.notifications-error-while-obtaining-permissions.title"),
-                    message: Text("alert.notifications-error-while-obtaining-permissions.message"),
-                    dismissButton: .cancel(Text("action.use-without-notifications"), action: {
-                        appState.dismissAlert()
-                    })
-                )
-            case .couldNotParseTopPackages:
-                return Alert(
-                    title: Text("alert.notifications-error-while-parsing-top-packages.title"),
-                    message: Text("alert.notifications-error-while-parsing-top-packages.message"),
-                    dismissButton: .cancel(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
-            case .receivedInvalidResponseFromBrew:
-                return Alert(
-                    title: Text("alert.notifications-error-while-getting-top-packages.title"),
-                    message: Text("alert.notifications-error-while-getting-top-package.message"),
-                    dismissButton: .cancel(Text("action.close"), action: {
-                        appState.dismissAlert()
-                        enableDiscoverability = false
-                    })
-                )
-            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
-                return Alert(
-                    title: Text("sidebar.section.added-taps.remove.title-\(appState.offendingTapProhibitingRemovalOfTap)"),
-                    message: Text("alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(appState.offendingTapProhibitingRemovalOfTap)"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.isShowingRemoveTapFailedAlert = false
-                    })
-                )
+                RestartCorkButton()
 
+            case .couldNotCreateCorkMetadataFile:
+                RestartCorkButton()
+
+            case .installedPackageHasNoVersions(let corruptedPackageName):
+                Button
+                {
+                    self.corruptedPackage = .init(name: corruptedPackageName)
+                } label: {
+                    Text("action.repair-\(corruptedPackageName)")
+                }
+
+            case .homePathNotSet:
+                QuitCorkButton()
+
+            case .couldNotObtainNotificationPermissions:
+                Button
+                {
+                    appState.dismissAlert()
+                } label: {
+                    Text("action.use-without-notifications")
+                }
+            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
+                EmptyView()
+
+            case .couldNotParseTopPackages:
+                EmptyView()
+
+            case .receivedInvalidResponseFromBrew:
+                Button
+                {
+                    appState.dismissAlert()
+                    enableDiscoverability = false
+                } label: {
+                    Text("action.close")
+                }
             case .topPackageArrayFilterCouldNotRetrieveAnyPackages:
-                return Alert(
-                    title: Text("alert.top-package-retrieval-function-turned-up-empty.title"),
-                    message: Text("alert.top-package-retrieval-function-turned-up-empty.message"),
-                    primaryButton: .default(Text("action.close"), action: {
-                        appState.isShowingRemoveTapFailedAlert = false
-                    }),
-                    secondaryButton: .destructive(Text("action.restart"), action: {
-                        restartApp()
-                    })
-                )
-            case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
-                return Alert(
-                    title: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title"),
-                    message: Text("alert.could-not-associate-any-package-in-tracker-with-provided-uuid.message"),
-                    dismissButton: .default(Text("action.close"), action: {
+                VStack
+                {
+                    Button
+                    {
                         appState.dismissAlert()
-                    })
-                )
+                    } label: {
+                        Text("action.close")
+                    }
+                    RestartCorkButton()
+                }
+            case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
+                EmptyView()
 
             case .couldNotFindPackageInParentDirectory:
-                return Alert(
-                    title: Text("alert.could-not-find-package-in-parent-directory.title"),
-                    message: Text("message.try-again-or-restart"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
+                EmptyView()
+
+            case .fatalPackageInstallationError:
+                EmptyView()
+
+            case .couldNotSynchronizePackages:
+                RestartCorkButton()
 
             case .couldNotGetWorkingDirectory:
-                return Alert(
-                    title: Text("alert.could-not-get-brewfile-working-directory.title"),
-                    message: Text("message.try-again-or-restart"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
-            case let .couldNotDumpBrewfile(error):
-                return Alert(
-                    title: Text("alert.could-not-dump-brewfile.title"),
-                    message: Text("message.try-again-or-restart-\(error)"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
+                EmptyView()
+
+            case .couldNotDumpBrewfile(error: let error):
+                EmptyView()
 
             case .couldNotReadBrewfile:
-                return Alert(
-                    title: Text("alert.could-not-read-brewfile.title"),
-                    message: Text("message.try-again-or-restart"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
+                EmptyView()
+
             case .couldNotGetBrewfileLocation:
-                return Alert(
-                    title: Text("alert.could-not-get-brewfile-location.title"),
-                    message: Text("alert.could-not-get-brewfile-location.message"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
+                EmptyView()
             case .couldNotImportBrewfile:
-                return Alert(
-                    title: Text("alert.could-not-import-brewfile.title"),
-                    message: Text("alert.could-not-import-brewfile.message"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
+                EmptyView()
+
             case .malformedBrewfile:
-                return Alert(
-                    title: Text("alert.malformed-brewfile.title"),
-                    message: Text("alert.malformed-brewfile.message"),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
-            case let .fatalPackageInstallationError(errorDetails):
-                return Alert(
-                    title: Text("alert.fatal-installation.error"),
-                    message: Text(errorDetails),
-                    dismissButton: .default(Text("action.close"), action: {
-                        appState.dismissAlert()
-                    })
-                )
-            case .customBrewExcutableGotDeleted:
-                return Alert(
-                    title: Text("alert.fatal.custom-brew-executable-deleted.title"),
-                    dismissButton: .default(Text("action.reset-custom-brew-executable"), action: {
-                        customHomebrewPath = ""
-                    })
-                )
-            case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
-                return Alert(
-                    title: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.title"),
-                    message: Text("alert.fatal.license-checking.could-not-encode-authorization-complex.message")
-                )
-            case .couldNotSynchronizePackages:
-                return Alert(
-                    title: Text("alert.fatal.could-not-synchronize-packages.title"),
-                    dismissButton: .default(Text("action.restart"), action: {
-                        restartApp()
-                    })
-                )
-            case let .couldNotLoadAnyPackages(error):
-                return Alert(
-                    title: Text("alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title"),
-                    message: Text("alert.restart-or-reinstall"),
-                    dismissButton: .default(Text("action.restart"), action: {
-                        restartApp()
-                    })
-                )
-            case let .couldNotLoadCertainPackage(offendingPackage):
-                return Alert(
-                    title: Text("alert.fatal-\(offendingPackage)-prevented-loading.title"),
-                    dismissButton: .default(Text("action.restart"), action: {
-                        restartApp()
-                    })
-                )
+                EmptyView()
             }
-        })
+        } message: { error in
+            if let recoverySuggestion = error.recoverySuggestion
+            {
+                Text(recoverySuggestion)
+            }
+        }
         .confirmationDialog(uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: $uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
         {
             Button(role: .destructive)

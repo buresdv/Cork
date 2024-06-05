@@ -11,37 +11,45 @@ struct ErroredOutStageView: View
 {
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
 
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
+    let sudoRequiredForUpdate: Bool
+    
     var body: some View
     {
         ComplexWithIcon(systemName: "checkmark.seal")
         {
             VStack(alignment: .leading, spacing: 5)
             {
-                HeadlineWithSubheadline(
-                    headline: "update-packages.error",
-                    subheadline: "update-packages.error.description",
-                    alignment: .leading
-                )
-                List
+                if !sudoRequiredForUpdate
                 {
-                    ForEach(updateProgressTracker.errors, id: \.self)
-                    { error in
-                        HStack(alignment: .firstTextBaseline, spacing: 5)
-                        {
-                            Text("⚠️")
-                            Text(error)
-                        }
-                    }
+                    updatedWithErrorsNoSudoNeeded
                 }
-                .listStyle(.bordered(alternatesRowBackgrounds: false))
-                .frame(height: 100, alignment: .leading)
+                else
+                {
+                    updatedWithErrorSudoIsNeeded
+                }
+                
                 HStack
                 {
-                    Spacer()
                     DismissSheetButton(customButtonText: "action.close")
+                    
+                    Spacer()
+                    
+                    Button
+                    {
+                        copyToClipboard(whatToCopy: "brew update")
+                        
+                        openTerminal()
+                        
+                        dismiss()
+                    } label: {
+                        Text("action.finish-updating-in-terminal")
+                    }
+                    .keyboardShortcut(.defaultAction)
                 }
             }
             .fixedSize()
@@ -57,5 +65,38 @@ struct ErroredOutStageView: View
                 sendNotification(title: String(localized: "notification.upgrade-finished.success"), body: String(localized: "notification.upgrade-finished.success.some-errors"))
             }
         }
+    }
+    
+    @ViewBuilder
+    var updatedWithErrorsNoSudoNeeded: some View
+    {
+        HeadlineWithSubheadline(
+            headline: "update-packages.error",
+            subheadline: "update-packages.error.description",
+            alignment: .leading
+        )
+        List
+        {
+            ForEach(updateProgressTracker.errors, id: \.self)
+            { error in
+                HStack(alignment: .firstTextBaseline, spacing: 5)
+                {
+                    Text("⚠️")
+                    Text(error)
+                }
+            }
+        }
+        .listStyle(.bordered(alternatesRowBackgrounds: false))
+        .frame(height: 100, alignment: .leading)
+    }
+    
+    @ViewBuilder
+    var updatedWithErrorSudoIsNeeded: some View
+    {
+        HeadlineWithSubheadline(
+            headline: "update-packages.error.sudo-required",
+            subheadline: "update-packages.error.sudo-required.description",
+            alignment: .leading
+        )
     }
 }

@@ -180,6 +180,7 @@
 		63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63936A4C29AE6D710069C988 /* Package Caveats.swift */; };
 		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
+		6397E1552C0BBED500E5F3FB /* Sudo Helper in Resources */ = {isa = PBXBuildFile; fileRef = 6397E1542C0BBED500E5F3FB /* Sudo Helper */; };
 		639A7D832871D08200B50280 /* Install Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D822871D08200B50280 /* Install Package.swift */; };
 		639A7D862871D78C00B50280 /* Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639A7D852871D78C00B50280 /* Package Details.swift */; };
 		639D45DD2BB830D200459DE3 /* Menu Bar Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639D45DC2BB830D200459DE3 /* Menu Bar Item.swift */; };
@@ -255,6 +256,9 @@
 		63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D83109299982EA00FA802F /* Search Result Row.swift */; };
 		63D86EB229C0972A00AD64D2 /* Package Search Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D86EB129C0972A00AD64D2 /* Package Search Token.swift */; };
 		63D8C957287A1D0800483A52 /* Loading View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8C956287A1D0800483A52 /* Loading View.swift */; };
+		63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */; };
+		63DD44142C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44132C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift */; };
+		63DD44162C09E5E70084DA07 /* Restart Cork Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */; };
 		63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6360355729BDE7BF00CC0760 /* Package Updating Stages.swift */; };
 		63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */; };
 		63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716D429DDB797004FD2B4 /* Outdated Package List Box.swift */; };
@@ -281,7 +285,7 @@
 		63FFE57E2A90D9E300F95E54 /* Day Spans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57D2A90D9E300F95E54 /* Day Spans.swift */; };
 		63FFE5802A90E7F400F95E54 /* Discoverability Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */; };
 		63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */; };
-		63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */; };
+		63FFEF5029CB5EEE00D6FFC4 /* Displayable Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFEF4F29CB5EEE00D6FFC4 /* Displayable Alerts.swift */; };
 		9606D0AD2AAB8B8E005B7DBA /* Sidebar Package Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */; };
 		C45945172A91232900271D99 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C45945192A91232900271D99 /* index.html */; };
 		C459451A2A91232E00271D99 /* topic1.html in Resources */ = {isa = PBXBuildFile; fileRef = C459451C2A91232E00271D99 /* topic1.html */; };
@@ -487,6 +491,7 @@
 		63936A4C29AE6D710069C988 /* Package Caveats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Caveats.swift"; sourceTree = "<group>"; };
 		63958CFC2877341F00E0B807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63958CFF287735F800E0B807 /* About View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "About View.swift"; sourceTree = "<group>"; };
+		6397E1542C0BBED500E5F3FB /* Sudo Helper */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "Sudo Helper"; sourceTree = "<group>"; };
 		639A7D822871D08200B50280 /* Install Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Package.swift"; sourceTree = "<group>"; };
 		639A7D852871D78C00B50280 /* Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Details.swift"; sourceTree = "<group>"; };
 		639D45DC2BB830D200459DE3 /* Menu Bar Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar Item.swift"; sourceTree = "<group>"; };
@@ -562,6 +567,9 @@
 		63D83109299982EA00FA802F /* Search Result Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search Result Row.swift"; sourceTree = "<group>"; };
 		63D86EB129C0972A00AD64D2 /* Package Search Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Search Token.swift"; sourceTree = "<group>"; };
 		63D8C956287A1D0800483A52 /* Loading View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading View.swift"; sourceTree = "<group>"; };
+		63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Descriptions.swift"; sourceTree = "<group>"; };
+		63DD44132C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Recovery Suggestions.swift"; sourceTree = "<group>"; };
+		63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart Cork Button.swift"; sourceTree = "<group>"; };
 		63E41C3029C527C20084E266 /* Array - Get Second to Last Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - Get Second to Last Element.swift"; sourceTree = "<group>"; };
 		63E5FBB42C027E54005AAE92 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		63E5FBB62C027E55005AAE92 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -588,7 +596,7 @@
 		63FFE57D2A90D9E300F95E54 /* Day Spans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day Spans.swift"; sourceTree = "<group>"; };
 		63FFE57F2A90E7F400F95E54 /* Discoverability Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Discoverability Pane.swift"; sourceTree = "<group>"; };
 		63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart App.swift"; sourceTree = "<group>"; };
-		63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fatal Alert Types.swift"; sourceTree = "<group>"; };
+		63FFEF4F29CB5EEE00D6FFC4 /* Displayable Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts.swift"; sourceTree = "<group>"; };
 		9606D0AC2AAB8B8E005B7DBA /* Sidebar Package Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar Package Row.swift"; sourceTree = "<group>"; };
 		C45945182A91232900271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/index.html; sourceTree = "<group>"; wrapsLines = 0; };
 		C459451B2A91232E00271D99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/topic1.html; sourceTree = "<group>"; };
@@ -1160,6 +1168,7 @@
 		6371EA1F2871E0EC00300E1B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				63DD440B2C093CAC0084DA07 /* Programs */,
 				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
 				639246E429A26BB4008149E2 /* REGEX Match.swift */,
 				63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */,
@@ -1518,6 +1527,7 @@
 		63A87466298FE808009F9533 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				63DD440D2C093E180084DA07 /* Alerts */,
 				6369AFBB2BF78E6600E67153 /* Packages */,
 				637D53972BAB51A800E072DA /* Services */,
 				63ACBBE22BA891D500B26D7E /* Licensing */,
@@ -1528,7 +1538,6 @@
 				6360355529BDE79D00CC0760 /* Package Updating */,
 				6382C8F8299D6C1D00354B19 /* Package Sorting.swift */,
 				63936A4C29AE6D710069C988 /* Package Caveats.swift */,
-				63FFEF4F29CB5EEE00D6FFC4 /* Fatal Alert Types.swift */,
 				635E44942A891078002C034E /* Outdated Packages Notification Type.swift */,
 			);
 			path = Enums;
@@ -1806,6 +1815,7 @@
 				639D45DE2BB85D3100459DE3 /* No Content Available.swift */,
 				63581BDC2BB86E5B009A8E03 /* Open Cork Button.swift */,
 				63581BDE2BB87A09009A8E03 /* Quit Cork Button.swift */,
+				63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -1842,6 +1852,48 @@
 				63D86EB129C0972A00AD64D2 /* Package Search Token.swift */,
 			);
 			path = Searching;
+			sourceTree = "<group>";
+		};
+		63DD440B2C093CAC0084DA07 /* Programs */ = {
+			isa = PBXGroup;
+			children = (
+				6397E1542C0BBED500E5F3FB /* Sudo Helper */,
+			);
+			path = Programs;
+			sourceTree = "<group>";
+		};
+		63DD440D2C093E180084DA07 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				63DD440E2C093E260084DA07 /* Main Window */,
+				63DD440F2C093E2A0084DA07 /* Services */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		63DD440E2C093E260084DA07 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				63DD44122C093E7B0084DA07 /* Error Details */,
+				63FFEF4F29CB5EEE00D6FFC4 /* Displayable Alerts.swift */,
+			);
+			path = "Main Window";
+			sourceTree = "<group>";
+		};
+		63DD440F2C093E2A0084DA07 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		63DD44122C093E7B0084DA07 /* Error Details */ = {
+			isa = PBXGroup;
+			children = (
+				63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */,
+				63DD44132C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift */,
+			);
+			path = "Error Details";
 			sourceTree = "<group>";
 		};
 		63E5FBB32C027E54005AAE92 /* Frameworks */ = {
@@ -2050,6 +2102,7 @@
 			files = (
 				C4C2A0E72A910A0D00E6F172 /* CorkHelp.help in Resources */,
 				6340656C2871AA42001A2178 /* Preview Assets.xcassets in Resources */,
+				6397E1552C0BBED500E5F3FB /* Sudo Helper in Resources */,
 				C45C26112ABCC2C600290D26 /* Localizable.xcstrings in Resources */,
 				63F622712BB1D15F00FBDB20 /* PrivacyInfo.xcprivacy in Resources */,
 				634065692871AA42001A2178 /* Assets.xcassets in Resources */,
@@ -2125,13 +2178,14 @@
 				63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */,
 				63D51F65299A992900203F3F /* Settings View.swift in Sources */,
 				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
-				63FFEF5029CB5EEE00D6FFC4 /* Fatal Alert Types.swift in Sources */,
+				63FFEF5029CB5EEE00D6FFC4 /* Displayable Alerts.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
 				6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
 				63D67B752AC5C1EE002EB992 /* Binding - Reverse Bool Value.swift in Sources */,
+				63DD44162C09E5E70084DA07 /* Restart Cork Button.swift in Sources */,
 				63D582A02BF14F67004538FD /* Services Fatal Errors.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
@@ -2237,6 +2291,7 @@
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				637D53962BAB517800E072DA /* Service.swift in Sources */,
 				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,
+				63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */,
 				63E716D529DDB797004FD2B4 /* Outdated Package List Box.swift in Sources */,
 				6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */,
 				6317BF832ADEFEAC0018E425 /* Finished Stage.swift in Sources */,
@@ -2296,6 +2351,7 @@
 				6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */,
 				63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */,
 				63581BD72BB86D29009A8E03 /* Menu Bar - Orphan Cleanup.swift in Sources */,
+				63DD44142C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift in Sources */,
 				63D024E32AC769AC0050F9D0 /* Presenting Search Results.swift in Sources */,
 				6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */,
 				63A018762AFFBD08003A2912 /* Brewfile Export Progress.swift in Sources */,
