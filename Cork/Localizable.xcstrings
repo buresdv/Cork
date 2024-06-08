@@ -3723,6 +3723,12 @@
             "state" : "translated",
             "value" : "Finish in Terminal"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在终端中继续"
+          }
         }
       }
     },
@@ -4659,6 +4665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reveal %@ in Finder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在访达中显示 %@"
           }
         }
       }
@@ -12172,6 +12184,12 @@
             "state" : "translated",
             "value" : "File %@ is not a valid Homebrew package and needs to be removed"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该文件 %@ 不是有效的 Homebrew 软件包，需要删除"
+          }
         }
       }
     },
@@ -12187,6 +12205,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid file %@ in a package folder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包文件夹中的 %@ 无效"
           }
         }
       }
@@ -37167,6 +37191,12 @@
             "state" : "translated",
             "value" : "Action is needed to finish updating"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "需要采取行动以完成更新"
+          }
         }
       }
     },
@@ -37182,6 +37212,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "某些软件包只能通过终端更新\n单击下方“在终端中继续”\n使用 ⌘+V 插入命令，然后按 ↩ (回车) 键执行命令并按说明操作\n命令完成后，回到 Cork"
           }
         }
       }
