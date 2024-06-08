@@ -9,6 +9,12 @@
             "value" : "%@"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4637,6 +4643,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在访达中显示应用程序"
+          }
+        }
+      }
+    },
+    "action.reveal-certain-file-in-finder-%@" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit %@ ve Finderu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reveal %@ in Finder"
           }
         }
       }
@@ -12133,6 +12155,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法取得熱門套件"
+          }
+        }
+      }
+    },
+    "alert.tried-to-load-package-that-is-not-a-folder.message-%@" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soubor %@ není platný balíček Homebrew a musíte ho odstranit"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "File %@ is not a valid Homebrew package and needs to be removed"
+          }
+        }
+      }
+    },
+    "alert.tried-to-load-package-that-is-not-a-folder.title-%@" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neplatný soubor %@ ve složce s balíčky"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid file %@ in a package folder"
           }
         }
       }

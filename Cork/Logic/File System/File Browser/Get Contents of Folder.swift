@@ -10,7 +10,7 @@ import SwiftyJSON
 
 enum PackageLoadingError: Error
 {
-    case failedWhileLoadingPackages, failedWhileLoadingCertainPackage(String), packageDoesNotHaveAnyVersionsInstalled(String)
+    case failedWhileLoadingPackages, failedWhileLoadingCertainPackage(String, URL), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
 }
 
 func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
@@ -89,8 +89,16 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                     }
                     catch
                     {
-                        AppConstants.logger.error("Failed while getting package version: \(error)")
-                        throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
+                        if targetFolder.appendingPathComponent(item, conformingTo: .fileURL).hasDirectoryPath
+                        {
+                            AppConstants.logger.error("Failed while getting package version. Package does not have any version installed: \(error)")
+                            throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
+                        }
+                        else
+                        {
+                            AppConstants.logger.error("Failed while getting package version. Package is not a folder: \(error)")
+                            throw PackageLoadingError.packageIsNotAFolder(item, targetFolder.appendingPathComponent(item, conformingTo: .fileURL))
+                        }
                     }
                 }
             }

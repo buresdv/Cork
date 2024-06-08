@@ -13,9 +13,9 @@ extension DisplayableAlert
     {
         switch self
         {
-        case .couldNotLoadAnyPackages(_):
+        case .couldNotLoadAnyPackages:
             return String(localized: "alert.restart-or-reinstall")
-        case .couldNotLoadCertainPackage(_):
+        case .couldNotLoadCertainPackage:
             return nil
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.message")
@@ -35,8 +35,10 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-directory-or-folder.message")
         case .couldNotCreateCorkMetadataFile:
             return String(localized: "alert.could-not-create-metadata-directory-or-folder.message")
-        case .installedPackageHasNoVersions(_):
+        case .installedPackageHasNoVersions:
             return String(localized: "alert.package-corrupted.message")
+        case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
+            return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.message-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.message")
         case .couldNotObtainNotificationPermissions:

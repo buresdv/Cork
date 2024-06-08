@@ -16,8 +16,8 @@ extension DisplayableAlert
         {
         case .couldNotLoadAnyPackages(let error):
             return String(localized: "alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title")
-        case .couldNotLoadCertainPackage(let offendingPackage):
-               return String(localized: "alert.fatal-\(offendingPackage)-prevented-loading.title")
+        case .couldNotLoadCertainPackage(let offendingPackage, _):
+            return String(localized: "alert.fatal-\(offendingPackage)-prevented-loading.title")
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.title")
         case .customBrewExcutableGotDeleted:
@@ -38,6 +38,8 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-file.title")
         case .installedPackageHasNoVersions(let corruptedPackageName):
             return String(localized: "alert.package-corrupted.title-\(corruptedPackageName)")
+        case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
+            return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.title-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")
         case .couldNotObtainNotificationPermissions:
@@ -54,13 +56,13 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-associate-any-package-in-tracker-with-provided-uuid.title")
         case .couldNotFindPackageInParentDirectory:
             return String(localized: "alert.could-not-find-package-in-parent-directory.title")
-        case .fatalPackageInstallationError(_):
+        case .fatalPackageInstallationError:
             return String(localized: "alert.fatal-installation.error")
         case .couldNotSynchronizePackages:
             return String(localized: "alert.fatal.could-not-synchronize-packages.title")
         case .couldNotGetWorkingDirectory:
             return String(localized: "alert.could-not-get-brewfile-working-directory.title")
-        case .couldNotDumpBrewfile(_):
+        case .couldNotDumpBrewfile:
             return String(localized: "alert.could-not-dump-brewfile.title")
         case .couldNotReadBrewfile:
             return String(localized: "alert.could-not-read-brewfile.title")

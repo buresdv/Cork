@@ -381,8 +381,17 @@ struct ContentView: View, Sendable
             case .couldNotLoadAnyPackages:
                 RestartCorkButton()
 
-            case .couldNotLoadCertainPackage:
-                RestartCorkButton()
+            case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL):
+                VStack
+                {
+                    Button
+                    {
+                        offendingPackageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                    } label: {
+                        Text("action.reveal-certain-file-in-finder-\(offendingPackage)")
+                    }
+                    RestartCorkButton()
+                }
 
             case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
                 EmptyView()
@@ -459,6 +468,18 @@ struct ContentView: View, Sendable
                     self.corruptedPackage = .init(name: corruptedPackageName)
                 } label: {
                     Text("action.repair-\(corruptedPackageName)")
+                }
+
+            case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
+                VStack
+                {
+                    Button
+                    {
+                        itemURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                    } label: {
+                        Text("action.reveal-certain-file-in-finder-\(itemName)")
+                    }
+                    RestartCorkButton()
                 }
 
             case .homePathNotSet:
