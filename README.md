@@ -7,7 +7,7 @@ A fast GUI for Homebrew written in SwiftUI
 
 ## Special Thanks
 
-I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implementing a system for getting real-time outputs of Brew commands. 
+I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implementing a system for getting real-time outputs of Brew commands.
 
 Without his contribution, many of the processes that depend on real-time outputs, such as installation, uninstallation and updating of packages, would be impossible.
 
@@ -127,9 +127,9 @@ Prerequisites:
 4. In the pane that opens on the right, click `Signing & Capabilities` at the top
 5. Under `Signing`, switch the `Team` dropdown to `None`
 6. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
-7. If it isn't already selected, change the Build Scheme to `Self-Compiled` in Xcode's toolbar.
+7. If it isn't already selected, change the Build Scheme to `Self-Compiled` in Xcode's [toolbar](https://developer.apple.com/design/human-interface-guidelines/toolbars#macOS).
 ![Build Scheme Selector](https://files.catbox.moe/ofufd1.jpg)
-> [!WARNING]  
+> [!WARNING]
 > If you don't select the correct Build Scheme, Cork will require you to put in a license.
 8. In the Menu Bar, click `Product → Archive` and wait for the building to finish
 9. A new window will open. From the list of Cork rows, select the topmost one, and click `Distribute App`
