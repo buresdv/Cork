@@ -71,7 +71,6 @@
 		63405A4D2C02800800C6E0F2 /* Minimal Homebrew Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A4C2C02800800C6E0F2 /* Minimal Homebrew Package.swift */; };
 		63405A512C028AE800C6E0F2 /* Get Installed Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A502C028AE800C6E0F2 /* Get Installed Packages Intent.swift */; };
 		63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63405A582C028BF400C6E0F2 /* Get Installed Casks Intent.swift */; };
-		63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A162BFE1083000912CD /* String - Letters Only.swift */; };
 		634065652871AA42001A2178 /* CorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065642871AA42001A2178 /* CorkApp.swift */; };
 		634065672871AA42001A2178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634065662871AA42001A2178 /* ContentView.swift */; };
 		634065692871AA42001A2178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634065682871AA42001A2178 /* Assets.xcassets */; };
@@ -2054,7 +2053,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					634065602871AA42001A2178 = {
 						CreatedOnToolsVersion = 14.0;
@@ -2344,7 +2343,6 @@
 				63739B862C0660F100DE6A17 /* Binary Already Exists.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
 				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
-				63405A642C028D2800C6E0F2 /* String - Letters Only.swift in Sources */,
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6317BF752ADEFB060018E425 /* Ready to Update.swift in Sources */,
 				632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */,
