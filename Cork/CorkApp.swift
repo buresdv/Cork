@@ -43,7 +43,7 @@ struct CorkApp: App
 
     @State private var isShowingBrewfileImporter: Bool = false
     
-    @AppStorage("hasSuccessfullySubmittedOSVersion") var hasSuccessfullySubmittedOSVersion: Bool = false
+    @AppStorage("lastSubmittedCorkVersion") var lastSubmittedCorkVersion: String = ""
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
@@ -87,11 +87,32 @@ struct CorkApp: App
                         await appDelegate.appState.setupNotifications()
                     }
                 }
-                .task // TODO: Remove this later
-                {                    
-                    if !hasSuccessfullySubmittedOSVersion
-                    {
+                .task
+                {         
+                    if lastSubmittedCorkVersion.isEmpty
+                    { /// Make sure we have a Cork version to check against
+                        let currentCorkVersion: String = "1.4.1"
+                        
+                        #if DEBUG
+                        AppConstants.logger.debug("There's no saved Cork version - Will save 1.4.1")
+                        #endif
+                        
+                        lastSubmittedCorkVersion = currentCorkVersion
+                    }
+                    
+                    if lastSubmittedCorkVersion != String(NSApplication.appVersion!)
+                    { /// Submit the version if this version has not already been submitted
+                        #if DEBUG
+                        AppConstants.logger.debug("Last submitted version doesn't match current version")
+                        #endif
+                        
                         try? await submitSystemVersion()
+                    }
+                    else
+                    {
+                        #if DEBUG
+                        AppConstants.logger.debug("Last submitted version matches the current version")
+                        #endif
                     }
                 }
                 .onAppear

@@ -10,6 +10,8 @@ import AppKit
 
 func submitSystemVersion() async throws -> Void
 {
+    let corkVersion: String = await String(NSApplication.appVersion!)
+    
     let sessionConfiguration = URLSessionConfiguration.default
     if AppConstants.proxySettings != nil
     {
@@ -28,9 +30,9 @@ func submitSystemVersion() async throws -> Void
     #endif
     
     var urlComponents = URLComponents(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
-    urlComponents?.queryItems = await [
+    urlComponents?.queryItems = [
         URLQueryItem(name: "systemVersion", value: String(ProcessInfo.processInfo.operatingSystemVersion.majorVersion)),
-        URLQueryItem(name: "corkVersion", value: String(NSApplication.appVersion!)),
+        URLQueryItem(name: "corkVersion", value: corkVersion),
         URLQueryItem(name: "isSelfCompiled", value: String(isSelfCompiled))
     ]
     guard let modifiedURL = urlComponents?.url else {
@@ -55,7 +57,10 @@ func submitSystemVersion() async throws -> Void
     
     if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
     {
-        // If the user submitted their OS version, prevent the submission from happening again
-        UserDefaults.standard.setValue(true, forKey: "hasSuccessfullySubmittedOSVersion")
+        #if DEBUG
+        AppConstants.logger.debug("Sucessfully submitted system version")
+        #endif
+        
+        UserDefaults.standard.setValue(corkVersion, forKey: "lastSubmittedCorkVersion")
     }
 }
