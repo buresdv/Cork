@@ -10,6 +10,20 @@ import SwiftUI
 struct PackageListItem: View
 {
     var packageItem: BrewPackage
+    
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    
+    var isPackageOutdated: Bool
+    {
+        if outdatedPackageTracker.outdatedPackages.contains(where: { $0.package.name == packageItem.name })
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 
     var body: some View
     {
@@ -30,10 +44,20 @@ struct PackageListItem: View
                     SanitizedPackageName(packageName: packageItem.name, shouldShowVersion: false)
                 }
                 
-                Text(returnFormattedVersions(packageItem.versions))
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .layoutPriority(-Double(2))
+                Group
+                {
+                    if !isPackageOutdated
+                    {
+                        Text(returnFormattedVersions(packageItem.versions))
+                    }
+                    else
+                    {
+                        Text("􀐫 \(returnFormattedVersions(packageItem.versions))")
+                    }
+                }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .layoutPriority(-Double(2))
                 
                 if packageItem.isBeingModified
                 {
