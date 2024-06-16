@@ -28,44 +28,50 @@ struct SidebarPackageRow: View {
         }
         .contextMenu
         {
+            contextMenuContent
+        }
+    }
+    
+    @ViewBuilder
+    var contextMenuContent: some View
+    {
+        Button
+        {
+            Task(priority: .userInitiated) {
+                await changePackageTagStatus(
+                    package:package,
+                    brewData: brewData,
+                    appState: appState
+                )
+            }
+        } label: {
+            Text(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)")
+        }
+        Divider()
+        
+        UninstallPackageButton(package: package, isCalledFromSidebar: true)
+        
+        if allowMoreCompleteUninstallations
+        {
+            PurgePackageButton(package: package, isCalledFromSidebar: true)
+        }
+        
+        if enableRevealInFinder
+        {
+            Divider()
+            
             Button
             {
-                Task(priority: .userInitiated) {
-                    await changePackageTagStatus(
-                        package:package,
-                        brewData: brewData,
-                        appState: appState
-                    )
+                do
+                {
+                    try package.revealInFinder()
+                }
+                catch
+                {
+                    appState.showAlert(errorToShow: .couldNotFindPackageInParentDirectory)
                 }
             } label: {
-                Text(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)")
-            }
-            Divider()
-
-            UninstallPackageButton(package: package, isCalledFromSidebar: true)
-
-            if allowMoreCompleteUninstallations
-            {
-                PurgePackageButton(package: package, isCalledFromSidebar: true)
-            }
-            
-            if enableRevealInFinder
-            {
-                Divider()
-                
-                Button
-                {
-                    do
-                    {
-                        try package.revealInFinder()
-                    }
-                    catch
-                    {
-                        appState.showAlert(errorToShow: .couldNotFindPackageInParentDirectory)
-                    }
-                } label: {
-                    Text("action.reveal-in-finder")
-                }
+                Text("action.reveal-in-finder")
             }
         }
     }
