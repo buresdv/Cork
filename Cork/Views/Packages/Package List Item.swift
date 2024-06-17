@@ -44,20 +44,20 @@ struct PackageListItem: View
                     SanitizedPackageName(packageName: packageItem.name, shouldShowVersion: false)
                 }
                 
-                Group
+                HStack(alignment: .center, spacing: 4)
                 {
-                    if !isPackageOutdated
+                    Text(returnFormattedVersions(packageItem.versions))
+                    
+                    if isPackageOutdated
                     {
-                        Text(returnFormattedVersions(packageItem.versions))
-                    }
-                    else
-                    {
-                        Text("􀐫 \(returnFormattedVersions(packageItem.versions))")
+                        Text("􀐫")
+                            .transition(.move(edge: .leading).combined(with: .opacity))
                     }
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .layoutPriority(-Double(2))
+                .animation(.easeInOut, value: isPackageOutdated)
                 
                 if packageItem.isBeingModified
                 {
