@@ -21,7 +21,7 @@ struct UpdateSomePackagesView: View
 
     var selectedPackages: [OutdatedPackage]
     {
-        return outdatedPackageTracker.outdatedPackages.filter { $0.isMarkedForUpdating }
+        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
     }
 
     var body: some View
@@ -89,7 +89,7 @@ struct UpdateSomePackagesView: View
 
                     do
                     {
-                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                        outdatedPackageTracker.displayableOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
                     }
                     catch let packageSynchronizationError
                     {
@@ -124,11 +124,11 @@ struct UpdateSomePackagesView: View
 
     func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> Set<OutdatedPackage>
     {
-        outdatedPackageTracker.outdatedPackages = outdatedPackageTracker.outdatedPackages.filter
+        outdatedPackageTracker.displayableOutdatedPackages = outdatedPackageTracker.displayableOutdatedPackages.filter
         { outdatedPackage in
             !namesOfUpdatedPackages.contains(outdatedPackage.package.name)
         }
 
-        return outdatedPackageTracker.outdatedPackages
+        return outdatedPackageTracker.displayableOutdatedPackages
     }
 }

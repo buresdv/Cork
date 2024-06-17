@@ -13,7 +13,7 @@ class OutdatedPackageTracker: ObservableObject
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     
-    @Published var outdatedPackages: Set<OutdatedPackage> = .init()
+    @Published var displayableOutdatedPackages: Set<OutdatedPackage> = .init()
     
     @Published var allOutdatedPackages: Set<OutdatedPackage> = .init()
     {
@@ -30,11 +30,11 @@ class OutdatedPackageTracker: ObservableObject
         
         if displayOnlyIntentionallyInstalledPackagesByDefault
         {
-            outdatedPackages = allOutdatedPackages.filter(\.package.installedIntentionally)
+            displayableOutdatedPackages = allOutdatedPackages.filter(\.package.installedIntentionally)
         }
         else
         {
-            outdatedPackages = allOutdatedPackages
+            displayableOutdatedPackages = allOutdatedPackages
         }
     }
 }

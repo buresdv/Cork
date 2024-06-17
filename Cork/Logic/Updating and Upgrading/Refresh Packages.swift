@@ -27,7 +27,7 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
 
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-            if outdatedPackageTracker.outdatedPackages.isEmpty
+            if outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
                 if outputLine.starts(with: "Already up-to-date")
                 {

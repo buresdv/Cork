@@ -18,7 +18,7 @@ struct OutdatedPackageListBox: View
 
     private var packagesMarkedForUpdating: [OutdatedPackage]
     {
-        return outdatedPackageTracker.outdatedPackages.filter({ $0.isMarkedForUpdating })
+        return outdatedPackageTracker.displayableOutdatedPackages.filter({ $0.isMarkedForUpdating })
     }
 
     var body: some View
@@ -29,18 +29,18 @@ struct OutdatedPackageListBox: View
             {
                 VStack(alignment: .leading)
                 {
-                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.outdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.displayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
                             HStack(alignment: .firstTextBaseline)
                             {
-                                Text("start-page.updates.count-\(outdatedPackageTracker.outdatedPackages.count)")
+                                Text("start-page.updates.count-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
                                     .font(.headline)
 
                                 Spacer()
 
-                                if packagesMarkedForUpdating.count == outdatedPackageTracker.outdatedPackages.count
+                                if packagesMarkedForUpdating.count == outdatedPackageTracker.displayableOutdatedPackages.count
                                 {
                                     Button
                                     {
@@ -67,13 +67,13 @@ struct OutdatedPackageListBox: View
                                 {
                                     Section
                                     {
-                                        ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                                        ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                                         { outdatedPackage in
                                             Toggle(isOn: Binding<Bool>(
                                                 get: {
                                                     outdatedPackage.isMarkedForUpdating
                                                 }, set: { toggleState in
-                                                    outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
+                                                    outdatedPackageTracker.displayableOutdatedPackages = Set(outdatedPackageTracker.displayableOutdatedPackages.map({ modifiedElement in
                                                         var copyOutdatedPackage = modifiedElement
                                                         if copyOutdatedPackage.id == outdatedPackage.id
                                                         {
@@ -91,7 +91,7 @@ struct OutdatedPackageListBox: View
                                         {
                                             Button
                                             {
-                                                outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
+                                                outdatedPackageTracker.displayableOutdatedPackages = Set(outdatedPackageTracker.displayableOutdatedPackages.map({ modifiedElement in
                                                     var copyOutdatedPackage = modifiedElement
                                                     if copyOutdatedPackage.id == modifiedElement.id
                                                     {
@@ -107,7 +107,7 @@ struct OutdatedPackageListBox: View
 
                                             Button
                                             {
-                                                outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
+                                                outdatedPackageTracker.displayableOutdatedPackages = Set(outdatedPackageTracker.displayableOutdatedPackages.map({ modifiedElement in
                                                     var copyOutdatedPackage = modifiedElement
                                                     if copyOutdatedPackage.id == modifiedElement.id
                                                     {
@@ -119,7 +119,7 @@ struct OutdatedPackageListBox: View
                                                 Text("start-page.updated.action.select-all")
                                             }
                                             .buttonStyle(.plain)
-                                            .disabled(packagesMarkedForUpdating.count == outdatedPackageTracker.outdatedPackages.count)
+                                            .disabled(packagesMarkedForUpdating.count == outdatedPackageTracker.displayableOutdatedPackages.count)
                                         }
                                     }
                                 }

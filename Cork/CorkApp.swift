@@ -183,7 +183,7 @@ struct CorkApp: App
                                     /// Set this to `true` so the normal notification doesn't get sent
                                     sendStandardUpdatesAvailableNotification = false
 
-                                    let differentPackages = newOutdatedPackages.subtracting(outdatedPackageTracker.outdatedPackages)
+                                    let differentPackages = newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
                                     AppConstants.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
@@ -217,7 +217,7 @@ struct CorkApp: App
                         hasFinishedLicensingWorkflow = true
                     }
                 }
-                .onChange(of: outdatedPackageTracker.outdatedPackages.count)
+                .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
                 { newValue in
                     let outdatedPackageCount = newValue
 
@@ -388,7 +388,7 @@ struct CorkApp: App
         }
         
         // MARK: - Menu Bar Extra
-        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.outdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.displayableOutdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
                 .environmentObject(appDelegate.appState)
@@ -648,9 +648,9 @@ struct CorkApp: App
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
         {
-            if outdatedPackageTracker.outdatedPackages.count > 0
+            if outdatedPackageTracker.displayableOutdatedPackages.count > 0
             {
-                NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.outdatedPackages.count)
+                NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.displayableOutdatedPackages.count)
             }
         }
         else if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .none

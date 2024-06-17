@@ -22,16 +22,16 @@ struct MenuBar_PackageUpdating: View
         }
         else
         {
-            if outdatedPackageTracker.outdatedPackages.count > 0
+            if outdatedPackageTracker.displayableOutdatedPackages.count > 0
             {
                 Menu
                 {
-                    ForEach(outdatedPackageTracker.outdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                    ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                     { outdatedPackage in
                         SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
                     }
                 } label: {
-                    Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.outdatedPackages.count)")
+                    Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
                 }
 
                 Button("navigation.upgrade-packages")

@@ -21,7 +21,7 @@ struct OutdatedPackagesBox: View
         {
             OutdatedPackageLoaderBox()
         }
-        else if outdatedPackageTracker.outdatedPackages.count == 0
+        else if outdatedPackageTracker.displayableOutdatedPackages.count == 0
         {
             NoUpdatesAvailableBox()
         }
