@@ -142,7 +142,7 @@ extension BrewDataStorage
         {
             if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
             {
-                outdatedPackageTracker.displayableOutdatedPackages.remove(at: index)
+                outdatedPackageTracker.outdatedPackages.remove(at: index)
             }
         }
     }

@@ -176,7 +176,7 @@ struct CorkApp: App
                                     newOutdatedPackages = .init()
                                 }
 
-                                if newOutdatedPackages.count > outdatedPackageTracker.allOutdatedPackages.count
+                                if newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
                                 {
                                     AppConstants.logger.log("New updates found")
 
@@ -188,7 +188,7 @@ struct CorkApp: App
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
 
-                                    outdatedPackageTracker.allOutdatedPackages = newOutdatedPackages
+                                    outdatedPackageTracker.outdatedPackages = newOutdatedPackages
 
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1)
                                     {

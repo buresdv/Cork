@@ -89,7 +89,7 @@ struct UpdateSomePackagesView: View
 
                     do
                     {
-                        outdatedPackageTracker.displayableOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
                     }
                     catch let packageSynchronizationError
                     {
@@ -124,7 +124,7 @@ struct UpdateSomePackagesView: View
 
     func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> Set<OutdatedPackage>
     {
-        outdatedPackageTracker.displayableOutdatedPackages = outdatedPackageTracker.displayableOutdatedPackages.filter
+        outdatedPackageTracker.outdatedPackages = outdatedPackageTracker.outdatedPackages.filter
         { outdatedPackage in
             !namesOfUpdatedPackages.contains(outdatedPackage.package.name)
         }

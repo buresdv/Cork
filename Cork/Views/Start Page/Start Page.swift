@@ -104,7 +104,7 @@ struct StartPage: View
         }
         .task(priority: .background)
         {
-            if outdatedPackageTracker.allOutdatedPackages.isEmpty
+            if outdatedPackageTracker.outdatedPackages.isEmpty
             {
                 appState.isCheckingForPackageUpdates = true
                 
@@ -120,7 +120,7 @@ struct StartPage: View
 
                 do
                 {
-                    outdatedPackageTracker.allOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                 {

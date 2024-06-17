@@ -13,28 +13,17 @@ class OutdatedPackageTracker: ObservableObject
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     
-    @Published var displayableOutdatedPackages: Set<OutdatedPackage> = .init()
+    @Published var outdatedPackages: Set<OutdatedPackage> = .init()
     
-    @Published var allOutdatedPackages: Set<OutdatedPackage> = .init()
+    var displayableOutdatedPackages: Set<OutdatedPackage>
     {
-        didSet
-        {
-            updateDisplayableOutdatedPackages()
-        }
-    }
-    
-    func updateDisplayableOutdatedPackages()
-    {
-        AppConstants.logger.info("Updating outdated package list...")
-        AppConstants.logger.info("Found these outdated packages: \(self.allOutdatedPackages, privacy: .public)")
-        
         if displayOnlyIntentionallyInstalledPackagesByDefault
         {
-            displayableOutdatedPackages = allOutdatedPackages.filter(\.package.installedIntentionally)
+            return outdatedPackages.filter(\.package.installedIntentionally)
         }
         else
         {
-            displayableOutdatedPackages = allOutdatedPackages
+            return outdatedPackages
         }
     }
 }

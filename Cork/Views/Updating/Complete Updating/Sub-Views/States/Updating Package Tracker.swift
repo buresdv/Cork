@@ -24,7 +24,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    outdatedPackageTracker.displayableOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
 
                     updateProgressTracker.updateProgress = 10
 
