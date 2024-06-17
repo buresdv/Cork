@@ -55,10 +55,7 @@ func getListOfUpgradeablePackages(brewData: BrewDataStorage, packageArray: [Stri
             }
             if let foundOutdatedCask = await brewData.installedCasks.filter({ $0.name == outdatedPackage }).first
             {
-                if foundOutdatedCask.installedIntentionally
-                {
-                    outdatedPackageTracker.insert(OutdatedPackage(package: foundOutdatedCask))
-                }
+                outdatedPackageTracker.insert(OutdatedPackage(package: foundOutdatedCask))
             }
         }
         

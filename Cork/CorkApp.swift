@@ -218,8 +218,7 @@ struct CorkApp: App
                     }
                 }
                 .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
-                { newValue in
-                    let outdatedPackageCount = newValue
+                { outdatedPackageCount in
 
                     if outdatedPackageCount != 0
                     {
