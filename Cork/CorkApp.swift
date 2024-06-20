@@ -220,16 +220,19 @@ struct CorkApp: App
                 .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
                 { outdatedPackageCount in
 
-                    if outdatedPackageCount != 0
+                    AppConstants.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
+                    
+                    if outdatedPackageCount == 0
+                    {
+                        NSApp.dockTile.badgeLabel = ""
+                    }
+                    else
                     {
                         if areNotificationsEnabled
                         {
                             if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
                             {
-                                if outdatedPackageCount > 0
-                                {
-                                    NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
-                                }
+                                NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
                             }
 
                             if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
