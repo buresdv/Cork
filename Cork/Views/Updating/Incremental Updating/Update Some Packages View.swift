@@ -89,6 +89,7 @@ struct UpdateSomePackagesView: View
 
                     do
                     {
+                        AppConstants.logger.debug("Will synchronize outdated packages")
                         try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
                     }
                     catch let packageSynchronizationError
@@ -96,9 +97,6 @@ struct UpdateSomePackagesView: View
                         AppConstants.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
                         appState.showAlert(errorToShow: .couldNotSynchronizePackages)
                     }
-
-                    /// Old way of synchronizing outdated packages that sometimes didn't synchronize properly
-                    // outdatedPackageTracker.outdatedPackages = removeUpdatedPackages(outdatedPackageTracker: outdatedPackageTracker, namesOfUpdatedPackages: selectedPackages.map(\.package.name))
                 }
             case .finished:
                 DisappearableSheet
@@ -120,15 +118,5 @@ struct UpdateSomePackagesView: View
             }
         }
         .padding()
-    }
-
-    func removeUpdatedPackages(outdatedPackageTracker: OutdatedPackageTracker, namesOfUpdatedPackages: [String]) -> Set<OutdatedPackage>
-    {
-        outdatedPackageTracker.outdatedPackages = outdatedPackageTracker.outdatedPackages.filter
-        { outdatedPackage in
-            !namesOfUpdatedPackages.contains(outdatedPackage.package.name)
-        }
-
-        return outdatedPackageTracker.displayableOutdatedPackages
     }
 }
