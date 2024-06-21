@@ -1,5 +1,5 @@
 //
-//  Parse JSON.swift
+//  Parse Tap Info JSON.swift
 //  Cork
 //
 //  Created by David Bureš on 26.02.2023.

@@ -9,16 +9,16 @@ import SwiftUI
 
 struct TapDetailsIncludedPackages: View
 {
-    let includedFormulae: Set<String>?
-    let includedCasks: Set<String>?
+    let includedFormulae: [String]
+    let includedCasks: [String]
 
     var body: some View
     {
-        if includedFormulae != nil || includedCasks != nil
+        if !includedFormulae.isEmpty || !includedCasks.isEmpty
         {
             Section
             {
-                if let includedFormulae
+                if !includedFormulae.isEmpty
                 {
                     DisclosureGroup("tap-details.included-formulae")
                     {
@@ -27,7 +27,7 @@ struct TapDetailsIncludedPackages: View
                     .disclosureGroupStyle(NoPadding())
                 }
 
-                if let includedCasks
+                if !includedCasks.isEmpty
                 {
                     DisclosureGroup("tap-details.included-casks")
                     {
