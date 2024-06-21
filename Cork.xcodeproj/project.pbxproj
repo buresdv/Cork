@@ -1504,7 +1504,6 @@
 			children = (
 				637E00632872F3CE005C9890 /* Update Packages.swift */,
 				63A38B9229BA0AFD0080158C /* Refresh Packages.swift */,
-				630640C52C25C1B200922977 /* Get Outdated Packages.swift */,
 			);
 			path = "Updating and Upgrading";
 			sourceTree = "<group>";
@@ -1734,6 +1733,7 @@
 		63D2B0862997F5240084E223 /* Package Loading */ = {
 			isa = PBXGroup;
 			children = (
+				630640C52C25C1B200922977 /* Get Outdated Packages.swift */,
 				63199FDF29980AB9002F50F0 /* Load up Installed Packages.swift */,
 			);
 			path = "Package Loading";

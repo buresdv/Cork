@@ -87,7 +87,7 @@ extension OutdatedPackageTracker
             self.outdatedPackages = await finalOutdatedFormulae.union(finalOutdatedCasks)
             
         } catch let decodingError {
-            AppConstants.logger.error("There was an error decoding the outdated package retrieval output: \(decodingError.localizedDescription)")
+            AppConstants.logger.error("There was an error decoding the outdated package retrieval output: \(decodingError.localizedDescription)\n\(decodingError)")
             throw OutdatedPackageRetrievalError.couldNotDecodeCommandOutput(decodingError.localizedDescription)
         }
     }
