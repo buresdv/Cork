@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UpdatingPackageTrackerStateView: View
 {
-
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -24,7 +23,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
 
                     updateProgressTracker.updateProgress = 10
 
@@ -50,8 +49,11 @@ struct UpdatingPackageTrackerStateView: View
                     {
                     case .homeNotSet:
                         appState.showAlert(errorToShow: .homePathNotSet)
+                    case .couldNotDecodeCommandOutput(let decodingError):
+                        // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
+                        AppConstants.logger.error("Could not decode outdated package command output: \(decodingError)")
                     case .otherError:
-                            AppConstants.logger.error("Something went wrong")
+                        AppConstants.logger.error("Something went wrong")
                     }
                 }
                 catch

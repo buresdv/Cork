@@ -89,7 +89,7 @@ struct UpdateSomePackagesView: View
 
                     do
                     {
-                        outdatedPackageTracker.outdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                        try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
                     }
                     catch let packageSynchronizationError
                     {

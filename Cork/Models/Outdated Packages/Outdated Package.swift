@@ -13,5 +13,8 @@ struct OutdatedPackage: Identifiable, Equatable, Hashable
     
     let package: BrewPackage
     
+    let installedVersions: [String]
+    let newerVersion: String
+    
     var isMarkedForUpdating: Bool = true
 }
