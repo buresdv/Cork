@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-class OutdatedPackageTracker: ObservableObject
+@MainActor
+class OutdatedPackageTracker: ObservableObject, Sendable
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     

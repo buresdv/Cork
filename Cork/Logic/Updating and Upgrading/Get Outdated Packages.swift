@@ -81,11 +81,10 @@ extension OutdatedPackageTracker
             let rawDecodedOutdatedPackages: OutdatedPackageCommandOutput = try outdatedPackagesOutputDecoder.decode(OutdatedPackageCommandOutput.self, from: decodableOutput)
             
             // MARK: - Outdated package matching
-            // TODO: Maybe convert this to `async let` eventually
-            let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewData: brewData)
-            let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewData: brewData)
+            async let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewData: brewData)
+            async let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewData: brewData)
             
-            self.outdatedPackages = finalOutdatedFormulae.union(finalOutdatedCasks)
+            self.outdatedPackages = await finalOutdatedFormulae.union(finalOutdatedCasks)
             
         } catch let decodingError {
             AppConstants.logger.error("There was an error decoding the outdated package retrieval output: \(decodingError.localizedDescription)")
@@ -93,13 +92,14 @@ extension OutdatedPackageTracker
         }
     }
     
+    // MARK: - Helper functions
     private func getOutdatedFormulae(from intermediaryArray: [OutdatedPackageCommandOutput.Formulae], brewData: BrewDataStorage) async -> Set<OutdatedPackage>
     {
         var finalOutdatedFormulaTracker: Set<OutdatedPackage> = .init()
         
         for outdatedFormula in intermediaryArray
         {
-            if let foundOutdatedFormula = await brewData.installedFormulae.first(where: { $0.name == outdatedFormula.name})
+            if let foundOutdatedFormula = brewData.installedFormulae.first(where: { $0.name == outdatedFormula.name})
             {
                 finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,
@@ -117,7 +117,7 @@ extension OutdatedPackageTracker
         
         for outdatedCask in intermediaryArray
         {
-            if let foundOutdatedCask = await brewData.installedCasks.first(where: { $0.name == outdatedCask.name })
+            if let foundOutdatedCask = brewData.installedCasks.first(where: { $0.name == outdatedCask.name })
             {
                 finalOutdatedCaskTracker.insert(.init(
                     package: foundOutdatedCask,
