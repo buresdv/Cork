@@ -73,7 +73,7 @@ struct OutdatedPackageListBox: View
                                                 get: {
                                                     outdatedPackage.isMarkedForUpdating
                                                 }, set: { toggleState in
-                                                    outdatedPackageTracker.displayableOutdatedPackages = Set(outdatedPackageTracker.displayableOutdatedPackages.map({ modifiedElement in
+                                                    outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
                                                         var copyOutdatedPackage = modifiedElement
                                                         if copyOutdatedPackage.id == outdatedPackage.id
                                                         {
@@ -91,7 +91,7 @@ struct OutdatedPackageListBox: View
                                         {
                                             Button
                                             {
-                                                outdatedPackageTracker.displayableOutdatedPackages = Set(outdatedPackageTracker.displayableOutdatedPackages.map({ modifiedElement in
+                                                outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
                                                     var copyOutdatedPackage = modifiedElement
                                                     if copyOutdatedPackage.id == modifiedElement.id
                                                     {
@@ -107,7 +107,7 @@ struct OutdatedPackageListBox: View
 
                                             Button
                                             {
-                                                outdatedPackageTracker.displayableOutdatedPackages = Set(outdatedPackageTracker.displayableOutdatedPackages.map({ modifiedElement in
+                                                outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map({ modifiedElement in
                                                     var copyOutdatedPackage = modifiedElement
                                                     if copyOutdatedPackage.id == modifiedElement.id
                                                     {
@@ -133,10 +133,6 @@ struct OutdatedPackageListBox: View
                     }
                 }
             }
-        }
-        .onChange(of: displayOnlyIntentionallyInstalledPackagesByDefault) 
-        { _ in
-            outdatedPackageTracker.updateDisplayableOutdatedPackages()
         }
     }
 }

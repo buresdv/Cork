@@ -104,10 +104,10 @@ struct StartPage: View
         }
         .task(priority: .background)
         {
-            if outdatedPackageTracker.allOutdatedPackages.isEmpty
+            if outdatedPackageTracker.outdatedPackages.isEmpty
             {
                 appState.isCheckingForPackageUpdates = true
-                
+
                 defer
                 {
                     withAnimation
@@ -120,7 +120,7 @@ struct StartPage: View
 
                 do
                 {
-                    outdatedPackageTracker.allOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                 {
@@ -128,6 +128,9 @@ struct StartPage: View
                     {
                     case .homeNotSet:
                         appState.showAlert(errorToShow: .homePathNotSet)
+                    case .couldNotDecodeCommandOutput(let decodingError):
+                        // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
+                        AppConstants.logger.error("Could not decode outdated package command output: \(decodingError)")
                     case .otherError:
                         AppConstants.logger.error("Something went wrong")
                     }
@@ -169,14 +172,14 @@ struct StartPage: View
                     Rectangle()
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .foregroundColor(Color(nsColor: .gridColor))
-                    
+
                     VStack(alignment: .center, spacing: 10)
                     {
                         Image(systemName: "square.and.arrow.down")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100)
-                        
+
                         Text("navigation.menu.import-export.import-brewfile")
                             .font(.largeTitle)
                     }

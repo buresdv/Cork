@@ -9,7 +9,6 @@ import SwiftUI
 
 struct UpdatingPackageTrackerStateView: View
 {
-
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -24,7 +23,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    outdatedPackageTracker.displayableOutdatedPackages = try await getListOfUpgradeablePackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
 
                     updateProgressTracker.updateProgress = 10
 
@@ -34,7 +33,14 @@ struct UpdatingPackageTrackerStateView: View
                     }
                     else
                     {
-                        packageUpdatingStage = .erroredOut(packagesRequireSudo: updateProgressTracker.errors.contains("a terminal is required to read the password"))
+                        if updateProgressTracker.errors.contains("a terminal is required to read the password")
+                        {
+                            packageUpdatingStage = .erroredOut(packagesRequireSudo: true)
+                        }
+                        else
+                        {
+                            packageUpdatingStage = .erroredOut(packagesRequireSudo: false)
+                        }
                     }
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
@@ -43,8 +49,11 @@ struct UpdatingPackageTrackerStateView: View
                     {
                     case .homeNotSet:
                         appState.showAlert(errorToShow: .homePathNotSet)
+                    case .couldNotDecodeCommandOutput(let decodingError):
+                        // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
+                        AppConstants.logger.error("Could not decode outdated package command output: \(decodingError)")
                     case .otherError:
-                            AppConstants.logger.error("Something went wrong")
+                        AppConstants.logger.error("Something went wrong")
                     }
                 }
                 catch
