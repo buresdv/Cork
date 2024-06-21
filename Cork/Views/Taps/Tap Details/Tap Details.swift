@@ -97,12 +97,17 @@ struct TapDetailView: View, Sendable
 
             do
             {
-                let parsedJSON = try await parseJSON(from: tapInfo)
+                guard let fullParsedTapInfo: TapInfo = try await parseTapInfo(from: tapInfo) else
+                {
+                    erroredOut = true
+                    
+                    return
+                }
 
-                homepage = getTapHomepageFromJSON(json: parsedJSON)
-                isOfficial = getTapOfficialStatusFromJSON(json: parsedJSON)
-                includedFormulae = getFormulaeAvailableFromTap(json: parsedJSON, tap: tap)
-                includedCasks = getCasksAvailableFromTap(json: parsedJSON, tap: tap)
+                homepage = fullParsedTapInfo.remote
+                isOfficial = fullParsedTapInfo.official
+                includedFormulae = Set(fullParsedTapInfo.formulaNames)
+                includedCasks = Set(fullParsedTapInfo.caskTokens)
 
                 numberOfPackages = Int(includedFormulae?.count ?? 0) + Int(includedCasks?.count ?? 0)
 
