@@ -92,7 +92,7 @@ struct HomebrewServicesView: View
             print("Control active state: \(controlActiveState)")
             do
             {
-                servicesTracker.services = try await loadUpServices(servicesState: servicesState)
+                try await servicesTracker.loadServices()
             }
             catch let servicesLoadingError
             {

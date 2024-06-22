@@ -15,7 +15,11 @@ extension ServicesTracker
         {
             let dummyServicesState: ServicesState = .init()
             
-            let updatedServices: Set<HomebrewService> = try await loadUpServices(servicesState: dummyServicesState)
+            let dummyServicesTracker: ServicesTracker = .init()
+            
+            try await dummyServicesTracker.loadServices()
+            
+            let updatedServices: Set<HomebrewService> = dummyServicesTracker.services
 
             if !preserveIDs
             {
