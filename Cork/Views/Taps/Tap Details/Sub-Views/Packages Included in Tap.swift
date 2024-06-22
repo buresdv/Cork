@@ -11,7 +11,7 @@ struct PackagesIncludedInTapList: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @State var packages: Set<String>
+    let packages: [String]
 
     @State private var searchString: String = ""
 

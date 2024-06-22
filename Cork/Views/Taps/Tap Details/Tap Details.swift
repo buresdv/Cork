@@ -18,8 +18,8 @@ struct TapDetailView: View, Sendable
 
     @State private var homepage: URL?
     @State private var isOfficial: Bool = false
-    @State private var includedFormulae: Set<String>?
-    @State private var includedCasks: Set<String>?
+    @State private var includedFormulae: [String] = .init()
+    @State private var includedCasks: [String] = .init()
     @State private var numberOfPackages: Int = 0
 
     @State private var erroredOut: Bool = false
@@ -93,20 +93,28 @@ struct TapDetailView: View, Sendable
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)
         {
+            defer
+            {
+                isLoadingTapInfo = false
+            }
+            
             async let tapInfo = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
 
             do
             {
-                let parsedJSON = try await parseJSON(from: tapInfo)
+                guard let fullParsedTapInfo: TapInfo = try await parseTapInfo(from: tapInfo) else
+                {
+                    erroredOut = true
+                    
+                    return
+                }
 
-                homepage = getTapHomepageFromJSON(json: parsedJSON)
-                isOfficial = getTapOfficialStatusFromJSON(json: parsedJSON)
-                includedFormulae = getFormulaeAvailableFromTap(json: parsedJSON, tap: tap)
-                includedCasks = getCasksAvailableFromTap(json: parsedJSON, tap: tap)
+                homepage = fullParsedTapInfo.remote
+                isOfficial = fullParsedTapInfo.official
+                includedFormulae = fullParsedTapInfo.formulaNames
+                includedCasks = fullParsedTapInfo.caskTokens
 
-                numberOfPackages = Int(includedFormulae?.count ?? 0) + Int(includedCasks?.count ?? 0)
-
-                isLoadingTapInfo = false
+                numberOfPackages = includedFormulae.count + includedCasks.count
             }
             catch let parsingError
             {
