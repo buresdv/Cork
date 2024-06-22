@@ -34,9 +34,7 @@ extension ServicesTracker
                 default:
                     AppConstants.logger.debug("Unknown step in stopping \(serviceToStop.name)")
                 }
-
-                // changeServiceStatus(serviceToStop, newStatus: .stopped)
-
+                    
                 serviceModificationProgress.progress += 1
 
             case let .standardError(errorLine):

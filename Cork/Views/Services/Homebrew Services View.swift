@@ -90,6 +90,12 @@ struct HomebrewServicesView: View
         .task(priority: .userInitiated)
         {
             print("Control active state: \(controlActiveState)")
+            
+            defer
+            {
+                servicesState.isLoadingServices = false
+            }
+            
             do
             {
                 try await servicesTracker.loadServices()
