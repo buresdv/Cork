@@ -9,7 +9,7 @@ import Foundation
 
 enum HomebrewServiceLoadingError: Error
 {
-    case standardErrorNotEmpty, standardErrorNotEmptyAndNoResultsInStandardOutput, servicesParsingFailed, otherError(String)
+    case standardErrorNotEmpty, standardErrorNotEmptyAndNoResultsInStandardOutput, couldNotEncodeString(String), servicesParsingFailed, otherError(String)
 }
 
 extension ServicesTracker
@@ -82,7 +82,7 @@ extension ServicesTracker
         {
             AppConstants.logger.error("Parsing of Homebrew services failed: \(servicesParsingError)")
             
-            throw JSONError.parsingFailed
+            throw JSONError.parsingFailed(nil)
         }
     }
 }

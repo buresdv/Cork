@@ -7,28 +7,49 @@
 
 import Foundation
 
-func loadUpServiceDetails(serviceToLoad: HomebrewService) async throws -> ServiceDetails
-{
-    AppConstants.logger.debug("Will try to load up service details for service \(serviceToLoad.name)")
-    
-    let serviceDetailsLoadingOutputRaw: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["services", "info", serviceToLoad.name, "--json"])
-    
-    if !serviceDetailsLoadingOutputRaw.standardError.isEmpty
+extension HomebrewService
+{    
+    @MainActor
+    func loadDetails() async throws -> ServiceDetails?
     {
-        AppConstants.logger.error("Failed while loading up service details: Standard Error not empty")
-        throw HomebrewServiceLoadingError.standardErrorNotEmpty
-    }
-    else
-    {
+        AppConstants.logger.debug("Will try to load up service details for service \(self.name)")
+        
+        let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["services", "info", self.name, "--json"])
+        
+        let decoder: JSONDecoder =
+        {
+            let decoder: JSONDecoder = .init()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            return decoder
+        }()
+        
+        // MARK: - Error checking
+        if !rawOutput.standardError.isEmpty
+        {
+            AppConstants.logger.error("Failed while loading up service details: Standard Error not empty")
+            throw HomebrewServiceLoadingError.standardErrorNotEmpty
+        }
+        
         do
         {
-            return try parseServiceDetails(rawOutput: serviceDetailsLoadingOutputRaw.standardOutput)
-        } 
+            guard let decodableOutput: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false) else
+            {
+                return nil
+            }
+            
+            guard let decodedOutput: ServiceDetails = try decoder.decode([ServiceDetails].self, from: decodableOutput).first else
+            {
+                return nil
+            }
+            
+            return decodedOutput
+        }
         catch let parsingError
         {
-            AppConstants.logger.error("Parsing of service details of service \(serviceToLoad.name) failed: \(parsingError)")
+            AppConstants.logger.error("Parsing of service details of service \(self.name) failed: \(parsingError)")
             
-            throw JSONError.parsingFailed
+            throw JSONError.parsingFailed(parsingError.localizedDescription)
         }
     }
 }

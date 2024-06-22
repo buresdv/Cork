@@ -10,7 +10,7 @@ import SwiftyJSON
 
 enum JSONError: Error
 {
-    case parsingFailed
+    case parsingFailed(String?)
 }
 
 func parseJSON(from string: String) throws -> JSON
@@ -23,7 +23,7 @@ func parseJSON(from string: String) throws -> JSON
     } catch let JSONParsingError as NSError
     {
         AppConstants.logger.error("JSON parsing failed: \(JSONParsingError.localizedDescription, privacy: .public)")
-        throw JSONError.parsingFailed
+        throw JSONError.parsingFailed(JSONParsingError.localizedDescription)
     }
 }
 
@@ -36,6 +36,6 @@ func parseJSON(from data: Data) async throws -> JSON
     catch let JSONParsingError as NSError
     {
         AppConstants.logger.error("JSON parsing failed: \(JSONParsingError.localizedDescription, privacy: .public)")
-        throw JSONError.parsingFailed
+        throw JSONError.parsingFailed(JSONParsingError.localizedDescription)
     }
 }
