@@ -21,6 +21,12 @@
             "value" : "%@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2074,6 +2080,12 @@
             "value" : "Implementó la forma de omitir licencias para los usuarios que compilaron Cork ellos mismos."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A mis en place un moyen de ne pas demander de licence pour les utilisateurs qui ont compilé Cork eux-mêmes."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2114,6 +2126,12 @@
             "value" : "Dimitri Bouniol"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2149,6 +2167,12 @@
           }
         },
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ben Carlsson"
@@ -3724,6 +3748,12 @@
             "value" : "Finish in Terminal"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finir dans Terminal"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4639,6 +4669,12 @@
             "value" : "Reveal Applications in Finder"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Révéler Applications dans le Finder"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4665,6 +4701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reveal %@ in Finder"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Révéler %@ dans Finder"
           }
         },
         "zh-Hans" : {
@@ -5760,6 +5802,12 @@
             "value" : "%@ was installed outside of Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ a été installé en dehors de Homebrew"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5786,6 +5834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce Cask est déjà présent dans le dossier Applications\nDésinstallez-le, puis réessayez"
           }
         },
         "ru" : {
@@ -10049,6 +10103,12 @@
             "value" : "Could not find the selected package in the list of available packages"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver le paquet sélectionné dans la liste des paquets disponibles"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10603,6 +10663,12 @@
             "value" : "El paquete %@ impidió la carga"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le paquet %@ a empêché le chargement"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10705,6 +10771,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudieron cargar paquetes (%@)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger les paquets (%@)"
           }
         },
         "ru" : {
@@ -12029,6 +12101,12 @@
             "value" : "Reinicie Cork y, si el problema persiste, vuelva a instalarlo."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redémarrez Cork, et si le problème persiste, réinstallez-le."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12185,6 +12263,12 @@
             "value" : "File %@ is not a valid Homebrew package and needs to be removed"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le fichier %@ n'est pas un paquet Homebrew valide et doit être supprimé."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12205,6 +12289,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid file %@ in a package folder"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fichier invalide %@ dans un dossier de paquetage"
           }
         },
         "zh-Hans" : {
@@ -12865,6 +12955,12 @@
             "value" : "Desconocido"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inconnu"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13371,6 +13467,12 @@
             "value" : "Obtenga una lista de barriles instalados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir une liste des Casks installés"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13403,6 +13505,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Instalar Casks"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir l'installation des Casks"
           }
         },
         "ru" : {
@@ -13439,6 +13547,12 @@
             "value" : "Obtenga una lista de fórmulas instaladas"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir une liste des Formules installées"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13471,6 +13585,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtener fórmulas instaladas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir les Formules installées"
           }
         },
         "ru" : {
@@ -13507,6 +13627,12 @@
             "value" : "Obtenga una lista de fórmulas y barriles instalados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir une liste des Formules et des Casks installés"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13539,6 +13665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cargue solo paquetes instalados manualmente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Charger uniquement les paquets installés manuellement"
           }
         },
         "ru" : {
@@ -13575,6 +13707,12 @@
             "value" : "Obtener paquetes instalados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenir les paquets installés"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13607,6 +13745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Busque actualizaciones de los paquetes instalados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les mises à jour des paquets installés"
           }
         },
         "ru" : {
@@ -13643,6 +13787,12 @@
             "value" : "Resultado de actualización de paquetes"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résultat de l'actualisation des paquets"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13675,6 +13825,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error al actualizar los paquetes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l'actualisation des paquets"
           }
         },
         "ru" : {
@@ -13711,6 +13867,12 @@
             "value" : "Paquetes actualizados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquets actualisés"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13743,6 +13905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquetes actualizados con errores"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualiser les paquets avec des erreurs"
           }
         },
         "ru" : {
@@ -13779,6 +13947,12 @@
             "value" : "Actualizar paquetes"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualiser les paquets"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13811,6 +13985,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete de Homerbew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquet Homebrew"
           }
         },
         "ru" : {
@@ -13847,6 +14027,12 @@
             "value" : "Una representación ligera de un paquete."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une représentation simplifiée d'un paquet"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13880,6 +14066,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete de Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquet Homebrew"
           }
         }
       }
@@ -14550,6 +14742,12 @@
             "value" : "Si quisieras apoyar al desarrollo de mis aplicaciones, considera [comprar Cork](https://corkmac.app)"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si vous souhaitez soutenir le développement de mes applications, envisagez [d'acheter Cork](https://corkmac.app)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14588,6 +14786,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Haz compilado Cork por ti mismo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez compilé Cork vous-même"
           }
         },
         "ru" : {
@@ -18710,6 +18914,12 @@
             "value" : "Servicios"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18748,6 +18958,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir administrador de servicios…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir le Gestionnaire de Services..."
           }
         },
         "ru" : {
@@ -25543,6 +25759,12 @@
             "value" : "Iniciar %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrer %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25639,6 +25861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Detener %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrêter %@"
           }
         },
         "ru" : {
@@ -25862,7 +26090,7 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "%lld services trouvés"
                 }
               },
@@ -25981,6 +26209,12 @@
             "value" : "No se lograron cargar los servicios"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger les services"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26019,6 +26253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No pudo iniciar %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de démarrer %@"
           }
         },
         "ru" : {
@@ -26061,6 +26301,12 @@
             "value" : "No pudo parar %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'arrêter %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26101,6 +26347,12 @@
             "value" : "No se pudieron sincronizar los servicios"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de synchroniser les services"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26139,6 +26391,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este servicio debe de ser iniciado como root"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce service doit être démarré en tant que root"
           }
         },
         "ru" : {
@@ -37192,6 +37450,12 @@
             "value" : "Action is needed to finish updating"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Action nécessaire pour terminer la mise à jour"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37212,6 +37476,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certains de vos paquets ne peuvent être mis à jour uniquement par le biais du Terminal.\nCliquez sur \"Finir dans Terminal\" ci-dessous\nUtilisez les touches ⌘+V pour insérer la commande, puis appuyez sur ↩ (Retour) pour exécuter la commande et suivre les instructions.\nUne fois la commande terminée, revenez à Cork"
           }
         },
         "zh-Hans" : {
@@ -38081,6 +38351,12 @@
             "value" : "Sobre"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos de"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38125,6 +38401,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Servicios"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Services"
           }
         },
         "ru" : {
@@ -38206,7 +38488,14 @@
       }
     },
     "􀐫" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀐫"
+          }
+        }
+      }
     },
     "􀐫 %@" : {
       "extractionState" : "stale",
