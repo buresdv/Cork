@@ -162,27 +162,29 @@ struct AddFormulaView: View
                 }
                 .fixedSize()
 
-                /*
-                 default:
-                     VStack(alignment: .leading)
+            /*
+             default:
+                 VStack(alignment: .leading)
+                 {
+                     ComplexWithIcon(systemName: "wifi.exclamationmark")
                      {
-                         ComplexWithIcon(systemName: "wifi.exclamationmark")
-                         {
-                             HeadlineWithSubheadline(
-                                 headline: "add-package.network-error",
-                                 subheadline: "add-package.network-error.description",
-                                 alignment: .leading
-                             )
-                         }
-
-                         HStack
-                         {
-                             Spacer()
-
-                             DismissSheetButton()
-                         }
+                         HeadlineWithSubheadline(
+                             headline: "add-package.network-error",
+                             subheadline: "add-package.network-error.description",
+                             alignment: .leading
+                         )
                      }
-                          */
+             
+                     HStack
+                     {
+                         Spacer()
+             
+                         DismissSheetButton()
+                     }
+                 }
+                      */
+            case .installationTerminatedUnexpectedly:
+                InstallationTerminatedUnexpectedlyView(terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput)
             }
         }
         .padding()

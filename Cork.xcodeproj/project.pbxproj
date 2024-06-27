@@ -126,6 +126,7 @@
 		6369AFBD2BF78E7400E67153 /* Outdated Package Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFBC2BF78E7400E67153 /* Outdated Package Type.swift */; };
 		6369AFBF2BF7B79500E67153 /* String - Remove Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFBE2BF7B79500E67153 /* String - Remove Numbers.swift */; };
 		6369AFC22BF7B87300E67153 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFC12BF7B87300E67153 /* String - Letters Only.swift */; };
+		637057442C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */; };
 		636C56332C3B439400EB1053 /* URL - Creation Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56322C3B439400EB1053 /* URL - Creation Date.swift */; };
 		636C56352C3B46A200EB1053 /* URL - Is Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56342C3B46A200EB1053 /* URL - Is Directory.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
@@ -439,6 +440,7 @@
 		6369AFBC2BF78E7400E67153 /* Outdated Package Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Type.swift"; sourceTree = "<group>"; };
 		6369AFBE2BF7B79500E67153 /* String - Remove Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Remove Numbers.swift"; sourceTree = "<group>"; };
 		6369AFC12BF7B87300E67153 /* String - Letters Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Letters Only.swift"; sourceTree = "<group>"; };
+		637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installation Terminated Unexpectedly.swift"; sourceTree = "<group>"; };
 		636C56322C3B439400EB1053 /* URL - Creation Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Creation Date.swift"; sourceTree = "<group>"; };
 		636C56342C3B46A200EB1053 /* URL - Is Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Is Directory.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
@@ -1197,6 +1199,7 @@
 				6311F3D52B0A1E3C008A8067 /* Sudo Required.swift */,
 				631C2D342BB9DB75006EDCD1 /* Wrong Architecture.swift */,
 				63739B852C0660F100DE6A17 /* Binary Already Exists.swift */,
+				637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */,
 			);
 			path = "Status Views";
 			sourceTree = "<group>";
@@ -2309,6 +2312,7 @@
 				6386529E2A88F1070001679E /* Send Notification.swift in Sources */,
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
 				63FD6C342BF023C90015A672 /* Start Service.swift in Sources */,
+				637057442C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift in Sources */,
 				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				637D53962BAB517800E072DA /* Service.swift in Sources */,
 				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,

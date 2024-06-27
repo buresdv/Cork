@@ -13,7 +13,7 @@ enum PackageInstallationStage: CustomStringConvertible
 
     case downloadingCask, installingCask, movingCask, linkingCaskBinary // For Casks
 
-    case requiresSudoPassword, wrongArchitecture, binaryAlreadyExists // For Both
+    case requiresSudoPassword, wrongArchitecture, binaryAlreadyExists, terminatedUnexpectedly // For Both
 
     var description: String
     {
@@ -45,6 +45,8 @@ enum PackageInstallationStage: CustomStringConvertible
             return "Wrong Package Architecture"
         case .binaryAlreadyExists:
             return "Binary Already Exists"
+        case .terminatedUnexpectedly:
+            return "Terminated Unexpectedly"
         }
     }
 }
