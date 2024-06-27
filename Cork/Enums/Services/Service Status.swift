@@ -42,6 +42,34 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
         }
     }
 
+    init(from decoder: Decoder) throws
+    {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+
+        switch rawValue
+        {
+        case "started":
+            self = .started
+        case "scheduled":
+            self = .scheduled
+        case "error":
+            self = .error
+        case "stopped":
+            self = .stopped
+        case "none":
+            self = .none
+        default:
+            self = .none
+        }
+    }
+
+    func encode(to encoder: Encoder) throws
+    {
+        var container = encoder.singleValueContainer()
+        try container.encode(description)
+    }
+
     var description: String
     {
         switch self
@@ -62,25 +90,25 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
             return "services.status.other"
         }
     }
-    
+
     var displayableName: LocalizedStringKey
     {
         switch self
         {
-            case .started:
-                return "services.status.started"
-            case .scheduled:
-                return "services.status.scheduled"
-            case .error:
-                return "services.status.error"
-            case .unknown:
-                return "services.status.unknown"
-            case .stopped:
-                return "services.status.stopped"
-            case .none:
-                return "services.status.none"
-            case .other:
-                return "services.status.other"
+        case .started:
+            return "services.status.started"
+        case .scheduled:
+            return "services.status.scheduled"
+        case .error:
+            return "services.status.error"
+        case .unknown:
+            return "services.status.unknown"
+        case .stopped:
+            return "services.status.stopped"
+        case .none:
+            return "services.status.none"
+        case .other:
+            return "services.status.other"
         }
     }
 }

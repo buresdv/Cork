@@ -71,7 +71,7 @@ struct ServiceDetailView: View
             
             do
             {
-                serviceDetails = try await loadUpServiceDetails(serviceToLoad: service)
+                serviceDetails = try await service.loadDetails()
             }
             catch let servicesLoadingError
             {

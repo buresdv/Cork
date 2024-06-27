@@ -63,29 +63,25 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 
                         //AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
 
-                        var wasPackageInstalledIntentionally = false
-                        if targetFolder.path.contains("Cellar"),
-                           let localPackagePath = temporaryURLStorage.first
+                        do
                         {
-                            let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
-                            if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
+                            let wasPackageInstalledIntentionally: Bool = try await checkIfPackageWasInstalledIntentionally(targetFolder: targetFolder, temporaryURLStorage: temporaryURLStorage)
+                            
+                            let foundPackage = BrewPackage(name: item, isCask: !targetFolder.path.contains("Cellar"), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
+                            
+                            //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
+                            
+                            if foundPackage.versions.isEmpty
                             {
-                                async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
-                                wasPackageInstalledIntentionally = try! await localPackageInfoJSON["installed_on_request"].boolValue
+                                throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                             }
+                            
+                            return foundPackage
                         }
-                        //AppConstants.logger.info("Package \(item) \(wasPackageInstalledIntentionally ? "was installed intentionally" : "was not installed intentionally")")
-
-                        let foundPackage = BrewPackage(name: item, isCask: !targetFolder.path.contains("Cellar"), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
-
-                        //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
-                        
-                        if foundPackage.versions.isEmpty
+                        catch let error
                         {
-                            throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
+                            throw error
                         }
-
-                        return foundPackage
                     }
                     catch
                     {
@@ -117,6 +113,39 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
     {
         AppConstants.logger.error("Failed while accessing folder: \(error)")
         throw error
+    }
+}
+
+/// This function checks whether the package was installed intentionally.
+/// - For Formulae, this info gets read from the install receipt
+/// - Casks are always instaled intentionally
+private func checkIfPackageWasInstalledIntentionally(targetFolder: URL, temporaryURLStorage: [URL]) async throws -> Bool
+{
+    guard let localPackagePath = temporaryURLStorage.first else
+    {
+        throw PackageLoadingError.failedWhileLoadingCertainPackage(targetFolder.lastPathComponent, targetFolder)
+    }
+    
+    if targetFolder.path.contains("Cellar")
+    {
+        let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
+        if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
+        {
+            async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
+           return try! await localPackageInfoJSON["installed_on_request"].boolValue
+        }
+        else
+        {
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(targetFolder.lastPathComponent, targetFolder)
+        }
+    }
+    else if targetFolder.path.contains("Caskroom")
+    {
+        return true
+    }
+    else
+    {
+        throw PackageLoadingError.failedWhileLoadingCertainPackage(targetFolder.lastPathComponent, targetFolder)
     }
 }
 

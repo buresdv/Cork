@@ -152,7 +152,6 @@
 		637D539F2BAB549D00E072DA /* Service Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D539E2BAB549D00E072DA /* Service Detail.swift */; };
 		637D53A22BAB55E100E072DA /* Load up Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A12BAB55E100E072DA /* Load up Services.swift */; };
 		637D53A42BAB563200E072DA /* Services State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A32BAB563200E072DA /* Services State.swift */; };
-		637D53A72BAB579800E072DA /* Parse Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53A62BAB579800E072DA /* Parse Services.swift */; };
 		637D53FA2B9E405600F61361 /* String - LocalizedStringKey to String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */; };
 		637D53FC2B9E773A00F61361 /* View - Platform Conditional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */; };
 		637DF9C72C03691C00919152 /* Refresh Packages Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */; };
@@ -469,7 +468,6 @@
 		637D539E2BAB549D00E072DA /* Service Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Detail.swift"; sourceTree = "<group>"; };
 		637D53A12BAB55E100E072DA /* Load up Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Services.swift"; sourceTree = "<group>"; };
 		637D53A32BAB563200E072DA /* Services State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services State.swift"; sourceTree = "<group>"; };
-		637D53A62BAB579800E072DA /* Parse Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Services.swift"; sourceTree = "<group>"; };
 		637D53F92B9E405600F61361 /* String - LocalizedStringKey to String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - LocalizedStringKey to String.swift"; sourceTree = "<group>"; };
 		637D53FB2B9E773A00F61361 /* View - Platform Conditional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - Platform Conditional.swift"; sourceTree = "<group>"; };
 		637DF9C62C03691C00919152 /* Refresh Packages Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Packages Intent.swift"; sourceTree = "<group>"; };
@@ -1296,18 +1294,9 @@
 			children = (
 				63FD6C322BF023990015A672 /* Modification */,
 				6348D9112BAC8E7800DBBC55 /* Service Details */,
-				637D53A52BAB578900E072DA /* Parsing */,
 				637D53A12BAB55E100E072DA /* Load up Services.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		637D53A52BAB578900E072DA /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				637D53A62BAB579800E072DA /* Parse Services.swift */,
-			);
-			path = Parsing;
 			sourceTree = "<group>";
 		};
 		637DF9C22C0368C300919152 /* Currently Installed Packages */ = {
@@ -2445,7 +2434,6 @@
 				6317BF712ADEE1FD0018E425 /* Top Packages Section.swift in Sources */,
 				6392FD152A921D5100711B92 /* Searching.swift in Sources */,
 				63824AA72AD161E1007B2892 /* Live Code Output.swift in Sources */,
-				637D53A72BAB579800E072DA /* Parse Services.swift in Sources */,
 				637D539F2BAB549D00E072DA /* Service Detail.swift in Sources */,
 				63E716D729DDB8C5004FD2B4 /* Outdated Package Loader Box.swift in Sources */,
 				63B7337B2B02E21D00366C77 /* Advanced Pane.swift in Sources */,
@@ -2590,7 +2578,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 65;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2775,7 +2763,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 65;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2808,7 +2796,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 65;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;

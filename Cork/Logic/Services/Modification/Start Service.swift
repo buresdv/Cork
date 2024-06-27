@@ -27,7 +27,6 @@ extension ServicesTracker
 
                 serviceModificationProgress.progress += 1
 
-            // self.changeServiceStatus(serviceToStart, newStatus: .started)
             case let .standardError(errorLine):
                 switch errorLine
                 {
@@ -42,7 +41,6 @@ extension ServicesTracker
                     servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine))
                 }
 
-                // self.changeServiceStatus(serviceToStart, newStatus: .error)
             }
         }
 
