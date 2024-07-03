@@ -9,7 +9,7 @@ import Foundation
 
 class InstallationProgressTracker: ObservableObject
 {
-    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", isCask: false, installedOn: nil, versions: [], sizeInBytes: 0), installationStage: .downloadingCask, packageInstallationProgress: 0)
+    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0), installationStage: .downloadingCask, packageInstallationProgress: 0)
 
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
@@ -29,7 +29,7 @@ class InstallationProgressTracker: ObservableObject
 
         var installationResult = TerminalOutput(standardOutput: "", standardError: "")
 
-        if !package.isCask
+        if package.type == .formula
         {
             AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
 

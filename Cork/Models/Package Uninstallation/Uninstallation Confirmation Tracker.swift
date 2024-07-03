@@ -13,7 +13,7 @@ class UninstallationConfirmationTracker: ObservableObject
 {    
     @Published var isShowingUninstallOrPurgeConfirmation: Bool = false
     
-    @Published private(set) var packageThatNeedsConfirmation: BrewPackage = .init(name: "", isCask: false, installedOn: Date(), versions: [], sizeInBytes: 0)
+    @Published private(set) var packageThatNeedsConfirmation: BrewPackage = .init(name: "", type: .formula, installedOn: Date(), versions: [], sizeInBytes: 0)
     @Published private(set) var shouldPurge: Bool = false
     @Published private(set) var isCalledFromSidebar: Bool = false
 
@@ -33,6 +33,6 @@ class UninstallationConfirmationTracker: ObservableObject
             self.isShowingUninstallOrPurgeConfirmation = false
         }
         
-        self.packageThatNeedsConfirmation = .init(name: "", isCask: false, installedOn: Date(), versions: [], sizeInBytes: 0)
+        self.packageThatNeedsConfirmation = .init(name: "", type: .formula, installedOn: Date(), versions: [], sizeInBytes: 0)
     }
 }

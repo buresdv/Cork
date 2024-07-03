@@ -134,7 +134,7 @@ private struct SearchResultsSection: View
             {
                 ForEach(packageList)
                 { package in
-                    SearchResultRow(packageName: package.name, isCask: package.isCask)
+                    SearchResultRow(searchedForPackage: package)
                 }
             }
         } header: {

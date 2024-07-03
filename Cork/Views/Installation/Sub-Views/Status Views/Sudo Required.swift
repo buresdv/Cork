@@ -71,7 +71,7 @@ private struct ManualInstallInstructions: View
     
     var manualInstallCommand: String
     {
-        return "brew install \(installationProgressTracker.packageBeingInstalled.package.isCask ? "--cask" : "") \(installationProgressTracker.packageBeingInstalled.package.name)"
+        return "brew install \(installationProgressTracker.packageBeingInstalled.package.type == .cask ? "--cask" : "") \(installationProgressTracker.packageBeingInstalled.package.name)"
     }
     
     var body: some View

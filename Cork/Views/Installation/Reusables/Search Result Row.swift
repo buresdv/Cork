@@ -14,8 +14,7 @@ struct SearchResultRow: View, Sendable
 
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @State var packageName: String
-    @State var isCask: Bool
+    let searchedForPackage: BrewPackage
     
     @State private var description: String = ""
     @State private var isCompatible: Bool?
@@ -29,18 +28,18 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                SanitizedPackageName(packageName: packageName, shouldShowVersion: true)
+                SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: true)
 
-                if !isCask
+                if searchedForPackage.type == .formula
                 {
-                    if brewData.installedFormulae.contains(where: { $0.name == packageName })
+                    if brewData.installedFormulae.contains(where: { $0.name == searchedForPackage.name })
                     {
                         PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
                 }
                 else
                 {
-                    if brewData.installedCasks.contains(where: { $0.name == packageName })
+                    if brewData.installedCasks.contains(where: { $0.name == searchedForPackage.name })
                     {
                         PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
@@ -101,20 +100,20 @@ struct SearchResultRow: View, Sendable
         {
             if showDescriptionsInSearchResults
             {
-                AppConstants.logger.info("\(packageName, privacy: .auto) came into view")
+                AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
 
                 if description.isEmpty
                 {
-                    AppConstants.logger.info("\(packageName, privacy: .auto) does not have its description loaded")
+                    AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
 
-                    async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", packageName]).standardOutput
+                    async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", searchedForPackage.name]).standardOutput
                     do
                     {
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)
 
-                        isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
+                        isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
 
-                        description = getPackageDescriptionFromJSON(json: descriptionJSON, package: BrewPackage(name: packageName, isCask: isCask, installedOn: Date(), versions: [], sizeInBytes: nil))
+                        description = getPackageDescriptionFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
 
                         isLoadingDescription = false
                     }
@@ -126,7 +125,7 @@ struct SearchResultRow: View, Sendable
                 }
                 else
                 {
-                    AppConstants.logger.info("\(packageName, privacy: .auto) already has its description loaded")
+                    AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) already has its description loaded")
                 }
             }
         }

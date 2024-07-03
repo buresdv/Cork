@@ -10,7 +10,7 @@ import SwiftyJSON
 
 func getIfPackageIsOutdated(json: JSON, package: BrewPackage) -> Bool
 {
-    if !package.isCask
+    if package.type == .formula
     {
         return json["formulae", 0, "outdated"].boolValue
     }

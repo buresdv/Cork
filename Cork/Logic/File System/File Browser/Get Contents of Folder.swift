@@ -67,7 +67,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         {
                             let wasPackageInstalledIntentionally: Bool = try await checkIfPackageWasInstalledIntentionally(targetFolder: targetFolder, temporaryURLStorage: temporaryURLStorage)
                             
-                            let foundPackage = BrewPackage(name: item, isCask: !targetFolder.path.contains("Cellar"), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
+                            let foundPackage = BrewPackage(name: item, type: determinePackageType(packageURL: targetFolder), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
                             
                             //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
                             
@@ -149,6 +149,20 @@ private func checkIfPackageWasInstalledIntentionally(targetFolder: URL, temporar
     }
 }
 
+/// Determine a package's type type from its URL
+private func determinePackageType(packageURL: URL) -> PackageType
+{
+    if packageURL.path.contains("Cellar")
+    {
+        return .formula
+    }
+    else
+    {
+        return .cask
+    }
+}
+
+// MARK: - Getting list of URLs in folder
 func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> [URL]
 {
     var contentsOfFolder: [URL] = .init()

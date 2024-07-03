@@ -47,16 +47,16 @@ enum TopPackageRetrievalError: Error
     case resultingArrayWasEmptyEvenThoughPackagesWereInIt
 }
 
-func getTopPackageFromUUID(requestedPackageUUID: UUID, isCask: Bool, topPackageTracker: TopPackagesTracker) throws -> BrewPackage
+func getTopPackageFromUUID(requestedPackageUUID: UUID, packageType: PackageType, topPackageTracker: TopPackagesTracker) throws -> BrewPackage
 {
-    if !isCask
+    if packageType == .formula
     {
         guard let foundTopFormula: TopPackage = topPackageTracker.topFormulae.filter({ $0.id == requestedPackageUUID }).first else
         {
             throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
         }
         
-        return BrewPackage(name: foundTopFormula.packageName, isCask: isCask, installedOn: nil, versions: [], sizeInBytes: nil)
+        return .init(name: foundTopFormula.packageName, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
     }
     else
     {
@@ -65,7 +65,7 @@ func getTopPackageFromUUID(requestedPackageUUID: UUID, isCask: Bool, topPackageT
             throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
         }
         
-        return BrewPackage(name: foundTopCask.packageName, isCask: isCask, installedOn: nil, versions: [], sizeInBytes: nil)
+        return .init(name: foundTopCask.packageName, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil)
     }
 }
 

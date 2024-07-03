@@ -125,7 +125,7 @@ struct PackageDetailView: View, Sendable
                 packageInfoRaw = nil
             }
 
-            if !package.isCask
+            if package.type == .formula
             {
                 packageInfoRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", package.name]).standardOutput
             }

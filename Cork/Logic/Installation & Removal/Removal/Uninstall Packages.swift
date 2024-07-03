@@ -24,7 +24,7 @@ extension BrewDataStorage
 
         if shouldApplyUninstallSpinnerToRelevantItemInSidebar
         {
-            if !package.isCask
+            if package.type == .formula
             {
                 installedFormulae = Set(installedFormulae.map
                 { formula in
@@ -108,15 +108,15 @@ extension BrewDataStorage
         {
             AppConstants.logger.info("Uninstalling can proceed")
 
-            switch package.isCask
+            switch package.type
             {
-            case false:
+            case .formula:
                 withAnimation
                 {
                     self.removeFormulaFromTracker(withName: package.name)
                 }
 
-            case true:
+            case .cask:
                 withAnimation
                 {
                     self.removeCaskFromTracker(withName: package.name)
@@ -150,7 +150,7 @@ extension BrewDataStorage
     @MainActor
     private func resetPackageState(package: BrewPackage)
     {
-        if !package.isCask
+        if package.type == .formula
         {
             installedFormulae = Set(installedFormulae.map
             { formula in

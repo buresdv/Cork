@@ -31,7 +31,7 @@ struct PackageModificationButtons: View
             {
                 ButtonBottomRow 
                 {
-                    if !package.isCask
+                    if package.type == .formula
                     {
                         Button
                         {
