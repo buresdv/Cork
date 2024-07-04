@@ -60,7 +60,7 @@ class AppState: ObservableObject
     @Published var isLoadingTopPackages: Bool = false
     @Published var failedWhileLoadingTopPackages: Bool = false
     
-    @Published var cachedDownloadsFolderSize: Int64 = directorySize(url: AppConstants.brewCachedDownloadsPath)
+    @Published var cachedDownloadsFolderSize: Int64 = AppConstants.brewCachedDownloadsPath.directorySize
     @Published var cachedDownloads: [CachedDownload] = .init()
     
     private var cachedDownloadsTemp: [CachedDownload] = .init()
