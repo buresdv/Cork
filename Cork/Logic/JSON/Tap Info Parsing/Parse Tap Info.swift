@@ -28,7 +28,7 @@ func parseTapInfo(from rawJSON: String) async throws -> TapInfo?
         return try decoder.decode([TapInfo].self, from: jsonAsData).first
         
     } catch let decodingError {
-        AppConstants.logger.error("Failed while decoding tap info: \(decodingError.localizedDescription)\n-\(decodingError)")
+        AppConstants.logger.error("Failed while decoding tap info: \(decodingError.localizedDescription, privacy: .public)\n-\(decodingError, privacy: .public)")
         
         throw JSONParsingError.couldNotDecode(failureReason: decodingError.localizedDescription)
     }

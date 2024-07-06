@@ -23,6 +23,7 @@ struct TapDetailView: View, Sendable
     @State private var numberOfPackages: Int = 0
 
     @State private var erroredOut: Bool = false
+    @State private var errorOutReason: String = ""
 
     var body: some View
     {
@@ -46,7 +47,7 @@ struct TapDetailView: View, Sendable
             {
                 if erroredOut
                 { /// Show this if there was an error during the info loading process
-                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json")
+                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json", errorDescription: errorOutReason)
                 }
                 else
                 {
@@ -119,6 +120,9 @@ struct TapDetailView: View, Sendable
             catch let parsingError
             {
                 AppConstants.logger.error("Failed while parsing package info: \(parsingError, privacy: .public)")
+                
+                errorOutReason = parsingError.localizedDescription
+                
                 erroredOut = true
             }
         }

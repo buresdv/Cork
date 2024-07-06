@@ -10,8 +10,16 @@ import SwiftUI
 
 struct InlineFatalError: View
 {
-
     let errorMessage: LocalizedStringKey
+
+    let errorDescription: String?
+
+    /// This init has to be here so ``errorDescription`` is actually optional
+    init(errorMessage: LocalizedStringKey, errorDescription: String? = nil)
+    {
+        self.errorMessage = errorMessage
+        self.errorDescription = errorDescription
+    }
 
     var body: some View
     {
@@ -20,9 +28,16 @@ struct InlineFatalError: View
             Image(systemName: "exclamationmark.triangle.fill")
                 .resizable()
                 .frame(width: 50, height: 50)
-            //.scaledToFit()
+            // .scaledToFit()
             Text(errorMessage)
-            Button {
+
+            if let errorDescription
+            {
+                Text(errorDescription)
+            }
+
+            Button
+            {
                 restartApp()
             } label: {
                 Text("action.restart")
