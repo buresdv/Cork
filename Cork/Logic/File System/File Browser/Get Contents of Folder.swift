@@ -27,6 +27,8 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
         { taskGroup in
             for item in items
             {
+                let fullURLToPackageFolderCurrentlyBeingProcessed: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
+                
                 taskGroup.addTask(priority: .high)
                 {
                     do
@@ -34,28 +36,18 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         var temporaryURLStorage: [URL] = .init()
                         var temporaryVersionStorage: [String] = .init()
 
-                        let versions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
+                        let versions = try FileManager.default.contentsOfDirectory(at: fullURLToPackageFolderCurrentlyBeingProcessed, includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
 
                         for version in versions
                         {
-                            // AppConstants.logger.debug("Scanned version: \(version)")
-
-                            // AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
-
-                            temporaryURLStorage.append(targetFolder.appendingPathComponent(item, conformingTo: .folder).appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
-
-                            // AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
+                            temporaryURLStorage.append(fullURLToPackageFolderCurrentlyBeingProcessed.appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
 
                             temporaryVersionStorage.append(version.lastPathComponent)
                         }
 
-                        // AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
+                        let installedOn: Date? = fullURLToPackageFolderCurrentlyBeingProcessed.creationDate
 
-                        let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
-
-                        let folderSizeRaw: Int64 = targetFolder.appendingPathComponent(item, conformingTo: .directory).directorySize
-
-                        // AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
+                        let folderSizeRaw: Int64 = fullURLToPackageFolderCurrentlyBeingProcessed.directorySize
 
                         do
                         {
@@ -133,13 +125,10 @@ private extension URL
         
         return items
     }
-}
-
-/// This function checks whether the package was installed intentionally.
-/// - For Formulae, this info gets read from the install receipt
-/// - Casks are always instaled intentionally
-private extension URL
-{
+    
+    /// This function checks whether the package was installed intentionally.
+    /// - For Formulae, this info gets read from the install receipt
+    /// - Casks are always instaled intentionally
     func checkIfPackageWasInstalledIntentionally(temporaryURLStorage: [URL]) async throws -> Bool
     {
         guard let localPackagePath = temporaryURLStorage.first else
@@ -169,11 +158,8 @@ private extension URL
             throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
         }
     }
-}
-
-/// Determine a package's type type from its URL
-private extension URL
-{
+    
+    /// Determine a package's type type from its URL
     var packageType: PackageType
     {
         if self.path.contains("Cellar")
@@ -186,6 +172,7 @@ private extension URL
         }
     }
 }
+
 
 // MARK: - Getting list of URLs in folder
 func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> [URL]
