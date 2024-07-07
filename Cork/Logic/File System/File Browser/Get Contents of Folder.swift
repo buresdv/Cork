@@ -59,15 +59,15 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 
                         let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
 
-                        let folderSizeRaw: Int64? = directorySize(url: targetFolder.appendingPathComponent(item, conformingTo: .directory))
+                        let folderSizeRaw: Int64 = targetFolder.appendingPathComponent(item, conformingTo: .directory).directorySize
 
                         //AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
 
                         do
                         {
-                            let wasPackageInstalledIntentionally: Bool = try await checkIfPackageWasInstalledIntentionally(targetFolder: targetFolder, temporaryURLStorage: temporaryURLStorage)
+                            let wasPackageInstalledIntentionally: Bool = try await targetFolder.checkIfPackageWasInstalledIntentionally(temporaryURLStorage: temporaryURLStorage)
                             
-                            let foundPackage = BrewPackage(name: item, type: determinePackageType(packageURL: targetFolder), installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
+                            let foundPackage: BrewPackage = .init(name: item, type: targetFolder.packageType, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
                             
                             //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
                             
@@ -119,46 +119,52 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 /// This function checks whether the package was installed intentionally.
 /// - For Formulae, this info gets read from the install receipt
 /// - Casks are always instaled intentionally
-private func checkIfPackageWasInstalledIntentionally(targetFolder: URL, temporaryURLStorage: [URL]) async throws -> Bool
+private extension URL
 {
-    guard let localPackagePath = temporaryURLStorage.first else
+    func checkIfPackageWasInstalledIntentionally(temporaryURLStorage: [URL]) async throws -> Bool
     {
-        throw PackageLoadingError.failedWhileLoadingCertainPackage(targetFolder.lastPathComponent, targetFolder)
-    }
-    
-    if targetFolder.path.contains("Cellar")
-    {
-        let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
-        if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
+        guard let localPackagePath = temporaryURLStorage.first else
         {
-            async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
-           return try! await localPackageInfoJSON["installed_on_request"].boolValue
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+        }
+        
+        if self.path.contains("Cellar")
+        {
+            let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
+            if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
+            {
+                async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
+                return try! await localPackageInfoJSON["installed_on_request"].boolValue
+            }
+            else
+            {
+                throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+            }
+        }
+        else if self.path.contains("Caskroom")
+        {
+            return true
         }
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(targetFolder.lastPathComponent, targetFolder)
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
         }
-    }
-    else if targetFolder.path.contains("Caskroom")
-    {
-        return true
-    }
-    else
-    {
-        throw PackageLoadingError.failedWhileLoadingCertainPackage(targetFolder.lastPathComponent, targetFolder)
     }
 }
 
 /// Determine a package's type type from its URL
-private func determinePackageType(packageURL: URL) -> PackageType
+private extension URL
 {
-    if packageURL.path.contains("Cellar")
+    var packageType: PackageType
     {
-        return .formula
-    }
-    else
-    {
-        return .cask
+        if self.path.contains("Cellar")
+        {
+            return .formula
+        }
+        else
+        {
+            return .cask
+        }
     }
 }
 

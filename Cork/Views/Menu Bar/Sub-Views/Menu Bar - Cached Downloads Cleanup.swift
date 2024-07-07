@@ -35,7 +35,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 
                 isDeletingCachedDownloads = false
 
-                appState.cachedDownloadsFolderSize = directorySize(url: AppConstants.brewCachedDownloadsPath)
+                appState.cachedDownloadsFolderSize = AppConstants.brewCachedDownloadsPath.directorySize
             }
             .disabled(appState.cachedDownloadsFolderSize == 0)
         }
