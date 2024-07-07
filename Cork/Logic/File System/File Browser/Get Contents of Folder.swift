@@ -32,7 +32,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 
                 taskGroup.addTask(priority: .high)
                 {
-                    guard let versions: [URL] = fullURLToPackageFolderCurrentlyBeingProcessed.packageVersionURLs
+                    guard let versionURLs: [URL] = fullURLToPackageFolderCurrentlyBeingProcessed.packageVersionURLs
                     else
                     {
                         if targetFolder.appendingPathComponent(item, conformingTo: .fileURL).isDirectory
@@ -47,20 +47,23 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         }
                     }
 
-                    let installedOn: Date? = fullURLToPackageFolderCurrentlyBeingProcessed.creationDate
-
-                    let folderSizeRaw: Int64 = fullURLToPackageFolderCurrentlyBeingProcessed.directorySize
-
                     do
                     {
-                        let wasPackageInstalledIntentionally: Bool = try await targetFolder.checkIfPackageWasInstalledIntentionally(temporaryURLStorage: versions)
-
-                        let foundPackage: BrewPackage = .init(name: item, type: targetFolder.packageType, installedOn: installedOn, versions: versions.versions, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
-
-                        if foundPackage.versions.isEmpty
+                        if versionURLs.isEmpty
                         {
                             throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                         }
+                        
+                        let wasPackageInstalledIntentionally: Bool = try await targetFolder.checkIfPackageWasInstalledIntentionally(versionURLs)
+
+                        let foundPackage: BrewPackage = .init(
+                            name: item,
+                            type: targetFolder.packageType,
+                            installedOn: fullURLToPackageFolderCurrentlyBeingProcessed.creationDate,
+                            versions: versionURLs.versions,
+                            installedIntentionally: wasPackageInstalledIntentionally,
+                            sizeInBytes: fullURLToPackageFolderCurrentlyBeingProcessed.directorySize
+                        )
 
                         return foundPackage
                     }
@@ -115,9 +118,9 @@ private extension URL
     /// This function checks whether the package was installed intentionally.
     /// - For Formulae, this info gets read from the install receipt
     /// - Casks are always instaled intentionally
-    func checkIfPackageWasInstalledIntentionally(temporaryURLStorage: [URL]) async throws -> Bool
+    func checkIfPackageWasInstalledIntentionally(_ versionURLs: [URL]) async throws -> Bool
     {
-        guard let localPackagePath = temporaryURLStorage.first
+        guard let localPackagePath = versionURLs.first
         else
         {
             throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
