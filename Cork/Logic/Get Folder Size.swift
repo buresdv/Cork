@@ -7,51 +7,54 @@
 
 import Foundation
 
-func directorySize(url: URL) -> Int64
+extension URL
 {
-    let contents: [URL]
-    do
+    var directorySize: Int64
     {
-        contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: [.fileSizeKey, .isDirectoryKey])
-    }
-    catch
-    {
-        return 0
-    }
-
-    var size: Int64 = 0
-
-    for url in contents
-    {
-        let isDirectoryResourceValue: URLResourceValues
+        let contents: [URL]
         do
         {
-            isDirectoryResourceValue = try url.resourceValues(forKeys: [.isDirectoryKey])
+            contents = try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: [.fileSizeKey, .isDirectoryKey])
         }
         catch
         {
-            continue
+            return 0
         }
-
-        if isDirectoryResourceValue.isDirectory == true
+        
+        var size: Int64 = 0
+        
+        for url in contents
         {
-            size += directorySize(url: url)
-        }
-        else
-        {
-            let fileSizeResourceValue: URLResourceValues
+            let isDirectoryResourceValue: URLResourceValues
             do
             {
-                fileSizeResourceValue = try url.resourceValues(forKeys: [.fileSizeKey])
+                isDirectoryResourceValue = try url.resourceValues(forKeys: [.isDirectoryKey])
             }
             catch
             {
                 continue
             }
-
-            size += Int64(fileSizeResourceValue.fileSize ?? 0)
+            
+            if isDirectoryResourceValue.isDirectory == true
+            {
+                size += url.directorySize
+            }
+            else
+            {
+                let fileSizeResourceValue: URLResourceValues
+                do
+                {
+                    fileSizeResourceValue = try url.resourceValues(forKeys: [.fileSizeKey])
+                }
+                catch
+                {
+                    continue
+                }
+                
+                size += Int64(fileSizeResourceValue.fileSize ?? 0)
+            }
         }
+        
+        return size
     }
-    
-    return size
 }

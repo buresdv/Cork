@@ -86,22 +86,22 @@ struct InstallationInitialView: View
                             
                             let topCasksSet = Set(topPackagesTracker.topCasks)
                             
-                            var selectedTopPackageIsCask: Bool
+                            var selectedTopPackageType: PackageType
                             {
                                 // If this UUID is in the top casks tracker, it means it's a cask. Otherwise, it's a formula. So we test if the result of looking for the selected package in the cask tracker returns nothing; if it does return nothing, it's a formula (since the package is not in the cask tracker)
                                 if topCasksSet.filter({ $0.id == foundPackageSelection }).isEmpty
                                 {
-                                    return false
+                                    return .formula
                                 }
                                 else
                                 {
-                                    return true
+                                    return .cask
                                 }
                             }
                             
                             do
                             {
-                                let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection, isCask: selectedTopPackageIsCask, topPackageTracker: topPackagesTracker)
+                                let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection, packageType: selectedTopPackageType, topPackageTracker: topPackagesTracker)
                                 
                                 installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
                                 

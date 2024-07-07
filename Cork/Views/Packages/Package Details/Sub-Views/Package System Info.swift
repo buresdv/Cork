@@ -32,7 +32,7 @@ struct PackageSystemInfo: View
                         {
                             Text(packageSize.formatted(.byteCount(style: .file)))
 
-                            if package.isCask
+                            if package.type == .cask
                             {
                                 HelpButton
                                 {

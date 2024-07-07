@@ -16,7 +16,7 @@ class BrewDataStorage: ObservableObject
 
     func insertPackageIntoTracker(_ package: BrewPackage)
     {
-        if !package.isCask
+        if package.type == .formula
         {
             installedFormulae.insert(package)
         }

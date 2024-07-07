@@ -8,6 +8,7 @@
 import Foundation
 import AppKit
 
+/// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable
 {
     var id = UUID()
@@ -50,8 +51,8 @@ struct BrewPackage: Identifiable, Equatable, Hashable
             return packageNameWithoutTap
         }
     }()
-    
-    let isCask: Bool
+
+    let type: PackageType
     var isTagged: Bool = false
     
     let installedOn: Date?
@@ -90,7 +91,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable
         var packageURL: URL?
         var packageLocationParent: URL
         {
-            if !isCask
+            if self.type == .formula
             {
                 return AppConstants.brewCellarPath
             }

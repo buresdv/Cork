@@ -10,7 +10,7 @@ import SwiftyJSON
 
 func getIfPackageWasInstalledAsDependencyFromJSON(json: JSON, package: BrewPackage) -> Bool?
 {
-    if !package.isCask
+    if package.type == .formula
     {
         var wasInstalledAsDependency: Bool?
         

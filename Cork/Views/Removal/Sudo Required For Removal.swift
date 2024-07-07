@@ -76,7 +76,7 @@ private struct ManualUninstallInstructions: View
     
     var manualUninstallCommand: String
     {
-        return "brew uninstall \(package.isCask ? "--cask" : "") \(isPurgingPackage ? "--zap" : "") \(package.name)"
+        return "brew uninstall \(package.type == .cask ? "--cask" : "") \(isPurgingPackage ? "--zap" : "") \(package.name)"
     }
     
     var body: some View

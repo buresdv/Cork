@@ -10,7 +10,7 @@ import SwiftyJSON
 
 func getPackageHomepageFromJSON(json: JSON, package: BrewPackage) -> URL
 {
-    if !package.isCask
+    if package.type == .formula
     {
         return URL(string: json["formulae", 0, "homepage"].stringValue)!
     }

@@ -16,7 +16,7 @@ enum CompatibilityCheckingError: Error
 /// Check if a package is compatible with a particular macOS version
 func getPackageCompatibilityFromJSON(json: JSON, package: BrewPackage) throws -> Bool
 {
-    if !package.isCask
+    if package.type == .formula
     {
         var checkingResult: Bool = false
 
@@ -61,7 +61,7 @@ enum CompatibleVersionsRetrievalError: Error
 /// Retrieve macOS versions for a formula
 func getCompatibleVersionsForFormula(json: JSON, package: BrewPackage) throws -> [String]
 {
-    if package.isCask
+    if package.type == .cask
     {
         throw CompatibleVersionsRetrievalError.isCask
     }

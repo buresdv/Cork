@@ -10,7 +10,7 @@ import SwiftyJSON
 
 func getPackageDescriptionFromJSON(json: JSON, package: BrewPackage) -> String
 {
-    if !package.isCask
+    if package.type == .formula
     {
         return json["formulae", 0, "desc"].stringValue
     }

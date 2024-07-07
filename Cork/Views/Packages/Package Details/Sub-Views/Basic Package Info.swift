@@ -39,14 +39,7 @@ struct BasicPackageInfoView: View
 
             LabeledContent
             {
-                if package.isCask
-                {
-                    Text("package-details.type.cask")
-                }
-                else
-                {
-                    Text("package-details.type.formula")
-                }
+                Text(package.type.displayRepresentation.title)
             } label: {
                 Text("package-details.type")
             }

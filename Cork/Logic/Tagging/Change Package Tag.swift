@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
 {
-    if !package.isCask
+    if package.type == .formula
     {
         brewData.installedFormulae = Set(brewData.installedFormulae.map({ formula in
             var copyFormula = formula
