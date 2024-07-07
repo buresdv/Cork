@@ -7,26 +7,20 @@
 
 import Foundation
 import SwiftyJSON
+import SwiftUI
 
 enum PackageLoadingError: Error
 {
-    case failedWhileLoadingPackages, failedWhileLoadingCertainPackage(String, URL), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
+    case failedWhileLoadingPackages(failureReason: LocalizedStringKey?), failedWhileLoadingCertainPackage(String, URL), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
 }
 
 func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 {
     do
     {
-        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter { !$0.hasPrefix(".") }.filter { item in
-            /// Filter out all symlinks from the folder
-            let completeURLtoItem: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
-            
-            guard let isSymlink = completeURLtoItem.isSymlink() else
-            {
-                return false
-            }
-            
-            return !isSymlink
+        guard let items = targetFolder.validPackageURLs else
+        {
+            throw PackageLoadingError.failedWhileLoadingPackages(failureReason: "alert.fatal.could-not-filter-invalid-packages")
         }
 
         let loadedPackages: Set<BrewPackage> = try await withThrowingTaskGroup(of: BrewPackage.self, returning: Set<BrewPackage>.self)
@@ -44,24 +38,24 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 
                         for version in versions
                         {
-                            //AppConstants.logger.debug("Scanned version: \(version)")
+                            // AppConstants.logger.debug("Scanned version: \(version)")
 
-                            //AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
+                            // AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
 
                             temporaryURLStorage.append(targetFolder.appendingPathComponent(item, conformingTo: .folder).appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
 
-                            //AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
+                            // AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
 
                             temporaryVersionStorage.append(version.lastPathComponent)
                         }
 
-                        //AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
+                        // AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
 
                         let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
 
                         let folderSizeRaw: Int64 = targetFolder.appendingPathComponent(item, conformingTo: .directory).directorySize
 
-                        //AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
+                        // AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
 
                         do
                         {
@@ -75,10 +69,10 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                             {
                                 throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                             }
-                            
+
                             return foundPackage
                         }
-                        catch let error
+                        catch
                         {
                             throw error
                         }
@@ -113,6 +107,31 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
     {
         AppConstants.logger.error("Failed while accessing folder: \(error)")
         throw error
+    }
+}
+
+// MARK: - Sub-functions
+private extension URL
+{
+    /// ``[URL]`` to packages without hidden files or symlinks.
+    /// e.g. only actual package URLs
+    var validPackageURLs: [String]?
+    {
+        let items: [String]? = try? FileManager.default.contentsOfDirectory(atPath: self.path).filter { !$0.hasPrefix(".") }.filter
+        { item in
+            /// Filter out all symlinks from the folder
+            let completeURLtoItem: URL = self.appendingPathComponent(item, conformingTo: .folder)
+            
+            guard let isSymlink = completeURLtoItem.isSymlink()
+            else
+            {
+                return false
+            }
+            
+            return !isSymlink
+        }
+        
+        return items
     }
 }
 
