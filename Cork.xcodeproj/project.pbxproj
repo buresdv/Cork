@@ -127,6 +127,7 @@
 		6369AFBF2BF7B79500E67153 /* String - Remove Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFBE2BF7B79500E67153 /* String - Remove Numbers.swift */; };
 		6369AFC22BF7B87300E67153 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFC12BF7B87300E67153 /* String - Letters Only.swift */; };
 		636C56332C3B439400EB1053 /* URL - Creation Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56322C3B439400EB1053 /* URL - Creation Date.swift */; };
+		636C56352C3B46A200EB1053 /* URL - Is Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56342C3B46A200EB1053 /* URL - Is Directory.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -440,6 +441,7 @@
 		6369AFBE2BF7B79500E67153 /* String - Remove Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Remove Numbers.swift"; sourceTree = "<group>"; };
 		6369AFC12BF7B87300E67153 /* String - Letters Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Letters Only.swift"; sourceTree = "<group>"; };
 		636C56322C3B439400EB1053 /* URL - Creation Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Creation Date.swift"; sourceTree = "<group>"; };
+		636C56342C3B46A200EB1053 /* URL - Is Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Is Directory.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -1693,6 +1695,7 @@
 				6369AFC12BF7B87300E67153 /* String - Letters Only.swift */,
 				632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */,
 				636C56322C3B439400EB1053 /* URL - Creation Date.swift */,
+				636C56342C3B46A200EB1053 /* URL - Is Directory.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2206,6 +2209,7 @@
 				63DD44162C09E5E70084DA07 /* Restart Cork Button.swift in Sources */,
 				63D582A02BF14F67004538FD /* Services Fatal Errors.swift in Sources */,
 				63E41C3129C527C20084E266 /* Array - Get Second to Last Element.swift in Sources */,
+				636C56352C3B46A200EB1053 /* URL - Is Directory.swift in Sources */,
 				63A87465298FE7FC009F9533 /* Search for Package.swift in Sources */,
 				6322B5AE2BC4364C00D7E380 /* View - Disable animations.swift in Sources */,
 				637D53942BAB517000E072DA /* Services Tracker.swift in Sources */,
