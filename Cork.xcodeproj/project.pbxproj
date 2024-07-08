@@ -129,7 +129,6 @@
 		636C56332C3B439400EB1053 /* URL - Creation Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56322C3B439400EB1053 /* URL - Creation Date.swift */; };
 		636C56352C3B46A200EB1053 /* URL - Is Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56342C3B46A200EB1053 /* URL - Is Directory.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
-		6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
 		637260C029BE388F00E6E81C /* Tap Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260BF29BE388F00E6E81C /* Tap Details.swift */; };
 		637260CB29BE4F6400E6E81C /* Packages Included in Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */; };
@@ -443,7 +442,6 @@
 		636C56322C3B439400EB1053 /* URL - Creation Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Creation Date.swift"; sourceTree = "<group>"; };
 		636C56342C3B46A200EB1053 /* URL - Is Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Is Directory.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
-		6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Return Formatted Versions.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
 		637260BF29BE388F00E6E81C /* Tap Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap Details.swift"; sourceTree = "<group>"; };
 		637260CA29BE4F6400E6E81C /* Packages Included in Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Packages Included in Tap.swift"; sourceTree = "<group>"; };
@@ -1158,7 +1156,6 @@
 			isa = PBXGroup;
 			children = (
 				63DD440B2C093CAC0084DA07 /* Programs */,
-				6371EA202871E0FE00300E1B /* Return Formatted Versions.swift */,
 				639246E429A26BB4008149E2 /* REGEX Match.swift */,
 				63FFEF4D29CB5D9400D6FFC4 /* Restart App.swift */,
 				63CBCC4E2AC9B46E00E1E95B /* Copy to Clipboard.swift */,
@@ -2371,7 +2368,6 @@
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6317BF752ADEFB060018E425 /* Ready to Update.swift in Sources */,
 				632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */,
-				6371EA212871E0FE00300E1B /* Return Formatted Versions.swift in Sources */,
 				63D83107299935E900FA802F /* Dismiss Sheet Button.swift in Sources */,
 				63581BD72BB86D29009A8E03 /* Menu Bar - Orphan Cleanup.swift in Sources */,
 				63DD44142C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift in Sources */,

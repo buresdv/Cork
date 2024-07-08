@@ -46,7 +46,7 @@ struct PackageListItem: View
                 
                 HStack(alignment: .center, spacing: 4)
                 {
-                    Text(returnFormattedVersions(packageItem.versions))
+                    Text(packageItem.getFormattedVersions())
                     
                     if isPackageOutdated
                     {
