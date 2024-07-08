@@ -181,7 +181,7 @@ private extension URL
             
             return versions
         }
-        catch let versionLoadingError
+        catch
         {
             AppConstants.logger.error("Failed while loading version for package \(self.lastPathComponent, privacy: .public) at URL \(self, privacy: .public)")
 
@@ -203,7 +203,6 @@ extension [URL]
 }
 
 // MARK: - Getting list of URLs in folder
-
 func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> [URL]
 {
     var contentsOfFolder: [URL] = .init()
