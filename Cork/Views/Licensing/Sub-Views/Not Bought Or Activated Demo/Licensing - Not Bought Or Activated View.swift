@@ -45,38 +45,46 @@ struct Licensing_NotBoughtOrActivatedView: View
     {
         VStack(alignment: .center, spacing: 15)
         {
-            Text("licensing.not-bought-or-activated.title")
-                .font(.title)
+            Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 100)
 
-            Text("licensing.not-bought-or-activated.body")
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: 350)
-                .fixedSize()
-
-            VStack(alignment: .leading, spacing: 5)
+            VStack(alignment: .center, spacing: 25)
             {
-                Text("licensing.email")
+                Text("licensing.not-bought-or-activated.title")
+                    .font(.title)
 
-                HStack(alignment: .center, spacing: 20)
+                Text("licensing.not-bought-or-activated.body")
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 350)
+                    .fixedSize()
+
+                VStack(alignment: .leading, spacing: 5)
                 {
-                    TextField(text: $emailFieldContents, prompt: Text("licensing.email-field.prompt"))
-                    {
-                        Text("licensing.email")
-                    }
+                    Text("licensing.email")
 
-                    if isCheckingLicense
+                    HStack(alignment: .center, spacing: 20)
                     {
-                        if !hasCheckingFailed
+                        TextField(text: $emailFieldContents, prompt: Text("licensing.email-field.prompt"))
                         {
-                            ProgressView()
-                                .scaleEffect(0.5, anchor: .center)
-                                .frame(width: 1, height: 1)
-                                .transition(.move(edge: .trailing).combined(with: .opacity))
+                            Text("licensing.email")
                         }
-                        else
+
+                        if isCheckingLicense
                         {
-                            OutlinedPillText(text: "licensing.invalid-email", color: .secondary)
-                                .transition(.move(edge: .trailing).combined(with: .opacity))
+                            if !hasCheckingFailed
+                            {
+                                ProgressView()
+                                    .scaleEffect(0.5, anchor: .center)
+                                    .frame(width: 1, height: 1)
+                                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                            }
+                            else
+                            {
+                                OutlinedPillText(text: "licensing.invalid-email", color: .secondary)
+                                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                            }
                         }
                     }
                 }
@@ -175,6 +183,12 @@ struct Licensing_NotBoughtOrActivatedView: View
                             {
                             case .authorizationComplexNotEncodedProperly:
                                 appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
+                            case .notConnectedToTheInternet:
+                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
+                            case .operationTimedOut:
+                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
+                            case .otherError(let localizedDescription):
+                                appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
                             }
                         }
                     }

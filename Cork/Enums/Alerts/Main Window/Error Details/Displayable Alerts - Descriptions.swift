@@ -20,6 +20,12 @@ extension DisplayableAlert
             return String(localized: "alert.fatal-\(offendingPackage)-prevented-loading.title")
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.title")
+        case .licenseCheckingFailedDueToNoInternet:
+            return String(localized: "alert.fatal.license-checking.no-internet.title")
+        case .licenseCheckingFailedDueToTimeout:
+            return String(localized: "alert.fatal.license-checking.timed-out.title")
+        case .licenseCheckingFailedForOtherReason:
+            return String(localized: "alert.fatal.license-checking.unimplemented-error.title")
         case .customBrewExcutableGotDeleted:
             return String(localized: "alert.fatal.custom-brew-executable-deleted.title")
         case .couldNotFindPackageUUIDInList:

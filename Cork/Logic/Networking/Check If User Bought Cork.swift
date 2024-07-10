@@ -9,7 +9,7 @@ import Foundation
 
 enum CorkLicenseRetrievalError: Error
 {
-    case authorizationComplexNotEncodedProperly
+    case authorizationComplexNotEncodedProperly, notConnectedToTheInternet, operationTimedOut, otherError(errorDescription: String)
 }
 
 func checkIfUserBoughtCork(for email: String) async throws -> Bool
@@ -46,14 +46,32 @@ func checkIfUserBoughtCork(for email: String) async throws -> Bool
     
     request.addValue("Basic \(authorizationComplexAsData.base64EncodedString())", forHTTPHeaderField: "Authorization")
     
-    let (_, response) = try await session.data(for: request)
-    
-    if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
+    do
     {
-        return true
+        let (_, response) = try await session.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
-    else
+    catch let networkingError as URLError
     {
-        return false
+        if networkingError.code == .timedOut
+        {
+            throw CorkLicenseRetrievalError.operationTimedOut
+        }
+        else if networkingError.code == .notConnectedToInternet
+        {
+            throw CorkLicenseRetrievalError.notConnectedToTheInternet
+        }
+        else
+        {
+            throw CorkLicenseRetrievalError.otherError(errorDescription: networkingError.localizedDescription)
+        }
     }
 }

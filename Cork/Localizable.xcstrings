@@ -10748,7 +10748,14 @@
       }
     },
     "alert.fatal.could-not-filter-invalid-packages" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not properly load installed packages"
+          }
+        }
+      }
     },
     "alert.fatal.could-not-load-any-packages-%@.title" : {
       "localizations" : {
@@ -11048,6 +11055,67 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無法與授權伺服器設立安全連線"
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.no-internet.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Mac is not connected to the internet. Check your internet settings."
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.no-internet.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not connect to the internet"
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.timed-out.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your internet connection and try again\nAlternatively, the authorization server may be offline at the moment"
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.timed-out.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License checking timed out"
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.unimplemented-error.message" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try restarting Cork\nIf that doesn't help, restart your Mac"
+          }
+        }
+      }
+    },
+    "alert.fatal.license-checking.unimplemented-error.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occured"
           }
         }
       }

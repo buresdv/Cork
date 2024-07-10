@@ -19,6 +19,12 @@ extension DisplayableAlert
             return nil
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.message")
+        case .licenseCheckingFailedDueToNoInternet:
+            return String(localized: "alert.fatal.license-checking.no-internet.message")
+        case .licenseCheckingFailedDueToTimeout:
+            return String(localized: "alert.fatal.license-checking.timed-out.message")
+        case .licenseCheckingFailedForOtherReason(let localizedError):
+            return localizedError
         case .customBrewExcutableGotDeleted:
             return nil
         case .couldNotFindPackageUUIDInList:
