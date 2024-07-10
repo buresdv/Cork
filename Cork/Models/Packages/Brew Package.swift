@@ -64,6 +64,11 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     
     var isBeingModified: Bool = false
     
+    func getFormattedVersions() -> String
+    {
+        return self.versions.formatted(.list(type: .and))
+    }
+    
     mutating func changeTaggedStatus() -> Void
     {
         self.isTagged.toggle()

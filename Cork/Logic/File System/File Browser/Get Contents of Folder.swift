@@ -6,95 +6,70 @@
 //
 
 import Foundation
+import SwiftUI
 import SwiftyJSON
 
 enum PackageLoadingError: Error
 {
-    case failedWhileLoadingPackages, failedWhileLoadingCertainPackage(String, URL), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
+    case failedWhileLoadingPackages(failureReason: LocalizedStringKey?), failedWhileLoadingCertainPackage(String, URL), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
 }
 
 func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 {
     do
     {
-        let items = try FileManager.default.contentsOfDirectory(atPath: targetFolder.path).filter { !$0.hasPrefix(".") }.filter { item in
-            /// Filter out all symlinks from the folder
-            let completeURLtoItem: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
-            
-            guard let isSymlink = completeURLtoItem.isSymlink() else
-            {
-                return false
-            }
-            
-            return !isSymlink
+        guard let items = targetFolder.validPackageURLs
+        else
+        {
+            throw PackageLoadingError.failedWhileLoadingPackages(failureReason: "alert.fatal.could-not-filter-invalid-packages")
         }
 
         let loadedPackages: Set<BrewPackage> = try await withThrowingTaskGroup(of: BrewPackage.self, returning: Set<BrewPackage>.self)
         { taskGroup in
             for item in items
             {
+                let fullURLToPackageFolderCurrentlyBeingProcessed: URL = targetFolder.appendingPathComponent(item, conformingTo: .folder)
+
                 taskGroup.addTask(priority: .high)
                 {
-                    do
+                    guard let versionURLs: [URL] = fullURLToPackageFolderCurrentlyBeingProcessed.packageVersionURLs
+                    else
                     {
-                        var temporaryURLStorage: [URL] = .init()
-                        var temporaryVersionStorage: [String] = .init()
-
-                        let versions = try FileManager.default.contentsOfDirectory(at: targetFolder.appendingPathComponent(item, conformingTo: .folder), includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
-
-                        for version in versions
+                        if targetFolder.appendingPathComponent(item, conformingTo: .fileURL).isDirectory
                         {
-                            //AppConstants.logger.debug("Scanned version: \(version)")
-
-                            //AppConstants.logger.debug("Found desirable version: \(version). Appending to temporary package list")
-
-                            temporaryURLStorage.append(targetFolder.appendingPathComponent(item, conformingTo: .folder).appendingPathComponent(version.lastPathComponent, conformingTo: .folder))
-
-                            //AppConstants.logger.debug("URL to package \(item) is \(temporaryURLStorage)")
-
-                            temporaryVersionStorage.append(version.lastPathComponent)
-                        }
-
-                        //AppConstants.logger.debug("URL of this package: \(targetFolder.appendingPathComponent(item, conformingTo: .folder))")
-
-                        let installedOn: Date? = (try? FileManager.default.attributesOfItem(atPath: targetFolder.appendingPathComponent(item, conformingTo: .folder).path))?[.creationDate] as? Date
-
-                        let folderSizeRaw: Int64 = targetFolder.appendingPathComponent(item, conformingTo: .directory).directorySize
-
-                        //AppConstants.logger.debug("\n Installation date for package \(item) at path \(targetFolder.appendingPathComponent(item, conformingTo: .directory)) is \(installedOn ?? Date()) \n")
-
-                        do
-                        {
-                            let wasPackageInstalledIntentionally: Bool = try await targetFolder.checkIfPackageWasInstalledIntentionally(temporaryURLStorage: temporaryURLStorage)
-                            
-                            let foundPackage: BrewPackage = .init(name: item, type: targetFolder.packageType, installedOn: installedOn, versions: temporaryVersionStorage, installedIntentionally: wasPackageInstalledIntentionally, sizeInBytes: folderSizeRaw)
-                            
-                            //print("Successfully found and loaded \(foundPackage.isCask ? "cask" : "formula"): \(foundPackage)")
-                            
-                            if foundPackage.versions.isEmpty
-                            {
-                                throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
-                            }
-                            
-                            return foundPackage
-                        }
-                        catch let error
-                        {
-                            throw error
-                        }
-                    }
-                    catch
-                    {
-                        if targetFolder.appendingPathComponent(item, conformingTo: .fileURL).hasDirectoryPath
-                        {
-                            AppConstants.logger.error("Failed while getting package version. Package does not have any version installed: \(error)")
+                            AppConstants.logger.error("Failed while getting package version for package \(fullURLToPackageFolderCurrentlyBeingProcessed.lastPathComponent). Package does not have any version installed.")
                             throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                         }
                         else
                         {
-                            AppConstants.logger.error("Failed while getting package version. Package is not a folder: \(error)")
+                            AppConstants.logger.error("Failed while getting package version for package \(fullURLToPackageFolderCurrentlyBeingProcessed.lastPathComponent). Package is not a folder")
                             throw PackageLoadingError.packageIsNotAFolder(item, targetFolder.appendingPathComponent(item, conformingTo: .fileURL))
                         }
+                    }
+
+                    do
+                    {
+                        if versionURLs.isEmpty
+                        {
+                            throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
+                        }
+                        
+                        let wasPackageInstalledIntentionally: Bool = try await targetFolder.checkIfPackageWasInstalledIntentionally(versionURLs)
+
+                        let foundPackage: BrewPackage = .init(
+                            name: item,
+                            type: targetFolder.packageType,
+                            installedOn: fullURLToPackageFolderCurrentlyBeingProcessed.creationDate,
+                            versions: versionURLs.versions,
+                            installedIntentionally: wasPackageInstalledIntentionally,
+                            sizeInBytes: fullURLToPackageFolderCurrentlyBeingProcessed.directorySize
+                        )
+
+                        return foundPackage
+                    }
+                    catch
+                    {
+                        throw error
                     }
                 }
             }
@@ -116,18 +91,41 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
     }
 }
 
-/// This function checks whether the package was installed intentionally.
-/// - For Formulae, this info gets read from the install receipt
-/// - Casks are always instaled intentionally
+// MARK: - Sub-functions
 private extension URL
 {
-    func checkIfPackageWasInstalledIntentionally(temporaryURLStorage: [URL]) async throws -> Bool
+    /// ``[URL]`` to packages without hidden files or symlinks.
+    /// e.g. only actual package URLs
+    var validPackageURLs: [String]?
     {
-        guard let localPackagePath = temporaryURLStorage.first else
+        let items: [String]? = try? FileManager.default.contentsOfDirectory(atPath: self.path).filter { !$0.hasPrefix(".") }.filter
+        { item in
+            /// Filter out all symlinks from the folder
+            let completeURLtoItem: URL = self.appendingPathComponent(item, conformingTo: .folder)
+
+            guard let isSymlink = completeURLtoItem.isSymlink()
+            else
+            {
+                return false
+            }
+
+            return !isSymlink
+        }
+
+        return items
+    }
+
+    /// This function checks whether the package was installed intentionally.
+    /// - For Formulae, this info gets read from the install receipt
+    /// - Casks are always instaled intentionally
+    func checkIfPackageWasInstalledIntentionally(_ versionURLs: [URL]) async throws -> Bool
+    {
+        guard let localPackagePath = versionURLs.first
+        else
         {
             throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
         }
-        
+
         if self.path.contains("Cellar")
         {
             let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
@@ -150,11 +148,8 @@ private extension URL
             throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
         }
     }
-}
 
-/// Determine a package's type type from its URL
-private extension URL
-{
+    /// Determine a package's type type from its URL
     var packageType: PackageType
     {
         if self.path.contains("Cellar")
@@ -164,6 +159,45 @@ private extension URL
         else
         {
             return .cask
+        }
+    }
+
+    /// Get URLs to a package's versions
+    var packageVersionURLs: [URL]?
+    {
+        AppConstants.logger.debug("Will check URL \(self)")
+        do
+        {
+            let versions: [URL] = try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
+
+            if versions.isEmpty
+            {
+                AppConstants.logger.warning("Package URL \(self, privacy: .public) has no versions installed")
+                
+                return nil
+            }
+            
+            AppConstants.logger.debug("URL \(self) has these versions: \(versions))")
+            
+            return versions
+        }
+        catch
+        {
+            AppConstants.logger.error("Failed while loading version for package \(self.lastPathComponent, privacy: .public) at URL \(self, privacy: .public)")
+
+            return nil
+        }
+    }
+}
+
+extension [URL]
+{
+    /// Returns an array of versions from an array of URLs to available versions
+    var versions: [String]
+    {
+        return self.map
+        { versionURL in
+            versionURL.lastPathComponent
         }
     }
 }

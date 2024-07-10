@@ -101,6 +101,7 @@ struct ContentView: View, Sendable
         } label: {
             Label("navigation.manage-services", systemImage: "square.stack.3d.down.right")
         }
+        .help("navigation.manage-services.help")
     }
 
     // MARK: - The main view

@@ -28,7 +28,7 @@ struct PackageDetailHeaderComplex: View
             {
                 SanitizedPackageName(packageName: package.name, shouldShowVersion: false)
                     .font(.title)
-                Text("v. \(returnFormattedVersions(package.versions))")
+                Text("v. \(package.getFormattedVersions())")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
