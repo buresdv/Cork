@@ -136,6 +136,7 @@ struct AppConstants
     static let osVersionString: (lookupName: String, fullName: String) =
     {
         let versionDictionary: [Int: (lookupName: String, fullName: String)] = [
+            15: ("sequoia", "Sequoia"),
             14: ("sonoma", "Sonoma"),
             13: ("ventura", "Ventura"),
             12: ("monterey", "Monterey"),
