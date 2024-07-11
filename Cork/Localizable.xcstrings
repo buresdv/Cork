@@ -10754,6 +10754,12 @@
             "state" : "translated",
             "value" : "Could not properly load installed packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法正确加载已安装软件包"
+          }
         }
       }
     },
@@ -11066,6 +11072,12 @@
             "state" : "translated",
             "value" : "Your Mac is not connected to the internet. Check your internet settings."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的 Mac 没有连接到互联网。\n请检查你的网络设置"
+          }
         }
       }
     },
@@ -11075,6 +11087,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not connect to the internet"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法连接到互联网"
           }
         }
       }
@@ -11086,6 +11104,12 @@
             "state" : "translated",
             "value" : "Check your internet connection and try again\nAlternatively, the authorization server may be offline at the moment"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查网络连接并重试\n或者授权服务器目前可能处于离线状态"
+          }
         }
       }
     },
@@ -11095,6 +11119,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "License checking timed out"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授权检查超时"
           }
         }
       }
@@ -11116,6 +11146,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An unknown error occured"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生了一个未知错误"
           }
         }
       }
