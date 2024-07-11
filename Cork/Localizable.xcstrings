@@ -10749,6 +10749,12 @@
     },
     "alert.fatal.could-not-filter-invalid-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se načíst aktivní balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11067,6 +11073,12 @@
     },
     "alert.fatal.license-checking.no-internet.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Váě MAc není připojený k internetu. Zkontrolujte nastavení internetu."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11083,6 +11095,12 @@
     },
     "alert.fatal.license-checking.no-internet.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při připojování k internetu se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11099,6 +11117,12 @@
     },
     "alert.fatal.license-checking.timed-out.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolujte své připojení k internetu a zkuste to znovu\nJe také možné, že autorizační server je právě offline"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11115,6 +11139,12 @@
     },
     "alert.fatal.license-checking.timed-out.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Časový limit pro ověření licence vypršel"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11142,6 +11172,12 @@
     },
     "alert.fatal.license-checking.unimplemented-error.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stala se neznámá chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25744,6 +25780,12 @@
     "service.name.label" : {
       "extractionState" : "stale",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Název"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
