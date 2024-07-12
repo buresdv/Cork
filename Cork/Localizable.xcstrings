@@ -4335,6 +4335,7 @@
       }
     },
     "action.report-bugs.email" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4399,6 +4400,7 @@
       }
     },
     "action.report-bugs.git-hub" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4464,6 +4466,7 @@
     },
     "action.report-bugs.menu-category" : {
       "comment" : "MARK: - Bug Reporting",
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4846,6 +4849,7 @@
       }
     },
     "action.submit-feedback" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

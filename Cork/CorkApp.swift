@@ -165,9 +165,9 @@ struct CorkApp: App
                             do
                             {
                                 let temporaryOutdatedPackageTracker: OutdatedPackageTracker = .init()
-                                
+
                                 try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-                                
+
                                 var newOutdatedPackages = temporaryOutdatedPackageTracker.outdatedPackages
 
                                 AppConstants.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
@@ -421,41 +421,43 @@ struct CorkApp: App
     @ViewBuilder
     var bugReportingMenuBarSection: some View
     {
-        Menu
-        {
-            Button
+        #if !SELF_COMPILED
+            Menu
             {
-                NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.md")!)
+                Button
+                {
+                    NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.md")!)
+                } label: {
+                    Text("action.report-bugs.git-hub")
+                }
+
+                Button
+                {
+                    let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
+                    let emailBody = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
+
+                    let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
+                    emailService?.recipients = ["bug-reporting@corkmac.app"]
+                    emailService?.subject = emailSubject
+                    emailService?.perform(withItems: [emailBody])
+
+                } label: {
+                    Text("action.report-bugs.email")
+                }
+
             } label: {
-                Text("action.report-bugs.git-hub")
+                Text("action.report-bugs.menu-category")
             }
 
             Button
             {
-                let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
-                let emailBody = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
-
-                let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
-                emailService?.recipients = ["bug-reporting@corkmac.app"]
-                emailService?.subject = emailSubject
-                emailService?.perform(withItems: [emailBody])
-
+                NSWorkspace.shared.open(URL(string: "https://forum.corkmac.app/t/cork")!)
             } label: {
-                Text("action.report-bugs.email")
+                Text("action.submit-feedback")
             }
 
-        } label: {
-            Text("action.report-bugs.menu-category")
-        }
-
-        Button
-        {
-            NSWorkspace.shared.open(URL(string: "https://forum.corkmac.app/t/cork")!)
-        } label: {
-            Text("action.submit-feedback")
-        }
-
-        Divider()
+            Divider()
+        #endif
     }
 
     @ViewBuilder
