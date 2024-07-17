@@ -29520,6 +29520,16 @@
         }
       }
     },
+    "settings.general.outdated-packages.also-show-old-versions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show old versions"
+          }
+        }
+      }
+    },
     "settings.general.outdated-packages.display-amount.all" : {
       "localizations" : {
         "en" : {
@@ -29549,6 +29559,9 @@
           }
         }
       }
+    },
+    "settings.general.outdated-packages.info-amount" : {
+
     },
     "settings.general.package-caveats" : {
       "localizations" : {

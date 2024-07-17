@@ -19,6 +19,7 @@ struct GeneralPane: View
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
 
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
+    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
 
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
 
@@ -96,14 +97,30 @@ struct GeneralPane: View
                     Text("settings.general.search-results")
                 }
 
-                Picker(selection: $outdatedPackageInfoDisplayAmount)
+                LabeledContent
                 {
-                    ForEach(OutdatedPackageInfoAmount.allCases)
-                    { infoAmount in
+                    VStack(alignment: .leading, spacing: 6)
+                    {
+                        Picker(selection: $outdatedPackageInfoDisplayAmount)
+                        {
+                            ForEach(OutdatedPackageInfoAmount.allCases)
+                            { infoAmount in
+                                
+                                Text(infoAmount.localizedName)
+                                    .tag(infoAmount)
+                                
+                            }
+                        } label: {
+                            Text("settings.general.outdated-packages.info-amount")
+                        }
+                        .labelsHidden()
                         
-                        Text(infoAmount.localizedName)
-                            .tag(infoAmount)
-                        
+                        Toggle(isOn: $showOldVersionsInOutdatedPackageList)
+                        {
+                            Text("settings.general.outdated-packages.also-show-old-versions")
+                        }
+                        .disabled(outdatedPackageInfoDisplayAmount == .none)
+                        .padding([.leading])
                     }
                 } label: {
                     Text("settings.general.outdated-packages")

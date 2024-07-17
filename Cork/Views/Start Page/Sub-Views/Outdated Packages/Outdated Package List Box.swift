@@ -142,10 +142,12 @@ struct OutdatedPackageListBox: View
 }
 
 // MARK: - List row
+
 private struct OutdatedPackageListBoxRow: View
 {
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
-    
+    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+
     let outdatedPackage: OutdatedPackage
 
     @State private var isExpanded: Bool = false
@@ -167,7 +169,7 @@ private struct OutdatedPackageListBoxRow: View
     }
 
     // MARK: - Some shared views
-    
+
     @ViewBuilder
     var outdatedPackageDetails: some View
     {
@@ -175,7 +177,15 @@ private struct OutdatedPackageListBoxRow: View
         {
             LabeledContent
             {
-                Text("\(outdatedPackage.installedVersions.formatted(.list(type: .and))) → \(outdatedPackage.newerVersion)")
+                if showOldVersionsInOutdatedPackageList
+                {
+                    Text("\(outdatedPackage.installedVersions.formatted(.list(type: .and))) → \(outdatedPackage.newerVersion)")
+                }
+                else
+                {
+                    Text(outdatedPackage.newerVersion)
+                }
+
             } label: {
                 Text("package-details.dependencies.results.version")
             }
@@ -192,6 +202,7 @@ private struct OutdatedPackageListBoxRow: View
     }
 
     // MARK: - Various types of outdated package displays
+
     @ViewBuilder
     var outdatedPackageDetails_none: some View
     {
@@ -204,16 +215,19 @@ private struct OutdatedPackageListBoxRow: View
         HStack(alignment: .center)
         {
             SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
-            
+
             HStack(alignment: .center)
             {
-                OutlinedPill(content: {
-                    Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
-                }, color: .orange)
-                
-                Text("→")
-                    .foregroundColor(.secondary)
-                
+                if showOldVersionsInOutdatedPackageList
+                {
+                    OutlinedPill(content: {
+                        Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
+                    }, color: .orange)
+
+                    Text("→")
+                        .foregroundColor(.secondary)
+                }
+
                 OutlinedPill(content: {
                     Text(outdatedPackage.newerVersion)
                 }, color: .blue)
@@ -227,9 +241,9 @@ private struct OutdatedPackageListBoxRow: View
         HStack(alignment: .center)
         {
             SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
-            
+
             Spacer()
-            
+
             SUIButton(label: "")
             {
                 isExpanded.toggle()
