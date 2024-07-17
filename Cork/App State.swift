@@ -41,7 +41,7 @@ class AppState: ObservableObject
     @Published var isShowingBrewfileImportProgress: Bool = false
     @Published var brewfileImportingStage: BrewfileImportStage = .importing
     
-    @Published var isCheckingForPackageUpdates: Bool = false
+    @Published var isCheckingForPackageUpdates: Bool = true
     
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false

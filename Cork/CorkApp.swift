@@ -225,6 +225,12 @@ struct CorkApp: App
                 { outdatedPackageCount in
 
                     AppConstants.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
+                    
+                    // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
+                    if appDelegate.appState.isCheckingForPackageUpdates == true
+                    {
+                        appDelegate.appState.isCheckingForPackageUpdates = false
+                    }
 
                     if outdatedPackageCount == 0
                     {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum OutdatedPackageRetrievalError: Error
 {
@@ -44,8 +45,27 @@ extension OutdatedPackageTracker
     }
     
     /// Load outdated packages into the outdated package tracker
-    func getOutdatedPackages(brewData: BrewDataStorage, packageArray: [String]? = nil) async throws
+    func getOutdatedPackages(brewData: BrewDataStorage, appState: AppState? = nil, packageArray: [String]? = nil) async throws
     {
+        /// Set the UI stuff if AppState has been passed
+        if let appState
+        {
+            if appState.isCheckingForPackageUpdates == false
+            {
+                appState.isCheckingForPackageUpdates = true
+            }
+        }
+        
+        defer
+        {
+            if let appState
+            {
+                withAnimation 
+                {
+                    appState.isCheckingForPackageUpdates = false
+                }
+            }
+        }
         let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["outdated", "--json=v2"])
         
         // MARK: - Error checking
