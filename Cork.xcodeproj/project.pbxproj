@@ -269,6 +269,7 @@
 		63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */; };
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
 		63E9A6182C4735580096CB57 /* NSButton Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6172C4735580096CB57 /* NSButton Port.swift */; };
+		63E9A61A2C480CCE0096CB57 /* Outdated Package Info Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6192C480CCE0096CB57 /* Outdated Package Info Amount.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
 		63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
@@ -583,6 +584,7 @@
 		63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
 		63E9A6172C4735580096CB57 /* NSButton Port.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton Port.swift"; sourceTree = "<group>"; };
+		63E9A6192C480CCE0096CB57 /* Outdated Package Info Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Info Amount.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
 		63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo - CPU Architecture.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
@@ -1087,6 +1089,7 @@
 				6339B0FA29F921B200DC4C80 /* Incremental */,
 				6339B0F929F921AA00DC4C80 /* Complete */,
 				6360355929BDF67A00CC0760 /* Update Availability.swift */,
+				63E9A6192C480CCE0096CB57 /* Outdated Package Info Amount.swift */,
 			);
 			path = "Package Updating";
 			sourceTree = "<group>";
@@ -2257,6 +2260,7 @@
 				63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */,
 				637D539C2BAB544400E072DA /* Sidebar Service Row.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
+				63E9A61A2C480CCE0096CB57 /* Outdated Package Info Amount.swift in Sources */,
 				63D67B782AC5E205002EB992 /* Tap Title.swift in Sources */,
 				63CBCC4D2AC983FB00E1E95B /* Package Caveat Minified Display.swift in Sources */,
 				63F6226F2BAF5B9700FBDB20 /* String - Window IDs.swift in Sources */,

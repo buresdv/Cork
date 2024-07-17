@@ -54,6 +54,9 @@
         }
       }
     },
+    "→" : {
+
+    },
     "⚠️" : {
       "localizations" : {
         "cs" : {
@@ -29503,6 +29506,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在選單列中顯示"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outdated package info:"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.display-amount.all" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.display-amount.none" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimal"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.display-amount.version-only" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versions only"
           }
         }
       }

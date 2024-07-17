@@ -141,8 +141,11 @@ struct OutdatedPackageListBox: View
     }
 }
 
+// MARK: - List row
 private struct OutdatedPackageListBoxRow: View
 {
+    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
+    
     let outdatedPackage: OutdatedPackage
 
     @State private var isExpanded: Bool = false
@@ -151,25 +154,20 @@ private struct OutdatedPackageListBoxRow: View
     {
         VStack(alignment: .leading)
         {
-            HStack(alignment: .center)
+            switch outdatedPackageInfoDisplayAmount
             {
-                SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
-
-                Spacer()
-
-                SUIButton(label: "")
-                {
-                    isExpanded.toggle()
-                }
-                .buttonStyle(.pushDisclosure)
-            }
-            if isExpanded
-            {
-                outdatedPackageDetails
+            case .none:
+                outdatedPackageDetails_none
+            case .versionOnly:
+                outdatedPackageDetails_versionOnly
+            case .all:
+                outdatedPackageDetails_all
             }
         }
     }
 
+    // MARK: - Some shared views
+    
     @ViewBuilder
     var outdatedPackageDetails: some View
     {
@@ -191,5 +189,56 @@ private struct OutdatedPackageListBoxRow: View
         }
         .padding(-20)
         .transition(.move(edge: .top).combined(with: .opacity))
+    }
+
+    // MARK: - Various types of outdated package displays
+    @ViewBuilder
+    var outdatedPackageDetails_none: some View
+    {
+        SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+    }
+
+    @ViewBuilder
+    var outdatedPackageDetails_versionOnly: some View
+    {
+        HStack(alignment: .center)
+        {
+            SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+            
+            HStack(alignment: .center)
+            {
+                OutlinedPill(content: {
+                    Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
+                }, color: .orange)
+                
+                Text("→")
+                    .foregroundColor(.secondary)
+                
+                OutlinedPill(content: {
+                    Text(outdatedPackage.newerVersion)
+                }, color: .blue)
+            }
+        }
+    }
+
+    @ViewBuilder
+    var outdatedPackageDetails_all: some View
+    {
+        HStack(alignment: .center)
+        {
+            SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+            
+            Spacer()
+            
+            SUIButton(label: "")
+            {
+                isExpanded.toggle()
+            }
+            .buttonStyle(.pushDisclosure)
+        }
+        if isExpanded
+        {
+            outdatedPackageDetails
+        }
     }
 }
