@@ -90,7 +90,6 @@
 		6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */; };
 		6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */; };
 		6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */; };
-		6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9152BAC909600DBBC55 /* Parse Service Details.swift */; };
 		6348D9182BAC986300DBBC55 /* Service Header Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9172BAC986300DBBC55 /* Service Header Complex.swift */; };
 		63581BCF2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BCE2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift */; };
 		63581BD12BB86BC4009A8E03 /* Menu Bar - Package Updating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BD02BB86BC4009A8E03 /* Menu Bar - Package Updating.swift */; };
@@ -269,6 +268,8 @@
 		63E716DD29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */; };
 		63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */; };
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
+		63E9A6202C49C79A0096CB57 /* Brew Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */; };
+		63E9A6232C49C9C40096CB57 /* Load Up Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
 		63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
@@ -405,7 +406,6 @@
 		6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Service Info View.swift"; sourceTree = "<group>"; };
 		6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locations View.swift"; sourceTree = "<group>"; };
 		6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Service Details.swift"; sourceTree = "<group>"; };
-		6348D9152BAC909600DBBC55 /* Parse Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Service Details.swift"; sourceTree = "<group>"; };
 		6348D9172BAC986300DBBC55 /* Service Header Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Header Complex.swift"; sourceTree = "<group>"; };
 		63581BCE2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar - Package Overview.swift"; sourceTree = "<group>"; };
 		63581BD02BB86BC4009A8E03 /* Menu Bar - Package Updating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar - Package Updating.swift"; sourceTree = "<group>"; };
@@ -583,6 +583,8 @@
 		63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Downloads Folder Info Box.swift"; sourceTree = "<group>"; };
 		63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
+		63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Package Details.swift"; sourceTree = "<group>"; };
+		63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load Up Package Info.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
 		63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo - CPU Architecture.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			children = (
 				6340657C2871AC65001A2178 /* Brew Package.swift */,
 				63006E0C29ACC78400243E29 /* Package Dependency.swift */,
+				63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				63E9A6212C49C9B60096CB57 /* Packages */,
 				63405A482C027EE300C6E0F2 /* App Intents */,
 				637D53A02BAB55C500E072DA /* Services */,
 				633AA21E2AFEDD8500A5F3E3 /* Brewfile */,
@@ -1033,18 +1037,9 @@
 		6348D9112BAC8E7800DBBC55 /* Service Details */ = {
 			isa = PBXGroup;
 			children = (
-				6348D9142BAC908A00DBBC55 /* Parsing */,
 				6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */,
 			);
 			path = "Service Details";
-			sourceTree = "<group>";
-		};
-		6348D9142BAC908A00DBBC55 /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				6348D9152BAC909600DBBC55 /* Parse Service Details.swift */,
-			);
-			path = Parsing;
 			sourceTree = "<group>";
 		};
 		63581BCD2BB86732009A8E03 /* Sub-Views */ = {
@@ -1557,6 +1552,7 @@
 		63A96F6C2AA4B3B50029E33B /* Taps */ = {
 			isa = PBXGroup;
 			children = (
+				63DBAA4C2C2620FA00F5D50A /* Parse Tap Info.swift */,
 				63A96F6D2AA4B3D90029E33B /* Add Tap.swift */,
 				63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */,
 			);
@@ -1829,7 +1825,6 @@
 		63DBAA482C2620A500F5D50A /* Tap Info Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				63DBAA4C2C2620FA00F5D50A /* Parse Tap Info.swift */,
 			);
 			path = "Tap Info Parsing";
 			sourceTree = "<group>";
@@ -1963,6 +1958,14 @@
 				63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */,
 			);
 			path = "Incremental Updating";
+			sourceTree = "<group>";
+		};
+		63E9A6212C49C9B60096CB57 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 		63FD6C322BF023990015A672 /* Modification */ = {
@@ -2201,7 +2204,6 @@
 				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
 				63FFEF5029CB5EEE00D6FFC4 /* Displayable Alerts.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
-				6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
@@ -2218,6 +2220,7 @@
 				63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */,
 				637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */,
 				632C9A212BFE62D0000912CD /* Install Process Custom Search Field.swift in Sources */,
+				63E9A6232C49C9C40096CB57 /* Load Up Package Info.swift in Sources */,
 				63006E1929AD215000243E29 /* Get Caveats.swift in Sources */,
 				633289ED29A68B1E004B2930 /* Installation Progress Tracker.swift in Sources */,
 				637D53912BAB514400E072DA /* Services Sidebar.swift in Sources */,
@@ -2309,6 +2312,7 @@
 				63A8D2F129CA343F00E892FB /* Save Tagged IDs to Disk.swift in Sources */,
 				6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
+				63E9A6202C49C79A0096CB57 /* Brew Package Details.swift in Sources */,
 				6386529E2A88F1070001679E /* Send Notification.swift in Sources */,
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
 				63FD6C342BF023C90015A672 /* Start Service.swift in Sources */,
