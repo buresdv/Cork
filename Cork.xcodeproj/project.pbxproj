@@ -129,7 +129,6 @@
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
-		637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637410AD2ABB751B00B7915A /* Get Compatibility.swift */; };
 		63771DF62BB5C03500A53B93 /* Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63771DF52BB5C03500A53B93 /* Corrupted Package.swift */; };
 		637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637A7A1D2BAB8A270013667C /* View - On Window Close.swift */; };
 		637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */; };
@@ -436,7 +435,6 @@
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
-		637410AD2ABB751B00B7915A /* Get Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Compatibility.swift"; sourceTree = "<group>"; };
 		63771DF52BB5C03500A53B93 /* Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Corrupted Package.swift"; sourceTree = "<group>"; };
 		637A7A1D2BAB8A270013667C /* View - On Window Close.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - On Window Close.swift"; sourceTree = "<group>"; };
 		637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Homebrew Services View.swift"; sourceTree = "<group>"; };
@@ -630,7 +628,6 @@
 		63006E0329ACC54900243E29 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				63DBAA492C2620AE00F5D50A /* Package Info Parsing */,
 				63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */,
 			);
 			path = JSON;
@@ -1806,22 +1803,6 @@
 			path = Searching;
 			sourceTree = "<group>";
 		};
-		63DBAA492C2620AE00F5D50A /* Package Info Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				63DBAA4A2C2620C600F5D50A /* Legacy */,
-			);
-			path = "Package Info Parsing";
-			sourceTree = "<group>";
-		};
-		63DBAA4A2C2620C600F5D50A /* Legacy */ = {
-			isa = PBXGroup;
-			children = (
-				637410AD2ABB751B00B7915A /* Get Compatibility.swift */,
-			);
-			path = Legacy;
-			sourceTree = "<group>";
-		};
 		63DBAA4E2C26220C00F5D50A /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -2357,7 +2338,6 @@
 				635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
-				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */,

@@ -33,6 +33,7 @@ extension BrewPackage
 {
     private struct PackageCommandOutput: Codable
     {
+        // MARK: - Formulae
         struct Formulae: Codable
         {
             /// Name of the formula
@@ -107,6 +108,7 @@ extension BrewPackage
             /// Whether the package is pinned
             let pinned: Bool
 
+            // MARK: - Formuale functions
             func extractDependencies() -> [BrewPackageDependency]?
             {
                 let allDependencies = self.installed.flatMap
@@ -141,6 +143,7 @@ extension BrewPackage
             }
         }
 
+        // MARK: - Casks
         struct Casks: Codable
         {
             /// Name of the cask
@@ -272,15 +275,13 @@ extension BrewPackage
                     throw BrewPackageInfoLoadingError.couldNotRetrievePackageFromOutput
                 }
 
-                let dependencies: [BrewPackageDependency]? = formulaInfo.extractDependencies()
-
                 return .init(
                     name: formulaInfo.name,
                     description: formulaInfo.desc,
                     homepage: formulaInfo.homepage,
                     tap: .init(name: formulaInfo.tap),
                     installedAsDependency: formulaInfo.installed.first?.installedAsDependency ?? false,
-                    dependencies: dependencies,
+                    dependencies: formulaInfo.extractDependencies(),
                     outdated: formulaInfo.outdated,
                     caveats: formulaInfo.caveats,
                     pinned: formulaInfo.pinned, 
