@@ -1543,6 +1543,7 @@
       }
     },
     "about.packages.2.name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1607,6 +1608,7 @@
       }
     },
     "about.packages.2.purpose" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
