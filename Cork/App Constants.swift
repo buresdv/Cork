@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 import UserNotifications
 import OSLog
 
