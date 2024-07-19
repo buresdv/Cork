@@ -4335,7 +4335,6 @@
       }
     },
     "action.report-bugs.email" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4400,7 +4399,6 @@
       }
     },
     "action.report-bugs.git-hub" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4466,7 +4464,6 @@
     },
     "action.report-bugs.menu-category" : {
       "comment" : "MARK: - Bug Reporting",
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4848,8 +4845,10 @@
         }
       }
     },
+    "action.show-terminal-output" : {
+
+    },
     "action.submit-feedback" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -6112,6 +6111,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隱藏詳細訊息"
+          }
+        }
+      }
+    },
+    "add-package.install.installation-terminated.subheadline" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
+          }
+        }
+      }
+    },
+    "add-package.install.installation-terminated.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package installation terminated unexpextedly"
           }
         }
       }
