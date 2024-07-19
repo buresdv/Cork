@@ -77,16 +77,6 @@ struct ServiceDetailView: View
             {
                 
                 erroredOutWhileLoadingServiceDetails = true
-                
-                // TODO: Implement this
-                if servicesLoadingError is JSONError
-                {
-                    
-                }
-                else if servicesLoadingError is HomebrewServiceLoadingError
-                {
-                    
-                }
             }
         }
         .onDisappear

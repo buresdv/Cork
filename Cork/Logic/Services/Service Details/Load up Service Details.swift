@@ -49,7 +49,7 @@ extension HomebrewService
         {
             AppConstants.logger.error("Parsing of service details of service \(self.name) failed: \(parsingError)")
             
-            throw JSONError.parsingFailed(parsingError.localizedDescription)
+            throw HomebrewServiceLoadingError.servicesParsingFailed
         }
     }
 }

@@ -82,7 +82,7 @@ extension ServicesTracker
         {
             AppConstants.logger.error("Parsing of Homebrew services failed: \(servicesParsingError)")
             
-            throw JSONError.parsingFailed(nil)
+            throw HomebrewServiceLoadingError.servicesParsingFailed
         }
     }
 }
