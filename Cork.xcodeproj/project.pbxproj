@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */; };
-		63006E0029AC073D00243E29 /* Parse Tap Info JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */; };
 		63006E0D29ACC78400243E29 /* Package Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0C29ACC78400243E29 /* Package Dependency.swift */; };
 		63006E1729AD143D00243E29 /* Dependency List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1629AD143D00243E29 /* Dependency List.swift */; };
 		630640C62C25C1B200922977 /* Get Outdated Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630640C52C25C1B200922977 /* Get Outdated Packages.swift */; };
@@ -163,7 +162,6 @@
 		639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */; };
 		6392FD132A921BAB00711B92 /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392FD122A921BAB00711B92 /* Initial.swift */; };
 		6392FD152A921D5100711B92 /* Searching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392FD142A921D5100711B92 /* Searching.swift */; };
-		63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 63936A4A29AE09D00069C988 /* SwiftyJSON */; };
 		63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63936A4C29AE6D710069C988 /* Package Caveats.swift */; };
 		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
@@ -311,7 +309,6 @@
 
 /* Begin PBXFileReference section */
 		63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisclosureGroup - No Padding.swift"; sourceTree = "<group>"; };
-		63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Tap Info JSON.swift"; sourceTree = "<group>"; };
 		63006E0C29ACC78400243E29 /* Package Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Dependency.swift"; sourceTree = "<group>"; };
 		63006E1629AD143D00243E29 /* Dependency List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency List.swift"; sourceTree = "<group>"; };
 		630640C52C25C1B200922977 /* Get Outdated Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Outdated Packages.swift"; sourceTree = "<group>"; };
@@ -599,7 +596,6 @@
 			files = (
 				63689FB62ACFF18900BD354C /* LaunchAtLogin in Frameworks */,
 				63603BA92BBC1C9F0083AEDB /* DavidFoundation in Frameworks */,
-				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,14 +617,6 @@
 				631145482BF22633007C9A65 /* Gauge - Mini Gauge.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		63006E0329ACC54900243E29 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 		63006E0B29ACC76F00243E29 /* Packages */ = {
@@ -930,7 +918,6 @@
 				63690F7929C9FBEA008F952C /* Tagging */,
 				63690F7829C9FBCE008F952C /* File System */,
 				63A38B9129BA0AE60080158C /* Updating and Upgrading */,
-				63006E0329ACC54900243E29 /* JSON */,
 				63D51F6F299ABA5100203F3F /* Maintenance */,
 				63D2B0862997F5240084E223 /* Package Loading */,
 				63A87463298FE7E4009F9533 /* Search */,
@@ -1990,7 +1977,6 @@
 			);
 			name = Cork;
 			packageProductDependencies = (
-				63936A4A29AE09D00069C988 /* SwiftyJSON */,
 				63689FB52ACFF18900BD354C /* LaunchAtLogin */,
 				63603BA82BBC1C9F0083AEDB /* DavidFoundation */,
 			);
@@ -2051,7 +2037,6 @@
 			);
 			mainGroup = 634065582871AA42001A2178;
 			packageReferences = (
-				63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 				63603BA72BBC1C9F0083AEDB /* XCRemoteSwiftPackageReference "DavidFoundation" */,
 			);
@@ -2283,7 +2268,6 @@
 				6387A6782AE9257800517436 /* Tap Features Category.swift in Sources */,
 				63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */,
 				63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */,
-				63006E0029AC073D00243E29 /* Parse Tap Info JSON.swift in Sources */,
 				637260C029BE388F00E6E81C /* Tap Details.swift in Sources */,
 				6387A6762AE9256600517436 /* Package Features Category.swift in Sources */,
 				63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */,
@@ -2846,14 +2830,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2866,11 +2842,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
 			productName = LaunchAtLogin;
-		};
-		63936A4A29AE09D00069C988 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -114,8 +114,6 @@ struct SearchResultRow: View, Sendable
                     async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", searchedForPackage.name]).standardOutput
                     do
                     {
-                        let descriptionJSON = try await parseJSON(from: descriptionRaw)
-
                         let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
                         
                         do

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 enum TopPackageLoadingError: LocalizedError
 {
