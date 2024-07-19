@@ -9,7 +9,7 @@ import Foundation
 
 enum BrewPackageInfoLoadingError: LocalizedError
 {
-    case didNotGetAnyTerminalOutput, standardErrorNotEmpty, couldNotConvertOutputToData, couldNotRetrievePackageFromOutput
+    case didNotGetAnyTerminalOutput, standardErrorNotEmpty(presentError: String), couldNotConvertOutputToData, couldNotRetrievePackageFromOutput, couldNotDecodeOutput
 }
 
 extension BrewPackage
@@ -103,7 +103,7 @@ extension BrewPackage
 
     /// Load package details
     @MainActor
-    func loadDetails() async throws -> BrewPackageDetails?
+    func loadDetails() async throws -> BrewPackageDetails
     {
         let decoder: JSONDecoder =
         {
@@ -138,7 +138,7 @@ extension BrewPackage
         {
             AppConstants.logger.error("Standard error of the package details loading function is not empty")
 
-            throw BrewPackageInfoLoadingError.standardErrorNotEmpty
+            throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardError)
         }
 
         guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
@@ -211,8 +211,10 @@ extension BrewPackage
             }
         }
         catch let brewDetailsLoadingError
-        {}
-
-        return nil
+        {
+            AppConstants.logger.error("Failed while decoding package info: \(brewDetailsLoadingError)")
+            
+            throw BrewPackageInfoLoadingError.couldNotDecodeOutput
+        }
     }
 }
