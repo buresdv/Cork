@@ -51,8 +51,8 @@ extension DisplayableAlert
             return String(localized: "alert.notifications-error-while-obtaining-permissions.message")
         case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
             return String(localized: "alert.notification-could-not-remove-tap-due-to-packages-from-it-still-being-installed.message-\(offendingTapProhibitingRemovalOfTap)")
-        case .couldNotParseTopPackages:
-            return String(localized: "alert.notifications-error-while-parsing-top-packages.message")
+        case .couldNotParseTopPackages(let errorMessage):
+            return errorMessage
         case .receivedInvalidResponseFromBrew:
             return String(localized: "alert.notifications-error-while-getting-top-package.message")
         case .topPackageArrayFilterCouldNotRetrieveAnyPackages:

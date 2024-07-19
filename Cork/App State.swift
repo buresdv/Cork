@@ -141,10 +141,6 @@ class AppState: ObservableObject
         sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
     
-    func setCouldNotParseTopPackages() {
-        showAlert(errorToShow: .couldNotParseTopPackages)
-    }
-    
     func loadCachedDownloadedPackages() async
     {
         let smallestDispalyableSize: Int = Int(self.cachedDownloadsFolderSize / 50)

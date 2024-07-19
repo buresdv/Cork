@@ -4846,7 +4846,14 @@
       }
     },
     "action.show-terminal-output" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Terminal output"
+          }
+        }
+      }
     },
     "action.submit-feedback" : {
       "localizations" : {
@@ -13172,7 +13179,14 @@
       }
     },
     "error.package-details.couldnt-pin-unpin" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured during the pinning process"
+          }
+        }
+      }
     },
     "error.package-loading-couldnt-get-package-from-parsed-output" : {
       "localizations" : {
@@ -13200,6 +13214,58 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew returned JSON with the following error:\n%@"
+          }
+        }
+      }
+    },
+    "error.top-packages.could-not-decode-casks" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't decode top casks"
+          }
+        }
+      }
+    },
+    "error.top-packages.could-not-decode-casks.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "error.top-packages.could-not-decode-formulae" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't decode top formulae"
+          }
+        }
+      }
+    },
+    "error.top-packages.could-not-decode-formulae.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "error.top-packages.could-not-download-data" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't download top packages"
           }
         }
       }

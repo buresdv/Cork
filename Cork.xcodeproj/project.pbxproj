@@ -260,7 +260,6 @@
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
 		63E9A6202C49C79A0096CB57 /* Brew Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */; };
 		63E9A6232C49C9C40096CB57 /* Load Up Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */; };
-		63E9A6252C4AF1780096CB57 /* Check Package Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6242C4AF1780096CB57 /* Check Package Compatibility.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
 		63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
@@ -566,7 +565,6 @@
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
 		63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Package Details.swift"; sourceTree = "<group>"; };
 		63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load Up Package Info.swift"; sourceTree = "<group>"; };
-		63E9A6242C4AF1780096CB57 /* Check Package Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Check Package Compatibility.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
 		63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo - CPU Architecture.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
@@ -1464,7 +1462,6 @@
 			isa = PBXGroup;
 			children = (
 				63A87464298FE7FC009F9533 /* Search for Package.swift */,
-				63E9A6242C4AF1780096CB57 /* Check Package Compatibility.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -2372,7 +2369,6 @@
 				63405A4D2C02800800C6E0F2 /* Minimal Homebrew Package.swift in Sources */,
 				633AA2242AFEE40500A5F3E3 /* Data File.swift in Sources */,
 				63ACBBF32BA8D47100B26D7E /* Date - Make Saveable in AppStorage.swift in Sources */,
-				63E9A6252C4AF1780096CB57 /* Check Package Compatibility.swift in Sources */,
 				633AA2202AFEDD9100A5F3E3 /* Export Brewfile.swift in Sources */,
 				63405A592C028BF400C6E0F2 /* Get Installed Casks Intent.swift in Sources */,
 				6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */,

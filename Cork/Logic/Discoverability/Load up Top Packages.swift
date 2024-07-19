@@ -8,117 +8,163 @@
 import Foundation
 import SwiftyJSON
 
-enum URLEncodingError: Error
+enum TopPackageLoadingError: LocalizedError
 {
-    case failedToEncodeEndpointURL
-}
-enum PackageParsingError: Error
-{
-    case couldNotParseHomebrewResponse
+    case couldNotDownloadData, couldNotDecodeTopFormulae(error: String), couldNotDecodeTopCasks(error: String)
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .couldNotDownloadData:
+                return String(localized: "error.top-packages.could-not-download-data")
+            case .couldNotDecodeTopFormulae(let error):
+                return String(localized: "error.top-packages.could-not-decode-formulae.\(error)")
+            case .couldNotDecodeTopCasks(let error):
+                return String(localized: "error.top-packages.could-not-decode-casks.\(error)")
+        }
+    }
 }
 
-func loadUpTopPackages(numberOfDays: Int = 30, isCask: Bool, appState: AppState) async throws -> [TopPackage]
+extension TopPackagesTracker
 {
-    
-    var statsURL: URL?
-    
-    if !isCask
+    func loadTopPackages(numberOfDays: Int = 30, appState: AppState) async
     {
-        statsURL = URL(string: "https://formulae.brew.sh/api/analytics/install/homebrew-core/\(numberOfDays)d.json")!
-    }
-    else
-    {
-        statsURL = URL(string: "https://formulae.brew.sh/api/analytics/cask-install/homebrew-cask/\(numberOfDays)d.json")!
-    }
-    
-    do
-    {
-        if let statsURL
+        /// The magic number here is the result of 1000/30, a base limit for 30 days: If the user selects the number of days to be 30, only show packages with more than 1000 downloads
+        let packageDownloadsCutoff: Int = 33 * numberOfDays
+
+        let decoder: JSONDecoder =
         {
-            let brewBackendResponse = try await downloadDataFromURL(statsURL)
+            let decoder: JSONDecoder = .init()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            return decoder
+        }()
+        
+        async let topFormulae: [TopPackage] = await loadTopFormulae(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
+        async let topCasks: [TopPackage] = await loadTopCasks(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
+        
+        do
+        {
+            self.topFormulae = try await topFormulae
+        } catch let topFormulaeLoadingError
+        {
+            appState.showAlert(errorToShow: .couldNotParseTopPackages(error: topFormulaeLoadingError.localizedDescription))
+            appState.failedWhileLoadingTopPackages = true
+        }
+        
+        do
+        {
+            self.topCasks = try await topCasks
+        } catch let topCasksLoadingError
+        {
+            appState.showAlert(errorToShow: .couldNotParseTopPackages(error: topCasksLoadingError.localizedDescription))
+            appState.failedWhileLoadingTopPackages = true
+        }
+    }
+
+    // MARK: - Loading top formulae
+    private func loadTopFormulae(numberOfDays: Int, downloadsCutoff: Int, decoder: JSONDecoder) async throws -> [TopPackage]
+    {
+        struct TopFormulaeOutput: Codable
+        {
+            struct Items: Codable
+            {
+                /// Name of the formula
+                let formula: String
+
+                /// Number of downloads, as String
+                let count: String
+            }
+
+            /// The formulae themselves
+            let items: [Items]
+        }
+
+        let statsURL: URL = .init(string: "https://formulae.brew.sh/api/analytics/install/\(numberOfDays)d.json")!
+
+        do
+        {
+            let jsonResponse: Data = try await downloadDataFromURL(statsURL)
             
             do
             {
-                let parsedPackages = try await parseDownloadedTopPackageData(data: brewBackendResponse, isCask: isCask, numberOfDays: numberOfDays)
+                let decodedTopFormulae: TopFormulaeOutput = try decoder.decode(TopFormulaeOutput.self, from: jsonResponse)
                 
-                return parsedPackages
+                return decodedTopFormulae.items.compactMap { rawTopFormula in
+                    let normalizedDownloadNumber: Int = Int(rawTopFormula.count.replacingOccurrences(of: ",", with: "")) ?? 0
+                    
+                    if normalizedDownloadNumber > downloadsCutoff
+                    {
+                        return .init(packageName: rawTopFormula.formula, packageDownloads: normalizedDownloadNumber)
+                    }
+                    else
+                    {
+                        return nil
+                    }
+                }
             }
-            catch let packageParsingError
+            catch let topFormulaeDecodingError
             {
-                AppConstants.logger.error("Failed while parsing top packages: \(packageParsingError, privacy: .public)")
-                await appState.setCouldNotParseTopPackages()
-                
-                throw packageParsingError
+                AppConstants.logger.error("Failed while decoding top formulae: \(topFormulaeDecodingError)")
+                throw TopPackageLoadingError.couldNotDecodeTopFormulae(error: topFormulaeDecodingError.localizedDescription)
             }
         }
-        else
+        catch let dataDownloadingError
         {
-            throw URLEncodingError.failedToEncodeEndpointURL
+            AppConstants.logger.error("Failed while retrieving top formulae: \(dataDownloadingError)")
+            throw TopPackageLoadingError.couldNotDownloadData
         }
     }
-    catch let brewApiError as DataDownloadingError
-    {
-        switch brewApiError {
-            case .invalidResponseCode:
-                AppConstants.logger.warning("Received invalid response code from Brew")
-                
-                throw brewApiError
-            case .noDataReceived:
-                AppConstants.logger.warning("Received no data from Brew")
-                
-                throw brewApiError
-                
-            case .invalidURL:
-                print("Invalid URL")
-                
-                throw brewApiError
-        }
-    }
-}
 
-private func parseDownloadedTopPackageData(data: Data, isCask: Bool, numberOfDays: Int) async throws -> [TopPackage]
-{
-    /// The magic number here is the result of 1000/30, a base limit for 30 days: If the user selects the number of days to be 30, only show packages with more than 1000 downloads
-    let packageDownloadsCutoff: Int = 33 * numberOfDays
-    
-    AppConstants.logger.debug("Cutoff for package downloads: \(packageDownloadsCutoff, privacy: .public)")
-    
-    do
+    // MARK: - Loading top casks
+    private func loadTopCasks(numberOfDays: Int, downloadsCutoff: Int, decoder: JSONDecoder) async throws -> [TopPackage]
     {
-        var packageTracker: [TopPackage] = .init()
-        
-        let parsedJSON: JSON = try await parseJSON(from: data)
-        
-        AppConstants.logger.debug("Parsed JSON, time to decode")
-        
-        let packageArray = parsedJSON["formulae"]
-        
-        for packageDefinition in packageArray
+        struct TopCasksOutput: Codable
         {
-            /// formulaInfo is a tuple of (String: JSON)
-            /// First, we have to get the second element of the tuple (the JSON), then that is an array witg the formula info. However, there's only one element in it, so we choose it
-            let packageInfo = packageDefinition.1.arrayValue[0]
-            
-            let packageInfoAccessor: String = isCask ? "cask" : "formula"
-            
-            let packageInstalledCount: Int = Int(packageInfo["count"].stringValue.replacingOccurrences(of: ",", with: "")) ?? 696969
-            
-            /// Immediately throw away any package that has fewer than 1000 downloads to save on computing power
-            if packageInstalledCount > packageDownloadsCutoff
+            struct Items: Codable
             {
-                let packageName: String = packageInfo[packageInfoAccessor].stringValue
+                /// The name of the cask
+                let cask: String
                 
-                packageTracker.append(TopPackage(packageName: packageName, packageDownloads: packageInstalledCount))
+                /// Number of downloads, as String
+                let count: String
             }
             
+            /// The casks themselves
+            let items: [Items]
         }
         
-        return packageTracker
-    }
-    catch let JSONParsingError
-    {
-        AppConstants.logger.error("Failed while parsing JSON: \(JSONParsingError.localizedDescription, privacy: .public)")
+        let statsURL: URL = .init(string: "https://formulae.brew.sh/api/analytics/cask-install/\(numberOfDays)d.json")!
         
-        throw JSONParsingError
+        do
+        {
+            let jsonResponse: Data = try await downloadDataFromURL(statsURL)
+            
+            do
+            {
+                let decodedTopCasks: TopCasksOutput = try decoder.decode(TopCasksOutput.self, from: jsonResponse)
+                
+                return decodedTopCasks.items.compactMap { rawTopCask in
+                    let normalizedDownloadNumber: Int = Int(rawTopCask.count.replacingOccurrences(of: ",", with: "")) ?? 0
+                    
+                    if normalizedDownloadNumber > downloadsCutoff
+                    {
+                        return .init(packageName: rawTopCask.cask, packageDownloads: normalizedDownloadNumber)
+                    }
+                    else
+                    {
+                        return nil
+                    }
+                }
+            } catch let topCasksDecodingError
+            {
+                AppConstants.logger.error("Failed while decoding top casks: \(topCasksDecodingError)")
+                throw TopPackageLoadingError.couldNotDecodeTopCasks(error: topCasksDecodingError.localizedDescription)
+            }
+        } catch let dataDownloadingError
+        {
+            AppConstants.logger.error("Failed while retrieving top casks: \(dataDownloadingError)")
+            throw TopPackageLoadingError.couldNotDownloadData
+        }
     }
 }
