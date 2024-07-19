@@ -9,12 +9,29 @@ import Foundation
 
 enum BrewPackageInfoLoadingError: LocalizedError
 {
-    case didNotGetAnyTerminalOutput, standardErrorNotEmpty(presentError: String), couldNotConvertOutputToData, couldNotRetrievePackageFromOutput, couldNotDecodeOutput
+    case didNotGetAnyTerminalOutput, standardErrorNotEmpty(presentError: String), couldNotConvertOutputToData, couldNotRetrievePackageFromOutput, couldNotDecodeOutput(presentError: String)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .didNotGetAnyTerminalOutput:
+            return String(localized: "error.package-loading.no-terminal-output-returned")
+        case .standardErrorNotEmpty(let presentError):
+            return String(localized: "error.package-loading.standard-error-not-empty.\(presentError)")
+        case .couldNotConvertOutputToData:
+            return String(localized: "error.generic.couldnt-convert-string-to-data")
+        case .couldNotRetrievePackageFromOutput:
+            return String(localized: "error.package-loading-couldnt-get-package-from-parsed-output")
+        case .couldNotDecodeOutput(let presentError):
+            return String(localized: "error.generic-couldnt-decode-json.\(presentError)")
+        }
+    }
 }
 
 extension BrewPackage
 {
-    fileprivate struct PackageCommandOutput: Codable
+    private struct PackageCommandOutput: Codable
     {
         struct Formulae: Codable
         {
@@ -60,13 +77,31 @@ extension BrewPackage
             }
 
             /// Various info about the installation
-            let installed: Installed
+            let installed: [Installed]
 
             /// Whether the package is outdated
             let outdated: Bool
 
             /// Whether the package is pinned
             let pinned: Bool?
+
+            func extractDependencies() -> [BrewPackageDependency]?
+            {
+                let allDependencies = self.installed.flatMap
+                { installed in
+                    installed.runtimeDependencies ?? []
+                }
+
+                if allDependencies.isEmpty
+                {
+                    return nil
+                }
+
+                return allDependencies.map
+                { dependency in
+                    .init(name: dependency.fullName, version: dependency.version, directlyDeclared: dependency.declaredDirectly)
+                }
+            }
         }
 
         struct Casks: Codable
@@ -99,6 +134,34 @@ extension BrewPackage
 
         let formulae: [Formulae]?
         let casks: [Casks]?
+
+        /// Extract dependencies from the struct so they can be used
+        func extractDependencies() -> [BrewPackageDependency]?
+        {
+            guard let formulae = self.formulae
+            else
+            {
+                return nil
+            }
+
+            let allDependencies = formulae.flatMap
+            { formula in
+                formula.installed.flatMap
+                { installed in
+                    installed.runtimeDependencies ?? []
+                }
+            }
+
+            if allDependencies.isEmpty
+            {
+                return nil
+            }
+
+            return allDependencies.map
+            { dependency in
+                .init(name: dependency.fullName, version: dependency.version, directlyDeclared: dependency.declaredDirectly)
+            }
+        }
     }
 
     /// Load package details
@@ -136,9 +199,18 @@ extension BrewPackage
 
         if !rawOutput.standardError.isEmpty
         {
-            AppConstants.logger.error("Standard error of the package details loading function is not empty")
+            AppConstants.logger.warning("Standard error of the package details loading function is not empty. Will investigate if the error can be ignored.")
 
-            throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardError)
+            if rawOutput.standardError.range(of: "(T|t)reating.*as a (formula|cask)", options: .regularExpression) != nil
+            {
+                AppConstants.logger.notice("The error of package details loading function was not serious enough to throw an error. Ignoring.")
+            }
+            else
+            {
+                AppConstants.logger.error("Error was serious enough to throw an error")
+
+                throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardError)
+            }
         }
 
         guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
@@ -166,20 +238,14 @@ extension BrewPackage
                     throw BrewPackageInfoLoadingError.couldNotRetrievePackageFromOutput
                 }
 
-                let dependencies: [BrewPackageDependency]? = formulaInfo.installed.runtimeDependencies.map
-                { rawDependency in
-                    rawDependency.map
-                    { rawDependency in
-                        .init(name: rawDependency.fullName, version: rawDependency.version, directlyDeclared: rawDependency.declaredDirectly)
-                    }
-                }
+                let dependencies: [BrewPackageDependency]? = formulaInfo.extractDependencies()
 
                 return .init(
                     name: formulaInfo.name,
                     description: formulaInfo.desc,
                     homepage: formulaInfo.homepage,
                     tap: .init(name: formulaInfo.tap),
-                    installedAsDependency: formulaInfo.installed.installedAsDependency,
+                    installedAsDependency: formulaInfo.installed.first?.installedAsDependency ?? false,
                     packageDependents: nil,
                     dependencies: dependencies,
                     outdated: formulaInfo.outdated,
@@ -213,8 +279,8 @@ extension BrewPackage
         catch let brewDetailsLoadingError
         {
             AppConstants.logger.error("Failed while decoding package info: \(brewDetailsLoadingError)")
-            
-            throw BrewPackageInfoLoadingError.couldNotDecodeOutput
+
+            throw BrewPackageInfoLoadingError.couldNotDecodeOutput(presentError: brewDetailsLoadingError.localizedDescription)
         }
     }
 }

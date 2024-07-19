@@ -34,7 +34,7 @@ struct PackageDetailView: View, Sendable
 
     @State var isShowingPopover: Bool = false
 
-    @State private var erroredOut: Bool = false
+    @State private var erroredOut: (isShowingError: Bool, errorDescription: String?) = (false, nil)
 
     private var isScrollingDisabled: Bool
     {
@@ -72,9 +72,9 @@ struct PackageDetailView: View, Sendable
             }
             else
             {
-                if erroredOut
+                if erroredOut.isShowingError
                 {
-                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json")
+                    InlineFatalError(errorMessage: "error.generic.unexpected-homebrew-response", errorDescription: erroredOut.errorDescription)
                 }
                 else
                 {
@@ -136,6 +136,8 @@ struct PackageDetailView: View, Sendable
 
             do
             {
+                let newDetails: BrewPackageDetails = try await package.loadDetails()
+                
                 let parsedJSON: JSON = try parseJSON(from: packageInfoRaw!)
 
                 description = getPackageDescriptionFromJSON(json: parsedJSON, package: package)
@@ -166,7 +168,7 @@ struct PackageDetailView: View, Sendable
             {
                 AppConstants.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
-                erroredOut = true
+                erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }
         }
     }

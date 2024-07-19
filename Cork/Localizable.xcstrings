@@ -13141,6 +13141,66 @@
         }
       }
     },
+    "error.generic-couldnt-decode-json.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't decode JSON response from Homebrew:\n%@"
+          }
+        }
+      }
+    },
+    "error.generic.couldnt-convert-string-to-data" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't convert JSON response from Homebrew to Data"
+          }
+        }
+      }
+    },
+    "error.generic.unexpected-homebrew-response" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid Homebrew response"
+          }
+        }
+      }
+    },
+    "error.package-loading-couldnt-get-package-from-parsed-output" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load package from JSON response from Homebrew"
+          }
+        }
+      }
+    },
+    "error.package-loading.no-terminal-output-returned" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew didn't respond"
+          }
+        }
+      }
+    },
+    "error.package-loading.standard-error-not-empty.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew returned JSON with the following error:\n%@"
+          }
+        }
+      }
+    },
     "generic.false" : {
       "localizations" : {
         "cs" : {
