@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */; };
 		63006E0029AC073D00243E29 /* Parse Tap Info JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */; };
-		63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0529ACC56800243E29 /* Get Package Description.swift */; };
 		63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0729ACC60F00243E29 /* Get Package Homepage.swift */; };
 		63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */; };
 		63006E0D29ACC78400243E29 /* Package Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0C29ACC78400243E29 /* Package Dependency.swift */; };
@@ -322,7 +321,6 @@
 /* Begin PBXFileReference section */
 		63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisclosureGroup - No Padding.swift"; sourceTree = "<group>"; };
 		63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Tap Info JSON.swift"; sourceTree = "<group>"; };
-		63006E0529ACC56800243E29 /* Get Package Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Description.swift"; sourceTree = "<group>"; };
 		63006E0729ACC60F00243E29 /* Get Package Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Homepage.swift"; sourceTree = "<group>"; };
 		63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Dependencies.swift"; sourceTree = "<group>"; };
 		63006E0C29ACC78400243E29 /* Package Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Dependency.swift"; sourceTree = "<group>"; };
@@ -1841,7 +1839,6 @@
 		63DBAA4A2C2620C600F5D50A /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
-				63006E0529ACC56800243E29 /* Get Package Description.swift */,
 				63006E0729ACC60F00243E29 /* Get Package Homepage.swift */,
 				63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */,
 				63006E0E29ACCBA400243E29 /* Get Package Tap.swift */,
@@ -2317,7 +2314,6 @@
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
 				63FD6C342BF023C90015A672 /* Start Service.swift in Sources */,
 				637057442C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift in Sources */,
-				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				637D53962BAB517800E072DA /* Service.swift in Sources */,
 				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,
 				63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */,

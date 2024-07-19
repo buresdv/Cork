@@ -104,6 +104,11 @@ struct SearchResultRow: View, Sendable
 
                 if description.isEmpty
                 {
+                    defer
+                    {
+                        isLoadingDescription = false
+                    }
+                    
                     AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
 
                     async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", searchedForPackage.name]).standardOutput
@@ -111,16 +116,27 @@ struct SearchResultRow: View, Sendable
                     {
                         let descriptionJSON = try await parseJSON(from: descriptionRaw)
 
-                        isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
+                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
+                        
+                        do
+                        {
+                            let parsedPackageInfo: BrewPackageDetails = try await searchedForPackage.loadDetails()
+                            
+                            description = parsedPackageInfo.description
+                            
+                            isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
+                        }
+                        catch let descriptionParsingError
+                        { // This happens when a package doesn' have any description at all, hence why we don't display an error
+                            AppConstants.logger.error("Failed while parsing searched-for package info: \(descriptionParsingError.localizedDescription, privacy: .public)")
+                        }
 
-                        description = getPackageDescriptionFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
-
-                        isLoadingDescription = false
                     }
                     catch let descriptionJSONRetrievalError
                     {
                         AppConstants.logger.error("Failed while retrieving description JSON: \(descriptionJSONRetrievalError, privacy: .public)")
-                        isLoadingDescription = false
+                        
+                        descriptionParsingFailed = true
                     }
                 }
                 else
