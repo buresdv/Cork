@@ -10,14 +10,10 @@ import SwiftUI
 struct PackageDetailHeaderComplex: View
 {
     let package: BrewPackage
+    let packageDetails: BrewPackageDetails
 
-    let description: String
-    let pinned: Bool
-    let installedAsDependency: Bool
     let packageDependents: [String]?
-    let outdated: Bool
-    let caveats: String?
-
+    
     let isLoadingDetails: Bool
 
     var body: some View
@@ -32,10 +28,18 @@ struct PackageDetailHeaderComplex: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                if pinned
+                if let pinned = packageDetails.pinned
                 {
-                    Image(systemName: "pin.fill")
-                        .help("package-details.pinned.help-\(package.name)")
+                    if pinned
+                    {
+                        Image(systemName: "pin.fill")
+                            .help("package-details.pinned.help-\(package.name)")
+                    }
+                }
+                else
+                {
+                    Image("custom.pin.fill.questionmark")
+                        .help("package-details.pinned.undetermined.help-\(package.name)")
                 }
             }
 
@@ -43,7 +47,7 @@ struct PackageDetailHeaderComplex: View
             {
                 HStack(alignment: .center, spacing: 5)
                 {
-                    if installedAsDependency
+                    if packageDetails.installedAsDependency
                     {
                         if let packageDependents
                         {
@@ -66,19 +70,19 @@ struct PackageDetailHeaderComplex: View
                             }, color: Color(nsColor: NSColor.tertiaryLabelColor))
                         }
                     }
-                    if outdated
+                    if packageDetails.outdated
                     {
                         OutlinedPillText(text: "package-details.outdated", color: .orange)
                     }
 
-                    PackageCaveatMinifiedDisplayView(caveats: caveats)
+                    PackageCaveatMinifiedDisplayView(caveats: packageDetails.caveats)
                 }
 
                 if !isLoadingDetails
                 {
-                    if !description.isEmpty
+                    if !packageDetails.description.isEmpty
                     {
-                        Text(description)
+                        Text(packageDetails.description)
                             .font(.subheadline)
                     }
                     else

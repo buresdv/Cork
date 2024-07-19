@@ -23383,6 +23383,9 @@
         }
       }
     },
+    "package-details.pinned.undetermined.help-%@" : {
+
+    },
     "package-details.size" : {
       "localizations" : {
         "cs" : {

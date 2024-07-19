@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BrewPackageDetails: Hashable
+struct BrewPackageDetails: Hashable, Sendable
 {
     /// Name of the package
     let name: String
@@ -17,16 +17,8 @@ struct BrewPackageDetails: Hashable
     var homepage: URL
     var tap: BrewTap
     var installedAsDependency: Bool
-    var packageDependents: [String]?
     var dependencies: [BrewPackageDependency]?
     var outdated: Bool
     var caveats: String?
     var pinned: Bool?
-    
-    mutating func loadDependants() async
-    {
-        let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", self.name]).standardOutput
-        
-        packageDependents = packageDependentsRaw.components(separatedBy: "\n").dropLast()
-    }
 }
