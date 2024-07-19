@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftyJSON
 
 struct PackageDetailView: View, Sendable
 {
