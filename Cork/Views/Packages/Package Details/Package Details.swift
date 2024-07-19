@@ -18,13 +18,12 @@ struct PackageDetailView: View, Sendable
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-
-    @State private var packageDependents: [String]? = nil
     
     @State private var isShowingExpandedDependencies: Bool = false
     @State private var isShowingExpandedCaveats: Bool = false
 
     @State private var isLoadingDetails: Bool = true
+    @State private var hasFailedWhileLoadingDependents: Bool = false
 
     @State var isShowingPopover: Bool = false
 
@@ -77,7 +76,6 @@ struct PackageDetailView: View, Sendable
                         BasicPackageInfoView(
                             package: package,
                             packageDetails: packageDetails!,
-                            packageDependents: packageDependents,
                             isLoadingDetails: isLoadingDetails,
                             isShowingExpandedCaveats: $isShowingExpandedCaveats
                         )
@@ -121,9 +119,7 @@ struct PackageDetailView: View, Sendable
                 {
                     if packageDetails.installedAsDependency
                     {
-                        let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", packageDetails.name]).standardOutput
-                        
-                        packageDependents = packageDependentsRaw.components(separatedBy: "\n").dropLast()
+                        await packageDetails.loadDependents()
                     }
                 }
             }

@@ -11,8 +11,6 @@ struct BasicPackageInfoView: View
 {
     let package: BrewPackage
     let packageDetails: BrewPackageDetails
-    
-    let packageDependents: [String]?
 
     let isLoadingDetails: Bool
 
@@ -51,8 +49,7 @@ struct BasicPackageInfoView: View
             {
                 PackageDetailHeaderComplex(
                     package: package,
-                    packageDetails: packageDetails, 
-                    packageDependents: packageDependents,
+                    packageDetails: packageDetails,
                     isLoadingDetails: isLoadingDetails
                 )
 

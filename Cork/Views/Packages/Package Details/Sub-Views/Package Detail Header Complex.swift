@@ -10,9 +10,7 @@ import SwiftUI
 struct PackageDetailHeaderComplex: View
 {
     let package: BrewPackage
-    let packageDetails: BrewPackageDetails
-
-    let packageDependents: [String]?
+    @ObservedObject var packageDetails: BrewPackageDetails
     
     let isLoadingDetails: Bool
 
@@ -28,18 +26,10 @@ struct PackageDetailHeaderComplex: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                if let pinned = packageDetails.pinned
+                if packageDetails.pinned
                 {
-                    if pinned
-                    {
-                        Image(systemName: "pin.fill")
-                            .help("package-details.pinned.help-\(package.name)")
-                    }
-                }
-                else
-                {
-                    Image("custom.pin.fill.questionmark")
-                        .help("package-details.pinned.undetermined.help-\(package.name)")
+                    Image(systemName: "pin.fill")
+                        .help("package-details.pinned.help-\(package.name)")
                 }
             }
 
@@ -49,7 +39,7 @@ struct PackageDetailHeaderComplex: View
                 {
                     if packageDetails.installedAsDependency
                     {
-                        if let packageDependents
+                        if let packageDependents = packageDetails.dependents
                         {
                             if packageDependents.count != 0 // This happens when the package was originally installed as a dependency, but the parent is no longer installed
                             {
@@ -62,8 +52,7 @@ struct PackageDetailHeaderComplex: View
                                 HStack(alignment: .center, spacing: 5)
                                 {
                                     ProgressView()
-                                        .scaleEffect(0.3, anchor: .center)
-                                        .frame(width: 5, height: 5)
+                                        .controlSize(.mini)
 
                                     Text("package-details.dependants.loading")
                                 }

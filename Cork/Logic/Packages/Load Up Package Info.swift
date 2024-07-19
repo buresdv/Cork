@@ -83,7 +83,7 @@ extension BrewPackage
             let outdated: Bool
 
             /// Whether the package is pinned
-            let pinned: Bool?
+            let pinned: Bool
 
             func extractDependencies() -> [BrewPackageDependency]?
             {
@@ -127,9 +127,6 @@ extension BrewPackage
 
             /// Caveats specified for the cask
             let caveats: String?
-
-            /// Whether the cask is pinned
-            let pinned: Bool?
         }
 
         let formulae: [Formulae]?
@@ -270,7 +267,7 @@ extension BrewPackage
                     dependencies: nil,
                     outdated: caskInfo.outdated,
                     caveats: caskInfo.caveats,
-                    pinned: caskInfo.pinned
+                    pinned: false
                 )
             }
         }

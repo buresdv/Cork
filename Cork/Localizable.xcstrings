@@ -13171,6 +13171,9 @@
         }
       }
     },
+    "error.package-details.couldnt-pin-unpin" : {
+
+    },
     "error.package-loading-couldnt-get-package-from-parsed-output" : {
       "localizations" : {
         "en" : {
@@ -23382,9 +23385,6 @@
           }
         }
       }
-    },
-    "package-details.pinned.undetermined.help-%@" : {
-
     },
     "package-details.size" : {
       "localizations" : {
