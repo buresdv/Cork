@@ -124,7 +124,7 @@ struct SearchResultRow: View, Sendable
                             
                             description = parsedPackageInfo.description
                             
-                            isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
+                            isCompatible = parsedPackageInfo.isCompatible
                         }
                         catch let descriptionParsingError
                         { // This happens when a package doesn' have any description at all, hence why we don't display an error

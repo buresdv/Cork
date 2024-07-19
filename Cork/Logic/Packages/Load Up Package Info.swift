@@ -78,6 +78,28 @@ extension BrewPackage
 
             /// Various info about the installation
             let installed: [Installed]
+            
+            struct Bottle: Codable
+            {
+                struct Stable: Codable
+                {
+                    struct FileInfo: Codable
+                    {
+                        let cellar: URL
+                        let url: URL
+                        let sha256: String
+                    }
+                    
+                    /// The individual files
+                    let files: [String: FileInfo]
+                }
+                
+                /// The stable files
+                let stable: Stable
+            }
+            
+            /// Info about the relevant files
+            let bottle: Bottle
 
             /// Whether the package is outdated
             let outdated: Bool
@@ -101,6 +123,21 @@ extension BrewPackage
                 { dependency in
                     .init(name: dependency.fullName, version: dependency.version, directlyDeclared: dependency.declaredDirectly)
                 }
+            }
+            
+            func getCompatibility() -> Bool
+            {
+                for compatibleSystem in self.bottle.stable.files.keys
+                {
+                    if compatibleSystem.contains(AppConstants.osVersionString.lookupName)
+                    {
+                        AppConstants.logger.debug("Package \(self.name) is compatible")
+                        return true
+                    }
+                }
+                
+                AppConstants.logger.debug("Package \(self.name) is NOT compatible")
+                return false
             }
         }
 
@@ -246,7 +283,8 @@ extension BrewPackage
                     dependencies: dependencies,
                     outdated: formulaInfo.outdated,
                     caveats: formulaInfo.caveats,
-                    pinned: formulaInfo.pinned
+                    pinned: formulaInfo.pinned, 
+                    isCompatible: formulaInfo.getCompatibility()
                 )
 
             case .cask:
@@ -267,7 +305,8 @@ extension BrewPackage
                     dependencies: nil,
                     outdated: caskInfo.outdated,
                     caveats: caskInfo.caveats,
-                    pinned: false
+                    pinned: false,
+                    isCompatible: true
                 )
             }
         }
