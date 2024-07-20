@@ -119,8 +119,20 @@ struct GeneralPane: View
                         {
                             Text("settings.general.outdated-packages.also-show-old-versions")
                         }
-                        .disabled(outdatedPackageInfoDisplayAmount == .none)
+                        .disabled(outdatedPackageInfoDisplayAmount != .versionOnly)
                         .padding([.leading])
+                        .onChange(of: outdatedPackageInfoDisplayAmount)
+                        { newValue in
+                            switch newValue
+                            {
+                                case .none:
+                                    showOldVersionsInOutdatedPackageList = false
+                                case .versionOnly:
+                                    break
+                                case .all:
+                                    showOldVersionsInOutdatedPackageList = true
+                            }
+                        }
                     }
                 } label: {
                     Text("settings.general.outdated-packages")

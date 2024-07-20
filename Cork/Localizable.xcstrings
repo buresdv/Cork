@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%@" : {
       "localizations" : {
         "cs" : {
@@ -40,16 +37,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
-          }
-        }
-      }
-    },
-    "%@ → %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ → %2$@"
           }
         }
       }
@@ -13130,6 +13117,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未知"
+          }
+        }
+      }
+    },
+    "general.package-name" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package Name"
           }
         }
       }
@@ -36046,6 +36044,16 @@
         }
       }
     },
+    "start-page.updates.installed-version" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installed Version"
+          }
+        }
+      }
+    },
     "start-page.updates.list" : {
       "localizations" : {
         "cs" : {
@@ -36170,6 +36178,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查看套件更新⋯"
+          }
+        }
+      }
+    },
+    "start-page.updates.newest-version" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Newest Version"
           }
         }
       }
