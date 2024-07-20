@@ -75,7 +75,7 @@ class BrewPackageDetails: ObservableObject
     {
         if self.pinned
         {
-            let pinResult = await shell(AppConstants.brewExecutablePath, ["pin", self.name])
+            let pinResult = await shell(AppConstants.brewExecutablePath, ["unpin", self.name])
 
             if !pinResult.standardError.isEmpty
             {
@@ -85,7 +85,7 @@ class BrewPackageDetails: ObservableObject
         }
         else
         {
-            let unpinResult = await shell(AppConstants.brewExecutablePath, ["unpin", self.name])
+            let unpinResult = await shell(AppConstants.brewExecutablePath, ["pin", self.name])
             if !unpinResult.standardError.isEmpty
             {
                 AppConstants.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")

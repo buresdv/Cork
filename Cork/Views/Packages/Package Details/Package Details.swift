@@ -89,13 +89,15 @@ struct PackageDetailView: View, Sendable
 
             Spacer()
 
-            /*
-            PackageModificationButtons(
-                package: package,
-                pinned: $pinned,
-                isLoadingDetails: isLoadingDetails
-            )
-             */
+            if packageDetails != nil
+            {
+                PackageModificationButtons(
+                    package: package,
+                    packageDetails: packageDetails!,
+                    isLoadingDetails: isLoadingDetails
+                )
+            }
+             
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)

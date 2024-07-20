@@ -80,7 +80,7 @@ func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
     
-    AppConstants.logger.info("Final environment: \(finalEnvironment)")
+    AppConstants.logger.debug("Final environment: \(finalEnvironment)")
     
     // MARK: - Set working directory if provided
     if let workingDirectory
