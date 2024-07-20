@@ -61,7 +61,7 @@ struct PackageModificationButtons: View
                                 }
                             }
                         } label: {
-                            HStack(alignment: .center)
+                            HStack(alignment: .center, spacing: 5)
                             {
                                 if isPinning
                                 {
