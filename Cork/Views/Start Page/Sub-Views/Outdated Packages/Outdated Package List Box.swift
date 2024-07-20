@@ -103,8 +103,18 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.deselect-all")
         }
-        .buttonStyle(.plain)
         .disabled(packagesMarkedForUpdating.count == 0)
+        .modify { viewProxy in
+            if outdatedPackageInfoDisplayAmount != .all
+            {
+                viewProxy
+                    .buttonStyle(.plain)
+            }
+            else
+            {
+                viewProxy
+            }
+        }
     }
 
     @ViewBuilder
@@ -124,8 +134,18 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.select-all")
         }
-        .buttonStyle(.plain)
         .disabled(packagesMarkedForUpdating.count == outdatedPackageTracker.displayableOutdatedPackages.count)
+        .modify { viewProxy in
+            if outdatedPackageInfoDisplayAmount != .all
+            {
+                viewProxy
+                    .buttonStyle(.plain)
+            }
+            else
+            {
+                viewProxy
+            }
+        }
     }
 
     // MARK: - Outdated package list view builders
@@ -173,51 +193,61 @@ struct OutdatedPackageListBox: View
     @ViewBuilder
     var outdatedPackageOVerview_table: some View
     {
-        Table(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+        VStack(alignment: .trailing)
         {
-            TableColumn("start-page.updates.action")
-            { outdatedPackage in
-                Toggle(isOn: Binding<Bool>(
-                    get: {
-                        outdatedPackage.isMarkedForUpdating
-                    }, set: { toggleState in
-                        outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
-                        { modifiedElement in
-                            var copyOutdatedPackage = modifiedElement
-                            if copyOutdatedPackage.id == outdatedPackage.id
-                            {
-                                copyOutdatedPackage.isMarkedForUpdating = toggleState
-                            }
-                            return copyOutdatedPackage
-                        })
+            Table(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+            {
+                TableColumn("start-page.updates.action")
+                { outdatedPackage in
+                    Toggle(isOn: Binding<Bool>(
+                        get: {
+                            outdatedPackage.isMarkedForUpdating
+                        }, set: { toggleState in
+                            outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
+                                                                          { modifiedElement in
+                                var copyOutdatedPackage = modifiedElement
+                                if copyOutdatedPackage.id == outdatedPackage.id
+                                {
+                                    copyOutdatedPackage.isMarkedForUpdating = toggleState
+                                }
+                                return copyOutdatedPackage
+                            })
+                        }
+                    ))
+                    {
+                        EmptyView()
                     }
-                ))
-                {
-                    EmptyView()
+                }
+                .width(45)
+                
+                TableColumn("package-details.dependencies.results.name")
+                { outdatedPackage in
+                    Text(outdatedPackage.package.name)
+                }
+                
+                TableColumn("start-page.updates.installed-version")
+                { outdatedPackage in
+                    Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
+                        .foregroundColor(.orange)
+                }
+                
+                TableColumn("start-page.updates.newest-version")
+                { outdatedPackage in
+                    Text(outdatedPackage.newerVersion)
+                        .foregroundColor(.blue)
+                }
+                
+                TableColumn("package-details.type")
+                { outdatedPackage in
+                    Text(outdatedPackage.package.type.description)
                 }
             }
-            .width(45)
-
-            TableColumn("package-details.dependencies.results.name")
-            { outdatedPackage in
-                Text(outdatedPackage.package.name)
-            }
             
-            TableColumn("start-page.updates.installed-version")
-            { outdatedPackage in
-                Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
-                    .foregroundColor(.orange)
-            }
-
-            TableColumn("start-page.updates.newest-version")
-            { outdatedPackage in
-                Text(outdatedPackage.newerVersion)
-                    .foregroundColor(.blue)
-            }
-
-            TableColumn("package-details.type")
-            { outdatedPackage in
-                Text(outdatedPackage.package.type.description)
+            HStack(alignment: .center)
+            {
+                deselectAllButton
+                
+                selectAllButton
             }
         }
     }
