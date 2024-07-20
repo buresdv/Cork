@@ -121,6 +121,7 @@ struct PackageModificationButtons: View
                                 }
                             }
                             .fixedSize()
+                            .disabled(isPinning)
                         }
                     }
                 }
