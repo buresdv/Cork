@@ -120,6 +120,8 @@
 		636D853B2C4D643100169733 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D85392C4D643100169733 /* HelpButton.swift */; };
 		636D853C2C4D643100169733 /* NSButton Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D853A2C4D643100169733 /* NSButton Port.swift */; };
 		636D853E2C4D64B700169733 /* Outdated Package Info Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D853D2C4D64B700169733 /* Outdated Package Info Amount.swift */; };
+		636D85412C4D7E9100169733 /* Services Alerts - Descriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D85402C4D7E9100169733 /* Services Alerts - Descriptions.swift */; };
+		636D85432C4D7E9A00169733 /* Services Alerts - Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D85422C4D7E9A00169733 /* Services Alerts - Suggestions.swift */; };
 		637057442C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -426,6 +428,8 @@
 		636D85392C4D643100169733 /* HelpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		636D853A2C4D643100169733 /* NSButton Port.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSButton Port.swift"; sourceTree = "<group>"; };
 		636D853D2C4D64B700169733 /* Outdated Package Info Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Outdated Package Info Amount.swift"; sourceTree = "<group>"; };
+		636D85402C4D7E9100169733 /* Services Alerts - Descriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services Alerts - Descriptions.swift"; sourceTree = "<group>"; };
+		636D85422C4D7E9A00169733 /* Services Alerts - Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services Alerts - Suggestions.swift"; sourceTree = "<group>"; };
 		637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installation Terminated Unexpectedly.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -1113,6 +1117,15 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		636D853F2C4D7E6500169733 /* Error Details */ = {
+			isa = PBXGroup;
+			children = (
+				636D85402C4D7E9100169733 /* Services Alerts - Descriptions.swift */,
+				636D85422C4D7E9A00169733 /* Services Alerts - Suggestions.swift */,
+			);
+			path = "Error Details";
+			sourceTree = "<group>";
+		};
 		6371EA1C2871D96800300E1B /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -1231,7 +1244,6 @@
 			isa = PBXGroup;
 			children = (
 				637D53982BAB51B300E072DA /* Service Status.swift */,
-				63D5829F2BF14F67004538FD /* Services Fatal Errors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1841,6 +1853,8 @@
 		63DD440F2C093E2A0084DA07 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				636D853F2C4D7E6500169733 /* Error Details */,
+				63D5829F2BF14F67004538FD /* Services Fatal Errors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2293,6 +2307,7 @@
 				633EB30629BE65EB006CB872 /* Custom Search Field.swift in Sources */,
 				63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */,
 				63BE67E42B0EBCB2000FD594 /* Subtitle Text.swift in Sources */,
+				636D85412C4D7E9100169733 /* Services Alerts - Descriptions.swift in Sources */,
 				632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */,
 				63E41C2F29C50A480084E266 /* Package Updating Stages.swift in Sources */,
 				6311454B2BF23821007C9A65 /* Kill Service.swift in Sources */,
@@ -2333,6 +2348,7 @@
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
+				636D85432C4D7E9A00169733 /* Services Alerts - Suggestions.swift in Sources */,
 				63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */,
 				6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */,
 				6382C8FB299D6E5D00354B19 /* General Pane.swift in Sources */,

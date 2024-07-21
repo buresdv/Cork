@@ -52,9 +52,7 @@ struct HomebrewServicesView: View
                     {
                         ContentUnavailableView(label: {
                             Label("service-status-page.no-services-found", systemImage: "magnifyingglass")
-                        }, description: {
-                            
-                        }, actions: {
+                        }, description: {}, actions: {
                             loadServicesButton
                                 .labelStyle(.titleOnly)
                         })
@@ -110,10 +108,26 @@ struct HomebrewServicesView: View
             await loadServices()
         }
         .alert(isPresented: $servicesState.isShowingError, error: servicesState.errorToShow)
-        { _ in
-
+        { error in
+            switch error
+            {
+            case .couldNotLoadServices(error: ""):
+                EmptyView()
+            case .couldNotLoadServices(error: let error):
+                loadServicesButton
+                dismissAlertButton
+            case .couldNotStartService(offendingService: let offendingService, errorThrown: let errorThrown):
+                EmptyView()
+            case .couldNotStopService(offendingService: let offendingService, errorThrown: let errorThrown):
+                EmptyView()
+            case .couldNotSynchronizeServices(errorThrown: let errorThrown):
+                EmptyView()
+            }
         } message: { error in
-            Text(error.failureReason)
+            if let recoverySuggestion = error.recoverySuggestion
+            {
+                Text(recoverySuggestion)
+            }
         }
     }
 
@@ -131,11 +145,22 @@ struct HomebrewServicesView: View
                 .help("action.reload-services")
         }
     }
-    
+
+    @ViewBuilder
+    var dismissAlertButton: some View
+    {
+        Button
+        {
+            servicesState.dismissError()
+        } label: {
+            Text("action.close")
+        }
+    }
+
     func loadServices() async
     {
         print("Control active state: \(controlActiveState)")
-        
+
         if servicesState.isLoadingServices == false
         {
             servicesState.isLoadingServices = true

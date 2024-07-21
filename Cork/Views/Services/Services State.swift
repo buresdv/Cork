@@ -26,7 +26,7 @@ class ServicesState: ObservableObject
         self.isShowingError = true
     }
     
-    func hideError()
+    func dismissError()
     {
         self.isShowingError = false
     }
