@@ -48,7 +48,21 @@ struct HomebrewServicesView: View
             {
                 if servicesTracker.services.isEmpty
                 {
-                    Text("service-status-page.no-services-found")
+                    if #available(macOS 14.0, *)
+                    {
+                        ContentUnavailableView(label: {
+                            Label("service-status-page.no-services-found", systemImage: "magnifyingglass")
+                        }, description: {
+                            
+                        }, actions: {
+                            loadServicesButton
+                                .labelStyle(.titleOnly)
+                        })
+                    }
+                    else
+                    {
+                        Text("service-status-page.no-services-found")
+                    }
                 }
                 else
                 {
@@ -87,29 +101,58 @@ struct HomebrewServicesView: View
         .environmentObject(servicesState)
         .navigationTitle("services.title")
         .navigationSubtitle(servicesState.isLoadingServices ? "service-status-page.loading" : "services.count.\(servicesTracker.services.count)")
+        .toolbar
+        {
+            loadServicesButton
+        }
         .task(priority: .userInitiated)
         {
-            print("Control active state: \(controlActiveState)")
-            
-            defer
-            {
-                servicesState.isLoadingServices = false
-            }
-            
-            do
-            {
-                try await servicesTracker.loadServices()
-            }
-            catch let servicesLoadingError
-            {
-                servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
-            }
+            await loadServices()
         }
         .alert(isPresented: $servicesState.isShowingError, error: servicesState.errorToShow)
-        { error in
-            
+        { _ in
+
         } message: { error in
             Text(error.failureReason)
+        }
+    }
+
+    @ViewBuilder
+    var loadServicesButton: some View
+    {
+        Button
+        {
+            Task(priority: .userInitiated)
+            {
+                await loadServices()
+            }
+        } label: {
+            Label("action.reload-services", systemImage: "arrow.clockwise")
+                .help("action.reload-services")
+        }
+    }
+    
+    func loadServices() async
+    {
+        print("Control active state: \(controlActiveState)")
+        
+        if servicesState.isLoadingServices == false
+        {
+            servicesState.isLoadingServices = true
+        }
+
+        defer
+        {
+            servicesState.isLoadingServices = false
+        }
+
+        do
+        {
+            try await servicesTracker.loadServices()
+        }
+        catch let servicesLoadingError
+        {
+            servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
         }
     }
 }

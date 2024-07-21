@@ -4210,6 +4210,16 @@
         }
       }
     },
+    "action.reload-services" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reload Services"
+          }
+        }
+      }
+    },
     "action.repair-%@" : {
       "localizations" : {
         "cs" : {
