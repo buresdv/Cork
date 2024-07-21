@@ -6,35 +6,27 @@
 //
 
 import SwiftUI
-import SwiftyJSON
 
 struct PackageDetailView: View, Sendable
 {
     let package: BrewPackage
+    
+    @State private var packageDetails: BrewPackageDetails? = nil
 
     @EnvironmentObject var brewData: BrewDataStorage
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-
-    @State private var description: String = ""
-    @State private var homepage: URL = .init(string: "https://google.com")!
-    @State private var tap: String = ""
-    @State private var installedAsDependency: Bool = false
-    @State private var packageDependents: [String]? = nil
-    @State private var dependencies: [BrewPackageDependency]? = nil
-    @State private var outdated: Bool = false
-    @State private var caveats: String? = nil
-    @State private var pinned: Bool = false
-
+    
     @State private var isShowingExpandedDependencies: Bool = false
     @State private var isShowingExpandedCaveats: Bool = false
 
     @State private var isLoadingDetails: Bool = true
+    @State private var hasFailedWhileLoadingDependents: Bool = false
 
     @State var isShowingPopover: Bool = false
 
-    @State private var erroredOut: Bool = false
+    @State private var erroredOut: (isShowingError: Bool, errorDescription: String?) = (false, nil)
 
     private var isScrollingDisabled: Bool
     {
@@ -72,9 +64,9 @@ struct PackageDetailView: View, Sendable
             }
             else
             {
-                if erroredOut
+                if erroredOut.isShowingError
                 {
-                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json")
+                    InlineFatalError(errorMessage: "error.generic.unexpected-homebrew-response", errorDescription: erroredOut.errorDescription)
                 }
                 else
                 {
@@ -82,19 +74,12 @@ struct PackageDetailView: View, Sendable
                     {
                         BasicPackageInfoView(
                             package: package,
-                            tap: tap,
-                            homepage: homepage,
-                            description: description,
-                            pinned: pinned,
-                            installedAsDependency: installedAsDependency,
-                            packageDependents: packageDependents,
-                            outdated: outdated,
-                            caveats: caveats,
+                            packageDetails: packageDetails!,
                             isLoadingDetails: isLoadingDetails,
                             isShowingExpandedCaveats: $isShowingExpandedCaveats
                         )
 
-                        PackageDependencies(dependencies: dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
+                        PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
 
                         PackageSystemInfo(package: package)
                     }
@@ -104,69 +89,46 @@ struct PackageDetailView: View, Sendable
 
             Spacer()
 
-            PackageModificationButtons(
-                package: package,
-                pinned: $pinned,
-                isLoadingDetails: isLoadingDetails
-            )
+            if packageDetails != nil
+            {
+                PackageModificationButtons(
+                    package: package,
+                    packageDetails: packageDetails!,
+                    isLoadingDetails: isLoadingDetails
+                )
+            }
+             
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)
         {
-            var packageInfoRaw: String?
-
             defer
             {
                 if isLoadingDetails
                 {
                     isLoadingDetails = false
                 }
-
-                packageInfoRaw = nil
-            }
-
-            if package.type == .formula
-            {
-                packageInfoRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", package.name]).standardOutput
-            }
-            else
-            {
-                packageInfoRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", "--cask", package.name]).standardOutput
             }
 
             do
             {
-                let parsedJSON: JSON = try parseJSON(from: packageInfoRaw!)
-
-                description = getPackageDescriptionFromJSON(json: parsedJSON, package: package)
-                homepage = getPackageHomepageFromJSON(json: parsedJSON, package: package)
-                tap = getPackageTapFromJSON(json: parsedJSON, package: package)
-                installedAsDependency = getIfPackageWasInstalledAsDependencyFromJSON(json: parsedJSON, package: package) ?? false
-                outdated = getIfPackageIsOutdated(json: parsedJSON, package: package)
-                caveats = getCaveatsFromJSON(json: parsedJSON, package: package)
-                pinned = getPinStatusFromJSON(json: parsedJSON, package: package)
+                packageDetails = try await package.loadDetails()
 
                 isLoadingDetails = false
 
-                if let packageDependencies = getPackageDependenciesFromJSON(json: parsedJSON, package: package)
+                if let packageDetails
                 {
-                    dependencies = packageDependencies
-                }
-
-                if installedAsDependency
-                {
-                    async let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", package.name]).standardOutput
-
-                    packageDependents = await packageDependentsRaw.components(separatedBy: "\n").dropLast()
-
-                    AppConstants.logger.info("Package dependents: \(String(describing: packageDependents), privacy: .auto)")
+                    if packageDetails.installedAsDependency
+                    {
+                        await packageDetails.loadDependents()
+                    }
                 }
             }
             catch let packageInfoDecodingError
             {
                 AppConstants.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
-                erroredOut = true
+                erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }
         }
     }

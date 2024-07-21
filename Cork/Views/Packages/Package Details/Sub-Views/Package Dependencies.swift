@@ -7,24 +7,21 @@
 
 import SwiftUI
 
-struct PackageDependencies: View {
-
+struct PackageDependencies: View
+{
     let dependencies: [BrewPackageDependency]?
 
     @Binding var isDependencyDisclosureGroupExpanded: Bool
 
-    var body: some View {
+    var body: some View
+    {
         if let dependencies
         {
-            Section
+            VStack
             {
-                VStack
+                DisclosureGroup("package-details.dependencies", isExpanded: $isDependencyDisclosureGroupExpanded)
                 {
-                    DisclosureGroup("package-details.dependencies", isExpanded: $isDependencyDisclosureGroupExpanded)
-                    {
-                        DependencyList(dependencies: dependencies)
-                    }
-                    .disclosureGroupStyle(NoPadding())
+                    DependencyList(dependencies: dependencies)
                 }
             }
         }

@@ -47,6 +47,7 @@ enum TopPackageRetrievalError: Error
     case resultingArrayWasEmptyEvenThoughPackagesWereInIt
 }
 
+@MainActor
 func getTopPackageFromUUID(requestedPackageUUID: UUID, packageType: PackageType, topPackageTracker: TopPackagesTracker) throws -> BrewPackage
 {
     if packageType == .formula

@@ -18,8 +18,9 @@ struct PackageModificationButtons: View
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     let package: BrewPackage
+    @ObservedObject var packageDetails: BrewPackageDetails
 
-    @Binding var pinned: Bool
+    @State private var isPinning: Bool = false
 
     let isLoadingDetails: Bool
 
@@ -29,7 +30,7 @@ struct PackageModificationButtons: View
         {
             if !isLoadingDetails
             {
-                ButtonBottomRow 
+                ButtonBottomRow
                 {
                     if package.type == .formula
                     {
@@ -37,13 +38,41 @@ struct PackageModificationButtons: View
                         {
                             Task
                             {
-                                pinned.toggle()
+                                withAnimation
+                                {
+                                    isPinning = true
+                                }
 
-                                await pinAndUnpinPackage(package: package, pinned: pinned)
+                                defer
+                                {
+                                    withAnimation
+                                    {
+                                        isPinning = false
+                                    }
+                                }
+
+                                do
+                                {
+                                    try await packageDetails.changePinnedStatus()
+                                }
+                                catch let pinningUnpinningError
+                                {
+                                    AppConstants.logger.error("Failed while pinning/unpinning package \(package.name): \(pinningUnpinningError)")
+                                }
                             }
                         } label: {
-                            Text(pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
+                            HStack(alignment: .center, spacing: 5)
+                            {
+                                if isPinning
+                                {
+                                    ProgressView()
+                                        .controlSize(.mini)
+                                        .transition(.move(edge: .leading).combined(with: .opacity))
+                                }
+                                Text(packageDetails.pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
+                            }
                         }
+                        .disabled(isPinning)
                     }
 
                     Spacer()
@@ -75,7 +104,7 @@ struct PackageModificationButtons: View
                                     Task
                                     {
                                         AppConstants.logger.debug("Confirmation of package removal NOT needed")
-                                        
+
                                         try await brewData.uninstallSelectedPackage(
                                             package: package,
                                             appState: appState,
@@ -92,6 +121,7 @@ struct PackageModificationButtons: View
                                 }
                             }
                             .fixedSize()
+                            .disabled(isPinning)
                         }
                     }
                 }

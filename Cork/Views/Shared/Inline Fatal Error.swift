@@ -23,27 +23,45 @@ struct InlineFatalError: View
 
     var body: some View
     {
-        VStack(alignment: .center, spacing: 10)
+        Group
         {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .resizable()
-                .frame(width: 50, height: 50)
-            // .scaledToFit()
-            Text(errorMessage)
-
-            if let errorDescription
+            if #available(macOS 14.0, *)
             {
-                Text(errorDescription)
+                if let errorDescription
+                {
+                    ContentUnavailableView(errorMessage, systemImage: "exclamationmark.triangle.fill", description: Text(errorDescription))
+                }
+                else
+                {
+                    ContentUnavailableView(errorMessage, image: "exclamationmark.triangle.fill")
+                }
             }
-
-            Button
+            else
             {
-                restartApp()
-            } label: {
-                Text("action.restart")
+                VStack(alignment: .center, spacing: 10)
+                {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    // .scaledToFit()
+                    Text(errorMessage)
+                        .multilineTextAlignment(.center)
+                    
+                    if let errorDescription
+                    {
+                        Text(errorDescription)
+                    }
+                    
+                    Button
+                    {
+                        restartApp()
+                    } label: {
+                        Text("action.restart")
+                    }
+                }
+                .foregroundColor(.gray)
             }
         }
-        .foregroundColor(.gray)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
 }

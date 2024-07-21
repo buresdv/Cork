@@ -16,7 +16,7 @@ struct SearchResultRow: View, Sendable
 
     let searchedForPackage: BrewPackage
     
-    @State private var description: String = ""
+    @State private var description: String?
     @State private var isCompatible: Bool?
 
     @State private var isLoadingDescription: Bool = true
@@ -74,16 +74,14 @@ struct SearchResultRow: View, Sendable
                     }
                     else
                     {
-                        if !description.isEmpty
+                        if let description
                         {
                             Text(description)
                                 .font(.caption)
                         }
                         else
                         {
-                            Text("add-package.result.description-empty")
-                                .font(.caption)
-                                .foregroundColor(Color(nsColor: .tertiaryLabelColor))
+                            NoDescriptionProvidedView()
                         }
                     }
                 }
@@ -102,25 +100,39 @@ struct SearchResultRow: View, Sendable
             {
                 AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
 
-                if description.isEmpty
+                if description == nil
                 {
+                    defer
+                    {
+                        isLoadingDescription = false
+                    }
+                    
                     AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
 
                     async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", searchedForPackage.name]).standardOutput
                     do
                     {
-                        let descriptionJSON = try await parseJSON(from: descriptionRaw)
+                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
+                        
+                        do
+                        {
+                            let parsedPackageInfo: BrewPackageDetails = try await searchedForPackage.loadDetails()
+                            
+                            description = parsedPackageInfo.description
+                            
+                            isCompatible = parsedPackageInfo.isCompatible
+                        }
+                        catch let descriptionParsingError
+                        { // This happens when a package doesn' have any description at all, hence why we don't display an error
+                            AppConstants.logger.error("Failed while parsing searched-for package info: \(descriptionParsingError.localizedDescription, privacy: .public)")
+                        }
 
-                        isCompatible = try? getPackageCompatibilityFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
-
-                        description = getPackageDescriptionFromJSON(json: descriptionJSON, package: .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil))
-
-                        isLoadingDescription = false
                     }
                     catch let descriptionJSONRetrievalError
                     {
                         AppConstants.logger.error("Failed while retrieving description JSON: \(descriptionJSONRetrievalError, privacy: .public)")
-                        isLoadingDescription = false
+                        
+                        descriptionParsingFailed = true
                     }
                 }
                 else

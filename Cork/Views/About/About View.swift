@@ -17,11 +17,6 @@ struct AboutView: View
             packageURL: URL(string: "https://github.com/buresdv/DavidFoundation")!
         ),
         UsedPackage(
-            name: "about.packages.2.name",
-            whyIsItUsed: "about.packages.2.purpose",
-            packageURL: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!
-        ),
-        UsedPackage(
             name: "about.packages.3.name",
             whyIsItUsed: "about.packages.3.purpose",
             packageURL: URL(string: "https://github.com/sindresorhus/LaunchAtLogin-Modern")!

@@ -605,36 +605,14 @@ struct ContentView: View, Sendable
     {
         AppConstants.logger.info("Initial setup finished, time to fetch the top packages")
 
-        do
+        defer
         {
-            appState.isLoadingTopPackages = true
-
-            async let topFormulae: [TopPackage] = try await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: false, appState: appState)
-            async let topCasks: [TopPackage] = try await loadUpTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, isCask: true, appState: appState)
-
-            topPackagesTracker.topFormulae = try await topFormulae
-            topPackagesTracker.topCasks = try await topCasks
-
-            AppConstants.logger.info("Packages in formulae tracker: \(topPackagesTracker.topFormulae.count)")
-            AppConstants.logger.info("Packages in cask tracker: \(topPackagesTracker.topCasks.count)")
-
-            sortTopPackages()
-
             appState.isLoadingTopPackages = false
         }
-        catch let topPackageLoadingError
-        {
-            AppConstants.logger.error("Failed while loading top packages: \(topPackageLoadingError, privacy: .public)")
-
-            if topPackageLoadingError is DataDownloadingError
-            {
-                appState.showAlert(errorToShow: .receivedInvalidResponseFromBrew)
-            }
-            else
-            {
-                appState.failedWhileLoadingTopPackages = true
-            }
-        }
+        
+        await topPackagesTracker.loadTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, appState: appState)
+        
+        sortTopPackages()
     }
 
     private func sortTopPackages()

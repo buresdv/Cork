@@ -10,16 +10,7 @@ import SwiftUI
 struct BasicPackageInfoView: View
 {
     let package: BrewPackage
-
-    let tap: String
-    let homepage: URL
-
-    let description: String
-    let pinned: Bool
-    let installedAsDependency: Bool
-    let packageDependents: [String]?
-    let outdated: Bool
-    let caveats: String?
+    let packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
 
@@ -29,10 +20,10 @@ struct BasicPackageInfoView: View
     {
         Section 
         {
-            PackageCaveatFullDisplayView(caveats: caveats, isShowingExpandedCaveats: $isShowingExpandedCaveats)
+            PackageCaveatFullDisplayView(caveats: packageDetails.caveats, isShowingExpandedCaveats: $isShowingExpandedCaveats)
 
             LabeledContent {
-                Text(tap)
+                Text(packageDetails.tap.name)
             } label: {
                 Text("Tap")
             }
@@ -46,9 +37,9 @@ struct BasicPackageInfoView: View
 
             LabeledContent
             {
-                Link(destination: homepage)
+                Link(destination: packageDetails.homepage)
                 {
-                    Text(homepage.absoluteString)
+                    Text(packageDetails.homepage.absoluteString)
                 }
             } label: {
                 Text("package-details.homepage")
@@ -58,12 +49,7 @@ struct BasicPackageInfoView: View
             {
                 PackageDetailHeaderComplex(
                     package: package,
-                    description: description,
-                    pinned: pinned,
-                    installedAsDependency: installedAsDependency,
-                    packageDependents: packageDependents,
-                    outdated: outdated,
-                    caveats: caveats,
+                    packageDetails: packageDetails,
                     isLoadingDetails: isLoadingDetails
                 )
 

@@ -8,16 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */; };
-		63006E0029AC073D00243E29 /* Parse Tap Info JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */; };
-		63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0529ACC56800243E29 /* Get Package Description.swift */; };
-		63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0729ACC60F00243E29 /* Get Package Homepage.swift */; };
-		63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */; };
 		63006E0D29ACC78400243E29 /* Package Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0C29ACC78400243E29 /* Package Dependency.swift */; };
-		63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E0E29ACCBA400243E29 /* Get Package Tap.swift */; };
-		63006E1129ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */; };
-		63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */; };
 		63006E1729AD143D00243E29 /* Dependency List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1629AD143D00243E29 /* Dependency List.swift */; };
-		63006E1929AD215000243E29 /* Get Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63006E1829AD215000243E29 /* Get Caveats.swift */; };
 		630640C62C25C1B200922977 /* Get Outdated Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630640C52C25C1B200922977 /* Get Outdated Packages.swift */; };
 		63085AFC2BB99C9C005F92FD /* Submit System Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63085AFB2BB99C9C005F92FD /* Submit System Version.swift */; };
 		630D08B929B67E4300802201 /* Brew Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630D08B829B67E4300802201 /* Brew Pane.swift */; };
@@ -90,7 +82,6 @@
 		6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */; };
 		6348D9102BAC8E1B00DBBC55 /* Service Locations View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */; };
 		6348D9132BAC8E8500DBBC55 /* Load up Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */; };
-		6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9152BAC909600DBBC55 /* Parse Service Details.swift */; };
 		6348D9182BAC986300DBBC55 /* Service Header Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D9172BAC986300DBBC55 /* Service Header Complex.swift */; };
 		63581BCF2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BCE2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift */; };
 		63581BD12BB86BC4009A8E03 /* Menu Bar - Package Updating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BD02BB86BC4009A8E03 /* Menu Bar - Package Updating.swift */; };
@@ -101,7 +92,6 @@
 		63581BDB2BB86DF1009A8E03 /* Menu Bar - Cached Downloads Cleanup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BDA2BB86DF1009A8E03 /* Menu Bar - Cached Downloads Cleanup.swift */; };
 		63581BDD2BB86E5B009A8E03 /* Open Cork Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BDC2BB86E5B009A8E03 /* Open Cork Button.swift */; };
 		63581BDF2BB87A09009A8E03 /* Quit Cork Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63581BDE2BB87A09009A8E03 /* Quit Cork Button.swift */; };
-		635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50E829B7723C00164FBA /* Get Pin Status.swift */; };
 		635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */; };
 		635BE04E2A2B3818004DCBD8 /* Casks Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04D2A2B3818004DCBD8 /* Casks Section.swift */; };
 		635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635BE04F2A2B3822004DCBD8 /* Formulae Section.swift */; };
@@ -138,7 +128,6 @@
 		6373D9CB29DC60CB00D98607 /* Reinstall Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */; };
 		6373D9CE29DC623E00D98607 /* Package Reinstallation Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */; };
 		637402DA299BF878001AB7B1 /* Sidebar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637402D9299BF878001AB7B1 /* Sidebar View.swift */; };
-		637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637410AD2ABB751B00B7915A /* Get Compatibility.swift */; };
 		63771DF62BB5C03500A53B93 /* Corrupted Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63771DF52BB5C03500A53B93 /* Corrupted Package.swift */; };
 		637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637A7A1D2BAB8A270013667C /* View - On Window Close.swift */; };
 		637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */; };
@@ -173,7 +162,6 @@
 		639246E729A382B1008149E2 /* Uninstallation Progress Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639246E629A382B1008149E2 /* Uninstallation Progress Wheel.swift */; };
 		6392FD132A921BAB00711B92 /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392FD122A921BAB00711B92 /* Initial.swift */; };
 		6392FD152A921D5100711B92 /* Searching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392FD142A921D5100711B92 /* Searching.swift */; };
-		63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 63936A4A29AE09D00069C988 /* SwiftyJSON */; };
 		63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63936A4C29AE6D710069C988 /* Package Caveats.swift */; };
 		63958CFD2877341F00E0B807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFC2877341F00E0B807 /* AppDelegate.swift */; };
 		63958D00287735F800E0B807 /* About View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63958CFF287735F800E0B807 /* About View.swift */; };
@@ -220,6 +208,7 @@
 		63BE67E62B0EC015000FD594 /* No Updates Available Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE67E52B0EC015000FD594 /* No Updates Available Box.swift */; };
 		63BE889C2A910BB0003C6E59 /* Top Package Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */; };
 		63C1A3182AD0997200F36371 /* Outdated Packages Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */; };
+		63C2EF012C4D53CF00900986 /* No Description Provided View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2EF002C4D53CF00900986 /* No Description Provided View.swift */; };
 		63C49EA42B1E943500DAD508 /* Tap - Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EA32B1E943500DAD508 /* Tap - Initial.swift */; };
 		63C49EA62B1E964B00DAD508 /* Tap - Adding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EA52B1E964B00DAD508 /* Tap - Adding.swift */; };
 		63C49EA82B1E96D300DAD508 /* Tap - Finished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C49EA72B1E96D300DAD508 /* Tap - Finished.swift */; };
@@ -256,7 +245,6 @@
 		63DBAA4D2C2620FA00F5D50A /* Parse Tap Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBAA4C2C2620FA00F5D50A /* Parse Tap Info.swift */; };
 		63DBAA502C26222100F5D50A /* Tap Codable Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBAA4F2C26222100F5D50A /* Tap Codable Model.swift */; };
 		63DBAA532C2624F600F5D50A /* JSON Parsing Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBAA522C2624F600F5D50A /* JSON Parsing Error.swift */; };
-		63DBAA552C262F6500F5D50A /* Parse Package Info JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DBAA542C262F6500F5D50A /* Parse Package Info JSON.swift */; };
 		63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */; };
 		63DD44142C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44132C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift */; };
 		63DD44162C09E5E70084DA07 /* Restart Cork Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */; };
@@ -269,6 +257,8 @@
 		63E716DD29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */; };
 		63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */; };
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
+		63E9A6202C49C79A0096CB57 /* Brew Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */; };
+		63E9A6232C49C9C40096CB57 /* Load Up Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
 		63EEC6962B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */; };
 		63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EF569A2AC31AA600199F7B /* Basic Package Info.swift */; };
@@ -320,16 +310,8 @@
 
 /* Begin PBXFileReference section */
 		63006DFA29AB692B00243E29 /* DisclosureGroup - No Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisclosureGroup - No Padding.swift"; sourceTree = "<group>"; };
-		63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Tap Info JSON.swift"; sourceTree = "<group>"; };
-		63006E0529ACC56800243E29 /* Get Package Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Description.swift"; sourceTree = "<group>"; };
-		63006E0729ACC60F00243E29 /* Get Package Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Homepage.swift"; sourceTree = "<group>"; };
-		63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Dependencies.swift"; sourceTree = "<group>"; };
 		63006E0C29ACC78400243E29 /* Package Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Dependency.swift"; sourceTree = "<group>"; };
-		63006E0E29ACCBA400243E29 /* Get Package Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Package Tap.swift"; sourceTree = "<group>"; };
-		63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get If Package Was Installed as Dependency.swift"; sourceTree = "<group>"; };
-		63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get If Package Is Outdated.swift"; sourceTree = "<group>"; };
 		63006E1629AD143D00243E29 /* Dependency List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dependency List.swift"; sourceTree = "<group>"; };
-		63006E1829AD215000243E29 /* Get Caveats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Caveats.swift"; sourceTree = "<group>"; };
 		630640C52C25C1B200922977 /* Get Outdated Packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Outdated Packages.swift"; sourceTree = "<group>"; };
 		63085AFB2BB99C9C005F92FD /* Submit System Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Submit System Version.swift"; sourceTree = "<group>"; };
 		630D08B829B67E4300802201 /* Brew Pane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Pane.swift"; sourceTree = "<group>"; };
@@ -405,7 +387,6 @@
 		6348D90D2BAC8DD200DBBC55 /* Basic Service Info View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Service Info View.swift"; sourceTree = "<group>"; };
 		6348D90F2BAC8E1B00DBBC55 /* Service Locations View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Locations View.swift"; sourceTree = "<group>"; };
 		6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Service Details.swift"; sourceTree = "<group>"; };
-		6348D9152BAC909600DBBC55 /* Parse Service Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Service Details.swift"; sourceTree = "<group>"; };
 		6348D9172BAC986300DBBC55 /* Service Header Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service Header Complex.swift"; sourceTree = "<group>"; };
 		63581BCE2BB86AAB009A8E03 /* Menu Bar - Package Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar - Package Overview.swift"; sourceTree = "<group>"; };
 		63581BD02BB86BC4009A8E03 /* Menu Bar - Package Updating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar - Package Updating.swift"; sourceTree = "<group>"; };
@@ -416,7 +397,6 @@
 		63581BDA2BB86DF1009A8E03 /* Menu Bar - Cached Downloads Cleanup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Bar - Cached Downloads Cleanup.swift"; sourceTree = "<group>"; };
 		63581BDC2BB86E5B009A8E03 /* Open Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Open Cork Button.swift"; sourceTree = "<group>"; };
 		63581BDE2BB87A09009A8E03 /* Quit Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quit Cork Button.swift"; sourceTree = "<group>"; };
-		635A50E829B7723C00164FBA /* Get Pin Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Pin Status.swift"; sourceTree = "<group>"; };
 		635A50EA29B7740000164FBA /* Pin an Unpin Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin an Unpin Package.swift"; sourceTree = "<group>"; };
 		635BE04D2A2B3818004DCBD8 /* Casks Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Casks Section.swift"; sourceTree = "<group>"; };
 		635BE04F2A2B3822004DCBD8 /* Formulae Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formulae Section.swift"; sourceTree = "<group>"; };
@@ -452,7 +432,6 @@
 		6373D9CA29DC60CB00D98607 /* Reinstall Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reinstall Corrupted Package.swift"; sourceTree = "<group>"; };
 		6373D9CD29DC623E00D98607 /* Package Reinstallation Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package Reinstallation Stage.swift"; sourceTree = "<group>"; };
 		637402D9299BF878001AB7B1 /* Sidebar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sidebar View.swift"; sourceTree = "<group>"; };
-		637410AD2ABB751B00B7915A /* Get Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Compatibility.swift"; sourceTree = "<group>"; };
 		63771DF52BB5C03500A53B93 /* Corrupted Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Corrupted Package.swift"; sourceTree = "<group>"; };
 		637A7A1D2BAB8A270013667C /* View - On Window Close.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View - On Window Close.swift"; sourceTree = "<group>"; };
 		637D538D2BAB01EB00E072DA /* Homebrew Services View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Homebrew Services View.swift"; sourceTree = "<group>"; };
@@ -533,6 +512,7 @@
 		63BE67E52B0EC015000FD594 /* No Updates Available Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "No Updates Available Box.swift"; sourceTree = "<group>"; };
 		63BE889B2A910BB0003C6E59 /* Top Package Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Top Package Sorting.swift"; sourceTree = "<group>"; };
 		63C1A3172AD0997200F36371 /* Outdated Packages Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Packages Box.swift"; sourceTree = "<group>"; };
+		63C2EF002C4D53CF00900986 /* No Description Provided View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "No Description Provided View.swift"; sourceTree = "<group>"; };
 		63C49EA32B1E943500DAD508 /* Tap - Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Initial.swift"; sourceTree = "<group>"; };
 		63C49EA52B1E964B00DAD508 /* Tap - Adding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Adding.swift"; sourceTree = "<group>"; };
 		63C49EA72B1E96D300DAD508 /* Tap - Finished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap - Finished.swift"; sourceTree = "<group>"; };
@@ -569,7 +549,6 @@
 		63DBAA4C2C2620FA00F5D50A /* Parse Tap Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Tap Info.swift"; sourceTree = "<group>"; };
 		63DBAA4F2C26222100F5D50A /* Tap Codable Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tap Codable Model.swift"; sourceTree = "<group>"; };
 		63DBAA522C2624F600F5D50A /* JSON Parsing Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON Parsing Error.swift"; sourceTree = "<group>"; };
-		63DBAA542C262F6500F5D50A /* Parse Package Info JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parse Package Info JSON.swift"; sourceTree = "<group>"; };
 		63DD44102C093E770084DA07 /* Displayable Alerts - Descriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Descriptions.swift"; sourceTree = "<group>"; };
 		63DD44132C0941B90084DA07 /* Displayable Alerts - Recovery Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Displayable Alerts - Recovery Suggestions.swift"; sourceTree = "<group>"; };
 		63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restart Cork Button.swift"; sourceTree = "<group>"; };
@@ -583,6 +562,8 @@
 		63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Downloads Folder Info Box.swift"; sourceTree = "<group>"; };
 		63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
+		63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Package Details.swift"; sourceTree = "<group>"; };
+		63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load Up Package Info.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
 		63EEC6952B23EB3600CAAEEC /* ProcessInfo - CPU Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo - CPU Architecture.swift"; sourceTree = "<group>"; };
 		63EF569A2AC31AA600199F7B /* Basic Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic Package Info.swift"; sourceTree = "<group>"; };
@@ -617,7 +598,6 @@
 			files = (
 				63689FB62ACFF18900BD354C /* LaunchAtLogin in Frameworks */,
 				63603BA92BBC1C9F0083AEDB /* DavidFoundation in Frameworks */,
-				63936A4B29AE09D00069C988 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,21 +621,12 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		63006E0329ACC54900243E29 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				63DBAA492C2620AE00F5D50A /* Package Info Parsing */,
-				63DBAA482C2620A500F5D50A /* Tap Info Parsing */,
-				63006DFF29AC073D00243E29 /* Parse Tap Info JSON.swift */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		63006E0B29ACC76F00243E29 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
 				6340657C2871AC65001A2178 /* Brew Package.swift */,
 				63006E0C29ACC78400243E29 /* Package Dependency.swift */,
+				63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -939,6 +910,7 @@
 		634065762871AB2A001A2178 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				63E9A6212C49C9B60096CB57 /* Packages */,
 				63405A482C027EE300C6E0F2 /* App Intents */,
 				637D53A02BAB55C500E072DA /* Services */,
 				633AA21E2AFEDD8500A5F3E3 /* Brewfile */,
@@ -948,7 +920,6 @@
 				63690F7929C9FBEA008F952C /* Tagging */,
 				63690F7829C9FBCE008F952C /* File System */,
 				63A38B9129BA0AE60080158C /* Updating and Upgrading */,
-				63006E0329ACC54900243E29 /* JSON */,
 				63D51F6F299ABA5100203F3F /* Maintenance */,
 				63D2B0862997F5240084E223 /* Package Loading */,
 				63A87463298FE7E4009F9533 /* Search */,
@@ -1033,18 +1004,9 @@
 		6348D9112BAC8E7800DBBC55 /* Service Details */ = {
 			isa = PBXGroup;
 			children = (
-				6348D9142BAC908A00DBBC55 /* Parsing */,
 				6348D9122BAC8E8500DBBC55 /* Load up Service Details.swift */,
 			);
 			path = "Service Details";
-			sourceTree = "<group>";
-		};
-		6348D9142BAC908A00DBBC55 /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				6348D9152BAC909600DBBC55 /* Parse Service Details.swift */,
-			);
-			path = Parsing;
 			sourceTree = "<group>";
 		};
 		63581BCD2BB86732009A8E03 /* Sub-Views */ = {
@@ -1557,6 +1519,7 @@
 		63A96F6C2AA4B3B50029E33B /* Taps */ = {
 			isa = PBXGroup;
 			children = (
+				63DBAA4C2C2620FA00F5D50A /* Parse Tap Info.swift */,
 				63A96F6D2AA4B3D90029E33B /* Add Tap.swift */,
 				63A96F6F2AA4B3F70029E33B /* Remove Tap.swift */,
 			);
@@ -1788,6 +1751,7 @@
 				63581BDC2BB86E5B009A8E03 /* Open Cork Button.swift */,
 				63581BDE2BB87A09009A8E03 /* Quit Cork Button.swift */,
 				63DD44152C09E5E70084DA07 /* Restart Cork Button.swift */,
+				63C2EF002C4D53CF00900986 /* No Description Provided View.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -1824,39 +1788,6 @@
 				63D86EB129C0972A00AD64D2 /* Package Search Token.swift */,
 			);
 			path = Searching;
-			sourceTree = "<group>";
-		};
-		63DBAA482C2620A500F5D50A /* Tap Info Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				63DBAA4C2C2620FA00F5D50A /* Parse Tap Info.swift */,
-			);
-			path = "Tap Info Parsing";
-			sourceTree = "<group>";
-		};
-		63DBAA492C2620AE00F5D50A /* Package Info Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				63DBAA4A2C2620C600F5D50A /* Legacy */,
-				63DBAA542C262F6500F5D50A /* Parse Package Info JSON.swift */,
-			);
-			path = "Package Info Parsing";
-			sourceTree = "<group>";
-		};
-		63DBAA4A2C2620C600F5D50A /* Legacy */ = {
-			isa = PBXGroup;
-			children = (
-				63006E0529ACC56800243E29 /* Get Package Description.swift */,
-				63006E0729ACC60F00243E29 /* Get Package Homepage.swift */,
-				63006E0929ACC6AC00243E29 /* Get Package Dependencies.swift */,
-				63006E0E29ACCBA400243E29 /* Get Package Tap.swift */,
-				63006E1029ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift */,
-				63006E1229ACCE2600243E29 /* Get If Package Is Outdated.swift */,
-				63006E1829AD215000243E29 /* Get Caveats.swift */,
-				635A50E829B7723C00164FBA /* Get Pin Status.swift */,
-				637410AD2ABB751B00B7915A /* Get Compatibility.swift */,
-			);
-			path = Legacy;
 			sourceTree = "<group>";
 		};
 		63DBAA4E2C26220C00F5D50A /* JSON */ = {
@@ -1965,6 +1896,14 @@
 			path = "Incremental Updating";
 			sourceTree = "<group>";
 		};
+		63E9A6212C49C9B60096CB57 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 		63FD6C322BF023990015A672 /* Modification */ = {
 			isa = PBXGroup;
 			children = (
@@ -2041,7 +1980,6 @@
 			);
 			name = Cork;
 			packageProductDependencies = (
-				63936A4A29AE09D00069C988 /* SwiftyJSON */,
 				63689FB52ACFF18900BD354C /* LaunchAtLogin */,
 				63603BA82BBC1C9F0083AEDB /* DavidFoundation */,
 			);
@@ -2102,7 +2040,6 @@
 			);
 			mainGroup = 634065582871AA42001A2178;
 			packageReferences = (
-				63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 				63603BA72BBC1C9F0083AEDB /* XCRemoteSwiftPackageReference "DavidFoundation" */,
 			);
@@ -2189,19 +2126,16 @@
 				63D67B712AC5A27F002EB992 /* Package System Info.swift in Sources */,
 				63D831052999331D00FA802F /* Sheet with Title.swift in Sources */,
 				6382C90A299DA11F00354B19 /* Purge Brew Cache.swift in Sources */,
-				63006E0A29ACC6AC00243E29 /* Get Package Dependencies.swift in Sources */,
 				634065782871AB3A001A2178 /* Shell Interface.swift in Sources */,
 				63D83103299928B400FA802F /* Headline with Subheadline.swift in Sources */,
 				63405A4A2C027F1300C6E0F2 /* Get Installed Formulae Intent.swift in Sources */,
 				632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */,
 				63EF569B2AC31AA600199F7B /* Basic Package Info.swift in Sources */,
-				635A50E929B7723C00164FBA /* Get Pin Status.swift in Sources */,
 				63A8D2F729CA605200E892FB /* Apply Tags to Package Array.swift in Sources */,
 				63D51F65299A992900203F3F /* Settings View.swift in Sources */,
 				63738C7F2AA38BF9009278B8 /* Updating Process Details.swift in Sources */,
 				63FFEF5029CB5EEE00D6FFC4 /* Displayable Alerts.swift in Sources */,
 				634065822871B0BE001A2178 /* Get Contents of Folder.swift in Sources */,
-				6348D9162BAC909600DBBC55 /* Parse Service Details.swift in Sources */,
 				63D51F6E299AAFE500203F3F /* Maintenance View.swift in Sources */,
 				63A018782AFFBD3F003A2912 /* Brewfile Import Progress.swift in Sources */,
 				63A38B9829BA0B910080158C /* Package Updating Steps.swift in Sources */,
@@ -2218,7 +2152,7 @@
 				63FFEF4E29CB5D9400D6FFC4 /* Restart App.swift in Sources */,
 				637D538E2BAB01EB00E072DA /* Homebrew Services View.swift in Sources */,
 				632C9A212BFE62D0000912CD /* Install Process Custom Search Field.swift in Sources */,
-				63006E1929AD215000243E29 /* Get Caveats.swift in Sources */,
+				63E9A6232C49C9C40096CB57 /* Load Up Package Info.swift in Sources */,
 				633289ED29A68B1E004B2930 /* Installation Progress Tracker.swift in Sources */,
 				637D53912BAB514400E072DA /* Services Sidebar.swift in Sources */,
 				63D5829E2BF14AD4004538FD /* Synchronize Services.swift in Sources */,
@@ -2241,7 +2175,6 @@
 				63C49EA42B1E943500DAD508 /* Tap - Initial.swift in Sources */,
 				63A8A12C2AE3FDEC00FA21C7 /* Onboarding Defaults Slider.swift in Sources */,
 				6369AFC22BF7B87300E67153 /* String - Letters Only.swift in Sources */,
-				63006E0829ACC60F00243E29 /* Get Package Homepage.swift in Sources */,
 				63581BD92BB86D8A009A8E03 /* Menu Bar - Cache Cleanup.swift in Sources */,
 				63603BAC2BBC6B360083AEDB /* Remove Packages Buttons.swift in Sources */,
 				63C830C129984BA4002D11BB /* Button That Opens Websites.swift in Sources */,
@@ -2275,7 +2208,6 @@
 				6342118029AA9CBB00E2563B /* Maintenance Pane.swift in Sources */,
 				634065672871AA42001A2178 /* ContentView.swift in Sources */,
 				6369AFBD2BF78E7400E67153 /* Outdated Package Type.swift in Sources */,
-				63DBAA552C262F6500F5D50A /* Parse Package Info JSON.swift in Sources */,
 				6360355A29BDF67B00CC0760 /* Update Availability.swift in Sources */,
 				6317BF792ADEFCA70018E425 /* Updating Packages.swift in Sources */,
 				6387A6722AE9254200517436 /* Basic Category.swift in Sources */,
@@ -2289,7 +2221,6 @@
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
 				63A0187B2AFFBF1A003A2912 /* Brewfile Import Stage.swift in Sources */,
-				63006E1129ACCCB800243E29 /* Get If Package Was Installed as Dependency.swift in Sources */,
 				63689FAD2ACDCD2F00BD354C /* Maintenance Finished View.swift in Sources */,
 				63199FE029980AB9002F50F0 /* Load up Installed Packages.swift in Sources */,
 				63936A4D29AE6D710069C988 /* Package Caveats.swift in Sources */,
@@ -2309,11 +2240,11 @@
 				63A8D2F129CA343F00E892FB /* Save Tagged IDs to Disk.swift in Sources */,
 				6348D90E2BAC8DD200DBBC55 /* Basic Service Info View.swift in Sources */,
 				6340657D2871AC65001A2178 /* Brew Package.swift in Sources */,
+				63E9A6202C49C79A0096CB57 /* Brew Package Details.swift in Sources */,
 				6386529E2A88F1070001679E /* Send Notification.swift in Sources */,
 				637E00642872F3CE005C9890 /* Update Packages.swift in Sources */,
 				63FD6C342BF023C90015A672 /* Start Service.swift in Sources */,
 				637057442C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift in Sources */,
-				63006E0629ACC56800243E29 /* Get Package Description.swift in Sources */,
 				637D53962BAB517800E072DA /* Service.swift in Sources */,
 				637A7A1E2BAB8A270013667C /* View - On Window Close.swift in Sources */,
 				63DD44112C093E770084DA07 /* Displayable Alerts - Descriptions.swift in Sources */,
@@ -2340,7 +2271,6 @@
 				6387A6782AE9257800517436 /* Tap Features Category.swift in Sources */,
 				63CBCC4A2AC9835400E1E95B /* Package Caveat Full Display.swift in Sources */,
 				63D024E52AC76DCD0050F9D0 /* Installing.swift in Sources */,
-				63006E0029AC073D00243E29 /* Parse Tap Info JSON.swift in Sources */,
 				637260C029BE388F00E6E81C /* Tap Details.swift in Sources */,
 				6387A6762AE9256600517436 /* Package Features Category.swift in Sources */,
 				63FFE5792A90CB8700F95E54 /* Top Package.swift in Sources */,
@@ -2367,8 +2297,8 @@
 				63DBAA502C26222100F5D50A /* Tap Codable Model.swift in Sources */,
 				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
 				63739B862C0660F100DE6A17 /* Binary Already Exists.swift in Sources */,
+				63C2EF012C4D53CF00900986 /* No Description Provided View.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
-				63006E0F29ACCBA400243E29 /* Get Package Tap.swift in Sources */,
 				63D830FC29990DD600FA802F /* Terminal Output.swift in Sources */,
 				6317BF752ADEFB060018E425 /* Ready to Update.swift in Sources */,
 				632C9A1B2BFE2544000912CD /* Custom Homebrew Executable View.swift in Sources */,
@@ -2389,12 +2319,10 @@
 				63689F7F2ACC8FDC00BD354C /* Package Modification Buttons.swift in Sources */,
 				63D83101299927C800FA802F /* Disappearable Sheet.swift in Sources */,
 				63A8D2F329CA346400E892FB /* Load Tagged IDs from Disk.swift in Sources */,
-				63006E1329ACCE2600243E29 /* Get If Package Is Outdated.swift in Sources */,
 				630D08B929B67E4300802201 /* Brew Pane.swift in Sources */,
 				635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
-				637410AE2ABB751B00B7915A /* Get Compatibility.swift in Sources */,
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
 				633289E929A68A8A004B2930 /* Package Installation Stage.swift in Sources */,
 				63ACBBF12BA8991F00B26D7E /* Licensing - Bought View.swift in Sources */,
@@ -2562,7 +2490,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2747,7 +2675,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2780,7 +2708,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Cork/Preview Content\"";
 				DEVELOPMENT_TEAM = ZSVA6DVZHM;
@@ -2906,14 +2834,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2926,11 +2846,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63689FB42ACFF18900BD354C /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
 			productName = LaunchAtLogin;
-		};
-		63936A4A29AE09D00069C988 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63936A4929AE09D00069C988 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

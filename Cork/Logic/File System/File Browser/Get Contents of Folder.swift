@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SwiftyJSON
 
 enum PackageLoadingError: Error
 {
@@ -131,8 +130,39 @@ private extension URL
             let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
             if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
             {
-                async let localPackageInfoJSON: JSON = parseJSON(from: String(contentsOfFile: localPackageInfoJSONPath.path, encoding: .utf8))
-                return try! await localPackageInfoJSON["installed_on_request"].boolValue
+                struct InstallRecepitParser: Codable
+                {
+                    let installedOnRequest: Bool
+                }
+                
+                let decoder: JSONDecoder =
+                {
+                    let decoder: JSONDecoder = .init()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    
+                    return decoder
+                }()
+                
+                do
+                {
+                    let installReceiptContents: Data = try .init(contentsOf: localPackageInfoJSONPath)
+                    
+                    do
+                    {
+                        return try decoder.decode(InstallRecepitParser.self, from: installReceiptContents).installedOnRequest
+                    }
+                    catch let installReceiptParsingError
+                    {
+                        AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent) with error \(installReceiptParsingError.localizedDescription)")
+                        
+                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+                    }
+                }
+                catch let installReceiptLoadingError
+                {
+                    AppConstants.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent) with error \(installReceiptLoadingError.localizedDescription)")
+                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+                }
             }
             else
             {

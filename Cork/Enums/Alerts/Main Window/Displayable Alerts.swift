@@ -16,7 +16,7 @@ enum DisplayableAlert: LocalizedError
     case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage, offendingDependencyProhibitingUninstallation: String), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), installedPackageIsNotAFolder(itemName: String, itemURL: URL), homePathNotSet
     case couldNotObtainNotificationPermissions
     case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: String)
-    case couldNotParseTopPackages
+    case couldNotParseTopPackages(error: String)
     case receivedInvalidResponseFromBrew
     case topPackageArrayFilterCouldNotRetrieveAnyPackages
     case couldNotAssociateAnyPackageWithProvidedPackageUUID

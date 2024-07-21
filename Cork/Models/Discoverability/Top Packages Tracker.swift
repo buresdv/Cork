@@ -7,7 +7,8 @@
 
 import Foundation
 
-class TopPackagesTracker: ObservableObject
+@MainActor
+class TopPackagesTracker: ObservableObject, Sendable
 {
     @Published var topFormulae: [TopPackage] = .init()
     @Published var topCasks: [TopPackage] = .init()

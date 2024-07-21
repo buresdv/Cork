@@ -10,14 +10,8 @@ import SwiftUI
 struct PackageDetailHeaderComplex: View
 {
     let package: BrewPackage
-
-    let description: String
-    let pinned: Bool
-    let installedAsDependency: Bool
-    let packageDependents: [String]?
-    let outdated: Bool
-    let caveats: String?
-
+    @ObservedObject var packageDetails: BrewPackageDetails
+    
     let isLoadingDetails: Bool
 
     var body: some View
@@ -32,7 +26,7 @@ struct PackageDetailHeaderComplex: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
-                if pinned
+                if packageDetails.pinned
                 {
                     Image(systemName: "pin.fill")
                         .help("package-details.pinned.help-\(package.name)")
@@ -43,9 +37,9 @@ struct PackageDetailHeaderComplex: View
             {
                 HStack(alignment: .center, spacing: 5)
                 {
-                    if installedAsDependency
+                    if packageDetails.installedAsDependency
                     {
-                        if let packageDependents
+                        if let packageDependents = packageDetails.dependents
                         {
                             if packageDependents.count != 0 // This happens when the package was originally installed as a dependency, but the parent is no longer installed
                             {
@@ -58,40 +52,31 @@ struct PackageDetailHeaderComplex: View
                                 HStack(alignment: .center, spacing: 5)
                                 {
                                     ProgressView()
-                                        .scaleEffect(0.3, anchor: .center)
-                                        .frame(width: 5, height: 5)
+                                        .controlSize(.mini)
 
                                     Text("package-details.dependants.loading")
                                 }
                             }, color: Color(nsColor: NSColor.tertiaryLabelColor))
                         }
                     }
-                    if outdated
+                    if packageDetails.outdated
                     {
                         OutlinedPillText(text: "package-details.outdated", color: .orange)
                     }
 
-                    PackageCaveatMinifiedDisplayView(caveats: caveats)
+                    PackageCaveatMinifiedDisplayView(caveats: packageDetails.caveats)
                 }
 
                 if !isLoadingDetails
                 {
-                    if !description.isEmpty
+                    if let packageDescription = packageDetails.description
                     {
-                        Text(description)
+                        Text(packageDescription)
                             .font(.subheadline)
                     }
                     else
                     {
-                        HStack(alignment: .center, spacing: 10)
-                        {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundColor(.yellow)
-                            Text("package-details.description-none-\(package.name)")
-                                .font(.subheadline)
-                        }
+                        NoDescriptionProvidedView()
                     }
                 }
             }
