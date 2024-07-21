@@ -7,9 +7,25 @@
 
 import Foundation
 
-enum HomebrewServiceLoadingError: Error
+enum HomebrewServiceLoadingError: LocalizedError
 {
-    case standardErrorNotEmpty, standardErrorNotEmptyAndNoResultsInStandardOutput, couldNotEncodeString(String), servicesParsingFailed, otherError(String)
+    case standardErrorNotEmpty(standardError: String), standardErrorNotEmptyAndNoResultsInStandardOutput, couldNotEncodeString(String), servicesParsingFailed, otherError(String)
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .standardErrorNotEmpty(let standardError):
+                return String(localized: "error.services.loading.standard-error-not-empty.\(standardError)")
+            case .standardErrorNotEmptyAndNoResultsInStandardOutput:
+                return String(localized: "error.services.loading.no-output")
+            case .couldNotEncodeString(let string):
+                return String(localized: "error.services.loading.could-not-encode-string.\(string)")
+            case .servicesParsingFailed:
+                return String(localized: "error.services.loading.parsing-failed")
+            case .otherError(let string):
+                return String(localized: "error.services.loading.other-error.\(string)")
+        }
+    }
 }
 
 extension ServicesTracker
@@ -50,7 +66,7 @@ extension ServicesTracker
         if !rawOutput.standardError.isEmpty
         {
             AppConstants.logger.error("Failed while loading up services: Standard Error not empty")
-            throw HomebrewServiceLoadingError.standardErrorNotEmpty
+            throw HomebrewServiceLoadingError.standardErrorNotEmpty(standardError: rawOutput.standardError)
         }
         
         do

@@ -28,7 +28,7 @@ extension HomebrewService
         if !rawOutput.standardError.isEmpty
         {
             AppConstants.logger.error("Failed while loading up service details: Standard Error not empty")
-            throw HomebrewServiceLoadingError.standardErrorNotEmpty
+            throw HomebrewServiceLoadingError.standardErrorNotEmpty(standardError: rawOutput.standardError)
         }
         
         do

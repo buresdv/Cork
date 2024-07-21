@@ -13223,6 +13223,56 @@
         }
       }
     },
+    "error.services.loading.could-not-encode-string.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not encode data: %@"
+          }
+        }
+      }
+    },
+    "error.services.loading.no-output" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew didn't return any data"
+          }
+        }
+      }
+    },
+    "error.services.loading.other-error.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unimplemented error: %@"
+          }
+        }
+      }
+    },
+    "error.services.loading.parsing-failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parsing of services failed"
+          }
+        }
+      }
+    },
+    "error.services.loading.standard-error-not-empty.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
     "error.top-packages.could-not-decode-casks" : {
       "extractionState" : "stale",
       "localizations" : {
