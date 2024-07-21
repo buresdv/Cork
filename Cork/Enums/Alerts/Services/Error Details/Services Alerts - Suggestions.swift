@@ -13,14 +13,16 @@ extension ServicesFatalError
     {
         switch self
         {
-            case let .couldNotLoadServices(error):
-                return error
-            case let .couldNotStartService(_, errorThrown):
-                return errorThrown
-            case let .couldNotStopService(_, errorThrown):
-                return errorThrown
-            case let .couldNotSynchronizeServices(errorThrown):
-                return errorThrown
+        case .couldNotLoadServices(let error):
+            return error
+        case .homebrewOutdated:
+            return String(localized: "services.error.homebrew-outdated.description")
+        case .couldNotStartService(_, let errorThrown):
+            return errorThrown
+        case .couldNotStopService(_, let errorThrown):
+            return errorThrown
+        case .couldNotSynchronizeServices(let errorThrown):
+            return errorThrown
         }
     }
 }

@@ -5056,6 +5056,26 @@
         }
       }
     },
+    "action.update-homebrew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Homebrew and all packages"
+          }
+        }
+      }
+    },
+    "action.update-homebrew.terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Homebrew through Terminal"
+          }
+        }
+      }
+    },
     "action.use-without-notifications" : {
       "localizations" : {
         "cs" : {
@@ -13242,6 +13262,9 @@
           }
         }
       }
+    },
+    "error.services.loading.homebrew-outdated" : {
+
     },
     "error.services.loading.no-output" : {
       "localizations" : {
@@ -26792,6 +26815,26 @@
         }
       }
     },
+    "services.error.homebrew-outdated" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew is out of date"
+          }
+        }
+      }
+    },
+    "services.error.homebrew-outdated.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that doesn't work, update through the Terminal."
+          }
+        }
+      }
+    },
     "services.error.must-be-run-as-root" : {
       "localizations" : {
         "cs" : {
@@ -36456,6 +36499,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "停用"
+          }
+        }
+      }
+    },
+    "state.update-homebrew.terminal.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
+          }
+        }
+      }
+    },
+    "state.update-homebrew.terminal.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updating through the Terminal"
           }
         }
       }

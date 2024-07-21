@@ -10,7 +10,7 @@ import DavidFoundation
 import Foundation
 import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate
+class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {
     @AppStorage("showInMenuBar") var showInMenuBar = false
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false

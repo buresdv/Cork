@@ -9,10 +9,14 @@ import SwiftUI
 
 struct HomebrewServicesView: View
 {
+    @EnvironmentObject private var appDelegate: AppDelegate
     @Environment(\.controlActiveState) var controlActiveState
 
     @StateObject var servicesTracker: ServicesTracker = .init()
     @StateObject var servicesState: ServicesState = .init()
+
+    @State private var hasTriedToUpdateHomebrewThroughCork: Bool = false
+    @State private var isShowingHomebrewUpdateInstructions: Bool = false
 
     var activeServices: Set<HomebrewService>
     {
@@ -122,12 +126,49 @@ struct HomebrewServicesView: View
                 EmptyView()
             case .couldNotSynchronizeServices(errorThrown: let errorThrown):
                 EmptyView()
+            case .homebrewOutdated:
+                if !hasTriedToUpdateHomebrewThroughCork
+                {
+                    Button
+                    {
+                        appDelegate.appState.isShowingUpdateSheet = true
+                        hasTriedToUpdateHomebrewThroughCork = true
+                    } label: {
+                        Text("action.update-homebrew")
+                    }
+                }
+                else
+                {
+                    Button
+                    {
+                        isShowingHomebrewUpdateInstructions = true
+                    } label: {
+                        Text("action.update-homebrew.terminal")
+                    }
+                }
+
+                dismissAlertButton
             }
         } message: { error in
             if let recoverySuggestion = error.recoverySuggestion
             {
                 Text(recoverySuggestion)
             }
+        }
+        .confirmationDialog("state.update-homebrew.terminal.title", isPresented: $isShowingHomebrewUpdateInstructions) 
+        {
+            Button
+            {
+                copyToClipboard(whatToCopy: "brew update")
+                
+                openTerminal()
+                
+                NSApp.terminate(nil)
+            } label: {
+                Text("action.open-terminal")
+            }
+        } message: {
+            Text("state.update-homebrew.terminal.message")
         }
     }
 
@@ -174,6 +215,16 @@ struct HomebrewServicesView: View
         do
         {
             try await servicesTracker.loadServices()
+        }
+        catch let servicesLoadingError as HomebrewServiceLoadingError
+        {
+            switch servicesLoadingError
+            {
+            case .homebrewOutdated:
+                servicesState.showError(.homebrewOutdated)
+            default:
+                servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
+            }
         }
         catch let servicesLoadingError
         {

@@ -9,7 +9,7 @@ import Foundation
 
 enum ServicesFatalError: LocalizedError
 {
-    case couldNotLoadServices(error: String)
+    case couldNotLoadServices(error: String), homebrewOutdated
 
     case couldNotStartService(offendingService: String, errorThrown: String)
     case couldNotStopService(offendingService: String, errorThrown: String)

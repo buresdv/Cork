@@ -16,6 +16,8 @@ extension ServicesFatalError
         {
             case .couldNotLoadServices:
                 return String(localized: "services.error.could-not-load-services")
+            case .homebrewOutdated:
+                return String(localized: "services.error.homebrew-outdated")
             case let .couldNotStartService(offendingService, _):
                 return String(localized: "services.error.could-not-start-service.\(offendingService)")
             case let .couldNotStopService(offendingService, _):
