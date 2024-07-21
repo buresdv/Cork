@@ -41,7 +41,6 @@
 		632C9A212BFE62D0000912CD /* Install Process Custom Search Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A202BFE62D0000912CD /* Install Process Custom Search Field.swift */; };
 		632C9A252BFF94B4000912CD /* URL - Reveal in Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */; };
 		632FD290299591C10029FC49 /* Get Folder Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD28F299591C10029FC49 /* Get Folder Size.swift */; };
-		632FD292299596790029FC49 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD291299596790029FC49 /* HelpButton.swift */; };
 		632FD2952995A3920029FC49 /* Add Tap View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2942995A3920029FC49 /* Add Tap View.swift */; };
 		632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2962995A7E50029FC49 /* Nicer Text Editor.swift */; };
 		632FD2992995BF490029FC49 /* Load up Tapped Taps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */; };
@@ -118,6 +117,9 @@
 		6369AFC22BF7B87300E67153 /* String - Letters Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369AFC12BF7B87300E67153 /* String - Letters Only.swift */; };
 		636C56332C3B439400EB1053 /* URL - Creation Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56322C3B439400EB1053 /* URL - Creation Date.swift */; };
 		636C56352C3B46A200EB1053 /* URL - Is Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C56342C3B46A200EB1053 /* URL - Is Directory.swift */; };
+		636D853B2C4D643100169733 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D85392C4D643100169733 /* HelpButton.swift */; };
+		636D853C2C4D643100169733 /* NSButton Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D853A2C4D643100169733 /* NSButton Port.swift */; };
+		636D853E2C4D64B700169733 /* Outdated Package Info Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D853D2C4D64B700169733 /* Outdated Package Info Amount.swift */; };
 		637057442C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */; };
 		6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA1D2871D98100300E1B /* Package List Item.swift */; };
 		6371EA232871EE5A00300E1B /* Brew Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6371EA222871EE5A00300E1B /* Brew Interface.swift */; };
@@ -257,8 +259,6 @@
 		63E716DD29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */; };
 		63E716E029DDC03E004FD2B4 /* Outdated Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */; };
 		63E716E429DDCEDE004FD2B4 /* Update Some Packages View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */; };
-		63E9A6182C4735580096CB57 /* NSButton Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6172C4735580096CB57 /* NSButton Port.swift */; };
-		63E9A61A2C480CCE0096CB57 /* Outdated Package Info Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6192C480CCE0096CB57 /* Outdated Package Info Amount.swift */; };
 		63E9A6202C49C79A0096CB57 /* Brew Package Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */; };
 		63E9A6232C49C9C40096CB57 /* Load Up Package Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */; };
 		63EC74C92A87C9E9001187F2 /* Network Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EC74C82A87C9E9001187F2 /* Network Proxy.swift */; };
@@ -346,7 +346,6 @@
 		632C9A202BFE62D0000912CD /* Install Process Custom Search Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Install Process Custom Search Field.swift"; sourceTree = "<group>"; };
 		632C9A242BFF94B4000912CD /* URL - Reveal in Finder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Reveal in Finder.swift"; sourceTree = "<group>"; };
 		632FD28F299591C10029FC49 /* Get Folder Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Get Folder Size.swift"; sourceTree = "<group>"; };
-		632FD291299596790029FC49 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		632FD2942995A3920029FC49 /* Add Tap View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add Tap View.swift"; sourceTree = "<group>"; };
 		632FD2962995A7E50029FC49 /* Nicer Text Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nicer Text Editor.swift"; sourceTree = "<group>"; };
 		632FD2982995BF490029FC49 /* Load up Tapped Taps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load up Tapped Taps.swift"; sourceTree = "<group>"; };
@@ -424,6 +423,9 @@
 		6369AFC12BF7B87300E67153 /* String - Letters Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - Letters Only.swift"; sourceTree = "<group>"; };
 		636C56322C3B439400EB1053 /* URL - Creation Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Creation Date.swift"; sourceTree = "<group>"; };
 		636C56342C3B46A200EB1053 /* URL - Is Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL - Is Directory.swift"; sourceTree = "<group>"; };
+		636D85392C4D643100169733 /* HelpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
+		636D853A2C4D643100169733 /* NSButton Port.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSButton Port.swift"; sourceTree = "<group>"; };
+		636D853D2C4D64B700169733 /* Outdated Package Info Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Outdated Package Info Amount.swift"; sourceTree = "<group>"; };
 		637057432C2D6504002DFA0D /* Installation Terminated Unexpectedly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Installation Terminated Unexpectedly.swift"; sourceTree = "<group>"; };
 		6371EA1D2871D98100300E1B /* Package List Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package List Item.swift"; sourceTree = "<group>"; };
 		6371EA222871EE5A00300E1B /* Brew Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Interface.swift"; sourceTree = "<group>"; };
@@ -564,8 +566,6 @@
 		63E716DC29DDBA54004FD2B4 /* Cached Downloads Folder Info Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cached Downloads Folder Info Box.swift"; sourceTree = "<group>"; };
 		63E716DF29DDC03E004FD2B4 /* Outdated Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package.swift"; sourceTree = "<group>"; };
 		63E716E329DDCEDE004FD2B4 /* Update Some Packages View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Update Some Packages View.swift"; sourceTree = "<group>"; };
-		63E9A6172C4735580096CB57 /* NSButton Port.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton Port.swift"; sourceTree = "<group>"; };
-		63E9A6192C480CCE0096CB57 /* Outdated Package Info Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Outdated Package Info Amount.swift"; sourceTree = "<group>"; };
 		63E9A61F2C49C79A0096CB57 /* Brew Package Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Brew Package Details.swift"; sourceTree = "<group>"; };
 		63E9A6222C49C9C40096CB57 /* Load Up Package Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Load Up Package Info.swift"; sourceTree = "<group>"; };
 		63EC74C82A87C9E9001187F2 /* Network Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Proxy.swift"; sourceTree = "<group>"; };
@@ -817,13 +817,6 @@
 			path = Complete;
 			sourceTree = "<group>";
 		};
-		6339B0FA29F921B200DC4C80 /* Incremental */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Incremental;
-			sourceTree = "<group>";
-		};
 		633AA21E2AFEDD8500A5F3E3 /* Brewfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1050,10 +1043,9 @@
 		6360355529BDE79D00CC0760 /* Package Updating */ = {
 			isa = PBXGroup;
 			children = (
-				6339B0FA29F921B200DC4C80 /* Incremental */,
 				6339B0F929F921AA00DC4C80 /* Complete */,
+				636D853D2C4D64B700169733 /* Outdated Package Info Amount.swift */,
 				6360355929BDF67A00CC0760 /* Update Availability.swift */,
-				63E9A6192C480CCE0096CB57 /* Outdated Package Info Amount.swift */,
 			);
 			path = "Package Updating";
 			sourceTree = "<group>";
@@ -1110,6 +1102,15 @@
 				6369AFBC2BF78E7400E67153 /* Outdated Package Type.swift */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		636D85342C4D63E200169733 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				636D85392C4D643100169733 /* HelpButton.swift */,
+				636D853A2C4D643100169733 /* NSButton Port.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		6371EA1C2871D96800300E1B /* Packages */ = {
@@ -1509,7 +1510,7 @@
 		63A90D892AA268A800CEC48E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				63E9A6162C4735430096CB57 /* Buttons */,
+				636D85342C4D63E200169733 /* Buttons */,
 				63D8C956287A1D0800483A52 /* Loading View.swift */,
 				63A874692990127D009F9533 /* PillText.swift */,
 				63A90D8A2AA268C700CEC48E /* Sanitized Package Name.swift */,
@@ -1901,13 +1902,6 @@
 			path = "Incremental Updating";
 			sourceTree = "<group>";
 		};
-		63E9A6162C4735430096CB57 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				632FD291299596790029FC49 /* HelpButton.swift */,
-				63E9A6172C4735580096CB57 /* NSButton Port.swift */,
-			);
-			path = Buttons;
 		63E9A6212C49C9B60096CB57 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -2194,7 +2188,6 @@
 				63A96F722AA4F8030029E33B /* Array - Get Difference.swift in Sources */,
 				637D539C2BAB544400E072DA /* Sidebar Service Row.swift in Sources */,
 				632FD2972995A7E50029FC49 /* Nicer Text Editor.swift in Sources */,
-				63E9A61A2C480CCE0096CB57 /* Outdated Package Info Amount.swift in Sources */,
 				63D67B782AC5E205002EB992 /* Tap Title.swift in Sources */,
 				63CBCC4D2AC983FB00E1E95B /* Package Caveat Minified Display.swift in Sources */,
 				63F6226F2BAF5B9700FBDB20 /* String - Window IDs.swift in Sources */,
@@ -2229,7 +2222,6 @@
 				632C9A252BFF94B4000912CD /* URL - Reveal in Finder.swift in Sources */,
 				63A8746A2990127D009F9533 /* PillText.swift in Sources */,
 				6382C90C299DA46100354B19 /* Perform Brew Health Check.swift in Sources */,
-				632FD292299596790029FC49 /* HelpButton.swift in Sources */,
 				63D8310A299982EA00FA802F /* Search Result Row.swift in Sources */,
 				63A8746E29904A7F009F9533 /* App State.swift in Sources */,
 				63A87468298FE811009F9533 /* Package Types.swift in Sources */,
@@ -2244,6 +2236,7 @@
 				63BE67E62B0EC015000FD594 /* No Updates Available Box.swift in Sources */,
 				63FFE5742A90CB3F00F95E54 /* Load up Top Packages.swift in Sources */,
 				631145492BF22633007C9A65 /* Gauge - Mini Gauge.swift in Sources */,
+				636D853C2C4D643100169733 /* NSButton Port.swift in Sources */,
 				63FD6C362BF0240F0015A672 /* Stop Service.swift in Sources */,
 				6387A6742AE9255700517436 /* Discoverability Category.swift in Sources */,
 				63006DFB29AB692B00243E29 /* DisclosureGroup - No Padding.swift in Sources */,
@@ -2309,6 +2302,7 @@
 				6371EA1E2871D98100300E1B /* Package List Item.swift in Sources */,
 				63DBAA502C26222100F5D50A /* Tap Codable Model.swift in Sources */,
 				631C2D352BB9DB75006EDCD1 /* Wrong Architecture.swift in Sources */,
+				636D853B2C4D643100169733 /* HelpButton.swift in Sources */,
 				63739B862C0660F100DE6A17 /* Binary Already Exists.swift in Sources */,
 				63C2EF012C4D53CF00900986 /* No Description Provided View.swift in Sources */,
 				635A50EB29B7740000164FBA /* Pin an Unpin Package.swift in Sources */,
@@ -2334,6 +2328,7 @@
 				63A8D2F329CA346400E892FB /* Load Tagged IDs from Disk.swift in Sources */,
 				630D08B929B67E4300802201 /* Brew Pane.swift in Sources */,
 				635BE0502A2B3822004DCBD8 /* Formulae Section.swift in Sources */,
+				636D853E2C4D64B700169733 /* Outdated Package Info Amount.swift in Sources */,
 				6342118329AA9CF100E2563B /* Ready View.swift in Sources */,
 				632FD29B2995C1C20029FC49 /* Brew Tap.swift in Sources */,
 				6311F3D82B0A1EB6008A8067 /* Open Terminal.swift in Sources */,
@@ -2381,7 +2376,6 @@
 				63C49EAB2B1E975100DAD508 /* Tap - Error.swift in Sources */,
 				639A7D862871D78C00B50280 /* Package Details.swift in Sources */,
 				63D67B7C2AC5E37E002EB992 /* Included Packages.swift in Sources */,
-				63E9A6182C4735580096CB57 /* NSButton Port.swift in Sources */,
 				63085AFC2BB99C9C005F92FD /* Submit System Version.swift in Sources */,
 				639D45DF2BB85D3100459DE3 /* No Content Available.swift in Sources */,
 				634065652871AA42001A2178 /* CorkApp.swift in Sources */,
