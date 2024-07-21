@@ -106,21 +106,11 @@ struct StartPage: View
         {
             if outdatedPackageTracker.outdatedPackages.isEmpty
             {
-                appState.isCheckingForPackageUpdates = true
-
-                defer
-                {
-                    withAnimation
-                    {
-                        appState.isCheckingForPackageUpdates = false
-                    }
-                }
-
                 await shell(AppConstants.brewExecutablePath, ["update"])
 
                 do
                 {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData, appState: appState)
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                 {

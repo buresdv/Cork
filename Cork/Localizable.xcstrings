@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%@" : {
       "localizations" : {
         "cs" : {
@@ -40,6 +43,9 @@
           }
         }
       }
+    },
+    "→" : {
+
     },
     "⚠️" : {
       "localizations" : {
@@ -29649,6 +29655,59 @@
         }
       }
     },
+    "settings.general.outdated-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outdated package info:"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.also-show-old-versions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show old versions"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.display-amount.all" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.display-amount.none" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimal"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.display-amount.version-only" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versions only"
+          }
+        }
+      }
+    },
+    "settings.general.outdated-packages.info-amount" : {
+
+    },
     "settings.general.package-caveats" : {
       "localizations" : {
         "cs" : {
@@ -36132,6 +36191,16 @@
         }
       }
     },
+    "start-page.updates.installed-version" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installed Version"
+          }
+        }
+      }
+    },
     "start-page.updates.list" : {
       "localizations" : {
         "cs" : {
@@ -36256,6 +36325,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "查看套件更新⋯"
+          }
+        }
+      }
+    },
+    "start-page.updates.newest-version" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Newest Version"
           }
         }
       }
