@@ -23070,6 +23070,7 @@
       }
     },
     "package-details.description-none-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

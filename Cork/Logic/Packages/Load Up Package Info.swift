@@ -40,7 +40,7 @@ extension BrewPackage
             let name: String
 
             /// Description of the formula
-            let desc: String
+            let desc: String?
 
             /// Homepage of the formula
             let homepage: URL
@@ -150,7 +150,7 @@ extension BrewPackage
             let token: String
 
             /// Description of the cask
-            let desc: String
+            let desc: String?
 
             /// Homepage of the cask
             let homepage: URL
@@ -250,6 +250,8 @@ extension BrewPackage
             }
         }
 
+        AppConstants.logger.debug("JSON output: \(rawOutput.standardOutput)")
+        
         guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
         else
         {

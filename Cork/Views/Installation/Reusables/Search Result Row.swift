@@ -16,7 +16,7 @@ struct SearchResultRow: View, Sendable
 
     let searchedForPackage: BrewPackage
     
-    @State private var description: String = ""
+    @State private var description: String?
     @State private var isCompatible: Bool?
 
     @State private var isLoadingDescription: Bool = true
@@ -74,16 +74,14 @@ struct SearchResultRow: View, Sendable
                     }
                     else
                     {
-                        if !description.isEmpty
+                        if let description
                         {
                             Text(description)
                                 .font(.caption)
                         }
                         else
                         {
-                            Text("add-package.result.description-empty")
-                                .font(.caption)
-                                .foregroundColor(Color(nsColor: .tertiaryLabelColor))
+                            NoDescriptionProvidedView()
                         }
                     }
                 }
@@ -102,7 +100,7 @@ struct SearchResultRow: View, Sendable
             {
                 AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
 
-                if description.isEmpty
+                if description == nil
                 {
                     defer
                     {

@@ -69,22 +69,14 @@ struct PackageDetailHeaderComplex: View
 
                 if !isLoadingDetails
                 {
-                    if !packageDetails.description.isEmpty
+                    if let packageDescription = packageDetails.description
                     {
-                        Text(packageDetails.description)
+                        Text(packageDescription)
                             .font(.subheadline)
                     }
                     else
                     {
-                        HStack(alignment: .center, spacing: 10)
-                        {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundColor(.yellow)
-                            Text("package-details.description-none-\(package.name)")
-                                .font(.subheadline)
-                        }
+                        NoDescriptionProvidedView()
                     }
                 }
             }

@@ -27,7 +27,7 @@ class BrewPackageDetails: ObservableObject
     /// Name of the package
     let name: String
 
-    let description: String
+    let description: String?
 
     let homepage: URL
     let tap: BrewTap
@@ -43,7 +43,7 @@ class BrewPackageDetails: ObservableObject
     @Published var pinned: Bool
 
     // MARK: - Init
-    init(name: String, description: String, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, pinned: Bool, isCompatible: Bool)
+    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, pinned: Bool, isCompatible: Bool)
     {
         self.name = name
         self.description = description
