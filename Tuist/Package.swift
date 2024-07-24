@@ -4,7 +4,7 @@ import PackageDescription
 #if TUIST
 import ProjectDescription
 
-let packageSettings = PackageSettings(
+let packageSettings: PackageSettings = .init(
     // Customize the product types for specific package product
     // Default is .staticFramework
     // productTypes: ["Alamofire": .framework,]

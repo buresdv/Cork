@@ -45,5 +45,32 @@ let project = Project(
                 xcconfig: .relativeToRoot("xcconfigs/CorkHelp.xcconfig")
             )
         ])),
+    ],
+    schemes: [
+        .scheme(
+            name: "Release",
+            buildAction: .buildAction(
+                targets: ["Cork"]
+            ),
+            runAction: .runAction(
+                configuration: .release,
+                executable: "Cork"
+            )
+        ),
+        .scheme(
+            name: "Self-Compiled",
+            buildAction: .buildAction(
+                targets: ["Cork"]
+            ),
+            runAction: .runAction(
+                configuration: .release,
+                executable: "Cork",
+                arguments: .arguments(
+                    environmentVariables: [
+                        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "SELF_COMPILED"
+                    ]
+                )
+            )
+        )
     ]
 )
