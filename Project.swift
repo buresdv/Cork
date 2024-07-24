@@ -11,6 +11,10 @@ let project = Project(
             .release(
                 name: "Release",
                 xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
+            ),
+            .release(
+                name: "Self-Compiled",
+                xcconfig: .relativeToRoot("xcconfigs/Self-Compiled.xcconfig")
             )
         ]),
     targets: [
@@ -64,12 +68,7 @@ let project = Project(
             ),
             runAction: .runAction(
                 configuration: .release,
-                executable: "Cork",
-                arguments: .arguments(
-                    environmentVariables: [
-                        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "SELF_COMPILED"
-                    ]
-                )
+                executable: "Cork"
             )
         )
     ]
