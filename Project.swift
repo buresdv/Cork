@@ -2,16 +2,18 @@ import ProjectDescription
 
 let project = Project(
     name: "Cork-Tuist",
-    settings: .settings(configurations: [
-        .debug(
-            name: "Debug",
-            xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
-        ),
-        .release(
-            name: "Release",
-            xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
-        )
-    ]), targets: [
+    settings: .settings(
+        configurations: [
+            .debug(
+                name: "Debug",
+                xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
+            ),
+            .release(
+                name: "Release",
+                xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
+            )
+        ]),
+    targets: [
         .target(name: "Cork", destinations: [.mac], product: .app, bundleId: "com.davidbures.cork", infoPlist: .file(path: "Cork/Info.plist"), sources: [
             "Cork/**/*.swift"
         ], resources: [
