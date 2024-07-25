@@ -80,7 +80,7 @@ let project = Project(
                 targets: ["Cork"]
             ),
             runAction: .runAction(
-                configuration: .release,
+                configuration: .configuration("Self-Compiled"),
                 executable: "Cork"
             )
         )
