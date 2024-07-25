@@ -11,10 +11,6 @@ let project = Project(
             .release(
                 name: "Release",
                 xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
-            ),
-            .release(
-                name: "Self-Compiled",
-                xcconfig: .relativeToRoot("xcconfigs/Self-Compiled.xcconfig")
             )
         ]),
     targets: [
@@ -80,8 +76,12 @@ let project = Project(
                 targets: ["Cork"]
             ),
             runAction: .runAction(
-                configuration: .configuration("Self-Compiled"),
-                executable: "Cork"
+                executable: "Cork",
+                arguments: .arguments(
+                    environmentVariables: [
+                        "SELF_COMPILED": "true"
+                    ]
+                )
             )
         )
     ]
