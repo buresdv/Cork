@@ -1,5 +1,4 @@
 {
-  "originHash" : "3d0521942336371ef73d8698ac410a45a7eaad55d50ed5b39b70e2e876f4975d",
   "pins" : [
     {
       "identity" : "davidfoundation",
@@ -20,5 +19,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

@@ -97,7 +97,7 @@ I will provide you with the newest release and development version, answer any q
 
 ## Compiling Cork
 
-Compiling Cork is simple, as it does not have many dependencies.
+Compiling Cork is simple, as it does not have many dependencies. It uses Tuist to generate Xcode projects to speed up compilation.
 
 Prerequisites:
 
@@ -119,17 +119,38 @@ Prerequisites:
 5. On the bottom left, click the **+** icon and select `Apple Development`
 6. When a new item appears in the list called `Apple Development Certificates`, you can press `Done` to close the account manager
 
+**Installing Tuist**
+
+*Skip if you already have Tuist installed*
+
+1. Add the Tuist Homebrew tap using `brew tap tuist/tuist`
+2. Install Tuist using `brew install --formula tuist`
+
 **Compiling Cork**
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Clone this repo using `git clone https://github.com/buresdv/Cork.git && cd Cork && open Cork.xcodeproj`. Xcode will open the project
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && tuist install && tuist generate`. Xcode will open the project.
+
+<div style= "margin-left: 1rem">
+  <details>
+    <summary>What does this command do?</summary>
+    <br>
+    <ol>
+      <li><code>git clone https://github.com/buresdv/Cork.git</code> downloads the source code</li>
+      <li><code>cd Cork</code> opens the folder you downloaded Cork into</li>
+      <li><code>tuist install</code> downloads all Cork pre-requisites</li>
+      <li><code>tuist generate</code> creates the Xcode project and opens it</li>
+    </ol>
+  </details>
+</div>
+
 2. Wait until all the dependencies are resolved. It should take a couple minutes at most
 3. In the file browser on the left, click `Cork` at the very top. It's the icon with the App Store logo
 4. In the pane that opens on the right, click `Signing & Capabilities` at the top
 5. Under `Signing`, switch the `Team` dropdown to `None`
 6. Under `Signing → macOS`, switch the `Signing Certificate` to `Sign to Run Locally`
 7. If it isn't already selected, change the Build Scheme to `Self-Compiled` in Xcode's [toolbar](https://developer.apple.com/design/human-interface-guidelines/toolbars#macOS).
-![Build Scheme Selector](https://files.catbox.moe/ofufd1.jpg)
+  ![Build Scheme Selector](https://files.catbox.moe/ofufd1.jpg)
 > [!WARNING]
 > If you don't select the correct Build Scheme, Cork will require you to put in a license.
 8. In the Menu Bar, click `Product → Archive` and wait for the building to finish

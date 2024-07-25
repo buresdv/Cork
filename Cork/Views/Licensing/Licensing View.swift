@@ -31,30 +31,33 @@ struct LicensingView: View
         }
         .onAppear
         {
-            #if SELF_COMPILED
-            appState.licensingState = .selfCompiled
-            #else
-            AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
-            
-            if hasValidatedEmail
+            if ProcessInfo.processInfo.environment["SELF_COMPILED"] == "true"
             {
-                appState.licensingState = .bought
+                appState.licensingState = .selfCompiled
             }
             else
             {
-                if let demoActivatedAt
+                AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
+                
+                if hasValidatedEmail
                 {
-                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
-                    { // Check if there is still time on the demo
-                        appState.licensingState = .demo
-                    }
-                    else
+                    appState.licensingState = .bought
+                }
+                else
+                {
+                    if let demoActivatedAt
                     {
-                        appState.licensingState = .notBoughtOrHasNotActivatedDemo
+                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                        { // Check if there is still time on the demo
+                            appState.licensingState = .demo
+                        }
+                        else
+                        {
+                            appState.licensingState = .notBoughtOrHasNotActivatedDemo
+                        }
                     }
                 }
             }
-            #endif
         }
     }
 }

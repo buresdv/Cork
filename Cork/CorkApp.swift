@@ -119,11 +119,13 @@ struct CorkApp: App
                 {
                     print("Licensing state: \(appDelegate.appState.licensingState)")
 
-                    #if SELF_COMPILED
+                    if ProcessInfo.processInfo.environment["SELF_COMPILED"] == "true"
+                    {
                         AppConstants.logger.debug("Will set licensing state to Self Compiled")
                         appDelegate.appState.licensingState = .selfCompiled
-
-                    #else
+                    }
+                    else
+                    {
                         if !hasValidatedEmail
                         {
                             if appDelegate.appState.licensingState != .selfCompiled
@@ -131,14 +133,14 @@ struct CorkApp: App
                                 if let demoActivatedAt
                                 {
                                     let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
-
+                                    
                                     AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-
+                                    
                                     AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-
+                                    
                                     if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
                                     { // Check if there is still time on the demo
-                                        /// do stuff if there is
+                                      /// do stuff if there is
                                     }
                                     else
                                     {
@@ -147,7 +149,7 @@ struct CorkApp: App
                                 }
                             }
                         }
-                    #endif
+                    }
                 }
                 .onAppear
                 {
