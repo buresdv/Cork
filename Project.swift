@@ -1,7 +1,7 @@
 import ProjectDescription
 
 let project = Project(
-    name: "Cork-Tuist",
+    name: "Cork",
     settings: .settings(
         configurations: [
             .debug(
