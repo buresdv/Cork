@@ -20,16 +20,12 @@
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum CorkAsset {
-  public enum Assets {
   public static let accentColor = CorkColors(name: "AccentColor")
-    public static let customPinFillQuestionmark = CorkImages(name: "custom.pin.fill.questionmark")
-    public static let customSquareStackBadgePause = CorkImages(name: "custom.square.stack.badge.pause")
-    public static let customSquareStackBadgePlay = CorkImages(name: "custom.square.stack.badge.play")
-    public static let customSquareStackBadgeQuestionmark = CorkImages(name: "custom.square.stack.badge.questionmark")
-    public static let customSquareStackTrianglebadgeExclamationmark = CorkImages(name: "custom.square.stack.trianglebadge.exclamationmark")
-  }
-  public enum PreviewAssets {
-  }
+  public static let customPinFillQuestionmark = CorkImages(name: "custom.pin.fill.questionmark")
+  public static let customSquareStackBadgePause = CorkImages(name: "custom.square.stack.badge.pause")
+  public static let customSquareStackBadgePlay = CorkImages(name: "custom.square.stack.badge.play")
+  public static let customSquareStackBadgeQuestionmark = CorkImages(name: "custom.square.stack.badge.questionmark")
+  public static let customSquareStackTrianglebadgeExclamationmark = CorkImages(name: "custom.square.stack.trianglebadge.exclamationmark")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
