@@ -13,7 +13,7 @@ struct TopPackagesSection: View
 
     let packageTracker: [TopPackage]
 
-    let isCaskTracker: Bool
+    let trackerType: PackageType
 
     @State private var isCollapsed: Bool = false
 
@@ -25,12 +25,11 @@ struct TopPackagesSection: View
             {
                 ForEach(packageTracker.filter
                 {
-                    if !isCaskTracker
+                    switch trackerType
                     {
+                    case .formula:
                         !brewData.installedFormulae.map(\.name).contains($0.packageName)
-                    }
-                    else
-                    {
+                    case .cask:
                         !brewData.installedCasks.map(\.name).contains($0.packageName)
                     }
 
@@ -40,7 +39,7 @@ struct TopPackagesSection: View
                 }
             }
         } header: {
-            CollapsibleSectionHeader(headerText: isCaskTracker ? "add-package.top-casks" : "add-package.top-formulae", isCollapsed: $isCollapsed)
+            CollapsibleSectionHeader(headerText: trackerType == .cask ? "add-package.top-casks" : "add-package.top-formulae", isCollapsed: $isCollapsed)
         }
     }
 }

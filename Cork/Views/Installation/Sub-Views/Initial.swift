@@ -45,9 +45,9 @@ struct InstallationInitialView: View
                 {
                     List(selection: $foundPackageSelection)
                     {
-                        TopPackagesSection(packageTracker: topPackagesTracker.topFormulae, isCaskTracker: false)
+                        TopPackagesSection(packageTracker: topPackagesTracker.sortedTopFormulae, trackerType: .formula)
 
-                        TopPackagesSection(packageTracker: topPackagesTracker.topCasks, isCaskTracker: true)
+                        TopPackagesSection(packageTracker: topPackagesTracker.sortedTopCasks, trackerType: .cask)
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
                     .frame(minHeight: 200)

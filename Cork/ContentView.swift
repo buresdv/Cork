@@ -333,9 +333,6 @@ struct ContentView: View, Sendable
                 await loadTopPackages()
             }
         })
-        .onChange(of: sortTopPackagesBy, perform: { _ in
-            sortTopPackages()
-        })
         .onChange(of: customHomebrewPath, perform: { _ in
             restartApp()
         })
@@ -611,34 +608,5 @@ struct ContentView: View, Sendable
         }
         
         await topPackagesTracker.loadTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, appState: appState)
-        
-        sortTopPackages()
-    }
-
-    private func sortTopPackages()
-    {
-        switch sortTopPackagesBy
-        {
-        case .mostDownloads:
-
-            AppConstants.logger.info("Will sort top packages by most downloads")
-
-            topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
-            topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
-
-        case .fewestDownloads:
-
-            AppConstants.logger.info("Will sort top packages by fewest downloads")
-
-            topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
-            topPackagesTracker.topCasks = topPackagesTracker.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
-
-        case .random:
-
-            AppConstants.logger.info("Will sort top packages randomly")
-
-            topPackagesTracker.topFormulae = topPackagesTracker.topFormulae.shuffled()
-            topPackagesTracker.topCasks = topPackagesTracker.topCasks.shuffled()
-        }
     }
 }
