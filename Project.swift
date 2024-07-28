@@ -67,7 +67,8 @@ let project = Project(
             ),
             runAction: .runAction(
                 configuration: .release,
-                executable: "Cork"
+                executable: "Cork",
+                options: .options(language: .init(identifier: "en"))
             )
         ),
         .scheme(
@@ -81,7 +82,8 @@ let project = Project(
                     environmentVariables: [
                         "SELF_COMPILED": "true"
                     ]
-                )
+                ),
+                options: .options(language: .init(identifier: "en"))
             )
         )
     ]
