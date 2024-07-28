@@ -42,7 +42,14 @@
       }
     },
     "→" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→"
+          }
+        }
+      }
     },
     "⚠️" : {
       "localizations" : {
@@ -13264,7 +13271,14 @@
       }
     },
     "error.services.loading.homebrew-outdated" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew outdated"
+          }
+        }
+      }
     },
     "error.services.loading.no-output" : {
       "localizations" : {
@@ -21100,6 +21114,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "通知各種行動"
+          }
+        }
+      }
+    },
+    "onboarding.feature.outdated-packages-details.all" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show detailed info about outdated packages"
+          }
+        }
+      }
+    },
+    "onboarding.feature.outdated-packages-details.minimal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show basic info about outdated packages"
+          }
+        }
+      }
+    },
+    "onboarding.feature.outdated-packages-details.versions-only" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show versions in info about outdated packages"
           }
         }
       }
@@ -29806,7 +29850,14 @@
       }
     },
     "settings.general.outdated-packages.info-amount" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outdated packages:"
+          }
+        }
+      }
     },
     "settings.general.package-caveats" : {
       "localizations" : {

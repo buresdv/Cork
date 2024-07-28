@@ -24,6 +24,19 @@ struct OnboardingPackageFeaturesCategory: View
                     Text("onboarding.feature.package-details")
                 }
                 
+                if onboardingSetupLevelNumber < 2
+                {
+                    Text("onboarding.feature.outdated-packages-details.minimal")
+                }
+                else if onboardingSetupLevelNumber == 2 || onboardingSetupLevelNumber == 3
+                {
+                    Text("onboarding.feature.outdated-packages-details.versions-only")
+                }
+                else
+                {
+                    Text("onboarding.feature.outdated-packages-details.all")
+                }
+                
                 // Slightly basic
                 if onboardingSetupLevelNumber >= 1
                 {

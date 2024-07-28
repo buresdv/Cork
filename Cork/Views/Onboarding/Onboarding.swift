@@ -37,6 +37,9 @@ struct OnboardingView: View
     
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     
+    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
+    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+    
     @State var onboardingSetupLevel: SetupLevels = .medium
 
     /// Level numbers:
@@ -112,6 +115,7 @@ struct OnboardingView: View
                 {
                     showDescriptionsInSearchResults = true
                     showCompatibilityWarning = true
+                    outdatedPackageInfoDisplayAmount = .none
                 }
                 
                 if onboardingSetupLevelNumber >= 2
@@ -120,6 +124,9 @@ struct OnboardingView: View
                     caveatDisplayOptions = .full
                     areNotificationsEnabled = true
                     outdatedPackageNotificationType = .both
+                    
+                    outdatedPackageInfoDisplayAmount = .versionOnly
+                    showOldVersionsInOutdatedPackageList = true
                     
                     displayOnlyIntentionallyInstalledPackagesByDefault = false
                 }
@@ -133,6 +140,8 @@ struct OnboardingView: View
                     
                     notifyAboutPackageUpgradeResults = true
                     notifyAboutPackageInstallationResults = true
+                    
+                    outdatedPackageInfoDisplayAmount = .all
                     
                     enableRevealInFinder = true
                 }
