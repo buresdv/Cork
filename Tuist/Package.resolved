@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buresdv/DavidFoundation",
       "state" : {
-        "revision" : "92d1f766860ebf6ed27c68f8958849a84ca797ea",
-        "version" : "2.0.0"
+        "revision" : "85c5e03e89287b95ec87b021408f1ecbbae6e631",
+        "version" : "2.0.1"
       }
     },
     {
