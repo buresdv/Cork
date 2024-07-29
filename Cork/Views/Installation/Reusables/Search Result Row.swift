@@ -109,7 +109,6 @@ struct SearchResultRow: View, Sendable
                     
                     AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
 
-                    async let descriptionRaw = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", searchedForPackage.name]).standardOutput
                     do
                     {
                         let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
@@ -125,14 +124,10 @@ struct SearchResultRow: View, Sendable
                         catch let descriptionParsingError
                         { // This happens when a package doesn' have any description at all, hence why we don't display an error
                             AppConstants.logger.error("Failed while parsing searched-for package info: \(descriptionParsingError.localizedDescription, privacy: .public)")
+                            
+                            descriptionParsingFailed = true
                         }
 
-                    }
-                    catch let descriptionJSONRetrievalError
-                    {
-                        AppConstants.logger.error("Failed while retrieving description JSON: \(descriptionJSONRetrievalError, privacy: .public)")
-                        
-                        descriptionParsingFailed = true
                     }
                 }
                 else
