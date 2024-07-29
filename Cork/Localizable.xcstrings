@@ -43,6 +43,12 @@
     },
     "→" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4219,6 +4225,12 @@
     },
     "action.reload-services" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znovu načíst služby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4869,6 +4881,12 @@
     },
     "action.show-terminal-output" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit výstup Terminálu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5065,6 +5083,12 @@
     },
     "action.update-homebrew" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat Homebrew a všechny balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5075,6 +5099,12 @@
     },
     "action.update-homebrew.terminal" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat Homebrew přes Terminál"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6166,6 +6196,12 @@
     },
     "add-package.install.installation-terminated.subheadline" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homerbew ukončil instalaci tohoto balíčku, než mohla začít.\nNíže uvidíte výstup Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6176,6 +6212,12 @@
     },
     "add-package.install.installation-terminated.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalace balíčku byla neočekávaně přerušena"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13192,6 +13234,12 @@
     },
     "error.generic-couldnt-decode-json.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení JSON odpovědi od Homebrew se vyskytla chyba:\n%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13202,6 +13250,12 @@
     },
     "error.generic.couldnt-convert-string-to-data" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při převodu JSON odpovědi na data se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13212,6 +13266,12 @@
     },
     "error.generic.unexpected-homebrew-response" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neplatná odpověď Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13222,6 +13282,12 @@
     },
     "error.package-details.couldnt-pin-unpin" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při připínání se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13232,6 +13298,12 @@
     },
     "error.package-loading-couldnt-get-package-from-parsed-output" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení balíčku z JSON odpovědi Homebrew se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13242,6 +13314,12 @@
     },
     "error.package-loading.no-terminal-output-returned" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew neodpověděl"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13252,6 +13330,12 @@
     },
     "error.package-loading.standard-error-not-empty.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew poskytnul JSON s touto chybou:\n%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13262,6 +13346,12 @@
     },
     "error.services.loading.could-not-encode-string.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při kódování se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13272,6 +13362,12 @@
     },
     "error.services.loading.homebrew-outdated" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew je zastaralý"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13282,6 +13378,12 @@
     },
     "error.services.loading.no-output" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew neposkytnul žádná data"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13292,6 +13394,12 @@
     },
     "error.services.loading.other-error.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neimplementovaná chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13302,6 +13410,12 @@
     },
     "error.services.loading.parsing-failed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení informací o služvách se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13312,6 +13426,12 @@
     },
     "error.services.loading.standard-error-not-empty.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13333,6 +13453,12 @@
     },
     "error.top-packages.could-not-decode-casks.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13354,6 +13480,12 @@
     },
     "error.top-packages.could-not-decode-formulae.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13364,6 +13496,12 @@
     },
     "error.top-packages.could-not-download-data" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při stahování nejobblíbenějších balíčků se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21120,6 +21258,12 @@
     },
     "onboarding.feature.outdated-packages-details.all" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailní informace o zastaralých balíčcích"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21130,6 +21274,12 @@
     },
     "onboarding.feature.outdated-packages-details.minimal" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Základní info o zastaralých balíčcích"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21140,6 +21290,12 @@
     },
     "onboarding.feature.outdated-packages-details.versions-only" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informace o verzích zastaralých balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26861,6 +27017,12 @@
     },
     "services.error.homebrew-outdated" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Váš Homebrew je zastaralý"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26871,6 +27033,12 @@
     },
     "services.error.homebrew-outdated.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abyste mohli použít služby, aktualizujte Homebrew stisknutím tlačítka níze.\nPokud se při automatickéí aktualizaci vyskytne chyba, Homerbew aktualizujte přes Terminál."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29801,6 +29969,12 @@
     },
     "settings.general.outdated-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informace o zastaralých balíčcích:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29811,6 +29985,12 @@
     },
     "settings.general.outdated-packages.also-show-old-versions" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit zastaralé verze"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29821,6 +30001,12 @@
     },
     "settings.general.outdated-packages.display-amount.all" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úplné"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29831,6 +30017,12 @@
     },
     "settings.general.outdated-packages.display-amount.none" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "minimální"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29841,6 +30033,12 @@
     },
     "settings.general.outdated-packages.display-amount.version-only" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pouze verze"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29851,6 +30049,12 @@
     },
     "settings.general.outdated-packages.info-amount" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zastaralé balíčky:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36344,6 +36548,12 @@
     },
     "start-page.updates.installed-version" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalovaná verze"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36482,6 +36692,12 @@
     },
     "start-page.updates.newest-version" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejnovější verze"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36556,6 +36772,12 @@
     },
     "state.update-homebrew.terminal.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Po kliknutí na tlačítko \"Otevřít Teminál\" použijte klávesovou zkratku ⌘+V. Tím vložíte zkopírovaný příkaz.\nPoté stiskněte Return (↩). \npokud nebyl žádný příkaz zkopírován, vpište do Terminálu příkaz \"brew update\" a stiskněte Return (↩)."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36566,6 +36788,12 @@
     },
     "state.update-homebrew.terminal.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizace přes Terminál"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
