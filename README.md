@@ -104,6 +104,7 @@ Prerequisites:
 * macOS Ventura or newer
 * Xcode 15 or newer
 * Git
+* Homebrew
 
 ### Instructions:
 
