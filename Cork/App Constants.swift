@@ -18,32 +18,22 @@ struct AppConstants
     static let notificationCenter = UNUserNotificationCenter.current()
     
     // MARK: - Proxy settings
-    static let proxySettings: NetworkProxy? =
+    static let proxySettings: (host: String, port: Int)? =
     {
-        do
-        {
-            return try getProxySettings()
-        }
-        catch let proxyRetrievalError as ProxyRetrievalError
-        {
-            switch proxyRetrievalError
-            {
-            case .couldNotGetProxyStatus:
-                    AppConstants.logger.warning("Could not get proxy status")                    
-                return nil
-            case .couldNotGetProxyHost:
-                    AppConstants.logger.warning("Could not get proxy host")
-                return nil
-            case .couldNotGetProxyPort:
-                    AppConstants.logger.warning("Could not get proxy port")
-                return nil
-            }
-        }
-        catch let unknownError
-        {
-            AppConstants.logger.error("Something got fucked up about retrieving proxy settings")
+        let proxySettings = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any]
+        
+        guard let httpProxyHost = proxySettings?[kCFNetworkProxiesHTTPProxy as String] as? String else {
+            AppConstants.logger.error("Could not get proxy host")
+            
             return nil
         }
+        guard let httpProxyPort = proxySettings?[kCFNetworkProxiesHTTPPort as String] as? Int else {
+            AppConstants.logger.error("Could not get proxy port")
+            
+            return nil
+        }
+        
+        return (host: httpProxyHost, port: httpProxyPort)
     }()
 
     // MARK: - Basic executables and file locations
