@@ -126,11 +126,12 @@ Prerequisites:
 
 1. Add the Tuist Homebrew tap using `brew tap tuist/tuist`
 2. Install Tuist using `brew install --formula tuist`
+3. Authenticate tuist post installation using `tuist auth`
 
 **Compiling Cork**
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && tuist install && tuist generate`. Xcode will open the project.
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && tuist install && tuist generate --no-binary-cache`. Xcode will open the project.
 
 <div style= "margin-left: 1rem">
   <details>
