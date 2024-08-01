@@ -126,7 +126,6 @@ Prerequisites:
 
 1. Add the Tuist Homebrew tap using `brew tap tuist/tuist`
 2. Install Tuist using `brew install --formula tuist`
-3. Authenticate tuist post installation using `tuist auth`
 
 **Compiling Cork**
 
