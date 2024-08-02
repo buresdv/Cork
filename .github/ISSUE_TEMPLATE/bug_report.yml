@@ -1,9 +1,7 @@
 name: Bug Report
 description: "Create a bug report"
-labels:
-  - "bug"
-projects:
-  - "buresdv/2"
+labels: ["Bug"]
+projects: ["buresdv/2"]
 body:
   - type: markdown
     attributes:
@@ -47,7 +45,9 @@ body:
       description: Did you buy the app, or compile it yourself?
       multiple: false
       options:
+        - "[Please select an option]"
         - Bought
         - Self-Compiled
+      default: 0
     validations:
       required: true
