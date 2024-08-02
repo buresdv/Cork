@@ -51,3 +51,11 @@ body:
       default: 0
     validations:
       required: true
+  - type: checkboxes
+    id: final-checklist
+    attributes:
+      label: Final checklist
+      description: "Let's go through some last requirements"
+      options:
+        - label: "This report is about the interface, and I included screenshots of the problem"
+          required: false

@@ -1,0 +1,45 @@
+name: Suggestion
+description: "Share your ideas"
+labels: ["Suggestion"]
+projects: ["buresdv/2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for coming up with a suggestion! Before you add it, make sure it hasn't been [suggested](https://github.com/buresdv/Cork/issues?q=is%3Aissue+label%3AEnhancement+) or [added](https://github.com/buresdv/Cork/issues?q=is%3Aissue+is%3Aclosed) before.
+  - type: dropdown
+    id: idea-type
+    attributes:
+      label: Suggestion type
+      description: Is your suggestion about the way the app works, the way it looks, or both?
+      multiple: false
+      options:
+        - "[Please select an option]"
+        - The way Cork works
+        - The way Cork looks
+        - Both
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: idea-description
+    attributes:
+      label: What is your idea about?
+      description: Describe your idea in as much detail as possible. Mockups would be greatly appreciated
+      placeholder: I want to add a new sub-window that will...
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why should this be added?
+      description: What problem would adding your idea solve? Be as specific as possible!
+      placeholder: Adding this sub-window would solve the following problems:...
+  - type: checkboxes
+    id: is-realistic
+    attributes:
+      label: Keeping it real
+      description: As much as I like wild ideas, I only work on things that are realistically achievable. So please, don't submit ideas trhat would radically change the app, the way it looks, or the way it works.
+      options:
+        - label: Adding suggestion idea is realistic
+          required: true
