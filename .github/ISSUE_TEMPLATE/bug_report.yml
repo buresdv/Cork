@@ -1,0 +1,53 @@
+name: Bug Report
+description: "Create a bug report"
+labels:
+  - "bug"
+projects:
+  - "buresdv/2"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for filling out a bug report
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What were you trying to do?
+      description: What did you expect to happen?
+      placeholder: I wanted to check for outdated packages
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: What was the problem?
+      description: What unexpected thing happened?
+      placeholder: The outdated package list box did not appear
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error logs
+      description: Providing error logs would help greatly in diagnosing your problem. Follow [this](https://forum.corkmac.app/d/1-cork-crashing-on-start/2) tutorial on how to get relevant logs.
+      placeholder: Error logs go here
+      render: shell
+  - type: input
+    id: app-version
+    attributes:
+      label: App Version
+      description: What version of the app are you running?
+      placeholder: 1.4.4
+    validations:
+      required: true
+  - type: dropdown
+    id: did-buy
+    attributes:
+      label: App Acquisition
+      description: Did you buy the app, or compile it yourself?
+      multiple: false
+      options:
+        - Bought
+        - Self-Compiled
+    validations:
+      required: true
