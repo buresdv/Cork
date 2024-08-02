@@ -35,6 +35,8 @@ body:
       label: Why should this be added?
       description: What problem would adding your idea solve? Be as specific as possible!
       placeholder: Adding this sub-window would solve the following problems:...
+    validations:
+      required: true
   - type: checkboxes
     id: is-realistic
     attributes:
