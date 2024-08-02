@@ -18661,6 +18661,22 @@
         }
       }
     },
+    "navigation.maintenance.help" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akce údržby Homebrew"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perform Homebrew cleanup tasks"
+          }
+        }
+      }
+    },
     "navigation.manage-services" : {
       "localizations" : {
         "cs" : {

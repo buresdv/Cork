@@ -92,6 +92,17 @@ struct ContentView: View, Sendable
         }
         .help("navigation.install-package.help")
     }
+    
+    @ViewBuilder private var performMaintenanceButton: some View
+    {
+        Button
+        {
+            appState.isShowingMaintenanceSheet.toggle()
+        } label: {
+            Label("start-page.open-maintenance", systemImage: "arrow.3.trianglepath")
+        }
+        .help("navigation.maintenance.help")
+    }
 
     @ViewBuilder private var manageServicesButton: some View
     {
@@ -136,6 +147,12 @@ struct ContentView: View, Sendable
                     installPackageButton
                 }
 
+                ToolbarItem(id: "maintenance", placement: .primaryAction)
+                {
+                    performMaintenanceButton
+                }
+                .defaultCustomization(.hidden)
+                
                 ToolbarItem(id: "manageServices", placement: .primaryAction)
                 {
                     manageServicesButton
