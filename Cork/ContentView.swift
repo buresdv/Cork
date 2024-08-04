@@ -238,12 +238,10 @@ struct ContentView: View, Sendable
             async let availableFormulae = await loadUpPackages(whatToLoad: .formula, appState: appState)
             async let availableCasks = await loadUpPackages(whatToLoad: .cask, appState: appState)
 
-            async let availableTaps = await loadUpTappedTaps()
-
             brewData.installedFormulae = await availableFormulae
             brewData.installedCasks = await availableCasks
-
-            tapData.addedTaps = await availableTaps
+            
+            await tapData.loadAddedTaps()
 
             appState.assignPackageTypeToCachedDownloads(brewData: brewData)
 
