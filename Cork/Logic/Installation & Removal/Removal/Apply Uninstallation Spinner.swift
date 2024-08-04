@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @MainActor
 func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStorage)

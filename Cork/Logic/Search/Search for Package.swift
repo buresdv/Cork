@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 func searchForPackage(packageName: String, packageType: PackageType) async throws -> [String]
 {

@@ -100,16 +100,16 @@ enum AppConstants
 
     // MARK: - Storage for tagging
 
-    static let documentsDirectoryPath: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cork", conformingTo: .directory)
-    static let metadataFilePath: URL = documentsDirectoryPath.appendingPathComponent("Metadata", conformingTo: .data)
+    public static let documentsDirectoryPath: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(component: "Cork", directoryHint: .isDirectory)
+    public static let metadataFilePath: URL = documentsDirectoryPath.appending(component: "Metadata", directoryHint: .notDirectory).appendingPathExtension("brewmeta")
 
     // MARK: - Brew Cache
 
-    static let brewCachePath: URL = URL.libraryDirectory.appendingPathComponent("Caches", conformingTo: .directory).appendingPathComponent("Homebrew", conformingTo: .directory) // /Users/david/Library/Caches/Homebrew
+    public static let brewCachePath: URL = URL.libraryDirectory.appending(component: "Caches", directoryHint: .isDirectory).appending(component: "Homerbew", directoryHint: .isDirectory) // /Users/david/Library/Caches/Homebrew
 
     /// These two have the symlinks to the actual downloads
-    static let brewCachedFormulaeDownloadsPath: URL = brewCachePath
-    static let brewCachedCasksDownloadsPath: URL = brewCachePath.appendingPathComponent("Cask", conformingTo: .directory)
+    public static let brewCachedFormulaeDownloadsPath: URL = brewCachePath
+    public static let brewCachedCasksDownloadsPath: URL = brewCachePath.appending(component: "Cask", directoryHint: .isDirectory)
 
     /// This one has all the downloaded files themselves
     static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)

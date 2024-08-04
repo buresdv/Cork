@@ -32,6 +32,8 @@ let project = Project(
                 "Cork/Logic/Helpers/Programs/Sudo Helper",
             ], dependencies: [
                 // .target(name: "CorkHelp"),
+                .target(name: "CorkShared"),
+                .target(name: "CorkNotifications"),
                 .external(name: "LaunchAtLogin"),
                 .external(name: "DavidFoundation"),
                 .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
@@ -44,6 +46,47 @@ let project = Project(
                     name: "Release",
                     xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
                 ),
+            ])
+        ),
+        .target(
+            name: "CorkShared",
+            destinations: [.mac],
+            product: .staticLibrary,
+            bundleId: "com.davidbures.cork-shared",
+            sources: [
+                "Modules/Shared/**/*.swift"
+            ],
+            settings: .settings(configurations: [
+                .debug(
+                    name: "Debug",
+                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+                ),
+                .release(
+                    name: "Release",
+                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+                )
+            ])
+        ),
+        .target(
+            name: "CorkNotifications",
+            destinations: [.mac],
+            product: .staticLibrary,
+            bundleId: "com.davidbures.cork-notifications",
+            sources: [
+                "Modules/Notifications/**/*.swift"
+            ],
+            dependencies: [
+                .target(name: "CorkShared")
+            ],
+            settings: .settings(configurations: [
+                .debug(
+                    name: "Debug",
+                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+                ),
+                .release(
+                    name: "Release",
+                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+                )
             ])
         ),
         .target(

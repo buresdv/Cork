@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @MainActor
 func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStorage) async throws

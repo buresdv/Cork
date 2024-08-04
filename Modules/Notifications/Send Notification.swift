@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import UserNotifications
+import CorkShared
 
 func sendNotification(title: String, body: String? = nil, subtitle: String? = nil, sensitivity: UNNotificationInterruptionLevel = .timeSensitive)
 {

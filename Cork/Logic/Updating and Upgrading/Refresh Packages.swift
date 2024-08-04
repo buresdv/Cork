@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CorkShared
 
 @MainActor
 func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability

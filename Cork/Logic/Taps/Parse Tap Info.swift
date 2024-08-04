@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 func parseTapInfo(from rawJSON: String) async throws -> TapInfo?
 {

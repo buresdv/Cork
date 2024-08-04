@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @MainActor
 func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async

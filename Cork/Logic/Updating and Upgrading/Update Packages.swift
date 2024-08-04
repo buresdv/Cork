@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CorkShared
 
 @MainActor
 func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: UpdatingProcessDetails) async

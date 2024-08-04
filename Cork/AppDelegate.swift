@@ -9,6 +9,7 @@ import AppKit
 import DavidFoundation
 import Foundation
 import SwiftUI
+import CorkShared
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 func pinAndUnpinPackage(package: BrewPackage, pinned: Bool) async
 {

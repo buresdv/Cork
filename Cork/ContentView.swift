@@ -8,6 +8,7 @@
 // swiftlint:disable file_length
 
 import SwiftUI
+import CorkShared
 
 struct ContentView: View, Sendable
 {

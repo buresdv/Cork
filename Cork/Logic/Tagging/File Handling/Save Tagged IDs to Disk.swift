@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @MainActor
 func saveTaggedIDsToDisk(appState: AppState) throws

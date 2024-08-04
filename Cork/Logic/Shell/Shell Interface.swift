@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @discardableResult
 func shell(

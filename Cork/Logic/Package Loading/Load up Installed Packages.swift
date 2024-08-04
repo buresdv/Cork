@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @MainActor
 func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<BrewPackage>

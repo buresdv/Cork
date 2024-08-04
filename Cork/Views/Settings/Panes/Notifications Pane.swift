@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import CorkShared
 
 struct NotificationsPane: View
 {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkShared
 
 struct UninstallPackageButton: View
 {
