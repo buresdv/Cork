@@ -80,7 +80,9 @@ struct TapDetailView: View, Sendable
                                 {
                                     Task(priority: .userInitiated)
                                     {
-                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                        try await availableTaps.removeTap(
+                                            name: tap.name,
+                                            appState: appState)
                                     }
                                 } label: {
                                     Text("tap-details.remove-\(tap.name)")

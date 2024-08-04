@@ -8,85 +8,91 @@
 import Foundation
 import SwiftUI
 
-enum UntapError: Error
+extension AvailableTaps
 {
-    case couldNotUntap
-}
-
-@MainActor
-func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws -> Void
-{
-
-    var indexToReplaceGlobal: Int? = nil
-
-    /// Store the old navigation selection to see if it got updated in the middle of switching
-    let oldNavigationSelectionID: UUID? = appState.navigationSelection
-
-    if shouldApplyUninstallSpinnerToRelevantItemInSidebar
+    
+    enum UntapError: LocalizedError
     {
-        if let indexToReplace = availableTaps.addedTaps.firstIndex(where: { $0.name == name })
+        case couldNotRemove
+    }
+    
+    func removeTap(
+        name: String,
+        appState: AppState,
+        shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false)
+    async throws
+    {
+        var indexToReplaceGlobal: Int? = nil
+        
+        /// Store the old navigation selection to see if it got updated in the middle of switching
+        let oldNavigationSelectionID: UUID? = appState.navigationSelection
+        
+        if shouldApplyUninstallSpinnerToRelevantItemInSidebar
         {
-            availableTaps.addedTaps[indexToReplace].changeBeingModifiedStatus()
-
-            indexToReplaceGlobal = indexToReplace
-        }
-    }
-    else
-    {
-        appState.isShowingUninstallationProgressView = true
-    }
-
-    let untapResult = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
-    AppConstants.logger.debug("Untapping result: \(untapResult)")
-
-    defer
-    {
-        appState.isShowingUninstallationProgressView = false
-    }
-
-    if untapResult.contains("Untapped")
-    {
-        AppConstants.logger.info("Untapping was successful")
-        DispatchQueue.main.async {
-            withAnimation {
-                availableTaps.addedTaps.removeAll(where: { $0.name == name })
-            }
-        }
-
-        if appState.navigationSelection != nil
-        {
-            /// Switch to the status page only if the user didn't open another details window in the middle of the tap removal process
-            if oldNavigationSelectionID == appState.navigationSelection
+            if let indexToReplace = self.addedTaps.firstIndex(where: { $0.name == name })
             {
-                appState.navigationSelection = nil
+                self.addedTaps[indexToReplace].changeBeingModifiedStatus()
+                
+                indexToReplaceGlobal = indexToReplace
             }
-        }
-    }
-    else
-    {
-        AppConstants.logger.warning("Untapping failed")
-
-        if untapResult.contains("because it contains the following installed formulae or casks")
-        {            
-            appState.showAlert(errorToShow: .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: name))
-        }
-
-        if let indexToReplaceGlobal
-        {
-            availableTaps.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
         }
         else
         {
-            AppConstants.logger.warning("Could not get index for that tap. Will loop over all of them")
-            for (index, _) in availableTaps.addedTaps.enumerated()
+            appState.isShowingUninstallationProgressView = true
+        }
+        
+        let untapResult = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
+        AppConstants.logger.debug("Untapping result: \(untapResult)")
+        
+        defer
+        {
+            appState.isShowingUninstallationProgressView = false
+        }
+        
+        if untapResult.contains("Untapped")
+        {
+            AppConstants.logger.info("Untapping was successful")
+            DispatchQueue.main.async {
+                withAnimation {
+                    self.addedTaps.removeAll(where: { $0.name == name })
+                }
+            }
+            
+            if appState.navigationSelection != nil
             {
-                if availableTaps.addedTaps[index].isBeingModified
+                /// Switch to the status page only if the user didn't open another details window in the middle of the tap removal process
+                if oldNavigationSelectionID == appState.navigationSelection
                 {
-                    availableTaps.addedTaps[index].isBeingModified = false
+                    appState.navigationSelection = nil
                 }
             }
         }
-
-        throw UntapError.couldNotUntap
+        else
+        {
+            AppConstants.logger.warning("Untapping failed")
+            
+            if untapResult.contains("because it contains the following installed formulae or casks")
+            {
+                appState.showAlert(errorToShow: .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: name))
+            }
+            
+            if let indexToReplaceGlobal
+            {
+                self.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
+            }
+            else
+            {
+                AppConstants.logger.warning("Could not get index for that tap. Will loop over all of them")
+                for (index, _) in self.addedTaps.enumerated()
+                {
+                    if self.addedTaps[index].isBeingModified
+                    {
+                        self.addedTaps[index].isBeingModified = false
+                    }
+                }
+            }
+            
+            throw UntapError.couldNotRemove
+        }
     }
 }
