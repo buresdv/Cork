@@ -6247,7 +6247,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 在正式开始前终止了此软件包的安装。\n请查看下方安装命令的输出。"
+            "value" : "Homebrew 在正式启动前终止了此软件包的安装。\n请查看下方安装命令的输出。"
           }
         }
       }
@@ -21483,7 +21483,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在更早版本软件包的信息中显示版本"
+            "value" : "在有可用更新软件包的信息中显示版本"
           }
         }
       }
