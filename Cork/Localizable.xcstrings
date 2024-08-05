@@ -10596,7 +10596,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取软件包的更早版本"
+            "value" : "无法获取存在可用更新的软件包"
           }
         },
         "zh-Hant" : {
@@ -13473,7 +13473,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 已过期"
+            "value" : "Homebrew 存在可用更新"
           }
         }
       }
@@ -19984,7 +19984,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有可用软件包更新"
+            "value" : "新的可用更新软件包"
           }
         },
         "zh-Hant" : {
@@ -20258,7 +20258,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "找到可用软件包更新"
+            "value" : "找到存在可用更新的软件软件包"
           }
         },
         "zh-Hant" : {
@@ -21439,7 +21439,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "显示已过期包的详情"
+            "value" : "显示更早版本软件包的详情"
           }
         }
       }
@@ -21461,7 +21461,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "显示已过期包的基础信息"
+            "value" : "显示更早版本软件包的基础信息"
           }
         }
       }
@@ -21483,7 +21483,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在已过期包的信息中显示版本"
+            "value" : "在更早版本软件包的信息中显示版本"
           }
         }
       }
@@ -23849,7 +23849,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有更新可用"
+            "value" : "存在可用更新"
           }
         },
         "zh-Hant" : {
@@ -30180,7 +30180,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已过期包的信息："
+            "value" : "存在可用更新的软件包信息："
           }
         }
       }
@@ -30290,7 +30290,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已过期的包："
+            "value" : "存在可用更新的软件包："
           }
         }
       }
@@ -33227,7 +33227,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有可用更新时通知样式："
+            "value" : "存在可用更新时的通知样式："
           }
         },
         "zh-Hant" : {
@@ -36853,7 +36853,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有新版本可用"
+            "value" : "存在可用更新的软件包"
           }
         },
         "zh-Hant" : {
