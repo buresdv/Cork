@@ -6263,7 +6263,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Package installation terminated unexpextedly"
+            "value" : "Package installation terminated unexpectedly"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "包安装意外停止"
           }
         }
       }
