@@ -54,6 +54,12 @@
             "state" : "translated",
             "value" : "→"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→"
+          }
         }
       }
     },
@@ -146,6 +152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "정보"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
           }
         }
       }
@@ -4236,6 +4248,12 @@
             "state" : "translated",
             "value" : "Reload Services"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新加载服务"
+          }
         }
       }
     },
@@ -4892,6 +4910,12 @@
             "state" : "translated",
             "value" : "Show Terminal output"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示终端输出"
+          }
         }
       }
     },
@@ -5094,6 +5118,12 @@
             "state" : "translated",
             "value" : "Update Homebrew and all packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新 Homebrew 及所有包"
+          }
         }
       }
     },
@@ -5109,6 +5139,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Homebrew through Terminal"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通过终端更新 Homebrew"
           }
         }
       }
@@ -6207,6 +6243,12 @@
             "state" : "translated",
             "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 在正式启动前终止了此软件包的安装。\n请查看下方安装命令的输出。"
+          }
         }
       }
     },
@@ -6214,14 +6256,20 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Instalace balíčku byla neočekávaně přerušena"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Package installation terminated unexpextedly"
+            "value" : "Package installation terminated unexpectedly"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "包安装意外停止"
           }
         }
       }
@@ -10548,7 +10596,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取软件包的更早版本"
+            "value" : "无法获取可用软件包更新"
           }
         },
         "zh-Hant" : {
@@ -13245,6 +13293,12 @@
             "state" : "translated",
             "value" : "Couldn't decode JSON response from Homebrew:\n%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从 Homebrew 中解码 JSON 响应"
+          }
         }
       }
     },
@@ -13260,6 +13314,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't convert JSON response from Homebrew to Data"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法由 Homebrew 转换 JSON 响应至二进制数据"
           }
         }
       }
@@ -13277,6 +13337,12 @@
             "state" : "translated",
             "value" : "Invalid Homebrew response"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效的 Homebrew 响应"
+          }
         }
       }
     },
@@ -13292,6 +13358,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occured during the pinning process"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在固定过程中发生错误"
           }
         }
       }
@@ -13309,6 +13381,12 @@
             "state" : "translated",
             "value" : "Couldn't load package from JSON response from Homebrew"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从 Homebrew JSON 响应中加载包"
+          }
         }
       }
     },
@@ -13324,6 +13402,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew didn't respond"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 无响应"
           }
         }
       }
@@ -13341,6 +13425,12 @@
             "state" : "translated",
             "value" : "Homebrew returned JSON with the following error:\n%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 返回 JSON 包含以下错误：%@"
+          }
         }
       }
     },
@@ -13356,6 +13446,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not encode data: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法编码数据：%@"
           }
         }
       }
@@ -13373,6 +13469,12 @@
             "state" : "translated",
             "value" : "Homebrew outdated"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 存在可用更新"
+          }
         }
       }
     },
@@ -13388,6 +13490,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew didn't return any data"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 未返回任何数据"
           }
         }
       }
@@ -13405,6 +13513,12 @@
             "state" : "translated",
             "value" : "Unimplemented error: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未实现错误：%@"
+          }
         }
       }
     },
@@ -13421,6 +13535,12 @@
             "state" : "translated",
             "value" : "Parsing of services failed"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务解析失败"
+          }
         }
       }
     },
@@ -13433,6 +13553,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -13464,6 +13590,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -13491,6 +13623,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -13506,6 +13644,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't download top packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法下载上层包"
           }
         }
       }
@@ -18674,6 +18818,12 @@
             "state" : "translated",
             "value" : "Perform Homebrew cleanup tasks"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "执行 Homebrew 清理任务"
+          }
         }
       }
     },
@@ -21285,6 +21435,12 @@
             "state" : "translated",
             "value" : "Show detailed info about outdated packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示更早版本软件包的详情"
+          }
         }
       }
     },
@@ -21301,6 +21457,12 @@
             "state" : "translated",
             "value" : "Show basic info about outdated packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示更早版本软件包的基础信息"
+          }
         }
       }
     },
@@ -21316,6 +21478,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show versions in info about outdated packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在有可用更新软件包的信息中显示版本"
           }
         }
       }
@@ -23681,7 +23849,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有更新可用"
+            "value" : "有可用更新"
           }
         },
         "zh-Hant" : {
@@ -27044,6 +27212,12 @@
             "state" : "translated",
             "value" : "Homebrew is out of date"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 不是最新版本"
+          }
         }
       }
     },
@@ -27059,6 +27233,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that doesn't work, update through the Terminal."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击下方按钮更新你的 Homebrew 安装以使用服务。\n若无法生效，请通过终端更新。"
           }
         }
       }
@@ -29996,6 +30176,12 @@
             "state" : "translated",
             "value" : "Outdated package info:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可用更新的软件包信息："
+          }
         }
       }
     },
@@ -30011,6 +30197,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show old versions"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示旧版本"
           }
         }
       }
@@ -30028,6 +30220,12 @@
             "state" : "translated",
             "value" : "Complete"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
         }
       }
     },
@@ -30043,6 +30241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minimal"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "精简"
           }
         }
       }
@@ -30060,6 +30264,12 @@
             "state" : "translated",
             "value" : "Versions only"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本限定"
+          }
         }
       }
     },
@@ -30075,6 +30285,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Outdated packages:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "可用更新的软件包："
           }
         }
       }
@@ -33011,7 +33227,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有可用更新时通知样式："
+            "value" : "有可用软件包更新时的通知样式："
           }
         },
         "zh-Hant" : {
@@ -36575,6 +36791,12 @@
             "state" : "translated",
             "value" : "Installed Version"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已安装版本"
+          }
         }
       }
     },
@@ -36631,7 +36853,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有新版本可用"
+            "value" : "可用更新的软件包"
           }
         },
         "zh-Hant" : {
@@ -36719,6 +36941,12 @@
             "state" : "translated",
             "value" : "Newest Version"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最新版本"
+          }
         }
       }
     },
@@ -36799,6 +37027,12 @@
             "state" : "translated",
             "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在你点击“打开终端”后，通过快捷键 ⌘ + V 粘贴 Cork 已为你拷贝的命令，并按下回车（↩）。\n如果命令未复制，请手动输入 “brew update” 并按下回车（↩）。"
+          }
         }
       }
     },
@@ -36814,6 +37048,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Updating through the Terminal"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在通过终端更新……"
           }
         }
       }
