@@ -6268,7 +6268,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "包安装意外停止"
           }
         }
@@ -10596,7 +10596,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取存在可用更新的软件包"
+            "value" : "无法获取可用软件包更新"
           }
         },
         "zh-Hant" : {
@@ -19984,7 +19984,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有可用更新软件包"
+            "value" : "有可用软件包更新"
           }
         },
         "zh-Hant" : {
@@ -20258,7 +20258,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "找到存在可用更新的软件软件包"
+            "value" : "找到可用软件包更新"
           }
         },
         "zh-Hant" : {
@@ -23849,7 +23849,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在可用更新"
+            "value" : "有可用更新"
           }
         },
         "zh-Hant" : {
@@ -30180,7 +30180,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在可用更新的软件包信息："
+            "value" : "可用更新的软件包信息："
           }
         }
       }
@@ -30290,7 +30290,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在可用更新的软件包："
+            "value" : "可用更新的软件包："
           }
         }
       }
@@ -33227,7 +33227,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在可用更新时的通知样式："
+            "value" : "有可用软件包更新时的通知样式："
           }
         },
         "zh-Hant" : {
@@ -36853,7 +36853,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "存在可用更新的软件包"
+            "value" : "可用更新的软件包"
           }
         },
         "zh-Hant" : {
