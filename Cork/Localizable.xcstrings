@@ -27238,7 +27238,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "点击下方按钮更新您的 Homebrew 安装已使用服务。若无法生效，请通过终端更新。"
+            "value" : "点击下方按钮更新你的 Homebrew 安装已使用服务。若无法生效，请通过终端更新。"
           }
         }
       }
@@ -37031,7 +37031,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在您点击“打开终端”后，通过快捷键 ⌘ + V 粘贴 Cork 已为您复制命令，并按下回车（↩）。\n如果命令未复制，请手动输入 “brew update” 并按下回车（↩）。"
+            "value" : "在你点击“打开终端”后，通过快捷键 ⌘ + V 粘贴 Cork 已为你复制命令，并按下回车（↩）。\n如果命令未复制，请手动输入 “brew update” 并按下回车（↩）。"
           }
         }
       }
