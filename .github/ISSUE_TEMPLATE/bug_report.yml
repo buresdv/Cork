@@ -27,7 +27,7 @@ body:
     id: logs
     attributes:
       label: Error logs
-      description: Providing error logs would help greatly in diagnosing your problem. Follow [this](https://forum.corkmac.app/d/1-cork-crashing-on-start/2) tutorial on how to get relevant logs.
+      description: Providing error logs would help greatly in diagnosing your problem. Follow [this](https://github.com/buresdv/Cork/wiki/Getting-Logs) tutorial on how to get relevant logs.
       placeholder: Error logs go here
       render: shell
   - type: input
