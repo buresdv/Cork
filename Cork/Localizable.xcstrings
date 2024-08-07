@@ -13232,6 +13232,46 @@
         }
       }
     },
+    "debug.action.activate-demo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Activate demo"
+          }
+        }
+      }
+    },
+    "debug.action.licensing" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: LICENSING"
+          }
+        }
+      }
+    },
+    "debug.action.reset-license-state" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset licensing state"
+          }
+        }
+      }
+    },
+    "debug.navigation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG ACTIONS"
+          }
+        }
+      }
+    },
     "error.generic-couldnt-decode-json.%@" : {
       "localizations" : {
         "cs" : {

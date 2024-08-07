@@ -376,6 +376,13 @@ struct CorkApp: App
                 {
                     maintenanceMenuBarSection
                 }
+                
+                #if DEBUG
+                CommandMenu("debug.navigation")
+                {
+                    debugMenuBarSection
+                }
+                #endif
             }
         }
         .windowStyle(.automatic)
@@ -660,6 +667,35 @@ struct CorkApp: App
         }
         .keyboardShortcut("m", modifiers: [.command, .option])
         .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
+    }
+    
+    @ViewBuilder
+    var debugMenuBarSection: some View
+    {
+        Menu {
+            Button
+            {
+                demoActivatedAt = nil
+                hasValidatedEmail = false
+                appDelegate.appState.licensingState = .notBoughtOrHasNotActivatedDemo
+                hasFinishedLicensingWorkflow = false
+            } label: {
+                Text("debug.action.reset-license-state")
+            }
+            
+            Button
+            {
+                demoActivatedAt = nil
+                hasValidatedEmail = false
+                appDelegate.appState.licensingState = .demo
+                hasFinishedLicensingWorkflow = false
+            } label: {
+                Text("debug.action.activate-demo")
+            }
+        } label: {
+            Text("debug.action.licensing")
+        }
+
     }
 
     // MARK: - Functions
