@@ -4257,6 +4257,7 @@
       }
     },
     "action.report-bugs.email" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -4790,6 +4791,7 @@
       }
     },
     "action.submit-feedback" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -5137,6 +5139,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此操作无法撤销"
+          }
+        }
+      }
+    },
+    "actiton.report-bugs.forum" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahlásit na fóru…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report on the forums…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在坛反馈…"
           }
         }
       }

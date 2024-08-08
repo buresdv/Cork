@@ -435,11 +435,16 @@ struct CorkApp: App
             {
                 Button
                 {
-                    NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.md")!)
+                    NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.yml")!)
                 } label: {
                     Text("action.report-bugs.git-hub")
                 }
 
+                ButtonThatOpensWebsites(
+                    websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
+                )
+                
+                /*
                 Button
                 {
                     let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
@@ -453,17 +458,13 @@ struct CorkApp: App
                 } label: {
                     Text("action.report-bugs.email")
                 }
+                 */
 
             } label: {
                 Text("action.report-bugs.menu-category")
             }
 
-            Button
-            {
-                NSWorkspace.shared.open(URL(string: "https://forum.corkmac.app/t/cork")!)
-            } label: {
-                Text("action.submit-feedback")
-            }
+            
 
             Divider()
         #endif
