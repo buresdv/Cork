@@ -16,7 +16,7 @@ extension DisplayableAlert
         {
         case .couldNotLoadAnyPackages(let error):
             return String(localized: "alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title")
-        case .couldNotLoadCertainPackage(let offendingPackage, _):
+        case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
             return String(localized: "alert.fatal-\(offendingPackage)-prevented-loading.title")
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.title")

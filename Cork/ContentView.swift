@@ -396,7 +396,7 @@ struct ContentView: View, Sendable
             case .couldNotLoadAnyPackages:
                 RestartCorkButton()
 
-            case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL):
+            case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
                 VStack
                 {
                     Button

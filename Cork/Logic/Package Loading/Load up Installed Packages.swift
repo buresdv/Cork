@@ -30,8 +30,8 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
         {
         case .failedWhileLoadingPackages:
             appState.showAlert(errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
-        case .failedWhileLoadingCertainPackage(let offendingPackage, let offendingPackageURL):
-            appState.showAlert(errorToShow: .couldNotLoadCertainPackage(offendingPackage, offendingPackageURL))
+        case .failedWhileLoadingCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
+                appState.showAlert(errorToShow: .couldNotLoadCertainPackage(offendingPackage, offendingPackageURL, failureReason: failureReason.stringValue() ?? "Failed to convert error to string"))
         case .packageDoesNotHaveAnyVersionsInstalled(let offendingPackage):
             appState.showAlert(errorToShow: .installedPackageHasNoVersions(corruptedPackageName: offendingPackage))
         case .packageIsNotAFolder(let offendingFile, let offendingFileURL):

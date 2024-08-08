@@ -10,7 +10,7 @@ import SwiftUI
 
 enum PackageLoadingError: Error
 {
-    case failedWhileLoadingPackages(failureReason: LocalizedStringKey?), failedWhileLoadingCertainPackage(String, URL), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
+    case failedWhileLoadingPackages(failureReason: LocalizedStringKey?), failedWhileLoadingCertainPackage(String, URL, failureReason: LocalizedStringKey), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
 }
 
 func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
@@ -117,12 +117,14 @@ private extension URL
     /// This function checks whether the package was installed intentionally.
     /// - For Formulae, this info gets read from the install receipt
     /// - Casks are always instaled intentionally
+    /// - Parameter versionURLs: All available versions for this package. Some packages have multiple versions installed at a time (for example, the package `xz` might have versions 1.2 and 1.3 installed at once)
+    /// - Returns: Indication whether this package was installed intentionally or not
     func checkIfPackageWasInstalledIntentionally(_ versionURLs: [URL]) async throws -> Bool
     {
         guard let localPackagePath = versionURLs.first
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-load-version-to-check-from-available-versions")
         }
 
         if self.path.contains("Cellar")
@@ -155,18 +157,21 @@ private extension URL
                     {
                         AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent) with error \(installReceiptParsingError.localizedDescription)")
                         
-                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)")
                     }
                 }
                 catch let installReceiptLoadingError
                 {
                     AppConstants.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent) with error \(installReceiptLoadingError.localizedDescription)")
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)")
                 }
             }
             else
-            {
-                throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+            { /// There's no install receipt for this package - silently fail and return that the packagw was not installed intentionally
+                // TODO: Add a setting like "Strictly check for errors" that would instead throw an error here
+                AppConstants.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent)")
+                
+                return false
             }
         }
         else if self.path.contains("Caskroom")
@@ -175,7 +180,7 @@ private extension URL
         }
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self)
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.unexpected-folder-name")
         }
     }
 

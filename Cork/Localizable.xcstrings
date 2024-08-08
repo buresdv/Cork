@@ -1570,136 +1570,6 @@
         }
       }
     },
-    "about.packages.2.name" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SwiftyJSON"
-          }
-        }
-      }
-    },
-    "about.packages.2.purpose" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nenávidím, jak se ve Swiftu pracuje s JSONem. Proč znovu objevovat dávno objevené?"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ich hasse das standardmäßige JSON-Parsing in Swift. Warum das Rad neu erfinden, wenn man es einfach mit einer Bibliothek erträglich machen kann?"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I hate default JSON parsing in Swift. Why reinvent the wheel when you can just use a library to make it bearable?"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odio el análisis JSON predeterminado en Swift. ¿Por qué reinventar la rueda cuando simplemente puedes usar una biblioteca para hacerlo más tolerable?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je déteste l'analyse JSON par défaut en Swift. Pourquoi réinventer la roue quand on peut simplement utiliser une bibliothèque pour la rendre supportable ?"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "JSON 파싱에 대한 스위프트의 기본 방식이 마음에 들지 않습니다. 왜 굳이 지레짐작해서 힘든 일을 하겠습니까? 라이브러리를 사용하면 JSON 파싱이 훨씬 더 쉬워집니다."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ненавижу парсинг JSON по умолчанию в Swift. Зачем изобретать велосипед, если можно просто использовать библиотеку, чтобы сделать его более терпимым?"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Я ненавиджу розбір JSON за замовчуванням у Swift. Навіщо винаходити колесо, коли ви можете просто використовувати бібліотеку, щоб зробити це більш стерпним?"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我很不喜欢 Swift 默认的 JSON 解析方式。明明有好用的库，何必另起炉灶？"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我討厭 Swift 內建的 JSON 語法剖析。有堪用的程式庫，何必另起爐灶？"
-          }
-        }
-      }
-    },
     "about.packages.3.name" : {
       "localizations" : {
         "cs" : {
@@ -11321,17 +11191,6 @@
         }
       }
     },
-    "alert.fatal.license-checking.unimplemented-error.message" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Try restarting Cork\nIf that doesn't help, restart your Mac"
-          }
-        }
-      }
-    },
     "alert.fatal.license-checking.unimplemented-error.title" : {
       "localizations" : {
         "cs" : {
@@ -13390,6 +13249,36 @@
         }
       }
     },
+    "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't prepare installation info for reading: %@"
+          }
+        }
+      }
+    },
+    "error.package-loading.could-not-decode-installa-receipt-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't read installation info: %@"
+          }
+        }
+      }
+    },
+    "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load any package from provided list of package versions"
+          }
+        }
+      }
+    },
     "error.package-loading.no-terminal-output-returned" : {
       "localizations" : {
         "cs" : {
@@ -13430,6 +13319,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 返回 JSON 包含以下错误：%@"
+          }
+        }
+      }
+    },
+    "error.package-loading.unexpected-folder-name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The provided folder does not have the expected name (Cellar for Formulae, Caskfoom for Casks)"
           }
         }
       }
@@ -14722,35 +14621,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "一个轻量的软件包摘要"
-          }
-        }
-      }
-    },
-    "intents.type.minimal-homebrew-package.representation.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Balíček Homebrew"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Homebrew Package"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paquete de Homebrew"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paquet Homebrew"
           }
         }
       }
