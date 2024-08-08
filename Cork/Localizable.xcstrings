@@ -13262,6 +13262,12 @@
             "state" : "translated",
             "value" : "Couldn't prepare installation info for reading: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法准备供读取的安装信息: %@"
+          }
         }
       }
     },
@@ -13277,6 +13283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't read installation info: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取安装信息: %@"
           }
         }
       }
@@ -13294,6 +13306,12 @@
             "state" : "translated",
             "value" : "Couldn't load any package from provided list of package versions"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从提供的软件包版本列表中加载任何软件包"
+          }
         }
       }
     },
@@ -13309,6 +13327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The package doesn't have a required metadata file"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该软件包没有所需的元数据文件"
           }
         }
       }
@@ -13369,6 +13393,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The provided folder does not have the expected name (Cellar for Formulae, Caskfoom for Casks)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所提供的文件夹没有预期的名称 (Formula 的 Cellar，Cask 的 Caskroom)"
           }
         }
       }
@@ -28675,6 +28705,12 @@
             "state" : "translated",
             "value" : "Error checking:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看报错:"
+          }
         }
       }
     },
@@ -28690,6 +28726,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Strictly check for Homebrew errors"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "严格检查 Homebrew 报错"
           }
         }
       }
