@@ -6126,7 +6126,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Instalace balíčku byla neočekávaně přerušena"
           }
         },
@@ -13251,6 +13251,12 @@
     },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při přípravě metadat ke čtení se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13261,6 +13267,12 @@
     },
     "error.package-loading.could-not-decode-installa-receipt-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení metadat se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13271,6 +13283,12 @@
     },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seznam verzí neobsahuje žádné balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13281,6 +13299,12 @@
     },
     "error.package-loading.missing-install-receipt" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček nemá soubor s metadaty"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13335,6 +13359,12 @@
     },
     "error.package-loading.unexpected-folder-name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Složka nemá správný název (Cellar pro vzorce, Caskroom pro soudky)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28634,6 +28664,12 @@
     },
     "settings.brew.error-checking" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrola chyb:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28644,6 +28680,12 @@
     },
     "settings.brew.strictly-check-for-errors" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Striktně reagovat na chyby v Homebrew "
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
