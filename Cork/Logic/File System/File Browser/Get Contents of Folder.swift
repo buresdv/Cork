@@ -169,9 +169,19 @@ private extension URL
             else
             { /// There's no install receipt for this package - silently fail and return that the packagw was not installed intentionally
                 // TODO: Add a setting like "Strictly check for errors" that would instead throw an error here
-                AppConstants.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent)")
                 
-                return false
+                AppConstants.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent, privacy: .public)")
+                
+                let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
+                
+                if shouldStrictlyCheckForHomebrewErrors
+                {
+                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.missing-install-receipt")
+                }
+                else
+                {
+                    return false
+                }
             }
         }
         else if self.path.contains("Caskroom")

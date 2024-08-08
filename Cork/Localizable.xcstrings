@@ -13279,6 +13279,16 @@
         }
       }
     },
+    "error.package-loading.missing-install-receipt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The package doesn't have a required metadata file"
+          }
+        }
+      }
+    },
     "error.package-loading.no-terminal-output-returned" : {
       "localizations" : {
         "cs" : {
@@ -28618,6 +28628,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "啟用開發者設定"
+          }
+        }
+      }
+    },
+    "settings.brew.error-checking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error checking:"
+          }
+        }
+      }
+    },
+    "settings.brew.strictly-check-for-errors" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strictly check for Homebrew errors"
           }
         }
       }
