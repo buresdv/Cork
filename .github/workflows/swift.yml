@@ -7,7 +7,7 @@ jobs:
     name: Swift
     runs-on: macos-latest
     steps:
-      - run: brew install swift swiftlint
+      - run: brew install homebrew/cask/swift swiftlint
       - uses: actions/checkout@v4
       - run: swiftlint --version
       - run: swiftlint --fix --quiet && git diff
