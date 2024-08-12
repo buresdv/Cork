@@ -155,14 +155,14 @@ private extension URL
                     }
                     catch let installReceiptParsingError
                     {
-                        AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent) with error \(installReceiptParsingError.localizedDescription)")
+                        AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptParsingError.localizedDescription, privacy: .public)")
                         
                         throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)")
                     }
                 }
                 catch let installReceiptLoadingError
                 {
-                    AppConstants.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent) with error \(installReceiptLoadingError.localizedDescription)")
+                    AppConstants.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptLoadingError.localizedDescription, privacy: .public)")
                     throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)")
                 }
             }
