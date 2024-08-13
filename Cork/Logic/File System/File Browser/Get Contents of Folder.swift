@@ -10,7 +10,7 @@ import SwiftUI
 
 enum PackageLoadingError: LocalizedError
 {
-    case failedWhileLoadingPackages(failureReason: LocalizedStringKey?), failedWhileLoadingCertainPackage(String, URL, failureReason: LocalizedStringKey), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
+    case failedWhileLoadingPackages(failureReason: String?), failedWhileLoadingCertainPackage(String, URL, failureReason: String), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
 
     var errorDescription: String?
     {
@@ -19,14 +19,14 @@ enum PackageLoadingError: LocalizedError
         case .failedWhileLoadingPackages(let failureReason):
             if let failureReason
             {
-                return String(localized: "error.package-loading.could-not-load-packages.\(failureReason.stringValue() ?? "Failed while getting localized version of string")")
+                return String(localized: "error.package-loading.could-not-load-packages.\(failureReason)")
             }
             else
             {
                 return String(localized: "error.package-loading.could-not-load-packages")
             }
         case .failedWhileLoadingCertainPackage(let string, let uRL, let failureReason):
-            return String(localized: "error.package-loading.could-not-load-\(string)-at-\(uRL.absoluteString)-because-\(failureReason.stringValue() ?? "Could not determine localized version of string")")
+            return String(localized: "error.package-loading.could-not-load-\(string)-at-\(uRL.absoluteString)-because-\(failureReason)")
         case .packageDoesNotHaveAnyVersionsInstalled(let string):
             return String(localized: "error.package-loading.\(string)-does-not-have-any-versions-installed")
         case .packageIsNotAFolder(let string, _):
@@ -42,7 +42,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
         guard let items = targetFolder.validPackageURLs
         else
         {
-            throw PackageLoadingError.failedWhileLoadingPackages(failureReason: "alert.fatal.could-not-filter-invalid-packages")
+            throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "alert.fatal.could-not-filter-invalid-packages"))
         }
 
         let loadedPackages: Set<BrewPackage> = try await withThrowingTaskGroup(of: BrewPackage.self, returning: Set<BrewPackage>.self)
@@ -147,7 +147,21 @@ private extension URL
         guard let localPackagePath = versionURLs.first
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-load-version-to-check-from-available-versions")
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-load-version-to-check-from-available-versions"))
+        }
+        
+        guard localPackagePath.lastPathComponent != "Cellar" else
+        {
+            AppConstants.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
+            
+            throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"))
+        }
+        
+        guard localPackagePath.lastPathComponent != "Caskroom" else
+        {
+            AppConstants.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
+            
+            throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"))
         }
 
         if self.path.contains("Cellar")
@@ -180,13 +194,13 @@ private extension URL
                     {
                         AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptParsingError.localizedDescription, privacy: .public)")
 
-                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)")
+                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized:"error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)"))
                     }
                 }
                 catch let installReceiptLoadingError
                 {
                     AppConstants.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptLoadingError.localizedDescription, privacy: .public)")
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)")
+                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)"))
                 }
             }
             else
@@ -199,7 +213,7 @@ private extension URL
 
                 if shouldStrictlyCheckForHomebrewErrors
                 {
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.missing-install-receipt")
+                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.missing-install-receipt"))
                 }
                 else
                 {
@@ -213,7 +227,7 @@ private extension URL
         }
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.unexpected-folder-name")
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.unexpected-folder-name"))
         }
     }
 

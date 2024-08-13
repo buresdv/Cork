@@ -13623,6 +13623,12 @@
         }
       }
     },
+    "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks" : {
+
+    },
+    "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae" : {
+
+    },
     "error.package-loading.missing-install-receipt" : {
       "localizations" : {
         "cs" : {

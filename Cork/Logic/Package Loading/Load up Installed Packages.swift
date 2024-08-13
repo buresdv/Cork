@@ -31,7 +31,7 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
         case .failedWhileLoadingPackages:
             appState.showAlert(errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
         case .failedWhileLoadingCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
-                appState.showAlert(errorToShow: .couldNotLoadCertainPackage(offendingPackage, offendingPackageURL, failureReason: failureReason))
+            appState.showAlert(errorToShow: .couldNotLoadCertainPackage(offendingPackage, offendingPackageURL, failureReason: failureReason))
         case .packageDoesNotHaveAnyVersionsInstalled(let offendingPackage):
             appState.showAlert(errorToShow: .installedPackageHasNoVersions(corruptedPackageName: offendingPackage))
         case .packageIsNotAFolder(let offendingFile, let offendingFileURL):
