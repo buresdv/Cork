@@ -14,7 +14,6 @@ class ServicesTracker: ObservableObject
 
     /// Replace a service in the tracker.
     /// Use `performInPlaceReplacement` to preserve the UUID of the original service so the UI doesn't completely reset
-    #warning("These two functions are unused, but I'm keeping them around just in case. Maybe remove them in the future")
     func replaceServiceInTracker(_ serviceToChange: HomebrewService, with newService: HomebrewService, performInPlaceReplacement: Bool)
     {
         services = Set(services.map

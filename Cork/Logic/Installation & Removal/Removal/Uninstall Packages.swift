@@ -95,7 +95,7 @@ extension BrewDataStorage
         }
         else if uninstallCommandOutput.standardError.contains("sudo: a terminal is required to read the password")
         {
-            #warning("TODO: So far, this only stops the package from being removed from the tracker. Implement a tutorial on how to uninstall the package")
+            // TODO: So far, this only stops the package from being removed from the tracker. Implement a tutorial on how to uninstall the package
 
             AppConstants.logger.error("Could not uninstall this package because sudo is required")
 

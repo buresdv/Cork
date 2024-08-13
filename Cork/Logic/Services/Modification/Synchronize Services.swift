@@ -12,9 +12,7 @@ extension ServicesTracker
     func synchronizeServices(preserveIDs: Bool) async throws
     {
         do
-        {
-            let dummyServicesState: ServicesState = .init()
-            
+        {            
             let dummyServicesTracker: ServicesTracker = .init()
             
             try await dummyServicesTracker.loadServices()

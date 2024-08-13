@@ -117,14 +117,14 @@ struct HomebrewServicesView: View
             {
             case .couldNotLoadServices(error: ""):
                 EmptyView()
-            case .couldNotLoadServices(error: let error):
+            case .couldNotLoadServices(error: _):
                 loadServicesButton
                 dismissAlertButton
-            case .couldNotStartService(offendingService: let offendingService, errorThrown: let errorThrown):
+            case .couldNotStartService(offendingService: _, errorThrown: _):
                 EmptyView()
-            case .couldNotStopService(offendingService: let offendingService, errorThrown: let errorThrown):
+            case .couldNotStopService(offendingService: _, errorThrown: _):
                 EmptyView()
-            case .couldNotSynchronizeServices(errorThrown: let errorThrown):
+            case .couldNotSynchronizeServices(errorThrown: _):
                 EmptyView()
             case .homebrewOutdated:
                 if !hasTriedToUpdateHomebrewThroughCork
@@ -155,14 +155,14 @@ struct HomebrewServicesView: View
                 Text(recoverySuggestion)
             }
         }
-        .confirmationDialog("state.update-homebrew.terminal.title", isPresented: $isShowingHomebrewUpdateInstructions) 
+        .confirmationDialog("state.update-homebrew.terminal.title", isPresented: $isShowingHomebrewUpdateInstructions)
         {
             Button
             {
                 "brew update".copyToClipboard()
-                
+
                 openTerminal()
-                
+
                 NSApp.terminate(nil)
             } label: {
                 Text("action.open-terminal")

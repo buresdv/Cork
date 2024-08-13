@@ -75,7 +75,7 @@ struct ServiceDetailView: View
             }
             catch let servicesLoadingError
             {
-                
+                AppConstants.logger.error("Failed while loading services: \(servicesLoadingError.localizedDescription)")
                 erroredOutWhileLoadingServiceDetails = true
             }
         }

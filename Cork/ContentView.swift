@@ -92,7 +92,7 @@ struct ContentView: View, Sendable
         }
         .help("navigation.install-package.help")
     }
-    
+
     @ViewBuilder private var performMaintenanceButton: some View
     {
         Button
@@ -152,7 +152,7 @@ struct ContentView: View, Sendable
                     performMaintenanceButton
                 }
                 .defaultCustomization(.hidden)
-                
+
                 ToolbarItem(id: "manageServices", placement: .primaryAction)
                 {
                     manageServicesButton
@@ -171,7 +171,7 @@ struct ContentView: View, Sendable
                 }
                 .defaultCustomization(.hidden)
 
-                #warning("TODO: Implement this button")
+                // TODO: Implement this button
                 /*
                  ToolbarItem(id: "installPackageDirectly", placement: .automatic)
                  {
@@ -390,13 +390,13 @@ struct ContentView: View, Sendable
         { error in
             switch error
             {
-            case .uninstallationNotPossibleDueToDependency(let packageThatTheUserIsTryingToUninstall, let offendingDependencyProhibitingUninstallation):
+            case .uninstallationNotPossibleDueToDependency:
                 EmptyView()
 
             case .couldNotLoadAnyPackages:
                 RestartCorkButton()
 
-            case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
+            case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, _):
                 VStack
                 {
                     Button
@@ -623,7 +623,7 @@ struct ContentView: View, Sendable
         {
             appState.isLoadingTopPackages = false
         }
-        
+
         await topPackagesTracker.loadTopPackages(numberOfDays: discoverabilityDaySpan.rawValue, appState: appState)
     }
 }
