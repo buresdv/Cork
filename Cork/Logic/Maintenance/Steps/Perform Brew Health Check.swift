@@ -7,17 +7,26 @@
 
 import Foundation
 
-enum HealthCheckError: Error
+enum HealthCheckError: LocalizedError
 {
     case errorsThrownInStandardOutput
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .errorsThrownInStandardOutput:
+            return String(localized: "error.maintenance.health-check.standard-error-not-empty")
+        }
+    }
 }
 
 func performBrewHealthCheck() async throws -> TerminalOutput
 {
     async let commandResult = await shell(AppConstants.brewExecutablePath, ["doctor"])
-    
+
     await print(commandResult)
-    
+
     if await commandResult.standardOutput == ""
     {
         return await commandResult

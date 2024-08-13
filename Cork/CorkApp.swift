@@ -519,6 +519,9 @@ struct CorkApp: App
                 }
                 catch let brewfileExportError as BrewfileDumpingError
                 {
+                    
+                    AppConstants.logger.error("\(brewfileExportError)")
+                    
                     switch brewfileExportError
                     {
                     case .couldNotDetermineWorkingDirectory:
@@ -561,8 +564,10 @@ struct CorkApp: App
                         {
                             try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
                         }
-                        catch
+                        catch let brewfileImportingError
                         {
+                            AppConstants.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
+                            
                             appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
 
                             appDelegate.appState.isShowingBrewfileImportProgress = false

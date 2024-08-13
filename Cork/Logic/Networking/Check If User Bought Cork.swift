@@ -7,9 +7,24 @@
 
 import Foundation
 
-enum CorkLicenseRetrievalError: Error
+enum CorkLicenseRetrievalError: LocalizedError
 {
     case authorizationComplexNotEncodedProperly, notConnectedToTheInternet, operationTimedOut, otherError(errorDescription: String)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .authorizationComplexNotEncodedProperly:
+            return String(localized: "error.licensing.auth-complex-not-encoded")
+        case .notConnectedToTheInternet:
+            return String(localized: "error.licensing.not-connected-to-internet")
+        case .operationTimedOut:
+            return String(localized: "error.licensing.timed-out")
+        case .otherError(let errorDescription):
+            return String(localized: "error.licensing.other-error.\(errorDescription)")
+        }
+    }
 }
 
 func checkIfUserBoughtCork(for email: String) async throws -> Bool
@@ -23,33 +38,35 @@ func checkIfUserBoughtCork(for email: String) async throws -> Bool
             kCFNetworkProxiesHTTPProxy: AppConstants.proxySettings!.host
         ] as [AnyHashable: Any]
     }
-    
-    let session: URLSession = URLSession(configuration: sessionConfiguration)
-    
+
+    let session: URLSession = .init(configuration: sessionConfiguration)
+
     var urlComponents = URLComponents(url: AppConstants.authorizationEndpointURL, resolvingAgainstBaseURL: false)
     urlComponents?.queryItems = [URLQueryItem(name: "requestedEmail", value: email)]
-    guard let modifiedURL = urlComponents?.url else {
+    guard let modifiedURL = urlComponents?.url
+    else
+    {
         throw DataDownloadingError.invalidURL
     }
-    
-    var request: URLRequest = URLRequest(url: modifiedURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
-    
+
+    var request: URLRequest = .init(url: modifiedURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+
     request.httpMethod = "GET"
-    
+
     let authorizationComplex = "\(AppConstants.licensingAuthorization.username):\(AppConstants.licensingAuthorization.passphrase)"
-    
+
     guard let authorizationComplexAsData: Data = authorizationComplex.data(using: .utf8, allowLossyConversion: false)
     else
     {
         throw CorkLicenseRetrievalError.authorizationComplexNotEncodedProperly
     }
-    
+
     request.addValue("Basic \(authorizationComplexAsData.base64EncodedString())", forHTTPHeaderField: "Authorization")
-    
+
     do
     {
         let (_, response) = try await session.data(for: request)
-        
+
         if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
         {
             return true

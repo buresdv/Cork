@@ -7,9 +7,20 @@
 
 import Foundation
 
-enum OrphanRemovalError: Error
+enum OrphanRemovalError: LocalizedError
 {
-    case couldNotUninstallOrphans, couldNotGetNumberOfUninstalledOrphans
+    case couldNotUninstallOrphans(output: String), couldNotGetNumberOfUninstalledOrphans
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .couldNotUninstallOrphans(let output):
+                return String(localized: "error.maintenance.orphan-removal.could-not-uninstall-orphans.\(output)")
+        case .couldNotGetNumberOfUninstalledOrphans:
+            return String(localized: "error.maintenance.orphan-removal.could-not-get-number-of-uninstalled-orphans")
+        }
+    }
 }
 
 /// Returns the number of uninstaller orphans
@@ -17,7 +28,6 @@ func uninstallOrphansUtility() async throws -> Int
 {
     do
     {
-
         let orphanUninstallationOutput = try await uninstallOrphanedPackages()
 
         AppConstants.logger.debug("Orphan removal output:\nStandard output: \(orphanUninstallationOutput.standardOutput, privacy: .public)\nStandard error: \(orphanUninstallationOutput.standardError, privacy: .public)")
@@ -31,7 +41,8 @@ func uninstallOrphansUtility() async throws -> Int
         {
             let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
 
-            guard let numberOfRemovedOrphans = try Int(regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex)) else
+            guard let numberOfRemovedOrphans = try Int(regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex))
+            else
             {
                 throw OrphanRemovalError.couldNotGetNumberOfUninstalledOrphans
             }
@@ -39,9 +50,9 @@ func uninstallOrphansUtility() async throws -> Int
             return numberOfRemovedOrphans
         }
     }
-    catch let orphanUninstallatioError as NSError
+    catch let orphanUninstallatioError
     {
         AppConstants.logger.error("Orphan uninstallation error: \(orphanUninstallatioError, privacy: .public)")
-        throw OrphanRemovalError.couldNotUninstallOrphans
+        throw OrphanRemovalError.couldNotUninstallOrphans(output: orphanUninstallatioError.localizedDescription)
     }
 }

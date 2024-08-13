@@ -7,30 +7,41 @@
 
 import Foundation
 
-enum BrewfileReadingError: Error
+enum BrewfileReadingError: LocalizedError
 {
-    case couldNotGetBrewfileLocation, couldNotImportFile
+    case couldNotGetBrewfileLocation, couldNotImportFile(formattedPath: String)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .couldNotGetBrewfileLocation:
+            return String(localized: "error.brewfile.importing.could-not-get-selected-brewfile-location")
+        case .couldNotImportFile(let formattedPath):
+            return String(localized: "error.brewfile.importing.could-not-import.\(formattedPath)")
+        }
+    }
 }
 
 @MainActor
 func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage) async throws
 {
     appState.isShowingBrewfileImportProgress = true
-    
+
     appState.brewfileImportingStage = .importing
-    
+
     AppConstants.logger.info("Brewfile import path: \(url.path)")
-    
+
     let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
-    
+
     AppConstants.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutput, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardError)")
-    
+
     if !brewfileImportingResultRaw.standardError.isEmpty
     {
-        throw BrewfileReadingError.couldNotImportFile
+        throw BrewfileReadingError.couldNotImportFile(formattedPath: url.absoluteString)
     }
-    
+
     appState.brewfileImportingStage = .finished
-    
+
     await synchronizeInstalledPackages(brewData: brewData)
 }

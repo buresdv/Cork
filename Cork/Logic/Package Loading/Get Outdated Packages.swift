@@ -8,9 +8,22 @@
 import Foundation
 import SwiftUI
 
-enum OutdatedPackageRetrievalError: Error
+enum OutdatedPackageRetrievalError: LocalizedError
 {
     case homeNotSet, couldNotDecodeCommandOutput(String), otherError(String)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .homeNotSet:
+            return String(localized: "error.outdated-packages.home-not-set")
+        case .couldNotDecodeCommandOutput(let string):
+            return String(localized: "error.outdated-packages.could-not-decode-command-output.\(string)")
+        case .otherError(let string):
+            return String(localized: "error.outdated-packages.other-error.\(string)")
+        }
+    }
 }
 
 extension OutdatedPackageTracker

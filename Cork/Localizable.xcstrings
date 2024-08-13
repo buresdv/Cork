@@ -13163,6 +13163,117 @@
         }
       }
     },
+    "error.brewfile.export.could-not-determine-working-directory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not determine which folder the brewfile export process was initiated from"
+          }
+        }
+      }
+    },
+    "error.brewfile.export.could-not-dump-with-error.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not dump the brewfile into the provided location with error: %@"
+          }
+        }
+      }
+    },
+    "error.brewfile.export.could-not-read-temporary-brewfile" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not read contents of temporary brewfile"
+          }
+        }
+      }
+    },
+    "error.brewfile.importing.could-not-get-selected-brewfile-location" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not get the location of the selected brewfile"
+          }
+        }
+      }
+    },
+    "error.brewfile.importing.could-not-import" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not import this brewfile"
+          }
+        }
+      }
+    },
+    "error.brewfile.importing.could-not-import.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not import brewfile: %@"
+          }
+        }
+      }
+    },
+    "error.data-downloading.invalid-response.%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew server returned the wrong response code: %lld"
+          }
+        }
+      }
+    },
+    "error.data-downloading.invalid-response.undetermined-response-code" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
+          }
+        }
+      }
+    },
+    "error.data-downloading.invalid-url" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The provided URL is not a valid Homebrew server URL"
+          }
+        }
+      }
+    },
+    "error.data-downloading.no-data-received" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No data received while fetching top packages from the Homebrew server"
+          }
+        }
+      }
+    },
+    "error.finder-reveal.could-not-find-package-in-parent" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not find the requested package in the parent folder"
+          }
+        }
+      }
+    },
     "error.generic-couldnt-decode-json.%@" : {
       "localizations" : {
         "cs" : {
@@ -13229,6 +13340,157 @@
         }
       }
     },
+    "error.json-parsing.could-not-convert-string-to-data.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not convert the provided String to Data with error: %@"
+          }
+        }
+      }
+    },
+    "error.json-parsing.could-not-decode.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+          }
+        }
+      }
+    },
+    "error.licensing.auth-complex-not-encoded" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authorization complex for license retrieval could not be encoded"
+          }
+        }
+      }
+    },
+    "error.licensing.not-connected-to-internet" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not connect to the internet. Will not be able to complete the licensing check"
+          }
+        }
+      }
+    },
+    "error.licensing.other-error.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unimplemented error occured while getting license status: %@"
+          }
+        }
+      }
+    },
+    "error.licensing.timed-out" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Checking for license status timed out"
+          }
+        }
+      }
+    },
+    "error.maintenance.cache-purging.command-failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cache purging failed"
+          }
+        }
+      }
+    },
+    "error.maintenance.health-check.standard-error-not-empty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard error not empty"
+          }
+        }
+      }
+    },
+    "error.maintenance.orphan-removal.could-not-get-number-of-uninstalled-orphans" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not get the number of orphans uninstalled as a result of this operation"
+          }
+        }
+      }
+    },
+    "error.maintenance.orphan-removal.could-not-uninstall-orphans" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not uninstall rophans"
+          }
+        }
+      }
+    },
+    "error.maintenance.orphan-removal.could-not-uninstall-orphans.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not uninstall orphans: %@"
+          }
+        }
+      }
+    },
+    "error.maintenance.orphan-uninstallation.unexpected-terminal-output" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unexpected terminal output of the orphan uninstallation function"
+          }
+        }
+      }
+    },
+    "error.outdated-packages.could-not-decode-command-output.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+          }
+        }
+      }
+    },
+    "error.outdated-packages.home-not-set" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HOME is not properly set in the Homebrew command"
+          }
+        }
+      }
+    },
+    "error.outdated-packages.other-error.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unimplemented error for getting outdated packages: %@"
+          }
+        }
+      }
+    },
     "error.package-details.couldnt-pin-unpin" : {
       "localizations" : {
         "cs" : {
@@ -13273,6 +13535,12 @@
         }
       }
     },
+    "error.package-loading.%@-does-not-have-any-versions-installed" : {
+
+    },
+    "error.package-loading.%@-not-a-folder" : {
+
+    },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
       "localizations" : {
         "cs" : {
@@ -13316,6 +13584,22 @@
           }
         }
       }
+    },
+    "error.package-loading.could-not-load-%@-at-%@-because-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
+          }
+        }
+      }
+    },
+    "error.package-loading.could-not-load-packages" : {
+
+    },
+    "error.package-loading.could-not-load-packages.%@" : {
+
     },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
       "localizations" : {
@@ -13423,6 +13707,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "所提供的文件夹没有预期的名称 (Formula 的 Cellar，Cask 的 Caskroom)"
+          }
+        }
+      }
+    },
+    "error.package-retrieval.uuid.could-not-find-any-packages-in-tracker" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not find any package with the provided UUID in the package tracker"
+          }
+        }
+      }
+    },
+    "error.permissions.could-not-obtain-folder-access-permissions.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not obtain access permissions to the specified folder: %@"
+          }
+        }
+      }
+    },
+    "error.regex.nothing-matched" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REGEX matched nothing"
           }
         }
       }
@@ -13559,6 +13873,37 @@
         }
       }
     },
+    "error.services.stopping.could-not-stop-service.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not stop the service: %@"
+          }
+        }
+      }
+    },
+    "error.tap.untap.could-not-untap" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not untap that tap"
+          }
+        }
+      }
+    },
+    "error.tap.untap.could-not-untap.tap-%@.failure-reason-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not remove tap%1$@ with output: %2$@"
+          }
+        }
+      }
+    },
     "error.top-packages.could-not-decode-casks" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -13643,6 +13988,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法下载上层包"
+          }
+        }
+      }
+    },
+    "error.top-packages.impossible-error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The requested package was not found in the array, even though it should have been found"
           }
         }
       }

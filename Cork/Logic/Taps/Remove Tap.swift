@@ -8,9 +8,17 @@
 import Foundation
 import SwiftUI
 
-enum UntapError: Error
+enum UntapError: LocalizedError
 {
-    case couldNotUntap
+    case couldNotUntap(tapName: String, failureReason: String)
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .couldNotUntap(let tapName, let failureReason):
+                return String(localized: "error.tap.untap.could-not-untap.tap-\(tapName).failure-reason-\(failureReason)")
+        }
+    }
 }
 
 @MainActor
@@ -87,6 +95,6 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
             }
         }
 
-        throw UntapError.couldNotUntap
+        throw UntapError.couldNotUntap(tapName: name, failureReason: untapResult)
     }
 }

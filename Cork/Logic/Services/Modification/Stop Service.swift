@@ -7,9 +7,18 @@
 
 import Foundation
 
-enum ServiceStoppingError: Error
+enum ServiceStoppingError: LocalizedError
 {
     case couldNotStopService(String)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .couldNotStopService(let string):
+            return String(localized: "error.services.stopping.could-not-stop-service.\(string)")
+        }
+    }
 }
 
 extension ServicesTracker
@@ -20,7 +29,7 @@ extension ServicesTracker
         {
             switch output
             {
-            case let .standardOutput(outputLine):
+            case .standardOutput(let outputLine):
                 AppConstants.logger.debug("Service stopping output: \(outputLine)")
 
                 switch outputLine
@@ -34,10 +43,10 @@ extension ServicesTracker
                 default:
                     AppConstants.logger.debug("Unknown step in stopping \(serviceToStop.name)")
                 }
-                    
+
                 serviceModificationProgress.progress += 1
 
-            case let .standardError(errorLine):
+            case .standardError(let errorLine):
                 AppConstants.logger.error("Service stopping error: \(errorLine)")
 
                 servicesState.showError(.couldNotStopService(offendingService: serviceToStop.name, errorThrown: errorLine))
@@ -47,7 +56,7 @@ extension ServicesTracker
         do
         {
             serviceModificationProgress.progress = 5.0
-            
+
             try await synchronizeServices(preserveIDs: true)
         }
         catch let servicesSynchronizationError

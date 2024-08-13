@@ -89,9 +89,14 @@ struct BrewPackage: Identifiable, Equatable, Hashable
     func revealInFinder() throws
     {
         
-        enum FinderRevealError: Error
+        enum FinderRevealError: LocalizedError
         {
             case couldNotFindPackageInParent
+            
+            var errorDescription: String?
+            {
+                return String(localized: "error.finder-reveal.could-not-find-package-in-parent")
+            }
         }
         
         var packageURL: URL?

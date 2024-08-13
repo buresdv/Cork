@@ -7,15 +7,24 @@
 
 import Foundation
 
-enum OrphanUninstallationError: Error
+enum OrphanUninstallationError: LocalizedError
 {
     case unexpectedCommandOutput
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .unexpectedCommandOutput:
+            return String(localized: "error.maintenance.orphan-uninstallation.unexpected-terminal-output")
+        }
+    }
 }
 
 func uninstallOrphanedPackages() async throws -> TerminalOutput
 {
     let commandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["autoremove"])
-    
+
     if !commandResult.standardOutput.contains("Autoremoving")
     {
         if commandResult.standardError.isEmpty

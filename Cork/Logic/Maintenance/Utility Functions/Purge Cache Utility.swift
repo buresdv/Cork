@@ -7,9 +7,19 @@
 
 import Foundation
 
-enum HomebrewCachePurgeError: Error
+enum HomebrewCachePurgeError: LocalizedError
 {
     case purgingCommandFailed, regexMatchingCouldNotMatchAnything
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .purgingCommandFailed:
+                return String(localized: "error.maintenance.cache-purging.command-failed")
+            case .regexMatchingCouldNotMatchAnything:
+                return String(localized: "error.regex.nothing-matched")
+        }
+    }
 }
 
 /// Returns the packages that held back cahce purging. Returns an empty array if all purging was successful

@@ -179,6 +179,8 @@ struct Licensing_NotBoughtOrActivatedView: View
                         }
                         catch let licenseCheckingError as CorkLicenseRetrievalError
                         {
+                            AppConstants.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
+                            
                             switch licenseCheckingError
                             {
                             case .authorizationComplexNotEncodedProperly:

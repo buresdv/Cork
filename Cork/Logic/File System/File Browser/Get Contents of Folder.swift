@@ -8,9 +8,31 @@
 import Foundation
 import SwiftUI
 
-enum PackageLoadingError: Error
+enum PackageLoadingError: LocalizedError
 {
     case failedWhileLoadingPackages(failureReason: LocalizedStringKey?), failedWhileLoadingCertainPackage(String, URL, failureReason: LocalizedStringKey), packageDoesNotHaveAnyVersionsInstalled(String), packageIsNotAFolder(String, URL)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .failedWhileLoadingPackages(let failureReason):
+            if let failureReason
+            {
+                return String(localized: "error.package-loading.could-not-load-packages.\(failureReason.stringValue() ?? "Failed while getting localized version of string")")
+            }
+            else
+            {
+                return String(localized: "error.package-loading.could-not-load-packages")
+            }
+        case .failedWhileLoadingCertainPackage(let string, let uRL, let failureReason):
+            return String(localized: "error.package-loading.could-not-load-\(string)-at-\(uRL.absoluteString)-because-\(failureReason.stringValue() ?? "Could not determine localized version of string")")
+        case .packageDoesNotHaveAnyVersionsInstalled(let string):
+            return String(localized: "error.package-loading.\(string)-does-not-have-any-versions-installed")
+        case .packageIsNotAFolder(let string, _):
+            return String(localized: "error.package-loading.\(string)-not-a-folder")
+        }
+    }
 }
 
 func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
@@ -52,7 +74,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                         {
                             throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                         }
-                        
+
                         let wasPackageInstalledIntentionally: Bool = try await targetFolder.checkIfPackageWasInstalledIntentionally(versionURLs)
 
                         let foundPackage: BrewPackage = .init(
@@ -91,6 +113,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 }
 
 // MARK: - Sub-functions
+
 private extension URL
 {
     /// ``[URL]`` to packages without hidden files or symlinks.
@@ -136,19 +159,19 @@ private extension URL
                 {
                     let installedOnRequest: Bool
                 }
-                
+
                 let decoder: JSONDecoder =
                 {
                     let decoder: JSONDecoder = .init()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    
+
                     return decoder
                 }()
-                
+
                 do
                 {
                     let installReceiptContents: Data = try .init(contentsOf: localPackageInfoJSONPath)
-                    
+
                     do
                     {
                         return try decoder.decode(InstallRecepitParser.self, from: installReceiptContents).installedOnRequest
@@ -156,7 +179,7 @@ private extension URL
                     catch let installReceiptParsingError
                     {
                         AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptParsingError.localizedDescription, privacy: .public)")
-                        
+
                         throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)")
                     }
                 }
@@ -169,11 +192,11 @@ private extension URL
             else
             { /// There's no install receipt for this package - silently fail and return that the packagw was not installed intentionally
                 // TODO: Add a setting like "Strictly check for errors" that would instead throw an error here
-                
+
                 AppConstants.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent, privacy: .public)")
-                
+
                 let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
-                
+
                 if shouldStrictlyCheckForHomebrewErrors
                 {
                     throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: "error.package-loading.missing-install-receipt")
@@ -218,12 +241,12 @@ private extension URL
             if versions.isEmpty
             {
                 AppConstants.logger.warning("Package URL \(self, privacy: .public) has no versions installed")
-                
+
                 return nil
             }
-            
+
             AppConstants.logger.debug("URL \(self) has these versions: \(versions))")
-            
+
             return versions
         }
         catch
@@ -248,6 +271,7 @@ extension [URL]
 }
 
 // MARK: - Getting list of URLs in folder
+
 func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumerationOptions? = nil) -> [URL]
 {
     var contentsOfFolder: [URL] = .init()

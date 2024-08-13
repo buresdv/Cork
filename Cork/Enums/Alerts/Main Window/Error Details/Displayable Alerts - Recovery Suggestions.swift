@@ -16,7 +16,7 @@ extension DisplayableAlert
         case .couldNotLoadAnyPackages:
             return String(localized: "alert.restart-or-reinstall")
         case .couldNotLoadCertainPackage(let offendingPackageName, let offendingPackageURL, let failureReason):
-            return failureReason
+                return failureReason.stringValue()
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.message")
         case .licenseCheckingFailedDueToNoInternet:

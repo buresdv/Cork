@@ -40,9 +40,9 @@ struct MaintenanceRunningView: View
                         {
                             numberOfOrphansRemoved = try await uninstallOrphansUtility()
                         }
-                        catch let orphanUninstallatioError as NSError
+                        catch let orphanUninstallatioError
                         {
-                            AppConstants.logger.error("Orphan uninstallation error: \(String(describing: orphanUninstallatioError))")
+                            AppConstants.logger.error("Orphan uninstallation error: \(orphanUninstallatioError.localizedDescription, privacy: .public))")
                         }
                     }
                     else
@@ -62,7 +62,7 @@ struct MaintenanceRunningView: View
                         }
                         catch let homebrewCachePurgingError
                         {
-                            AppConstants.logger.error("Homebrew cache purging error: \(String(describing: homebrewCachePurgingError))")
+                            AppConstants.logger.error("Homebrew cache purging error: \(homebrewCachePurgingError.localizedDescription, privacy: .public))")
                         }
                     }
                     else
@@ -100,9 +100,9 @@ struct MaintenanceRunningView: View
 
                             brewHealthCheckFoundNoProblems = true
                         }
-                        catch let healthCheckError as NSError
+                        catch let healthCheckError
                         {
-                            AppConstants.logger.error("\(String(describing: healthCheckError))")
+                            AppConstants.logger.error("\(healthCheckError, privacy: .public)")
                         }
                     }
                     else

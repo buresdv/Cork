@@ -8,9 +8,17 @@
 import Foundation
 
 
-private enum PackageRetrievalByUUIDError: Error
+private enum PackageRetrievalByUUIDError: LocalizedError
 {
     case couldNotfindAnypackagesInTracker
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .couldNotfindAnypackagesInTracker:
+                return String(localized: "error.package-retrieval.uuid.could-not-find-any-packages-in-tracker")
+        }
+    }
 }
 
 func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker) throws -> BrewPackage
@@ -42,9 +50,17 @@ func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker
     }
 }
 
-enum TopPackageRetrievalError: Error
+enum TopPackageRetrievalError: LocalizedError
 {
     case resultingArrayWasEmptyEvenThoughPackagesWereInIt
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .resultingArrayWasEmptyEvenThoughPackagesWereInIt:
+                return String(localized: "error.top-packages.impossible-error")
+        }
+    }
 }
 
 @MainActor

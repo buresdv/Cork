@@ -7,7 +7,17 @@
 
 import Foundation
 
-enum JSONParsingError: Error
+enum JSONParsingError: LocalizedError
 {
     case couldNotConvertStringToData(failureReason: String?), couldNotDecode(failureReason: String)
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .couldNotConvertStringToData(let failureReason):
+                return String(localized: "error.json-parsing.could-not-convert-string-to-data.\(failureReason ?? "")")
+            case .couldNotDecode(let failureReason):
+                return String(localized: "error.json-parsing.could-not-decode.\(failureReason)")
+        }
+    }
 }

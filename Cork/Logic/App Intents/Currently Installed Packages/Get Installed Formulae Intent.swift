@@ -8,16 +8,25 @@
 import AppIntents
 import Foundation
 
-enum FolderAccessingError: Error
+enum FolderAccessingError: LocalizedError
 {
-    case couldNotObtainPermissionToAccessFolder
+    case couldNotObtainPermissionToAccessFolder(formattedPath: String)
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .couldNotObtainPermissionToAccessFolder(let formattedPath):
+            return String(localized: "error.permissions.could-not-obtain-folder-access-permissions.\(formattedPath)")
+        }
+    }
 }
 
 struct GetInstalledFormulaeIntent: AppIntent
 {
     @Parameter(title: "intent.get-installed-packages.limit-to-manually-installed-packages")
     var getOnlyManuallyInstalledPackages: Bool
-    
+
     static var title: LocalizedStringResource = "intent.get-installed-formulae.title"
     static var description: LocalizedStringResource = "intent.get-installed-formulae.description"
 
@@ -27,28 +36,29 @@ struct GetInstalledFormulaeIntent: AppIntent
     func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {
         let allowAccessToFile: Bool = AppConstants.brewCellarPath.startAccessingSecurityScopedResource()
-        
+
         if allowAccessToFile
         {
             let installedFormulae = await loadUpPackages(whatToLoad: .formula, appState: AppState())
-            
+
             AppConstants.brewCellarPath.stopAccessingSecurityScopedResource()
-            
-            var minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map { package in
-                return .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
+
+            var minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map
+            { package in
+                .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
             }
-            
+
             if getOnlyManuallyInstalledPackages
             {
-                minimalPackages = minimalPackages.filter({$0.installedIntentionally})
+                minimalPackages = minimalPackages.filter { $0.installedIntentionally }
             }
-            
+
             return .result(value: minimalPackages)
         }
         else
         {
             print("Could not obtain access to folder")
-            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder
+            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.brewCellarPath.absoluteString)
         }
     }
 }

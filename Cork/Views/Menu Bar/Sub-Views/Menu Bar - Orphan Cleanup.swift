@@ -34,7 +34,7 @@ struct MenuBar_OrphanCleanup: View
                             sensitivity: .active
                         )
                     }
-                    catch let orphanUninstallationError as OrphanRemovalError
+                    catch let orphanUninstallationError
                     {
                         AppConstants.logger.error("Failed while uninstalling orphans: \(orphanUninstallationError, privacy: .public)")
 

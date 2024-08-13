@@ -7,9 +7,22 @@
 
 import Foundation
 
-enum BrewfileDumpingError: Error
+enum BrewfileDumpingError: LocalizedError
 {
     case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile
+
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .couldNotDetermineWorkingDirectory:
+            return String(localized: "error.brewfile.export.could-not-determine-working-directory")
+        case .errorWhileDumpingBrewfile(let error):
+            return String(localized: "error.brewfile.export.could-not-dump-with-error.\(error)")
+        case .couldNotReadBrewfile:
+            return String(localized: "error.brewfile.export.could-not-read-temporary-brewfile")
+        }
+    }
 }
 
 /// Exports the Brewfile and returns the contents of the Brewfile itself for further manipulation. Does not preserve the Brewfile
@@ -17,18 +30,18 @@ enum BrewfileDumpingError: Error
 func exportBrewfile(appState: AppState) async throws -> String
 {
     appState.isShowingBrewfileExportProgress = true
-    
+
     defer
     {
         appState.isShowingBrewfileExportProgress = false
     }
-    
+
     let brewfileParentLocation = URL.temporaryDirectory
-    
+
     let pathRawOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])
-    
+
     let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
-    
+
     /// Throw an error if the working directory could not be determined
     if !pathRawOutput.standardError.isEmpty
     {
@@ -41,25 +54,25 @@ func exportBrewfile(appState: AppState) async throws -> String
     {
         throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
     }
-    
+
     if !brewfileDumpingResult.standardError.isEmpty
     {
         throw BrewfileDumpingError.errorWhileDumpingBrewfile(error: brewfileDumpingResult.standardError)
     }
-    
+
     AppConstants.logger.info("Path: \(workingDirectory, privacy: .auto)")
-    
+
     print("Brewfile dumping result: \(brewfileDumpingResult)")
-    
+
     let brewfileLocation: URL = brewfileParentLocation.appendingPathComponent("Brewfile", conformingTo: .fileURL)
-    
+
     do
     {
         let brewfileContents: String = try String(contentsOf: brewfileLocation)
-        
+
         /// Delete the brewfile
         try? FileManager.default.removeItem(at: brewfileLocation)
-        
+
         return brewfileContents
     }
     catch let brewfileReadingError

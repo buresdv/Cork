@@ -7,9 +7,17 @@
 
 import Foundation
 
-enum RegexError: Error
+enum RegexError: LocalizedError
 {
     case regexFunctionCouldNotMatchAnything
+    
+    var errorDescription: String?
+    {
+        switch self {
+            case .regexFunctionCouldNotMatchAnything:
+                return String(localized: "error.regex.nothing-matched")
+        }
+    }
 }
 
 func regexMatch(from string: String, regex: String) throws -> String

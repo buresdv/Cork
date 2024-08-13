@@ -36,7 +36,7 @@ struct GetInstalledCasksIntent: AppIntent
         {
             print("Could not obtain access to folder")
             
-            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder
+            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.brewCaskPath.absoluteString)
         }
     }
 }
