@@ -90,7 +90,7 @@ private struct ManualInstallInstructions: View
                     
                     Button
                     {
-                        copyToClipboard(whatToCopy: manualInstallCommand)
+                        manualInstallCommand.copyToClipboard()
                     } label: {
                         Label
                         {

@@ -41,7 +41,7 @@ struct ErroredOutStageView: View
                     
                     Button
                     {
-                        copyToClipboard(whatToCopy: "brew update")
+                        "brew update".copyToClipboard()
                         
                         openTerminal()
                         

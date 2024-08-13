@@ -16,7 +16,7 @@ extension DisplayableAlert
         {
         case .couldNotLoadAnyPackages(let error):
             return String(localized: "alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title")
-        case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
+        case .couldNotLoadCertainPackage(let offendingPackage, _, _):
             return String(localized: "alert.fatal-\(offendingPackage)-prevented-loading.title")
         case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
             return String(localized: "alert.fatal.license-checking.could-not-encode-authorization-complex.title")
@@ -44,7 +44,7 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-file.title")
         case .installedPackageHasNoVersions(let corruptedPackageName):
             return String(localized: "alert.package-corrupted.title-\(corruptedPackageName)")
-        case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
+        case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: _):
             return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.title-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")

@@ -8,9 +8,12 @@
 import Foundation
 import AppKit
 
-func copyToClipboard(whatToCopy: String)
+extension String
 {
-    let pasteboard = NSPasteboard.general
-    pasteboard.declareTypes([.string], owner: nil)
-    pasteboard.setString(whatToCopy, forType: .string)
+    func copyToClipboard()
+    {
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(self, forType: .string)
+    }
 }

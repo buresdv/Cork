@@ -159,7 +159,7 @@ struct HomebrewServicesView: View
         {
             Button
             {
-                copyToClipboard(whatToCopy: "brew update")
+                "brew update".copyToClipboard()
                 
                 openTerminal()
                 

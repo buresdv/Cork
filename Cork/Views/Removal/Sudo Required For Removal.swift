@@ -95,7 +95,7 @@ private struct ManualUninstallInstructions: View
                     
                     Button
                     {
-                        copyToClipboard(whatToCopy: manualUninstallCommand)
+                        manualUninstallCommand.copyToClipboard()
                     } label: {
                         Label
                         {
