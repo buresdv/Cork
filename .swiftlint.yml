@@ -1,0 +1,96 @@
+# By default, SwiftLint uses a set of sensible default rules you can adjust:
+disabled_rules: # rule identifiers turned on by default to exclude from running
+  - colon
+  - comma
+  - control_statement
+  - empty_count
+  - function_body_length
+  - shorthand_operator
+  - cyclomatic_complexity # Turn this on once install function refactor is in main
+  - opening_brace
+  - line_length
+  - statement_position
+  - todo
+  - for_where
+  - non_optional_string_data_conversion
+  - orphaned_doc_comment
+  - redundant_optional_initialization
+  - nesting
+  - file_length
+  - trailing_whitespace
+opt_in_rules: # some rules are turned off by default, so you need to opt-in
+  - empty_count # find all the available rules by running: `swiftlint rules`
+  - explicit_init
+  - contrasted_opening_brace
+#  - explicit_type_interface # Force the specification of types
+
+# Alternatively, specify all rules explicitly by uncommenting this option:
+# only_rules: # delete `disabled_rules` & `opt_in_rules` if using this
+#   - empty_parameters
+#   - vertical_whitespace
+
+analyzer_rules: # rules run by `swiftlint analyze`
+  - explicit_self
+
+excluded: # case-sensitive paths to ignore during linting. Takes precedence over `included`
+  - Carthage
+  - Pods
+  - Sources/ExcludedFolder
+  - Sources/ExcludedFile.swift
+  - Sources/*/ExcludedFile.swift # exclude files with a wildcard
+
+# If true, SwiftLint will not fail if no lintable files are found.
+allow_zero_lintable_files: false
+
+# If true, SwiftLint will treat all warnings as errors.
+strict: false
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+# rules that have both warning and error levels, can set just the warning level
+# implicitly
+#line_length: 150
+# they can set both implicitly with an array
+type_body_length:
+  - 600 # warning
+  - 700 # error
+# or they can set both explicitly
+file_length:
+  warning: 500
+  error: 1200
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 4 # only warning
+  max_length: # warning and error
+    warning: 60
+    error: 80
+  excluded: iPhone # excluded via string
+  allowed_symbols: ["_"] # these are allowed in type names
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  max_length: # warning and error
+    warning: 70
+    error: 100
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+  allowed_symbols: ["_"]
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging, summary)
+custom_rules:
+#  brackets_newline:
+#      name: "Opening Brackets not on Next Line"
+#      message: "Opening brackets should be placed on their own lines"
+#      include: "*.swift"
+#      regex: '^(?=.*\{)(?=.*(?:func|if|else|class|struct|catch|try|init|guard)).*$'
+#      severity: warning
+#  else_statement_position:
+#      name: "Else Statement Position"
+#      regex: '\}[ \t]*\n[ \t]*else'
+#      message: "Else statements should be on their own line, right after the closing brace of the preceding block."
+#      severity: error
