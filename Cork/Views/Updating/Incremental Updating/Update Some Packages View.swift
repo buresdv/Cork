@@ -95,7 +95,7 @@ struct UpdateSomePackagesView: View
                     catch let packageSynchronizationError
                     {
                         AppConstants.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
-                        appState.showAlert(errorToShow: .couldNotSynchronizePackages)
+                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: packageSynchronizationError.localizedDescription))
                     }
                 }
             case .finished:

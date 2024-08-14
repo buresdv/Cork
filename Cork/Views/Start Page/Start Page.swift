@@ -19,6 +19,8 @@ struct StartPage: View
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
 
+    @State private var errorOutReason: String?
+
     @State private var dragOver: Bool = false
 
     var body: some View
@@ -37,9 +39,12 @@ struct StartPage: View
                     {
                         Section
                         {
-                            OutdatedPackagesBox(isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded)
-                                .transition(.move(edge: .top))
-                                .animation(.easeIn, value: appState.isCheckingForPackageUpdates)
+                            OutdatedPackagesBox(
+                                isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded,
+                                errorOutReason: errorOutReason
+                            )
+                            .transition(.move(edge: .top))
+                            .animation(.easeIn, value: appState.isCheckingForPackageUpdates)
                         } header: {
                             HStack(alignment: .center, spacing: 10)
                             {
@@ -106,11 +111,19 @@ struct StartPage: View
         {
             if outdatedPackageTracker.outdatedPackages.isEmpty
             {
-                await shell(AppConstants.brewExecutablePath, ["update"])
+                appState.isCheckingForPackageUpdates = true
+                
+                defer
+                {
+                    withAnimation 
+                    {
+                        appState.isCheckingForPackageUpdates = false
+                    }
+                }
 
                 do
                 {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData, appState: appState)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                 {
@@ -118,11 +131,9 @@ struct StartPage: View
                     {
                     case .homeNotSet:
                         appState.showAlert(errorToShow: .homePathNotSet)
-                    case .couldNotDecodeCommandOutput(let decodingError):
-                        // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
-                        AppConstants.logger.error("Could not decode outdated package command output: \(decodingError)")
-                    case .otherError:
-                        AppConstants.logger.error("Something went wrong")
+                    default:
+                        AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
                     }
                 }
                 catch

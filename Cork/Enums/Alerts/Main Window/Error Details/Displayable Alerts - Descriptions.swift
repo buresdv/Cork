@@ -64,7 +64,7 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-find-package-in-parent-directory.title")
         case .fatalPackageInstallationError:
             return String(localized: "alert.fatal-installation.error")
-        case .couldNotSynchronizePackages:
+        case .couldNotSynchronizePackages(_):
             return String(localized: "alert.fatal.could-not-synchronize-packages.title")
         case .couldNotGetWorkingDirectory:
             return String(localized: "alert.could-not-get-brewfile-working-directory.title")

@@ -14,20 +14,29 @@ struct OutdatedPackagesBox: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool
+    
+    let errorOutReason: String?
 
     var body: some View
     {
-        if appState.isCheckingForPackageUpdates
+        if let errorOutReason
         {
-            OutdatedPackageLoaderBox()
-        }
-        else if outdatedPackageTracker.displayableOutdatedPackages.count == 0
-        {
-            NoUpdatesAvailableBox()
+            LoadingOfOutdatedPackagesFailedListBox(errorOutReason: errorOutReason)
         }
         else
         {
-            OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
+            if appState.isCheckingForPackageUpdates
+            {
+                OutdatedPackageLoaderBox()
+            }
+            else if outdatedPackageTracker.displayableOutdatedPackages.count == 0
+            {
+                NoUpdatesAvailableBox()
+            }
+            else
+            {
+                OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
+            }
         }
     }
 }

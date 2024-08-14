@@ -23,7 +23,7 @@ enum DisplayableAlert: LocalizedError
     case couldNotAssociateAnyPackageWithProvidedPackageUUID
     case couldNotFindPackageInParentDirectory
     case fatalPackageInstallationError(String)
-    case couldNotSynchronizePackages
+    case couldNotSynchronizePackages(error: String)
 
     // MARK: - Brewfile exporting/importing
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile(error: String), couldNotReadBrewfile

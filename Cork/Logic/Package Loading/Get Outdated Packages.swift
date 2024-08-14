@@ -58,28 +58,15 @@ extension OutdatedPackageTracker
     }
 
     /// Load outdated packages into the outdated package tracker
-    func getOutdatedPackages(brewData: BrewDataStorage, appState: AppState? = nil, packageArray _: [String]? = nil) async throws
+    func getOutdatedPackages(brewData: BrewDataStorage) async throws
     {
-        /// Set the UI stuff if AppState has been passed
-        if let appState
-        {
-            if appState.isCheckingForPackageUpdates == false
-            {
-                appState.isCheckingForPackageUpdates = true
-            }
-        }
-
-        defer
-        {
-            if let appState
-            {
-                withAnimation
-                {
-                    appState.isCheckingForPackageUpdates = false
-                }
-            }
-        }
+        // First, we have to pull the newest updates
+        await shell(AppConstants.brewExecutablePath, ["update"])
+        
+        // Then we can get the updating under way
         let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["outdated", "--json=v2"])
+        
+        print("Outdated package function oputput: \(rawOutput)")
 
         // MARK: - Error checking
 
