@@ -54,8 +54,7 @@ extension ServicesTracker
     /// Load services into the service tracker
     func loadServices() async throws
     {
-        let decoder: JSONDecoder =
-        {
+        let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
 
@@ -103,7 +102,7 @@ extension ServicesTracker
                 ))
             }
 
-            self.services = finalServices
+            services = finalServices
         }
         catch let servicesParsingError
         {

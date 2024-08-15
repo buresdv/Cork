@@ -122,7 +122,7 @@ struct InstallingPackageView: View
                 if [.installingCask, .installingPackage, .ready].contains(installationStage)
                 {
                     AppConstants.logger.warning("The installation process quit before it was supposed to")
-                    
+
                     installationProgressTracker.packageBeingInstalled.installationStage = .terminatedUnexpectedly
                 }
             }

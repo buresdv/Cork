@@ -1,5 +1,5 @@
 //
-//  Self-Compiled.swift
+//  Self-Compiled View.swift
 //  Cork
 //
 //  Created by David Bureš on 13.05.2024.

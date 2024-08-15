@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SubtitleText: View {
-    
+struct SubtitleText: View
+{
     let text: LocalizedStringKey
-    
-    var body: some View {
+
+    var body: some View
+    {
         Text(text)
             .font(.subheadline)
             .foregroundColor(.gray)
     }
 }
-

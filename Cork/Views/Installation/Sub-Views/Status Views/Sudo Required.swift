@@ -10,11 +10,11 @@ import SwiftUI
 struct SudoRequiredView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
-    
+
     var body: some View
     {
         VStack(alignment: .leading)
@@ -68,26 +68,26 @@ struct SudoRequiredView: View, Sendable
 private struct ManualInstallInstructions: View
 {
     let installationProgressTracker: InstallationProgressTracker
-    
+
     var manualInstallCommand: String
     {
         return "brew install \(installationProgressTracker.packageBeingInstalled.package.type == .cask ? "--cask" : "") \(installationProgressTracker.packageBeingInstalled.package.name)"
     }
-    
+
     var body: some View
     {
         VStack
         {
             Text("add-package.install.requires-sudo-password.description")
-            
+
             GroupBox
             {
                 HStack(alignment: .center, spacing: 5)
                 {
                     Text(manualInstallCommand)
-                    
+
                     Divider()
-                    
+
                     Button
                     {
                         manualInstallCommand.copyToClipboard()

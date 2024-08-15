@@ -10,14 +10,14 @@ import SwiftUI
 struct MenuBarItem: View
 {
     @Environment(\.openWindow) var openWindow
-    
+
     @EnvironmentObject var appState: AppState
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: AvailableTaps
-    
+
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     var body: some View
     {
         MenuBar_PackageOverview()
@@ -27,7 +27,7 @@ struct MenuBarItem: View
         MenuBar_PackageUpdating()
 
         Divider()
-        
+
         MenuBar_PackageInstallation()
 
         Divider()

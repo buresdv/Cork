@@ -11,7 +11,7 @@ struct ServicesSidebarView: View
 {
     @EnvironmentObject var servicesState: ServicesState
     @EnvironmentObject var servicesTracker: ServicesTracker
-    
+
     @State private var searchText: String = ""
 
     var body: some View
@@ -40,11 +40,11 @@ struct ServicesSidebarView: View
         }
         .searchable(text: $searchText, placement: .sidebar, prompt: Text("services-sidebar.search.prompt"))
     }
-    
+
     private var displayedServices: Set<HomebrewService>
     {
         let filter: (HomebrewService) -> Bool
-        
+
         if searchText.isEmpty
         {
             filter = { _ in true }
@@ -53,7 +53,7 @@ struct ServicesSidebarView: View
         {
             filter = { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
-        
+
         return servicesTracker.services.filter(filter)
     }
 }

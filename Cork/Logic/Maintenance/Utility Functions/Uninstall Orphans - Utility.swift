@@ -16,7 +16,7 @@ enum OrphanRemovalError: LocalizedError
         switch self
         {
         case .couldNotUninstallOrphans(let output):
-                return String(localized: "error.maintenance.orphan-removal.could-not-uninstall-orphans.\(output)")
+            return String(localized: "error.maintenance.orphan-removal.could-not-uninstall-orphans.\(output)")
         case .couldNotGetNumberOfUninstalledOrphans:
             return String(localized: "error.maintenance.orphan-removal.could-not-get-number-of-uninstalled-orphans")
         }
@@ -39,7 +39,7 @@ func uninstallOrphansUtility() async throws -> Int
         }
         else
         {
-            let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
+            let numberOfUninstalledOrphansRegex = "(?<=Autoremoving ).*?(?= unneeded)"
 
             guard let numberOfRemovedOrphans = try Int(regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex))
             else

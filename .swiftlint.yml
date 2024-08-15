@@ -6,7 +6,6 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - empty_count
   - function_body_length
   - shorthand_operator
-  - cyclomatic_complexity # Turn this on once install function refactor is in main
   - opening_brace
   - line_length
   - statement_position
@@ -21,8 +20,8 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - empty_count # find all the available rules by running: `swiftlint rules`
   - explicit_init
-  - contrasted_opening_brace
-#  - explicit_type_interface # Force the specification of types
+#  - contrasted_opening_brace
+  - explicit_type_interface # Force the specification of types
 
 # Alternatively, specify all rules explicitly by uncommenting this option:
 # only_rules: # delete `disabled_rules` & `opt_in_rules` if using this

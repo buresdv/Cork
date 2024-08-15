@@ -15,14 +15,14 @@ struct PathControl: NSViewRepresentable
     let style: NSPathControl.Style
 
     let width: CGFloat?
-    
+
     func makeNSView(context _: Context) -> NSPathControl
     {
         let pathControl = NSPathControl()
 
         pathControl.pathStyle = style
         pathControl.url = urlToShow
-        
+
         if let width
         {
             pathControl.translatesAutoresizingMaskIntoConstraints = false
@@ -32,9 +32,7 @@ struct PathControl: NSViewRepresentable
         return pathControl
     }
 
-    func updateNSView(_ nsView: NSPathControl, context _: Context)
-    {
-    }
+    func updateNSView(_: NSPathControl, context _: Context) {}
 
     func makeCoordinator() -> Coordinator
     {
@@ -45,27 +43,27 @@ struct PathControl: NSViewRepresentable
     {
         // TODO: Implement this in the future
         /*
-        var parent: PathControl
-        
-        init(parent: PathControl) {
-            self.parent = parent
-        }
-        
-        func pathControl(_ pathControl: NSPathControl, willDisplay openPanel: NSOpenPanel) {
-            openPanel.allowsMultipleSelection = false
-            openPanel.canChooseDirectories = false
-            openPanel.allowedContentTypes = [.unixExecutable]
-            
-            openPanel.begin { result in
-                switch result
-                {
-                    case .OK:
-                        self.parent.urlToShow = openPanel.url!
-                    default:
-                        AppConstants.logger.warning("Didn't select a proper Homebrew executable")
-                }
-            }
-        }
-         */
+         var parent: PathControl
+
+         init(parent: PathControl) {
+             self.parent = parent
+         }
+
+         func pathControl(_ pathControl: NSPathControl, willDisplay openPanel: NSOpenPanel) {
+             openPanel.allowsMultipleSelection = false
+             openPanel.canChooseDirectories = false
+             openPanel.allowedContentTypes = [.unixExecutable]
+
+             openPanel.begin { result in
+                 switch result
+                 {
+                     case .OK:
+                         self.parent.urlToShow = openPanel.url!
+                     default:
+                         AppConstants.logger.warning("Didn't select a proper Homebrew executable")
+                 }
+             }
+         }
+          */
     }
 }

@@ -9,10 +9,9 @@ import SwiftUI
 
 struct MenuBar_PackageUpdating: View
 {
-    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     var body: some View
     {
         if appState.isCheckingForPackageUpdates

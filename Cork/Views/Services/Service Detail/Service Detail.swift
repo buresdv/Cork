@@ -18,14 +18,14 @@ struct ServiceDetailView: View
     let service: HomebrewService
 
     @State private var serviceDetails: ServiceDetails?
-    
+
     @State private var isLoadingDetails: Bool = true
-    
+
     @State private var erroredOutWhileLoadingServiceDetails: Bool = false
-    
+
     // TODO: Implement this
     @State private var reasonForServiceLoadingFailure: ReasonsForServiceLoadingFailure = .couldNotDecipherJSON
-    
+
     var body: some View
     {
         VStack(alignment: .leading, spacing: 0)
@@ -48,14 +48,14 @@ struct ServiceDetailView: View
                     FullSizeGroupedForm
                     {
                         ServiceHeaderComplex(service: service)
-                        
+
                         BasicServiceInfoView(service: service, serviceDetails: serviceDetails)
-                        
+
                         ServiceLocationsView(service: service, serviceDetails: serviceDetails)
                     }
-                    
+
                     Spacer()
-                    
+
                     ServiceModificationButtons(service: service)
                 }
             }
@@ -63,12 +63,12 @@ struct ServiceDetailView: View
         .task(priority: .userInitiated)
         {
             AppConstants.logger.log("Service details pane for service \(service.name) appeared; will try to load details")
-            
+
             defer
             {
                 isLoadingDetails = false
             }
-            
+
             do
             {
                 serviceDetails = try await service.loadDetails()
@@ -82,7 +82,7 @@ struct ServiceDetailView: View
         .onDisappear
         {
             AppConstants.logger.log("Service details pane for \(service.name) disappeared; will purge details tracker")
-            
+
             serviceDetails = nil
         }
     }

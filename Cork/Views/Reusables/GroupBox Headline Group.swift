@@ -52,12 +52,12 @@ struct GroupBoxHeadlineGroup: View
 struct GroupBoxHeadlineGroupWithArbitraryImage: View
 {
     let image: Image
-    
+
     let title: LocalizedStringKey
     let mainText: LocalizedStringKey
-    
+
     var animateNumberChanges: Bool = false
-    
+
     var body: some View
     {
         HStack(spacing: 15)
@@ -66,7 +66,7 @@ struct GroupBoxHeadlineGroupWithArbitraryImage: View
                 .resizable()
                 .scaledToFit()
                 .frame(width: 26, height: 26)
-            
+
             VStack(alignment: .leading, spacing: 2)
             {
                 if animateNumberChanges

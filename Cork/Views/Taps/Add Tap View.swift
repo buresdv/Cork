@@ -28,7 +28,7 @@ struct AddTapView: View
     @State var progress: TapAddingStates = .ready
 
     @State private var requestedTap: String = ""
-    
+
     @State private var forcedRepoAddress: String = ""
 
     @State private var tappingError: TappingError = .other

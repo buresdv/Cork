@@ -9,11 +9,10 @@ import SwiftUI
 
 struct MenuBar_OrphanCleanup: View
 {
-    
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @State private var isUninstallingOrphanedPackages: Bool = false
-    
+
     var body: some View
     {
         if !isUninstallingOrphanedPackages

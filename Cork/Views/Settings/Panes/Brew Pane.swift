@@ -11,7 +11,7 @@ import SwiftUI
 struct BrewPane: View
 {
     @AppStorage("strictlyCheckForHomebrewErrors") var strictlyCheckForHomebrewErrors: Bool = false
-    
+
     @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
     @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
 
@@ -36,7 +36,7 @@ struct BrewPane: View
                     } label: {
                         Text("settings.brew.error-checking")
                     }
-                    
+
                     LabeledContent
                     {
                         Toggle(isOn: $allowBrewAnalytics)
@@ -89,7 +89,7 @@ struct BrewPane: View
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
-                
+
                 CustomHomebrewExecutableView()
             }
         }

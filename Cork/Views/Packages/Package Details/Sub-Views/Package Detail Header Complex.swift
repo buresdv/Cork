@@ -11,7 +11,7 @@ struct PackageDetailHeaderComplex: View
 {
     let package: BrewPackage
     @ObservedObject var packageDetails: BrewPackageDetails
-    
+
     let isLoadingDetails: Bool
 
     var body: some View

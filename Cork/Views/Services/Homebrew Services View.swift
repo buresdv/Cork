@@ -117,14 +117,14 @@ struct HomebrewServicesView: View
             {
             case .couldNotLoadServices(error: ""):
                 EmptyView()
-            case .couldNotLoadServices(error: _):
+            case .couldNotLoadServices:
                 loadServicesButton
                 dismissAlertButton
-            case .couldNotStartService(offendingService: _, errorThrown: _):
+            case .couldNotStartService:
                 EmptyView()
-            case .couldNotStopService(offendingService: _, errorThrown: _):
+            case .couldNotStopService:
                 EmptyView()
-            case .couldNotSynchronizeServices(errorThrown: _):
+            case .couldNotSynchronizeServices:
                 EmptyView()
             case .homebrewOutdated:
                 if !hasTriedToUpdateHomebrewThroughCork

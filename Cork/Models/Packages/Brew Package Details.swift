@@ -10,12 +10,13 @@ import Foundation
 enum PinningUnpinningError: LocalizedError
 {
     case failedWhileChangingPinnedStatus
-    
+
     var errorDescription: String?
     {
-        switch self {
-            case .failedWhileChangingPinnedStatus:
-                return String(localized: "error.package-details.couldnt-pin-unpin")
+        switch self
+        {
+        case .failedWhileChangingPinnedStatus:
+            return String(localized: "error.package-details.couldnt-pin-unpin")
         }
     }
 }
@@ -24,6 +25,7 @@ enum PinningUnpinningError: LocalizedError
 class BrewPackageDetails: ObservableObject
 {
     // MARK: - Immutable properties
+
     /// Name of the package
     let name: String
 
@@ -35,14 +37,16 @@ class BrewPackageDetails: ObservableObject
     let dependencies: [BrewPackageDependency]?
     let outdated: Bool
     let caveats: String?
-    
+
     let isCompatible: Bool
-    
+
     // MARK: - Mutable properties
+
     @Published var dependents: [String]?
     @Published var pinned: Bool
 
     // MARK: - Init
+
     init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, pinned: Bool, isCompatible: Bool)
     {
         self.name = name
@@ -59,23 +63,24 @@ class BrewPackageDetails: ObservableObject
     }
 
     // MARK: - Functions
+
     func loadDependents() async
     {
         AppConstants.logger.debug("Will load dependents for \(self.name)")
-        let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", self.name]).standardOutput
+        let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", name]).standardOutput
 
         let finalDependents: [String] = packageDependentsRaw.components(separatedBy: "\n").dropLast()
-        
+
         AppConstants.logger.debug("Dependents loaded: \(finalDependents)")
-        
-        self.dependents = finalDependents
+
+        dependents = finalDependents
     }
 
     func changePinnedStatus() async throws
     {
-        if self.pinned
+        if pinned
         {
-            let pinResult = await shell(AppConstants.brewExecutablePath, ["unpin", self.name])
+            let pinResult = await shell(AppConstants.brewExecutablePath, ["unpin", name])
 
             if !pinResult.standardError.isEmpty
             {
@@ -85,14 +90,14 @@ class BrewPackageDetails: ObservableObject
         }
         else
         {
-            let unpinResult = await shell(AppConstants.brewExecutablePath, ["pin", self.name])
+            let unpinResult = await shell(AppConstants.brewExecutablePath, ["pin", name])
             if !unpinResult.standardError.isEmpty
             {
                 AppConstants.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
                 throw PinningUnpinningError.failedWhileChangingPinnedStatus
             }
         }
-        
-        self.pinned.toggle()
+
+        pinned.toggle()
     }
 }

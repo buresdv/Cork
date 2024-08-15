@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct OpenCorkButton: View {
-    
+struct OpenCorkButton: View
+{
     @Environment(\.openWindow) var openWindow
-    
-    var body: some View {
+
+    var body: some View
+    {
         Button("menubar.open.cork")
         {
             openWindow(id: "main")
-            
+
             switchCorkToForeground()
         }
     }
 }
-

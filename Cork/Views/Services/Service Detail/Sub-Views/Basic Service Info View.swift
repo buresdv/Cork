@@ -10,7 +10,7 @@ import SwiftUI
 struct BasicServiceInfoView: View
 {
     let service: HomebrewService
-    
+
     let serviceDetails: ServiceDetails?
 
     var body: some View
@@ -35,7 +35,7 @@ struct BasicServiceInfoView: View
                 } label: {
                     Text("service.loaded.label")
                 }
-                
+
                 LabeledContent
                 {
                     Text(serviceDetails.schedulable ? "generic.true" : "generic.false")
@@ -53,7 +53,6 @@ struct BasicServiceInfoView: View
                     Text("service.exit-code.label")
                 }
             }
-
         }
     }
 }

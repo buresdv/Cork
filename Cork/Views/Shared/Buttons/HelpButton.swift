@@ -13,8 +13,7 @@ struct HelpButton: NSViewRepresentable
 
     func makeNSView(context: Context) -> NSButton
     {
-        let button: NSButton =
-        {
+        let button: NSButton = {
             let button = NSButton()
             button.bezelStyle = .helpButton
             button.target = context.coordinator

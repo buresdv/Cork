@@ -24,7 +24,7 @@ struct InstallationAndUninstallationPane: View
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
     @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled = true
-    
+
     @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
 
     @EnvironmentObject var settingsState: SettingsState

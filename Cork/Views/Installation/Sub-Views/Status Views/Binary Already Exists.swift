@@ -11,11 +11,11 @@ import SwiftUI
 struct BinaryAlreadyExistsView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
-    
+
     var body: some View
     {
         ComplexWithImage(image: Image(localURL: URL(filePath: "/System/Library/CoreServices/KeyboardSetupAssistant.app/Contents/Resources/AppIcon.icns"))!)
@@ -25,10 +25,11 @@ struct BinaryAlreadyExistsView: View, Sendable
                 HeadlineWithSubheadline(
                     headline: "add-package.install.binary-already-exists-\(installationProgressTracker.packageBeingInstalled.package.name)",
                     subheadline: "add-package.install.binary-already-exists.subheadline",
-                    alignment: .leading)
-                
+                    alignment: .leading
+                )
+
                 Spacer()
-                
+
                 HStack
                 {
                     Button
@@ -37,13 +38,13 @@ struct BinaryAlreadyExistsView: View, Sendable
                     } label: {
                         Text("action.reveal-applications-folder-in-finder")
                     }
-                    
+
                     Spacer()
-                    
+
                     Button
                     {
                         dismiss()
-                        
+
                         Task.detached
                         {
                             await synchronizeInstalledPackages(brewData: brewData)

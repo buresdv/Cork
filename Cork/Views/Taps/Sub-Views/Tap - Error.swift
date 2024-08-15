@@ -11,9 +11,9 @@ struct AddTapErrorView: View
 {
     let tappingError: TappingError
     let requestedTap: String
-    
+
     @Binding var progress: TapAddingStates
-    
+
     var body: some View
     {
         ComplexWithIcon(systemName: "xmark.seal")
@@ -24,15 +24,15 @@ struct AddTapErrorView: View
                 {
                     switch tappingError
                     {
-                        case .repositoryNotFound:
-                            Text("add-tap.error.repository-not-found-\(requestedTap)")
-                                .font(.headline)
-                            Text("add-tap.error.repository-not-found.description")
-                            
-                        case .other:
-                            Text("add-tap.error.other-\(requestedTap)")
-                                .font(.headline)
-                            Text("add-tap.error.other.description")
+                    case .repositoryNotFound:
+                        Text("add-tap.error.repository-not-found-\(requestedTap)")
+                            .font(.headline)
+                        Text("add-tap.error.repository-not-found.description")
+
+                    case .other:
+                        Text("add-tap.error.other-\(requestedTap)")
+                            .font(.headline)
+                        Text("add-tap.error.other.description")
                     }
                 }
 
@@ -41,7 +41,7 @@ struct AddTapErrorView: View
                     DismissSheetButton()
 
                     Spacer()
-                    
+
                     if tappingError == .repositoryNotFound
                     {
                         Button

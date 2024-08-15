@@ -17,7 +17,9 @@ struct NoPadding: DisclosureGroupStyle
             {
                 configuration.isExpanded.toggle()
             }
-        } label: {
+        }
+        label:
+        {
             HStack(alignment: .center, spacing: 4)
             {
                 Image(systemName: configuration.isExpanded ? "chevron.down" : "chevron.right")

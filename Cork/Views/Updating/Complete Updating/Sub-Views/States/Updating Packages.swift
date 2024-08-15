@@ -26,18 +26,18 @@ struct UpdatingPackagesStateView: View
             VStack(alignment: .leading, spacing: 3)
             {
                 Text("update-packages.updating.updating")
-                
+
                 SubtitleText(text: updateProcessDetailsStage.currentStage.rawValue)
             }
 
             LiveTerminalOutputView(
-                lineArray: $updateProgressTracker.realTimeOutput, 
+                lineArray: $updateProgressTracker.realTimeOutput,
                 isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput
             )
         }
         .task(priority: .userInitiated)
         {
-            await updatePackages(updateProgressTracker: updateProgressTracker, appState: appState, outdatedPackageTracker: outdatedPackageTracker, detailStage: updateProcessDetailsStage)
+            await updatePackages(updateProgressTracker: updateProgressTracker, detailStage: updateProcessDetailsStage)
 
             packageUpdatingStep = .updatingOutdatedPackageTracker
         }

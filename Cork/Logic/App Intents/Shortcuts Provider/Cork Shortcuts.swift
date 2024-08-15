@@ -5,8 +5,8 @@
 //  Created by David Bureš on 26.05.2024.
 //
 
-import Foundation
 import AppIntents
+import Foundation
 
 struct CorkShortcuts: AppShortcutsProvider
 {

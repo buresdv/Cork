@@ -7,7 +7,7 @@
 
 import Foundation
 
-func deleteCachedDownloads() -> Void
+func deleteCachedDownloads()
 {
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedFormulaeDownloadsPath)
@@ -28,7 +28,7 @@ func deleteCachedDownloads() -> Void
             AppConstants.logger.warning("Could not check symlink status of \(url)")
         }
     }
-    
+
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
     for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedCasksDownloadsPath)
     {

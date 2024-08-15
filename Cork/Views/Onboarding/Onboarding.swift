@@ -10,36 +10,36 @@ import SwiftUI
 struct OnboardingView: View
 {
     @Environment(\.dismiss) var dismiss
-    
+
     @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-    
+
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
-    
+
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
     @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
-    
+
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
-    
+
     @AppStorage("showInMenuBar") var showInMenuBar = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
-    
+
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
     @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
-    
+
     @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
-    
+
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
-    
+
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
-    
+
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-    
+
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
     @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
-    
+
     @State var onboardingSetupLevel: SetupLevels = .medium
 
     /// Level numbers:
@@ -64,7 +64,7 @@ struct OnboardingView: View
                 VStack(alignment: .center, spacing: 5, content: {
                     Text("onboarding.title")
                         .font(.title)
-                    
+
                     Text("onboarding.subtitle")
                 })
             }
@@ -80,13 +80,13 @@ struct OnboardingView: View
                             Form
                             {
                                 OnboardingBasicCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-                                
+
                                 OnboardingDiscoverabilityCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-                                
+
                                 OnboardingPackageFeaturesCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-                                
+
                                 OnboardingTapFeaturesCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
-                                
+
                                 OnboardingExtrasCategory(onboardingSetupLevelNumber: onboardingSetupLevelNumber)
                             }
                             .formStyle(.grouped)
@@ -109,7 +109,7 @@ struct OnboardingView: View
                 {
                     UserDefaults.standard.removePersistentDomain(forName: bundleID)
                 }
-                
+
                 /// Now, do all the setup
                 if onboardingSetupLevelNumber >= 1
                 {
@@ -117,42 +117,42 @@ struct OnboardingView: View
                     showCompatibilityWarning = true
                     outdatedPackageInfoDisplayAmount = .none
                 }
-                
+
                 if onboardingSetupLevelNumber >= 2
                 {
                     enableDiscoverability = true
                     caveatDisplayOptions = .full
                     areNotificationsEnabled = true
                     outdatedPackageNotificationType = .both
-                    
+
                     outdatedPackageInfoDisplayAmount = .versionOnly
                     showOldVersionsInOutdatedPackageList = true
-                    
+
                     displayOnlyIntentionallyInstalledPackagesByDefault = false
                 }
-                
+
                 if onboardingSetupLevelNumber >= 3
                 {
                     showSearchFieldForDependenciesInPackageDetails = true
                     displayAdvancedDependencies = true
                     allowMoreCompleteUninstallations = true
                     showInMenuBar = true
-                    
+
                     notifyAboutPackageUpgradeResults = true
                     notifyAboutPackageInstallationResults = true
-                    
+
                     outdatedPackageInfoDisplayAmount = .all
-                    
+
                     enableRevealInFinder = true
                 }
-                
+
                 if onboardingSetupLevelNumber >= 4
                 {
                     showRealTimeTerminalOutputOfOperations = true
                 }
-                
+
                 AppConstants.logger.info("Onboarding finished")
-                
+
                 dismiss()
             } label: {
                 Text("action.done")

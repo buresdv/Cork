@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct FinishedStageView: View {
-    
+struct FinishedStageView: View
+{
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
 
-    var body: some View {
+    var body: some View
+    {
         DisappearableSheet
         {
             ComplexWithIcon(systemName: "checkmark.seal")

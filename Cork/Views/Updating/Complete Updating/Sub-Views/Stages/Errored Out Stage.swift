@@ -12,12 +12,12 @@ struct ErroredOutStageView: View
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
 
     @Environment(\.dismiss) var dismiss
-    
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     let sudoRequiredForUpdate: Bool
-    
+
     var body: some View
     {
         ComplexWithIcon(systemName: "checkmark.seal")
@@ -32,19 +32,19 @@ struct ErroredOutStageView: View
                 {
                     updatedWithErrorSudoIsNeeded
                 }
-                
+
                 HStack
                 {
                     DismissSheetButton(customButtonText: "action.close")
-                    
+
                     Spacer()
-                    
+
                     Button
                     {
                         "brew update".copyToClipboard()
-                        
+
                         openTerminal()
-                        
+
                         dismiss()
                     } label: {
                         Text("action.finish-updating-in-terminal")
@@ -66,7 +66,7 @@ struct ErroredOutStageView: View
             }
         }
     }
-    
+
     @ViewBuilder
     var updatedWithErrorsNoSudoNeeded: some View
     {
@@ -89,7 +89,7 @@ struct ErroredOutStageView: View
         .listStyle(.bordered(alternatesRowBackgrounds: false))
         .frame(height: 100, alignment: .leading)
     }
-    
+
     @ViewBuilder
     var updatedWithErrorSudoIsNeeded: some View
     {

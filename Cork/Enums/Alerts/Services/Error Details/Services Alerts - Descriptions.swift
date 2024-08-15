@@ -14,16 +14,16 @@ extension ServicesFatalError
     {
         switch self
         {
-            case .couldNotLoadServices:
-                return String(localized: "services.error.could-not-load-services")
-            case .homebrewOutdated:
-                return String(localized: "services.error.homebrew-outdated")
-            case let .couldNotStartService(offendingService, _):
-                return String(localized: "services.error.could-not-start-service.\(offendingService)")
-            case let .couldNotStopService(offendingService, _):
-                return String(localized: "services.error.could-not-stop-service.\(offendingService)")
-            case .couldNotSynchronizeServices:
-                return String(localized: "services.error.could-not-synchronize-services")
+        case .couldNotLoadServices:
+            return String(localized: "services.error.could-not-load-services")
+        case .homebrewOutdated:
+            return String(localized: "services.error.homebrew-outdated")
+        case .couldNotStartService(let offendingService, _):
+            return String(localized: "services.error.could-not-start-service.\(offendingService)")
+        case .couldNotStopService(let offendingService, _):
+            return String(localized: "services.error.could-not-stop-service.\(offendingService)")
+        case .couldNotSynchronizeServices:
+            return String(localized: "services.error.could-not-synchronize-services")
         }
     }
 }

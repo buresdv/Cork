@@ -9,8 +9,8 @@ import Foundation
 
 struct TopPackage: Hashable, Identifiable
 {
-    var id: UUID = UUID()
-    
+    var id: UUID = .init()
+
     let packageName: String
     let packageDownloads: Int
 }

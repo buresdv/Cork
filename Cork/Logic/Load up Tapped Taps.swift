@@ -106,7 +106,7 @@ func loadUpTappedTaps() async -> [BrewTap]
     return finalAvailableTaps
 }
 
-private func checkIfTapIsAdded(tapToCheck: String) async -> Bool
+private func checkIfTapIsAdded(tapToCheck _: String) async -> Bool
 {
     return true
 }

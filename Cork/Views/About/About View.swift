@@ -79,9 +79,9 @@ struct AboutView: View
             reasonForAcknowledgement: "about.contributors.4.purpose",
             profileService: .mastodon,
             profileURL: URL(string: "https://hachyderm.io/@oscb")!
-        ),
+        )
     ]
-    
+
     private let translators: [AcknowledgedContributor] = [
         AcknowledgedContributor(
             name: "about.translator.1.name",
@@ -93,27 +93,32 @@ struct AboutView: View
             name: "about.translator.2.name",
             reasonForAcknowledgement: "about.translator.2.purpose",
             profileService: .github,
-            profileURL: URL(string: "https://github.com/sh95014")!),
+            profileURL: URL(string: "https://github.com/sh95014")!
+        ),
         AcknowledgedContributor(
             name: "about.translator.3.name",
             reasonForAcknowledgement: "about.translator.3.purpose",
             profileService: .github,
-            profileURL: URL(string: "https://github.com/hecaex")!),
-		AcknowledgedContributor(
-			name: "about.translator.4.name",
-			reasonForAcknowledgement: "about.translator.4.purpose",
-			profileService: .github,
-			profileURL: URL(string: "https://github.com/louchebem06")!),
+            profileURL: URL(string: "https://github.com/hecaex")!
+        ),
+        AcknowledgedContributor(
+            name: "about.translator.4.name",
+            reasonForAcknowledgement: "about.translator.4.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/louchebem06")!
+        ),
         AcknowledgedContributor(
             name: "about.translator.5.name",
             reasonForAcknowledgement: "about.translator.5.purpose",
             profileService: .github,
-            profileURL: URL(string: "https://github.com/utkinn")!),
+            profileURL: URL(string: "https://github.com/utkinn")!
+        ),
         AcknowledgedContributor(
             name: "about.translator.6.name",
             reasonForAcknowledgement: "about.translator.6.purpose",
             profileService: .github,
-            profileURL: URL(string: "https://github.com/smitt14ua")!),
+            profileURL: URL(string: "https://github.com/smitt14ua")!
+        )
     ]
 
     @State private var isPackageGroupExpanded: Bool = false
@@ -231,7 +236,7 @@ struct AboutView: View
                         Text("about.contributors")
                     }
                     .animation(.none, value: isContributorGroupExpanded)
-                    
+
                     DisclosureGroup
                     {
                         List
@@ -264,7 +269,7 @@ struct AboutView: View
                         Text("about.translators")
                     }
                     .animation(.none, value: isTranslatorGroupExpanded)
-                    
+
                     Text("about.privacy-policy")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
@@ -293,6 +298,6 @@ struct AboutView: View
             .transaction { $0.animation = nil }
         }
         .padding()
-        //.fixedSize()
+        // .fixedSize()
     }
 }

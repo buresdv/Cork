@@ -1,30 +1,34 @@
 //
-//  AppState.swift
+//  App State.swift
 //  Cork
 //
 //  Created by David Bureš on 05.02.2023.
 //
 
-import Foundation
 import AppKit
+import Foundation
 @preconcurrency import UserNotifications
 
 /// Class that holds the global state of the app, excluding services
 @MainActor
-class AppState: ObservableObject 
+class AppState: ObservableObject
 {
     // MARK: - Licensing
+
     @Published var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
     @Published var isShowingLicensingSheet: Bool = false
-    
+
     // MARK: - Navigation
+
     @Published var navigationSelection: UUID?
-    
+
     // MARK: - Notifications
+
     @Published var notificationEnabledInSystemSettings: Bool?
     @Published var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
-    
+
     // MARK: - Stuff for controlling various sheets from the menu bar
+
     @Published var isShowingInstallationSheet: Bool = false
     @Published var isShowingPackageReinstallationSheet: Bool = false
     @Published var isShowingUninstallationSheet: Bool = false
@@ -32,198 +36,207 @@ class AppState: ObservableObject
     @Published var isShowingFastCacheDeletionMaintenanceView: Bool = false
     @Published var isShowingAddTapSheet: Bool = false
     @Published var isShowingUpdateSheet: Bool = false
-    
+
     // MARK: - Stuff for controlling the UI in general
+
     @Published var isSearchFieldFocused: Bool = false
-    
+
     // MARK: - Brewfile importing and exporting
+
     @Published var isShowingBrewfileExportProgress: Bool = false
     @Published var isShowingBrewfileImportProgress: Bool = false
     @Published var brewfileImportingStage: BrewfileImportStage = .importing
-    
+
     @Published var isCheckingForPackageUpdates: Bool = true
-    
+
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: DisplayableAlert? = nil
-    
+
     @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
-    
+
     @Published var isShowingRemoveTapFailedAlert: Bool = false
-    
+
     @Published var isShowingIncrementalUpdateSheet: Bool = false
-    
+
     @Published var isLoadingFormulae: Bool = true
     @Published var isLoadingCasks: Bool = true
-    
+
     @Published var isLoadingTopPackages: Bool = false
     @Published var failedWhileLoadingTopPackages: Bool = false
-    
+
     @Published var cachedDownloadsFolderSize: Int64 = AppConstants.brewCachedDownloadsPath.directorySize
     @Published var cachedDownloads: [CachedDownload] = .init()
-    
+
     private var cachedDownloadsTemp: [CachedDownload] = .init()
-    
+
     @Published var taggedPackageNames: Set<String> = .init()
-    
+
     @Published var corruptedPackage: String = ""
-    
+
     // MARK: - Showing errors
+
     func showAlert(errorToShow: DisplayableAlert)
     {
-        self.fatalAlertType = errorToShow
-        
-        self.isShowingFatalError = true
+        fatalAlertType = errorToShow
+
+        isShowingFatalError = true
     }
-    
+
     func dismissAlert()
     {
-        self.isShowingFatalError = false
-        
-        self.fatalAlertType = nil
+        isShowingFatalError = false
+
+        fatalAlertType = nil
     }
-    
+
     // MARK: - Notification setup
+
     func setupNotifications() async
     {
         let notificationCenter = AppConstants.notificationCenter
-        
+
         let authStatus = await notificationCenter.authorizationStatus()
 
         switch authStatus
         {
-            case .notDetermined:
-                AppConstants.logger.debug("Notification authorization status not determined. Will request notifications again")
-                
-                await self.requestNotificationAuthorization()
-            case .denied:
-                AppConstants.logger.debug("Notifications were refused")
-            case .authorized:
-                AppConstants.logger.debug("Notifications were authorized")
-                
-            case .provisional:
-                AppConstants.logger.debug("Notifications are provisional")
-                
-            case .ephemeral:
-                AppConstants.logger.debug("Notifications are ephemeral")
-                
-            @unknown default:
-                AppConstants.logger.error("Something got really fucked up about notifications setup")
+        case .notDetermined:
+            AppConstants.logger.debug("Notification authorization status not determined. Will request notifications again")
+
+            await requestNotificationAuthorization()
+
+        case .denied:
+            AppConstants.logger.debug("Notifications were refused")
+
+        case .authorized:
+            AppConstants.logger.debug("Notifications were authorized")
+
+        case .provisional:
+            AppConstants.logger.debug("Notifications are provisional")
+
+        case .ephemeral:
+            AppConstants.logger.debug("Notifications are ephemeral")
+
+        @unknown default:
+            AppConstants.logger.error("Something got really fucked up about notifications setup")
         }
-        
+
         notificationAuthStatus = authStatus
     }
-    
+
     func requestNotificationAuthorization() async
     {
         let notificationCenter = AppConstants.notificationCenter
-        
+
         do
         {
             try await notificationCenter.requestAuthorization(options: [.alert, .sound, .badge])
-            
+
             notificationEnabledInSystemSettings = true
         }
         catch let notificationPermissionsObtainingError as NSError
         {
             AppConstants.logger.error("Notification permissions obtaining error: \(notificationPermissionsObtainingError.localizedDescription, privacy: .public)\nError code: \(notificationPermissionsObtainingError.code, privacy: .public)")
-            
+
             notificationEnabledInSystemSettings = false
         }
     }
-    
+
     // MARK: - Initiating the update process from legacy contexts
-    @objc func startUpdateProcessForLegacySelectors(_ sender: NSMenuItem!) -> Void
+
+    @objc func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
     {
-        self.isShowingUpdateSheet = true
-        
+        isShowingUpdateSheet = true
+
         sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
-    
+
     func loadCachedDownloadedPackages() async
     {
-        let smallestDispalyableSize: Int = Int(self.cachedDownloadsFolderSize / 50)
-        
-        var packagesThatAreTooSmallToDisplaySize: Int = 0
-        
-        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles]) else
+        let smallestDispalyableSize = Int(cachedDownloadsFolderSize / 50)
+
+        var packagesThatAreTooSmallToDisplaySize = 0
+
+        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles])
+        else
         {
             return
         }
-        
-        let usableCachedDownloads: [URL] = cachedDownloadsFolderContents.filter({ $0.pathExtension != "json" })
-        
+
+        let usableCachedDownloads: [URL] = cachedDownloadsFolderContents.filter { $0.pathExtension != "json" }
+
         for usableCachedDownload in usableCachedDownloads
         {
-            guard var itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)") else
+            guard var itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)")
+            else
             {
                 return
             }
-            
+
             AppConstants.logger.debug("Temp item name: \(itemName, privacy: .public)")
-            
+
             if itemName.contains("--")
             {
                 do
                 {
                     itemName = try regexMatch(from: itemName, regex: ".*?(?=--)")
                 }
-                catch
-                {
-                    
-                }
+                catch {}
             }
-            
-            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path) else
+
+            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path)
+            else
             {
                 return
             }
-            
-            guard let itemSize = itemAttributes[.size] as? Int else
+
+            guard let itemSize = itemAttributes[.size] as? Int
+            else
             {
                 return
             }
-            
+
             if itemSize < smallestDispalyableSize
             {
                 packagesThatAreTooSmallToDisplaySize = packagesThatAreTooSmallToDisplaySize + itemSize
             }
             else
             {
-                self.cachedDownloads.append(CachedDownload(packageName: itemName, sizeInBytes: itemSize))
+                cachedDownloads.append(CachedDownload(packageName: itemName, sizeInBytes: itemSize))
             }
-            
+
             AppConstants.logger.debug("Others size: \(packagesThatAreTooSmallToDisplaySize, privacy: .public)")
         }
-        
+
         AppConstants.logger.log("Cached downloads contents: \(self.cachedDownloads)")
-        
-        self.cachedDownloads = self.cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
-        
-        self.cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
+
+        cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
+
+        cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
     }
 }
 
-private extension UNUserNotificationCenter {
-    func authorizationStatus() async -> UNAuthorizationStatus {
+private extension UNUserNotificationCenter
+{
+    func authorizationStatus() async -> UNAuthorizationStatus
+    {
         await notificationSettings().authorizationStatus
     }
 }
 
-
 extension AppState
 {
-    func assignPackageTypeToCachedDownloads(brewData: BrewDataStorage) -> Void
+    func assignPackageTypeToCachedDownloads(brewData: BrewDataStorage)
     {
         var cachedDownloadsTracker: [CachedDownload] = .init()
-        
+
         AppConstants.logger.debug("Package tracker in cached download assignment function has \(brewData.installedFormulae.count + brewData.installedCasks.count) packages")
-        
-        for cachedDownload in self.cachedDownloads
+
+        for cachedDownload in cachedDownloads
         {
             let normalizedCachedPackageName: String = cachedDownload.packageName.onlyLetters
-            
+
             if brewData.installedFormulae.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
             { /// The cached package is a formula
                 AppConstants.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a formula")
@@ -240,7 +253,7 @@ extension AppState
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .unknown))
             }
         }
-        
-        self.cachedDownloads = cachedDownloadsTracker
+
+        cachedDownloads = cachedDownloadsTracker
     }
 }

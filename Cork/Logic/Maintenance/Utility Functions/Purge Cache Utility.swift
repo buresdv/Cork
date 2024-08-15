@@ -10,14 +10,15 @@ import Foundation
 enum HomebrewCachePurgeError: LocalizedError
 {
     case purgingCommandFailed, regexMatchingCouldNotMatchAnything
-    
+
     var errorDescription: String?
     {
-        switch self {
-            case .purgingCommandFailed:
-                return String(localized: "error.maintenance.cache-purging.command-failed")
-            case .regexMatchingCouldNotMatchAnything:
-                return String(localized: "error.regex.nothing-matched")
+        switch self
+        {
+        case .purgingCommandFailed:
+            return String(localized: "error.maintenance.cache-purging.command-failed")
+        case .regexMatchingCouldNotMatchAnything:
+            return String(localized: "error.regex.nothing-matched")
         }
     }
 }
@@ -46,7 +47,8 @@ func purgeHomebrewCacheUtility() async throws -> [String]
 
                 let packageHoldingBackCachePurgeNameRegex = "(?<=Skipping ).*?(?=:)"
 
-                guard let packageHoldingBackCachePurgeName = try? regexMatch(from: blockingPackageRaw, regex: packageHoldingBackCachePurgeNameRegex) else
+                guard let packageHoldingBackCachePurgeName = try? regexMatch(from: blockingPackageRaw, regex: packageHoldingBackCachePurgeNameRegex)
+                else
                 {
                     throw HomebrewCachePurgeError.regexMatchingCouldNotMatchAnything
                 }

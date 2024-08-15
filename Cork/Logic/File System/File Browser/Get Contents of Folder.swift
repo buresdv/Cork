@@ -120,7 +120,7 @@ private extension URL
     /// e.g. only actual package URLs
     var validPackageURLs: [String]?
     {
-        let items: [String]? = try? FileManager.default.contentsOfDirectory(atPath: self.path).filter { !$0.hasPrefix(".") }.filter
+        let items: [String]? = try? FileManager.default.contentsOfDirectory(atPath: path).filter { !$0.hasPrefix(".") }.filter
         { item in
             /// Filter out all symlinks from the folder
             let completeURLtoItem: URL = self.appendingPathComponent(item, conformingTo: .folder)
@@ -147,24 +147,26 @@ private extension URL
         guard let localPackagePath = versionURLs.first
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-load-version-to-check-from-available-versions"))
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-load-version-to-check-from-available-versions"))
         }
-        
-        guard localPackagePath.lastPathComponent != "Cellar" else
+
+        guard localPackagePath.lastPathComponent != "Cellar"
+        else
         {
             AppConstants.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
-            
+
             throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"))
         }
-        
-        guard localPackagePath.lastPathComponent != "Caskroom" else
+
+        guard localPackagePath.lastPathComponent != "Caskroom"
+        else
         {
             AppConstants.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
-            
+
             throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"))
         }
 
-        if self.path.contains("Cellar")
+        if path.contains("Cellar")
         {
             let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
             if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
@@ -174,8 +176,7 @@ private extension URL
                     let installedOnRequest: Bool
                 }
 
-                let decoder: JSONDecoder =
-                {
+                let decoder: JSONDecoder = {
                     let decoder: JSONDecoder = .init()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
 
@@ -194,7 +195,7 @@ private extension URL
                     {
                         AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptParsingError.localizedDescription, privacy: .public)")
 
-                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized:"error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)"))
+                        throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)"))
                     }
                 }
                 catch let installReceiptLoadingError
@@ -213,7 +214,7 @@ private extension URL
 
                 if shouldStrictlyCheckForHomebrewErrors
                 {
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.missing-install-receipt"))
+                    throw PackageLoadingError.failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.missing-install-receipt"))
                 }
                 else
                 {
@@ -221,20 +222,20 @@ private extension URL
                 }
             }
         }
-        else if self.path.contains("Caskroom")
+        else if path.contains("Caskroom")
         {
             return true
         }
         else
         {
-            throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.unexpected-folder-name"))
+            throw PackageLoadingError.failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.unexpected-folder-name"))
         }
     }
 
     /// Determine a package's type type from its URL
     var packageType: PackageType
     {
-        if self.path.contains("Cellar")
+        if path.contains("Cellar")
         {
             return .formula
         }
@@ -265,7 +266,7 @@ private extension URL
         }
         catch
         {
-            AppConstants.logger.error("Failed while loading version for package \(self.lastPathComponent, privacy: .public) at URL \(self, privacy: .public)")
+            AppConstants.logger.error("Failed while loading version for package \(lastPathComponent, privacy: .public) at URL \(self, privacy: .public)")
 
             return nil
         }
@@ -277,7 +278,7 @@ extension [URL]
     /// Returns an array of versions from an array of URLs to available versions
     var versions: [String]
     {
-        return self.map
+        return map
         { versionURL in
             versionURL.lastPathComponent
         }

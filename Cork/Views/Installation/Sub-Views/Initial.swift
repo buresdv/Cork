@@ -10,16 +10,16 @@ import SwiftUI
 struct InstallationInitialView: View
 {
     @Environment(\.dismiss) var dismiss
-    
+
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
 
     @EnvironmentObject var appState: AppState
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
-    
+
     @ObservedObject var searchResultTracker: SearchResultTracker
 
     @State private var isTopFormulaeSectionCollapsed: Bool = false
@@ -30,7 +30,7 @@ struct InstallationInitialView: View
     @Binding var foundPackageSelection: UUID?
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
-    
+
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
     @State var isSearchFieldFocused: Bool = true
@@ -65,8 +65,9 @@ struct InstallationInitialView: View
                     }
                 }
             }
-            
-            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt")) {
+
+            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
+            {
                 foundPackageSelection = nil // Clear all selected items when the user looks for a different package
             }
 
@@ -83,9 +84,9 @@ struct InstallationInitialView: View
                         if let foundPackageSelection
                         {
                             AppConstants.logger.debug("Would install package \(foundPackageSelection)")
-                            
+
                             let topCasksSet = Set(topPackagesTracker.topCasks)
-                            
+
                             var selectedTopPackageType: PackageType
                             {
                                 // If this UUID is in the top casks tracker, it means it's a cask. Otherwise, it's a formula. So we test if the result of looking for the selected package in the cask tracker returns nothing; if it does return nothing, it's a formula (since the package is not in the cask tracker)
@@ -98,31 +99,30 @@ struct InstallationInitialView: View
                                     return .cask
                                 }
                             }
-                            
+
                             do
                             {
                                 let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection, packageType: selectedTopPackageType, topPackageTracker: topPackagesTracker)
-                                
+
                                 installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-                                
+
                                 AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
-                                
+
                                 packageInstallationProcessStep = .installing
                             }
                             catch let topPackageInstallationError
                             {
                                 AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
-                                
+
                                 dismiss()
-                                
+
                                 appState.showAlert(errorToShow: .topPackageArrayFilterCouldNotRetrieveAnyPackages)
-                                
                             }
                         }
                         else
                         {
                             AppConstants.logger.warning("Could not find the UUID in the package list")
-                            //appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
+                            // appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
                         }
                     } label: {
                         Text("add-package.install.action")

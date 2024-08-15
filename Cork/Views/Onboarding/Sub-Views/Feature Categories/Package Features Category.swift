@@ -9,12 +9,11 @@ import SwiftUI
 
 struct OnboardingPackageFeaturesCategory: View
 {
-    
     let onboardingSetupLevelNumber: Float
-    
+
     var body: some View
     {
-        LabeledContent 
+        LabeledContent
         {
             VStack(alignment: .trailing, spacing: 3)
             {
@@ -23,7 +22,7 @@ struct OnboardingPackageFeaturesCategory: View
                 {
                     Text("onboarding.feature.package-details")
                 }
-                
+
                 if onboardingSetupLevelNumber < 2
                 {
                     Text("onboarding.feature.outdated-packages-details.minimal")
@@ -36,19 +35,19 @@ struct OnboardingPackageFeaturesCategory: View
                 {
                     Text("onboarding.feature.outdated-packages-details.all")
                 }
-                
+
                 // Slightly basic
                 if onboardingSetupLevelNumber >= 1
                 {
                     Text("onboarding.feature.package-descriptions-in-search")
                 }
-                
+
                 // Balanced
                 if onboardingSetupLevelNumber >= 2
                 {
                     Text("onboarding.feature.detailed-caveats")
                 }
-                
+
                 // Slightly advanced
                 if onboardingSetupLevelNumber >= 3
                 {
@@ -56,12 +55,9 @@ struct OnboardingPackageFeaturesCategory: View
                     Text("onboarding.feature.complex-dependencies")
                     Text("onboarding.feature.package-purging")
                 }
-                
+
                 // Advanced
-                if onboardingSetupLevelNumber >= 4
-                {
-                    
-                }
+                if onboardingSetupLevelNumber >= 4 {}
             }
         } label: {
             Text("onboarding.details.section.package-features")

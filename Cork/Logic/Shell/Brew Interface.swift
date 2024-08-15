@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 struct SearchResults
 {
     let foundFormulae: [String]

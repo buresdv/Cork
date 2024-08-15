@@ -16,7 +16,7 @@ enum RefreshIntentResult: String, AppEnum
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intent.refresh.result.display-representation")
 
-    static var caseDisplayRepresentations: [RefreshIntentResult : DisplayRepresentation] = [
+    static var caseDisplayRepresentations: [RefreshIntentResult: DisplayRepresentation] = [
         .refreshed: DisplayRepresentation(title: "intent.refresh.result.refreshed"),
         .refreshedWithErrors: DisplayRepresentation(title: "intent.refresh.result.refreshed-with-errors"),
         .failed: DisplayRepresentation(title: "intent.refresh.result.failed")
@@ -36,8 +36,8 @@ struct RefreshPackagesIntent: AppIntent
         let refreshCommandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["update"])
 
         var refreshErrorWithoutBuggedHomebrewMessages: [String] = refreshCommandResult.standardError.components(separatedBy: "\n")
-        refreshErrorWithoutBuggedHomebrewMessages = refreshErrorWithoutBuggedHomebrewMessages.filter({ !$0.contains("Updating Homebrew") })
-        
+        refreshErrorWithoutBuggedHomebrewMessages = refreshErrorWithoutBuggedHomebrewMessages.filter { !$0.contains("Updating Homebrew") }
+
         if !refreshErrorWithoutBuggedHomebrewMessages.isEmpty
         {
             return .result(value: .refreshedWithErrors)

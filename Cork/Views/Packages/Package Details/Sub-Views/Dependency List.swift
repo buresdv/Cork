@@ -11,11 +11,11 @@ struct DependencyList: View
 {
     @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
-    
+
     @State private var dependencySearchText: String = ""
-    
+
     @State var dependencies: [BrewPackageDependency]
-    
+
     var foundDependencies: [BrewPackageDependency]
     {
         if dependencySearchText.isEmpty
@@ -24,10 +24,10 @@ struct DependencyList: View
         }
         else
         {
-            return dependencies.filter({ $0.name.localizedCaseInsensitiveContains(dependencySearchText) })
+            return dependencies.filter { $0.name.localizedCaseInsensitiveContains(dependencySearchText) }
         }
     }
-    
+
     var body: some View
     {
         VStack(alignment: .leading, spacing: 5)

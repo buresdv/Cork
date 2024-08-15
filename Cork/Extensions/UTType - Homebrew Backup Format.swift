@@ -8,8 +8,10 @@
 import Foundation
 import UniformTypeIdentifiers
 
-extension UTType {
-    static var homebrewBackup: UTType {
+extension UTType
+{
+    static var homebrewBackup: UTType
+    {
         UTType(exportedAs: "com.davidbures.homebrew-backup")
     }
 }

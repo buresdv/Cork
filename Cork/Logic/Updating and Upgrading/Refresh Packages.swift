@@ -17,8 +17,8 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
     {
         switch output
         {
-        case let .standardOutput(outputLine):
-                AppConstants.logger.log("Update function output: \(outputLine, privacy: .public)")
+        case .standardOutput(let outputLine):
+            AppConstants.logger.log("Update function output: \(outputLine, privacy: .public)")
 
             if showRealTimeTerminalOutputs
             {
@@ -36,7 +36,7 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
                 }
             }
 
-        case let .standardError(errorLine):
+        case .standardError(let errorLine):
 
             if showRealTimeTerminalOutputs
             {

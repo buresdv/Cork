@@ -12,7 +12,7 @@ struct PillTextWithLocalizableText: View
     let localizedText: LocalizedStringKey
     let color: NSColor = .tertiaryLabelColor
     let font: Font = .caption
-    
+
     var body: some View
     {
         Text(localizedText)
@@ -28,7 +28,7 @@ struct OutlinedPillText: View
 {
     @State var text: LocalizedStringKey
     @State var color: Color
-    
+
     var body: some View
     {
         Text(text)
@@ -43,7 +43,7 @@ struct OutlinedPill<Content: View>: View
 {
     @ViewBuilder var content: Content
     @State var color: Color
-    
+
     var body: some View
     {
         content

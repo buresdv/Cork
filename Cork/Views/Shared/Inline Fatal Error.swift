@@ -46,12 +46,12 @@ struct InlineFatalError: View
                     // .scaledToFit()
                     Text(errorMessage)
                         .multilineTextAlignment(.center)
-                    
+
                     if let errorDescription
                     {
                         Text(errorDescription)
                     }
-                    
+
                     Button
                     {
                         restartApp()

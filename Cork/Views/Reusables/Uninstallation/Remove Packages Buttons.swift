@@ -10,7 +10,7 @@ import SwiftUI
 struct UninstallPackageButton: View
 {
     let package: BrewPackage
-    
+
     let isCalledFromSidebar: Bool
 
     var body: some View
@@ -22,7 +22,7 @@ struct UninstallPackageButton: View
 struct PurgePackageButton: View
 {
     let package: BrewPackage
-    
+
     let isCalledFromSidebar: Bool
 
     var body: some View
@@ -34,11 +34,11 @@ struct PurgePackageButton: View
 private struct RemovePackageButton: View
 {
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
-    
+
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     let package: BrewPackage
@@ -55,7 +55,7 @@ private struct RemovePackageButton: View
                 Task
                 {
                     AppConstants.logger.debug("Confirmation of package removal NOT needed")
-                    
+
                     try await brewData.uninstallSelectedPackage(
                         package: package,
                         appState: appState,

@@ -98,15 +98,16 @@ struct TapDetailView: View, Sendable
             {
                 isLoadingTapInfo = false
             }
-            
+
             async let tapInfo = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
 
             do
             {
-                guard let fullParsedTapInfo: TapInfo = try await parseTapInfo(from: tapInfo) else
+                guard let fullParsedTapInfo: TapInfo = try await parseTapInfo(from: tapInfo)
+                else
                 {
                     erroredOut = true
-                    
+
                     return
                 }
 
@@ -120,9 +121,9 @@ struct TapDetailView: View, Sendable
             catch let parsingError
             {
                 AppConstants.logger.error("Failed while parsing package info: \(parsingError, privacy: .public)")
-                
+
                 errorOutReason = parsingError.localizedDescription
-                
+
                 erroredOut = true
             }
         }

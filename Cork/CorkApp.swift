@@ -5,9 +5,9 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+import DavidFoundation
 import SwiftUI
 import UserNotifications
-import DavidFoundation
 
 @main
 struct CorkApp: App
@@ -134,14 +134,14 @@ struct CorkApp: App
                                 if let demoActivatedAt
                                 {
                                     let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
-                                    
+
                                     AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-                                    
+
                                     AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-                                    
+
                                     if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
                                     { // Check if there is still time on the demo
-                                      /// do stuff if there is
+                                        /// do stuff if there is
                                     }
                                     else
                                     {
@@ -226,9 +226,8 @@ struct CorkApp: App
                 }
                 .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
                 { outdatedPackageCount in
-
                     AppConstants.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
-                    
+
                     // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
                     withAnimation
                     {
@@ -443,28 +442,26 @@ struct CorkApp: App
                 ButtonThatOpensWebsites(
                     websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
                 )
-                
+
                 /*
-                Button
-                {
-                    let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
-                    let emailBody = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
+                 Button
+                 {
+                     let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
+                     let emailBody = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
 
-                    let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
-                    emailService?.recipients = ["bug-reporting@corkmac.app"]
-                    emailService?.subject = emailSubject
-                    emailService?.perform(withItems: [emailBody])
+                     let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
+                     emailService?.recipients = ["bug-reporting@corkmac.app"]
+                     emailService?.subject = emailSubject
+                     emailService?.perform(withItems: [emailBody])
 
-                } label: {
-                    Text("action.report-bugs.email")
-                }
-                 */
+                 } label: {
+                     Text("action.report-bugs.email")
+                 }
+                  */
 
             } label: {
                 Text("action.report-bugs.menu-category")
             }
-
-            
 
             Divider()
         #endif
@@ -519,9 +516,8 @@ struct CorkApp: App
                 }
                 catch let brewfileExportError as BrewfileDumpingError
                 {
-                    
                     AppConstants.logger.error("\(brewfileExportError)")
-                    
+
                     switch brewfileExportError
                     {
                     case .couldNotDetermineWorkingDirectory:
@@ -567,7 +563,7 @@ struct CorkApp: App
                         catch let brewfileImportingError
                         {
                             AppConstants.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
-                            
+
                             appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
 
                             appDelegate.appState.isShowingBrewfileImportProgress = false

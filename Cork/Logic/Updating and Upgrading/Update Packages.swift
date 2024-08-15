@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: AppState, outdatedPackageTracker _: OutdatedPackageTracker, detailStage: UpdatingProcessDetails) async
+func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: UpdatingProcessDetails) async
 {
     let showRealTimeTerminalOutputs = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
 
@@ -17,7 +17,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: Ap
     {
         switch output
         {
-        case let .standardOutput(outputLine):
+        case .standardOutput(let outputLine):
             AppConstants.logger.log("Upgrade function output: \(outputLine, privacy: .public)")
 
             if showRealTimeTerminalOutputs
@@ -54,7 +54,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, appState _: Ap
 
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-        case let .standardError(errorLine):
+        case .standardError(let errorLine):
 
             if showRealTimeTerminalOutputs
             {

@@ -67,7 +67,7 @@ class InstallationProgressTracker: ObservableObject
         {
             switch output
             {
-            case let .standardOutput(outputLine):
+            case .standardOutput(let outputLine):
 
                 AppConstants.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
 
@@ -147,7 +147,7 @@ class InstallationProgressTracker: ObservableObject
 
                     AppConstants.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
 
-            case let .standardError(errorLine):
+            case .standardError(let errorLine):
                 AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
@@ -183,7 +183,7 @@ class InstallationProgressTracker: ObservableObject
         {
             switch output
             {
-            case let .standardOutput(outputLine):
+            case .standardOutput(let outputLine):
                 AppConstants.logger.info("Output line: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
@@ -226,9 +226,9 @@ class InstallationProgressTracker: ObservableObject
                 else if outputLine.contains("Purging files")
                 {
                     AppConstants.logger.info("Purging old version of cask \(package.name)")
-                    
+
                     packageBeingInstalled.installationStage = .installingCask
-                    
+
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 1
                 }
                 else if outputLine.contains("was successfully installed")
@@ -240,7 +240,7 @@ class InstallationProgressTracker: ObservableObject
                     packageBeingInstalled.packageInstallationProgress = 10
                 }
 
-            case let .standardError(errorLine):
+            case .standardError(let errorLine):
                 AppConstants.logger.error("Line had error: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
@@ -257,7 +257,7 @@ class InstallationProgressTracker: ObservableObject
                 else if errorLine.contains("there is already an App at")
                 {
                     AppConstants.logger.warning("The app already exists")
-                    
+
                     packageBeingInstalled.installationStage = .binaryAlreadyExists
                 }
                 else if errorLine.contains(/depends on hardware architecture being.+but you are running/)

@@ -14,7 +14,7 @@ struct ButtonBottomRow<Content: View>: View
     var body: some View
     {
         Spacer()
-        
+
         HStack(alignment: .center)
         {
             content

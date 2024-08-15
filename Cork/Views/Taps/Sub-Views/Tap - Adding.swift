@@ -11,10 +11,10 @@ struct AddTapAddingView: View
 {
     let requestedTap: String
     let forcedRepoAddress: String
-    
+
     @Binding var progress: TapAddingStates
     @Binding var tappingError: TappingError
-    
+
     var body: some View
     {
         ProgressView
@@ -24,7 +24,7 @@ struct AddTapAddingView: View
         .task(priority: .medium)
         {
             var tapResult: String
-            
+
             if forcedRepoAddress.isEmpty
             {
                 tapResult = await addTap(name: requestedTap)

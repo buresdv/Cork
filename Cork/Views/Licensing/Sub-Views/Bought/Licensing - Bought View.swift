@@ -9,29 +9,28 @@ import SwiftUI
 
 struct Licensing_BoughtView: View
 {
-    
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     @EnvironmentObject var appState: AppState
-    
+
     var body: some View
     {
         VStack(alignment: .center, spacing: 15)
-        {   
+        {
             Image(systemName: "checkmark.seal")
                 .resizable()
                 .foregroundColor(.green)
                 .frame(width: 50, height: 50)
-            
+
             Text("licensing.bought.title")
                 .font(.title)
-            
+
             Text("licensing.bought.body")
-            
+
             HStack(alignment: .center, spacing: 20)
             {
                 Button
@@ -53,9 +52,8 @@ struct Licensing_BoughtView: View
         .onAppear
         {
             demoActivatedAt = nil // Reset the demo, since it won't be needed anymore
-            
+
             hasValidatedEmail = true
         }
     }
 }
-

@@ -9,8 +9,11 @@ import Foundation
 
 enum OutdatedPackageInfoAmount: String, Identifiable, Codable, CaseIterable
 {
-    var id: Self { self }
-    
+    var id: Self 
+    {
+        self
+    }
+
     case none, versionOnly, all
 
     var localizedName: String

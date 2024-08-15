@@ -16,4 +16,3 @@ struct UsedPackage: Identifiable
     let whyIsItUsed: LocalizedStringKey
     let packageURL: URL
 }
-

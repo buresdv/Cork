@@ -105,16 +105,14 @@ struct GeneralPane: View
                         {
                             ForEach(OutdatedPackageInfoAmount.allCases)
                             { infoAmount in
-                                
                                 Text(infoAmount.localizedName)
                                     .tag(infoAmount)
-                                
                             }
                         } label: {
                             Text("settings.general.outdated-packages.info-amount")
                         }
                         .labelsHidden()
-                        
+
                         Toggle(isOn: $showOldVersionsInOutdatedPackageList)
                         {
                             Text("settings.general.outdated-packages.also-show-old-versions")
@@ -125,12 +123,12 @@ struct GeneralPane: View
                         { newValue in
                             switch newValue
                             {
-                                case .none:
-                                    showOldVersionsInOutdatedPackageList = false
-                                case .versionOnly:
-                                    break
-                                case .all:
-                                    showOldVersionsInOutdatedPackageList = true
+                            case .none:
+                                showOldVersionsInOutdatedPackageList = false
+                            case .versionOnly:
+                                break
+                            case .all:
+                                showOldVersionsInOutdatedPackageList = true
                             }
                         }
                     }

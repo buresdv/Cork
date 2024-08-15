@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class SearchResultTracker: ObservableObject
 {
     /// These two have to be arrays because the order matters

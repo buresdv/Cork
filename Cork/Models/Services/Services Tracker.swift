@@ -38,14 +38,16 @@ class ServicesTracker: ObservableObject
 
     func changeServiceStatus(_ serviceToChange: HomebrewService, newStatus: ServiceStatus)
     {
-        self.replaceServiceInTracker(
+        replaceServiceInTracker(
             serviceToChange,
             with: .init(
                 name: serviceToChange.name,
                 status: newStatus,
                 user: serviceToChange.user,
                 location: serviceToChange.location,
-                exitCode: serviceToChange.exitCode),
-            performInPlaceReplacement: true)
+                exitCode: serviceToChange.exitCode
+            ),
+            performInPlaceReplacement: true
+        )
     }
 }

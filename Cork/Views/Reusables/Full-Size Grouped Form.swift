@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct FullSizeGroupedForm<Content: View>: View {
-
+struct FullSizeGroupedForm<Content: View>: View
+{
     @ViewBuilder var content: Content
 
-    var body: some View {
+    var body: some View
+    {
         Form
         {
             content
         }
         .formStyle(.grouped)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        //.padding(-20)
+        // .padding(-20)
         .scrollContentBackground(.hidden)
     }
 }
-

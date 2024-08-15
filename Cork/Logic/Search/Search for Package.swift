@@ -25,8 +25,8 @@ func searchForPackage(packageName: String, packageType: PackageType) async throw
     }
 
     finalPackageArray.removeLast()
-    
+
     AppConstants.logger.info("Search found these packages: \(finalPackageArray, privacy: .auto)")
-    
+
     return finalPackageArray
 }

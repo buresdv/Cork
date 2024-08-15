@@ -20,9 +20,9 @@ extension URL
         {
             return 0
         }
-        
+
         var size: Int64 = 0
-        
+
         for url in contents
         {
             let isDirectoryResourceValue: URLResourceValues
@@ -34,7 +34,7 @@ extension URL
             {
                 continue
             }
-            
+
             if isDirectoryResourceValue.isDirectory == true
             {
                 size += url.directorySize
@@ -50,11 +50,11 @@ extension URL
                 {
                     continue
                 }
-                
+
                 size += Int64(fileSizeResourceValue.fileSize ?? 0)
             }
         }
-        
+
         return size
     }
 }

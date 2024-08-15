@@ -10,9 +10,9 @@ import SwiftUI
 
 @MainActor
 class UninstallationConfirmationTracker: ObservableObject
-{    
+{
     @Published var isShowingUninstallOrPurgeConfirmation: Bool = false
-    
+
     @Published private(set) var packageThatNeedsConfirmation: BrewPackage = .init(name: "", type: .formula, installedOn: Date(), versions: [], sizeInBytes: 0)
     @Published private(set) var shouldPurge: Bool = false
     @Published private(set) var isCalledFromSidebar: Bool = false
@@ -22,17 +22,17 @@ class UninstallationConfirmationTracker: ObservableObject
         self.packageThatNeedsConfirmation = packageThatNeedsConfirmation
         self.shouldPurge = shouldPurge
         self.isCalledFromSidebar = isCalledFromSidebar
-        
-        self.isShowingUninstallOrPurgeConfirmation = true
+
+        isShowingUninstallOrPurgeConfirmation = true
     }
-    
+
     func dismissConfirmationDialog()
     {
-        if self.isShowingUninstallOrPurgeConfirmation
+        if isShowingUninstallOrPurgeConfirmation
         {
-            self.isShowingUninstallOrPurgeConfirmation = false
+            isShowingUninstallOrPurgeConfirmation = false
         }
-        
-        self.packageThatNeedsConfirmation = .init(name: "", type: .formula, installedOn: Date(), versions: [], sizeInBytes: 0)
+
+        packageThatNeedsConfirmation = .init(name: "", type: .formula, installedOn: Date(), versions: [], sizeInBytes: 0)
     }
 }

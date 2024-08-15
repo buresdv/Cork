@@ -7,10 +7,10 @@
 
 import Foundation
 
-/*enum CachePurgeError: Error
-{
-    case standardErrorNotEmpty
-}*/
+/* enum CachePurgeError: Error
+ {
+     case standardErrorNotEmpty
+ } */
 
 func purgeBrewCache() async throws -> TerminalOutput
 {

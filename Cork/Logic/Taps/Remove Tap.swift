@@ -11,21 +11,21 @@ import SwiftUI
 enum UntapError: LocalizedError
 {
     case couldNotUntap(tapName: String, failureReason: String)
-    
+
     var errorDescription: String?
     {
-        switch self {
-            case .couldNotUntap(let tapName, let failureReason):
-                return String(localized: "error.tap.untap.could-not-untap.tap-\(tapName).failure-reason-\(failureReason)")
+        switch self
+        {
+        case .couldNotUntap(let tapName, let failureReason):
+            return String(localized: "error.tap.untap.could-not-untap.tap-\(tapName).failure-reason-\(failureReason)")
         }
     }
 }
 
 @MainActor
-func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws -> Void
+func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
-
-    var indexToReplaceGlobal: Int? = nil
+    var indexToReplaceGlobal: Int?
 
     /// Store the old navigation selection to see if it got updated in the middle of switching
     let oldNavigationSelectionID: UUID? = appState.navigationSelection
@@ -55,8 +55,10 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     if untapResult.contains("Untapped")
     {
         AppConstants.logger.info("Untapping was successful")
-        DispatchQueue.main.async {
-            withAnimation {
+        DispatchQueue.main.async
+        {
+            withAnimation
+            {
                 availableTaps.addedTaps.removeAll(where: { $0.name == name })
             }
         }
@@ -75,7 +77,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         AppConstants.logger.warning("Untapping failed")
 
         if untapResult.contains("because it contains the following installed formulae or casks")
-        {            
+        {
             appState.showAlert(errorToShow: .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: name))
         }
 

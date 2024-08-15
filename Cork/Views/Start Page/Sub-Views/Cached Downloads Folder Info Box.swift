@@ -5,11 +5,11 @@
 //  Created by David Bureš on 05.04.2023.
 //
 
-import SwiftUI
 import Charts
+import SwiftUI
 
 struct CachedDownloadsFolderInfoBox: View
-{    
+{
     @EnvironmentObject var appState: AppState
 
     var body: some View
@@ -33,7 +33,7 @@ struct CachedDownloadsFolderInfoBox: View
                     Text("start-page.cached-downloads.action")
                 }
             }
-            
+
             if !appState.cachedDownloads.isEmpty
             {
                 VStack(alignment: .leading, spacing: 10)
@@ -46,12 +46,13 @@ struct CachedDownloadsFolderInfoBox: View
                                 x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
                             )
                             .foregroundStyle(cachedPackage.packageType?.color ?? .mint)
-                            .annotation(position: .overlay, alignment: .center) {
+                            .annotation(position: .overlay, alignment: .center)
+                            {
                                 Text(cachedPackage.packageName)
                                     .foregroundColor(.white)
                                     .font(.caption)
                             }
-                            
+
                             /// Insert the separators between the bars, unless it's the last one. Then don't insert the divider
                             if cachedPackage.packageName != appState.cachedDownloads.last?.packageName
                             {
@@ -71,7 +72,7 @@ struct CachedDownloadsFolderInfoBox: View
                     .cornerRadius(2)
                     .frame(height: 20)
                     .chartLegend(.hidden)
-                    
+
                     HStack(alignment: .center, spacing: 10)
                     {
                         chartLegendItem(item: .formula)
@@ -81,7 +82,7 @@ struct CachedDownloadsFolderInfoBox: View
             }
         }
     }
-    
+
     @ViewBuilder
     func chartLegendItem(item: CachedDownloadType) -> some View
     {
@@ -90,7 +91,7 @@ struct CachedDownloadsFolderInfoBox: View
             Circle()
                 .frame(width: 8, height: 8)
                 .foregroundStyle(item.color)
-            
+
             Text(item.description)
                 .font(.footnote)
                 .foregroundStyle(.secondary)

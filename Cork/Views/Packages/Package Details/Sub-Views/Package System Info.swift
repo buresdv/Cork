@@ -19,7 +19,8 @@ struct PackageSystemInfo: View
         {
             Section
             {
-                LabeledContent {
+                LabeledContent
+                {
                     Text(installedOnDate.formatted(.packageInstallationStyle))
                 } label: {
                     Text("package-details.install-date")
@@ -27,7 +28,8 @@ struct PackageSystemInfo: View
 
                 if let packageSize = package.sizeInBytes
                 {
-                    LabeledContent {
+                    LabeledContent
+                    {
                         HStack
                         {
                             Text(packageSize.formatted(.byteCount(style: .file)))
