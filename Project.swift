@@ -2,6 +2,9 @@ import ProjectDescription
 
 let project = Project(
     name: "Cork",
+    packages: [
+        .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins", requirement: .upToNextMajor(from: "0.56.1")),
+    ],
     settings: .settings(
         configurations: [
             .debug(
@@ -11,7 +14,7 @@ let project = Project(
             .release(
                 name: "Release",
                 xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
-            )
+            ),
         ]),
     targets: [
         .target(
@@ -21,16 +24,17 @@ let project = Project(
             bundleId: "com.davidbures.cork",
             infoPlist: .file(path: "Cork/Info.plist"),
             sources: [
-                "Cork/**/*.swift"
+                "Cork/**/*.swift",
             ], resources: [
                 "Cork/**/*.xcassets",
                 "Cork/**/*.xcstrings",
                 "PrivacyInfo.xcprivacy",
-                "Cork/Logic/Helpers/Programs/Sudo Helper"
+                "Cork/Logic/Helpers/Programs/Sudo Helper",
             ], dependencies: [
                 // .target(name: "CorkHelp"),
                 .external(name: "LaunchAtLogin"),
-                .external(name: "DavidFoundation")
+                .external(name: "DavidFoundation"),
+                .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
             ], settings: .settings(configurations: [
                 .debug(
                     name: "Debug",
@@ -39,7 +43,7 @@ let project = Project(
                 .release(
                     name: "Release",
                     xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                )
+                ),
             ])
         ),
         .target(
@@ -55,7 +59,7 @@ let project = Project(
                 .release(
                     name: "Release",
                     xcconfig: .relativeToRoot("xcconfigs/CorkHelp.xcconfig")
-                )
+                ),
             ])
         ),
     ],
@@ -80,11 +84,11 @@ let project = Project(
                 executable: "Cork",
                 arguments: .arguments(
                     environmentVariables: [
-                        "SELF_COMPILED": "true"
+                        "SELF_COMPILED": "true",
                     ]
                 ),
                 options: .options(language: .init(identifier: "en"))
             )
-        )
+        ),
     ]
 )
