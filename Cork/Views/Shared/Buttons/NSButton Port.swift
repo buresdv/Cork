@@ -75,7 +75,7 @@ struct SUIButton: NSViewRepresentable
 
     func buttonStyle(_ appKitButtonStyle: NSButton.BezelStyle) -> SUIButton
     {
-        var view = self
+        var view: Self = self
         view.buttonStyle = appKitButtonStyle
         return view
     }

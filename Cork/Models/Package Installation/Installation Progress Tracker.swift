@@ -23,17 +23,17 @@ class InstallationProgressTracker: ObservableObject
     @MainActor
     func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput
     {
-        let package = packageBeingInstalled.package
+        let package: BrewPackage = packageBeingInstalled.package
 
         AppConstants.logger.debug("Installing package \(package.name, privacy: .auto)")
 
-        var installationResult = TerminalOutput(standardOutput: "", standardError: "")
+        var installationResult: TerminalOutput = .init(standardOutput: "", standardError: "")
 
         if package.type == .formula
         {
             AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
 
-            let output = try await installFormula(using: brewData).joined(separator: "")
+            let output: String = try await installFormula(using: brewData).joined(separator: "")
 
             installationResult.standardOutput.append(output)
 
@@ -55,11 +55,11 @@ class InstallationProgressTracker: ObservableObject
     @MainActor
     private func installFormula(using _: BrewDataStorage) async throws -> [String]
     {
-        let package = packageBeingInstalled.package
+        let package: BrewPackage = packageBeingInstalled.package
         var packageDependencies: [String] = .init()
         /// For some reason, the line `fetching [package name]` appears twice during the matching process, and the first one is a dud. Ignore that first one.
-        var hasAlreadyMatchedLineAboutInstallingPackageItself = false
-        var installOutput = [String]()
+        var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
+        var installOutput: [String] = .init()
 
         AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
 
@@ -81,8 +81,8 @@ class InstallationProgressTracker: ObservableObject
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
-                    let dependencyMatchingRegex = "(?<=\(package.name): ).*?(.*)"
-                    var matchedDependencies = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
+                    let dependencyMatchingRegex: String = "(?<=\(package.name): ).*?(.*)"
+                    var matchedDependencies: String = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
                     AppConstants.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
@@ -174,7 +174,7 @@ class InstallationProgressTracker: ObservableObject
     @MainActor
     func installCask(using _: BrewDataStorage) async throws
     {
-        let package = packageBeingInstalled.package
+        let package: BrewPackage = packageBeingInstalled.package
 
         AppConstants.logger.info("Package is Cask")
         AppConstants.logger.debug("Installing package \(package.name, privacy: .public)")

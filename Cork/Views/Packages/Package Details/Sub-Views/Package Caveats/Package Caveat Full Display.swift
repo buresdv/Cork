@@ -34,7 +34,7 @@ struct PackageCaveatFullDisplayView: View
                         /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
                         VStack(alignment: .leading, spacing: 5)
                         {
-                            let text = Text(
+                            let text: some View = Text(
                                 .init(
                                     caveats
                                         .trimmingCharacters(in: .whitespacesAndNewlines)

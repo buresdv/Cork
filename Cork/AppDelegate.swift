@@ -12,10 +12,10 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {
-    @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
-    @MainActor let appState = AppState()
+    @MainActor let appState: AppState = .init()
 
     func applicationWillFinishLaunching(_: Notification)
     {
@@ -80,10 +80,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 
     func applicationDockMenu(_: NSApplication) -> NSMenu?
     {
-        let menu = NSMenu()
+        let menu: NSMenu = .init()
         menu.autoenablesItems = false
 
-        let updatePackagesMenuItem = NSMenuItem()
+        let updatePackagesMenuItem: NSMenuItem = .init()
         updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
         updatePackagesMenuItem.target = appState
 

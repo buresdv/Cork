@@ -14,7 +14,7 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
     {
         brewData.installedFormulae = Set(brewData.installedFormulae.map
         { formula in
-            var copyFormula = formula
+            var copyFormula: BrewPackage = formula
             if copyFormula.name == package.name
             {
                 copyFormula.changeTaggedStatus()
@@ -26,7 +26,7 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
     {
         brewData.installedFormulae = Set(brewData.installedCasks.map
         { cask in
-            var copyCask = cask
+            var copyCask: BrewPackage = cask
             if copyCask.name == package.name
             {
                 copyCask.changeTaggedStatus()

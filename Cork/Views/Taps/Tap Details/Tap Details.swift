@@ -99,7 +99,7 @@ struct TapDetailView: View, Sendable
                 isLoadingTapInfo = false
             }
 
-            async let tapInfo = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
+            async let tapInfo: String = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
 
             do
             {

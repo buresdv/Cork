@@ -41,7 +41,7 @@ struct StringFile: FileDocument
 
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper
     {
-        let data = text.data(using: .utf8)
+        let data: Data? = text.data(using: .utf8)
         return FileWrapper(regularFileWithContents: data ?? Data())
     }
 }

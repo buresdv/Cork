@@ -33,7 +33,7 @@ import SwiftUI
 @MainActor
 func synchronizeInstalledPackages(brewData: BrewDataStorage) async
 {
-    let dummyAppState = AppState()
+    let dummyAppState: AppState = .init()
     dummyAppState.isLoadingFormulae = false
     dummyAppState.isLoadingCasks = false
 

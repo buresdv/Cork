@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuBarItem: View
 {
-    @Environment(\.openWindow) var openWindow
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @EnvironmentObject var appState: AppState
 

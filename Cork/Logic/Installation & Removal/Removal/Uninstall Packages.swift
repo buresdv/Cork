@@ -154,7 +154,7 @@ extension BrewDataStorage
         {
             installedFormulae = Set(installedFormulae.map
             { formula in
-                var copyFormula = formula
+                var copyFormula: BrewPackage = formula
                 if copyFormula.name == package.name, copyFormula.isBeingModified == true
                 {
                     copyFormula.changeBeingModifiedStatus()
@@ -166,7 +166,7 @@ extension BrewDataStorage
         {
             installedCasks = Set(installedCasks.map
             { cask in
-                var copyCask = cask
+                var copyCask: BrewPackage = cask
                 if copyCask.name == package.name, copyCask.isBeingModified == true
                 {
                     copyCask.changeBeingModifiedStatus()

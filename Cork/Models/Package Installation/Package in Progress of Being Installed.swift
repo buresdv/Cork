@@ -9,13 +9,13 @@ import Foundation
 
 struct RealTimeTerminalLine: Identifiable, Hashable, Equatable
 {
-    let id = UUID()
+    let id: UUID = .init()
     let line: String
 }
 
 struct PackageInProgressOfBeingInstalled: Identifiable
 {
-    let id = UUID()
+    let id: UUID = .init()
 
     let package: BrewPackage
     var installationStage: PackageInstallationStage

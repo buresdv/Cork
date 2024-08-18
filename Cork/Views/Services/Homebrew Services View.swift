@@ -10,7 +10,7 @@ import SwiftUI
 struct HomebrewServicesView: View
 {
     @EnvironmentObject private var appDelegate: AppDelegate
-    @Environment(\.controlActiveState) var controlActiveState
+    @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
 
     @StateObject var servicesTracker: ServicesTracker = .init()
     @StateObject var servicesState: ServicesState = .init()

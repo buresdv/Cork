@@ -28,7 +28,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
 {
     do
     {
-        let cachePurgeOutput = try await purgeBrewCache()
+        let cachePurgeOutput: TerminalOutput = try await purgeBrewCache()
 
         AppConstants.logger.debug("Cache purge output:\nStandard output: \(cachePurgeOutput.standardOutput, privacy: .auto)\nStandard error: \(cachePurgeOutput.standardError, privacy: .public)")
 
@@ -36,7 +36,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
 
         if cachePurgeOutput.standardError.contains("Warning: Skipping")
         { // Here, we'll write out all the packages that are blocking updating
-            var packagesHoldingBackCachePurgeInitialArray = cachePurgeOutput.standardError.components(separatedBy: "Warning:") // The output has these packages in one giant list. Split them into an array so we can iterate over them and extract their names
+            var packagesHoldingBackCachePurgeInitialArray: [String] = cachePurgeOutput.standardError.components(separatedBy: "Warning:") // The output has these packages in one giant list. Split them into an array so we can iterate over them and extract their names
             // I can't just try to regex-match on the raw output, because it will only match the first package in that case
 
             packagesHoldingBackCachePurgeInitialArray.removeFirst() // The first element in this array is "" for some reason, remove that so we save some resources
@@ -45,7 +45,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
             {
                 AppConstants.logger.log("Blocking package: \(blockingPackageRaw, privacy: .public)")
 
-                let packageHoldingBackCachePurgeNameRegex = "(?<=Skipping ).*?(?=:)"
+                let packageHoldingBackCachePurgeNameRegex: String = "(?<=Skipping ).*?(?=:)"
 
                 guard let packageHoldingBackCachePurgeName = try? regexMatch(from: blockingPackageRaw, regex: packageHoldingBackCachePurgeNameRegex)
                 else

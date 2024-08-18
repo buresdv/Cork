@@ -12,7 +12,7 @@ struct Licensing_SelfCompiledView: View
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
 

@@ -30,7 +30,7 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
         )
     }
 
-    static var defaultQuery = MinimalHomebrewPackageIntentQuery()
+    static var defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
 }
 
 struct MinimalHomebrewPackageIntentQuery: EntityQuery

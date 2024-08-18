@@ -17,12 +17,12 @@ enum AppConstants
 
     // MARK: - Notification stuff
 
-    static let notificationCenter = UNUserNotificationCenter.current()
+    static let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
 
     // MARK: - Proxy settings
 
     static let proxySettings: (host: String, port: Int)? = {
-        let proxySettings = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any]
+        let proxySettings: [String: Any]? = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any]
 
         guard let httpProxyHost = proxySettings?[kCFNetworkProxiesHTTPProxy as String] as? String
         else
@@ -48,7 +48,7 @@ enum AppConstants
         /// If a custom Homebrew path is defined, use it. Otherwise, use the default paths
         if let homebrewPath = UserDefaults.standard.string(forKey: "customHomebrewPath"), !homebrewPath.isEmpty
         {
-            let customHomebrewPath = URL(string: homebrewPath)!
+            let customHomebrewPath: URL = .init(string: homebrewPath)!
 
             return customHomebrewPath
         }

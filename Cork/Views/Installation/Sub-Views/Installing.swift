@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InstallingPackageView: View
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
@@ -114,11 +114,11 @@ struct InstallingPackageView: View
         {
             do
             {
-                let installationResult = try await installationProgressTracker.installPackage(using: brewData)
+                let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(using: brewData)
                 AppConstants.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
 
                 /// Check if the package installation stag at the end of the install process was something unexpected. Normal package installations go through multiple steps, and the three listed below are not supposed to be the end state. This means that something went wrong during the installation
-                let installationStage = installationProgressTracker.packageBeingInstalled.installationStage
+                let installationStage: PackageInstallationStage = installationProgressTracker.packageBeingInstalled.installationStage
                 if [.installingCask, .installingPackage, .ready].contains(installationStage)
                 {
                     AppConstants.logger.warning("The installation process quit before it was supposed to")

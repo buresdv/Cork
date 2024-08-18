@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BinaryAlreadyExistsView: View, Sendable
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var brewData: BrewDataStorage
 

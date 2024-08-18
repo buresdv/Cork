@@ -18,7 +18,7 @@ struct PathControl: NSViewRepresentable
 
     func makeNSView(context _: Context) -> NSPathControl
     {
-        let pathControl = NSPathControl()
+        let pathControl: NSPathControl = .init()
 
         pathControl.pathStyle = style
         pathControl.url = urlToShow

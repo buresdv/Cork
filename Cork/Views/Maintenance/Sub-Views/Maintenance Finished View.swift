@@ -11,7 +11,7 @@ struct MaintenanceFinishedView: View
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage

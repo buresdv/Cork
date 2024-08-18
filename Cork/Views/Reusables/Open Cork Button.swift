@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OpenCorkButton: View
 {
-    @Environment(\.openWindow) var openWindow
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     var body: some View
     {

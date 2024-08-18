@@ -93,7 +93,7 @@ struct OutdatedPackageListBox: View
         {
             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
             { modifiedElement in
-                var copyOutdatedPackage = modifiedElement
+                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
                 {
                     copyOutdatedPackage.isMarkedForUpdating = false
@@ -125,7 +125,7 @@ struct OutdatedPackageListBox: View
         {
             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
             { modifiedElement in
-                var copyOutdatedPackage = modifiedElement
+                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
                 {
                     copyOutdatedPackage.isMarkedForUpdating = true
@@ -167,7 +167,7 @@ struct OutdatedPackageListBox: View
                         }, set: { toggleState in
                             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
                             { modifiedElement in
-                                var copyOutdatedPackage = modifiedElement
+                                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
                                 {
                                     copyOutdatedPackage.isMarkedForUpdating = toggleState
@@ -207,7 +207,7 @@ struct OutdatedPackageListBox: View
                         }, set: { toggleState in
                             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
                             { modifiedElement in
-                                var copyOutdatedPackage = modifiedElement
+                                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
                                 {
                                     copyOutdatedPackage.isMarkedForUpdating = toggleState

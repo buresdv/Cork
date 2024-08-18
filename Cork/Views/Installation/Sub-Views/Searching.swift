@@ -25,8 +25,8 @@ struct InstallationSearchingView: View, Sendable
                     searchResultTracker.foundFormulae = []
                     searchResultTracker.foundCasks = []
 
-                    async let foundFormulae = try searchForPackage(packageName: packageRequested, packageType: .formula)
-                    async let foundCasks = try searchForPackage(packageName: packageRequested, packageType: .cask)
+                    async let foundFormulae: [String] = try searchForPackage(packageName: packageRequested, packageType: .formula)
+                    async let foundCasks: [String] = try searchForPackage(packageName: packageRequested, packageType: .cask)
 
                     for formula in try await foundFormulae
                     {

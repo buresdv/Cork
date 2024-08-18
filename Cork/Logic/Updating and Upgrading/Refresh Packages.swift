@@ -11,7 +11,7 @@ import SwiftUI
 @MainActor
 func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability
 {
-    let showRealTimeTerminalOutputs = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
+    let showRealTimeTerminalOutputs: Bool = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
 
     for await output in shell(AppConstants.brewExecutablePath, ["update"])
     {

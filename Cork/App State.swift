@@ -95,9 +95,9 @@ class AppState: ObservableObject
 
     func setupNotifications() async
     {
-        let notificationCenter = AppConstants.notificationCenter
+        let notificationCenter: UNUserNotificationCenter = AppConstants.notificationCenter
 
-        let authStatus = await notificationCenter.authorizationStatus()
+        let authStatus: UNAuthorizationStatus = await notificationCenter.authorizationStatus()
 
         switch authStatus
         {
@@ -127,7 +127,7 @@ class AppState: ObservableObject
 
     func requestNotificationAuthorization() async
     {
-        let notificationCenter = AppConstants.notificationCenter
+        let notificationCenter: UNUserNotificationCenter = AppConstants.notificationCenter
 
         do
         {
@@ -154,9 +154,9 @@ class AppState: ObservableObject
 
     func loadCachedDownloadedPackages() async
     {
-        let smallestDispalyableSize = Int(cachedDownloadsFolderSize / 50)
+        let smallestDispalyableSize: Int = .init(cachedDownloadsFolderSize / 50)
 
-        var packagesThatAreTooSmallToDisplaySize = 0
+        var packagesThatAreTooSmallToDisplaySize: Int = 0
 
         guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles])
         else

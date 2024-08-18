@@ -12,11 +12,11 @@ import UserNotifications
 func sendNotification(title: String, body: String? = nil, subtitle: String? = nil, sensitivity: UNNotificationInterruptionLevel = .timeSensitive)
 {
     // Get whether we can send notifications
-    let notificationsAreEnabled = UserDefaults.standard.bool(forKey: "areNotificationsEnabled")
+    let notificationsAreEnabled: Bool = UserDefaults.standard.bool(forKey: "areNotificationsEnabled")
 
     if notificationsAreEnabled
     {
-        let notification = UNMutableNotificationContent()
+        let notification: UNMutableNotificationContent = .init()
 
         notification.title = title
 
@@ -33,7 +33,7 @@ func sendNotification(title: String, body: String? = nil, subtitle: String? = ni
         notification.sound = .default
         notification.interruptionLevel = sensitivity
 
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil)
+        let request: UNNotificationRequest = .init(identifier: UUID().uuidString, content: notification, trigger: nil)
 
         AppConstants.notificationCenter.add(request)
     }

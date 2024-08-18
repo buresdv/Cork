@@ -25,7 +25,7 @@ struct GeneralPane: View
 
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
-    @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     var body: some View

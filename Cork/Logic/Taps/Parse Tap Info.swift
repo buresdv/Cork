@@ -10,7 +10,7 @@ import Foundation
 func parseTapInfo(from rawJSON: String) async throws -> TapInfo?
 {
     let decoder: JSONDecoder = {
-        let decoder = JSONDecoder()
+        let decoder: JSONDecoder = .init()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
 
         return decoder

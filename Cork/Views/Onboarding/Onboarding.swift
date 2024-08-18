@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
@@ -21,7 +21,7 @@ struct OnboardingView: View
 
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
-    @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge

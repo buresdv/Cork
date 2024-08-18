@@ -12,7 +12,7 @@ import Foundation
 /// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable
 {
-    var id = UUID()
+    var id: UUID = .init()
     let name: String
 
     lazy var sanitizedName: String? = {
@@ -110,7 +110,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable
             }
         }
 
-        let contentsOfParentFolder = try! FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
+        let contentsOfParentFolder: [URL] = try! FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
 
         packageURL = contentsOfParentFolder.filter 
         {

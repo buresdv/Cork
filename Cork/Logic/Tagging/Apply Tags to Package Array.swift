@@ -15,7 +15,7 @@ func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStora
         AppConstants.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
         brewData.installedFormulae = Set(brewData.installedFormulae.map
         { formula in
-            var copyFormula = formula
+            var copyFormula: BrewPackage = formula
             if copyFormula.name == taggedName
             {
                 copyFormula.changeTaggedStatus()
@@ -25,7 +25,7 @@ func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStora
 
         brewData.installedCasks = Set(brewData.installedCasks.map
         { cask in
-            var copyCask = cask
+            var copyCask: BrewPackage = cask
             if copyCask.name == taggedName
             {
                 copyCask.changeTaggedStatus()

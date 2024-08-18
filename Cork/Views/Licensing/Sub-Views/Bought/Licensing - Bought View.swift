@@ -13,7 +13,7 @@ struct Licensing_BoughtView: View
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
 

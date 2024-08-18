@@ -113,7 +113,7 @@ extension BrewPackage
 
             func extractDependencies() -> [BrewPackageDependency]?
             {
-                let allDependencies = installed.flatMap
+                let allDependencies: [BrewPackage.PackageCommandOutput.Formulae.Installed.RuntimeDependencies] = installed.flatMap
                 { installed in
                     installed.runtimeDependencies ?? []
                 }
@@ -184,7 +184,7 @@ extension BrewPackage
                 return nil
             }
 
-            let allDependencies = formulae.flatMap
+            let allDependencies: [BrewPackage.PackageCommandOutput.Formulae.Installed.RuntimeDependencies] = formulae.flatMap
             { formula in
                 formula.installed.flatMap
                 { installed in

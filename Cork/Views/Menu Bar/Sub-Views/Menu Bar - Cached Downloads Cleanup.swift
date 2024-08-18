@@ -23,7 +23,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 
                 isDeletingCachedDownloads = true
 
-                let reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
+                let reclaimedSpaceAfterCachePurge: Int = .init(appState.cachedDownloadsFolderSize)
 
                 deleteCachedDownloads()
 

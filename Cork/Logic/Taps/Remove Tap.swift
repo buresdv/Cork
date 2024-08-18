@@ -44,7 +44,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         appState.isShowingUninstallationProgressView = true
     }
 
-    let untapResult = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
+    let untapResult: String = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
     AppConstants.logger.debug("Untapping result: \(untapResult)")
 
     defer
@@ -88,7 +88,8 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         else
         {
             AppConstants.logger.warning("Could not get index for that tap. Will loop over all of them")
-            for (index, _) in availableTaps.addedTaps.enumerated()
+            
+            for index in availableTaps.addedTaps.indices
             {
                 if availableTaps.addedTaps[index].isBeingModified
                 {

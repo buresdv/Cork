@@ -12,7 +12,7 @@ func submitSystemVersion() async throws
 {
     let corkVersion: String = await String(NSApplication.appVersion!)
 
-    let sessionConfiguration = URLSessionConfiguration.default
+    let sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
     if AppConstants.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
@@ -22,19 +22,19 @@ func submitSystemVersion() async throws
         ] as [AnyHashable: Any]
     }
 
-    let session = URLSession(configuration: sessionConfiguration)
+    let session: URLSession = .init(configuration: sessionConfiguration)
 
-    var isSelfCompiled = false
+    var isSelfCompiled: Bool = false
     if ProcessInfo.processInfo.environment["SELF_COMPILED"] == "true"
     {
         isSelfCompiled = true
     }
 
-    var urlComponents = URLComponents(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
+    var urlComponents: URLComponents? = .init(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
     urlComponents?.queryItems = [
         URLQueryItem(name: "systemVersion", value: String(ProcessInfo.processInfo.operatingSystemVersion.majorVersion)),
         URLQueryItem(name: "corkVersion", value: corkVersion),
-        URLQueryItem(name: "isSelfCompiled", value: String(isSelfCompiled)),
+        URLQueryItem(name: "isSelfCompiled", value: String(isSelfCompiled))
     ]
     guard let modifiedURL = urlComponents?.url
     else
@@ -42,11 +42,11 @@ func submitSystemVersion() async throws
         return
     }
 
-    var request = URLRequest(url: modifiedURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+    var request: URLRequest = .init(url: modifiedURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
 
     request.httpMethod = "GET"
 
-    let authorizationComplex = "\(AppConstants.licensingAuthorization.username):\(AppConstants.licensingAuthorization.passphrase)"
+    let authorizationComplex: String = "\(AppConstants.licensingAuthorization.username):\(AppConstants.licensingAuthorization.passphrase)"
 
     guard let authorizationComplexAsData: Data = authorizationComplex.data(using: .utf8, allowLossyConversion: false)
     else
@@ -56,7 +56,7 @@ func submitSystemVersion() async throws
 
     request.addValue("Basic \(authorizationComplexAsData.base64EncodedString())", forHTTPHeaderField: "Authorization")
 
-    let (_, response) = try await session.data(for: request)
+    let (_, response): (Data, URLResponse) = try await session.data(for: request)
 
     if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
     {

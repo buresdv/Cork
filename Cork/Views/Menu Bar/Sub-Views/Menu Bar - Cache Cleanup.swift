@@ -30,7 +30,7 @@ struct MenuBar_CacheCleanup: View
 
                     do
                     {
-                        let packagesHoldingBackCachePurge = try await purgeHomebrewCacheUtility()
+                        let packagesHoldingBackCachePurge: [String] = try await purgeHomebrewCacheUtility()
 
                         if packagesHoldingBackCachePurge.isEmpty
                         {

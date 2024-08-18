@@ -11,7 +11,7 @@ struct ErroredOutStageView: View
 {
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker

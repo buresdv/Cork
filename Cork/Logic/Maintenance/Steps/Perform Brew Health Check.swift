@@ -23,7 +23,7 @@ enum HealthCheckError: LocalizedError
 
 func performBrewHealthCheck() async throws -> TerminalOutput
 {
-    async let commandResult = await shell(AppConstants.brewExecutablePath, ["doctor"])
+    async let commandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["doctor"])
 
     await print(commandResult)
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WrongArchitectureView: View, Sendable
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var brewData: BrewDataStorage
 

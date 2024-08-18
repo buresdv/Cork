@@ -25,7 +25,7 @@ struct MenuBar_OrphanCleanup: View
 
                     do
                     {
-                        let orphanUninstallResult = try await uninstallOrphansUtility()
+                        let orphanUninstallResult: Int = try await uninstallOrphansUtility()
 
                         sendNotification(
                             title: String(localized: "maintenance.results.orphans-removed"),

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddFormulaView: View
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @State private var packageRequested: String = ""
 
@@ -18,8 +18,8 @@ struct AddFormulaView: View
 
     @State private var foundPackageSelection: UUID? = nil
 
-    @ObservedObject var searchResultTracker = SearchResultTracker()
-    @ObservedObject var installationProgressTracker = InstallationProgressTracker()
+    @ObservedObject var searchResultTracker: SearchResultTracker = .init()
+    @ObservedObject var installationProgressTracker: InstallationProgressTracker = .init()
 
     @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
 

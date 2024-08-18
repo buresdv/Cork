@@ -11,7 +11,7 @@ struct Licensing_DemoView: View
 {
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
 

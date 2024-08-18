@@ -52,7 +52,7 @@ func shell(
     workingDirectory: URL? = nil
 ) -> AsyncStream<StreamedTerminalOutput>
 {
-    let task = Process()
+    let task: Process = .init()
 
     var finalEnvironment: [String: String] = .init()
 
@@ -101,10 +101,10 @@ func shell(
     task.launchPath = launchPath.absoluteString
     task.arguments = arguments
 
-    let pipe = Pipe()
+    let pipe: Pipe = .init()
     task.standardOutput = pipe
 
-    let errorPipe = Pipe()
+    let errorPipe: Pipe = .init()
     task.standardError = errorPipe
 
     do
@@ -125,7 +125,8 @@ func shell(
                 return
             }
 
-            guard !standardOutput.isEmpty else 
+            guard !standardOutput.isEmpty
+            else
             {
                 return
             }

@@ -18,7 +18,7 @@ class ServicesTracker: ObservableObject
     {
         services = Set(services.map
         { service in
-            var copyService = service
+            var copyService: HomebrewService = service
 
             if copyService.name == serviceToChange.name
             {

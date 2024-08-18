@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InstallationInitialView: View
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
@@ -85,7 +85,7 @@ struct InstallationInitialView: View
                         {
                             AppConstants.logger.debug("Would install package \(foundPackageSelection)")
 
-                            let topCasksSet = Set(topPackagesTracker.topCasks)
+                            let topCasksSet: Set<TopPackage> = Set(topPackagesTracker.topCasks)
 
                             var selectedTopPackageType: PackageType
                             {

@@ -32,7 +32,7 @@ extension ServicesTracker
 
                 let updatedServicesWithOldIDs: Set<HomebrewService> = Set(updatedServices.map
                 { updatedService in
-                    var copyUpdatedService = updatedService
+                    var copyUpdatedService: HomebrewService = updatedService
 
                     for originalServiceWithItsOldUUID in originalServicesWithTheirUUIDs
                     {

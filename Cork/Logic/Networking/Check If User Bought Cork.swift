@@ -29,7 +29,7 @@ enum CorkLicenseRetrievalError: LocalizedError
 
 func checkIfUserBoughtCork(for email: String) async throws -> Bool
 {
-    let sessionConfiguration = URLSessionConfiguration.default
+    let sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
     if AppConstants.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
@@ -41,7 +41,7 @@ func checkIfUserBoughtCork(for email: String) async throws -> Bool
 
     let session: URLSession = .init(configuration: sessionConfiguration)
 
-    var urlComponents = URLComponents(url: AppConstants.authorizationEndpointURL, resolvingAgainstBaseURL: false)
+    var urlComponents: URLComponents? = .init(url: AppConstants.authorizationEndpointURL, resolvingAgainstBaseURL: false)
     urlComponents?.queryItems = [URLQueryItem(name: "requestedEmail", value: email)]
     guard let modifiedURL = urlComponents?.url
     else
@@ -53,7 +53,7 @@ func checkIfUserBoughtCork(for email: String) async throws -> Bool
 
     request.httpMethod = "GET"
 
-    let authorizationComplex = "\(AppConstants.licensingAuthorization.username):\(AppConstants.licensingAuthorization.passphrase)"
+    let authorizationComplex: String = "\(AppConstants.licensingAuthorization.username):\(AppConstants.licensingAuthorization.passphrase)"
 
     guard let authorizationComplexAsData: Data = authorizationComplex.data(using: .utf8, allowLossyConversion: false)
     else
@@ -65,7 +65,7 @@ func checkIfUserBoughtCork(for email: String) async throws -> Bool
 
     do
     {
-        let (_, response) = try await session.data(for: request)
+        let (_, response): (Data, URLResponse) = try await session.data(for: request)
 
         if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
         {
