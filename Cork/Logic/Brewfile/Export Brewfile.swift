@@ -36,9 +36,9 @@ func exportBrewfile(appState: AppState) async throws -> String
         appState.isShowingBrewfileExportProgress = false
     }
 
-    let brewfileParentLocation = URL.temporaryDirectory
+    let brewfileParentLocation: URL = URL.temporaryDirectory
 
-    let pathRawOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])
+    let pathRawOutput: TerminalOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])
 
     let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
 

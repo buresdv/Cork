@@ -39,7 +39,7 @@ struct GetInstalledFormulaeIntent: AppIntent
 
         if allowAccessToFile
         {
-            let installedFormulae = await loadUpPackages(whatToLoad: .formula, appState: AppState())
+            let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: AppState())
 
             AppConstants.brewCellarPath.stopAccessingSecurityScopedResource()
 

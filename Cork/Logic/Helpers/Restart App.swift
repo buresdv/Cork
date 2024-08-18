@@ -11,9 +11,9 @@ func restartApp()
 {
     DispatchQueue.main.asyncAfter(deadline: .now() + 1)
     {
-        let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
-        let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
-        let task = Process()
+        let url: URL = .init(fileURLWithPath: Bundle.main.resourcePath!)
+        let path: String = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
+        let task: Process = .init()
         task.launchPath = "/usr/bin/open"
         task.arguments = [path]
         task.launch()

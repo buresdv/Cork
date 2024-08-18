@@ -12,7 +12,7 @@ extension String
 {
     func copyToClipboard()
     {
-        let pasteboard = NSPasteboard.general
+        let pasteboard: NSPasteboard = NSPasteboard.general
         pasteboard.declareTypes([.string], owner: nil)
         pasteboard.setString(self, forType: .string)
     }

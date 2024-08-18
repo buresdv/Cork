@@ -95,7 +95,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                 }
             }
 
-            var loadedPackages = Set<BrewPackage>()
+            var loadedPackages: Set<BrewPackage> = .init()
             for try await package in taskGroup
             {
                 loadedPackages.insert(package)
@@ -168,7 +168,7 @@ private extension URL
 
         if path.contains("Cellar")
         {
-            let localPackageInfoJSONPath = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
+            let localPackageInfoJSONPath: URL = localPackagePath.appendingPathComponent("INSTALL_RECEIPT.json", conformingTo: .json)
             if FileManager.default.fileExists(atPath: localPackageInfoJSONPath.path)
             {
                 struct InstallRecepitParser: Codable

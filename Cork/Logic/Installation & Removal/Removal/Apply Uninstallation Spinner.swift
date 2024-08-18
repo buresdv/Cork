@@ -21,7 +21,7 @@ func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStora
     {
         brewData.installedFormulae = Set(brewData.installedFormulae.map
         { formula in
-            var copyFormula = formula
+            var copyFormula: BrewPackage = formula
             if copyFormula.name == package.name
             {
                 copyFormula.changeBeingModifiedStatus()
@@ -33,7 +33,7 @@ func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStora
     {
         brewData.installedFormulae = Set(brewData.installedCasks.map
         { cask in
-            var copyCask = cask
+            var copyCask: BrewPackage = cask
             if copyCask.name == package.name
             {
                 copyCask.changeBeingModifiedStatus()

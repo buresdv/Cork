@@ -13,7 +13,7 @@ extension URL
     {
         do
         {
-            let fileAttributes = try resourceValues(forKeys: [.isSymbolicLinkKey])
+            let fileAttributes: URLResourceValues = try resourceValues(forKeys: [.isSymbolicLinkKey])
 
             return fileAttributes.isSymbolicLink
         }
