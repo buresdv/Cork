@@ -5,6 +5,8 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+// swiftlint:disable file_length
+
 import SwiftUI
 
 struct ContentView: View, Sendable

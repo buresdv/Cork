@@ -1,8 +1,5 @@
 # By default, SwiftLint uses a set of sensible default rules you can adjust:
 disabled_rules: # rule identifiers turned on by default to exclude from running
-  - colon
-  - comma
-  - control_statement
   - empty_count
   - function_body_length
   - shorthand_operator
@@ -15,8 +12,8 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - orphaned_doc_comment
   - redundant_optional_initialization
   - nesting
-  - file_length
   - trailing_whitespace
+  - cyclomatic_complexity # remove this later
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - empty_count # find all the available rules by running: `swiftlint rules`
   - explicit_init
