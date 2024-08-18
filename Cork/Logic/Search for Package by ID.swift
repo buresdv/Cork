@@ -28,7 +28,7 @@ func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker
     AppConstants.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
     AppConstants.logger.log("Cask tracker: \(tracker.foundCasks.count)")
 
-    if tracker.foundFormulae.count != 0
+    if !tracker.foundFormulae.isEmpty
     {
         filteredPackage = tracker.foundFormulae.filter { $0.id == requestedPackageUUID }.first
     }

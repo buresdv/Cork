@@ -21,7 +21,7 @@ struct MenuBar_PackageUpdating: View
         }
         else
         {
-            if outdatedPackageTracker.displayableOutdatedPackages.count > 0
+            if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
                 Menu
                 {

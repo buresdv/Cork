@@ -1,6 +1,5 @@
 # By default, SwiftLint uses a set of sensible default rules you can adjust:
 disabled_rules: # rule identifiers turned on by default to exclude from running
-  - empty_count
   - function_body_length
   - shorthand_operator
   - opening_brace
@@ -9,6 +8,7 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - todo
   - for_where
   - non_optional_string_data_conversion
+  - inclusive_language
   - orphaned_doc_comment
   - redundant_optional_initialization
   - nesting

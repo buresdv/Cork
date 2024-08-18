@@ -72,22 +72,22 @@ struct HomebrewServicesView: View
                     {
                         Section
                         {
-                            if activeServices.count != 0
+                            if !activeServices.isEmpty
                             {
                                 GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.play"), title: "service-status-page.active-services-\(activeServices.count)", mainText: "service-status-page.active-services.description", animateNumberChanges: true)
                             }
 
-                            if erroredOutServices.count != 0
+                            if !erroredOutServices.isEmpty
                             {
                                 GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.trianglebadge.exclamationmark"), title: "service-status-page.errored-out-services-\(erroredOutServices.count)", mainText: "service-status-page.errored-out-services.description", animateNumberChanges: true)
                             }
 
-                            if inactiveServices.count != 0
+                            if !inactiveServices.isEmpty
                             {
                                 GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.pause"), title: "service-status-page.inactive-services-\(inactiveServices.count)", mainText: "service-status-page.inactive-services.description", animateNumberChanges: true)
                             }
 
-                            if unknownServices.count != 0
+                            if !unknownServices.isEmpty
                             {
                                 GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.questionmark"), title: "service-status-page.unknown-services-\(unknownServices.count)", mainText: "service-status-page.unknown-services.description", animateNumberChanges: true)
                             }

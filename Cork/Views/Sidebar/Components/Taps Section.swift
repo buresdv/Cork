@@ -18,7 +18,7 @@ struct TapsSection: View
     {
         Section("sidebar.section.added-taps")
         {
-            if availableTaps.addedTaps.count != 0
+            if !availableTaps.addedTaps.isEmpty
             {
                 ForEach(displayedTaps)
                 { tap in

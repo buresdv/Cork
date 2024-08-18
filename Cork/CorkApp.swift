@@ -405,7 +405,7 @@ struct CorkApp: App
 
         // MARK: - Menu Bar Extra
 
-        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.displayableOutdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.displayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
                 .environmentObject(appDelegate.appState)
@@ -672,7 +672,7 @@ struct CorkApp: App
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
         {
-            if outdatedPackageTracker.displayableOutdatedPackages.count > 0
+            if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
                 NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.displayableOutdatedPackages.count)
             }

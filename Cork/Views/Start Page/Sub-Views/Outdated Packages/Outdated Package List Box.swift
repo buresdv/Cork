@@ -58,7 +58,7 @@ struct OutdatedPackageListBox: View
                                     } label: {
                                         Text("start-page.update-incremental.package-count-\(packagesMarkedForUpdating.count)")
                                     }
-                                    .disabled(packagesMarkedForUpdating.count == 0)
+                                    .disabled(packagesMarkedForUpdating.isEmpty)
                                 }
                             }
 
@@ -103,7 +103,7 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.deselect-all")
         }
-        .disabled(packagesMarkedForUpdating.count == 0)
+        .disabled(packagesMarkedForUpdating.isEmpty)
         .modify
         { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all
