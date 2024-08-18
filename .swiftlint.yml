@@ -78,7 +78,7 @@ identifier_name:
     - GlobalAPIKey
   allowed_symbols: ["_"]
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging, summary)
-custom_rules:
+#custom_rules:
 #  brackets_newline:
 #      name: "Opening Brackets not on Next Line"
 #      message: "Opening brackets should be placed on their own lines"
