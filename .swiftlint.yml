@@ -1,0 +1,25 @@
+# https://github.com/realm/SwiftLint?tab=readme-ov-file#configuration
+
+disabled_rules:
+  - colon
+  - comma
+  - cyclomatic_complexity
+  - duplicate_enum_cases
+  - file_length
+  - for_where
+  - force_try
+  - function_body_length
+  - identifier_name
+  - line_length
+  - multiple_closures_with_trailing_closure
+  - nesting
+  - no_space_in_method_call
+  - non_optional_string_data_conversion
+  - opening_brace
+  - orphaned_doc_comment
+  - shorthand_operator
+  - switch_case_alignment
+  - todo
+  - trailing_newline
+  - type_name
+  - unused_optional_binding
