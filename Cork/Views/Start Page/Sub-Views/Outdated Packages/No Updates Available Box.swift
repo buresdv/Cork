@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct NoUpdatesAvailableBox: View {
-    var body: some View {
+struct NoUpdatesAvailableBox: View
+{
+    var body: some View
+    {
         GroupBoxHeadlineGroup(
             image: "checkmark.seal",
             title: "update-packages.no-updates",

@@ -8,29 +8,31 @@
 import Foundation
 
 @MainActor
-func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async -> Void
+func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async
 {
     if package.type == .formula
     {
-        brewData.installedFormulae = Set(brewData.installedFormulae.map({ formula in
-            var copyFormula = formula
+        brewData.installedFormulae = Set(brewData.installedFormulae.map
+        { formula in
+            var copyFormula: BrewPackage = formula
             if copyFormula.name == package.name
             {
                 copyFormula.changeTaggedStatus()
             }
             return copyFormula
-        }))
+        })
     }
     else
     {
-        brewData.installedFormulae = Set(brewData.installedCasks.map({ cask in
-            var copyCask = cask
+        brewData.installedFormulae = Set(brewData.installedCasks.map
+        { cask in
+            var copyCask: BrewPackage = cask
             if copyCask.name == package.name
             {
                 copyCask.changeTaggedStatus()
             }
             return copyCask
-        }))
+        })
     }
 
     if appState.taggedPackageNames.contains(package.name)
@@ -43,6 +45,6 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
     }
 
     AppConstants.logger.debug("Tagged package with ID \(package.id, privacy: .public): \(package.name, privacy: .public)")
-    
+
     AppConstants.logger.debug("Tagged packages: \(appState.taggedPackageNames, privacy: .public)")
 }

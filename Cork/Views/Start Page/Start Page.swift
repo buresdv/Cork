@@ -112,10 +112,10 @@ struct StartPage: View
             if outdatedPackageTracker.outdatedPackages.isEmpty
             {
                 appState.isCheckingForPackageUpdates = true
-                
+
                 defer
                 {
-                    withAnimation 
+                    withAnimation
                     {
                         appState.isCheckingForPackageUpdates = false
                     }

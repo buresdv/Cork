@@ -9,12 +9,11 @@ import SwiftUI
 
 struct OnboardingExtrasCategory: View
 {
-    
     let onboardingSetupLevelNumber: Float
-    
+
     var body: some View
     {
-        LabeledContent 
+        LabeledContent
         {
             VStack(alignment: .trailing, spacing: 3)
             {
@@ -24,30 +23,27 @@ struct OnboardingExtrasCategory: View
                     Text("onboarding.feature.search")
                     Text("onboarding.feature.tagging")
                 }
-                
+
                 // Slightly basic
                 if onboardingSetupLevelNumber >= 1
                 {
                     Text("onboarding.feature.compatibility-checking")
                 }
-                
+
                 // Balanced
                 if onboardingSetupLevelNumber >= 2
                 {
                     Text("onboarding.feature.notifications")
                 }
-                
+
                 // Slightly advanced
                 if onboardingSetupLevelNumber >= 3
                 {
                     Text("onboarding.feature.menu-bar")
                 }
-                
+
                 // Advanced
-                if onboardingSetupLevelNumber >= 4
-                {
-                    
-                }
+                if onboardingSetupLevelNumber >= 4 {}
             }
         } label: {
             Text("onboarding.details.section.extras")

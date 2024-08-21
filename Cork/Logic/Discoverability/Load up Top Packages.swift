@@ -32,8 +32,7 @@ extension TopPackagesTracker
         /// The magic number here is the result of 1000/30, a base limit for 30 days: If the user selects the number of days to be 30, only show packages with more than 1000 downloads
         let packageDownloadsCutoff: Int = 33 * numberOfDays
 
-        let decoder: JSONDecoder =
-        {
+        let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
 

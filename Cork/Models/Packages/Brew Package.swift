@@ -5,18 +5,17 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
-import Foundation
 import AppKit
 import DavidFoundation
+import Foundation
 
 /// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable
 {
-    var id = UUID()
+    var id: UUID = .init()
     let name: String
-    
-    lazy var sanitizedName: String? =
-    {
+
+    lazy var sanitizedName: String? = {
         var packageNameWithoutTap: String
         { /// First, remove the tap name from the package name if it has it
             if self.name.contains("/")
@@ -35,7 +34,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable
                 return self.name
             }
         }
-        
+
         if packageNameWithoutTap.contains("@")
         { /// Only do the matching if the name contains @
             if let sanitizedName = try? regexMatch(from: packageNameWithoutTap, regex: ".+?(?=@)")
@@ -55,54 +54,53 @@ struct BrewPackage: Identifiable, Equatable, Hashable
 
     let type: PackageType
     var isTagged: Bool = false
-    
+
     let installedOn: Date?
     let versions: [String]
-    
+
     var installedIntentionally: Bool = true
-    
+
     let sizeInBytes: Int64?
-    
+
     var isBeingModified: Bool = false
-    
+
     func getFormattedVersions() -> String
     {
-        return self.versions.formatted(.list(type: .and))
+        return versions.formatted(.list(type: .and))
     }
-    
-    mutating func changeTaggedStatus() -> Void
+
+    mutating func changeTaggedStatus()
     {
-        self.isTagged.toggle()
+        isTagged.toggle()
     }
-    
-    mutating func changeBeingModifiedStatus() -> Void
+
+    mutating func changeBeingModifiedStatus()
     {
-        self.isBeingModified.toggle()
+        isBeingModified.toggle()
     }
-    
-    mutating func purgeSanitizedName() -> Void
+
+    mutating func purgeSanitizedName()
     {
-        self.sanitizedName = nil
+        sanitizedName = nil
     }
-    
+
     /// Open the location of this package in Finder
     func revealInFinder() throws
     {
-        
         enum FinderRevealError: LocalizedError
         {
             case couldNotFindPackageInParent
-            
+
             var errorDescription: String?
             {
                 return String(localized: "error.finder-reveal.could-not-find-package-in-parent")
             }
         }
-        
+
         var packageURL: URL?
         var packageLocationParent: URL
         {
-            if self.type == .formula
+            if type == .formula
             {
                 return AppConstants.brewCellarPath
             }
@@ -111,19 +109,23 @@ struct BrewPackage: Identifiable, Equatable, Hashable
                 return AppConstants.brewCaskPath
             }
         }
-        
-        let contentsOfParentFolder = try! FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
-        
-        packageURL = contentsOfParentFolder.filter({ $0.lastPathComponent.contains(name) }).first
-        
-        guard let packageURL else
+
+        let contentsOfParentFolder: [URL] = try! FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
+
+        packageURL = contentsOfParentFolder.filter 
+        {
+            $0.lastPathComponent.contains(name)
+        }.first
+
+        guard let packageURL
+        else
         {
             throw FinderRevealError.couldNotFindPackageInParent
         }
-        
+
         packageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
-        
-        //NSWorkspace.shared.selectFile(packageURL.path, inFileViewerRootedAtPath: packageURL.deletingLastPathComponent().path)
+
+        // NSWorkspace.shared.selectFile(packageURL.path, inFileViewerRootedAtPath: packageURL.deletingLastPathComponent().path)
     }
 }
 
@@ -131,6 +133,6 @@ extension FormatStyle where Self == Date.FormatStyle
 {
     static var packageInstallationStyle: Self
     {
-        Self.dateTime.day().month(.wide).year().weekday(.wide).hour().minute()
+        dateTime.day().month(.wide).year().weekday(.wide).hour().minute()
     }
 }

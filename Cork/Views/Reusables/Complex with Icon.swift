@@ -47,14 +47,13 @@ struct ComplexWithIconWithSystemImage<Content: View>: View
     }
 }
 
-struct ComplexWithImage<Content: View>: View 
+struct ComplexWithImage<Content: View>: View
 {
-    
     let image: Image
-    
+
     @ViewBuilder var content: Content
-    
-    var body: some View 
+
+    var body: some View
     {
         HStack(alignment: .top, spacing: 10)
         {

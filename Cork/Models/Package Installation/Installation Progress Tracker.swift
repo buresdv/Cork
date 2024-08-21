@@ -23,17 +23,17 @@ class InstallationProgressTracker: ObservableObject
     @MainActor
     func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput
     {
-        let package = packageBeingInstalled.package
+        let package: BrewPackage = packageBeingInstalled.package
 
         AppConstants.logger.debug("Installing package \(package.name, privacy: .auto)")
 
-        var installationResult = TerminalOutput(standardOutput: "", standardError: "")
+        var installationResult: TerminalOutput = .init(standardOutput: "", standardError: "")
 
         if package.type == .formula
         {
             AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
 
-            let output = try await installFormula(using: brewData).joined(separator: "")
+            let output: String = try await installFormula(using: brewData).joined(separator: "")
 
             installationResult.standardOutput.append(output)
 
@@ -55,11 +55,11 @@ class InstallationProgressTracker: ObservableObject
     @MainActor
     private func installFormula(using _: BrewDataStorage) async throws -> [String]
     {
-        let package = packageBeingInstalled.package
+        let package: BrewPackage = packageBeingInstalled.package
         var packageDependencies: [String] = .init()
         /// For some reason, the line `fetching [package name]` appears twice during the matching process, and the first one is a dud. Ignore that first one.
-        var hasAlreadyMatchedLineAboutInstallingPackageItself = false
-        var installOutput = [String]()
+        var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
+        var installOutput: [String] = .init()
 
         AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
 
@@ -67,7 +67,7 @@ class InstallationProgressTracker: ObservableObject
         {
             switch output
             {
-            case let .standardOutput(outputLine):
+            case .standardOutput(let outputLine):
 
                 AppConstants.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
 
@@ -81,8 +81,8 @@ class InstallationProgressTracker: ObservableObject
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
-                    let dependencyMatchingRegex = "(?<=\(package.name): ).*?(.*)"
-                    var matchedDependencies = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
+                    let dependencyMatchingRegex: String = "(?<=\(package.name): ).*?(.*)"
+                    var matchedDependencies: String = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
                     AppConstants.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
@@ -147,7 +147,7 @@ class InstallationProgressTracker: ObservableObject
 
                     AppConstants.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
 
-            case let .standardError(errorLine):
+            case .standardError(let errorLine):
                 AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
@@ -174,7 +174,7 @@ class InstallationProgressTracker: ObservableObject
     @MainActor
     func installCask(using _: BrewDataStorage) async throws
     {
-        let package = packageBeingInstalled.package
+        let package: BrewPackage = packageBeingInstalled.package
 
         AppConstants.logger.info("Package is Cask")
         AppConstants.logger.debug("Installing package \(package.name, privacy: .public)")
@@ -183,7 +183,7 @@ class InstallationProgressTracker: ObservableObject
         {
             switch output
             {
-            case let .standardOutput(outputLine):
+            case .standardOutput(let outputLine):
                 AppConstants.logger.info("Output line: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
@@ -226,9 +226,9 @@ class InstallationProgressTracker: ObservableObject
                 else if outputLine.contains("Purging files")
                 {
                     AppConstants.logger.info("Purging old version of cask \(package.name)")
-                    
+
                     packageBeingInstalled.installationStage = .installingCask
-                    
+
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 1
                 }
                 else if outputLine.contains("was successfully installed")
@@ -240,7 +240,7 @@ class InstallationProgressTracker: ObservableObject
                     packageBeingInstalled.packageInstallationProgress = 10
                 }
 
-            case let .standardError(errorLine):
+            case .standardError(let errorLine):
                 AppConstants.logger.error("Line had error: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
@@ -257,7 +257,7 @@ class InstallationProgressTracker: ObservableObject
                 else if errorLine.contains("there is already an App at")
                 {
                     AppConstants.logger.warning("The app already exists")
-                    
+
                     packageBeingInstalled.installationStage = .binaryAlreadyExists
                 }
                 else if errorLine.contains(/depends on hardware architecture being.+but you are running/)

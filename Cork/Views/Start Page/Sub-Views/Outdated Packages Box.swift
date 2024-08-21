@@ -9,12 +9,11 @@ import SwiftUI
 
 struct OutdatedPackagesBox: View
 {
-
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool
-    
+
     let errorOutReason: String?
 
     var body: some View
@@ -29,7 +28,7 @@ struct OutdatedPackagesBox: View
             {
                 OutdatedPackageLoaderBox()
             }
-            else if outdatedPackageTracker.displayableOutdatedPackages.count == 0
+            else if outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
                 NoUpdatesAvailableBox()
             }

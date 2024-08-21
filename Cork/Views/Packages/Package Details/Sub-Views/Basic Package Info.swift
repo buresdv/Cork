@@ -18,11 +18,12 @@ struct BasicPackageInfoView: View
 
     var body: some View
     {
-        Section 
+        Section
         {
             PackageCaveatFullDisplayView(caveats: packageDetails.caveats, isShowingExpandedCaveats: $isShowingExpandedCaveats)
 
-            LabeledContent {
+            LabeledContent
+            {
                 Text(packageDetails.tap.name)
             } label: {
                 Text("Tap")

@@ -23,8 +23,10 @@ extension PackageSearchToken: Identifiable
 
 extension PackageSearchToken
 {
-    var name: LocalizedStringKey {
-        switch self {
+    var name: LocalizedStringKey
+    {
+        switch self
+        {
         case .formula:
             return "search.token.filter-formulae"
         case .cask:
@@ -38,8 +40,10 @@ extension PackageSearchToken
         }
     }
 
-    var icon: String {
-        switch self {
+    var icon: String
+    {
+        switch self
+        {
         case .formula:
             return "terminal"
         case .cask:

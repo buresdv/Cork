@@ -10,9 +10,9 @@ import SwiftUI
 struct AddTapFinishedView: View
 {
     @EnvironmentObject var availableTaps: AvailableTaps
-    
+
     let requestedTap: String
-    
+
     var body: some View
     {
         ComplexWithIcon(systemName: "checkmark.seal")

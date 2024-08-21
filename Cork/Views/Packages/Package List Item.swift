@@ -10,9 +10,9 @@ import SwiftUI
 struct PackageListItem: View
 {
     var packageItem: BrewPackage
-    
+
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     var isPackageOutdated: Bool
     {
         if outdatedPackageTracker.displayableOutdatedPackages.contains(where: { $0.package.name == packageItem.name })
@@ -43,11 +43,11 @@ struct PackageListItem: View
 
                     SanitizedPackageName(packageName: packageItem.name, shouldShowVersion: false)
                 }
-                
+
                 HStack(alignment: .center, spacing: 4)
                 {
                     Text(packageItem.getFormattedVersions())
-                    
+
                     if isPackageOutdated
                     {
                         Text("􀐫")
@@ -58,20 +58,20 @@ struct PackageListItem: View
                 .foregroundColor(.secondary)
                 .layoutPriority(-Double(2))
                 .animation(.easeInOut, value: isPackageOutdated)
-                
+
                 if packageItem.isBeingModified
                 {
                     Spacer()
-                    
+
                     ProgressView()
                         .frame(height: 5)
                         .scaleEffect(0.5)
                 }
             }
             #if hasAttribute(bouncy)
-                .animation(.bouncy, value: packageItem.isTagged)
+            .animation(.bouncy, value: packageItem.isTagged)
             #else
-                .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
+            .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
             #endif
         }
     }

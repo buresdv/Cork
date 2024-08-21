@@ -9,9 +9,8 @@ import SwiftUI
 
 struct MenuBar_CacheCleanup: View
 {
-    
     @State private var isPurgingHomebrewCache: Bool = false
-    
+
     var body: some View
     {
         if !isPurgingHomebrewCache
@@ -31,7 +30,7 @@ struct MenuBar_CacheCleanup: View
 
                     do
                     {
-                        let packagesHoldingBackCachePurge = try await purgeHomebrewCacheUtility()
+                        let packagesHoldingBackCachePurge: [String] = try await purgeHomebrewCacheUtility()
 
                         if packagesHoldingBackCachePurge.isEmpty
                         {

@@ -9,17 +9,16 @@ import SwiftUI
 
 struct TopPackageListItem: View
 {
-    
     let topPackage: TopPackage
-    
+
     var body: some View
     {
         HStack(alignment: .center)
         {
             SanitizedPackageName(packageName: topPackage.packageName, shouldShowVersion: true)
-            
+
             Spacer()
-            
+
             Text("add-package.top-packages.list-item-\(topPackage.packageDownloads)")
                 .foregroundStyle(.secondary)
                 .font(.caption)

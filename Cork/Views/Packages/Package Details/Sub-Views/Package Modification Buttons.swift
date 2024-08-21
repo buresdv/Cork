@@ -26,7 +26,7 @@ struct PackageModificationButtons: View
 
     var body: some View
     {
-        if let _ = package.installedOn // Only show the uninstall button for packages that are actually installed
+        if package.installedOn != nil // Only show the uninstall button for packages that are actually installed
         {
             if !isLoadingDetails
             {

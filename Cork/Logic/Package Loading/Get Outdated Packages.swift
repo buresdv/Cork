@@ -62,10 +62,10 @@ extension OutdatedPackageTracker
     {
         // First, we have to pull the newest updates
         await shell(AppConstants.brewExecutablePath, ["update"])
-        
+
         // Then we can get the updating under way
         let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["outdated", "--json=v2"])
-        
+
         print("Outdated package function oputput: \(rawOutput)")
 
         // MARK: - Error checking
@@ -84,8 +84,7 @@ extension OutdatedPackageTracker
 
         // MARK: - Decoding
 
-        let outdatedPackagesOutputDecoder: JSONDecoder =
-        {
+        let outdatedPackagesOutputDecoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
 
@@ -108,7 +107,7 @@ extension OutdatedPackageTracker
             async let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewData: brewData)
             async let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewData: brewData)
 
-            self.outdatedPackages = await finalOutdatedFormulae.union(finalOutdatedCasks)
+            outdatedPackages = await finalOutdatedFormulae.union(finalOutdatedCasks)
         }
         catch let decodingError
         {

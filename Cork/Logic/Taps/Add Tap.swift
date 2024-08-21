@@ -10,7 +10,7 @@ import Foundation
 func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
 {
     var tapResult: String
-    
+
     if let forcedRepoAddress
     {
         tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardError

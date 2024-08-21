@@ -10,9 +10,9 @@ import SwiftUI
 struct MenuBar_CachedDownloadsCleanup: View
 {
     @EnvironmentObject var appState: AppState
-    
+
     @State private var isDeletingCachedDownloads: Bool = false
-    
+
     var body: some View
     {
         if !isDeletingCachedDownloads
@@ -23,7 +23,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 
                 isDeletingCachedDownloads = true
 
-                let reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
+                let reclaimedSpaceAfterCachePurge: Int = .init(appState.cachedDownloadsFolderSize)
 
                 deleteCachedDownloads()
 

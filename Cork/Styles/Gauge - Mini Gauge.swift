@@ -10,9 +10,8 @@ import SwiftUI
 
 struct MiniGaugeStyle: GaugeStyle
 {
-    
     let tint: Color
-    
+
     func makeBody(configuration: Configuration) -> some View
     {
         ZStack

@@ -9,12 +9,11 @@ import SwiftUI
 
 struct OnboardingTapFeaturesCategory: View
 {
-    
     let onboardingSetupLevelNumber: Float
-    
+
     var body: some View
     {
-        LabeledContent 
+        LabeledContent
         {
             VStack(alignment: .trailing, spacing: 3)
             {
@@ -23,30 +22,22 @@ struct OnboardingTapFeaturesCategory: View
                 {
                     Text("onboarding.feature.tap-details")
                 }
-                
+
                 // Slightly basic
                 if onboardingSetupLevelNumber >= 1
-                {
-                    
-                }
-                
+                {}
+
                 // Balanced
-                if onboardingSetupLevelNumber >= 2
-                {
-                    
-                }
-                
+                if onboardingSetupLevelNumber >= 2 
+                {}
+
                 // Slightly advanced
                 if onboardingSetupLevelNumber >= 3
-                {
-                    
-                }
-                
+                {}
+
                 // Advanced
-                if onboardingSetupLevelNumber >= 4
-                {
-                    
-                }
+                if onboardingSetupLevelNumber >= 4 
+                {}
             }
         } label: {
             Text("onboarding.details.section.tap-features")

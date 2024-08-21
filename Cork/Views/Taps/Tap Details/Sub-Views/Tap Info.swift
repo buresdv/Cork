@@ -17,7 +17,7 @@ struct TapDetailsInfo: View
 
     let numberOfPackages: Int
     let homepage: URL?
-    
+
     var roughPackageOverview: LocalizedStringResource
     {
         if includedFormulae.isEmpty && includedCasks.isEmpty

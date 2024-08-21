@@ -80,7 +80,7 @@ struct MaintenanceRunningView: View
 
                         /// I have to assign the original value of the appState variable to a different variable, because when it updates at the end of the process, I don't want it to update in the result overview
                         reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
-                        
+
                         await appState.loadCachedDownloadedPackages()
                         appState.assignPackageTypeToCachedDownloads(brewData: brewData)
                     }
@@ -95,7 +95,7 @@ struct MaintenanceRunningView: View
 
                         do
                         {
-                            let healthCheckOutput = try await performBrewHealthCheck()
+                            let healthCheckOutput: TerminalOutput = try await performBrewHealthCheck()
                             AppConstants.logger.debug("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
 
                             brewHealthCheckFoundNoProblems = true

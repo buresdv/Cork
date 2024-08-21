@@ -20,7 +20,7 @@ struct SidebarServiceRow: View
         } label: {
             Text(service.name)
         }
-        .contextMenu 
+        .contextMenu
         {
             Button
             {
@@ -29,6 +29,5 @@ struct SidebarServiceRow: View
                 Text("action.reveal-in-finder")
             }
         }
-
     }
 }

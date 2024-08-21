@@ -15,20 +15,21 @@ enum UpdateProcessStages: LocalizedStringKey, CustomStringConvertible
     case cleanup = "update-packages.detail-stage.cleanup"
     case backingUp = "update-packages.detail-stage.backing-up"
     case linking = "update-packages.detail-stage.linking"
-    
+
     var description: String
     {
-        switch self {
-            case .downloading:
-                return "Downloading"
-            case .pouring:
-                return "Pouring"
-            case .cleanup:
-                return "Cleanup"
-            case .backingUp:
-                return "Backing Up"
-            case .linking:
-                return "Linkling"
+        switch self
+        {
+        case .downloading:
+            return "Downloading"
+        case .pouring:
+            return "Pouring"
+        case .cleanup:
+            return "Cleanup"
+        case .backingUp:
+            return "Backing Up"
+        case .linking:
+            return "Linkling"
         }
     }
 }

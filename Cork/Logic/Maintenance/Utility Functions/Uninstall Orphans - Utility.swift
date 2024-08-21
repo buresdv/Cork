@@ -16,7 +16,7 @@ enum OrphanRemovalError: LocalizedError
         switch self
         {
         case .couldNotUninstallOrphans(let output):
-                return String(localized: "error.maintenance.orphan-removal.could-not-uninstall-orphans.\(output)")
+            return String(localized: "error.maintenance.orphan-removal.could-not-uninstall-orphans.\(output)")
         case .couldNotGetNumberOfUninstalledOrphans:
             return String(localized: "error.maintenance.orphan-removal.could-not-get-number-of-uninstalled-orphans")
         }
@@ -28,7 +28,7 @@ func uninstallOrphansUtility() async throws -> Int
 {
     do
     {
-        let orphanUninstallationOutput = try await uninstallOrphanedPackages()
+        let orphanUninstallationOutput: TerminalOutput = try await uninstallOrphanedPackages()
 
         AppConstants.logger.debug("Orphan removal output:\nStandard output: \(orphanUninstallationOutput.standardOutput, privacy: .public)\nStandard error: \(orphanUninstallationOutput.standardError, privacy: .public)")
 

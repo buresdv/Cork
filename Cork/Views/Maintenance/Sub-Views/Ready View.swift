@@ -81,7 +81,7 @@ struct MaintenanceReadyView: View
                         Button
                         {
                             AppConstants.logger.debug("Start")
-                            
+
                             maintenanceSteps = .maintenanceRunning
                         } label: {
                             Text("maintenance.steps.start")
@@ -89,7 +89,7 @@ struct MaintenanceReadyView: View
                         .keyboardShortcut(.defaultAction)
                         .disabled(isStartDisabled)
                     }
-                    //.padding(.top)
+                    // .padding(.top)
                 }
             }
             .onAppear
@@ -113,6 +113,9 @@ struct MaintenanceReadyView: View
 
     private var isStartDisabled: Bool
     {
-        [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy { !$0 }
+        [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy 
+        {
+            !$0
+        }
     }
 }

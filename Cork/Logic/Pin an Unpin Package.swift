@@ -7,12 +7,12 @@
 
 import Foundation
 
-func pinAndUnpinPackage(package: BrewPackage, pinned: Bool) async -> Void
+func pinAndUnpinPackage(package: BrewPackage, pinned: Bool) async
 {
     if pinned
     {
-        let pinResult = await shell(AppConstants.brewExecutablePath, ["pin", package.name])
-        
+        let pinResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["pin", package.name])
+
         if !pinResult.standardError.isEmpty
         {
             AppConstants.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
@@ -20,7 +20,7 @@ func pinAndUnpinPackage(package: BrewPackage, pinned: Bool) async -> Void
     }
     else
     {
-        let unpinResult = await shell(AppConstants.brewExecutablePath, ["unpin", package.name])
+        let unpinResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["unpin", package.name])
         if !unpinResult.standardError.isEmpty
         {
             AppConstants.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")

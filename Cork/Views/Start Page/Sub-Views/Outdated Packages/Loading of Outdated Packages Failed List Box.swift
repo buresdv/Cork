@@ -19,11 +19,11 @@ struct LoadingOfOutdatedPackagesFailedListBox: View
                 .resizable()
                 .scaledToFit()
                 .frame(width: 26, height: 26)
-            
+
             VStack(alignment: .leading, spacing: 2)
             {
                 Text("start-page.loading.failed.title")
-                
+
                 Text(errorOutReason)
                     .font(.subheadline)
                     .foregroundColor(.secondary)

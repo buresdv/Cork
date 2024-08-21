@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-
-struct FormulaeSection: View {
+struct FormulaeSection: View
+{
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     let currentTokens: [PackageSearchToken]
     let searchText: String
 
-    var body: some View {
+    var body: some View
+    {
         Section("sidebar.section.installed-formulae")
         {
             if appState.isLoadingFormulae
@@ -28,13 +29,14 @@ struct FormulaeSection: View {
             else
             {
                 ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
-                    switch sortPackagesBy {
-                        case .alphabetically:
-                            return firstPackage.name < secondPackage.name
-                        case .byInstallDate:
-                            return firstPackage.installedOn! < secondPackage.installedOn!
-                        case .bySize:
-                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                    switch sortPackagesBy
+                    {
+                    case .alphabetically:
+                        return firstPackage.name < secondPackage.name
+                    case .byInstallDate:
+                        return firstPackage.installedOn! < secondPackage.installedOn!
+                    case .bySize:
+                        return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
                     }
                 }))
                 { formula in
@@ -54,17 +56,18 @@ struct FormulaeSection: View {
             if searchText.isEmpty
             {
                 filter = \.installedIntentionally
-            } else
-            {
-                filter = { $0.installedIntentionally && $0.name.contains(searchText)  }
             }
-        } 
+            else
+            {
+                filter = { $0.installedIntentionally && $0.name.contains(searchText) }
+            }
+        }
         else
         {
             if searchText.isEmpty || searchText.contains("#")
             {
                 filter = { _ in true }
-            } 
+            }
             else
             {
                 filter = { $0.name.contains(searchText) }

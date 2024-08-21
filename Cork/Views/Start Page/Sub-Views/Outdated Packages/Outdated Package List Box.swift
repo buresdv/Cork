@@ -58,7 +58,7 @@ struct OutdatedPackageListBox: View
                                     } label: {
                                         Text("start-page.update-incremental.package-count-\(packagesMarkedForUpdating.count)")
                                     }
-                                    .disabled(packagesMarkedForUpdating.count == 0)
+                                    .disabled(packagesMarkedForUpdating.isEmpty)
                                 }
                             }
 
@@ -93,7 +93,7 @@ struct OutdatedPackageListBox: View
         {
             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
             { modifiedElement in
-                var copyOutdatedPackage = modifiedElement
+                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
                 {
                     copyOutdatedPackage.isMarkedForUpdating = false
@@ -103,8 +103,9 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.deselect-all")
         }
-        .disabled(packagesMarkedForUpdating.count == 0)
-        .modify { viewProxy in
+        .disabled(packagesMarkedForUpdating.isEmpty)
+        .modify
+        { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all
             {
                 viewProxy
@@ -124,7 +125,7 @@ struct OutdatedPackageListBox: View
         {
             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
             { modifiedElement in
-                var copyOutdatedPackage = modifiedElement
+                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
                 {
                     copyOutdatedPackage.isMarkedForUpdating = true
@@ -135,7 +136,8 @@ struct OutdatedPackageListBox: View
             Text("start-page.updated.action.select-all")
         }
         .disabled(packagesMarkedForUpdating.count == outdatedPackageTracker.displayableOutdatedPackages.count)
-        .modify { viewProxy in
+        .modify
+        { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all
             {
                 viewProxy
@@ -165,7 +167,7 @@ struct OutdatedPackageListBox: View
                         }, set: { toggleState in
                             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
                             { modifiedElement in
-                                var copyOutdatedPackage = modifiedElement
+                                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
                                 {
                                     copyOutdatedPackage.isMarkedForUpdating = toggleState
@@ -204,8 +206,8 @@ struct OutdatedPackageListBox: View
                             outdatedPackage.isMarkedForUpdating
                         }, set: { toggleState in
                             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
-                                                                          { modifiedElement in
-                                var copyOutdatedPackage = modifiedElement
+                            { modifiedElement in
+                                var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
                                 {
                                     copyOutdatedPackage.isMarkedForUpdating = toggleState
@@ -219,34 +221,34 @@ struct OutdatedPackageListBox: View
                     }
                 }
                 .width(45)
-                
+
                 TableColumn("package-details.dependencies.results.name")
                 { outdatedPackage in
                     Text(outdatedPackage.package.name)
                 }
-                
+
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
                     Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
                         .foregroundColor(.orange)
                 }
-                
+
                 TableColumn("start-page.updates.newest-version")
                 { outdatedPackage in
                     Text(outdatedPackage.newerVersion)
                         .foregroundColor(.blue)
                 }
-                
+
                 TableColumn("package-details.type")
                 { outdatedPackage in
                     Text(outdatedPackage.package.type.description)
                 }
             }
-            
+
             HStack(alignment: .center)
             {
                 deselectAllButton
-                
+
                 selectAllButton
             }
         }

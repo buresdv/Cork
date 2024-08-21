@@ -5,6 +5,8 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+// swiftlint:disable file_length
+
 import SwiftUI
 
 struct ContentView: View, Sendable
@@ -23,7 +25,7 @@ struct ContentView: View, Sendable
 
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
 
-    @Environment(\.openWindow) var openWindow
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @EnvironmentObject var appState: AppState
 
@@ -37,7 +39,7 @@ struct ContentView: View, Sendable
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
-    @State private var multiSelection = Set<UUID>()
+    @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
     @State private var corruptedPackage: CorruptedPackage?
@@ -235,10 +237,10 @@ struct ContentView: View, Sendable
                 appState.isLoadingCasks = false
             }
 
-            async let availableFormulae = await loadUpPackages(whatToLoad: .formula, appState: appState)
-            async let availableCasks = await loadUpPackages(whatToLoad: .cask, appState: appState)
+            async let availableFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: appState)
+            async let availableCasks: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: appState)
 
-            async let availableTaps = await loadUpTappedTaps()
+            async let availableTaps: [BrewTap] = await loadUpTappedTaps()
 
             brewData.installedFormulae = await availableFormulae
             brewData.installedCasks = await availableCasks
@@ -273,7 +275,7 @@ struct ContentView: View, Sendable
         {
             AppConstants.logger.info("Started Analytics startup action at \(Date())")
 
-            async let analyticsQueryCommand = await shell(AppConstants.brewExecutablePath, ["analytics"])
+            async let analyticsQueryCommand: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["analytics"])
 
             if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
             {

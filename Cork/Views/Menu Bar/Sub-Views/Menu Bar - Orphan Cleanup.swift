@@ -9,11 +9,10 @@ import SwiftUI
 
 struct MenuBar_OrphanCleanup: View
 {
-    
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @State private var isUninstallingOrphanedPackages: Bool = false
-    
+
     var body: some View
     {
         if !isUninstallingOrphanedPackages
@@ -26,7 +25,7 @@ struct MenuBar_OrphanCleanup: View
 
                     do
                     {
-                        let orphanUninstallResult = try await uninstallOrphansUtility()
+                        let orphanUninstallResult: Int = try await uninstallOrphansUtility()
 
                         sendNotification(
                             title: String(localized: "maintenance.results.orphans-removed"),

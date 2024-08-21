@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NoUpdatesAvailableStageView: View
 {
-
     @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
 
     var body: some View

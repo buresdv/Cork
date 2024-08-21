@@ -21,11 +21,11 @@ class TopPackagesTracker: ObservableObject, Sendable
         switch sortTopPackagesBy
         {
         case .mostDownloads:
-            return self.topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+            return topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
         case .fewestDownloads:
-            return self.topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+            return topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
         case .random:
-            return self.topFormulae.shuffled()
+            return topFormulae.shuffled()
         }
     }
 
@@ -34,11 +34,11 @@ class TopPackagesTracker: ObservableObject, Sendable
         switch sortTopPackagesBy
         {
         case .mostDownloads:
-            return self.topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+            return topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
         case .fewestDownloads:
-            return self.topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+            return topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
         case .random:
-            return self.topCasks.shuffled()
+            return topCasks.shuffled()
         }
     }
 }

@@ -30,6 +30,7 @@ class BrewDataStorage: ObservableObject
     {
         removePackageFromTracker(withName: name, tracker: .formula)
     }
+
     func removeCaskFromTracker(withName name: String)
     {
         removePackageFromTracker(withName: name, tracker: .cask)
@@ -37,17 +38,18 @@ class BrewDataStorage: ObservableObject
 
     private func removePackageFromTracker(withName name: String, tracker: PackageType)
     {
-        switch tracker {
-            case .formula:
-                if let index = installedFormulae.firstIndex(where: { $0.name == name })
-                {
-                    installedFormulae.remove(at: index)
-                }
-            case .cask:
-                if let index = installedCasks.firstIndex(where: { $0.name == name })
-                {
-                    installedCasks.remove(at: index)
-                }
+        switch tracker
+        {
+        case .formula:
+            if let index = installedFormulae.firstIndex(where: { $0.name == name })
+            {
+                installedFormulae.remove(at: index)
+            }
+        case .cask:
+            if let index = installedCasks.firstIndex(where: { $0.name == name })
+            {
+                installedCasks.remove(at: index)
+            }
         }
     }
 }

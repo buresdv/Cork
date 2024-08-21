@@ -34,6 +34,7 @@ extension BrewPackage
     private struct PackageCommandOutput: Codable
     {
         // MARK: - Formulae
+
         struct Formulae: Codable
         {
             /// Name of the formula
@@ -79,7 +80,7 @@ extension BrewPackage
 
             /// Various info about the installation
             let installed: [Installed]
-            
+
             struct Bottle: Codable
             {
                 struct Stable: Codable
@@ -90,15 +91,15 @@ extension BrewPackage
                         let url: URL
                         let sha256: String
                     }
-                    
+
                     /// The individual files
                     let files: [String: FileInfo]
                 }
-                
+
                 /// The stable files
-                let stable: Stable?
+                let stable: Stable
             }
-            
+
             /// Info about the relevant files
             let bottle: Bottle
 
@@ -109,9 +110,10 @@ extension BrewPackage
             let pinned: Bool
 
             // MARK: - Formuale functions
+
             func extractDependencies() -> [BrewPackageDependency]?
             {
-                let allDependencies = self.installed.flatMap
+                let allDependencies: [BrewPackage.PackageCommandOutput.Formulae.Installed.RuntimeDependencies] = installed.flatMap
                 { installed in
                     installed.runtimeDependencies ?? []
                 }
@@ -126,31 +128,25 @@ extension BrewPackage
                     .init(name: dependency.fullName, version: dependency.version, directlyDeclared: dependency.declaredDirectly)
                 }
             }
-            
-            func getCompatibility() -> Bool?
+
+            func getCompatibility() -> Bool
             {
-                if let stableFiles = bottle.stable
+                for compatibleSystem in bottle.stable.files.keys
                 {
-                    for compatibleSystem in stableFiles.files.keys
+                    if compatibleSystem.contains(AppConstants.osVersionString.lookupName)
                     {
-                        if compatibleSystem.contains(AppConstants.osVersionString.lookupName)
-                        {
-                            AppConstants.logger.debug("Package \(self.name) is compatible")
-                            return true
-                        }
+                        AppConstants.logger.debug("Package \(name) is compatible")
+                        return true
                     }
-                    
-                    AppConstants.logger.debug("Package \(self.name) is NOT compatible")
-                    return false
                 }
-                else
-                {
-                    return nil
-                }
+
+                AppConstants.logger.debug("Package \(name) is NOT compatible")
+                return false
             }
         }
 
         // MARK: - Casks
+
         struct Casks: Codable
         {
             /// Name of the cask
@@ -182,13 +178,13 @@ extension BrewPackage
         /// Extract dependencies from the struct so they can be used
         func extractDependencies() -> [BrewPackageDependency]?
         {
-            guard let formulae = self.formulae
+            guard let formulae = formulae
             else
             {
                 return nil
             }
 
-            let allDependencies = formulae.flatMap
+            let allDependencies: [BrewPackage.PackageCommandOutput.Formulae.Installed.RuntimeDependencies] = formulae.flatMap
             { formula in
                 formula.installed.flatMap
                 { installed in
@@ -212,8 +208,7 @@ extension BrewPackage
     @MainActor
     func loadDetails() async throws -> BrewPackageDetails
     {
-        let decoder: JSONDecoder =
-        {
+        let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
 
@@ -222,13 +217,13 @@ extension BrewPackage
 
         var rawOutput: TerminalOutput?
 
-        switch self.type
+        switch type
         {
         case .formula:
-            rawOutput = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", self.name])
+            rawOutput = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", name])
 
         case .cask:
-            rawOutput = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", "--cask", self.name])
+            rawOutput = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", "--cask", name])
         }
 
         // MARK: - Error checking
@@ -258,7 +253,7 @@ extension BrewPackage
         }
 
         AppConstants.logger.debug("JSON output: \(rawOutput.standardOutput)")
-        
+
         guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
         else
         {
@@ -273,7 +268,7 @@ extension BrewPackage
         {
             let rawDecodedPackageInfo: PackageCommandOutput = try decoder.decode(PackageCommandOutput.self, from: decodableData)
 
-            switch self.type
+            switch type
             {
             case .formula:
                 guard let formulaInfo: PackageCommandOutput.Formulae = rawDecodedPackageInfo.formulae?.first
@@ -293,7 +288,7 @@ extension BrewPackage
                     dependencies: formulaInfo.extractDependencies(),
                     outdated: formulaInfo.outdated,
                     caveats: formulaInfo.caveats,
-                    pinned: formulaInfo.pinned, 
+                    pinned: formulaInfo.pinned,
                     isCompatible: formulaInfo.getCompatibility()
                 )
 

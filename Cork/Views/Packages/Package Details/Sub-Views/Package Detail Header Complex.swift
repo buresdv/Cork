@@ -11,7 +11,7 @@ struct PackageDetailHeaderComplex: View
 {
     let package: BrewPackage
     @ObservedObject var packageDetails: BrewPackageDetails
-    
+
     let isLoadingDetails: Bool
 
     var body: some View
@@ -41,7 +41,7 @@ struct PackageDetailHeaderComplex: View
                     {
                         if let packageDependents = packageDetails.dependents
                         {
-                            if packageDependents.count != 0 // This happens when the package was originally installed as a dependency, but the parent is no longer installed
+                            if !packageDependents.isEmpty // This happens when the package was originally installed as a dependency, but the parent is no longer installed
                             {
                                 OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.formatted(.list(type: .and)))", color: .secondary)
                             }

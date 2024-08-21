@@ -10,9 +10,9 @@ import SwiftUI
 struct InstallationTerminatedUnexpectedlyView: View
 {
     let terminalOutputOfTheInstallation: [RealTimeTerminalLine]
-    
+
     @State private var usableLiveTerminalOutput: [RealTimeTerminalLine] = .init()
-    
+
     var body: some View
     {
         ComplexWithIcon(systemName: "xmark.seal")
@@ -24,10 +24,11 @@ struct InstallationTerminatedUnexpectedlyView: View
                     subheadline: "add-package.install.installation-terminated.subheadline",
                     alignment: .leading
                 )
-                
+
                 DisclosureGroup
                 {
-                    List {
+                    List
+                    {
                         ForEach(usableLiveTerminalOutput)
                         { outputLine in
                             Text(outputLine.line)
@@ -41,7 +42,7 @@ struct InstallationTerminatedUnexpectedlyView: View
                 HStack
                 {
                     Spacer()
-                    
+
                     DismissSheetButton()
                 }
             }

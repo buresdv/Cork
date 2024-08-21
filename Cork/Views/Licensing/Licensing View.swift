@@ -11,22 +11,23 @@ struct LicensingView: View
 {
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
-    
+
     @EnvironmentObject var appState: AppState
-    
+
     var body: some View
     {
         VStack
         {
-            switch appState.licensingState {
-                case .notBoughtOrHasNotActivatedDemo:
-                    Licensing_NotBoughtOrActivatedView()
-                case .demo:
-                    Licensing_DemoView()
-                case .bought:
-                    Licensing_BoughtView()
-                case .selfCompiled:
-                    Licensing_SelfCompiledView()
+            switch appState.licensingState
+            {
+            case .notBoughtOrHasNotActivatedDemo:
+                Licensing_NotBoughtOrActivatedView()
+            case .demo:
+                Licensing_DemoView()
+            case .bought:
+                Licensing_BoughtView()
+            case .selfCompiled:
+                Licensing_SelfCompiledView()
             }
         }
         .onAppear
@@ -38,7 +39,7 @@ struct LicensingView: View
             else
             {
                 AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
-                
+
                 if hasValidatedEmail
                 {
                     appState.licensingState = .bought

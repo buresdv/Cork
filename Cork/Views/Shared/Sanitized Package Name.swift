@@ -12,7 +12,7 @@ struct SanitizedPackageName: View
 {
     let packageName: String
     @State var shouldShowVersion: Bool
-    
+
     var packageNameWithoutTapName: String
     {
         if packageName.contains("/")
@@ -38,9 +38,10 @@ struct SanitizedPackageName: View
         { /// Only do the matching if the name contains @
             if let sanitizedName = try? regexMatch(from: packageNameWithoutTapName, regex: ".+?(?=@)")
             { /// Try to REGEX-match the name out of the raw name
-                HStack(alignment: .firstTextBaseline, spacing: 5) {
+                HStack(alignment: .firstTextBaseline, spacing: 5)
+                {
                     Text(sanitizedName)
-                    
+
                     if shouldShowVersion
                     {
                         /// The version is the length of the package name, + 1 due to the @ character

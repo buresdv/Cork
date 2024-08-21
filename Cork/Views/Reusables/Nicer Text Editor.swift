@@ -20,4 +20,3 @@ struct NicerTextEditor: View
             .border(Color(nsColor: NSColor.separatorColor))
     }
 }
-

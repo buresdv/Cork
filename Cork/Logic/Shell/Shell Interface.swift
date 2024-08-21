@@ -21,9 +21,9 @@ func shell(
     {
         switch streamedOutput
         {
-        case let .standardOutput(output):
+        case .standardOutput(let output):
             allOutput.append(output)
-        case let .standardError(error):
+        case .standardError(let error):
             allErrors.append(error)
         }
     }
@@ -33,7 +33,6 @@ func shell(
         standardError: allErrors.joined()
     )
 }
-
 
 /// # Usage:
 /// for await output in shell(AppConstants.brewExecutablePath, ["install", package.name])
@@ -45,18 +44,20 @@ func shell(
 ///    case let .error(errorLine):
 ///        // Do something with `errorLine`
 ///    }
-///}
+/// }
 func shell(
     _ launchPath: URL,
     _ arguments: [String],
     environment: [String: String]? = nil,
     workingDirectory: URL? = nil
-) -> AsyncStream<StreamedTerminalOutput> {
-    let task = Process()
-    
+) -> AsyncStream<StreamedTerminalOutput>
+{
+    let task: Process = .init()
+
     var finalEnvironment: [String: String] = .init()
-    
+
     // MARK: - Set up the $HOME environment variable so brew commands work on versions 4.1 and up
+
     if var environment
     {
         environment["HOME"] = FileManager.default.homeDirectoryForCurrentUser.path
@@ -66,43 +67,46 @@ func shell(
     {
         finalEnvironment = ["HOME": FileManager.default.homeDirectoryForCurrentUser.path]
     }
-    
+
     // MARK: - Set up proxy if it's enabled
+
     if let proxySettings = AppConstants.proxySettings
     {
         AppConstants.logger.info("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
-    
+
     // MARK: - Block automatic cleanup is configured
+
     if !UserDefaults.standard.bool(forKey: "isAutomaticCleanupEnabled")
     {
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
-    
+
     AppConstants.logger.debug("Final environment: \(finalEnvironment)")
-    
+
     // MARK: - Set working directory if provided
+
     if let workingDirectory
     {
         AppConstants.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
-    
+
     let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
-    
+
     finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
-    
+
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
     task.arguments = arguments
 
-    let pipe = Pipe()
+    let pipe: Pipe = .init()
     task.standardOutput = pipe
-    
-    let errorPipe = Pipe()
+
+    let errorPipe: Pipe = .init()
     task.standardError = errorPipe
-    
+
     do
     {
         try task.run()
@@ -112,20 +116,27 @@ func shell(
         AppConstants.logger.error("\(String(describing: error))")
     }
 
-    return AsyncStream { continuation in
+    return AsyncStream
+    { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
-            guard let standardOutput = String(data: handler.availableData, encoding: .utf8) else
+            guard let standardOutput = String(data: handler.availableData, encoding: .utf8)
+            else
             {
                 return
             }
 
-            guard !standardOutput.isEmpty else { return }
+            guard !standardOutput.isEmpty
+            else
+            {
+                return
+            }
 
             continuation.yield(.standardOutput(standardOutput))
         }
 
         errorPipe.fileHandleForReading.readabilityHandler = { handler in
-            guard let errorOutput = String(data: handler.availableData, encoding: .utf8) else
+            guard let errorOutput = String(data: handler.availableData, encoding: .utf8)
+            else
             {
                 return
             }

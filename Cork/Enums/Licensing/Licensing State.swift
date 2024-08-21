@@ -10,9 +10,9 @@ import Foundation
 enum LicensingState
 {
     case notBoughtOrHasNotActivatedDemo
-    
+
     case demo
     case bought
-    
+
     case selfCompiled
 }

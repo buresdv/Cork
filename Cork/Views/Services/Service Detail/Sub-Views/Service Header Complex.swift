@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ServiceHeaderComplex: View
 {
-    
     let service: HomebrewService
-    
+
     var body: some View
     {
         Section

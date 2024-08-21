@@ -11,14 +11,14 @@ import SwiftUI
 @MainActor
 func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability
 {
-    let showRealTimeTerminalOutputs = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
+    let showRealTimeTerminalOutputs: Bool = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
 
     for await output in shell(AppConstants.brewExecutablePath, ["update"])
     {
         switch output
         {
-        case let .standardOutput(outputLine):
-                AppConstants.logger.log("Update function output: \(outputLine, privacy: .public)")
+        case .standardOutput(let outputLine):
+            AppConstants.logger.log("Update function output: \(outputLine, privacy: .public)")
 
             if showRealTimeTerminalOutputs
             {
@@ -36,7 +36,7 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
                 }
             }
 
-        case let .standardError(errorLine):
+        case .standardError(let errorLine):
 
             if showRealTimeTerminalOutputs
             {

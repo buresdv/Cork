@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 /// What this function does:
 /// **Background**
 /// When a package is installed or uninstalled, its dependencies don't show up in the package list, because there's no system for getting them. I needed a way for all new packages to show up/disappear even when they were not installed manually
@@ -32,10 +31,9 @@ import SwiftUI
 ///         4. In the second for loop, check each package in the old array against each package in the final *mutable* array. If the names of packages match, remove them; if they match, it means that this package has been removed
 
 @MainActor
-func synchronizeInstalledPackages(brewData: BrewDataStorage) async -> Void
+func synchronizeInstalledPackages(brewData: BrewDataStorage) async
 {
-
-    let dummyAppState: AppState = AppState()
+    let dummyAppState: AppState = .init()
     dummyAppState.isLoadingFormulae = false
     dummyAppState.isLoadingCasks = false
 
@@ -45,7 +43,7 @@ func synchronizeInstalledPackages(brewData: BrewDataStorage) async -> Void
 
     if newFormulae.count != brewData.installedFormulae.count
     {
-        withAnimation 
+        withAnimation
         {
             brewData.installedFormulae = newFormulae
         }
@@ -53,7 +51,7 @@ func synchronizeInstalledPackages(brewData: BrewDataStorage) async -> Void
 
     if newCasks.count != brewData.installedCasks.count
     {
-        withAnimation 
+        withAnimation
         {
             brewData.installedCasks = newCasks
         }

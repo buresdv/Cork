@@ -16,7 +16,7 @@ struct SidebarView: View
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
     @State private var availableTokens: [PackageSearchToken] = [
-        .formula, .cask, .tap, .intentionallyInstalledPackage,
+        .formula, .cask, .tap, .intentionallyInstalledPackage
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
 

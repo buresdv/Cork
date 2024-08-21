@@ -10,14 +10,14 @@ import Foundation
 
 struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
 {
-    var id: UUID = UUID()
+    var id: UUID = .init()
 
     var name: String
 
     var type: PackageType
-    
+
     var installDate: Date?
-    
+
     var installedIntentionally: Bool
 
     static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
@@ -25,12 +25,12 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
     var displayRepresentation: DisplayRepresentation
     {
         DisplayRepresentation(
-            title: "\(self.name)",
+            title: "\(name)",
             subtitle: "intents.type.minimal-homebrew-package.representation.subtitle"
         )
     }
 
-    static var defaultQuery = MinimalHomebrewPackageIntentQuery()
+    static var defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
 }
 
 struct MinimalHomebrewPackageIntentQuery: EntityQuery

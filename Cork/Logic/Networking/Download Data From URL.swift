@@ -34,7 +34,7 @@ enum DataDownloadingError: LocalizedError
 
 func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async throws -> Data
 {
-    let sessionConfiguration = URLSessionConfiguration.default
+    let sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
     if AppConstants.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
@@ -46,7 +46,7 @@ func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async th
 
     let session: URLSession = .init(configuration: sessionConfiguration)
 
-    var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+    var urlComponents: URLComponents? = .init(url: url, resolvingAgainstBaseURL: false)
     urlComponents?.queryItems = parameters
     guard let modifiedURL = urlComponents?.url
     else
@@ -58,14 +58,14 @@ func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async th
 
     request.httpMethod = "GET"
 
-    let (data, response) = try await session.data(for: request)
+    let (data, response): (Data, URLResponse) = try await session.data(for: request)
 
     guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
     else
     {
         AppConstants.logger.error("Received invalid networking response: \(response)")
 
-        let responseCast = response as? HTTPURLResponse
+        let responseCast: HTTPURLResponse? = response as? HTTPURLResponse
         throw DataDownloadingError.invalidResponseCode(responseCode: responseCast?.statusCode)
     }
 

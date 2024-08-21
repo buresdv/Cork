@@ -11,12 +11,12 @@ struct CustomHomebrewExecutableView: View
 {
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
     @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
-    
+
     @EnvironmentObject var settingsState: SettingsState
-    
+
     @State private var isShowingCustomLocationDialog: Bool = false
     @State private var isShowingCustomLocationConfirmation: Bool = false
-    
+
     var body: some View
     {
         Form
@@ -78,7 +78,7 @@ struct CustomHomebrewExecutableView: View
         { result in
             switch result
             {
-            case let .success(success):
+            case .success(let success):
                 if success.first!.lastPathComponent == "brew"
                 {
                     AppConstants.logger.info("Valid brew executable: \(success.first!.path)")
@@ -92,7 +92,7 @@ struct CustomHomebrewExecutableView: View
                     settingsState.alertType = .customHomebrewLocationNotABrewExecutable(executablePath: success.first!.path)
                     settingsState.isShowingAlert = true
                 }
-            case let .failure(failure):
+            case .failure(let failure):
                 AppConstants.logger.error("Failure: \(failure)")
 
                 settingsState.alertType = .customHomebrewLocationNotAnExecutableAtAll

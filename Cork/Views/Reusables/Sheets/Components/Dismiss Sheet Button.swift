@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DismissSheetButton: View
 {
-    @Environment(\.dismiss) var dismiss
-    
+    @Environment(\.dismiss) var dismiss: DismissAction
+
     @State var customButtonText: LocalizedStringKey?
 
     var body: some View

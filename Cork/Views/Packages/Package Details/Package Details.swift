@@ -10,14 +10,14 @@ import SwiftUI
 struct PackageDetailView: View, Sendable
 {
     let package: BrewPackage
-    
+
     @State private var packageDetails: BrewPackageDetails? = nil
 
     @EnvironmentObject var brewData: BrewDataStorage
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     @State private var isShowingExpandedDependencies: Bool = false
     @State private var isShowingExpandedCaveats: Bool = false
 
@@ -97,7 +97,6 @@ struct PackageDetailView: View, Sendable
                     isLoadingDetails: isLoadingDetails
                 )
             }
-             
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(priority: .userInitiated)

@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct LargeButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {        
+struct LargeButtonStyle: ButtonStyle
+{
+    func makeBody(configuration: Configuration) -> some View
+    {
         configuration.label
             .padding(.horizontal, 27)
             .padding(.vertical, 7)
@@ -18,4 +20,3 @@ struct LargeButtonStyle: ButtonStyle {
             .shadow(radius: 1)
     }
 }
-

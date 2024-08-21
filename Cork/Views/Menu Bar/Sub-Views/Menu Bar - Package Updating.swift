@@ -9,10 +9,9 @@ import SwiftUI
 
 struct MenuBar_PackageUpdating: View
 {
-    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    
+
     var body: some View
     {
         if appState.isCheckingForPackageUpdates
@@ -22,7 +21,7 @@ struct MenuBar_PackageUpdating: View
         }
         else
         {
-            if outdatedPackageTracker.displayableOutdatedPackages.count > 0
+            if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
                 Menu
                 {

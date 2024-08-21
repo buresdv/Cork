@@ -15,7 +15,7 @@ struct SearchResultRow: View, Sendable
     @EnvironmentObject var brewData: BrewDataStorage
 
     let searchedForPackage: BrewPackage
-    
+
     @State private var description: String?
     @State private var isCompatible: Bool?
 
@@ -51,7 +51,8 @@ struct SearchResultRow: View, Sendable
                     {
                         if showCompatibilityWarning
                         {
-                            HStack(alignment: .center, spacing: 4) {
+                            HStack(alignment: .center, spacing: 4)
+                            {
                                 Image(systemName: "exclamationmark.circle")
                                 Text("add-package.result.not-optimized-for-\(AppConstants.osVersionString.fullName)")
                             }
@@ -61,7 +62,7 @@ struct SearchResultRow: View, Sendable
                     }
                 }
             }
-            
+
             if showDescriptionsInSearchResults
             {
                 if !descriptionParsingFailed
@@ -92,7 +93,6 @@ struct SearchResultRow: View, Sendable
                         .foregroundColor(.orange)
                 }
             }
-            
         }
         .task
         {
@@ -106,28 +106,27 @@ struct SearchResultRow: View, Sendable
                     {
                         isLoadingDescription = false
                     }
-                    
+
                     AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
 
                     do
                     {
                         let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
-                        
+
                         do
                         {
                             let parsedPackageInfo: BrewPackageDetails = try await searchedForPackage.loadDetails()
-                            
+
                             description = parsedPackageInfo.description
-                            
+
                             isCompatible = parsedPackageInfo.isCompatible
                         }
                         catch let descriptionParsingError
                         { // This happens when a package doesn' have any description at all, hence why we don't display an error
                             AppConstants.logger.error("Failed while parsing searched-for package info: \(descriptionParsingError.localizedDescription, privacy: .public)")
-                            
+
                             descriptionParsingFailed = true
                         }
-
                     }
                 }
                 else

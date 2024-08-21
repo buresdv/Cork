@@ -24,7 +24,7 @@ struct PackagesIncludedInTapList: View
             {
                 List
                 {
-                    ForEach(Array(searchString.isEmpty ? packages.sorted() : packages.filter({ $0.localizedCaseInsensitiveContains(searchString) }).sorted()), id: \.self)
+                    ForEach(Array(searchString.isEmpty ? packages.sorted() : packages.filter { $0.localizedCaseInsensitiveContains(searchString) }.sorted()), id: \.self)
                     { package in
                         HStack(alignment: .center)
                         {

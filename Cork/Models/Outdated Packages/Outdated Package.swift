@@ -9,12 +9,12 @@ import Foundation
 
 struct OutdatedPackage: Identifiable, Equatable, Hashable
 {
-    let id: UUID = UUID()
-    
+    let id: UUID = .init()
+
     let package: BrewPackage
-    
+
     let installedVersions: [String]
     let newerVersion: String
-    
+
     var isMarkedForUpdating: Bool = true
 }

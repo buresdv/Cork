@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddTapInitialView: View
 {
-    @Environment(\.dismiss) var dismiss
-    
+    @Environment(\.dismiss) var dismiss: DismissAction
+
     @Binding var requestedTap: String
     @Binding var forcedRepoAddress: String
     @Binding var progress: TapAddingStates

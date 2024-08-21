@@ -21,7 +21,7 @@ class SettingsState: ObservableObject
 struct SettingsView: View
 {
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled = true
+    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
 
     @StateObject var settingsState: SettingsState = .init()
 
@@ -107,7 +107,7 @@ struct SettingsView: View
                 )
             case .customHomebrewLocationNotAnExecutableAtAll:
                 return Alert(title: Text("settings.brew.custom-homebrew-path.error.not-an-executable-at-all"))
-                case .customHomebrewLocationNotABrewExecutable(let executablePath):
+            case .customHomebrewLocationNotABrewExecutable(let executablePath):
                 return Alert(title: Text("settings.brew.custom-homebrew-path.error.not-a-brew-executable-\(executablePath)"))
             }
         }

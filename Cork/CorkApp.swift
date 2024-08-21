@@ -5,24 +5,26 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+// swiftlint:disable file_length
+
+import DavidFoundation
 import SwiftUI
 import UserNotifications
-import DavidFoundation
 
 @main
 struct CorkApp: App
 {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
-    @StateObject var brewData = BrewDataStorage()
-    @StateObject var availableTaps = AvailableTaps()
+    @StateObject var brewData: BrewDataStorage = .init()
+    @StateObject var availableTaps: AvailableTaps = .init()
 
-    @StateObject var topPackagesTracker = TopPackagesTracker()
+    @StateObject var topPackagesTracker: TopPackagesTracker = .init()
 
-    @StateObject var updateProgressTracker = UpdateProgressTracker()
-    @StateObject var outdatedPackageTracker = OutdatedPackageTracker()
+    @StateObject var updateProgressTracker: UpdateProgressTracker = .init()
+    @StateObject var outdatedPackageTracker: OutdatedPackageTracker = .init()
 
-    @StateObject var uninstallationConfirmationTracker = UninstallationConfirmationTracker()
+    @StateObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker = .init()
 
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
@@ -31,8 +33,8 @@ struct CorkApp: App
 
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
-    @Environment(\.openWindow) private var openWindow
-    @AppStorage("showInMenuBar") var showInMenuBar = false
+    @Environment(\.openWindow) private var openWindow: OpenWindowAction
+    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
@@ -47,7 +49,7 @@ struct CorkApp: App
     @AppStorage("lastSubmittedCorkVersion") var lastSubmittedCorkVersion: String = ""
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
-        let scheduler = NSBackgroundActivityScheduler(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
+        let scheduler: NSBackgroundActivityScheduler = .init(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
         scheduler.repeats = true
         scheduler.interval = AppConstants.backgroundUpdateInterval
         scheduler.tolerance = AppConstants.backgroundUpdateIntervalTolerance
@@ -92,7 +94,7 @@ struct CorkApp: App
                 {
                     if lastSubmittedCorkVersion.isEmpty
                     { /// Make sure we have a Cork version to check against
-                        let currentCorkVersion = "1.4.1"
+                        let currentCorkVersion: String = "1.4.1"
 
                         #if DEBUG
                             AppConstants.logger.debug("There's no saved Cork version - Will save 1.4.1")
@@ -134,14 +136,14 @@ struct CorkApp: App
                                 if let demoActivatedAt
                                 {
                                     let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
-                                    
+
                                     AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-                                    
+
                                     AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-                                    
+
                                     if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
                                     { // Check if there is still time on the demo
-                                      /// do stuff if there is
+                                        /// do stuff if there is
                                     }
                                     else
                                     {
@@ -161,7 +163,7 @@ struct CorkApp: App
 
                         Task(priority: .background)
                         {
-                            var updateResult = await shell(AppConstants.brewExecutablePath, ["update"])
+                            var updateResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["update"])
 
                             AppConstants.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
 
@@ -171,7 +173,7 @@ struct CorkApp: App
 
                                 try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewData: brewData)
 
-                                var newOutdatedPackages = temporaryOutdatedPackageTracker.outdatedPackages
+                                var newOutdatedPackages: Set<OutdatedPackage> = temporaryOutdatedPackageTracker.outdatedPackages
 
                                 AppConstants.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
 
@@ -190,7 +192,7 @@ struct CorkApp: App
                                     /// Set this to `true` so the normal notification doesn't get sent
                                     sendStandardUpdatesAvailableNotification = false
 
-                                    let differentPackages = newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
+                                    let differentPackages: Set<OutdatedPackage> = newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
                                     AppConstants.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
@@ -226,9 +228,8 @@ struct CorkApp: App
                 }
                 .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
                 { outdatedPackageCount in
-
                     AppConstants.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
-                    
+
                     // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
                     withAnimation
                     {
@@ -404,7 +405,7 @@ struct CorkApp: App
 
         // MARK: - Menu Bar Extra
 
-        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.displayableOutdatedPackages.count == 0 ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.displayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
                 .environmentObject(appDelegate.appState)
@@ -443,28 +444,26 @@ struct CorkApp: App
                 ButtonThatOpensWebsites(
                     websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
                 )
-                
+
                 /*
-                Button
-                {
-                    let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
-                    let emailBody = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
+                 Button
+                 {
+                     let emailSubject = "Cork Error Report: v\(NSApplication.appVersion!)-\(NSApplication.buildVersion!)"
+                     let emailBody = "This is what went wrong:\n\nThis is what I expected to happen:\n\nDid Cork crash?"
 
-                    let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
-                    emailService?.recipients = ["bug-reporting@corkmac.app"]
-                    emailService?.subject = emailSubject
-                    emailService?.perform(withItems: [emailBody])
+                     let emailService = NSSharingService(named: NSSharingService.Name.composeEmail)
+                     emailService?.recipients = ["bug-reporting@corkmac.app"]
+                     emailService?.subject = emailSubject
+                     emailService?.perform(withItems: [emailBody])
 
-                } label: {
-                    Text("action.report-bugs.email")
-                }
-                 */
+                 } label: {
+                     Text("action.report-bugs.email")
+                 }
+                  */
 
             } label: {
                 Text("action.report-bugs.menu-category")
             }
-
-            
 
             Divider()
         #endif
@@ -519,9 +518,8 @@ struct CorkApp: App
                 }
                 catch let brewfileExportError as BrewfileDumpingError
                 {
-                    
                     AppConstants.logger.error("\(brewfileExportError)")
-                    
+
                     switch brewfileExportError
                     {
                     case .couldNotDetermineWorkingDirectory:
@@ -545,7 +543,7 @@ struct CorkApp: App
             {
                 do
                 {
-                    let picker = NSOpenPanel()
+                    let picker: NSOpenPanel = .init()
                     picker.allowsMultipleSelection = false
                     picker.canChooseDirectories = false
                     picker.allowedFileTypes = ["brewbak", ""]
@@ -567,7 +565,7 @@ struct CorkApp: App
                         catch let brewfileImportingError
                         {
                             AppConstants.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
-                            
+
                             appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
 
                             appDelegate.appState.isShowingBrewfileImportProgress = false
@@ -674,7 +672,7 @@ struct CorkApp: App
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
         {
-            if outdatedPackageTracker.displayableOutdatedPackages.count > 0
+            if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
                 NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.displayableOutdatedPackages.count)
             }

@@ -5,8 +5,8 @@
 //  Created by David Bureš on 30.03.2024.
 //
 
-import Foundation
 import AppKit
+import Foundation
 
 func switchCorkToForeground()
 {
@@ -17,7 +17,7 @@ func switchCorkToForeground()
     else
     {
         let runningApps: [NSRunningApplication] = NSWorkspace.shared.runningApplications
-        
+
         for app in runningApps
         {
             if app.localizedName == "Cork"
@@ -29,4 +29,4 @@ func switchCorkToForeground()
             }
         }
     }
-    }
+}

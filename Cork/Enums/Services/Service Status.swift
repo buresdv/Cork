@@ -44,8 +44,8 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
 
     init(from decoder: Decoder) throws
     {
-        let container = try decoder.singleValueContainer()
-        let rawValue = try container.decode(String.self)
+        let container: SingleValueDecodingContainer = try decoder.singleValueContainer()
+        let rawValue: String = try container.decode(String.self)
 
         switch rawValue
         {
@@ -66,7 +66,7 @@ enum ServiceStatus: Codable, Hashable, CustomStringConvertible
 
     func encode(to encoder: Encoder) throws
     {
-        var container = encoder.singleValueContainer()
+        var container: SingleValueEncodingContainer = encoder.singleValueContainer()
         try container.encode(description)
     }
 

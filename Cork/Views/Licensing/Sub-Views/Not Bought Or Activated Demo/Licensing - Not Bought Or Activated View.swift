@@ -11,7 +11,7 @@ struct Licensing_NotBoughtOrActivatedView: View
 {
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
 
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
 
@@ -180,7 +180,7 @@ struct Licensing_NotBoughtOrActivatedView: View
                         catch let licenseCheckingError as CorkLicenseRetrievalError
                         {
                             AppConstants.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
-                            
+
                             switch licenseCheckingError
                             {
                             case .authorizationComplexNotEncodedProperly:

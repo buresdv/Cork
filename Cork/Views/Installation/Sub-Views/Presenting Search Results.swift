@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PresentingSearchResultsView: View
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
 

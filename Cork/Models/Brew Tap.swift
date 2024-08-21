@@ -9,13 +9,13 @@ import Foundation
 
 struct BrewTap: Identifiable, Hashable
 {
-    let id = UUID()
+    let id: UUID = .init()
     let name: String
-    
+
     var isBeingModified: Bool = false
-    
-    mutating func changeBeingModifiedStatus() -> Void
+
+    mutating func changeBeingModifiedStatus()
     {
-        self.isBeingModified.toggle()
+        isBeingModified.toggle()
     }
 }

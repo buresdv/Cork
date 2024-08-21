@@ -12,9 +12,9 @@ import SwiftUI
 class OutdatedPackageTracker: ObservableObject, Sendable
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-    
+
     @Published var outdatedPackages: Set<OutdatedPackage> = .init()
-    
+
     var displayableOutdatedPackages: Set<OutdatedPackage>
     {
         if displayOnlyIntentionallyInstalledPackagesByDefault

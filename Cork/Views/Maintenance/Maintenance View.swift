@@ -60,7 +60,7 @@ struct MaintenanceView: View
                     shouldDeleteDownloads: shouldDeleteDownloads,
                     shouldPerformHealthCheck: shouldPerformHealthCheck,
                     numberOfOrphansRemoved: $numberOfOrphansRemoved,
-                    packagesHoldingBackCachePurge: $packagesHoldingBackCachePurge, 
+                    packagesHoldingBackCachePurge: $packagesHoldingBackCachePurge,
                     reclaimedSpaceAfterCachePurge: $reclaimedSpaceAfterCachePurge,
                     brewHealthCheckFoundNoProblems: $brewHealthCheckFoundNoProblems,
                     maintenanceSteps: $maintenanceSteps
@@ -72,7 +72,7 @@ struct MaintenanceView: View
                     shouldPurgeCache: shouldPurgeCache,
                     shouldDeleteDownloads: shouldDeleteDownloads,
                     shouldPerformHealthCheck: shouldPerformHealthCheck,
-                    packagesHoldingBackCachePurge: packagesHoldingBackCachePurge, 
+                    packagesHoldingBackCachePurge: packagesHoldingBackCachePurge,
                     numberOfOrphansRemoved: numberOfOrphansRemoved,
                     reclaimedSpaceAfterCachePurge: reclaimedSpaceAfterCachePurge,
                     brewHealthCheckFoundNoProblems: brewHealthCheckFoundNoProblems,

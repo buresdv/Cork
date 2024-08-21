@@ -12,12 +12,12 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {
-    @AppStorage("showInMenuBar") var showInMenuBar = false
+    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
-    
-    @MainActor let appState = AppState()
-    
-    func applicationWillFinishLaunching(_ notification: Notification) 
+
+    @MainActor let appState: AppState = .init()
+
+    func applicationWillFinishLaunching(_: Notification)
     {
         if startWithoutWindow
         {
@@ -28,26 +28,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
             NSApp.setActivationPolicy(.regular)
         }
     }
-    
-    func applicationDidFinishLaunching(_ notification: Notification) 
+
+    func applicationDidFinishLaunching(_: Notification)
     {
         if startWithoutWindow
         {
-            if let window = NSApplication.shared.windows.first {
+            if let window = NSApplication.shared.windows.first
+            {
                 window.close()
             }
         }
     }
-    
-    func applicationWillBecomeActive(_ notification: Notification) 
+
+    func applicationWillBecomeActive(_: Notification)
     {
         NSApp.setActivationPolicy(.regular)
     }
-    func applicationWillUnhide(_ notification: Notification) 
+
+    func applicationWillUnhide(_: Notification)
     {
         NSApp.setActivationPolicy(.regular)
     }
-    
+
     func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool
     {
         if showInMenuBar
@@ -62,7 +64,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
         }
     }
 
-    func applicationWillTerminate(_ notification: Notification) {
+    func applicationWillTerminate(_: Notification)
+    {
         AppConstants.logger.debug("Will die...")
         do
         {
@@ -74,15 +77,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
         }
         AppConstants.logger.debug("Died")
     }
-    
-    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
-        let menu = NSMenu()
+
+    func applicationDockMenu(_: NSApplication) -> NSMenu?
+    {
+        let menu: NSMenu = .init()
         menu.autoenablesItems = false
-        
-        let updatePackagesMenuItem = NSMenuItem()
+
+        let updatePackagesMenuItem: NSMenuItem = .init()
         updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
         updatePackagesMenuItem.target = appState
-        
+
         if appState.isCheckingForPackageUpdates
         {
             updatePackagesMenuItem.title = String(localized: "start-page.updates.loading")
@@ -98,9 +102,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
             updatePackagesMenuItem.title = String(localized: "navigation.menu.packages.update")
             updatePackagesMenuItem.isEnabled = true
         }
-        
+
         menu.addItem(updatePackagesMenuItem)
-        
+
         return menu
     }
 }

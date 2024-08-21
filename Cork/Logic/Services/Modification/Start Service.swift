@@ -15,7 +15,7 @@ extension ServicesTracker
         {
             switch output
             {
-            case let .standardOutput(outputLine):
+            case .standardOutput(let outputLine):
                 AppConstants.logger.debug("Services startup output line: \(outputLine)")
                 switch outputLine
                 {
@@ -27,7 +27,7 @@ extension ServicesTracker
 
                 serviceModificationProgress.progress += 1
 
-            case let .standardError(errorLine):
+            case .standardError(let errorLine):
                 switch errorLine
                 {
                 case _ where errorLine.contains("must be run as root"):
@@ -40,14 +40,13 @@ extension ServicesTracker
 
                     servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine))
                 }
-
             }
         }
 
         do
         {
             serviceModificationProgress.progress = 5.0
-            
+
             try await synchronizeServices(preserveIDs: true)
         }
         catch let servicesSynchronizationError

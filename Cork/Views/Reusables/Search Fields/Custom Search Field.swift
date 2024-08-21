@@ -36,7 +36,7 @@ struct CustomSearchField: NSViewRepresentable
 
     func makeNSView(context _: Context) -> NSSearchField
     {
-        let searchField = NSSearchField(frame: .zero)
+        let searchField: NSSearchField = .init(frame: .zero)
 
         if let customPromptText
         {

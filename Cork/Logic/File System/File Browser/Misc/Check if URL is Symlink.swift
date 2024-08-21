@@ -13,14 +13,14 @@ extension URL
     {
         do
         {
-            let fileAttributes = try self.resourceValues(forKeys: [.isSymbolicLinkKey])
-            
+            let fileAttributes: URLResourceValues = try resourceValues(forKeys: [.isSymbolicLinkKey])
+
             return fileAttributes.isSymbolicLink
         }
         catch let symlinkCheckingError
         {
             AppConstants.logger.error("Error checking if \(self) is symlink: \(symlinkCheckingError)")
-            
+
             return nil
         }
     }

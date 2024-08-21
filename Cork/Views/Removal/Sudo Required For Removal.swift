@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct SudoRequiredForRemovalSheet: View, Sendable 
+struct SudoRequiredForRemovalSheet: View, Sendable
 {
-    @Environment(\.dismiss) var dismiss
-    
+    @Environment(\.dismiss) var dismiss: DismissAction
+
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
-    
+
     var body: some View
     {
         if let package = appState.packageTryingToBeUninstalledWithSudo
@@ -26,22 +26,22 @@ struct SudoRequiredForRemovalSheet: View, Sendable
                     {
                         Text("add-package.uninstall.requires-sudo-password-\(package.name)")
                             .font(.headline)
-                        
+
                         ManualUninstallInstructions(package: package)
                     }
                 }
-                
+
                 Text("add.package.uninstall.requires-sudo-password.terminal-instructions-\(package.name)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
-                
+
                 HStack
                 {
                     Button
                     {
                         dismiss()
-                        
+
                         Task.detached
                         {
                             await synchronizeInstalledPackages(brewData: brewData)
@@ -50,9 +50,9 @@ struct SudoRequiredForRemovalSheet: View, Sendable
                         Text("action.close")
                     }
                     .keyboardShortcut(.cancelAction)
-                    
+
                     Spacer()
-                    
+
                     Button
                     {
                         openTerminal()
@@ -71,28 +71,28 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 private struct ManualUninstallInstructions: View
 {
     let package: BrewPackage
-    
+
     let isPurgingPackage: Bool = false
-    
+
     var manualUninstallCommand: String
     {
         return "brew uninstall \(package.type == .cask ? "--cask" : "") \(isPurgingPackage ? "--zap" : "") \(package.name)"
     }
-    
+
     var body: some View
     {
         VStack
         {
             Text("add-package.uninstall.requires-sudo-password.description")
-            
+
             GroupBox
             {
                 HStack(alignment: .center, spacing: 5)
                 {
                     Text(manualUninstallCommand)
-                    
+
                     Divider()
-                    
+
                     Button
                     {
                         manualUninstallCommand.copyToClipboard()

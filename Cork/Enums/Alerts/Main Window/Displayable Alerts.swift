@@ -26,6 +26,7 @@ enum DisplayableAlert: LocalizedError
     case couldNotSynchronizePackages(error: String)
 
     // MARK: - Brewfile exporting/importing
+
     case couldNotGetWorkingDirectory, couldNotDumpBrewfile(error: String), couldNotReadBrewfile
     case couldNotGetBrewfileLocation, couldNotImportBrewfile, malformedBrewfile
 }

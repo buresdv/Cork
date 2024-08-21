@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct WrongArchitectureView: View, Sendable {
-    
-    @Environment(\.dismiss) var dismiss
-    
+struct WrongArchitectureView: View, Sendable
+{
+    @Environment(\.dismiss) var dismiss: DismissAction
+
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
-    
-    var body: some View {
+
+    var body: some View
+    {
         ComplexWithIcon(systemName: "cpu")
         {
             VStack(alignment: .leading, spacing: 10)
@@ -23,16 +24,17 @@ struct WrongArchitectureView: View, Sendable {
                 HeadlineWithSubheadline(
                     headline: "add-package.install.wrong-architecture.title",
                     subheadline: "add-package.install.wrong-architecture-\(installationProgressTracker.packageBeingInstalled.package.name).user-architecture-is-\(ProcessInfo().CPUArchitecture == .arm ? "Apple Silicon" : "Intel")",
-                    alignment: .leading)
-                
+                    alignment: .leading
+                )
+
                 HStack
                 {
                     Spacer()
-                    
+
                     Button
                     {
                         dismiss()
-                        
+
                         Task.detached
                         {
                             await synchronizeInstalledPackages(brewData: brewData)
