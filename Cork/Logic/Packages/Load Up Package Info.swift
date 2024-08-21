@@ -97,7 +97,7 @@ extension BrewPackage
                 }
 
                 /// The stable files
-                let stable: Stable?
+                let stable: Stable
             }
 
             /// Info about the relevant files
@@ -128,27 +128,20 @@ extension BrewPackage
                     .init(name: dependency.fullName, version: dependency.version, directlyDeclared: dependency.declaredDirectly)
                 }
             }
-            
-            func getCompatibility() -> Bool?
+
+            func getCompatibility() -> Bool
             {
-                if let stableFiles = bottle.stable
+                for compatibleSystem in bottle.stable.files.keys
                 {
-                    for compatibleSystem in stableFiles.files.keys
+                    if compatibleSystem.contains(AppConstants.osVersionString.lookupName)
                     {
-                        if compatibleSystem.contains(AppConstants.osVersionString.lookupName)
-                        {
-                            AppConstants.logger.debug("Package \(self.name) is compatible")
-                            return true
-                        }
+                        AppConstants.logger.debug("Package \(name) is compatible")
+                        return true
                     }
-                    
-                    AppConstants.logger.debug("Package \(self.name) is NOT compatible")
-                    return false
                 }
-                else
-                {
-                    return nil
-                }
+
+                AppConstants.logger.debug("Package \(name) is NOT compatible")
+                return false
             }
         }
 
