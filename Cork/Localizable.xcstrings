@@ -8164,7 +8164,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld завантажень"
+                  "value" : "%lld завантаження"
                 }
               }
             }
@@ -17201,7 +17201,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld зайвих пакета видалено"
+                  "value" : "%lld зайвих пакетів видалено"
                 }
               },
               "many" : {
@@ -17870,8 +17870,8 @@
             "plural" : {
               "few" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакета не оновлено"
+                  "state" : "translated",
+                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакети не оновлено"
                 }
               },
               "many" : {
@@ -19692,7 +19692,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld пакета встановлено"
+                  "value" : "%lld пакети встановлено"
                 }
               },
               "many" : {
@@ -21109,7 +21109,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "У Вас %lld застарілих пакета"
+                  "value" : "У Вас %lld застарілих пакети"
                 }
               },
               "many" : {
@@ -26077,7 +26077,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Ви маєте %lld активних сервіса"
+                  "value" : "Ви маєте %lld активних сервіси"
                 }
               },
               "many" : {
@@ -26325,7 +26325,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Ви маєте %lld сервіса з помилками"
+                  "value" : "Ви маєте %lld сервіси з помилками"
                 }
               },
               "many" : {
@@ -26573,7 +26573,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Ви маєте %lld неактивних сервіса"
+                  "value" : "Ви маєте %lld неактивних сервіси"
                 }
               },
               "many" : {
@@ -27979,8 +27979,8 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "%lld сервісів знайдено"
+                  "state" : "translated",
+                  "value" : "%lld сервіс знайдено"
                 }
               },
               "other" : {
@@ -32752,7 +32752,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вимкнення автоматичного прибирання може пошкодити установку Homebrew"
+            "value" : "Вимкнення автоматичного очищення може пошкодити інсталяцію Homebrew"
           }
         },
         "zh-Hans" : {
@@ -36921,7 +36921,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Ви маєте %lld встановлених Formula"
+                  "value" : "Ви маєте %lld встановлені Formula"
                 }
               },
               "many" : {
@@ -37455,7 +37455,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Оновити %lld пакета"
+                  "value" : "Оновити %lld пакети"
                 }
               },
               "many" : {
@@ -37850,7 +37850,7 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Є %lld застарілих пакета"
+                  "value" : "Є %lld застарілих пакети"
                 }
               },
               "many" : {
@@ -37862,7 +37862,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Є %lld застарілих пакет"
+                  "value" : "Є %lld застарілий пакет"
                 }
               },
               "other" : {
