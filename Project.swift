@@ -3,7 +3,7 @@ import ProjectDescription
 let project = Project(
     name: "Cork",
     packages: [
-        .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins", requirement: .upToNextMajor(from: "0.56.1")),
+        .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins", requirement: .upToNextMajor(from: "0.56.2")),
     ],
     settings: .settings(
         configurations: [
