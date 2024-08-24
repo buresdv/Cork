@@ -11242,61 +11242,61 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Čtení odpovědi Homebrew serveru se nepodařilo"
+            "state" : "needs_review",
+            "value" : "Homebrew poskytnul nesprávnou odezvu"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Die Homebrew-Antwort konnte nicht entschlüsselt werden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't decipher Homebrew response"
+            "value" : "Homebrew didn't return valid data"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "No se pudo descifrar la respuesta de Homebrew"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Impossible de déchiffrer la response de Homebrew"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "홈브루 응답을 해독할 수 없습니다."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Не удалось расшифровать ответ Homebrew"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Не вдалося розшифрувати відповідь Homebrew"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "无法解析 Homebrew 的响应"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "無法解讀 Homebrew 回應"
           }
         }
@@ -12075,61 +12075,61 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Při čtení seznamu nejoblíbenějších balíčků se vyskytla chyba"
+            "state" : "needs_review",
+            "value" : "Homebrew poskytnul nesprávnou odezvu"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Top-Pakete konnten nicht entschlüsselt werden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't decipher top packages"
+            "value" : "Homebrew didn't return valid data"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "No se pudieron descifrar los paquetes principales"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Impossible de déchiffrer les paquets les plus populaires"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "상위 패키지를 해독할 수 없음"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Не удалось расшифровать список популярных пакетов"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Не вдалося розшифрувати найкращі пакети"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "无法解析热门软件包"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "無法解讀熱門套件"
           }
         }
