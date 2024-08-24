@@ -61,6 +61,12 @@
             "value" : "→"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3684,6 +3690,12 @@
             "value" : "Finir dans Terminal"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершить в Терминале"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4153,6 +4165,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reload Services"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить список сервисов"
           }
         },
         "uk" : {
@@ -4680,6 +4698,12 @@
             "value" : "Révéler %@ dans Finder"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать %@ в Finder"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4834,6 +4858,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show Terminal output"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать вывод Терминала"
           }
         },
         "uk" : {
@@ -5051,6 +5081,12 @@
             "value" : "Update Homebrew and all packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить Homebrew и все пакеты"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5077,6 +5113,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Homebrew through Terminal"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить Homebrew через Терминал"
           }
         },
         "uk" : {
@@ -5229,6 +5271,12 @@
             "value" : "Report on the forums…"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сообщить на форум…"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5348,7 +5396,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не удалось загрузить популярные пакеты за выделенное время"
+            "value" : "Не удалось загрузить список популярных пакетов за выделенное время"
           }
         },
         "uk" : {
@@ -6228,6 +6276,12 @@
             "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew прервал установку этого пакета перед его началом.\nПроверьте вывод команды установки, приведенный ниже."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6254,6 +6308,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package installation terminated unexpectedly"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Процесс установки пакета был неожиданно прерван"
           }
         },
         "uk" : {
@@ -10931,6 +10991,12 @@
             "value" : "Could not properly load installed packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить список установленных пакетов"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11267,6 +11333,12 @@
             "value" : "Your Mac is not connected to the internet. Check your internet settings."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш Mac не подключен к интернету. Пожалуйста, проверьте настройки сети."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11293,6 +11365,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not connect to the internet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось подключиться к интернету"
           }
         },
         "uk" : {
@@ -11323,6 +11401,12 @@
             "value" : "Check your internet connection and try again\nAlternatively, the authorization server may be offline at the moment"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте соединение с интернетом и попробуйте снова.\nТакже возможно, что наш сервер авторизации сейчас не в сети."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11351,6 +11435,12 @@
             "value" : "License checking timed out"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось проверить лицензию за выделенное время"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11377,6 +11467,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An unknown error occured"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла непредвиденная ошибка"
           }
         },
         "uk" : {
@@ -11434,8 +11530,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Не удалось расшифровать ответ Homebrew"
+            "state" : "translated",
+            "value" : "Homebrew вернул некорректные данные"
           }
         },
         "uk" : {
@@ -12267,8 +12363,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Не удалось расшифровать список популярных пакетов"
+            "state" : "translated",
+            "value" : "Homebrew вернул некорректные данные"
           }
         },
         "uk" : {
@@ -12619,6 +12715,12 @@
             "value" : "Le fichier %@ n'est pas un paquet Homebrew valide et doit être supprimé."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл %@ не является корректным пакетом Homebrew и должен быть удален"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12651,6 +12753,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fichier invalide %@ dans un dossier de paquetage"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ожидался быть папкой, но был найден файл"
           }
         },
         "uk" : {
@@ -13351,6 +13459,12 @@
             "value" : "Could not determine which folder the brewfile export process was initiated from"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось определить, из какой папки начат процесс экспорта файла со списком пакетов"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13365,6 +13479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not dump the brewfile into the provided location with error: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "При записи списка пакетов в предоставленное расположение произошла ошибка: %@"
           }
         },
         "uk" : {
@@ -13383,6 +13503,12 @@
             "value" : "Could not read contents of temporary brewfile"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось считать содержимое временного файла со списком пакетов"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13397,6 +13523,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not get the location of the selected brewfile"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось получить расположение указанного списка пакетов"
           }
         },
         "uk" : {
@@ -13432,6 +13564,12 @@
             "value" : "Could not import brewfile: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить файл со списком пакетов: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13446,6 +13584,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew server returned the wrong response code: %lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервер Homebrew вернул некорректный код ответа: %lld"
           }
         },
         "uk" : {
@@ -13464,6 +13608,12 @@
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервер Homebrew вернул некорректный код ответа, который не удалось счесть"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13478,6 +13628,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The provided URL is not a valid Homebrew server URL"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полученный URL не является действительным URL сервера Homebrew"
           }
         },
         "uk" : {
@@ -13496,6 +13652,12 @@
             "value" : "No data received while fetching top packages from the Homebrew server"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "При получении списка популярных пакетов с сервера Homebrew пришел пустой ответ"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13510,6 +13672,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not find the requested package in the parent folder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось найти запрошенный пакет в родительской папке"
           }
         },
         "uk" : {
@@ -13532,6 +13700,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't decode JSON response from Homebrew:\n%@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось расшифровать ответ от Homebrew в формате JSON: %@"
           }
         },
         "uk" : {
@@ -13562,6 +13736,12 @@
             "value" : "Couldn't convert JSON response from Homebrew to Data"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось преобразовать ответ от Homebrew в формате JSON в Data"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13590,6 +13770,12 @@
             "value" : "Invalid Homebrew response"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неверный ответ от Homebrew"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13612,6 +13798,12 @@
             "value" : "Could not convert the provided String to Data with error: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "При попытке преобразовать тип String в Data произошла ошибка: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13626,6 +13818,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось расшифровать полученные данные с помощью встроенного расшифровщика JSON: %@"
           }
         },
         "uk" : {
@@ -13644,6 +13842,12 @@
             "value" : "Authorization complex for license retrieval could not be encoded"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось зашифровать данные авторизации для проверки лицензии"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13658,6 +13862,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not connect to the internet. Will not be able to complete the licensing check"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось подключиться к интернету. Проверка лицензии невозможна"
           }
         },
         "uk" : {
@@ -13676,6 +13886,12 @@
             "value" : "Unimplemented error occured while getting license status: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непредвиденная ошибка при проверке лицензии: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13690,6 +13906,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Checking for license status timed out"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось проверить лицензию за выделенное время"
           }
         },
         "uk" : {
@@ -13708,6 +13930,12 @@
             "value" : "Cache purging failed"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось очистить кеш"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13724,6 +13952,12 @@
             "value" : "Standard error not empty"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В выводе для ошибок присутствует текст"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13738,6 +13972,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not get the number of orphans uninstalled as a result of this operation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось получить количество ненужных зависимостей, удаленных в результате операции"
           }
         },
         "uk" : {
@@ -13773,6 +14013,12 @@
             "value" : "Could not uninstall orphans: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось удалить ненужные зависимости"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13787,6 +14033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unexpected terminal output of the orphan uninstallation function"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "При удалении ненужных зависимостей был получен неожиданный вывод в Терминале"
           }
         },
         "uk" : {
@@ -13805,6 +14057,12 @@
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось расшифровать полученные данные с помощью встроенного расшифровщика JSON: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13821,6 +14079,12 @@
             "value" : "HOME is not properly set in the Homebrew command"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переменная HOME не установлена в команде Homebrew"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13835,6 +14099,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unimplemented error for getting outdated packages: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непредвиденная ошибка при получении устаревших пакетов: %@"
           }
         },
         "uk" : {
@@ -13857,6 +14127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occured during the pinning process"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка при закреплении"
           }
         },
         "uk" : {
@@ -13887,6 +14163,12 @@
             "value" : "Couldn't load package from JSON response from Homebrew"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить информацию о пакете в формате JSON"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13902,10 +14184,24 @@
       }
     },
     "error.package-loading.%@-does-not-have-any-versions-installed" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.%@-does-not-have-any-versions-installed"
+          }
+        }
+      }
     },
     "error.package-loading.%@-not-a-folder" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.%@-not-a-folder"
+          }
+        }
+      }
     },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
       "localizations" : {
@@ -13919,6 +14215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't prepare installation info for reading: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось подготовить данные об установленном пакете для чтения: %@"
           }
         },
         "uk" : {
@@ -13949,6 +14251,12 @@
             "value" : "Couldn't read installation info: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось прочесть информацию об установленном пакете: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13970,14 +14278,34 @@
             "state" : "new",
             "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
+          }
         }
       }
     },
     "error.package-loading.could-not-load-packages" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.could-not-load-packages"
+          }
+        }
+      }
     },
     "error.package-loading.could-not-load-packages.%@" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.could-not-load-packages.%@"
+          }
+        }
+      }
     },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
       "localizations" : {
@@ -13991,6 +14319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't load any package from provided list of package versions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить ни одного пакета из полученного списка версий"
           }
         },
         "uk" : {
@@ -14008,10 +14342,24 @@
       }
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"
+          }
+        }
+      }
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"
+          }
+        }
+      }
     },
     "error.package-loading.missing-install-receipt" : {
       "localizations" : {
@@ -14025,6 +14373,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The package doesn't have a required metadata file"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет не содержит необходимого файла с метаданными"
           }
         },
         "uk" : {
@@ -14055,6 +14409,12 @@
             "value" : "Homebrew didn't respond"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ожидаемый вывод Homebrew отсутствует"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14081,6 +14441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew returned JSON with the following error:\n%@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew вернул JSON с ошибкой: %@"
           }
         },
         "uk" : {
@@ -14111,6 +14477,12 @@
             "value" : "The provided folder does not have the expected name (Cellar for Formulae, Caskfoom for Casks)"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Имя полученной папки не совпадает с ожидаемым (“Cellar” для консольных приложений и библиотек, “Caskroom” для графических приложений)"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14133,6 +14505,12 @@
             "value" : "Could not find any package with the provided UUID in the package tracker"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На трекере пакетов не удалось найти ни одного пакета с указанным UUID "
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14149,6 +14527,12 @@
             "value" : "Could not obtain access permissions to the specified folder: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось получить информацию о разрешениях следующей папки: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14163,6 +14547,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "REGEX matched nothing"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регулярное выражение не совпало"
           }
         },
         "uk" : {
@@ -14185,6 +14575,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not encode data: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось зашифровать данные: %@"
           }
         },
         "uk" : {
@@ -14215,6 +14611,12 @@
             "value" : "Homebrew outdated"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew устарел"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14241,6 +14643,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew didn't return any data"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew не вернул ожидаемых данных"
           }
         },
         "uk" : {
@@ -14271,6 +14679,12 @@
             "value" : "Unimplemented error: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непредвиденная ошибка: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14297,6 +14711,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parsing of services failed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось расшифровать информацию о сервисах"
           }
         },
         "uk" : {
@@ -14327,6 +14747,12 @@
             "value" : "%@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14347,6 +14773,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not stop the service: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось остановить сервис: %@"
           }
         },
         "uk" : {
@@ -14380,6 +14812,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not remove tap%1$@ with output: %2$@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось удалить источник %1$@, был получен вывод: %2$@"
           }
         },
         "uk" : {
@@ -14416,6 +14854,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -14466,6 +14910,12 @@
             "value" : "%@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14494,6 +14944,12 @@
             "value" : "Couldn't download top packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить список популярных пакетов"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14514,6 +14970,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The requested package was not found in the array, even though it should have been found"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запрошенный пакет не найден в массиве, хотя должен был быть найден"
           }
         },
         "uk" : {
@@ -19762,6 +20224,12 @@
             "value" : "Perform Homebrew cleanup tasks"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистка Homebrew"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22397,6 +22865,12 @@
             "value" : "Show detailed info about outdated packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ детальной информации об устаревших пакетах"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22425,6 +22899,12 @@
             "value" : "Show basic info about outdated packages"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ основной информации об устаревших пакетах"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22451,6 +22931,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show versions in info about outdated packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ информации об устаревших пакетах"
           }
         },
         "uk" : {
@@ -28228,6 +28714,12 @@
             "value" : "Homebrew is out of date"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew устарел"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28254,6 +28746,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that doesn't work, update through the Terminal."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Использование сервисов требует более новой версии Homebrew. Нажмите кнопку снизу для обновления.\nВ случае возникновения проблем, пожалуйста, попробуйте обновить Homebrew через Терминал."
           }
         },
         "uk" : {
@@ -29799,6 +30297,12 @@
             "value" : "Error checking:"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверка ошибок:"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29825,6 +30329,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Strictly check for Homebrew errors"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Строгая проверка ошибок Homebrew"
           }
         },
         "uk" : {
@@ -31266,6 +31776,12 @@
             "value" : "Outdated package info:"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ информации об устаревших пакетах:"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31292,6 +31808,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show old versions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать старые версии"
           }
         },
         "uk" : {
@@ -31322,6 +31844,12 @@
             "value" : "Complete"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полный"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31348,6 +31876,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minimal"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Минимум"
           }
         },
         "uk" : {
@@ -31378,6 +31912,12 @@
             "value" : "Versions only"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Только версии"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31404,6 +31944,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Outdated packages:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Объем данных об устаревших пакетах:"
           }
         },
         "uk" : {
@@ -37107,7 +37653,14 @@
       }
     },
     "start-page.loading.failed.title" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "start-page.loading.failed.title"
+          }
+        }
+      }
     },
     "start-page.open-maintenance" : {
       "localizations" : {
@@ -37920,6 +38473,12 @@
             "value" : "Installed Version"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установленная версия"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38076,6 +38635,12 @@
             "value" : "Newest Version"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Последняя версия"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38168,6 +38733,12 @@
             "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "После нажатия кнопки “Открыть Терминал”, используйте ⌘+V, чтобы вставить команду, которую Cork скопировал для вас. Затем, нажмите Return (↩).\nЕсли после нажатия ⌘+V ничего не появилось, наберите “brew update” и нажмите Return (↩)."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38194,6 +38765,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Updating through the Terminal"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновление через Терминал"
           }
         },
         "uk" : {
@@ -39704,6 +40281,12 @@
             "value" : "Action nécessaire pour terminer la mise à jour"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Требуется действие для завершения обновления"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39736,6 +40319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certains de vos paquets ne peuvent être mis à jour uniquement par le biais du Terminal.\nCliquez sur \"Finir dans Terminal\" ci-dessous\nUtilisez les touches ⌘+V pour insérer la commande, puis appuyez sur ↩ (Retour) pour exécuter la commande et suivre les instructions.\nUne fois la commande terminée, revenez à Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Некоторые из ваших пакетов можно обновить только через Терминал.\nДля этого нажмите “Завершить в Терминале”.\nНажмите ⌘+V, чтобы вставить команду в Терминал, а затем нажмите ↩ (Return), чтобы выполнить команду. После этого следуйте инструкциям.\nПосле завершения выполнения команды вернитесь в Cork."
           }
         },
         "uk" : {
