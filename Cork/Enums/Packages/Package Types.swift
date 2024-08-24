@@ -9,7 +9,7 @@ import AppIntents
 import Charts
 import Foundation
 
-enum PackageType: String, CustomStringConvertible, Plottable, AppEntity
+enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
 {
     case formula
     case cask
