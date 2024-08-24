@@ -67,6 +67,12 @@
             "value" : "→"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3690,6 +3696,12 @@
             "value" : "Завершити в Терміналі"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершить в Терминале"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4159,6 +4171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перезавантажити сервіси"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить список сервисов"
           }
         },
         "zh-Hans" : {
@@ -4686,6 +4704,12 @@
             "value" : "Показати %@ у Finder"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать %@ в Finder"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4840,6 +4864,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показати вивід Терміналу"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать вывод Терминала"
           }
         },
         "zh-Hans" : {
@@ -5057,6 +5087,12 @@
             "value" : "Оновити Homebrew та всі пакети"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить Homebrew и все пакеты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5083,6 +5119,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Оновити Homebrew через Термінал"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить Homebrew через Терминал"
           }
         },
         "zh-Hans" : {
@@ -5348,7 +5390,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не удалось загрузить популярные пакеты за выделенное время"
+            "value" : "Не удалось загрузить список популярных пакетов за выделенное время"
           }
         },
         "uk" : {
@@ -6234,6 +6276,12 @@
             "value" : "Homebrew завершив встановлення цього пакету \nдо того, як воно розпочалося належним чином.\nНижче наведено результати виконання команди встановлення"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew прервал установку этого пакета перед его началом.\nПроверьте вывод команды установки, приведенный ниже."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6260,6 +6308,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Встановлення пакунка несподівано завершилося"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Процесс установки пакета был неожиданно прерван"
           }
         },
         "zh-Hans" : {
@@ -10937,6 +10991,12 @@
             "value" : "Не вдалося належним чином завантажити встановлені пакети"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить список установленных пакетов"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11273,6 +11333,12 @@
             "value" : "Ваш комп'ютер Mac не підключено до Інтернету. Перевірте налаштування Інтернету."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш Mac не подключен к интернету. Пожалуйста, проверьте настройки сети."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11299,6 +11365,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося підключитися до Інтернету"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось подключиться к интернету"
           }
         },
         "zh-Hans" : {
@@ -11329,6 +11401,12 @@
             "value" : "Перевірте підключення до Інтернету та спробуйте ще раз\nТакож можливо, що сервер авторизації наразі не працює"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте соединение с интернетом и попробуйте снова.\nТакже возможно, что наш сервер авторизации сейчас не в сети."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11357,6 +11435,12 @@
             "value" : "Перевірка ліцензії закінчилася"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось проверить лицензию за выделенное время"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11383,6 +11467,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сталася невідома помилка"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла непредвиденная ошибка"
           }
         },
         "zh-Hans" : {
@@ -12625,6 +12715,12 @@
             "value" : "Файл %@ не є дійсним пакетом Homebrew і має бути видалений"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл %@ не является корректным пакетом Homebrew и должен быть удален"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12657,6 +12753,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неправильний файл %@ у теці пакету"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ожидался быть папкой, но был найден файл"
           }
         },
         "zh-Hans" : {
@@ -13540,6 +13642,12 @@
             "value" : "Не вдалося декодувати JSON відповідь від Homebrew:\n%@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось расшифровать ответ от Homebrew в формате JSON: %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13568,6 +13676,12 @@
             "value" : "Не вдалося перетворити JSON-відповідь з Homebrew у Data"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось преобразовать ответ от Homebrew в формате JSON в Data"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13594,6 +13708,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неправильна відповідь Homebrew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неверный ответ от Homebrew"
           }
         },
         "zh-Hans" : {
@@ -13865,6 +13985,12 @@
             "value" : "Виникла помилка в процесі закріплення"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка при закреплении"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13891,6 +14017,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося завантажити пакунок з відповіді JSON від Homebrew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить информацию о пакете в формате JSON"
           }
         },
         "zh-Hans" : {
@@ -13932,6 +14064,12 @@
             "state" : "translated",
             "value" : "无法准备供读取的安装信息: %@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось подготовить данные об установленном пакете для чтения: %@"
+          }
         }
       }
     },
@@ -13959,6 +14097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法读取安装信息: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось прочесть информацию об установленном пакете: %@"
           }
         }
       }
@@ -14004,6 +14148,12 @@
             "state" : "translated",
             "value" : "无法从提供的软件包版本列表中加载任何软件包"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить ни одного пакета из полученного списка версий"
+          }
         }
       }
     },
@@ -14038,6 +14188,12 @@
             "state" : "translated",
             "value" : "该软件包没有所需的元数据文件"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет не содержит необходимого файла с метаданными"
+          }
         }
       }
     },
@@ -14059,6 +14215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew не відповідає"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ожидаемый вывод Homebrew отсутствует"
           }
         },
         "zh-Hans" : {
@@ -14087,6 +14249,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew повернув JSON з наступною помилкою:\n%@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew вернул JSON с ошибкой: %@"
           }
         },
         "zh-Hans" : {
@@ -14193,6 +14361,12 @@
             "value" : "Не вдалося закодувати дані: %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось зашифровать данные: %@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14219,6 +14393,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew застарів"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew устарел"
           }
         },
         "zh-Hans" : {
@@ -14249,6 +14429,12 @@
             "value" : "Homebrew не повернув жодних даних"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew не вернул ожидаемых данных"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14275,6 +14461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Невпроваджена помилка: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непредвиденная ошибка: %@"
           }
         },
         "zh-Hans" : {
@@ -14305,6 +14497,12 @@
             "value" : "Не вдалося виконати аналіз сервісів"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось расшифровать информацию о сервисах"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14328,6 +14526,12 @@
           }
         },
         "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -14427,6 +14631,12 @@
             "value" : "%@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14472,6 +14682,12 @@
             "value" : "%@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14498,6 +14714,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося завантажити найкращі пакунки"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить список популярных пакетов"
           }
         },
         "zh-Hans" : {
@@ -19768,6 +19990,12 @@
             "value" : "Виконуйте завдання з очищення Homebrew"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очистка Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22403,6 +22631,12 @@
             "value" : "Показати детальну інформацію про застарілі пакети"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ детальной информации об устаревших пакетах"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22431,6 +22665,12 @@
             "value" : "Показати основну інформацію про застарілі пакети"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ основной информации об устаревших пакетах"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22457,6 +22697,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показувати версії в інформації про застарілі пакети"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ информации об устаревших пакетах"
           }
         },
         "zh-Hans" : {
@@ -28234,6 +28480,12 @@
             "value" : "Homebrew застарів"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew устарел"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28260,6 +28512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Щоб користуватися сервісами, оновіть інсталяцію Homebrew, натиснувши кнопку нижче.\nЯкщо це не спрацює, оновіть через Термінал."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Использование сервисов требует более новой версии Homebrew. Нажмите кнопку снизу для обновления.\nВ случае возникновения проблем, пожалуйста, попробуйте обновить Homebrew через Терминал."
           }
         },
         "zh-Hans" : {
@@ -29810,6 +30068,12 @@
             "state" : "translated",
             "value" : "查看报错:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверка ошибок:"
+          }
         }
       }
     },
@@ -29837,6 +30101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "严格检查 Homebrew 报错"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Строгая проверка ошибок Homebrew"
           }
         }
       }
@@ -31272,6 +31542,12 @@
             "value" : "Застаріла інформація про пакет:"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показ информации об устаревших пакетах:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31298,6 +31574,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показати старі версії"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать старые версии"
           }
         },
         "zh-Hans" : {
@@ -31328,6 +31610,12 @@
             "value" : "Завершено"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полный"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31354,6 +31642,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Мінімально"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Минимум"
           }
         },
         "zh-Hans" : {
@@ -31384,6 +31678,12 @@
             "value" : "Тільки версії"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Только версии"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31410,6 +31710,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Застарілі пакети:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Объем данных об устаревших пакетах:"
           }
         },
         "zh-Hans" : {
@@ -37926,6 +38232,12 @@
             "value" : "Встановлена версія"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установленная версия"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38082,6 +38394,12 @@
             "value" : "Найновіша версія"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Последняя версия"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38174,6 +38492,12 @@
             "value" : "Після того, як Ви натиснете «Відкрити Термінал», використовуйте ⌘+V, щоб вставити команду, яку Cork скопіював для вас, а потім натисніть Return (↩).\nЯкщо команда не була скопійована, введіть команду «brew update» і натисніть клавішу Return (↩)."
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "После нажатия кнопки “Открыть Терминал”, используйте ⌘+V, чтобы вставить команду, которую Cork скопировал для вас. Затем, нажмите Return (↩).\nЕсли после нажатия ⌘+V ничего не появилось, наберите “brew update” и нажмите Return (↩)."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38200,6 +38524,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Оновлення через Термінал"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновление через Терминал"
           }
         },
         "zh-Hans" : {
@@ -39710,6 +40040,12 @@
             "value" : "Виконайте наступну дію, щоб завершити оновлення"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Требуется действие для завершения обновления"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39742,6 +40078,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Деякі з ваших пакунків можна оновити лише через Термінал\nНатисніть «Завершити у Терміналі» нижче\nВикористовуйте ⌘+V, щоб вставити команду, а потім натисніть ↩ (Return), щоб виконати команду і дотримуйтесь інструкцій\nПісля завершення виконання команди поверніться до Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Некоторые из ваших пакетов можно обновить только через Терминал.\nДля этого нажмите “Завершить в Терминале”.\nНажмите ⌘+V, чтобы вставить команду в Терминал, а затем нажмите ↩ (Return), чтобы выполнить команду. После этого следуйте инструкциям.\nПосле завершения выполнения команды вернитесь в Cork."
           }
         },
         "zh-Hans" : {
