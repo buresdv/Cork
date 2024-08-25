@@ -34,10 +34,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
     {
         if startWithoutWindow
         {
-            if let window = NSApplication.shared.windows.first
+            for window in NSApp.windows
             {
                 window.close()
             }
+            
+        }
+        
+        // Close the package preview window on systems older than macOS 15
+        if #unavailable(macOS 15.0)
+        {
+            let windows: [NSWindow] = NSApp.windows
+            let unwantedWindow = windows.map { window in
+                return window.windowController
+            }
+            print("Windows: \(windows)")
+            print("Unwanted window: \(unwantedWindow)")
         }
     }
 

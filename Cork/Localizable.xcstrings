@@ -26390,6 +26390,16 @@
         }
       }
     },
+    "preview-package.action" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview"
+          }
+        }
+      }
+    },
     "repair-package.repair-process-%@" : {
       "comment" : "MARK: - Package Repairing",
       "localizations" : {

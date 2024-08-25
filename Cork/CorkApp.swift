@@ -62,15 +62,18 @@ struct CorkApp: App
 
     var body: some Scene
     {
-        WindowGroup(for: BrewPackage.self)
-        { $packageToPreview in
-            if let packageToPreview
-            {
-                Text(packageToPreview.name)
+        if #available(macOS 14, *)
+        {
+            WindowGroup(id: "window.package-preview", for: BrewPackage.self)
+            { $packageToPreview in
+                PackagePreview(packageToPreview: packageToPreview)
+                    .handlesExternalEvents(preferring: [], allowing: [])
+                    .navigationTitle(packageToPreview?.name ?? "")
             }
+            .windowResizability(.contentSize)
+            .windowToolbarStyle(.unifiedCompact)
         }
-        .windowStyle(.hiddenTitleBar)
-        
+
         Window("Main Window", id: .mainWindowID)
         {
             ContentView()
