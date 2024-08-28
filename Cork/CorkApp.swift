@@ -64,7 +64,7 @@ struct CorkApp: App
     {
         if #available(macOS 14, *)
         {
-            WindowGroup(id: "window.package-preview", for: BrewPackage.self)
+            WindowGroup(id: .previewWindowID, for: BrewPackage.self)
             { $packageToPreview in
                 PackagePreview(packageToPreview: packageToPreview)
                     .handlesExternalEvents(preferring: [], allowing: [])

@@ -23,7 +23,7 @@ struct PackagePreview: View
             // Tell the window to fuck off when it's not supposed to show up yet
             withTransaction(\.dismissBehavior, .destructive)
             {
-                dismissWindow(id: "window.package-preview")
+                dismissWindow(id: .previewWindowID)
             }
         }
     }
