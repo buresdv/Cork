@@ -13482,6 +13482,7 @@
       }
     },
     "debug.navigation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
