@@ -90,5 +90,16 @@ let project = Project(
                 options: .options(language: .init(identifier: "en"))
             )
         ),
+        .scheme(
+            name: "Debug",
+            buildAction: .buildAction(
+                targets: ["Cork"]
+            ),
+            runAction: .runAction(
+                configuration: .debug,
+                executable: "Cork",
+                options: .options(language: .init(identifier: "en"))
+            )
+        )
     ]
 )

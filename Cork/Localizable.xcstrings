@@ -13451,6 +13451,46 @@
         }
       }
     },
+    "debug.action.activate-demo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Activate demo"
+          }
+        }
+      }
+    },
+    "debug.action.licensing" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Licensing"
+          }
+        }
+      }
+    },
+    "debug.action.reset-license-state" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Reset licensing state"
+          }
+        }
+      }
+    },
+    "debug.navigation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG"
+          }
+        }
+      }
+    },
     "error.brewfile.export.could-not-determine-working-directory" : {
       "localizations" : {
         "en" : {
