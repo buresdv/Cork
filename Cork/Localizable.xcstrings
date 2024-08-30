@@ -14185,9 +14185,15 @@
     },
     "error.package-loading.%@-does-not-have-any-versions-installed" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Package %@ does not have any versions installed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "error.package-loading.%@-does-not-have-any-versions-installed"
           }
         }
@@ -14195,9 +14201,15 @@
     },
     "error.package-loading.%@-not-a-folder" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "%@ is not a package folder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "error.package-loading.%@-not-a-folder"
           }
         }
@@ -14275,13 +14287,13 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
+            "state" : "translated",
+            "value" : "Couldn't load package%1$@ (%2$@):\n%3$@"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
           }
         }
@@ -14289,9 +14301,15 @@
     },
     "error.package-loading.could-not-load-packages" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Couldn't load packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-packages"
           }
         }
@@ -14299,9 +14317,15 @@
     },
     "error.package-loading.could-not-load-packages.%@" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Couldn't load packages:\n%@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-packages.%@"
           }
         }
@@ -14343,9 +14367,15 @@
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"
           }
         }
@@ -14353,9 +14383,15 @@
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"
           }
         }
@@ -37654,9 +37690,15 @@
     },
     "start-page.loading.failed.title" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Couldn't check for outdated packges"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "start-page.loading.failed.title"
           }
         }
