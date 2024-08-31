@@ -6001,7 +6001,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这个 Cask 已在应用程序文件夹中存在\\n请卸载它然后尝试重试安装"
+            "value" : "这个 Cask 已在应用程序文件夹中存在 请卸载它然后尝试重试安装"
           }
         }
       }
@@ -13458,6 +13458,12 @@
             "state" : "translated",
             "value" : "DEBUG: Activate demo"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试：激活演示模式"
+          }
         }
       }
     },
@@ -13467,6 +13473,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: Licensing"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试：正在激活许可证"
           }
         }
       }
@@ -13478,6 +13490,12 @@
             "state" : "translated",
             "value" : "DEBUG: Reset licensing state"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试：重置许可状态"
+          }
         }
       }
     },
@@ -13487,6 +13505,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试"
           }
         }
       }
@@ -14130,6 +14154,12 @@
             "state" : "translated",
             "value" : "У команді Homebrew неправильно встановлено параметр HOME"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew命令中未正确设置HOME变量"
+          }
         }
       }
     },
@@ -14151,6 +14181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неімплементована помилка отримання застарілих пакунків: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未完成获取过时软件包：%@"
           }
         }
       }
@@ -14236,6 +14272,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.%@-does-not-have-any-versions-installed"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "并未安装软件包%@的任何版本"
+          }
         }
       }
     },
@@ -14251,6 +14293,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "error.package-loading.%@-not-a-folder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@不是一个软件包路径"
           }
         }
       }
@@ -14336,6 +14384,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包%1$@（%2$@）：%3$@"
+          }
         }
       }
     },
@@ -14352,6 +14406,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包"
+          }
         }
       }
     },
@@ -14367,6 +14427,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-packages.%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包：%@"
           }
         }
       }
@@ -14418,6 +14484,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所提供的路径指向Cask文件夹本身，并非指向软件包。 你的Homebrew程序损坏，这并非是Cork的问题"
+          }
         }
       }
     },
@@ -14433,6 +14505,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所提供的路径指向Formulae文件夹本身，并非指向软件包。 你的Homebrew程序损坏，这并非是Cork的问题"
           }
         }
       }
@@ -14592,6 +14670,12 @@
             "state" : "translated",
             "value" : "Не вдалося знайти пакет з вказаним UUID у трекері пакетів"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从所提供的软件包跟踪器UUID中找到任何软件包"
+          }
         }
       }
     },
@@ -14614,6 +14698,12 @@
             "state" : "translated",
             "value" : "Не вдалося отримати дозволи на доступ до вказаної папки: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法对 %@ 文件夹获取访问权限"
+          }
         }
       }
     },
@@ -14635,6 +14725,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "REGEX не знайшов відповідників"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正则表达式不匹配任何结果"
           }
         }
       }
@@ -14862,6 +14958,12 @@
             "state" : "translated",
             "value" : "Не вдалося зупинити сервіс: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法停止 %@ 服务"
+          }
         }
       }
     },
@@ -14901,6 +15003,12 @@
             "state" : "translated",
             "value" : "Не вдалося видалити tap%1$@ з виводом: %2$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法移除tap%1$@(输出：%2$@)"
+          }
         }
       }
     },
@@ -14917,6 +15025,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося розшифрувати найкращі Cask"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法解码热门Cask"
           }
         }
       }
@@ -26730,7 +26844,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一下服务运行正常"
+            "value" : "以下服务运行正常"
           }
         }
       }
@@ -27226,7 +27340,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一下服务目前不在运行"
+            "value" : "以下服务目前不在运行"
           }
         }
       }
@@ -28934,6 +29048,12 @@
             "state" : "translated",
             "value" : "Завантаження сервісів"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在加载服务…"
+          }
         }
       }
     },
@@ -30028,6 +30148,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Використовується інше місцезнаходження"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用自定义路径"
           }
         },
         "zh-Hant" : {
