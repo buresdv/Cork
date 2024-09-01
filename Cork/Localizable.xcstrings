@@ -13538,7 +13538,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法确定brewfile导出过程是从何处启动"
+            "value" : "无法确定 brewfile 导出过程是从何处启动"
           }
         }
       }
@@ -13701,7 +13701,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 服务器返回错误%lld"
+            "value" : "Homebrew 服务器返回错误 %lld"
           }
         }
       }
@@ -13847,7 +13847,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法从 Homebrew 中解码 JSON 响应 %@"
+            "value" : "无法从 Homebrew 中解码 JSON 响应:\\n%@"
           }
         }
       }
@@ -14582,7 +14582,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所提供的路径指向 Formulae 文件夹本身，并非指向软件包。 你的 Homebrew 程序损坏，这并非是Cork的问题"
+            "value" : "所提供的路径指向 Formula 文件夹本身，并非指向软件包。 你的 Homebrew 程序损坏，这并非是 Cork 的问题"
           }
         }
       }
