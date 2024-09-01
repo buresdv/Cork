@@ -13594,7 +13594,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法读取临时brewfile信息"
+            "value" : "无法读取临时 brewfile 信息"
           }
         }
       }
@@ -13622,7 +13622,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取选定brewfile路径"
+            "value" : "无法获取选定 brewfile 路径"
           }
         }
       }
@@ -13645,7 +13645,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法导入该brewfile"
+            "value" : "无法导入该 brewfile"
           }
         }
       }
@@ -13673,7 +13673,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法导入brewfile: %@"
+            "value" : "无法导入 brewfile: %@"
           }
         }
       }
@@ -13701,7 +13701,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew服务器返回错误%lld"
+            "value" : "Homebrew 服务器返回错误%lld"
           }
         }
       }
@@ -13729,7 +13729,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew服务器返回未知错误"
+            "value" : "Homebrew 服务器返回未知错误"
           }
         }
       }
@@ -13757,7 +13757,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所提供的URL并非一个有效的Homebrew服务器URL"
+            "value" : "所提供的 URL 并非一个有效的 Homebrew 服务器 URL"
           }
         }
       }
@@ -13785,7 +13785,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取热门软件包时Homebrew服务器未返回数据"
+            "value" : "获取热门软件包时 Homebrew 服务器未返回数据"
           }
         }
       }
@@ -13847,7 +13847,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法从 Homebrew 中解码 JSON 响应%@"
+            "value" : "无法从 Homebrew 中解码 JSON 响应 %@"
           }
         }
       }
@@ -14202,7 +14202,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法使用内置的JSON解码器对%@进行解码"
+            "value" : "无法使用内置的 JSON 解码器对 %@ 进行解码"
           }
         }
       }
@@ -14460,7 +14460,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法加载软件包 %1$@ （ %2$@ ）: %3$@"
+            "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         }
       }
@@ -15534,7 +15534,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew服务"
+            "value" : "Homebrew 服务"
           }
         }
       }
