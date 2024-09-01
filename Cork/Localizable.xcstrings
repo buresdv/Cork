@@ -6001,7 +6001,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这个 Cask 已在应用程序文件夹中存在\\n请卸载它然后尝试重试安装"
+            "value" : "这个 Cask 已在应用程序文件夹中存在 ，请卸载它然后尝试重试安装"
           }
         }
       }
@@ -9014,7 +9014,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap 链接："
+            "value" : "Tap 链接: "
           }
         },
         "zh-Hant" : {
@@ -13458,6 +13458,12 @@
             "state" : "translated",
             "value" : "DEBUG: Activate demo"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试: 激活演示模式"
+          }
         }
       }
     },
@@ -13467,6 +13473,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: Licensing"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试: 正在激活许可证"
           }
         }
       }
@@ -13478,6 +13490,12 @@
             "state" : "translated",
             "value" : "DEBUG: Reset licensing state"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试: 重置许可状态"
+          }
         }
       }
     },
@@ -13487,6 +13505,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调试"
           }
         }
       }
@@ -13510,6 +13534,12 @@
             "state" : "translated",
             "value" : "Не вдалося визначити, з якої папки було ініційовано процес експорту brewfile"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法确定 brewfile 导出过程是从何处启动"
+          }
         }
       }
     },
@@ -13531,6 +13561,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося вивантажити brewfile у вказане місце з помилкою: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法将 brewfile 导出到指定位置，错误信息: %@"
           }
         }
       }
@@ -13554,6 +13590,12 @@
             "state" : "translated",
             "value" : "Не вдалося прочитати вміст тимчасового brewfile"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取临时 brewfile 信息"
+          }
         }
       }
     },
@@ -13576,6 +13618,12 @@
             "state" : "translated",
             "value" : "Не вдалося отримати розташування вибраного brewfile"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法获取选定 brewfile 路径"
+          }
         }
       }
     },
@@ -13592,6 +13640,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося імпортувати цей brewfile"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法导入该 brewfile"
           }
         }
       }
@@ -13615,6 +13669,12 @@
             "state" : "translated",
             "value" : "Не вдалося імпортувати brewfile: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法导入 brewfile: %@"
+          }
         }
       }
     },
@@ -13636,6 +13696,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сервер Homebrew повернув неправильний код відповіді: %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 服务器返回错误 %lld"
           }
         }
       }
@@ -13659,6 +13725,12 @@
             "state" : "translated",
             "value" : "Сервер Homebrew повернув неправильний код відповіді, а наданий код відповіді не може бути правильно прочитаний"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 服务器返回未知错误"
+          }
         }
       }
     },
@@ -13680,6 +13752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Надана URL-адреса не є дійсною URL-адресою сервера Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所提供的 URL 并非一个有效的 Homebrew 服务器 URL"
           }
         }
       }
@@ -13703,6 +13781,12 @@
             "state" : "translated",
             "value" : "Не отримано жодних даних під час отримання топ-пакунків з сервера Homebrew"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取热门软件包时 Homebrew 服务器未返回数据"
+          }
         }
       }
     },
@@ -13724,6 +13808,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося знайти потрібний пакет у батьківській папці"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法在父文件夹中找到所要求的软件包"
           }
         }
       }
@@ -13757,7 +13847,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法从 Homebrew 中解码 JSON 响应"
+            "value" : "无法从 Homebrew 中解码 JSON 响应:\\n%@"
           }
         }
       }
@@ -14108,6 +14198,12 @@
             "state" : "translated",
             "value" : "Не вдалося декодувати надані дані за допомогою вбудованого декодера JSON: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法使用内置的 JSON 解码器对 %@ 进行解码"
+          }
         }
       }
     },
@@ -14130,6 +14226,12 @@
             "state" : "translated",
             "value" : "У команді Homebrew неправильно встановлено параметр HOME"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 命令中未正确设置 HOME 变量"
+          }
         }
       }
     },
@@ -14151,6 +14253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неімплементована помилка отримання застарілих пакунків: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未完成获取更早的软件包: %@"
           }
         }
       }
@@ -14236,6 +14344,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.%@-does-not-have-any-versions-installed"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "并未安装软件包 %@ 的任何版本"
+          }
         }
       }
     },
@@ -14251,6 +14365,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "error.package-loading.%@-not-a-folder"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 不是一个软件包路径"
           }
         }
       }
@@ -14336,6 +14456,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
+          }
         }
       }
     },
@@ -14352,6 +14478,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包"
+          }
         }
       }
     },
@@ -14367,6 +14499,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "error.package-loading.could-not-load-packages.%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载软件包: %@"
           }
         }
       }
@@ -14418,6 +14556,12 @@
             "state" : "needs_review",
             "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所提供的路径指向 Cask 文件夹本身，并非指向软件包。 你的 Homebrew 程序损坏，这并非是 Cork 的问题"
+          }
         }
       }
     },
@@ -14433,6 +14577,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所提供的路径指向 Formula 文件夹本身，并非指向软件包。 你的 Homebrew 程序损坏，这并非是 Cork 的问题"
           }
         }
       }
@@ -14534,7 +14684,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 返回 JSON 包含以下错误：%@"
+            "value" : "Homebrew 返回 JSON 包含以下错误: %@"
           }
         }
       }
@@ -14592,6 +14742,12 @@
             "state" : "translated",
             "value" : "Не вдалося знайти пакет з вказаним UUID у трекері пакетів"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法从所提供的软件包跟踪器 UUID 中找到任何软件包"
+          }
         }
       }
     },
@@ -14614,6 +14770,12 @@
             "state" : "translated",
             "value" : "Не вдалося отримати дозволи на доступ до вказаної папки: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法对 %@ 文件夹获取访问权限"
+          }
         }
       }
     },
@@ -14635,6 +14797,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "REGEX не знайшов відповідників"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正则表达式没有任何匹配结果"
           }
         }
       }
@@ -14668,7 +14836,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法编码数据：%@"
+            "value" : "无法编码数据: %@"
           }
         }
       }
@@ -14770,7 +14938,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未实现错误：%@"
+            "value" : "未实现错误: %@"
           }
         }
       }
@@ -14862,6 +15030,12 @@
             "state" : "translated",
             "value" : "Не вдалося зупинити сервіс: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法停止 %@ 服务"
+          }
         }
       }
     },
@@ -14901,6 +15075,12 @@
             "state" : "translated",
             "value" : "Не вдалося видалити tap%1$@ з виводом: %2$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法移除 Tap %1$@ (输出: %2$@ )"
+          }
         }
       }
     },
@@ -14917,6 +15097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося розшифрувати найкращі Cask"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法对热门 Cask 进行解码"
           }
         }
       }
@@ -15058,6 +15244,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Необхідний Вам пакет не знайдено в масиві, хоча він мав би бути знайдений"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所请求的软件包并未找到"
           }
         }
       }
@@ -15337,6 +15529,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сервіси Homebrew"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 服务"
           }
         }
       }
@@ -26730,7 +26928,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一下服务运行正常"
+            "value" : "以下服务运行正常"
           }
         }
       }
@@ -27226,7 +27424,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一下服务目前不在运行"
+            "value" : "以下服务目前不在运行"
           }
         }
       }
@@ -28934,6 +29132,12 @@
             "state" : "translated",
             "value" : "Завантаження сервісів"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在加载服务…"
+          }
         }
       }
     },
@@ -30028,6 +30232,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Використовується інше місцезнаходження"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用自定义路径"
           }
         },
         "zh-Hant" : {
