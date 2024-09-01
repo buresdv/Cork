@@ -3269,7 +3269,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Відмінити"
+            "value" : "Скасувати"
           }
         },
         "zh-Hans" : {
@@ -5246,7 +5246,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Цю дію неможливо відмінити"
+            "value" : "Цю дію неможливо скасувати"
           }
         },
         "zh-Hans" : {
