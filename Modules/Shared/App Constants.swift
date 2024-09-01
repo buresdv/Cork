@@ -105,7 +105,7 @@ public struct AppConstants
 
     // MARK: - Brew Cache
 
-    public static let brewCachePath: URL = URL.libraryDirectory.appending(component: "Caches", directoryHint: .isDirectory).appending(component: "Homerbew", directoryHint: .isDirectory) // /Users/david/Library/Caches/Homebrew
+    public static let brewCachePath: URL = URL.libraryDirectory.appending(component: "Caches", directoryHint: .isDirectory).appending(component: "Homebrew", directoryHint: .isDirectory) // /Users/david/Library/Caches/Homebrew
 
     /// These two have the symlinks to the actual downloads
     public static let brewCachedFormulaeDownloadsPath: URL = brewCachePath

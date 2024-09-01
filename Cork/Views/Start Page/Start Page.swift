@@ -108,6 +108,10 @@ struct StartPage: View
                 }
             }
         }
+        .onAppear
+        {
+            AppConstants.logger.debug("Cached downloads path: \(AppConstants.brewCachedDownloadsPath)")
+        }
         .task(priority: .background)
         {
             if outdatedPackageTracker.outdatedPackages.isEmpty

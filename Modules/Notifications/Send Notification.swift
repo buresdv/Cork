@@ -10,7 +10,7 @@ import SwiftUI
 import UserNotifications
 import CorkShared
 
-func sendNotification(title: String, body: String? = nil, subtitle: String? = nil, sensitivity: UNNotificationInterruptionLevel = .timeSensitive)
+public func sendNotification(title: String, body: String? = nil, subtitle: String? = nil, sensitivity: UNNotificationInterruptionLevel = .timeSensitive)
 {
     // Get whether we can send notifications
     let notificationsAreEnabled: Bool = UserDefaults.standard.bool(forKey: "areNotificationsEnabled")
