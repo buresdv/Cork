@@ -9,19 +9,19 @@ import Foundation
 import OSLog
 import UserNotifications
 
-enum AppConstants
+public struct AppConstants
 {
     // MARK: - Logging
 
-    static let logger: Logger = .init(subsystem: "com.davidbures.cork", category: "Cork")
+    public static let logger: Logger = .init(subsystem: "com.davidbures.cork", category: "Cork")
 
     // MARK: - Notification stuff
 
-    static let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
+    public static let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
 
     // MARK: - Proxy settings
 
-    static let proxySettings: (host: String, port: Int)? = {
+    public static let proxySettings: (host: String, port: Int)? = {
         let proxySettings: [String: Any]? = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any]
 
         guard let httpProxyHost = proxySettings?[kCFNetworkProxiesHTTPProxy as String] as? String
@@ -44,7 +44,7 @@ enum AppConstants
 
     // MARK: - Basic executables and file locations
 
-    static let brewExecutablePath: URL = {
+    public static let brewExecutablePath: URL = {
         /// If a custom Homebrew path is defined, use it. Otherwise, use the default paths
         if let homebrewPath = UserDefaults.standard.string(forKey: "customHomebrewPath"), !homebrewPath.isEmpty
         {
@@ -65,7 +65,7 @@ enum AppConstants
         }
     }()
 
-    static let brewCellarPath: URL = {
+    public static let brewCellarPath: URL = {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Cellar")
         { // Apple Sillicon
             return URL(filePath: "/opt/homebrew/Cellar")
@@ -76,7 +76,7 @@ enum AppConstants
         }
     }()
 
-    static let brewCaskPath: URL = {
+    public static let brewCaskPath: URL = {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Caskroom")
         { // Apple Sillicon
             return URL(filePath: "/opt/homebrew/Caskroom")
@@ -87,7 +87,7 @@ enum AppConstants
         }
     }()
 
-    static let tapPath: URL = {
+    public static let tapPath: URL = {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Library/Taps")
         { // Apple Sillicon
             return URL(filePath: "/opt/homebrew/Library/Taps")
@@ -112,25 +112,25 @@ enum AppConstants
     public static let brewCachedCasksDownloadsPath: URL = brewCachePath.appending(component: "Cask", directoryHint: .isDirectory)
 
     /// This one has all the downloaded files themselves
-    static let brewCachedDownloadsPath: URL = brewCachePath.appendingPathComponent("downloads", conformingTo: .directory)
+    public static let brewCachedDownloadsPath: URL = brewCachePath.appending(component: "downloads", directoryHint: .isDirectory)
 
     // MARK: - Licensing
 
-    static let demoLengthInSeconds: Double = 604_800 // 7 days
+    public static let demoLengthInSeconds: Double = 604_800 // 7 days
 
-    static let authorizationEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
-    static let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
+    public static let authorizationEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
+    public static let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
 
     // MARK: - Temporary OS version submission
 
-    static let osSubmissionEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/3a971576-fa96-479e-9dc4-e052fe33270b")!
+    public static let osSubmissionEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/3a971576-fa96-479e-9dc4-e052fe33270b")!
 
     // MARK: - Misc Stuff
 
-    static let backgroundUpdateInterval: TimeInterval = 10 * 60
-    static let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60
+    public static let backgroundUpdateInterval: TimeInterval = 10 * 60
+    public static let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60
 
-    static let osVersionString: (lookupName: String, fullName: String) = {
+    public static let osVersionString: (lookupName: String, fullName: String) = {
         let versionDictionary: [Int: (lookupName: String, fullName: String)] = [
             15: ("sequoia", "Sequoia"),
             14: ("sonoma", "Sonoma"),
