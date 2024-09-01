@@ -11536,8 +11536,8 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Не вдалося розшифрувати відповідь Homebrew"
+            "state" : "translated",
+            "value" : "Homebrew не повернув коректні дані"
           }
         },
         "zh-Hans" : {
@@ -12369,8 +12369,8 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Не вдалося розшифрувати найкращі пакети"
+            "state" : "translated",
+            "value" : "Homebrew не повернув коректні дані"
           }
         },
         "zh-Hans" : {
@@ -18643,7 +18643,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Деякі кеші не були очищені через те, що %@ не оновлено"
+            "value" : "Деякі кеші не було очищено через те, що %@ не було оновлено"
           }
         },
         "zh-Hans" : {
@@ -18813,25 +18813,22 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакети не оновлено"
                 }
               },
               "many" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакетів не оновлено"
+                  "state" : "translated",
                 }
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інший пакет не оновлено"
+                  "state" : "translated",
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Деякі кеші не були очищені через те, що %@ та %lld інших пакетів не оновлено"
+                  "state" : "translated",
+                  "value" : "Деякі кеші не було очищено через те, що не було оновлено інші пакети %1$@ та %2$lld"
                 }
               }
             }
