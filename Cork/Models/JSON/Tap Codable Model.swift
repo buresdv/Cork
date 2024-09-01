@@ -37,17 +37,17 @@ struct TapInfo: Codable
     let caskTokens: [String]
 
     /// The paths to the formula files
-    let formulaFiles: [URL]
+    let formulaFiles: [URL]?
 
     /// The paths to the cask files
-    let caskFiles: [URL]
+    let caskFiles: [URL]?
 
     /// No idea, honestly
-    let commandFiles: [String]
+    let commandFiles: [String]?
 
     /// Link to the actual repo
-    let remote: URL
+    let remote: URL?
 
     /// IDK
-    let customRemote: Bool
+    let customRemote: Bool?
 }
