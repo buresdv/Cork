@@ -172,6 +172,12 @@
             "value" : "정보"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Про"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13465,6 +13471,12 @@
             "value" : "DEBUG: Activate demo"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДЛАДКА: Активувати демо-версію"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13485,6 +13497,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: Licensing"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДЛАДКА: Ліцензування"
           }
         },
         "zh-Hans" : {
@@ -13509,6 +13527,12 @@
             "value" : "DEBUG: Reset licensing state"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДЛАДКА: Скинути стан ліцензії"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13529,6 +13553,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДЛАДКА"
           }
         },
         "zh-Hans" : {
@@ -14513,6 +14543,12 @@
             "value" : "Package %@ does not have any versions installed"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет %@ не має жодних встановлених версій"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14534,6 +14570,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ is not a package folder"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ не є папкою пакету"
           }
         },
         "zh-Hans" : {
@@ -14627,6 +14669,12 @@
             "value" : "Couldn't load package %1$@ (%2$@):\n%3$@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити пакет %1$@ (%2$@):\n%3$@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -14649,6 +14697,12 @@
             "value" : "Couldn't load packages"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити пакети"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14669,6 +14723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't load packages:\n%@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити пакети:\n%@"
           }
         },
         "zh-Hans" : {
@@ -14727,6 +14787,12 @@
             "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей шлях вказує на саму папку Cask, а не на пакет.\nВаш Homebrew не працює, це не проблема Cork"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14747,6 +14813,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей шлях вказує на саму папку Formulae, а не на пакет.\nВаш Homebrew не працює, це не проблема Cork"
           }
         },
         "zh-Hans" : {
@@ -18813,16 +18885,19 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
+                  "value" : "Деякі кеші не було очищено через те, що не було оновлено інших пакетів %1$@ та %2$lld"
                 }
               },
               "many" : {
                 "stringUnit" : {
                   "state" : "translated",
+                  "value" : "Деякі кеші не було очищено через те, що не було оновлено інші пакети %1$@ та %2$lld"
                 }
               },
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
+                  "value" : "Деякі кеші не було очищено через те, що не було оновлено інший пакет %1$@ та %2$lld"
                 }
               },
               "other" : {
@@ -38153,6 +38228,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't check for outdated packges"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося перевірити застарілі пакети"
           }
         }
       }
