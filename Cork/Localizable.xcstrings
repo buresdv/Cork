@@ -11494,7 +11494,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Homebrew poskytnul nesprávnou odezvu"
           }
         },
@@ -12327,7 +12327,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Homebrew poskytnul nesprávnou odezvu"
           }
         },
@@ -13475,6 +13475,12 @@
     },
     "debug.action.licensing" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Licence"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13491,6 +13497,12 @@
     },
     "debug.action.reset-license-state" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Resetovat stav licence"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13507,6 +13519,12 @@
     },
     "debug.navigation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13523,6 +13541,12 @@
     },
     "error.brewfile.export.could-not-determine-working-directory" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při zjišťování složky pro export souboru Brewfile se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13551,6 +13575,12 @@
     },
     "error.brewfile.export.could-not-dump-with-error.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při exportu souboru Brewfile se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13579,6 +13609,12 @@
     },
     "error.brewfile.export.could-not-read-temporary-brewfile" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení obsahu dočasného souboru Brewfile se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13664,6 +13700,12 @@
     },
     "error.brewfile.importing.could-not-import.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při importování souboru Brewfile se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13726,6 +13768,12 @@
     },
     "error.data-downloading.invalid-response.undetermined-response-code" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Homebrew odpověděl s neplatným kódem, a tento kód nebylo možné přečíst"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13986,6 +14034,12 @@
     },
     "error.json-parsing.could-not-decode.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při dekódování JSON se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14008,6 +14062,12 @@
     },
     "error.licensing.auth-complex-not-encoded" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorizační komplex pro účely načtení licence se nepovedlo zakódovat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14030,6 +14090,12 @@
     },
     "error.licensing.not-connected-to-internet" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejste připojeni k internetu. Licenci nebylo možné ověřit"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14052,6 +14118,12 @@
     },
     "error.licensing.other-error.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při zjišťování stavu licence se vyskytla neimpleentovaná chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14130,6 +14202,12 @@
     },
     "error.maintenance.health-check.standard-error-not-empty" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funkce vrátila chyby"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14197,6 +14275,12 @@
     },
     "error.maintenance.orphan-removal.could-not-uninstall-orphans.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při odinstalování osiřelých balíčku se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14219,6 +14303,12 @@
     },
     "error.maintenance.orphan-uninstallation.unexpected-terminal-output" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funkce pro odinstalaci osiřelých balíčků poskytla nečekanou odezvu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14411,6 +14501,12 @@
     },
     "error.package-loading.%@-does-not-have-any-versions-installed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ nemá nainstalované žádné verze"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14540,6 +14636,12 @@
     },
     "error.package-loading.could-not-load-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání balíčků se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14612,6 +14714,12 @@
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poskytnutá cesta k souboru vede do složky obsahující soudky místo balíčku.\nVás homebrew je rozbitý, tohle není chyba Corku"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14628,6 +14736,12 @@
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poskytnutá cesta k souboru vede do složky obsahující vzorce místo balíčku.\nVás homebrew je rozbitý, tohle není chyba Corku"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14848,6 +14962,12 @@
     },
     "error.regex.nothing-matched" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REGEX nic nenašel"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
