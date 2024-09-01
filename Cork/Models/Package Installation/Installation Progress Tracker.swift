@@ -81,8 +81,7 @@ class InstallationProgressTracker: ObservableObject
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
-                    let dependencyMatchingRegex: String = "(?<=\(package.name): ).*?(.*)"
-                    var matchedDependencies: String = try regexMatch(from: outputLine, regex: dependencyMatchingRegex)
+                    var matchedDependencies: String = try outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
                     AppConstants.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")

@@ -39,9 +39,7 @@ func uninstallOrphansUtility() async throws -> Int
         }
         else
         {
-            let numberOfUninstalledOrphansRegex: String = "(?<=Autoremoving ).*?(?= unneeded)"
-
-            guard let numberOfRemovedOrphans = try Int(regexMatch(from: orphanUninstallationOutput.standardOutput, regex: numberOfUninstalledOrphansRegex))
+            guard let numberOfRemovedOrphans: Int = try Int(orphanUninstallationOutput.standardOutput.regexMatch("(?<=Autoremoving ).*?(?= unneeded)"))
             else
             {
                 throw OrphanRemovalError.couldNotGetNumberOfUninstalledOrphans

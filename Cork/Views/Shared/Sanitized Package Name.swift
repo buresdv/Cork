@@ -17,7 +17,7 @@ struct SanitizedPackageName: View
     {
         if packageName.contains("/")
         { /// Check if the package name contains slashes (this would mean it includes the tap name)
-            if let sanitizedName = try? regexMatch(from: packageName, regex: "[^\\/]*$")
+            if let sanitizedName = try? packageName.regexMatch("[^\\/]*$")
             {
                 return sanitizedName
             }
@@ -36,7 +36,7 @@ struct SanitizedPackageName: View
     {
         if packageNameWithoutTapName.contains("@")
         { /// Only do the matching if the name contains @
-            if let sanitizedName = try? regexMatch(from: packageNameWithoutTapName, regex: ".+?(?=@)")
+            if let sanitizedName = try? packageNameWithoutTapName.regexMatch(".+?(?=@)")
             { /// Try to REGEX-match the name out of the raw name
                 HStack(alignment: .firstTextBaseline, spacing: 5)
                 {

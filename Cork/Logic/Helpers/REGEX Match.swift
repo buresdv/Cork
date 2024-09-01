@@ -21,12 +21,19 @@ enum RegexError: LocalizedError
     }
 }
 
-func regexMatch(from string: String, regex: String) throws -> String
+extension String
 {
-    guard let matchedRange = string.range(of: regex, options: .regularExpression) else 
+    
+    /// Match a string according to a specified REGEX
+    /// - Parameter regex: Regex string to match
+    /// - Returns: A matched string if matching was successful, ``nil`` if nothing got matched
+    func regexMatch(_ regex: String) throws -> String
     {
-        throw RegexError.regexFunctionCouldNotMatchAnything
+        guard let matchedRange = self.range(of: regex, options: .regularExpression) else
+        {
+            throw RegexError.regexFunctionCouldNotMatchAnything
+        }
+        
+        return String(self[matchedRange])
     }
-
-    return String(string[matchedRange])
 }

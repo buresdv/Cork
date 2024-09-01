@@ -168,7 +168,7 @@ class AppState: ObservableObject
 
         for usableCachedDownload in usableCachedDownloads
         {
-            guard var itemName: String = try? regexMatch(from: usableCachedDownload.lastPathComponent, regex: "(?<=--)(.*?)(?=\\.)")
+            guard var itemName: String = try? usableCachedDownload.lastPathComponent.regexMatch("(?<=--)(.*?)(?=\\.)")
             else
             {
                 return
@@ -180,7 +180,7 @@ class AppState: ObservableObject
             {
                 do
                 {
-                    itemName = try regexMatch(from: itemName, regex: ".*?(?=--)")
+                    itemName = try itemName.regexMatch(".*?(?=--)")
                 }
                 catch {}
             }
