@@ -13453,6 +13453,12 @@
     },
     "debug.action.activate-demo" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Aktivovat demo"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13601,6 +13607,12 @@
     },
     "error.brewfile.importing.could-not-get-selected-brewfile-location" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při hledání adresy tohoto souboru Brewfile se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13680,6 +13692,12 @@
     },
     "error.data-downloading.invalid-response.%lld" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Homebrew poskytnul chybnou odezvu: %lld"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13736,6 +13754,12 @@
     },
     "error.data-downloading.invalid-url" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poskytnutá adresa není platnou adresou Homebrew serveru"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13764,6 +13788,12 @@
     },
     "error.data-downloading.no-data-received" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Homebrew při načítání nejoblíbenějších balíčků nevrátil odpověď"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13792,6 +13822,12 @@
     },
     "error.finder-reveal.could-not-find-package-in-parent" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při hledání žádaného balíčku ve složce se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13922,6 +13958,12 @@
     },
     "error.json-parsing.could-not-convert-string-to-data.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při převodu datového typu String do Data se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14032,6 +14074,12 @@
     },
     "error.licensing.timed-out" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Připojení k licenčnímu serveru vypršelo"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14054,6 +14102,12 @@
     },
     "error.maintenance.cache-purging.command-failed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při mazání mezipaměti se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14098,6 +14152,12 @@
     },
     "error.maintenance.orphan-removal.could-not-get-number-of-uninstalled-orphans" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při počítání balíčků, které by tímto byly odstraněny, se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14181,6 +14241,12 @@
     },
     "error.outdated-packages.could-not-decode-command-output.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při dekódování JSON se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14209,6 +14275,12 @@
     },
     "error.outdated-packages.home-not-set" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parametr HOME není pro Homebrew příkazy správně nastaven"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14237,6 +14309,12 @@
     },
     "error.outdated-packages.other-error.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání zastaralých balíčků se vyskytla neimplementovaná chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14349,6 +14427,12 @@
     },
     "error.package-loading.%@-not-a-folder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ není balíček"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14434,6 +14518,12 @@
     "error.package-loading.could-not-load-%@-at-%@-because-%@" : {
       "comment" : "Couldn't load package (package name) at (package URL) because (failure reason)",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání balíčku %1$@ (%2$@) se vyskytla chyba: %3$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14466,6 +14556,12 @@
     },
     "error.package-loading.could-not-load-packages.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání balíčků se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14684,6 +14780,12 @@
     },
     "error.package-retrieval.uuid.could-not-find-any-packages-in-tracker" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poskytnuté UUID balíčku nebylo nalezeno"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14712,6 +14814,12 @@
     },
     "error.permissions.could-not-obtain-folder-access-permissions.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepovedlo se získat oprávnění k přístupu do složky: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14972,6 +15080,12 @@
     },
     "error.services.stopping.could-not-stop-service.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při ukončování služby se vyskytla chyba: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15017,6 +15131,12 @@
     },
     "error.tap.untap.could-not-untap.tap-%@.failure-reason-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při odstraňování pípy %1$@ se vyskytla chyba: %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15187,6 +15307,12 @@
     },
     "error.top-packages.impossible-error" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádaný balíček nebyl nalezen, i když měl být"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37899,6 +38025,12 @@
     },
     "start-page.loading.failed.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání zastaralých balíčků se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",

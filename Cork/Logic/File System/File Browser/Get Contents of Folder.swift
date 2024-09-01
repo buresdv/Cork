@@ -30,7 +30,7 @@ enum PackageLoadingError: LocalizedError
         case .packageDoesNotHaveAnyVersionsInstalled(let string):
             return String(localized: "error.package-loading.\(string)-does-not-have-any-versions-installed")
         case .packageIsNotAFolder(let string, _):
-            return String(localized: "error.package-loading.\(string)-not-a-folder")
+            return String(localized: "error.package-loading.\(string)-not-a-folder", comment: "Package folder in this context means a folder that encloses package versions. Every package has its own folder, and this error occurs when the provided URL does not point to a folder that encloses package versions")
         }
     }
 }
