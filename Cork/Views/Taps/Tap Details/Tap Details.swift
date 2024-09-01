@@ -15,12 +15,8 @@ struct TapDetailView: View, Sendable
     @EnvironmentObject var availableTaps: AvailableTaps
 
     @State private var isLoadingTapInfo: Bool = true
-
-    @State private var homepage: URL?
-    @State private var isOfficial: Bool = false
-    @State private var includedFormulae: [String] = .init()
-    @State private var includedCasks: [String] = .init()
-    @State private var numberOfPackages: Int = 0
+    
+    @State var tapInfo: TapInfo?
 
     @State private var erroredOut: Bool = false
     @State private var errorOutReason: String = ""
@@ -51,42 +47,45 @@ struct TapDetailView: View, Sendable
                 }
                 else
                 {
-                    VStack(alignment: .leading, spacing: 10)
+                    if let tapInfo
                     {
-                        FullSizeGroupedForm
+                        VStack(alignment: .leading, spacing: 10)
                         {
-                            TapDetailsInfo(
-                                tap: tap,
-                                isOfficial: isOfficial,
-                                includedFormulae: includedFormulae,
-                                includedCasks: includedCasks,
-                                numberOfPackages: numberOfPackages,
-                                homepage: homepage
-                            )
-
-                            TapDetailsIncludedPackages(includedFormulae: includedFormulae, includedCasks: includedCasks)
-                        }
-                        .scrollDisabled(true)
-
-                        ButtonBottomRow
-                        {
-                            HStack
+                            FullSizeGroupedForm
                             {
-                                Spacer()
-
-                                UninstallationProgressWheel()
-
-                                Button
+                                TapDetailsInfo(
+                                    tap: tap,
+                                    tapInfo: tapInfo
+                                )
+                                
+                                TapDetailsIncludedPackages(includedFormulae: tapInfo.formulaNames, includedCasks: tapInfo.caskTokens)
+                            }
+                            .scrollDisabled(true)
+                            
+                            ButtonBottomRow
+                            {
+                                HStack
                                 {
-                                    Task(priority: .userInitiated)
+                                    Spacer()
+                                    
+                                    UninstallationProgressWheel()
+                                    
+                                    Button
                                     {
-                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                        Task(priority: .userInitiated)
+                                        {
+                                            try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                        }
+                                    } label: {
+                                        Text("tap-details.remove-\(tap.name)")
                                     }
-                                } label: {
-                                    Text("tap-details.remove-\(tap.name)")
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json", errorDescription: errorOutReason)
                     }
                 }
             }
@@ -99,24 +98,11 @@ struct TapDetailView: View, Sendable
                 isLoadingTapInfo = false
             }
 
-            async let tapInfo: String = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
+            async let tapInfoRaw: String = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutput
 
             do
             {
-                guard let fullParsedTapInfo: TapInfo = try await parseTapInfo(from: tapInfo)
-                else
-                {
-                    erroredOut = true
-
-                    return
-                }
-
-                homepage = fullParsedTapInfo.remote
-                isOfficial = fullParsedTapInfo.official
-                includedFormulae = fullParsedTapInfo.formulaNames
-                includedCasks = fullParsedTapInfo.caskTokens
-
-                numberOfPackages = includedFormulae.count + includedCasks.count
+                tapInfo = try await parseTapInfo(from: tapInfoRaw)
             }
             catch let parsingError
             {

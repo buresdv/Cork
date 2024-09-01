@@ -14522,6 +14522,7 @@
       }
     },
     "error.package-loading.%@-not-a-folder" : {
+      "comment" : "Package folder in this context means a folder that encloses package versions. Every package has its own folder, and this error occurs when the provided URL does not point to a folder that encloses package versions",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

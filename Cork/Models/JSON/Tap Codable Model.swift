@@ -50,4 +50,9 @@ struct TapInfo: Codable
 
     /// IDK
     let customRemote: Bool?
+    
+    var numberOfPackages: Int
+    {
+        return self.formulaNames.count + self.caskTokens.count
+    }
 }
