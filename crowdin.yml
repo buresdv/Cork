@@ -1,4 +1,4 @@
 files:
-  - source: Localizable.xcstrings
-    translation: Localizable.xcstrings
+  - source: /Cork/Localizable.xcstrings
+    translation: /Cork/Localizable.xcstrings
     multilingual: 1
