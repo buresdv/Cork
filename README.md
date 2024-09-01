@@ -108,7 +108,7 @@ Prerequisites:
 
 ### Instructions:
 
-**Before you begin**
+#### Before you begin
 
 *Skip if you already have an Apple Developer account*
 
@@ -120,14 +120,36 @@ Prerequisites:
 5. On the bottom left, click the **+** icon and select `Apple Development`
 6. When a new item appears in the list called `Apple Development Certificates`, you can press `Done` to close the account manager
 
-**Installing Tuist**
+#### Installing Tuist and Its Prerequisites
 
-*Skip if you already have Tuist installed*
+*Skip if you already have Tuist and Mise installed*
 
-1. Add the Tuist Homebrew tap using `brew tap tuist/tuist`
-2. Install Tuist using `brew install --formula tuist`
+#### Installing Mise
 
-**Compiling Cork**
+*Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tusit specifically, like the aforementioned version synchronization.*
+
+1. Install Mise using `curl https://mise.run | sh`
+2. Initialize Mise using the command you see after the installation finishes. It's located under `mise: run the following to activate mise in your shell:`.\
+In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"" >> "/Users/david/.zshrc"`
+> [!CAUTION]
+> Make sure to copy the command Mise itself gives you, and not the one I used above. This command is only valid for my Mac, and will not work on your machine.
+
+3. Add `mise` to your path using one of the following commands, depending on your shell.
+- **zsh**: `echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc`
+- **bash**: `echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc`
+- **fish**: `echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish`
+> [!TIP]
+> **zsh** is the default macOS shell.
+
+> [!NOTE]
+> If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell
+> In my case, the output of the command is `/bin/zsh`. This means my shell is `zsh`
+
+#### Installing Tuist
+
+1. Install Tuist using `mise install tuist`
+
+#### Compiling Cork
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
 1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && tuist install && tuist generate --no-binary-cache`. Xcode will open the project.
