@@ -26,7 +26,7 @@ enum PackageLoadingError: LocalizedError
                 return String(localized: "error.package-loading.could-not-load-packages")
             }
         case .failedWhileLoadingCertainPackage(let string, let uRL, let failureReason):
-            return String(localized: "error.package-loading.could-not-load-\(string)-at-\(uRL.absoluteString)-because-\(failureReason)")
+            return String(localized: "error.package-loading.could-not-load-\(string)-at-\(uRL.absoluteString)-because-\(failureReason)", comment: "Couldn't load package (package name) at (package URL) because (failure reason)")
         case .packageDoesNotHaveAnyVersionsInstalled(let string):
             return String(localized: "error.package-loading.\(string)-does-not-have-any-versions-installed")
         case .packageIsNotAFolder(let string, _):

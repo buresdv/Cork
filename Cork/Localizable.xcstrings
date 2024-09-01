@@ -13500,7 +13500,6 @@
       }
     },
     "debug.navigation" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -14340,12 +14339,6 @@
             "value" : "Package %@ does not have any versions installed"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.%@-does-not-have-any-versions-installed"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14360,12 +14353,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ is not a package folder"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.%@-not-a-folder"
           }
         },
         "zh-Hans" : {
@@ -14445,22 +14432,17 @@
       }
     },
     "error.package-loading.could-not-load-%@-at-%@-because-%@" : {
+      "comment" : "Couldn't load package (package name) at (package URL) because (failure reason)",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't load package%1$@ (%2$@):\n%3$@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.could-not-load-%1$@-at-%2$@-because-%3$@"
+            "value" : "Couldn't load package %1$@ (%2$@):\n%3$@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         }
@@ -14472,12 +14454,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't load packages"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.could-not-load-packages"
           }
         },
         "zh-Hans" : {
@@ -14494,12 +14470,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't load packages:\n%@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.could-not-load-packages.%@"
           }
         },
         "zh-Hans" : {
@@ -14552,12 +14522,6 @@
             "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14572,12 +14536,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"
           }
         },
         "zh-Hans" : {
@@ -37945,12 +37903,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't check for outdated packges"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "start-page.loading.failed.title"
           }
         }
       }
