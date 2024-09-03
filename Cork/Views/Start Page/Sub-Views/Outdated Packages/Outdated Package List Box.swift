@@ -17,6 +17,8 @@ struct OutdatedPackageListBox: View
 
     @Binding var isDropdownExpanded: Bool
 
+    @State var packageDetailPopover: BrewPackage?
+    
     private var packagesMarkedForUpdating: [OutdatedPackage]
     {
         return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
@@ -177,7 +179,7 @@ struct OutdatedPackageListBox: View
                         }
                     ))
                     {
-                        OutdatedPackageListBoxRow(outdatedPackage: outdatedPackage)
+                        OutdatedPackageListBoxRow(outdatedPackage: outdatedPackage, packageDetailPopover: $packageDetailPopover)
                     }
                 }
             } header: {
@@ -224,7 +226,10 @@ struct OutdatedPackageListBox: View
 
                 TableColumn("package-details.dependencies.results.name")
                 { outdatedPackage in
-                    Text(outdatedPackage.package.name)
+                    HStack {
+                        Text(outdatedPackage.package.name)
+                        packageDetailButton(for: outdatedPackage, popover: $packageDetailPopover)
+                    }
                 }
 
                 TableColumn("start-page.updates.installed-version")
@@ -255,6 +260,23 @@ struct OutdatedPackageListBox: View
     }
 }
 
+private func packageDetailButton(for outdatedPackage: OutdatedPackage, popover: Binding<BrewPackage?>) -> some View {
+    let popoverBinding: Binding<BrewPackage?> = Binding(get: {
+        outdatedPackage.package == popover.wrappedValue ? popover.wrappedValue : nil
+    }, set: {
+        popover.wrappedValue = $0
+    })
+    
+    return Image(systemName: "info.circle")
+        .foregroundStyle(.gray)
+        .onTapGesture {
+            popover.wrappedValue = outdatedPackage.package
+        }
+        .popover(item: popoverBinding) { package in
+            PackageDetailView(package: package)
+        }
+}
+
 // MARK: - List row
 
 private struct OutdatedPackageListBoxRow: View
@@ -263,6 +285,8 @@ private struct OutdatedPackageListBoxRow: View
     @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
 
     let outdatedPackage: OutdatedPackage
+    
+    @Binding var packageDetailPopover: BrewPackage?
 
     @State private var isExpanded: Bool = false
 
@@ -287,7 +311,10 @@ private struct OutdatedPackageListBoxRow: View
     @ViewBuilder
     var outdatedPackageDetails_none: some View
     {
-        SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+        HStack {
+            SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+            packageDetailButton(for: outdatedPackage, popover: $packageDetailPopover)
+        }
     }
 
     @ViewBuilder
@@ -296,7 +323,9 @@ private struct OutdatedPackageListBoxRow: View
         HStack(alignment: .center)
         {
             SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
-
+            
+            packageDetailButton(for: outdatedPackage, popover: $packageDetailPopover)
+            
             HStack(alignment: .center)
             {
                 if showOldVersionsInOutdatedPackageList

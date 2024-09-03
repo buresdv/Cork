@@ -44,6 +44,22 @@ struct PackageDetailView: View, Sendable
         }
     }
 
+    private var formContent: some View {
+        FullSizeGroupedForm
+        {
+            BasicPackageInfoView(
+                package: package,
+                packageDetails: packageDetails!,
+                isLoadingDetails: isLoadingDetails,
+                isShowingExpandedCaveats: $isShowingExpandedCaveats
+            )
+            
+            PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
+            
+            PackageSystemInfo(package: package)
+        }
+    }
+    
     var body: some View
     {
         VStack(alignment: .leading, spacing: 0)
@@ -70,20 +86,11 @@ struct PackageDetailView: View, Sendable
                 }
                 else
                 {
-                    FullSizeGroupedForm
-                    {
-                        BasicPackageInfoView(
-                            package: package,
-                            packageDetails: packageDetails!,
-                            isLoadingDetails: isLoadingDetails,
-                            isShowingExpandedCaveats: $isShowingExpandedCaveats
-                        )
-
-                        PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
-
-                        PackageSystemInfo(package: package)
+                    if #available(macOS 13.3, *) {
+                        formContent.scrollBounceBehavior(.basedOnSize)
+                    } else {
+                        formContent.scrollDisabled(isScrollingDisabled)
                     }
-                    .scrollDisabled(isScrollingDisabled)
                 }
             }
 
