@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkShared
 
 enum SetupLevels: Identifiable, CaseIterable
 {

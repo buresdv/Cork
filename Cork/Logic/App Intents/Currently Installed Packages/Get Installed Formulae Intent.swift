@@ -7,6 +7,7 @@
 
 import AppIntents
 import Foundation
+import CorkShared
 
 enum FolderAccessingError: LocalizedError
 {

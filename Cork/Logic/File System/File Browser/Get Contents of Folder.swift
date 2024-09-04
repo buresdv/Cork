@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CorkShared
 
 enum PackageLoadingError: LocalizedError
 {

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CorkShared
+import CorkNotifications
 
 struct OnboardingView: View
 {

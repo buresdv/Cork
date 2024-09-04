@@ -8,6 +8,8 @@
 import AppKit
 import Foundation
 @preconcurrency import UserNotifications
+import CorkShared
+import CorkNotifications
 
 /// Class that holds the global state of the app, excluding services
 @MainActor

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 enum HealthCheckError: LocalizedError
 {

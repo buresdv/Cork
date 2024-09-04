@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 @MainActor
 func loadUpTappedTaps() async -> [BrewTap]

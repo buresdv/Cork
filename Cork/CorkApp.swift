@@ -10,6 +10,8 @@
 import DavidFoundation
 import SwiftUI
 import UserNotifications
+import CorkShared
+import CorkNotifications
 
 @main
 struct CorkApp: App

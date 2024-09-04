@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkNotifications
 
 struct FinishedStageView: View
 {

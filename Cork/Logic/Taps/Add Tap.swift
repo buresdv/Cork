@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
 {
