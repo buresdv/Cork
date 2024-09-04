@@ -21,7 +21,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable
         { /// First, remove the tap name from the package name if it has it
             if self.name.contains("/")
             { /// Check if the package name contains slashes (this would mean it includes the tap name)
-                if let sanitizedName = try? regexMatch(from: self.name, regex: "[^\\/]*$")
+                if let sanitizedName = try? self.name.regexMatch("[^\\/]*$")
                 {
                     return sanitizedName
                 }
@@ -38,7 +38,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable
 
         if packageNameWithoutTap.contains("@")
         { /// Only do the matching if the name contains @
-            if let sanitizedName = try? regexMatch(from: packageNameWithoutTap, regex: ".+?(?=@)")
+            if let sanitizedName = try? packageNameWithoutTap.regexMatch(".+?(?=@)")
             { /// Try to REGEX-match the name out of the raw name
                 return sanitizedName
             }

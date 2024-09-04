@@ -46,9 +46,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
             {
                 AppConstants.logger.log("Blocking package: \(blockingPackageRaw, privacy: .public)")
 
-                let packageHoldingBackCachePurgeNameRegex: String = "(?<=Skipping ).*?(?=:)"
-
-                guard let packageHoldingBackCachePurgeName = try? regexMatch(from: blockingPackageRaw, regex: packageHoldingBackCachePurgeNameRegex)
+                guard let packageHoldingBackCachePurgeName = try? blockingPackageRaw.regexMatch("(?<=Skipping ).*?(?=:)")
                 else
                 {
                     throw HomebrewCachePurgeError.regexMatchingCouldNotMatchAnything

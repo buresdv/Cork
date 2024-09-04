@@ -78,11 +78,7 @@ extension BrewDataStorage
 
             do
             {
-                let dependencyNameExtractionRegex: String = "(?<=required by ).*?(?=, which)"
-
-                var dependencyName: String
-
-                dependencyName = try String(regexMatch(from: uninstallCommandOutput.standardError, regex: dependencyNameExtractionRegex))
+                var dependencyName: String = try uninstallCommandOutput.standardError.regexMatch("(?<=required by ).*?(?=, which)")
 
                 appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: package, offendingDependencyProhibitingUninstallation: dependencyName))
 
