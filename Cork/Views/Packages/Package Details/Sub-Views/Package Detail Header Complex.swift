@@ -22,9 +22,13 @@ struct PackageDetailHeaderComplex: View
             {
                 SanitizedPackageName(packageName: package.name, shouldShowVersion: false)
                     .font(.title)
-                Text("v. \(package.getFormattedVersions())")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                
+                if !package.versions.isEmpty
+                {
+                    Text("v. \(package.getFormattedVersions())")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
 
                 if packageDetails.pinned
                 {

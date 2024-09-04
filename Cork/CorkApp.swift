@@ -67,7 +67,6 @@ struct CorkApp: App
             WindowGroup(id: .previewWindowID, for: BrewPackage.self)
             { $packageToPreview in
                 PackagePreview(packageToPreview: packageToPreview)
-                    .handlesExternalEvents(preferring: [], allowing: [])
                     .navigationTitle(packageToPreview?.name ?? "")
             }
             .windowResizability(.contentSize)

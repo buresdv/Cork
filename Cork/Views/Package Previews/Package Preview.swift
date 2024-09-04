@@ -14,10 +14,12 @@ struct PackagePreview: View
 
     let packageToPreview: BrewPackage?
     
-    init(packageToPreview: BrewPackage?) 
+    /*
+    init(packageToPreview: BrewPackage?)
     {
         self.packageToPreview = packageToPreview
         
+        /*
         if packageToPreview == nil
         {
             // Tell the window to fuck off when it's not supposed to show up yet
@@ -26,13 +28,16 @@ struct PackagePreview: View
                 dismissWindow(id: .previewWindowID)
             }
         }
+         */
     }
+     */
 
     var body: some View
     {
         if let packageToPreview
         {
             PackageDetailView(package: packageToPreview)
+                .fixedSize()
         }
     }
 }
