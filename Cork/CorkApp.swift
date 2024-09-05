@@ -7,11 +7,11 @@
 
 // swiftlint:disable file_length
 
+import CorkNotifications
+import CorkShared
 import DavidFoundation
 import SwiftUI
 import UserNotifications
-import CorkShared
-import CorkNotifications
 
 @main
 struct CorkApp: App
@@ -124,13 +124,10 @@ struct CorkApp: App
                 {
                     print("Licensing state: \(appDelegate.appState.licensingState)")
 
-                    if ProcessInfo.processInfo.environment["SELF_COMPILED"] == "true"
-                    {
+                    #if SELF_COMPILED
                         AppConstants.logger.debug("Will set licensing state to Self Compiled")
                         appDelegate.appState.licensingState = .selfCompiled
-                    }
-                    else
-                    {
+                    #else
                         if !hasValidatedEmail
                         {
                             if appDelegate.appState.licensingState != .selfCompiled
@@ -154,7 +151,7 @@ struct CorkApp: App
                                 }
                             }
                         }
-                    }
+                    #endif
                 }
                 .onAppear
                 {
@@ -379,12 +376,12 @@ struct CorkApp: App
                 {
                     maintenanceMenuBarSection
                 }
-                
+
                 #if DEBUG
-                CommandMenu("debug.navigation")
-                {
-                    debugMenuBarSection
-                }
+                    CommandMenu("debug.navigation")
+                    {
+                        debugMenuBarSection
+                    }
                 #endif
             }
         }
@@ -674,11 +671,12 @@ struct CorkApp: App
         .keyboardShortcut("m", modifiers: [.command, .option])
         .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
     }
-    
+
     @ViewBuilder
     var debugMenuBarSection: some View
     {
-        Menu {
+        Menu
+        {
             Button
             {
                 demoActivatedAt = nil
@@ -688,7 +686,7 @@ struct CorkApp: App
             } label: {
                 Text("debug.action.reset-license-state")
             }
-            
+
             Button
             {
                 demoActivatedAt = nil
@@ -701,7 +699,6 @@ struct CorkApp: App
         } label: {
             Text("debug.action.licensing")
         }
-
     }
 
     // MARK: - Functions
