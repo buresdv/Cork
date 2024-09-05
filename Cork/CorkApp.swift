@@ -62,17 +62,6 @@ struct CorkApp: App
 
     var body: some Scene
     {
-        if #available(macOS 14, *)
-        {
-            WindowGroup(id: .previewWindowID, for: BrewPackage.self)
-            { $packageToPreview in
-                PackagePreview(packageToPreview: packageToPreview)
-                    .navigationTitle(packageToPreview?.name ?? "")
-            }
-            .windowResizability(.contentSize)
-            .windowToolbarStyle(.unifiedCompact)
-        }
-
         Window("Main Window", id: .mainWindowID)
         {
             ContentView()
@@ -416,6 +405,14 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
+        
+        WindowGroup(id: .previewWindowID, for: BrewPackage.self)
+        { $packageToPreview in
+            PackagePreview(packageToPreview: packageToPreview)
+                .navigationTitle(packageToPreview?.name ?? "")
+        }
+        .windowResizability(.contentSize)
+        .windowToolbarStyle(.unifiedCompact)
 
         Settings
         {
