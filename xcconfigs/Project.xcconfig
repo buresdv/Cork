@@ -49,7 +49,6 @@ SWIFT_STRICT_CONCURRENCY=targeted
 
 DEBUG_INFORMATION_FORMAT[config=Debug]=dwarf
 DEBUG_INFORMATION_FORMAT[config=Release]=dwarf-with-dsym
-DEBUG_INFORMATION_FORMAT[config=Self-Compiled]=dwarf-with-dsym
 ENABLE_NS_ASSERTIONS[config=Release]=NO
 ENABLE_NS_ASSERTIONS[config=Self-Compiled]=NO
 ENABLE_TESTABILITY[config=Debug]=YES
@@ -60,10 +59,7 @@ MTL_ENABLE_DEBUG_INFO[config=Debug]=INCLUDE_SOURCE
 MTL_ENABLE_DEBUG_INFO[config=Release]=NO
 MTL_ENABLE_DEBUG_INFO[config=Self-Compiled]=NO
 ONLY_ACTIVE_ARCH[config=Debug]=YES
-SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Debug]=DEBUG
-SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Self-Compiled]=SELF_COMPILED
 SWIFT_COMPILATION_MODE[config=Release]=wholemodule
 SWIFT_COMPILATION_MODE[config=Self-Compiled]=wholemodule
 SWIFT_OPTIMIZATION_LEVEL[config=Debug]=-Onone
 SWIFT_OPTIMIZATION_LEVEL[config=Release]=-O
-SWIFT_OPTIMIZATION_LEVEL[config=Self-Compiled]=-O

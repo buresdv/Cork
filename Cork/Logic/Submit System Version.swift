@@ -26,10 +26,9 @@ func submitSystemVersion() async throws
     let session: URLSession = .init(configuration: sessionConfiguration)
 
     var isSelfCompiled: Bool = false
-    if ProcessInfo.processInfo.environment["SELF_COMPILED"] == "true"
-    {
-        isSelfCompiled = true
-    }
+    #if SELF_COMPILED
+    isSelfCompiled = true
+    #endif
 
     var urlComponents: URLComponents? = .init(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
     urlComponents?.queryItems = [

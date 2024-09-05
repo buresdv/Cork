@@ -24,5 +24,4 @@ SWIFT_VERSION=5.0
 
 LD_RUNPATH_SEARCH_PATHS[config=Debug]=$(inherited) @executable_path/../Frameworks
 LD_RUNPATH_SEARCH_PATHS[config=Release]=$(inherited) @executable_path/../Frameworks
-LD_RUNPATH_SEARCH_PATHS[config=Self-Compiled]=$(inherited) @executable_path/../Frameworks
-SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=Self-Compiled]=SELF_COMPILED
+

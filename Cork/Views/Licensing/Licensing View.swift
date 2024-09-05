@@ -33,12 +33,10 @@ struct LicensingView: View
         }
         .onAppear
         {
-            if ProcessInfo.processInfo.environment["SELF_COMPILED"] == "true"
-            {
+#if SELF_COMPILED
                 appState.licensingState = .selfCompiled
-            }
-            else
-            {
+#else
+
                 AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
 
                 if hasValidatedEmail
@@ -59,7 +57,7 @@ struct LicensingView: View
                         }
                     }
                 }
-            }
+#endif  
         }
     }
 }

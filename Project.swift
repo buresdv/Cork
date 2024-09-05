@@ -1,5 +1,51 @@
 import ProjectDescription
 
+let settings = Environment.selfCompiled.getBoolean(default: false)
+
+func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
+    var additionalCompilationConditions = [String]()
+    if configureWithSelfCompiled {
+        additionalCompilationConditions.append ("SELF_COMPILED")
+    }
+    
+    let targetName = configureWithSelfCompiled ? "Cork-SelfCompiled" : "Cork"
+    
+    return Target.target(
+        name: targetName,
+        destinations: [.mac],
+        product: .app,
+        productName: "Cork",
+        bundleId: "com.davidbures.cork",
+        infoPlist: .file(path: "Cork/Info.plist"),
+        sources: [
+            "Cork/**/*.swift",
+        ], resources: [
+            "Cork/**/*.xcassets",
+            "Cork/**/*.xcstrings",
+            "PrivacyInfo.xcprivacy",
+            "Cork/Logic/Helpers/Programs/Sudo Helper",
+        ], dependencies: [
+            // .target(name: "CorkHelp"),
+            .target(name: "CorkShared"),
+            .target(name: "CorkNotifications"),
+            .external(name: "LaunchAtLogin"),
+            .external(name: "DavidFoundation"),
+            .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
+        ], settings: .settings(configurations: [
+            .debug(
+                name: "Debug",
+                settings: [:].swiftActiveCompilationConditions(["DEBUG"] + additionalCompilationConditions),
+                xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+            ),
+            .release(
+                name: "Release",
+                settings: [:].swiftActiveCompilationConditions(additionalCompilationConditions),
+                xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+            ),
+        ])
+    )
+}
+
 let project = Project(
     name: "Cork",
     packages: [
@@ -9,6 +55,7 @@ let project = Project(
         configurations: [
             .debug(
                 name: "Debug",
+//                settings: [:].swiftActiveCompilationConditions(["DEBUG"]),
                 xcconfig: .relativeToRoot("xcconfigs/Project.xcconfig")
             ),
             .release(
@@ -17,37 +64,8 @@ let project = Project(
             ),
         ]),
     targets: [
-        .target(
-            name: "Cork",
-            destinations: [.mac],
-            product: .app,
-            bundleId: "com.davidbures.cork",
-            infoPlist: .file(path: "Cork/Info.plist"),
-            sources: [
-                "Cork/**/*.swift",
-            ], resources: [
-                "Cork/**/*.xcassets",
-                "Cork/**/*.xcstrings",
-                "PrivacyInfo.xcprivacy",
-                "Cork/Logic/Helpers/Programs/Sudo Helper",
-            ], dependencies: [
-                // .target(name: "CorkHelp"),
-                .target(name: "CorkShared"),
-                .target(name: "CorkNotifications"),
-                .external(name: "LaunchAtLogin"),
-                .external(name: "DavidFoundation"),
-                .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
-            ], settings: .settings(configurations: [
-                .debug(
-                    name: "Debug",
-                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                ),
-                .release(
-                    name: "Release",
-                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                ),
-            ])
-        ),
+        corkTarget(configureWithSelfCompiled: false),
+        corkTarget(configureWithSelfCompiled: true),
         .target(
             name: "CorkShared",
             destinations: [.mac],
@@ -105,44 +123,6 @@ let project = Project(
                 ),
             ])
         ),
-    ],
-    schemes: [
-        .scheme(
-            name: "Release",
-            buildAction: .buildAction(
-                targets: ["Cork"]
-            ),
-            runAction: .runAction(
-                configuration: .release,
-                executable: "Cork",
-                options: .options(language: .init(identifier: "en"))
-            )
-        ),
-        .scheme(
-            name: "Self-Compiled",
-            buildAction: .buildAction(
-                targets: ["Cork"]
-            ),
-            runAction: .runAction(
-                executable: "Cork",
-                arguments: .arguments(
-                    environmentVariables: [
-                        "SELF_COMPILED": "true",
-                    ]
-                ),
-                options: .options(language: .init(identifier: "en"))
-            )
-        ),
-        .scheme(
-            name: "Debug",
-            buildAction: .buildAction(
-                targets: ["Cork"]
-            ),
-            runAction: .runAction(
-                configuration: .debug,
-                executable: "Cork",
-                options: .options(language: .init(identifier: "en"))
-            )
-        )
     ]
+
 )
