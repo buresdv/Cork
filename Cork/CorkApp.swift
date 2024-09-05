@@ -7,11 +7,11 @@
 
 // swiftlint:disable file_length
 
+import CorkNotifications
+import CorkShared
 import DavidFoundation
 import SwiftUI
 import UserNotifications
-import CorkShared
-import CorkNotifications
 
 @main
 struct CorkApp: App
@@ -123,35 +123,35 @@ struct CorkApp: App
                 .onAppear
                 {
                     print("Licensing state: \(appDelegate.appState.licensingState)")
-                    
-#if SELF_COMPILED
-                    AppConstants.logger.debug("Will set licensing state to Self Compiled")
-                    appDelegate.appState.licensingState = .selfCompiled
-#else
-                    if !hasValidatedEmail
-                    {
-                        if appDelegate.appState.licensingState != .selfCompiled
+
+                    #if SELF_COMPILED
+                        AppConstants.logger.debug("Will set licensing state to Self Compiled")
+                        appDelegate.appState.licensingState = .selfCompiled
+                    #else
+                        if !hasValidatedEmail
                         {
-                            if let demoActivatedAt
+                            if appDelegate.appState.licensingState != .selfCompiled
                             {
-                                let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
-                                
-                                AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-                                
-                                AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-                                
-                                if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
-                                { // Check if there is still time on the demo
-                                    /// do stuff if there is
-                                }
-                                else
+                                if let demoActivatedAt
                                 {
-                                    hasFinishedLicensingWorkflow = false
+                                    let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+
+                                    AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
+
+                                    AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+
+                                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                                    { // Check if there is still time on the demo
+                                        /// do stuff if there is
+                                    }
+                                    else
+                                    {
+                                        hasFinishedLicensingWorkflow = false
+                                    }
                                 }
                             }
                         }
-                    }
-#endif
+                    #endif
                 }
                 .onAppear
                 {
@@ -376,12 +376,12 @@ struct CorkApp: App
                 {
                     maintenanceMenuBarSection
                 }
-                
+
                 #if DEBUG
-                CommandMenu("debug.navigation")
-                {
-                    debugMenuBarSection
-                }
+                    CommandMenu("debug.navigation")
+                    {
+                        debugMenuBarSection
+                    }
                 #endif
             }
         }
@@ -671,11 +671,12 @@ struct CorkApp: App
         .keyboardShortcut("m", modifiers: [.command, .option])
         .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
     }
-    
+
     @ViewBuilder
     var debugMenuBarSection: some View
     {
-        Menu {
+        Menu
+        {
             Button
             {
                 demoActivatedAt = nil
@@ -685,7 +686,7 @@ struct CorkApp: App
             } label: {
                 Text("debug.action.reset-license-state")
             }
-            
+
             Button
             {
                 demoActivatedAt = nil
@@ -698,7 +699,6 @@ struct CorkApp: App
         } label: {
             Text("debug.action.licensing")
         }
-
     }
 
     // MARK: - Functions

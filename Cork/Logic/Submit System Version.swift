@@ -6,14 +6,14 @@
 //
 
 import AppKit
-import Foundation
 import CorkShared
+import Foundation
 
 func submitSystemVersion() async throws
 {
     let corkVersion: String = await String(NSApplication.appVersion!)
 
-    let sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
+    let sessionConfiguration: URLSessionConfiguration = .default
     if AppConstants.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
@@ -27,7 +27,7 @@ func submitSystemVersion() async throws
 
     var isSelfCompiled: Bool = false
     #if SELF_COMPILED
-    isSelfCompiled = true
+        isSelfCompiled = true
     #endif
 
     var urlComponents: URLComponents? = .init(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)

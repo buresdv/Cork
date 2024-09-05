@@ -5,8 +5,8 @@
 //  Created by David Bureš on 18.03.2024.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct LicensingView: View
 {
@@ -33,9 +33,9 @@ struct LicensingView: View
         }
         .onAppear
         {
-#if SELF_COMPILED
+            #if SELF_COMPILED
                 appState.licensingState = .selfCompiled
-#else
+            #else
 
                 AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
 
@@ -57,7 +57,7 @@ struct LicensingView: View
                         }
                     }
                 }
-#endif  
+            #endif
         }
     }
 }
