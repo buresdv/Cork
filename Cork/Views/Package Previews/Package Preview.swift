@@ -17,6 +17,7 @@ struct PackagePreview: View
         if let packageToPreview
         {
             PackageDetailView(package: packageToPreview)
+                .isPreview()
                 .fixedSize()
         }
     }

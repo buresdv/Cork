@@ -13,6 +13,8 @@ struct BasicPackageInfoView: View
     let packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
+    
+    let isInPreviewWindow: Bool
 
     @Binding var isShowingExpandedCaveats: Bool
 
@@ -49,7 +51,8 @@ struct BasicPackageInfoView: View
             VStack(alignment: .leading, spacing: 15)
             {
                 PackageDetailHeaderComplex(
-                    package: package,
+                    package: package, 
+                    isInPreviewWindow: isInPreviewWindow,
                     packageDetails: packageDetails,
                     isLoadingDetails: isLoadingDetails
                 )

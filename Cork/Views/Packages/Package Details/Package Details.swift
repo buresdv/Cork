@@ -5,12 +5,14 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct PackageDetailView: View, Sendable
 {
     let package: BrewPackage
+
+    var isInPreviewWindow: Bool = false
 
     @State private var packageDetails: BrewPackageDetails? = nil
 
@@ -77,6 +79,7 @@ struct PackageDetailView: View, Sendable
                             package: package,
                             packageDetails: packageDetails!,
                             isLoadingDetails: isLoadingDetails,
+                            isInPreviewWindow: isInPreviewWindow,
                             isShowingExpandedCaveats: $isShowingExpandedCaveats
                         )
 
@@ -90,13 +93,16 @@ struct PackageDetailView: View, Sendable
 
             Spacer()
 
-            if packageDetails != nil
+            if !isInPreviewWindow
             {
-                PackageModificationButtons(
-                    package: package,
-                    packageDetails: packageDetails!,
-                    isLoadingDetails: isLoadingDetails
-                )
+                if packageDetails != nil
+                {
+                    PackageModificationButtons(
+                        package: package,
+                        packageDetails: packageDetails!,
+                        isLoadingDetails: isLoadingDetails
+                    )
+                }
             }
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
@@ -131,5 +137,15 @@ struct PackageDetailView: View, Sendable
                 erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }
         }
+    }
+}
+
+extension PackageDetailView
+{
+    func isPreview() -> PackageDetailView
+    {
+        var modifiedView = self
+        modifiedView.isInPreviewWindow = true
+        return modifiedView
     }
 }

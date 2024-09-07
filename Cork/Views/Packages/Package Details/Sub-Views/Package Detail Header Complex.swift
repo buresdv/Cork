@@ -10,6 +10,9 @@ import SwiftUI
 struct PackageDetailHeaderComplex: View
 {
     let package: BrewPackage
+    
+    var isInPreviewWindow: Bool
+    
     @ObservedObject var packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
@@ -41,31 +44,34 @@ struct PackageDetailHeaderComplex: View
             {
                 HStack(alignment: .center, spacing: 5)
                 {
-                    if packageDetails.installedAsDependency
+                    if !isInPreviewWindow
                     {
-                        if let packageDependents = packageDetails.dependents
+                        if packageDetails.installedAsDependency
                         {
-                            if !packageDependents.isEmpty // This happens when the package was originally installed as a dependency, but the parent is no longer installed
+                            if let packageDependents = packageDetails.dependents
                             {
-                                OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.formatted(.list(type: .and)))", color: .secondary)
+                                if !packageDependents.isEmpty // This happens when the package was originally installed as a dependency, but the parent is no longer installed
+                                {
+                                    OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.formatted(.list(type: .and)))", color: .secondary)
+                                }
+                            }
+                            else
+                            {
+                                OutlinedPill(content: {
+                                    HStack(alignment: .center, spacing: 5)
+                                    {
+                                        ProgressView()
+                                            .controlSize(.mini)
+                                        
+                                        Text("package-details.dependants.loading")
+                                    }
+                                }, color: Color(nsColor: NSColor.tertiaryLabelColor))
                             }
                         }
-                        else
+                        if packageDetails.outdated
                         {
-                            OutlinedPill(content: {
-                                HStack(alignment: .center, spacing: 5)
-                                {
-                                    ProgressView()
-                                        .controlSize(.mini)
-
-                                    Text("package-details.dependants.loading")
-                                }
-                            }, color: Color(nsColor: NSColor.tertiaryLabelColor))
+                            OutlinedPillText(text: "package-details.outdated", color: .orange)
                         }
-                    }
-                    if packageDetails.outdated
-                    {
-                        OutlinedPillText(text: "package-details.outdated", color: .orange)
                     }
 
                     PackageCaveatMinifiedDisplayView(caveats: packageDetails.caveats)
