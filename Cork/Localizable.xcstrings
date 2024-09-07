@@ -1338,6 +1338,26 @@
         }
       }
     },
+    "about.contributors.7.name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        }
+      }
+    },
+    "about.contributors.7.purpose" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Created the Tuist configuration for compiling self-hosted versions"
+          }
+        }
+      }
+    },
     "about.copyright" : {
       "localizations" : {
         "cs" : {

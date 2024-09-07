@@ -57,6 +57,12 @@ struct AboutView: View
             profileURL: URL(string: "https://christiantietze.de")!
         ),
         AcknowledgedContributor(
+            name: "about.contributors.7.name",
+            reasonForAcknowledgement: "about.contributors.7.purpose",
+            profileService: .github,
+            profileURL: URL(string: "https://github.com/waltflanagan")!
+        ),
+        AcknowledgedContributor(
             name: "about.contributors.5.name",
             reasonForAcknowledgement: "about.contributors.5.purpose",
             profileService: .website,
