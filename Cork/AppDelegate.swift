@@ -34,10 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
     {
         if startWithoutWindow
         {
-            if let window = NSApplication.shared.windows.first
+            for window in NSApp.windows
             {
                 window.close()
             }
+            
         }
     }
 

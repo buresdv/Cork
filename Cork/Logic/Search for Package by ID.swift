@@ -22,30 +22,33 @@ private enum PackageRetrievalByUUIDError: LocalizedError
     }
 }
 
-func getPackageFromUUID(requestedPackageUUID: UUID, tracker: SearchResultTracker) throws -> BrewPackage
+extension UUID
 {
-    var filteredPackage: BrewPackage?
-
-    AppConstants.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
-    AppConstants.logger.log("Cask tracker: \(tracker.foundCasks.count)")
-
-    if !tracker.foundFormulae.isEmpty
+    func getPackage(tracker: SearchResultTracker) throws -> BrewPackage
     {
-        filteredPackage = tracker.foundFormulae.filter { $0.id == requestedPackageUUID }.first
-    }
-
-    if filteredPackage == nil
-    {
-        filteredPackage = tracker.foundCasks.filter { $0.id == requestedPackageUUID }.first
-    }
-
-    if let filteredPackage
-    {
-        return filteredPackage
-    }
-    else
-    {
-        throw PackageRetrievalByUUIDError.couldNotfindAnypackagesInTracker
+        var filteredPackage: BrewPackage?
+        
+        AppConstants.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
+        AppConstants.logger.log("Cask tracker: \(tracker.foundCasks.count)")
+        
+        if !tracker.foundFormulae.isEmpty
+        {
+            filteredPackage = tracker.foundFormulae.filter { $0.id == self }.first
+        }
+        
+        if filteredPackage == nil
+        {
+            filteredPackage = tracker.foundCasks.filter { $0.id == self }.first
+        }
+        
+        if let filteredPackage
+        {
+            return filteredPackage
+        }
+        else
+        {
+            throw PackageRetrievalByUUIDError.couldNotfindAnypackagesInTracker
+        }
     }
 }
 
