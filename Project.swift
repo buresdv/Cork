@@ -48,6 +48,10 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
 
 let project = Project(
     name: "Cork",
+    options: .options(
+        automaticSchemesOptions: .enabled(runLanguage: "en"), 
+        developmentRegion: "en"
+    ),
     packages: [
         .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins", requirement: .upToNextMajor(from: "0.56.2")),
     ],
