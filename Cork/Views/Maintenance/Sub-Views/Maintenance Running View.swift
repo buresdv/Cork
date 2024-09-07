@@ -103,7 +103,7 @@ struct MaintenanceRunningView: View
                         }
                         catch let healthCheckError
                         {
-                            AppConstants.logger.error("\(healthCheckError, privacy: .public)")
+                            AppConstants.logger.error("Health check error: \(healthCheckError, privacy: .public)")
                         }
                     }
                     else
