@@ -8,7 +8,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
         additionalCompilationConditions.append ("SELF_COMPILED")
     }
     
-    let targetName = configureWithSelfCompiled ? "Cork-SelfCompiled" : "Cork"
+    let targetName = configureWithSelfCompiled ? "Self-Compiled" : "Cork"
     
     return Target.target(
         name: targetName,

@@ -4,7 +4,7 @@
 import Foundation// MARK: - Swift Bundle Accessor for Frameworks
 private class BundleFinder {}
 extension Foundation.Bundle {
-/// Since Cork-SelfCompiled is a application, the bundle for classes within this module can be used directly.
+/// Since Self-Compiled is a application, the bundle for classes within this module can be used directly.
 static let module = Bundle(for: BundleFinder.self)
 }// MARK: - Objective-C Bundle Accessor
 @objc
