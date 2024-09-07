@@ -30,6 +30,8 @@ body:
       description: Providing error logs would help greatly in diagnosing your problem. Follow [this](https://github.com/buresdv/Cork/wiki/Getting-Logs) tutorial on how to get relevant logs.
       placeholder: Error logs go here
       render: shell
+    validations:
+      required: true
   - type: input
     id: app-version
     attributes:
