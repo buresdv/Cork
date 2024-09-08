@@ -1340,6 +1340,12 @@
     },
     "about.contributors.7.name" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1350,6 +1356,12 @@
     },
     "about.contributors.7.purpose" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vytvořil Tuist konfiguraci pro Cork"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26412,6 +26424,12 @@
     },
     "preview-package.action" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahlédnout"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
