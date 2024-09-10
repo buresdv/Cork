@@ -11592,8 +11592,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "无法解析 Homebrew 的响应"
+            "state" : "translated",
+            "value" : "Homebrew 没有返回有效数据"
           }
         },
         "zh-Hant" : {
@@ -12425,8 +12425,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "无法解析热门软件包"
+            "state" : "translated",
+            "value" : "Homebrew 没有返回有效数据"
           }
         },
         "zh-Hant" : {
@@ -14787,7 +14787,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         }
