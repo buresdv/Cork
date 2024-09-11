@@ -1352,6 +1352,12 @@
             "value" : "Mike Simons"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1372,6 +1378,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Created the Tuist configuration for compiling self-hosted versions"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створено конфігурацію Tuist для компіляції саморозміщуваних версій"
           }
         },
         "zh-Hans" : {
@@ -26512,6 +26524,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preview"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переглянути"
           }
         },
         "zh-Hans" : {
