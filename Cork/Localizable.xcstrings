@@ -1351,6 +1351,12 @@
             "state" : "translated",
             "value" : "Mike Simons"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
         }
       }
     },
@@ -1366,6 +1372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Created the Tuist configuration for compiling self-hosted versions"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已创建用于编译自托管版本的 Tuist 配置"
           }
         }
       }
@@ -11580,8 +11592,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "无法解析 Homebrew 的响应"
+            "state" : "translated",
+            "value" : "Homebrew 没有返回有效数据"
           }
         },
         "zh-Hant" : {
@@ -12413,8 +12425,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "无法解析热门软件包"
+            "state" : "translated",
+            "value" : "Homebrew 没有返回有效数据"
           }
         },
         "zh-Hant" : {
@@ -14091,6 +14103,12 @@
             "state" : "translated",
             "value" : "Не вдалося перетворити наданий String у Data з помилкою: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法将提供的字符串转换为数据，错误: %@"
+          }
         }
       }
     },
@@ -14118,6 +14136,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося декодувати надані дані за допомогою вбудованого декодера JSON: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法使用内置的 JSON 解码器解码所提供的数据，错误: %@"
           }
         }
       }
@@ -14147,6 +14171,12 @@
             "state" : "translated",
             "value" : "Не вдалося зашифрувати авторизаційний комплекс для отримання ліцензії"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "授权许可检索的复杂信息无法编码"
+          }
         }
       }
     },
@@ -14174,6 +14204,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося підключитися до Інтернету. Перевірку ліцензії завершити не вдасться "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法连接互联网。Cork 将无法完成许可证检查。"
           }
         }
       }
@@ -14203,6 +14239,12 @@
             "state" : "translated",
             "value" : "Під час отримання статусу ліцензії виникла нереалізована помилка: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取许可证状态时发生无法识别的错误: %@"
+          }
         }
       }
     },
@@ -14230,6 +14272,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перевірка статусу ліцензії, термін дії якої закінчився"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查许可证状态超时"
           }
         }
       }
@@ -14259,6 +14307,12 @@
             "state" : "translated",
             "value" : "Не вдалося очистити кеш"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法清除缓存"
+          }
         }
       }
     },
@@ -14287,6 +14341,12 @@
             "state" : "translated",
             "value" : "Стандартна помилка не порожня"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标准错误不为空"
+          }
         }
       }
     },
@@ -14314,6 +14374,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося отримати інформацію про кількість зайвих пакетів, які було деінстальовано в результаті цієї операції"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法获取此操作卸载的孤立软件包数量"
           }
         }
       }
@@ -14360,6 +14426,12 @@
             "state" : "translated",
             "value" : "Не вдалося видалити зайві пакети: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法卸载以下孤立包: %@"
+          }
         }
       }
     },
@@ -14387,6 +14459,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неочікуваний вивід терміналу функції деінсталяції зайвих пакетів"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "孤立包卸载功能出现意外的终端输出"
           }
         }
       }
@@ -14709,7 +14787,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         }
@@ -26434,6 +26512,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Preview"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预览"
           }
         }
       }
@@ -38282,6 +38366,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося перевірити застарілі пакети"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法检查有更新可用的软件包"
           }
         }
       }
