@@ -124,15 +124,10 @@ Prerequisites:
 
 *Skip if you already have Tuist and Mise installed*
 
-#### Installing Mise
-
 *Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tusit specifically, like the aforementioned version synchronization.*
 
 1. Install Mise using `brew install mise`
-
-#### Installing Tuist
-
-1. Install Tuist using `mise install tuist`
+2. Install Tuist using `mise install tuist`
 
 #### Compiling Cork
 
