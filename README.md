@@ -128,22 +128,7 @@ Prerequisites:
 
 *Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tusit specifically, like the aforementioned version synchronization.*
 
-1. Install Mise using `curl https://mise.run | sh`
-2. Initialize Mise using the command you see after the installation finishes. It's located under `mise: run the following to activate mise in your shell:`.\
-In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"" >> "/Users/david/.zshrc"`
-> [!CAUTION]
-> Make sure to copy the command Mise itself gives you, and not the one I used above. This command is only valid for my Mac, and will not work on your machine.
-
-3. Add `mise` to your path using one of the following commands, depending on your shell.
-- **zsh**: `echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc`
-- **bash**: `echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc`
-- **fish**: `echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish`
-> [!TIP]
-> **zsh** is the default macOS shell.
-
-> [!NOTE]
-> If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell
-> In my case, the output of the command is `/bin/zsh`. This means my shell is `zsh`
+1. Install Mise using `brew install mise`
 
 #### Installing Tuist
 
