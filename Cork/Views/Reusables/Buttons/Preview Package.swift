@@ -24,6 +24,7 @@ struct PreviewPackageButton: View
         } label: {
             Text("preview-package.action")
         }
+        .keyboardShortcut("p", modifiers: [.command, .option])
     }
 }
 
@@ -38,5 +39,6 @@ struct PreviewPackageButtonWithCustomAction: View
         } label: {
             Text("preview-package.action")
         }
+        .keyboardShortcut("p", modifiers: [.command, .option])
     }
 }
