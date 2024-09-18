@@ -179,9 +179,9 @@ struct OutdatedPackageListBox: View
                     {
                         OutdatedPackageListBoxRow(outdatedPackage: outdatedPackage)
                             .contextMenu
-                        {
-                            PreviewPackageButton(packageNameToPreview: outdatedPackage.package.name)
-                        }
+                            {
+                                PreviewPackageButton(packageNameToPreview: outdatedPackage.package.name)
+                            }
                     }
                 }
             } header: {

@@ -11,6 +11,7 @@ import CorkShared
 struct InstallationInitialView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
@@ -80,51 +81,34 @@ struct InstallationInitialView: View
 
                 if enableDiscoverability
                 {
+                    PreviewPackageButtonWithCustomAction
+                    {
+                        guard let packageToPreview: BrewPackage = getTopPackageFromTracker() else
+                        {
+                            AppConstants.logger.error("Could not retrieve top package to preview")
+                            
+                            return
+                        }
+                        
+                        openWindow(value: packageToPreview)
+                    }
+                    .disabled(foundPackageSelection == nil)
+                    
                     Button
                     {
-                        if let foundPackageSelection
+                        guard let packageToInstall: BrewPackage = getTopPackageFromTracker() else
                         {
-                            AppConstants.logger.debug("Would install package \(foundPackageSelection)")
-
-                            let topCasksSet: Set<TopPackage> = Set(topPackagesTracker.topCasks)
-
-                            var selectedTopPackageType: PackageType
-                            {
-                                // If this UUID is in the top casks tracker, it means it's a cask. Otherwise, it's a formula. So we test if the result of looking for the selected package in the cask tracker returns nothing; if it does return nothing, it's a formula (since the package is not in the cask tracker)
-                                if topCasksSet.filter({ $0.id == foundPackageSelection }).isEmpty
-                                {
-                                    return .formula
-                                }
-                                else
-                                {
-                                    return .cask
-                                }
-                            }
-
-                            do
-                            {
-                                let packageToInstall: BrewPackage = try getTopPackageFromUUID(requestedPackageUUID: foundPackageSelection, packageType: selectedTopPackageType, topPackageTracker: topPackagesTracker)
-
-                                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-
-                                AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
-
-                                packageInstallationProcessStep = .installing
-                            }
-                            catch let topPackageInstallationError
-                            {
-                                AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
-
-                                dismiss()
-
-                                appState.showAlert(errorToShow: .topPackageArrayFilterCouldNotRetrieveAnyPackages)
-                            }
+                            AppConstants.logger.error("Could not retrieve top package to install")
+                            
+                            return
                         }
-                        else
-                        {
-                            AppConstants.logger.warning("Could not find the UUID in the package list")
-                            // appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
-                        }
+                        
+                        installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
+                        
+                        AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                        
+                        packageInstallationProcessStep = .installing
+                        
                     } label: {
                         Text("add-package.install.action")
                     }
@@ -145,6 +129,50 @@ struct InstallationInitialView: View
         .onAppear
         {
             foundPackageSelection = nil
+        }
+    }
+    
+    func getTopPackageFromTracker() -> BrewPackage?
+    {
+        if let foundPackageSelection
+        {
+            AppConstants.logger.debug("Would try to find package \(foundPackageSelection)")
+            
+            let topCasksSet: Set<TopPackage> = Set(topPackagesTracker.topCasks)
+            
+            var selectedTopPackageType: PackageType
+            {
+                // If this UUID is in the top casks tracker, it means it's a cask. Otherwise, it's a formula. So we test if the result of looking for the selected package in the cask tracker returns nothing; if it does return nothing, it's a formula (since the package is not in the cask tracker)
+                if topCasksSet.filter({ $0.id == foundPackageSelection }).isEmpty
+                {
+                    return .formula
+                }
+                else
+                {
+                    return .cask
+                }
+            }
+            
+            do
+            {
+                return try foundPackageSelection.getPackage(tracker: topPackagesTracker, packageType: selectedTopPackageType)
+            }
+            catch let topPackageInstallationError
+            {
+                AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
+                
+                dismiss()
+                
+                appState.showAlert(errorToShow: .topPackageArrayFilterCouldNotRetrieveAnyPackages)
+                
+                return nil
+            }
+        }
+        else
+        {
+            AppConstants.logger.warning("Could not find the UUID in the package list")
+            
+            return nil
         }
     }
 }
