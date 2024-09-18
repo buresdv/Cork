@@ -11,11 +11,11 @@ import CorkShared
 
 struct GetInstalledCasksIntent: AppIntent
 {
-    static var title: LocalizedStringResource = "intent.get-installed-casks.title"
-    static var description: LocalizedStringResource = "intent.get-installed-casks.description"
+    static let title: LocalizedStringResource = "intent.get-installed-casks.title"
+    static let description: LocalizedStringResource = "intent.get-installed-casks.description"
 
-    static var isDiscoverable: Bool = true
-    static var openAppWhenRun: Bool = false
+    static let isDiscoverable: Bool = true
+    static let openAppWhenRun: Bool = false
 
     func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {

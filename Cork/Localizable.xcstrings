@@ -29138,25 +29138,25 @@
               "few" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%ld службы"
+                  "value" : "%lld службы"
                 }
               },
               "many" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%ld служб"
+                  "value" : "%lld служб"
                 }
               },
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%ld служба"
+                  "value" : "%lld служба"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%ld служб"
+                  "value" : "%lld служб"
                 }
               }
             }

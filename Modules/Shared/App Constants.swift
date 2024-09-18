@@ -7,7 +7,7 @@
 
 import Foundation
 import OSLog
-import UserNotifications
+@preconcurrency import UserNotifications
 
 public struct AppConstants
 {

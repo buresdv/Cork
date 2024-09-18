@@ -522,7 +522,7 @@ struct ContentView: View, Sendable
                     Text("action.use-without-notifications")
                 }
 
-            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
+            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(_):
                 EmptyView()
 
             case .couldNotParseTopPackages:
@@ -564,7 +564,7 @@ struct ContentView: View, Sendable
             case .couldNotGetWorkingDirectory:
                 EmptyView()
 
-            case .couldNotDumpBrewfile(error: let error):
+            case .couldNotDumpBrewfile(error: _):
                 EmptyView()
 
             case .couldNotReadBrewfile:
