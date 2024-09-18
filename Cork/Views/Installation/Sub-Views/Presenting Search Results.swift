@@ -59,28 +59,20 @@ struct PresentingSearchResultsView: View
 
                 Spacer()
 
-                // Show the preview window on macOS 14 and newer only
-                if #available(macOS 14, *)
+                PreviewPackageButtonWithCustomAction
                 {
-                    Button
+                    do
                     {
-                        do
-                        {
-                            let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
-                            
-                            openWindow(value: requestedPackageToPreview)
-                            
-                            AppConstants.logger.debug("Would preview package \(requestedPackageToPreview.name)")
-                        } catch let error
-                        {
-                            
-                        }
-                    } label: {
-                        Text("preview-package.action")
+                        let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
+
+                        openWindow(value: requestedPackageToPreview)
+
+                        AppConstants.logger.debug("Would preview package \(requestedPackageToPreview.name)")
                     }
-                    .disabled(foundPackageSelection == nil)
+                    catch {}
                 }
-                
+                .disabled(foundPackageSelection == nil)
+
                 if isSearchFieldFocused
                 {
                     Button

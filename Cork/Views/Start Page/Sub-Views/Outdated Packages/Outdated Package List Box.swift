@@ -70,7 +70,7 @@ struct OutdatedPackageListBox: View
                                 }
                                 else
                                 {
-                                    outdatedPackageOVerview_table
+                                    outdatedPackageOverview_table
                                 }
                             } label: {
                                 Text("start-page.updates.list")
@@ -193,11 +193,11 @@ struct OutdatedPackageListBox: View
     }
 
     @ViewBuilder
-    var outdatedPackageOVerview_table: some View
+    var outdatedPackageOverview_table: some View
     {
         VStack(alignment: .trailing)
         {
-            Table(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+            Table(of: OutdatedPackage.self)
             {
                 TableColumn("start-page.updates.action")
                 { outdatedPackage in
@@ -221,27 +221,34 @@ struct OutdatedPackageListBox: View
                     }
                 }
                 .width(45)
-
-                TableColumn("package-details.dependencies.results.name")
-                { outdatedPackage in
-                    Text(outdatedPackage.package.name)
-                }
-
+                
+                TableColumn("package-details.dependencies.results.name", value: \.package.name)
+                
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
                     Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
                         .foregroundColor(.orange)
                 }
-
+                
                 TableColumn("start-page.updates.newest-version")
                 { outdatedPackage in
                     Text(outdatedPackage.newerVersion)
                         .foregroundColor(.blue)
                 }
-
+                
                 TableColumn("package-details.type")
                 { outdatedPackage in
                     Text(outdatedPackage.package.type.description)
+                }
+                
+            } rows: {
+                ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                { outdatedPackage in
+                    TableRow(outdatedPackage)
+                        .contextMenu {
+                            PreviewPackageButton(packageNameToPreview: outdatedPackage.package.name)
+                        }
+
                 }
             }
 
