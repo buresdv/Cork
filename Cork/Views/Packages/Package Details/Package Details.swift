@@ -144,7 +144,7 @@ extension PackageDetailView
 {
     func isPreview() -> PackageDetailView
     {
-        var modifiedView = self
+        var modifiedView: PackageDetailView = self
         modifiedView.isInPreviewWindow = true
         return modifiedView
     }
