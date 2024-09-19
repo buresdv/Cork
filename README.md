@@ -102,7 +102,7 @@ Compiling Cork is simple, as it does not have many dependencies. It uses Tuist t
 Prerequisites:
 
 * macOS Ventura or newer
-* Xcode 15 or newer
+* Xcode 16 or newer
 * Git
 * Homebrew
 
