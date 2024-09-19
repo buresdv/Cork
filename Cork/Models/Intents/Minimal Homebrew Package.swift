@@ -20,7 +20,7 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
 
     var installedIntentionally: Bool
 
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
 
     var displayRepresentation: DisplayRepresentation
     {
@@ -30,7 +30,7 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
         )
     }
 
-    static var defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
+    static let defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
 }
 
 struct MinimalHomebrewPackageIntentQuery: EntityQuery

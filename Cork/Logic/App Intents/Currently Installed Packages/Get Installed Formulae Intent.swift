@@ -28,11 +28,11 @@ struct GetInstalledFormulaeIntent: AppIntent
     @Parameter(title: "intent.get-installed-packages.limit-to-manually-installed-packages")
     var getOnlyManuallyInstalledPackages: Bool
 
-    static var title: LocalizedStringResource = "intent.get-installed-formulae.title"
-    static var description: LocalizedStringResource = "intent.get-installed-formulae.description"
+    static let title: LocalizedStringResource = "intent.get-installed-formulae.title"
+    static let description: LocalizedStringResource = "intent.get-installed-formulae.description"
 
-    static var isDiscoverable: Bool = true
-    static var openAppWhenRun: Bool = false
+    static let isDiscoverable: Bool = true
+    static let openAppWhenRun: Bool = false
 
     func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {

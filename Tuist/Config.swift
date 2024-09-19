@@ -1,9 +1,9 @@
 import ProjectDescription
 
 let config = Config(
-    compatibleXcodeVersions: .upToNextMajor("15"),
+    compatibleXcodeVersions: .upToNextMajor("16"),
     // fullHandle: "buresdv/cork",
     // url: "https://cloud.tuist.io",
-    swiftVersion: "5.9.0",
+    swiftVersion: .init(16, 0, 0),
     generationOptions: .options()
 )

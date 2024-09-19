@@ -27,3 +27,11 @@ class OutdatedPackageTracker: ObservableObject, Sendable
         }
     }
 }
+
+extension OutdatedPackageTracker
+{
+    func setOutdatedPackages(to packages: Set<OutdatedPackage>)
+    {
+        self.outdatedPackages = packages
+    }
+}

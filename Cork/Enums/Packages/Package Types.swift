@@ -25,7 +25,7 @@ enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
         }
     }
 
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
 
     var displayRepresentation: DisplayRepresentation
     {

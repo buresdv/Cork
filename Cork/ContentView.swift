@@ -211,7 +211,14 @@ struct ContentView: View, Sendable
             if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
             {
                 AppConstants.logger.info("Documents directory does not exist, creating it...")
-                try! FileManager.default.createDirectory(at: AppConstants.documentsDirectoryPath, withIntermediateDirectories: true)
+                do
+                {
+                    try FileManager.default.createDirectory(at: AppConstants.documentsDirectoryPath, withIntermediateDirectories: true)
+                }
+                catch let documentDirectoryCreationError
+                {
+                    AppConstants.logger.error("Failed while creating document directory: \(documentDirectoryCreationError.localizedDescription)")
+                }
             }
             else
             {
@@ -221,7 +228,15 @@ struct ContentView: View, Sendable
             if !FileManager.default.fileExists(atPath: AppConstants.metadataFilePath.path)
             {
                 AppConstants.logger.info("Metadata file does not exist, creating it...")
-                try! Data().write(to: AppConstants.metadataFilePath, options: .atomic)
+                
+                do
+                {
+                    try Data().write(to: AppConstants.metadataFilePath, options: .atomic)
+                }
+                catch let metadataDirectoryCreationError
+                {
+                    AppConstants.logger.error("Failed while creating metadata directory: \(metadataDirectoryCreationError.localizedDescription)")
+                }
             }
             else
             {
@@ -522,7 +537,7 @@ struct ContentView: View, Sendable
                     Text("action.use-without-notifications")
                 }
 
-            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
+            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
                 EmptyView()
 
             case .couldNotParseTopPackages:
@@ -564,7 +579,7 @@ struct ContentView: View, Sendable
             case .couldNotGetWorkingDirectory:
                 EmptyView()
 
-            case .couldNotDumpBrewfile(error: let error):
+            case .couldNotDumpBrewfile:
                 EmptyView()
 
             case .couldNotReadBrewfile:

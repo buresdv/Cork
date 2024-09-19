@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// Not used
+/*
 func loadImageFromLocalURL(from url: URL) -> NSImage
 {
     let data: Data = try! .init(contentsOf: url)
@@ -15,3 +17,4 @@ func loadImageFromLocalURL(from url: URL) -> NSImage
 
     return nsImage
 }
+*/

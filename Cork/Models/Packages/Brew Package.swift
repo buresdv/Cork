@@ -111,22 +111,29 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
             }
         }
 
-        let contentsOfParentFolder: [URL] = try! FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
-
-        packageURL = contentsOfParentFolder.filter 
+        do
         {
-            $0.lastPathComponent.contains(name)
-        }.first
-
-        guard let packageURL
-        else
-        {
-            throw FinderRevealError.couldNotFindPackageInParent
+            let contentsOfParentFolder: [URL] = try FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
+            
+            packageURL = contentsOfParentFolder.filter
+            {
+                $0.lastPathComponent.contains(name)
+            }.first
+            
+            guard let packageURL
+            else
+            {
+                throw FinderRevealError.couldNotFindPackageInParent
+            }
+            
+            packageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
         }
-
-        packageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
-
-        // NSWorkspace.shared.selectFile(packageURL.path, inFileViewerRootedAtPath: packageURL.deletingLastPathComponent().path)
+        catch let finderRevealError
+        {
+            AppConstants.logger.error("Failed while revealing package: \(finderRevealError.localizedDescription)")
+            /// Play the error sound
+            NSSound(named: "ping")?.play()
+        }
     }
 }
 
