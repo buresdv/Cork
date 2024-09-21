@@ -128,6 +128,19 @@ let project = Project(
                 ),
             ])
         ),
+        .target(
+            name: "CorkTests",
+            destinations: [.mac],
+            product: .unitTests,
+            bundleId: "com.davidbures.cork-tests",
+            sources: [
+                "Tests/**",
+                "Cork/**/*.swift"
+            ],
+            dependencies: [
+                .target(name: "Cork")
+            ]
+        )
     ]
 
 )
