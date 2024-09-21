@@ -97,7 +97,7 @@ struct MaintenanceRunningView: View
                         do
                         {
                             let healthCheckOutput: TerminalOutput = try await performBrewHealthCheck()
-                            AppConstants.logger.debug("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
+                            AppConstants.logger.log("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
 
                             brewHealthCheckFoundNoProblems = true
                         }
