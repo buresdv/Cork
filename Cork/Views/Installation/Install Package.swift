@@ -190,6 +190,7 @@ struct AddFormulaView: View
             }
         }
         .padding()
+        .fixedSize() // TODO: Remove this fixedSize later
         .onDisappear
         {
             appState.assignPackageTypeToCachedDownloads(brewData: brewData)
