@@ -8,6 +8,7 @@
 import Foundation
 import OSLog
 @preconcurrency import UserNotifications
+@preconcurrency import KeychainAccess
 
 public struct AppConstants
 {
@@ -98,6 +99,9 @@ public struct AppConstants
         }
     }()
 
+    // MARK: - Keychain
+    public static let keychain: Keychain = .init(service: "com.davidbures.cork-keychain")
+    
     // MARK: - Storage for tagging
 
     public static let documentsDirectoryPath: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(component: "Cork", directoryHint: .isDirectory)
