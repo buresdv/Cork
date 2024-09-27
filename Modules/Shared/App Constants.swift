@@ -8,7 +8,6 @@
 import Foundation
 import OSLog
 @preconcurrency import UserNotifications
-@preconcurrency import KeychainAccess
 
 public struct AppConstants
 {

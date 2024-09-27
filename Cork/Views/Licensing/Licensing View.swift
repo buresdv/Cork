@@ -15,6 +15,8 @@ struct LicensingView: View
 
     @EnvironmentObject var appState: AppState
 
+    @State private var emailFieldContents: String = ""
+
     var body: some View
     {
         VStack
@@ -22,11 +24,11 @@ struct LicensingView: View
             switch appState.licensingState
             {
             case .notBoughtOrHasNotActivatedDemo:
-                Licensing_NotBoughtOrActivatedView()
+                Licensing_NotBoughtOrActivatedView(emailFieldContents: $emailFieldContents)
             case .demo:
                 Licensing_DemoView()
             case .bought:
-                Licensing_BoughtView()
+                Licensing_BoughtView(emailUsedToAuthenticate: emailFieldContents)
             case .selfCompiled:
                 Licensing_SelfCompiledView()
             }

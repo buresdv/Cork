@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import CorkShared
 
 struct Licensing_BoughtView: View
 {
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+    
+    @AppStorage("numberOfFailedLicenseRechecks") var numberOfFailedLicenseRechecks: Int = 0
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var appState: AppState
+    
+    let emailUsedToAuthenticate: String
 
     var body: some View
     {
@@ -54,6 +59,10 @@ struct Licensing_BoughtView: View
             demoActivatedAt = nil // Reset the demo, since it won't be needed anymore
 
             hasValidatedEmail = true
+            
+            numberOfFailedLicenseRechecks = 0
+            
+            AppConstants.keychain["licenseEmail"] = emailUsedToAuthenticate
         }
     }
 }

@@ -16,7 +16,7 @@ struct Licensing_NotBoughtOrActivatedView: View
 
     @EnvironmentObject var appState: AppState
 
-    @State private var emailFieldContents: String = ""
+    @Binding var emailFieldContents: String
 
     @State private var isCheckingLicense: Bool = false
     @State private var hasCheckingFailed: Bool = false

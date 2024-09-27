@@ -29,7 +29,6 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(name: "CorkShared"),
             .target(name: "CorkNotifications"),
             .external(name: "LaunchAtLogin"),
-            .external(name: "KeychainAccess"),
             .external(name: "DavidFoundation"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
         ], settings: .settings(configurations: [
