@@ -69,6 +69,17 @@ func shell(
         finalEnvironment = ["HOME": FileManager.default.homeDirectoryForCurrentUser.path]
     }
 
+    // MARK: - Set up mirrors if the environment variables exist
+
+    if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
+    {
+        finalEnvironment["HOMEBREW_API_DOMAIN"] = brewApiDomain
+    }
+    if let brewBottleDomain = ProcessInfo.processInfo.environment["HOMEBREW_BOTTLE_DOMAIN"]
+    {
+        finalEnvironment["HOMEBREW_BOTTLE_DOMAIN"] = brewBottleDomain
+    }
+
     // MARK: - Set up proxy if it's enabled
 
     if let proxySettings = AppConstants.proxySettings
