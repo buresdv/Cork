@@ -26,9 +26,12 @@ struct MenuBarItem: View
 
         MenuBar_PackageUpdating()
 
+        /*
         Divider()
 
         MenuBar_PackageInstallation()
+         
+         */
 
         Divider()
 

@@ -65,12 +65,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
     {
         if showInMenuBar
         {
-            NSApp.setActivationPolicy(.accessory)
+            // TODO: Enable again once Apple fixes issue raised in ticket #408
+            // NSApp.setActivationPolicy(.accessory)
             return false
         }
         else
         {
-            NSApp.setActivationPolicy(.regular)
+            // TODO: Enable again once Apple fixes issue raised in ticket #408
+            // NSApp.setActivationPolicy(.regular)
             return true
         }
     }

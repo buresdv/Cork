@@ -23,21 +23,29 @@ struct MenuBar_PackageUpdating: View
         {
             if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
-                Menu
+                if !appState.isShowingUpdateSheet
                 {
-                    ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
-                    { outdatedPackage in
-                        SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
+                    Menu
+                    {
+                        ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                        { outdatedPackage in
+                            SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
+                        }
+                    } label: {
+                        Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
                     }
-                } label: {
-                    Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                    
+                    Button("navigation.upgrade-packages")
+                    {
+                        switchCorkToForeground()
+                        appState.isShowingUpdateSheet = true
+                    }
                 }
-
-                Button("navigation.upgrade-packages")
+                else
                 {
-                    switchCorkToForeground()
-                    appState.isShowingUpdateSheet = true
+                    Text("update-packages.detail-stage.pouring")
                 }
+                
             }
             else
             {
