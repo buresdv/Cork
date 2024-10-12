@@ -56,7 +56,11 @@ let project = Project(
         .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins", requirement: .upToNextMajor(from: "0.56.2")),
     ],
     settings: .settings(
-        base: ["SWIFT_VERSION": "6.0"],
+        base: [
+            "SWIFT_VERSION": "6.0",
+            "MARKETING_VERSION": "1.4.5.3",
+            "CURRENT_PROJECT_VERSION": "82"
+        ],
         configurations: [
             .debug(
                 name: "Debug",
