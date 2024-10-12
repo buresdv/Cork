@@ -163,6 +163,8 @@ struct GeneralPane: View
                             Text("settings.general.menubar.toggle")
                         }
 
+                        // TODO: Enable again once Apple fixes issue raised in ticket #408
+                        /*
                         Toggle(isOn: $startWithoutWindow)
                         {
                             Text("settings.general.menubar.start-minimized.toggle")
@@ -176,6 +178,7 @@ struct GeneralPane: View
                                 startWithoutWindow = false
                             }
                         }
+                         */
                     }
                 } label: {
                     Text("settings.general.menubar")

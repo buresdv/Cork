@@ -22,24 +22,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
     {
         if startWithoutWindow
         {
+            startWithoutWindow = false
+        }
+        // TODO: Enable again once Apple fixes issue raised in ticket #408
+        /*
+        if startWithoutWindow
+        {
             NSApp.setActivationPolicy(.accessory)
         }
         else
         {
             NSApp.setActivationPolicy(.regular)
         }
+         */
     }
 
     func applicationDidFinishLaunching(_: Notification)
     {
+        // TODO: Enable again once Apple fixes issue raised in ticket #408
+        /*
         if startWithoutWindow
         {
             for window in NSApp.windows
             {
                 window.close()
             }
-            
         }
+         */
     }
 
     func applicationWillBecomeActive(_: Notification)

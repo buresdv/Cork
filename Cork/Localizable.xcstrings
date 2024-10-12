@@ -32349,6 +32349,7 @@
       }
     },
     "settings.general.menubar.start-minimized.toggle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
