@@ -7,8 +7,8 @@
 
 // swiftlint:disable file_length
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct ContentView: View, Sendable
 {
@@ -128,8 +128,21 @@ struct ContentView: View, Sendable
             {
                 SidebarView()
             } detail: {
-                StartPage()
-                    .frame(minWidth: 600, minHeight: 500)
+                if let navigationTarget = appState.navigationTarget
+                {
+                    switch navigationTarget
+                    {
+                    case .package(let brewPackage):
+                        PackageDetailView(package: brewPackage)
+                    case .tap(let brewTap):
+                        TapDetailView(tap: brewTap)
+                    }
+                }
+                else
+                {
+                    StartPage()
+                        .frame(minWidth: 600, minHeight: 500)
+                }
             }
             .navigationTitle("app-name")
             .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
@@ -228,7 +241,7 @@ struct ContentView: View, Sendable
             if !FileManager.default.fileExists(atPath: AppConstants.metadataFilePath.path)
             {
                 AppConstants.logger.info("Metadata file does not exist, creating it...")
-                
+
                 do
                 {
                     try Data().write(to: AppConstants.metadataFilePath, options: .atomic)

@@ -23,17 +23,14 @@ struct TapsSection: View
             {
                 ForEach(displayedTaps)
                 { tap in
-                    NavigationLink
+                    NavigationLink(value: NavigationTargetMainWindow.tap(tap))
                     {
-                        TapDetailView(tap: tap)
-                            .id(tap.id)
-                    } label: {
                         Text(tap.name)
-
+                        
                         if tap.isBeingModified
                         {
                             Spacer()
-
+                            
                             ProgressView()
                                 .frame(height: 5)
                                 .scaleEffect(0.5)

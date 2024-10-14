@@ -21,11 +21,8 @@ struct SidebarPackageRow: View
 
     var body: some View
     {
-        NavigationLink
+        NavigationLink(value: NavigationTargetMainWindow.package(package))
         {
-            PackageDetailView(package: package)
-                .id(package.id)
-        } label: {
             PackageListItem(packageItem: package)
         }
         .contextMenu

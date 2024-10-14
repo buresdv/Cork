@@ -35,7 +35,7 @@ struct SidebarView: View
     var body: some View
     {
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $appState.navigationSelection)
+        List(selection: $appState.navigationTarget)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -91,12 +91,12 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationSelection = nil
+                    appState.navigationTarget = nil
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(appState.navigationSelection == nil || !searchText.isEmpty || !currentTokens.isEmpty)
+                .disabled(appState.navigationTarget == nil || !searchText.isEmpty || !currentTokens.isEmpty)
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }
