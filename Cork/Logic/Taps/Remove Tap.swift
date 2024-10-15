@@ -29,7 +29,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     var indexToReplaceGlobal: Int?
 
     /// Store the old navigation selection to see if it got updated in the middle of switching
-    let oldNavigationTarget: NavigationTargetMainWindow? = appState.navigationTarget
+    let oldNavigationTargetId: UUID? = appState.navigationTargetId
 
     if shouldApplyUninstallSpinnerToRelevantItemInSidebar
     {
@@ -64,12 +64,12 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
             }
         }
 
-        if appState.navigationTarget != nil
+        if appState.navigationTargetId != nil
         {
             /// Switch to the status page only if the user didn't open another details window in the middle of the tap removal process
-            if oldNavigationTarget == appState.navigationTarget
+            if oldNavigationTargetId == appState.navigationTargetId
             {
-                appState.navigationTarget = nil
+                appState.navigationTargetId = nil
             }
         }
     }

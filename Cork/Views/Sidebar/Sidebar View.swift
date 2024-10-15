@@ -20,7 +20,7 @@ struct SidebarView: View
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
     
-    @State private var localNavigationTraget: NavigationTargetMainWindow?
+    @State private var localNavigationTragetId: UUID?
 
     var suggestedTokens: [PackageSearchToken]
     {
@@ -37,7 +37,7 @@ struct SidebarView: View
     var body: some View
     {
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $localNavigationTraget)
+        List(selection: $localNavigationTragetId)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -54,16 +54,16 @@ struct SidebarView: View
                 TapsSection(searchText: searchText)
             }
         }
-        .onChange(of: localNavigationTraget)
+        .onChange(of: localNavigationTragetId)
         { newValue in
-            if appState.navigationTarget != newValue {
-                appState.navigationTarget = newValue
+            if appState.navigationTargetId != newValue {
+                appState.navigationTargetId = newValue
             }
         }
-        .onReceive(appState.$navigationTarget.receive(on: DispatchQueue.main))
+        .onReceive(appState.$navigationTargetId.receive(on: DispatchQueue.main))
         { newValue in
-            if localNavigationTraget != newValue {
-                localNavigationTraget = newValue
+            if localNavigationTragetId != newValue {
+                localNavigationTragetId = newValue
             }
         }
         .listStyle(.sidebar)
@@ -105,12 +105,14 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationTarget = nil
+                    appState.navigationTargetId = nil
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(appState.navigationTarget == nil || !searchText.isEmpty || !currentTokens.isEmpty)
+                .disabled(
+                    appState.navigationTargetId == nil || !searchText.isEmpty || !currentTokens.isEmpty
+                )
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }
