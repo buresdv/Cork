@@ -19,6 +19,8 @@ struct SidebarView: View
         .formula, .cask, .tap, .intentionallyInstalledPackage
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
+    
+    @State private var localNavigationTraget: NavigationTargetMainWindow?
 
     var suggestedTokens: [PackageSearchToken]
     {
@@ -35,7 +37,7 @@ struct SidebarView: View
     var body: some View
     {
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $appState.navigationSelection)
+        List(selection: $localNavigationTraget)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -50,6 +52,18 @@ struct SidebarView: View
             if currentTokens.isEmpty || currentTokens.contains(.tap)
             {
                 TapsSection(searchText: searchText)
+            }
+        }
+        .onChange(of: localNavigationTraget)
+        { newValue in
+            if appState.navigationTarget != newValue {
+                appState.navigationTarget = newValue
+            }
+        }
+        .onReceive(appState.$navigationTarget.receive(on: DispatchQueue.main))
+        { newValue in
+            if localNavigationTraget != newValue {
+                localNavigationTraget = newValue
             }
         }
         .listStyle(.sidebar)
@@ -91,12 +105,12 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationSelection = nil
+                    appState.navigationTarget = nil
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(appState.navigationSelection == nil || !searchText.isEmpty || !currentTokens.isEmpty)
+                .disabled(appState.navigationTarget == nil || !searchText.isEmpty || !currentTokens.isEmpty)
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }

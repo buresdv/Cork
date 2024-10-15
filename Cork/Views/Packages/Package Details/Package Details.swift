@@ -106,8 +106,9 @@ struct PackageDetailView: View, Sendable
             }
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
-        .task(priority: .userInitiated)
+        .task(id: package.id, priority: .userInitiated)
         {
+            isLoadingDetails = true
             defer
             {
                 if isLoadingDetails

@@ -22,7 +22,7 @@ class AppState: ObservableObject
 
     // MARK: - Navigation
 
-    @Published var navigationSelection: UUID?
+    @Published var navigationTarget: NavigationTargetMainWindow?
 
     // MARK: - Notifications
 

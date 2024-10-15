@@ -92,8 +92,10 @@ struct TapDetailView: View, Sendable
             }
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
-        .task(priority: .userInitiated)
+        .task(id: tap.id, priority: .userInitiated)
         {
+            isLoadingTapInfo = true
+            
             defer
             {
                 isLoadingTapInfo = false

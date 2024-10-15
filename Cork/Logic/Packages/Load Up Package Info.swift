@@ -216,7 +216,7 @@ extension BrewPackage
             return decoder
         }()
 
-        var rawOutput: TerminalOutput?
+        var rawOutput: TerminalOutput
 
         switch type
         {
@@ -229,7 +229,7 @@ extension BrewPackage
 
         // MARK: - Error checking
 
-        guard let rawOutput
+        guard !rawOutput.standardOutput.isEmpty
         else
         {
             AppConstants.logger.error("Did not get any terminal output from the package details loading function")
