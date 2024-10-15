@@ -13,10 +13,12 @@ struct ServicesSidebarView: View
     @EnvironmentObject var servicesTracker: ServicesTracker
 
     @State private var searchText: String = ""
+    
+    @Binding var navigationTargetLocal: NavigationTargetServices?
 
     var body: some View
     {
-        List(selection: $servicesState.navigationSelection)
+        List(selection: $navigationTargetLocal)
         {
             ForEach(displayedServices.sorted(by: { $0.name < $1.name }))
             { homebrewService in
