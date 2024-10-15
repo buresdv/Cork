@@ -18,6 +18,8 @@ struct HomebrewServicesView: View
     @State private var hasTriedToUpdateHomebrewThroughCork: Bool = false
     @State private var isShowingHomebrewUpdateInstructions: Bool = false
 
+    @State private var navigationTargetLocal: NavigationTargetServices?
+
     var activeServices: Set<HomebrewService>
     {
         return servicesTracker.services.filter { $0.status == .scheduled || $0.status == .started }
@@ -42,7 +44,7 @@ struct HomebrewServicesView: View
     {
         NavigationSplitView
         {
-            ServicesSidebarView()
+            ServicesSidebarView(navigationTargetLocal: $navigationTargetLocal)
         } detail: {
             if servicesState.isLoadingServices
             {
@@ -68,32 +70,43 @@ struct HomebrewServicesView: View
                 }
                 else
                 {
-                    FullSizeGroupedForm
+                    if let selectedService = navigationTargetLocal
                     {
-                        Section
+                        switch selectedService
                         {
-                            if !activeServices.isEmpty
+                        case .service(let homebrewService):
+                            ServiceDetailView(service: homebrewService)
+                        }
+                    }
+                    else
+                    {
+                        FullSizeGroupedForm
+                        {
+                            Section
                             {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.play"), title: "service-status-page.active-services-\(activeServices.count)", mainText: "service-status-page.active-services.description", animateNumberChanges: true)
-                            }
+                                if !activeServices.isEmpty
+                                {
+                                    GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.play"), title: "service-status-page.active-services-\(activeServices.count)", mainText: "service-status-page.active-services.description", animateNumberChanges: true)
+                                }
 
-                            if !erroredOutServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.trianglebadge.exclamationmark"), title: "service-status-page.errored-out-services-\(erroredOutServices.count)", mainText: "service-status-page.errored-out-services.description", animateNumberChanges: true)
-                            }
+                                if !erroredOutServices.isEmpty
+                                {
+                                    GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.trianglebadge.exclamationmark"), title: "service-status-page.errored-out-services-\(erroredOutServices.count)", mainText: "service-status-page.errored-out-services.description", animateNumberChanges: true)
+                                }
 
-                            if !inactiveServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.pause"), title: "service-status-page.inactive-services-\(inactiveServices.count)", mainText: "service-status-page.inactive-services.description", animateNumberChanges: true)
-                            }
+                                if !inactiveServices.isEmpty
+                                {
+                                    GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.pause"), title: "service-status-page.inactive-services-\(inactiveServices.count)", mainText: "service-status-page.inactive-services.description", animateNumberChanges: true)
+                                }
 
-                            if !unknownServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.questionmark"), title: "service-status-page.unknown-services-\(unknownServices.count)", mainText: "service-status-page.unknown-services.description", animateNumberChanges: true)
+                                if !unknownServices.isEmpty
+                                {
+                                    GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.questionmark"), title: "service-status-page.unknown-services-\(unknownServices.count)", mainText: "service-status-page.unknown-services.description", animateNumberChanges: true)
+                                }
+                            } header: {
+                                Text("service-status-page.title")
+                                    .font(.title)
                             }
-                        } header: {
-                            Text("service-status-page.title")
-                                .font(.title)
                         }
                     }
                 }
