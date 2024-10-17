@@ -23,7 +23,7 @@ struct TapsSection: View
             {
                 ForEach(displayedTaps)
                 { tap in
-                    NavigationLink(value: NavigationTargetMainWindow.tap(tap))
+                    NavigationLink(value: tap)
                     {
                         Text(tap.name)
                         

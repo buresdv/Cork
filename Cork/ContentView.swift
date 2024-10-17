@@ -125,20 +125,19 @@ struct ContentView: View, Sendable
         NavigationSplitView(columnVisibility: $columnVisibility)
         {
             SidebarView()
-                .navigationDestination(for: NavigationTargetMainWindow.self)
-            { navigationTarget in
-                switch navigationTarget
-                {
-                case .package(let brewPackage):
+                .navigationDestination(for: BrewPackage.self)
+                { brewPackage in
                     PackageDetailView(package: brewPackage)
                         .id(brewPackage.id)
-                case .tap(let brewTap):
+                }
+                .navigationDestination(for: BrewTap.self)
+                { brewTap in
                     TapDetailView(tap: brewTap)
                         .id(brewTap.id)
                 }
-            }
         } detail: {
-            NavigationStack {
+            NavigationStack
+            {
                 StartPage()
                     .frame(minWidth: 600, minHeight: 500)
             }
