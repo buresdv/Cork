@@ -58,8 +58,8 @@ let project = Project(
     settings: .settings(
         base: [
             "SWIFT_VERSION": "6.0",
-            "MARKETING_VERSION": "1.4.6",
-            "CURRENT_PROJECT_VERSION": "83"
+            "MARKETING_VERSION": "1.4.6.1",
+            "CURRENT_PROJECT_VERSION": "84"
         ],
         configurations: [
             .debug(
