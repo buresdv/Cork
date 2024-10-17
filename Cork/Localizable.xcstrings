@@ -16437,6 +16437,12 @@
             "value" : "Couldn't load packages:\n%@"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível carregar as bibliotecas: %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16463,6 +16469,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't load any package from provided list of package versions"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível carregar nenhuma biblioteca da lista fornecida"
           }
         },
         "ru" : {
@@ -16499,6 +16511,12 @@
             "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O caminho específico que aponta para a pasta do Cask, não a biblioteca. O teu Homebrew está corrompido, isto não é um problema do Cork"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16527,6 +16545,12 @@
             "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O caminho específico que aponta para a pasta da Formulae, não a biblioteca. O teu Homebrew está corrompido, isto não é um problema do Cork"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16553,6 +16577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The package doesn't have a required metadata file"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta biblioteca não tem o ficheiro de metadados necessário"
           }
         },
         "ru" : {
@@ -16589,6 +16619,12 @@
             "value" : "Homebrew didn't respond"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Homebrew não respondeu"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16621,6 +16657,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew returned JSON with the following error:\n%@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Homebrew retornou um JSON com o seguinte erro: %@"
           }
         },
         "ru" : {
@@ -16657,6 +16699,12 @@
             "value" : "The provided folder does not have the expected name (Cellar for Formulae, Caskfoom for Casks)"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A pasta fornecida não tem o nome esperado (Cellar para Formulae, Caskfoom para Casks)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16689,6 +16737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not find any package with the provided UUID in the package tracker"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível encontrar nenhuma biblioteca com o UUID fornecido"
           }
         },
         "ru" : {
@@ -16725,6 +16779,12 @@
             "value" : "Could not obtain access permissions to the specified folder: %@"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível obter permissões para aceder à pasta especificada: %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16757,6 +16817,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "REGEX matched nothing"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem padrões REGEX"
           }
         },
         "ru" : {
@@ -16793,6 +16859,12 @@
             "value" : "Could not encode data: %@"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível codificar os dados: %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16825,6 +16897,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew outdated"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew desatualizado"
           }
         },
         "ru" : {
@@ -16861,6 +16939,12 @@
             "value" : "Homebrew didn't return any data"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew não devolveu dados"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16893,6 +16977,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unimplemented error: %@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro não implementado: %@"
           }
         },
         "ru" : {
@@ -16929,6 +17019,12 @@
             "value" : "Parsing of services failed"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Análise dos serviços falhou"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16958,6 +17054,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -16997,6 +17099,12 @@
             "value" : "Could not stop the service: %@"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível parar o serviço: %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17026,6 +17134,12 @@
             "value" : "Could not untap that tap"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível dar untap no tap"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17046,6 +17160,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not remove tap%1$@ with output: %2$@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível remover o tap%1$@ com o output: %2$@"
           }
         },
         "ru" : {
@@ -17077,6 +17197,12 @@
             "value" : "Couldn't decode top casks"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível descodificar os casks principais"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17100,6 +17226,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -17134,6 +17266,12 @@
             "value" : "Couldn't decode top formulae"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível descodificar as formulae principais"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17151,6 +17289,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -17190,6 +17334,12 @@
             "value" : "Couldn't download top packages"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível transferir as bibliotecas principais"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17222,6 +17372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The requested package was not found in the array, even though it should have been found"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A biblioteca pedida não foi encontrada na lista, embora devesse ter sido encontrada"
           }
         },
         "ru" : {
@@ -17282,6 +17438,12 @@
             "value" : "아니오"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17340,6 +17502,12 @@
             "value" : "네"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sim"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17393,6 +17561,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub"
@@ -17462,6 +17636,12 @@
             "value" : "Hello, World!"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olá, Mundo!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17515,6 +17695,12 @@
             "value" : "Homebrew Services"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serviços Homebrew"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17562,6 +17748,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "homebrew/core"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "homebrew/core"
@@ -17626,6 +17818,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://gitea.com/some-cool-address"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
@@ -17696,6 +17894,12 @@
             "value" : "%@ 설치 중"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A instalar %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17748,6 +17952,12 @@
             "value" : "Obtenir une liste des Casks installés"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtém uma lista dos Casks instalados"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17792,6 +18002,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir l'installation des Casks"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obter Casks instaladas"
           }
         },
         "ru" : {
@@ -17840,6 +18056,12 @@
             "value" : "Obtenir une liste des Formules installées"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtém uma lista das Formulae instalados"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17884,6 +18106,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obtenir les Formules installées"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obter Formulae instaladas"
           }
         },
         "ru" : {
@@ -17932,6 +18160,12 @@
             "value" : "Obtenir une liste des Formules et des Casks installés"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtém uma lista das Formulae e Casks instalados"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17976,6 +18210,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Charger uniquement les paquets installés manuellement"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carregar só as bibliotecas instaladas manualmente"
           }
         },
         "ru" : {
@@ -18024,6 +18264,12 @@
             "value" : "Obtenir les paquets installés"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obter bibliotecas instaladas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18068,6 +18314,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher les mises à jour des paquets installés"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procurar atualizações nas bibliotecas instaladas"
           }
         },
         "ru" : {
@@ -18116,6 +18368,12 @@
             "value" : "Résultat de l'actualisation des paquets"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resultado da atualização da biblioteca"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18160,6 +18418,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Échec de l'actualisation des paquets"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualização das bibliotecas falhou"
           }
         },
         "ru" : {
@@ -18208,6 +18472,12 @@
             "value" : "Paquets actualisés"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas atualizadas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18252,6 +18522,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualiser les paquets avec des erreurs"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas atualizadas com erros"
           }
         },
         "ru" : {
@@ -18300,6 +18576,12 @@
             "value" : "Actualiser les paquets"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualizar Bibliotecas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18346,6 +18628,12 @@
             "value" : "Paquet Homebrew"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biblioteca Homebrew"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18390,6 +18678,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une représentation simplifiée d'un paquet"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uma representação leve das bibliotecas"
           }
         },
         "ru" : {
@@ -18448,6 +18742,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork를 응원해 주셔서 감사합니다!"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado por suportares o Cork!"
           }
         },
         "ru" : {
@@ -18514,6 +18814,12 @@
             "value" : "라이선스 활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licença ativa"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18576,6 +18882,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "데모 모드 사용 시"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Em modo Demo"
           }
         },
         "ru" : {
@@ -18642,6 +18954,12 @@
             "value" : "데모는 %@까지 사용할 수 있습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A demo está disponível até %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18706,6 +19024,12 @@
             "value" : "Cork를 구매한 이메일:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email com o qual compraste o Cork:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18765,6 +19089,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dev@corkmac.app"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "dev@corkmac.app"
@@ -18834,6 +19164,12 @@
             "value" : "이메일을 찾을 수 없습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email não encontrado"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18896,6 +19232,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "아래 버튼을 사용하거나 [웹사이트](https://corkmac.app)를 방문하여 Cork를 구매할 수 있습니다.\nCork가 자신에게 적합한지 잘 모르시겠어요? 7일 동안만 제공되는 데모를 사용해 보세요."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podes comprar o Cork usando o botão abaixo, ou visitando o [site](https://corkmac.app).\nNão tens a certeza se o Cork é ideal para ti? Experimenta a demo, limitada a 7 dias."
           }
         },
         "ru" : {
@@ -18962,6 +19304,12 @@
             "value" : "코크를 구매해 주셔서 감사합니다!"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado por veres o Cork!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19026,6 +19374,12 @@
             "value" : "25유로"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "por 25€"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19084,6 +19438,12 @@
             "value" : "Si vous souhaitez soutenir le développement de mes applications, envisagez [d'acheter Cork](https://corkmac.app)"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se quiseres apoiar o desenvolvimento das minhas aplicações, considera [comprar o Cork](https://corkmac.app)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19134,6 +19494,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous avez compilé Cork vous-même"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compilaste o Cork"
           }
         },
         "ru" : {
@@ -19192,6 +19558,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "라이선스..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licença…"
           }
         },
         "ru" : {
@@ -19258,6 +19630,12 @@
             "value" : "정보 로드 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carregando informação…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19320,6 +19698,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "상위 패키지 로드 중... "
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carregando bibliotecas principais…"
           }
         },
         "ru" : {
@@ -19386,6 +19770,12 @@
             "value" : "메인 창"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Janela principal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19448,6 +19838,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "유지 관리 완료"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manutenção terminada"
           }
         },
         "ru" : {
@@ -19514,6 +19910,12 @@
             "value" : "캐시된 다운로드 삭제됨"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloads em cache apagados"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19576,6 +19978,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@을 회수했습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuperaste %@"
           }
         },
         "ru" : {
@@ -19642,6 +20050,12 @@
             "value" : "홈브라우저에서 몇 가지 문제 발견"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrados problemas no Homebrew"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19704,6 +20118,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "홈브루에 문제가 발견되지 않았습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem problemas no Homebrew"
           }
         },
         "ru" : {
@@ -19885,6 +20305,30 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld biblioteca órfão encontrada"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld bibliotecas órfãs encontradas"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Nenhuma biblioteca órfão encontrada"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -20033,6 +20477,12 @@
             "value" : "고아 패키지 제거"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas órfãs desinstaladas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20095,6 +20545,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "고아 패키지를 제거할 수 없습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível desinstalar as bibliotecas orfãs"
           }
         },
         "ru" : {
@@ -20161,6 +20617,12 @@
             "value" : "오류 %@가 발생했습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocorreu um erro %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20223,6 +20685,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 캐시 삭제"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cache da biblioteca limpa"
           }
         },
         "ru" : {
@@ -20289,6 +20757,12 @@
             "value" : "패키지 캐시를 제거할 수 없습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível limpar a cache da biblioteca"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20351,6 +20825,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "오류 %@가 발생했습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O erro %@ ocorreu"
           }
         },
         "ru" : {
@@ -20416,6 +20896,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "업데이트되지 않은 %@로 인해 일부 캐시가 제거되지 않았습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algumas caches não foram limpas devido à %@ não estar atualizada"
           }
         },
         "ru" : {
@@ -20561,6 +21047,24 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Algumas caches não foram limpas devido à %1$@ e %2$lld outra biblioteca não estarem atualizadas"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Algumas caches não foram limpas devido à %1$@ e %2$lld outras bibliotecas não estarem atualizadas"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -20697,6 +21201,12 @@
             "value" : "캐시된 다운로드 삭제하기..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apagando downloads em cache…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20760,6 +21270,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "시작 중..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começando…"
           }
         },
         "ru" : {
@@ -20826,6 +21342,12 @@
             "value" : "캐시 삭제 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpando a cache…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20888,6 +21410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "고아 삭제 중..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstalando orfãos"
           }
         },
         "ru" : {
@@ -20954,6 +21482,12 @@
             "value" : "상태 확인 실행 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Executando verificação de integridade…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21016,6 +21550,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "다운로드:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloads:"
           }
         },
         "ru" : {
@@ -21082,6 +21622,12 @@
             "value" : "캐시된 다운로드 삭제"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apagar downloads em cache"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21144,6 +21690,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "홈브루 캐시 삭제"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar cache do Homebrew"
           }
         },
         "ru" : {
@@ -21210,6 +21762,12 @@
             "value" : "기타:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outros:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21272,6 +21830,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "상태 확인 수행"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Executar verificação de integridade"
           }
         },
         "ru" : {
@@ -21338,6 +21902,12 @@
             "value" : "패키지:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21402,6 +21972,12 @@
             "value" : "고아 패키지 제거"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstalar bibliotecas orfãs"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21464,6 +22040,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "시작"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Começar"
           }
         },
         "ru" : {
@@ -21531,6 +22113,12 @@
             "value" : "유지 관리"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manutenção"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21591,6 +22179,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
@@ -21659,6 +22253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork 열기"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir o Cork"
           }
         },
         "ru" : {
