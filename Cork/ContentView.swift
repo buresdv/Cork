@@ -122,91 +122,88 @@ struct ContentView: View, Sendable
 
     var body: some View
     {
-        VStack
+        NavigationSplitView(columnVisibility: $columnVisibility)
         {
-            NavigationSplitView(columnVisibility: $columnVisibility)
+            SidebarView()
+                .navigationDestination(for: BrewPackage.self)
+                { brewPackage in
+                    PackageDetailView(package: brewPackage)
+                        .id(brewPackage.id)
+                }
+                .navigationDestination(for: BrewTap.self)
+                { brewTap in
+                    TapDetailView(tap: brewTap)
+                        .id(brewTap.id)
+                }
+        } detail: {
+            NavigationStack
             {
-                SidebarView()
-            } detail: {
-                if let navigationTarget = appState.navigationTarget
-                {
-                    switch navigationTarget
-                    {
-                    case .package(let brewPackage):
-                        PackageDetailView(package: brewPackage)
-                    case .tap(let brewTap):
-                        TapDetailView(tap: brewTap)
-                    }
-                }
-                else
-                {
-                    StartPage()
-                        .frame(minWidth: 600, minHeight: 500)
-                }
+                StartPage()
+                    .frame(minWidth: 600, minHeight: 500)
             }
-            .navigationTitle("app-name")
-            .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
-            .toolbar(id: "PackageActions")
+        }
+        .navigationTitle("app-name")
+        .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
+        .toolbar(id: "PackageActions")
+        {
+            ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
-                ToolbarItem(id: "upgradePackages", placement: .primaryAction)
-                {
-                    upgradePackagesButton
-                }
+                upgradePackagesButton
+            }
 
-                ToolbarItem(id: "addTap", placement: .primaryAction)
-                {
-                    addTapButton
-                }
+            ToolbarItem(id: "addTap", placement: .primaryAction)
+            {
+                addTapButton
+            }
 
-                ToolbarItem(id: "installPackage", placement: .primaryAction)
-                {
-                    installPackageButton
-                }
+            ToolbarItem(id: "installPackage", placement: .primaryAction)
+            {
+                installPackageButton
+            }
 
-                ToolbarItem(id: "maintenance", placement: .primaryAction)
-                {
-                    performMaintenanceButton
-                }
-                .defaultCustomization(.hidden)
+            ToolbarItem(id: "maintenance", placement: .primaryAction)
+            {
+                performMaintenanceButton
+            }
+            .defaultCustomization(.hidden)
 
-                ToolbarItem(id: "manageServices", placement: .primaryAction)
-                {
-                    manageServicesButton
-                }
-                .defaultCustomization(.hidden)
+            ToolbarItem(id: "manageServices", placement: .primaryAction)
+            {
+                manageServicesButton
+            }
+            .defaultCustomization(.hidden)
 
-                ToolbarItem(id: "spacer", placement: .primaryAction)
-                {
-                    Spacer()
-                }
-                .defaultCustomization(.hidden)
+            ToolbarItem(id: "spacer", placement: .primaryAction)
+            {
+                Spacer()
+            }
+            .defaultCustomization(.hidden)
 
-                ToolbarItem(id: "divider", placement: .primaryAction)
-                {
-                    Divider()
-                }
-                .defaultCustomization(.hidden)
+            ToolbarItem(id: "divider", placement: .primaryAction)
+            {
+                Divider()
+            }
+            .defaultCustomization(.hidden)
 
-                // TODO: Implement this button
-                /*
-                 ToolbarItem(id: "installPackageDirectly", placement: .automatic)
+            // TODO: Implement this button
+            /*
+             ToolbarItem(id: "installPackageDirectly", placement: .automatic)
+             {
+                 Button
                  {
-                     Button
+                     AppConstants.logger.info("Ahoj")
+                 } label: {
+                     Label
                      {
-                         AppConstants.logger.info("Ahoj")
-                     } label: {
-                         Label
-                         {
-                             Text("navigation.install-package.direct")
-                         } icon: {
-                             Image(systemName: "plus.viewfinder")
-                         }
+                         Text("navigation.install-package.direct")
+                     } icon: {
+                         Image(systemName: "plus.viewfinder")
                      }
-                     .help("navigation.install-package.direct.help")
                  }
-                 .defaultCustomization(.hidden)
-                  */
-            }
+                 .help("navigation.install-package.direct.help")
+             }
+             .defaultCustomization(.hidden)
+              */
         }
         .onAppear
         {

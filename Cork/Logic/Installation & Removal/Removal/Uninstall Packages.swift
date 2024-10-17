@@ -21,7 +21,7 @@ extension BrewDataStorage
     ) async throws
     {
         /// Store the old navigation selection to see if it got updated in the middle of switching
-        let oldNavigationSelectionID: NavigationTargetMainWindow? = appState.navigationTarget
+        let oldNavigationSelectionId: UUID? = appState.navigationTargetId
 
         if shouldApplyUninstallSpinnerToRelevantItemInSidebar
         {
@@ -120,12 +120,12 @@ extension BrewDataStorage
                 }
             }
 
-            if appState.navigationTarget != nil
+            if appState.navigationTargetId != nil
             {
                 /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
-                if oldNavigationSelectionID == appState.navigationTarget
+                if oldNavigationSelectionId == appState.navigationTargetId
                 {
-                    appState.navigationTarget = nil
+                    appState.navigationTargetId = nil
                 }
             }
         }

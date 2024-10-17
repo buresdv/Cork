@@ -509,11 +509,11 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.navigationTarget = nil
+            appDelegate.appState.navigationTargetId = nil
         } label: {
             Text("action.go-to-status-page.menu-bar")
         }
-        .disabled(appDelegate.appState.navigationTarget == nil)
+        .disabled(appDelegate.appState.navigationTargetId == nil)
         Divider()
     }
 
