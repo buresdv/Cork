@@ -13,7 +13,8 @@ struct SidebarServiceRow: View
 
     var body: some View
     {
-        NavigationLink(value: NavigationTargetServices.service(service)) {
+        NavigationLink(value: service)
+        {
             Text(service.name)
         }
         .contextMenu

@@ -12,7 +12,7 @@ class ServicesState: ObservableObject
 {
     // MARK: - Navigation
 
-    @Published var navigationSelection: UUID?
+    @Published var navigationTargetId: UUID?
 
     // MARK: - State
 
