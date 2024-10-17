@@ -34513,6 +34513,12 @@
             "value" : "인기 패키지를 기준으로 정렬합니다:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar bibliotecas principais por:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34575,6 +34581,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "가장 적은 다운로드 수"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menos downloads"
           }
         },
         "ru" : {
@@ -34641,6 +34653,12 @@
             "value" : "최다 다운로드"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mais downloads"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34703,6 +34721,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "랜덤"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aleatório"
           }
         },
         "ru" : {
@@ -34769,6 +34793,12 @@
             "value" : "최고의 패키지를 받으세요:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obter bibliotecas principais por:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34831,6 +34861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "지난 달"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Último mês"
           }
         },
         "ru" : {
@@ -34897,6 +34933,12 @@
             "value" : "지난 3개월"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Últimos três meses"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34959,6 +35001,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "작년"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Último ano"
           }
         },
         "ru" : {
@@ -35026,6 +35074,12 @@
             "value" : "검색 기능 활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar Descoberta"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35089,6 +35143,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "일반"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geral"
           }
         },
         "ru" : {
@@ -35155,6 +35215,12 @@
             "value" : "종속성:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dependências:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35217,6 +35283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "종속성에 대한 자세한 정보 표시"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar mais informações sobre dependências"
           }
         },
         "ru" : {
@@ -35283,6 +35355,12 @@
             "value" : "패키지 필터링:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtragem de bibliotecas:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35345,6 +35423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "종속성을 포함한 모든 패키지 표시"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar todas as bibliotecas, incluíndo dependências"
           }
         },
         "ru" : {
@@ -35411,6 +35495,12 @@
             "value" : "수동으로 설치된 패키지만 표시"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar apenas bibliotecas instaladas manualmente"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35473,6 +35563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "자동 시작:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arranque automático:"
           }
         },
         "ru" : {
@@ -35540,6 +35636,12 @@
             "value" : "로그인 시 열기"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir ao login"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35602,6 +35704,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "메뉴바:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu Bar:"
           }
         },
         "ru" : {
@@ -35669,6 +35777,12 @@
             "value" : "메인 창 없이 Cork 열기"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir o Cork sem a sua janela principal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35733,6 +35847,12 @@
             "value" : "메뉴바에 표시"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar na Menu Bar"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35773,6 +35893,12 @@
             "value" : "Outdated package info:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informações da biblioteca desatualizada:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35805,6 +35931,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show old versions"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar versões antigas"
           }
         },
         "ru" : {
@@ -35841,6 +35973,12 @@
             "value" : "Complete"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completa"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35873,6 +36011,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minimal"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mínimo"
           }
         },
         "ru" : {
@@ -35909,6 +36053,12 @@
             "value" : "Versions only"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versões apenas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -35941,6 +36091,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Outdated packages:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas desatualizadas:"
           }
         },
         "ru" : {
@@ -35999,6 +36155,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 주의 사항:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avisos da biblioteca:"
           }
         },
         "ru" : {
@@ -36065,6 +36227,12 @@
             "value" : "전체"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cheio"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36127,6 +36295,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "최소화"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimizado"
           }
         },
         "ru" : {
@@ -36193,6 +36367,12 @@
             "value" : "􀅴 주의 사항을 보려면 '주의 사항 있음'을 클릭하세요."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clica no “Tem avisos” para ver os avisos"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36255,6 +36435,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 세부 정보:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalhes da biblioteca:"
           }
         },
         "ru" : {
@@ -36321,6 +36507,12 @@
             "value" : "Finder에서 패키지 공개 허용"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permitir a revelação de bibliotecas no Finder"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36383,6 +36575,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "종속성 검색 필드 표시"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar campo de pesquisa para dependências"
           }
         },
         "ru" : {
@@ -36449,6 +36647,12 @@
             "value" : "검색 결과:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resultados da pesquisa:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36511,6 +36715,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 설명 표시"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar descrição da biblioteca"
           }
         },
         "ru" : {
@@ -36578,6 +36788,12 @@
             "value" : "패키지 정렬 기준:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenar bibliotecas por:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36640,6 +36856,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이름"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome"
           }
         },
         "ru" : {
@@ -36706,6 +36928,12 @@
             "value" : "설치 날짜"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data de instalação"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36770,6 +36998,12 @@
             "value" : "크기"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamanho"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36829,6 +37063,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew"
@@ -36898,6 +37138,12 @@
             "value" : "Packages"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36963,6 +37209,12 @@
             "value" : "호환성:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compatibilidade:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37026,6 +37278,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 호환성 확인"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verificar compatibilidade de biblioteca"
           }
         },
         "ru" : {
@@ -37094,6 +37352,12 @@
             "value" : "설치:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instalação:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37156,6 +37420,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "오래된 패키지 정리"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar bibliotecas antigas"
           }
         },
         "ru" : {
@@ -37222,6 +37492,12 @@
             "value" : "자동 정리 비활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desativar Limpeza Automática"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37284,6 +37560,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "자동 정리를 비활성화하면 홈브루 설치가 중단될 수 있습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desativar as limpezas automáticas pode interromper a instalação do Homebrew."
           }
         },
         "ru" : {
@@ -37350,6 +37632,12 @@
             "value" : "자동 정리를 비활성화하시겠습니까?"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tens a certezaque queres desativar as limpezas automáticas?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37412,6 +37700,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "정리를 비활성화하면 패키지를 더 빠르게 설치할 수 있습니다,\n하지만 전체적으로 홈브루의 속도가 느려집니다. \n이 옵션을 비활성화하면 Homebrew 설치가 중단될 수 있습니다.\n이 옵션은 또한 30일 이상 홈브루를 사용하지 않은 후에 발생하는 자동 정리\n자동 정리도 제어합니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desativar a limpeza torna a instalação de blibliotecas mais rápida,\nmas torna o Homebrew mais lento no geral. \nDesativar esta opção pode interromper a instalação do Homebrew.\nEsta opção também controla limpezas automáticas que ocorrem\ndepois de não usar o Homebrew por mais de 30 dias."
           }
         },
         "ru" : {
@@ -37479,6 +37773,12 @@
             "value" : "현재 설치 중인 패키지 목록 표시"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostras lista de bibliotecas serem instaladas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37543,6 +37843,12 @@
             "value" : "패키지 제거:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remoção de biblioteca:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37599,6 +37905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 제거 시 확인 필요"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exigir confirmação ao remover bibliotecas"
           }
         },
         "ru" : {
@@ -37658,6 +37970,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "제거:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstalação:"
           }
         },
         "ru" : {
@@ -37724,6 +38042,12 @@
             "value" : "패키지 제거 활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar limpeza de bibliotecas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37786,6 +38110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "제거하면 다른 패키지가 손상될 수 있습니다.\n계속하시겠습니까?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A limpeza pode corromper outras bibliotecas.\nTens certeza de que desejas continuar?"
           }
         },
         "ru" : {
@@ -37852,6 +38182,12 @@
             "value" : "패키지 제거 활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar limpeza de bibliotecas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37916,6 +38252,12 @@
             "value" : "패키지 제거 허용하나요?"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permitir limpeza de bibliotecas?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37978,6 +38320,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "제거하면 패키지와 관련된 모든 파일이 제거됩니다.\n이렇게 하면 공유 파일이 제거되고 다른 패키지가 손상될 수 있습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A limpeza remove todos os arquivos associados a uma biblioteca.\nIsso pode remover arquivos compartilhados e corromper outras bibliotecas."
           }
         },
         "ru" : {
@@ -38045,6 +38393,12 @@
             "value" : "패키지 제거 후 캐시 제거"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpar cache depois de desinstalar uma biblioteca"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38108,6 +38462,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 제거 후 고아 제거하기"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover orfãos depois de desinstalar uma biblioteca"
           }
         },
         "ru" : {
@@ -38174,6 +38534,12 @@
             "value" : "작업의 실시간 결과물 표시"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar outputs das operações em tempo real "
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38238,6 +38604,12 @@
             "value" : "기본적으로 실시간 출력 표시"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar outputs das operações por padrão"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38300,6 +38672,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "유지 관리"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manutenção"
           }
         },
         "ru" : {
@@ -38367,6 +38745,12 @@
             "value" : "기본 단계 설정"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Definir passos padrão"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38430,6 +38814,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "알림"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificações"
           }
         },
         "ru" : {
@@ -38496,6 +38886,12 @@
             "value" : "알림 활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar notificações"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38558,6 +38954,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "알림은 코크가 활성 창이 아닐 때만 표시됩니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificações aparecerão só quando o Cork não estiver numa janela ativa"
           }
         },
         "ru" : {
@@ -38624,6 +39026,12 @@
             "value" : "􀅴 시스템 설정에서 Cork 알림 활성화하기"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀅴 Ativar notificações para o Cork nas Definições de Sistema"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38686,6 +39094,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "설치 결과"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resultados da instalação"
           }
         },
         "ru" : {
@@ -38752,6 +39166,12 @@
             "value" : "업데이트 결과"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resultados da atualização"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38814,6 +39234,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "알림 정보:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificar sobre:"
           }
         },
         "ru" : {
@@ -38880,6 +39306,12 @@
             "value" : "오래된 패키지 알림 유형:"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo de alerta para bibliotecas desatualizadas:"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38942,6 +39374,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "뱃지"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Badge"
           }
         },
         "ru" : {
@@ -39008,6 +39446,12 @@
             "value" : "Badge and Notification"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Badge e Notificação"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39070,6 +39514,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "없음"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum"
           }
         },
         "ru" : {
@@ -39136,6 +39586,12 @@
             "value" : "알림"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificação"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39198,6 +39654,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "고급"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avançado"
           }
         },
         "ru" : {
@@ -39264,6 +39726,12 @@
             "value" : "기본"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Básico"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39326,6 +39794,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "균형의"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Equilibrado"
           }
         },
         "ru" : {
@@ -39392,6 +39866,12 @@
             "value" : "약간 고급"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligeiramente avançado"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39456,6 +39936,12 @@
             "value" : "약간 기본"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligeiramente básico"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39518,6 +40004,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "코크를 어떻게 경험하고 싶으신가요?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Como gostarias de experienciar o Cork?"
           }
         },
         "ru" : {
@@ -39585,6 +40077,12 @@
             "value" : "설치된 패키지"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas instaladas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39649,6 +40147,12 @@
             "value" : "탭 추가"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taps adicionadas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39711,6 +40215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 제거"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover %@"
           }
         },
         "ru" : {
@@ -39778,6 +40288,12 @@
             "value" : "몇 분 후에 다시 시도하거나 Cork를 다시 시작하세요."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenta novamente dentro de alguns minutos ou reinicia o Cork"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39840,6 +40356,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@을(를) 제거할 수 없습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível remover %@"
           }
         },
         "ru" : {
@@ -39906,6 +40428,12 @@
             "value" : "%@ 태그"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marca %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39968,6 +40496,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 언태그"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desmarca %@"
           }
         },
         "ru" : {
@@ -40034,6 +40568,12 @@
             "value" : "설치된 Casks"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks instalados"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40096,6 +40636,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "설치된 Formulae"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae instaladas"
           }
         },
         "ru" : {
@@ -40241,6 +40787,24 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tens %lld Tap adicionada"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tens %lld Taps adicionadas"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -40371,6 +40935,12 @@
             "value" : "탭은 추가 패키지를 제공합니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As Taps facultam bibliotecas adicionais"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40433,6 +41003,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "홈브루 분석이 비활성화됨"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estatísticas do Homebrew estão desativadas"
           }
         },
         "ru" : {
@@ -40499,6 +41075,12 @@
             "value" : "홈브루는 사용자의 사용 방식에 대한 데이터를 수집하지 않습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Homebrew não está a coletar nenhuma informação sobre como o usas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40561,6 +41143,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "홈브루 분석이 활성화되었습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estatísticas do Homebrew ativas"
           }
         },
         "ru" : {
@@ -40627,6 +41215,12 @@
             "value" : "홈브루는 사용자가 설치한 패키지와 같은 다양한 익명화된 데이터를 수집합니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Homebrew está a coletar informação anónima, como as bibliotecas que tens instaladas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40689,6 +41283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "캐시된 다운로드가 %@개 있습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tens %@ de downloads em cache"
           }
         },
         "ru" : {
@@ -40755,6 +41355,12 @@
             "value" : "캐시된 다운로드 삭제..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apagar downloads em cache…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40819,6 +41425,12 @@
             "value" : "이러한 파일은 완료된 패키지 설치에서 남은 파일입니다. 제거해도 안전합니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estes ficheiros são sobras de instalações de bibliotecas concluídas. São seguros para remover."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40881,6 +41493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "기타"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outros"
           }
         },
         "ru" : {
@@ -40948,6 +41566,12 @@
             "value" : "캐시된 다운로드 패키지 이름"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome da biblioteca instalada em cache"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -41010,6 +41634,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "캐시된 다운로드 크기"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamanho do download em cache"
           }
         },
         "ru" : {
@@ -41155,6 +41785,24 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tens %lld Cask instalado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tens %lld Casks instalados"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -41283,6 +41931,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Casks는 그래픽 창이 있는 패키지입니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks são bibliotecas que têm janelas gráficas"
           }
         },
         "ru" : {
@@ -41428,6 +42082,24 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tens %lld Formula instalada"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tens %lld Formulae instaladas"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -41558,6 +42230,12 @@
             "value" : "Formulae는 터미널을 통해 사용하는 패키지입니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae são bibliotecas que usas pelo Terminal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -41623,6 +42301,12 @@
             "value" : "패키지 로드 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A carregar bibliotecas…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -41661,6 +42345,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn't check for outdated packges"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível verificar bibliotecas desatualizadas"
           }
         },
         "uk" : {
@@ -41713,6 +42403,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "브루 유지 관리..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manutenção do brew…"
           }
         },
         "ru" : {
@@ -41779,6 +42475,12 @@
             "value" : "홈브루 상태"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado do Homebrew"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -41842,6 +42544,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork의 중요한 변경 사항에 대해 읽어보세요."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lê sobre mudanças importantes do Cork"
           }
         },
         "ru" : {
@@ -41987,6 +42695,24 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Atualiza %lld biblioteca"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Atualiza %lld bibliotecas"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -42111,6 +42837,12 @@
             "value" : "모두 선택 해제"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desmarcar tudo"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42175,6 +42907,12 @@
             "value" : "모두 선택"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecionar tudo"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42237,6 +42975,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "업데이트"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualizar"
           }
         },
         "ru" : {
@@ -42382,6 +43126,24 @@
             }
           }
         },
+        "pt-PT" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Existe %lld biblioteca desatualizada"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Existem %lld bibliotecas desatualizadas"
+                }
+              }
+            }
+          }
+        },
         "ru" : {
           "variations" : {
             "plural" : {
@@ -42488,6 +43250,12 @@
             "value" : "Installed Version"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versão instalada"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42544,6 +43312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "오래된 패키지"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas desatualizadas"
           }
         },
         "ru" : {
@@ -42610,6 +43384,12 @@
             "value" : "패키지 업데이트 확인 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A verificar atualizações de bibliotecas…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42648,6 +43428,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Newest Version"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versão mais recente"
           }
         },
         "ru" : {
@@ -42708,6 +43494,12 @@
             "value" : "비활성화"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desabilitado"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42748,6 +43540,12 @@
             "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depois de clicar em \"Abrir Terminal\", usa ⌘+V para colar o comando que o Cork copiou para ti e pressiona Return (↩).\nSe nenhum comando foi copiado, escreve o comando \"brew update\" e pressiona Return (↩)."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42780,6 +43578,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Updating through the Terminal"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A atualizar pelo Terminal"
           }
         },
         "ru" : {
@@ -42838,6 +43642,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "탭"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap"
           }
         },
         "ru" : {
@@ -42904,6 +43714,12 @@
             "value" : "콘텐츠"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conteúdos"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42966,6 +43782,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "대부분 Casks"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maioritariamente Casks"
           }
         },
         "ru" : {
@@ -43032,6 +43854,12 @@
             "value" : "오직 Casks"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apenas Casks"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43094,6 +43922,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "대부분 Formulae"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maioritariamente Formulae"
           }
         },
         "ru" : {
@@ -43160,6 +43994,12 @@
             "value" : "오직 Formulae"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apenas Formulae"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43222,6 +44062,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "없음"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum"
           }
         },
         "ru" : {
@@ -43288,6 +44134,12 @@
             "value" : "홈페이지"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página Principal"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43352,6 +44204,12 @@
             "value" : "Casks 포함"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casks incluídos"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43414,6 +44272,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Formulae 포함"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae incluídas"
           }
         },
         "ru" : {
@@ -43481,6 +44345,12 @@
             "value" : "패키지 포함"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas incluídas"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43545,6 +44415,12 @@
             "value" : "정보"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43607,6 +44483,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "탭 정보 로드 중..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A carregar informação da tap…"
           }
         },
         "ru" : {
@@ -43674,6 +44556,12 @@
             "value" : "%@은 공식 탭입니다.\n여기에 포함된 패키지는 안전성을 확인하기 위해 감사를 받습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ é uma tap oficial.\nBibliotecas incluídas são verificadas e seguras."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43736,6 +44624,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 수"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Número de bibliotecas"
           }
         },
         "ru" : {
@@ -43802,6 +44696,12 @@
             "value" : "%@ 제거"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remover %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43864,6 +44764,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "이전 버전 백업하기..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A restaurar versão antiga…"
           }
         },
         "ru" : {
@@ -43930,6 +44836,12 @@
             "value" : "정리 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A limpar…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43992,6 +44904,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "다운로드 중..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A transferir…"
           }
         },
         "ru" : {
@@ -44058,6 +44976,12 @@
             "value" : "새 버전 연결 중..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A vincular nova versão…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44120,6 +45044,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "업데이트 중..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A atualizar…"
           }
         },
         "ru" : {
@@ -44186,6 +45116,12 @@
             "value" : "오류로 업데이트된 패키지"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas atualizadas com erros"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44250,6 +45186,12 @@
             "value" : "업데이트하는 동안 몇 가지 오류가 발생했습니다.\n자세한 내용은 아래에서 확인하세요."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocorreram alguns erros durante a atualização.\nConfere abaixo mais informações"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44296,6 +45238,12 @@
             "value" : "Action nécessaire pour terminer la mise à jour"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ação necessária para acabar a atualização"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44334,6 +45282,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Certains de vos paquets ne peuvent être mis à jour uniquement par le biais du Terminal.\nCliquez sur \"Finir dans Terminal\" ci-dessous\nUtilisez les touches ⌘+V pour insérer la commande, puis appuyez sur ↩ (Retour) pour exécuter la commande et suivre les instructions.\nUne fois la commande terminée, revenez à Cork"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algumas bibliotecas só podem ser atualizadas através do Terminal\nClica em \"Concluir no Terminal\" abaixo\nUsa ⌘+V para inserir o comando e pressiona ↩ (Return) para executar o comando e seguir as instruções\nApós o comando terminar, regressa ao Cork"
           }
         },
         "ru" : {
@@ -44392,6 +45346,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 업데이트 성공"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas atualizadas com sucesso"
           }
         },
         "ru" : {
@@ -44458,6 +45418,12 @@
             "value" : "오류 없음"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem erros"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44520,6 +45486,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "선택한 패키지를 성공적으로 업데이트했습니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bibliotecas selecionadas atualizadas com sucesso"
           }
         },
         "ru" : {
@@ -44586,6 +45558,12 @@
             "value" : "어떻게 해서 이렇게 표시되었는지 모르겠습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não sei o que fizeste para isto aparecer"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44648,6 +45626,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ 업데이트 중 ..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A atualizar %@"
           }
         },
         "ru" : {
@@ -44714,6 +45698,12 @@
             "value" : "사용 가능한 업데이트가 없습니다."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem atualizações disponíveis"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44776,6 +45766,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "모두 최신 상태입니다."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tudo atualizado"
           }
         },
         "ru" : {
@@ -44842,6 +45838,12 @@
             "value" : "업데이트 가져오기..."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A transferir atualizações…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44904,6 +45906,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "완료"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminado"
           }
         },
         "ru" : {
@@ -44971,6 +45979,12 @@
             "value" : "준비"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pronto"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45033,6 +46047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "패키지 업데이트 중..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A atualizar bibliotecas…"
           }
         },
         "ru" : {
@@ -45099,6 +46119,12 @@
             "value" : "패키지 캐시 업데이트"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A atualizar caches de bibliotecas…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45163,6 +46189,12 @@
             "value" : "v. %@"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "v. %@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45221,6 +46253,12 @@
             "value" : "À propos de"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sobre"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45271,6 +46309,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Services"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serviços"
           }
         },
         "ru" : {
@@ -45326,6 +46370,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇾"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇾"
@@ -45395,6 +46445,12 @@
             "value" : "􀐫"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀐫"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45449,6 +46505,12 @@
           }
         },
         "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀐫 %@"
+          }
+        },
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀐫 %@"
