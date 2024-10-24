@@ -40449,7 +40449,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "为 %@ 添加标签"
+            "value" : "标记 %@"
           }
         },
         "zh-Hant" : {
@@ -40519,7 +40519,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移除 %@ 的标签"
+            "value" : "取消标记 %@"
           }
         },
         "zh-Hant" : {
