@@ -23,7 +23,7 @@ struct MenuBar_OrphanCleanup: View
             {
                 Task(priority: .userInitiated)
                 {
-                    AppConstants.logger.log("Will delete orphans")
+                    AppConstants.shared.logger.log("Will delete orphans")
 
                     do
                     {
@@ -37,7 +37,7 @@ struct MenuBar_OrphanCleanup: View
                     }
                     catch let orphanUninstallationError
                     {
-                        AppConstants.logger.error("Failed while uninstalling orphans: \(orphanUninstallationError, privacy: .public)")
+                        AppConstants.shared.logger.error("Failed while uninstalling orphans: \(orphanUninstallationError, privacy: .public)")
 
                         sendNotification(
                             title: String(localized: "maintenance.results.orphans.failure"),

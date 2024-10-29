@@ -55,23 +55,23 @@ extension BrewDataStorage
             appState.isShowingUninstallationProgressView = true
         }
 
-        AppConstants.logger.info("Will try to remove package \(package.name, privacy: .auto)")
+        AppConstants.shared.logger.info("Will try to remove package \(package.name, privacy: .auto)")
         var uninstallCommandOutput: TerminalOutput
 
         if !shouldRemoveAllAssociatedFiles
         {
-            uninstallCommandOutput = await shell(AppConstants.brewExecutablePath, ["uninstall", package.name])
+            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", package.name])
         }
         else
         {
-            uninstallCommandOutput = await shell(AppConstants.brewExecutablePath, ["uninstall", "--zap", package.name])
+            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.name])
         }
 
-        AppConstants.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardError)")
+        AppConstants.shared.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardError)")
 
         if uninstallCommandOutput.standardError.contains("because it is required by")
         {
-            AppConstants.logger.warning("Could not uninstall this package because it's a dependency")
+            AppConstants.shared.logger.warning("Could not uninstall this package because it's a dependency")
 
             /// If the uninstallation failed, change the status back to "not being modified"
             resetPackageState(package: package)
@@ -82,11 +82,11 @@ extension BrewDataStorage
 
                 appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: package, offendingDependencyProhibitingUninstallation: dependencyName))
 
-                AppConstants.logger.warning("Name of offending dependency: \(dependencyName, privacy: .public)")
+                AppConstants.shared.logger.warning("Name of offending dependency: \(dependencyName, privacy: .public)")
             }
             catch let regexError as NSError
             {
-                AppConstants.logger.error("Failed to extract dependency name from output: \(regexError, privacy: .public)")
+                AppConstants.shared.logger.error("Failed to extract dependency name from output: \(regexError, privacy: .public)")
                 throw RegexError.regexFunctionCouldNotMatchAnything
             }
         }
@@ -94,7 +94,7 @@ extension BrewDataStorage
         {
             // TODO: So far, this only stops the package from being removed from the tracker. Implement a tutorial on how to uninstall the package
 
-            AppConstants.logger.error("Could not uninstall this package because sudo is required")
+            AppConstants.shared.logger.error("Could not uninstall this package because sudo is required")
 
             appState.packageTryingToBeUninstalledWithSudo = package
             appState.isShowingSudoRequiredForUninstallSheet = true
@@ -103,7 +103,7 @@ extension BrewDataStorage
         }
         else
         {
-            AppConstants.logger.info("Uninstalling can proceed")
+            AppConstants.shared.logger.info("Uninstalling can proceed")
 
             switch package.type
             {
@@ -132,7 +132,7 @@ extension BrewDataStorage
 
         appState.isShowingUninstallationProgressView = false
 
-        AppConstants.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
+        AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
         Task

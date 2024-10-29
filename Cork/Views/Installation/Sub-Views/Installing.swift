@@ -116,20 +116,20 @@ struct InstallingPackageView: View
             do
             {
                 let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(using: brewData)
-                AppConstants.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
 
                 /// Check if the package installation stag at the end of the install process was something unexpected. Normal package installations go through multiple steps, and the three listed below are not supposed to be the end state. This means that something went wrong during the installation
                 let installationStage: PackageInstallationStage = installationProgressTracker.packageBeingInstalled.installationStage
                 if [.installingCask, .installingPackage, .ready].contains(installationStage)
                 {
-                    AppConstants.logger.warning("The installation process quit before it was supposed to")
+                    AppConstants.shared.logger.warning("The installation process quit before it was supposed to")
 
                     installationProgressTracker.packageBeingInstalled.installationStage = .terminatedUnexpectedly
                 }
             }
             catch let fatalInstallationError
             {
-                AppConstants.logger.error("Fatal error occurred during installing a package: \(fatalInstallationError, privacy: .public)")
+                AppConstants.shared.logger.error("Fatal error occurred during installing a package: \(fatalInstallationError, privacy: .public)")
 
                 dismiss()
 

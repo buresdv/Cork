@@ -56,13 +56,13 @@ struct LiveTerminalOutputView: View
             {
                 if !forceKeepTerminalOutputInMemory
                 {
-                    AppConstants.logger.debug("Purging saved real time output")
+                    AppConstants.shared.logger.debug("Purging saved real time output")
 
                     lineArray = .init()
                 }
                 else
                 {
-                    AppConstants.logger.debug("Forced to keep previous output in memory")
+                    AppConstants.shared.logger.debug("Forced to keep previous output in memory")
                 }
             }
         }

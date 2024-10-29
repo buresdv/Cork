@@ -29,7 +29,7 @@ struct PackageAndTapOverviewBox: View
             {
                 Button
                 {
-                    AppConstants.brewCellarPath.revealInFinder(.openTargetItself)
+                    AppConstants.shared.brewCellarPath.revealInFinder(.openTargetItself)
                 } label: {
                     Text("action.reveal-in-finder")
                 }
@@ -47,7 +47,7 @@ struct PackageAndTapOverviewBox: View
             {
                 Button
                 {
-                    AppConstants.brewCaskPath.revealInFinder(.openTargetItself)
+                    AppConstants.shared.brewCaskPath.revealInFinder(.openTargetItself)
                 } label: {
                     Text("action.reveal-in-finder")
                 }
@@ -65,7 +65,7 @@ struct PackageAndTapOverviewBox: View
             {
                 Button
                 {
-                    AppConstants.tapPath.revealInFinder(.openTargetItself)
+                    AppConstants.shared.tapPath.revealInFinder(.openTargetItself)
                 } label: {
                     Text("action.reveal-in-finder")
                 }

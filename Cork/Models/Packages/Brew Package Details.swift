@@ -67,12 +67,12 @@ class BrewPackageDetails: ObservableObject
 
     func loadDependents() async
     {
-        AppConstants.logger.debug("Will load dependents for \(self.name)")
-        let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", name]).standardOutput
+        AppConstants.shared.logger.debug("Will load dependents for \(self.name)")
+        let packageDependentsRaw: String = await shell(AppConstants.shared.brewExecutablePath, ["uses", "--installed", name]).standardOutput
 
         let finalDependents: [String] = packageDependentsRaw.components(separatedBy: "\n").dropLast()
 
-        AppConstants.logger.debug("Dependents loaded: \(finalDependents)")
+        AppConstants.shared.logger.debug("Dependents loaded: \(finalDependents)")
 
         dependents = finalDependents
     }
@@ -81,20 +81,20 @@ class BrewPackageDetails: ObservableObject
     {
         if pinned
         {
-            let pinResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["unpin", name])
+            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", name])
 
             if !pinResult.standardError.isEmpty
             {
-                AppConstants.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
                 throw PinningUnpinningError.failedWhileChangingPinnedStatus
             }
         }
         else
         {
-            let unpinResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["pin", name])
+            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", name])
             if !unpinResult.standardError.isEmpty
             {
-                AppConstants.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
                 throw PinningUnpinningError.failedWhileChangingPinnedStatus
             }
         }

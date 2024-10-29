@@ -13,7 +13,7 @@ func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStora
 {
     for taggedName in appState.taggedPackageNames
     {
-        AppConstants.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
+        AppConstants.shared.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
         brewData.installedFormulae = Set(brewData.installedFormulae.map
         { formula in
             var copyFormula: BrewPackage = formula

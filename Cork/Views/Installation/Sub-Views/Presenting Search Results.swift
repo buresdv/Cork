@@ -67,7 +67,7 @@ struct PresentingSearchResultsView: View
 
                         openWindow(value: requestedPackageToPreview)
 
-                        AppConstants.logger.debug("Would preview package \(requestedPackageToPreview.name)")
+                        AppConstants.shared.logger.debug("Would preview package \(requestedPackageToPreview.name)")
                     }
                     catch {}
                 }
@@ -112,13 +112,13 @@ struct PresentingSearchResultsView: View
                 installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
 
                 #if DEBUG
-                    AppConstants.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                    AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
                 #endif
             }
             catch let packageByUUIDRetrievalError
             {
                 #if DEBUG
-                    AppConstants.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
+                    AppConstants.shared.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
                 #endif
 
                 dismiss()

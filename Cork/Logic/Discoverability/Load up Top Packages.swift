@@ -109,13 +109,13 @@ extension TopPackagesTracker
             }
             catch let topFormulaeDecodingError
             {
-                AppConstants.logger.error("Failed while decoding top formulae: \(topFormulaeDecodingError)")
+                AppConstants.shared.logger.error("Failed while decoding top formulae: \(topFormulaeDecodingError)")
                 throw TopPackageLoadingError.couldNotDecodeTopFormulae(error: topFormulaeDecodingError.localizedDescription)
             }
         }
         catch let dataDownloadingError
         {
-            AppConstants.logger.error("Failed while retrieving top formulae: \(dataDownloadingError.localizedDescription)")
+            AppConstants.shared.logger.error("Failed while retrieving top formulae: \(dataDownloadingError.localizedDescription)")
             throw TopPackageLoadingError.couldNotDownloadData
         }
     }
@@ -165,13 +165,13 @@ extension TopPackagesTracker
             }
             catch let topCasksDecodingError
             {
-                AppConstants.logger.error("Failed while decoding top casks: \(topCasksDecodingError)")
+                AppConstants.shared.logger.error("Failed while decoding top casks: \(topCasksDecodingError)")
                 throw TopPackageLoadingError.couldNotDecodeTopCasks(error: topCasksDecodingError.localizedDescription)
             }
         }
         catch let dataDownloadingError
         {
-            AppConstants.logger.error("Failed while retrieving top casks: \(dataDownloadingError.localizedDescription)")
+            AppConstants.shared.logger.error("Failed while retrieving top casks: \(dataDownloadingError.localizedDescription)")
             throw TopPackageLoadingError.couldNotDownloadData
         }
     }

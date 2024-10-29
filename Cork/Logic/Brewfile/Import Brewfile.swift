@@ -31,11 +31,11 @@ func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage
 
     appState.brewfileImportingStage = .importing
 
-    AppConstants.logger.info("Brewfile import path: \(url.path)")
+    AppConstants.shared.logger.info("Brewfile import path: \(url.path)")
 
-    let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
+    let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
 
-    AppConstants.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutput, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardError)")
+    AppConstants.shared.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutput, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardError)")
 
     if !brewfileImportingResultRaw.standardError.isEmpty
     {

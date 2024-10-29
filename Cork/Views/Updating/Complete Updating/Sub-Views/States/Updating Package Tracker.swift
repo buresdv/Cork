@@ -52,14 +52,14 @@ struct UpdatingPackageTrackerStateView: View
                         appState.showAlert(errorToShow: .homePathNotSet)
                     case .couldNotDecodeCommandOutput(let decodingError):
                         // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
-                        AppConstants.logger.error("Could not decode outdated package command output: \(decodingError)")
+                        AppConstants.shared.logger.error("Could not decode outdated package command output: \(decodingError)")
                     case .otherError:
-                        AppConstants.logger.error("Something went wrong")
+                        AppConstants.shared.logger.error("Something went wrong")
                     }
                 }
                 catch
                 {
-                    AppConstants.logger.error("IDK what just happened")
+                    AppConstants.shared.logger.error("IDK what just happened")
                 }
             }
     }

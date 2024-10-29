@@ -13,13 +13,13 @@ func loadUpTappedTaps() async -> [BrewTap]
 {
     var finalAvailableTaps: [BrewTap] = .init()
 
-    let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.tapPath, options: .skipsHiddenFiles)
+    let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.shared.tapPath, options: .skipsHiddenFiles)
 
-    AppConstants.logger.debug("Contents of tap folder: \(contentsOfTapFolder)")
+    AppConstants.shared.logger.debug("Contents of tap folder: \(contentsOfTapFolder)")
 
     for tapRepoParentURL in contentsOfTapFolder
     {
-        AppConstants.logger.debug("Tap repo: \(tapRepoParentURL)")
+        AppConstants.shared.logger.debug("Tap repo: \(tapRepoParentURL)")
 
         let contentsOfTapRepoParent: [URL] = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
 
@@ -34,7 +34,7 @@ func loadUpTappedTaps() async -> [BrewTap]
 
             let fullTapName: String = "\(repoParentName)/\(repoName)"
 
-            AppConstants.logger.info("Full tap name: \(fullTapName)")
+            AppConstants.shared.logger.info("Full tap name: \(fullTapName)")
 
             finalAvailableTaps.append(BrewTap(name: fullTapName))
         }
@@ -44,30 +44,30 @@ func loadUpTappedTaps() async -> [BrewTap]
     { taskGroup in
         if finalAvailableTaps.filter({ $0.name == "homebrew/core" }).isEmpty
         {
-            AppConstants.logger.warning("Couldn't find homebrew/core in local taps")
+            AppConstants.shared.logger.warning("Couldn't find homebrew/core in local taps")
             taskGroup.addTask
             {
                 let isCoreAdded: Bool = await checkIfTapIsAdded(tapToCheck: "homebrew/core")
                 if isCoreAdded
                 {
-                    AppConstants.logger.info("homebrew/core is added, but not in local taps")
+                    AppConstants.shared.logger.info("homebrew/core is added, but not in local taps")
                     return BrewTap(name: "homebrew/core")
                 }
                 else
                 {
-                    AppConstants.logger.warning("homebrew/core is not added and not in local taps")
+                    AppConstants.shared.logger.warning("homebrew/core is not added and not in local taps")
                     return nil
                 }
             }
         }
         else
         {
-            AppConstants.logger.info("Found homebrew/core in local taps")
+            AppConstants.shared.logger.info("Found homebrew/core in local taps")
         }
 
         if finalAvailableTaps.filter({ $0.name == "homebrew/cask" }).isEmpty
         {
-            AppConstants.logger.warning("Couldn't find homebrew/cask in local taps")
+            AppConstants.shared.logger.warning("Couldn't find homebrew/cask in local taps")
             taskGroup.addTask
             {
                 let isCaskAdded: Bool = await checkIfTapIsAdded(tapToCheck: "homebrew/cask")
@@ -77,14 +77,14 @@ func loadUpTappedTaps() async -> [BrewTap]
                 }
                 else
                 {
-                    AppConstants.logger.warning("homebrew/cask is not added and not in local taps")
+                    AppConstants.shared.logger.warning("homebrew/cask is not added and not in local taps")
                     return nil
                 }
             }
         }
         else
         {
-            AppConstants.logger.info("Found homebrew/cask in local taps")
+            AppConstants.shared.logger.info("Found homebrew/cask in local taps")
         }
 
         var nonLocalBasicTapsInternal: [BrewTap] = .init()

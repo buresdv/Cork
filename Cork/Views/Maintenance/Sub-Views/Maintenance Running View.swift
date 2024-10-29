@@ -43,12 +43,12 @@ struct MaintenanceRunningView: View
                         }
                         catch let orphanUninstallatioError
                         {
-                            AppConstants.logger.error("Orphan uninstallation error: \(orphanUninstallatioError.localizedDescription, privacy: .public))")
+                            AppConstants.shared.logger.error("Orphan uninstallation error: \(orphanUninstallatioError.localizedDescription, privacy: .public))")
                         }
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not uninstall orphans")
+                        AppConstants.shared.logger.info("Will not uninstall orphans")
                     }
 
                     if shouldPurgeCache
@@ -59,21 +59,21 @@ struct MaintenanceRunningView: View
                         {
                             packagesHoldingBackCachePurge = try await purgeHomebrewCacheUtility()
 
-                            AppConstants.logger.info("Length of array of packages that are holding back cache purge: \(packagesHoldingBackCachePurge.count)")
+                            AppConstants.shared.logger.info("Length of array of packages that are holding back cache purge: \(packagesHoldingBackCachePurge.count)")
                         }
                         catch let homebrewCachePurgingError
                         {
-                            AppConstants.logger.error("Homebrew cache purging error: \(homebrewCachePurgingError.localizedDescription, privacy: .public))")
+                            AppConstants.shared.logger.error("Homebrew cache purging error: \(homebrewCachePurgingError.localizedDescription, privacy: .public))")
                         }
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not purge cache")
+                        AppConstants.shared.logger.info("Will not purge cache")
                     }
 
                     if shouldDeleteDownloads
                     {
-                        AppConstants.logger.info("Will delete downloads")
+                        AppConstants.shared.logger.info("Will delete downloads")
 
                         currentMaintenanceStepText = "maintenance.step.deleting-cached-downloads"
 
@@ -87,7 +87,7 @@ struct MaintenanceRunningView: View
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not delete downloads")
+                        AppConstants.shared.logger.info("Will not delete downloads")
                     }
 
                     if shouldPerformHealthCheck
@@ -97,18 +97,18 @@ struct MaintenanceRunningView: View
                         do
                         {
                             let healthCheckOutput: TerminalOutput = try await performBrewHealthCheck()
-                            AppConstants.logger.log("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
+                            AppConstants.shared.logger.log("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
 
                             brewHealthCheckFoundNoProblems = true
                         }
                         catch let healthCheckError
                         {
-                            AppConstants.logger.error("Health check error: \(healthCheckError, privacy: .public)")
+                            AppConstants.shared.logger.error("Health check error: \(healthCheckError, privacy: .public)")
                         }
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not perform health check")
+                        AppConstants.shared.logger.info("Will not perform health check")
                     }
 
                     maintenanceSteps = .finished

@@ -41,7 +41,7 @@ func exportBrewfile(appState: AppState) async throws -> String
 
     let pathRawOutput: TerminalOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])
 
-    let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
+    let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
 
     /// Throw an error if the working directory could not be determined
     if !pathRawOutput.standardError.isEmpty
@@ -61,7 +61,7 @@ func exportBrewfile(appState: AppState) async throws -> String
         throw BrewfileDumpingError.errorWhileDumpingBrewfile(error: brewfileDumpingResult.standardError)
     }
 
-    AppConstants.logger.info("Path: \(workingDirectory, privacy: .auto)")
+    AppConstants.shared.logger.info("Path: \(workingDirectory, privacy: .auto)")
 
     print("Brewfile dumping result: \(brewfileDumpingResult)")
 
@@ -78,7 +78,7 @@ func exportBrewfile(appState: AppState) async throws -> String
     }
     catch let brewfileReadingError
     {
-        AppConstants.logger.error("Error while reading contents of Brewfile: \(brewfileReadingError, privacy: .public)")
+        AppConstants.shared.logger.error("Error while reading contents of Brewfile: \(brewfileReadingError, privacy: .public)")
         throw BrewfileDumpingError.couldNotReadBrewfile
     }
 }

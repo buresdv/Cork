@@ -62,13 +62,13 @@ extension ServicesTracker
             return decoder
         }()
 
-        let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["services", "list", "--json"])
+        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["services", "list", "--json"])
 
         // MARK: - Error checking
 
         if !rawOutput.standardError.isEmpty
         {
-            AppConstants.logger.error("Failed while loading up services: Standard Error not empty")
+            AppConstants.shared.logger.error("Failed while loading up services: Standard Error not empty")
             if rawOutput.standardError.contains("brew update")
             {
                 throw HomebrewServiceLoadingError.homebrewOutdated
@@ -84,7 +84,7 @@ extension ServicesTracker
             guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
             else
             {
-                AppConstants.logger.error("Failed while converting services string to data")
+                AppConstants.shared.logger.error("Failed while converting services string to data")
                 throw HomebrewServiceLoadingError.otherError("There was a failure encoding Services data")
             }
 
@@ -107,7 +107,7 @@ extension ServicesTracker
         }
         catch let servicesParsingError
         {
-            AppConstants.logger.error("Parsing of Homebrew services failed: \(servicesParsingError)")
+            AppConstants.shared.logger.error("Parsing of Homebrew services failed: \(servicesParsingError)")
 
             throw HomebrewServiceLoadingError.servicesParsingFailed
         }

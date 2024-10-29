@@ -19,13 +19,13 @@ struct GetInstalledCasksIntent: AppIntent
 
     func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {
-        let allowAccessToFile: Bool = AppConstants.brewCaskPath.startAccessingSecurityScopedResource()
+        let allowAccessToFile: Bool = AppConstants.shared.brewCaskPath.startAccessingSecurityScopedResource()
 
         if allowAccessToFile
         {
             let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: AppState())
 
-            AppConstants.brewCaskPath.stopAccessingSecurityScopedResource()
+            AppConstants.shared.brewCaskPath.stopAccessingSecurityScopedResource()
 
             let minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map
             { package in
@@ -38,7 +38,7 @@ struct GetInstalledCasksIntent: AppIntent
         {
             print("Could not obtain access to folder")
 
-            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.brewCaskPath.absoluteString)
+            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.shared.brewCaskPath.absoluteString)
         }
     }
 }

@@ -11,7 +11,7 @@ import CorkShared
 func deleteCachedDownloads()
 {
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
-    for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedFormulaeDownloadsPath)
+    for url in getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedFormulaeDownloadsPath)
     {
         if let isSymlink = url.isSymlink()
         {
@@ -21,17 +21,17 @@ func deleteCachedDownloads()
             }
             else
             {
-                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                AppConstants.shared.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
             }
         }
         else
         {
-            AppConstants.logger.warning("Could not check symlink status of \(url)")
+            AppConstants.shared.logger.warning("Could not check symlink status of \(url)")
         }
     }
 
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
-    for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedCasksDownloadsPath)
+    for url in getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedCasksDownloadsPath)
     {
         if let isSymlink = url.isSymlink()
         {
@@ -41,23 +41,23 @@ func deleteCachedDownloads()
             }
             else
             {
-                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                AppConstants.shared.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
             }
         }
         else
         {
-            AppConstants.logger.warning("Could not check symlink status of \(url)")
+            AppConstants.shared.logger.warning("Could not check symlink status of \(url)")
         }
     }
 
     /// This folder has the downloads themselves, so we have do **DELETE EVERYTHING THAT IS NOT A SYMLINK**
-    for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedDownloadsPath)
+    for url in getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedDownloadsPath)
     {
         if let isSymlink = url.isSymlink()
         {
             if isSymlink
             {
-                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                AppConstants.shared.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
             }
             else
             {
@@ -66,7 +66,7 @@ func deleteCachedDownloads()
         }
         else
         {
-            AppConstants.logger.warning("Could not check symlink status of \(url)")
+            AppConstants.shared.logger.warning("Could not check symlink status of \(url)")
         }
     }
 }

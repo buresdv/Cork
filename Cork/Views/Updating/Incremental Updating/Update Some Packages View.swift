@@ -54,18 +54,18 @@ struct UpdateSomePackagesView: View
                             updateCommandArguments = ["reinstall", "--cask", packageBeingCurrentlyUpdated.name]
                         }
 
-                        AppConstants.logger.info("Update command: \(updateCommandArguments)")
+                        AppConstants.shared.logger.info("Update command: \(updateCommandArguments)")
 
-                        for await output in shell(AppConstants.brewExecutablePath, updateCommandArguments)
+                        for await output in shell(AppConstants.shared.brewExecutablePath, updateCommandArguments)
                         {
                             switch output
                             {
                             case .standardOutput(let outputLine):
-                                AppConstants.logger.info("Individual package updating output: \(outputLine)")
+                                AppConstants.shared.logger.info("Individual package updating output: \(outputLine)")
                                 updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
 
                             case .standardError(let errorLine):
-                                AppConstants.logger.info("Individual package updating error: \(errorLine)")
+                                AppConstants.shared.logger.info("Individual package updating error: \(errorLine)")
                                 updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
 
                                 if !errorLine.contains("The post-install step did not complete successfully")
@@ -76,7 +76,7 @@ struct UpdateSomePackagesView: View
                         }
 
                         updateProgress = Double(index) + 1
-                        AppConstants.logger.info("Update progress index: \(updateProgress)")
+                        AppConstants.shared.logger.info("Update progress index: \(updateProgress)")
                     }
 
                     if !packageUpdatingErrors.isEmpty
@@ -90,12 +90,12 @@ struct UpdateSomePackagesView: View
 
                     do
                     {
-                        AppConstants.logger.debug("Will synchronize outdated packages")
+                        AppConstants.shared.logger.debug("Will synchronize outdated packages")
                         try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
                     }
                     catch let packageSynchronizationError
                     {
-                        AppConstants.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
+                        AppConstants.shared.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
                         appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: packageSynchronizationError.localizedDescription))
                     }
                 }

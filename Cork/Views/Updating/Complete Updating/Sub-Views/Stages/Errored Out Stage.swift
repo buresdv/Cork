@@ -57,7 +57,7 @@ struct ErroredOutStageView: View
             .fixedSize()
             .onAppear
             {
-                AppConstants.logger.error("Update errors: \(updateProgressTracker.errors)")
+                AppConstants.shared.logger.error("Update errors: \(updateProgressTracker.errors)")
             }
         }
         .onAppear

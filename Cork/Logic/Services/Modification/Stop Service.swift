@@ -26,29 +26,29 @@ extension ServicesTracker
 {
     func stopService(_ serviceToStop: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
     {
-        for await output in shell(AppConstants.brewExecutablePath, ["services", "stop", serviceToStop.name])
+        for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "stop", serviceToStop.name])
         {
             switch output
             {
             case .standardOutput(let outputLine):
-                AppConstants.logger.debug("Service stopping output: \(outputLine)")
+                AppConstants.shared.logger.debug("Service stopping output: \(outputLine)")
 
                 switch outputLine
                 {
                 case _ where outputLine.contains("Stopping"):
-                    AppConstants.logger.debug("Stopping \(serviceToStop.name)")
+                    AppConstants.shared.logger.debug("Stopping \(serviceToStop.name)")
 
                 case _ where outputLine.contains("Successfully stopped"):
-                    AppConstants.logger.debug("Stopped \(serviceToStop.name)")
+                    AppConstants.shared.logger.debug("Stopped \(serviceToStop.name)")
 
                 default:
-                    AppConstants.logger.debug("Unknown step in stopping \(serviceToStop.name)")
+                    AppConstants.shared.logger.debug("Unknown step in stopping \(serviceToStop.name)")
                 }
 
                 serviceModificationProgress.progress += 1
 
             case .standardError(let errorLine):
-                AppConstants.logger.error("Service stopping error: \(errorLine)")
+                AppConstants.shared.logger.error("Service stopping error: \(errorLine)")
 
                 servicesState.showError(.couldNotStopService(offendingService: serviceToStop.name, errorThrown: errorLine))
             }
@@ -62,7 +62,7 @@ extension ServicesTracker
         }
         catch let servicesSynchronizationError
         {
-            AppConstants.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
+            AppConstants.shared.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
 
             servicesState.showError(.couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription))
         }

@@ -58,7 +58,7 @@ struct PackageModificationButtons: View
                                 }
                                 catch let pinningUnpinningError
                                 {
-                                    AppConstants.logger.error("Failed while pinning/unpinning package \(package.name): \(pinningUnpinningError)")
+                                    AppConstants.shared.logger.error("Failed while pinning/unpinning package \(package.name): \(pinningUnpinningError)")
                                 }
                             }
                         } label: {
@@ -104,7 +104,7 @@ struct PackageModificationButtons: View
                                 {
                                     Task
                                     {
-                                        AppConstants.logger.debug("Confirmation of package removal NOT needed")
+                                        AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
                                         try await brewData.uninstallSelectedPackage(
                                             package: package,
@@ -117,7 +117,7 @@ struct PackageModificationButtons: View
                                 }
                                 else
                                 {
-                                    AppConstants.logger.debug("Confirmation of package removal needed")
+                                    AppConstants.shared.logger.debug("Confirmation of package removal needed")
                                     uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: false, isCalledFromSidebar: false)
                                 }
                             }

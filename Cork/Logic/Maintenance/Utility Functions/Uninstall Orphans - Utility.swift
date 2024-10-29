@@ -31,11 +31,11 @@ func uninstallOrphansUtility() async throws -> Int
     {
         let orphanUninstallationOutput: TerminalOutput = try await uninstallOrphanedPackages()
 
-        AppConstants.logger.debug("Orphan removal output:\nStandard output: \(orphanUninstallationOutput.standardOutput, privacy: .public)\nStandard error: \(orphanUninstallationOutput.standardError, privacy: .public)")
+        AppConstants.shared.logger.debug("Orphan removal output:\nStandard output: \(orphanUninstallationOutput.standardOutput, privacy: .public)\nStandard error: \(orphanUninstallationOutput.standardError, privacy: .public)")
 
         if orphanUninstallationOutput.standardError.isEmpty && orphanUninstallationOutput.standardOutput.isEmpty
         {
-            AppConstants.logger.info("No orphans found")
+            AppConstants.shared.logger.info("No orphans found")
             return 0
         }
         else
@@ -51,7 +51,7 @@ func uninstallOrphansUtility() async throws -> Int
     }
     catch let orphanUninstallatioError
     {
-        AppConstants.logger.error("Orphan uninstallation error: \(orphanUninstallatioError, privacy: .public)")
+        AppConstants.shared.logger.error("Orphan uninstallation error: \(orphanUninstallatioError, privacy: .public)")
         throw OrphanRemovalError.couldNotUninstallOrphans(output: orphanUninstallatioError.localizedDescription)
     }
 }

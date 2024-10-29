@@ -62,10 +62,10 @@ extension OutdatedPackageTracker
     func getOutdatedPackages(brewData: BrewDataStorage) async throws
     {
         // First, we have to pull the newest updates
-        await shell(AppConstants.brewExecutablePath, ["update"])
+        await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
         // Then we can get the updating under way
-        let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["outdated", "--json=v2"])
+        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", "--json=v2"])
 
         print("Outdated package function oputput: \(rawOutput)")
 
@@ -73,13 +73,13 @@ extension OutdatedPackageTracker
 
         if rawOutput.standardError.contains("HOME must be set")
         {
-            AppConstants.logger.error("Encountered HOME error")
+            AppConstants.shared.logger.error("Encountered HOME error")
             throw OutdatedPackageRetrievalError.homeNotSet
         }
 
         if !rawOutput.standardError.isEmpty
         {
-            AppConstants.logger.error("Standard error for package updating is not empty: \(rawOutput.standardError)")
+            AppConstants.shared.logger.error("Standard error for package updating is not empty: \(rawOutput.standardError)")
             throw OutdatedPackageRetrievalError.otherError(rawOutput.standardError)
         }
 
@@ -97,7 +97,7 @@ extension OutdatedPackageTracker
             guard let decodableOutput: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
             else
             {
-                AppConstants.logger.error("Could not convert raw output of decoding function to data for the decoder")
+                AppConstants.shared.logger.error("Could not convert raw output of decoding function to data for the decoder")
 
                 throw OutdatedPackageRetrievalError.otherError("There was a failure encoding data")
             }
@@ -112,7 +112,7 @@ extension OutdatedPackageTracker
         }
         catch let decodingError
         {
-            AppConstants.logger.error("There was an error decoding the outdated package retrieval output: \(decodingError.localizedDescription, privacy: .public)\n\(decodingError, privacy: .public)")
+            AppConstants.shared.logger.error("There was an error decoding the outdated package retrieval output: \(decodingError.localizedDescription, privacy: .public)\n\(decodingError, privacy: .public)")
             throw OutdatedPackageRetrievalError.couldNotDecodeCommandOutput(decodingError.localizedDescription)
         }
     }

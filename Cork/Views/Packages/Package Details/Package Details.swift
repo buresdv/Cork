@@ -133,7 +133,7 @@ struct PackageDetailView: View, Sendable
             }
             catch let packageInfoDecodingError
             {
-                AppConstants.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
+                AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
                 erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }

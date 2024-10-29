@@ -153,7 +153,7 @@ struct OnboardingView: View
                     showRealTimeTerminalOutputOfOperations = true
                 }
 
-                AppConstants.logger.info("Onboarding finished")
+                AppConstants.shared.logger.info("Onboarding finished")
 
                 dismiss()
             } label: {

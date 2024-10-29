@@ -14,7 +14,7 @@ func loadTaggedIDsFromDisk() throws -> Set<String>
 
     do
     {
-        let rawPackageNamesFromFile: String = try String(contentsOf: AppConstants.metadataFilePath, encoding: .utf8)
+        let rawPackageNamesFromFile: String = try String(contentsOf: AppConstants.shared.metadataFilePath, encoding: .utf8)
         let packageNamesAsArray: [String] = rawPackageNamesFromFile.components(separatedBy: ":")
 
         for packageNameAsString in packageNamesAsArray
@@ -24,10 +24,10 @@ func loadTaggedIDsFromDisk() throws -> Set<String>
     }
     catch let dataReadingError as NSError
     {
-        AppConstants.logger.error("Failed while reading data from disk: \(dataReadingError, privacy: .public)")
+        AppConstants.shared.logger.error("Failed while reading data from disk: \(dataReadingError, privacy: .public)")
     }
 
-    AppConstants.logger.debug("Loaded name set: \(nameSet, privacy: .public)")
+    AppConstants.shared.logger.debug("Loaded name set: \(nameSet, privacy: .public)")
 
     return nameSet
 }

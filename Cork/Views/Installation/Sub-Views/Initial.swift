@@ -85,7 +85,7 @@ struct InstallationInitialView: View
                     {
                         guard let packageToPreview: BrewPackage = getTopPackageFromTracker() else
                         {
-                            AppConstants.logger.error("Could not retrieve top package to preview")
+                            AppConstants.shared.logger.error("Could not retrieve top package to preview")
                             
                             return
                         }
@@ -98,14 +98,14 @@ struct InstallationInitialView: View
                     {
                         guard let packageToInstall: BrewPackage = getTopPackageFromTracker() else
                         {
-                            AppConstants.logger.error("Could not retrieve top package to install")
+                            AppConstants.shared.logger.error("Could not retrieve top package to install")
                             
                             return
                         }
                         
                         installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
                         
-                        AppConstants.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                        AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
                         
                         packageInstallationProcessStep = .installing
                         
@@ -136,7 +136,7 @@ struct InstallationInitialView: View
     {
         if let foundPackageSelection
         {
-            AppConstants.logger.debug("Would try to find package \(foundPackageSelection)")
+            AppConstants.shared.logger.debug("Would try to find package \(foundPackageSelection)")
             
             let topCasksSet: Set<TopPackage> = Set(topPackagesTracker.topCasks)
             
@@ -159,7 +159,7 @@ struct InstallationInitialView: View
             }
             catch let topPackageInstallationError
             {
-                AppConstants.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
+                AppConstants.shared.logger.error("Failed while trying to get top package to install: \(topPackageInstallationError, privacy: .public)")
                 
                 dismiss()
                 
@@ -170,7 +170,7 @@ struct InstallationInitialView: View
         }
         else
         {
-            AppConstants.logger.warning("Could not find the UUID in the package list")
+            AppConstants.shared.logger.warning("Could not find the UUID in the package list")
             
             return nil
         }

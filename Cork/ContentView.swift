@@ -191,7 +191,7 @@ struct ContentView: View, Sendable
              {
                  Button
                  {
-                     AppConstants.logger.info("Ahoj")
+                     AppConstants.shared.logger.info("Ahoj")
                  } label: {
                      Label
                      {
@@ -207,55 +207,55 @@ struct ContentView: View, Sendable
         }
         .onAppear
         {
-            AppConstants.logger.debug("Brew executable path: \(AppConstants.brewExecutablePath, privacy: .public)")
+            AppConstants.shared.logger.debug("Brew executable path: \(AppConstants.shared.brewExecutablePath, privacy: .public)")
 
-            if !customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.brewExecutablePath.path)
+            if !customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
             {
                 appState.showAlert(errorToShow: .customBrewExcutableGotDeleted)
             }
 
-            AppConstants.logger.debug("Documents directory: \(AppConstants.documentsDirectoryPath.path, privacy: .public)")
+            AppConstants.shared.logger.debug("Documents directory: \(AppConstants.shared.documentsDirectoryPath.path, privacy: .public)")
 
-            AppConstants.logger.debug("System version: \(String(describing: AppConstants.osVersionString), privacy: .public)")
+            AppConstants.shared.logger.debug("System version: \(String(describing: AppConstants.shared.osVersionString), privacy: .public)")
 
-            if !FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
+            if !FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
             {
-                AppConstants.logger.info("Documents directory does not exist, creating it...")
+                AppConstants.shared.logger.info("Documents directory does not exist, creating it...")
                 do
                 {
-                    try FileManager.default.createDirectory(at: AppConstants.documentsDirectoryPath, withIntermediateDirectories: true)
+                    try FileManager.default.createDirectory(at: AppConstants.shared.documentsDirectoryPath, withIntermediateDirectories: true)
                 }
                 catch let documentDirectoryCreationError
                 {
-                    AppConstants.logger.error("Failed while creating document directory: \(documentDirectoryCreationError.localizedDescription)")
+                    AppConstants.shared.logger.error("Failed while creating document directory: \(documentDirectoryCreationError.localizedDescription)")
                 }
             }
             else
             {
-                AppConstants.logger.info("Documents directory exists")
+                AppConstants.shared.logger.info("Documents directory exists")
             }
 
-            if !FileManager.default.fileExists(atPath: AppConstants.metadataFilePath.path)
+            if !FileManager.default.fileExists(atPath: AppConstants.shared.metadataFilePath.path)
             {
-                AppConstants.logger.info("Metadata file does not exist, creating it...")
+                AppConstants.shared.logger.info("Metadata file does not exist, creating it...")
 
                 do
                 {
-                    try Data().write(to: AppConstants.metadataFilePath, options: .atomic)
+                    try Data().write(to: AppConstants.shared.metadataFilePath, options: .atomic)
                 }
                 catch let metadataDirectoryCreationError
                 {
-                    AppConstants.logger.error("Failed while creating metadata directory: \(metadataDirectoryCreationError.localizedDescription)")
+                    AppConstants.shared.logger.error("Failed while creating metadata directory: \(metadataDirectoryCreationError.localizedDescription)")
                 }
             }
             else
             {
-                AppConstants.logger.info("Metadata file exists")
+                AppConstants.shared.logger.info("Metadata file exists")
             }
         }
         .task(priority: .high)
         {
-            AppConstants.logger.info("Started Package Load startup action at \(Date())")
+            AppConstants.shared.logger.info("Started Package Load startup action at \(Date())")
 
             defer
             {
@@ -279,7 +279,7 @@ struct ContentView: View, Sendable
             {
                 appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
-                AppConstants.logger.info("Tagged packages in appState: \(appState.taggedPackageNames)")
+                AppConstants.shared.logger.info("Tagged packages in appState: \(appState.taggedPackageNames)")
 
                 do
                 {
@@ -287,36 +287,36 @@ struct ContentView: View, Sendable
                 }
                 catch let taggedStateApplicationError as NSError
                 {
-                    AppConstants.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
+                    AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
                     appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
             }
             catch let uuidLoadingError as NSError
             {
-                AppConstants.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
+                AppConstants.shared.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
                 appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
             }
         }
         .task(priority: .background)
         {
-            AppConstants.logger.info("Started Analytics startup action at \(Date())")
+            AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
 
-            async let analyticsQueryCommand: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["analytics"])
+            async let analyticsQueryCommand: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
 
             if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
             {
                 allowBrewAnalytics = true
-                AppConstants.logger.info("Analytics are ENABLED")
+                AppConstants.shared.logger.info("Analytics are ENABLED")
             }
             else
             {
                 allowBrewAnalytics = false
-                AppConstants.logger.info("Analytics are DISABLED")
+                AppConstants.shared.logger.info("Analytics are DISABLED")
             }
         }
         .task(priority: .background)
         {
-            AppConstants.logger.info("Started Discoverability startup action at \(Date())")
+            AppConstants.shared.logger.info("Started Discoverability startup action at \(Date())")
 
             if enableDiscoverability
             {
@@ -330,7 +330,7 @@ struct ContentView: View, Sendable
         {
             if appState.cachedDownloads.isEmpty
             {
-                AppConstants.logger.info("Will calculate cached downloads")
+                AppConstants.shared.logger.info("Will calculate cached downloads")
                 await appState.loadCachedDownloadedPackages()
                 appState.assignPackageTypeToCachedDownloads(brewData: brewData)
             }
@@ -339,7 +339,7 @@ struct ContentView: View, Sendable
         { _ in
             Task(priority: .background)
             {
-                AppConstants.logger.info("Will recalculate cached downloads")
+                AppConstants.shared.logger.info("Will recalculate cached downloads")
                 appState.cachedDownloads = .init()
                 await appState.loadCachedDownloadedPackages()
                 appState.assignPackageTypeToCachedDownloads(brewData: brewData)
@@ -364,12 +364,12 @@ struct ContentView: View, Sendable
             }
             else
             {
-                AppConstants.logger.info("Will purge top package trackers")
+                AppConstants.shared.logger.info("Will purge top package trackers")
                 /// Clear out the package trackers so they don't take up RAM
                 topPackagesTracker.topFormulae = .init()
                 topPackagesTracker.topCasks = .init()
 
-                AppConstants.logger.info("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
+                AppConstants.shared.logger.info("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
             }
         })
         .onChange(of: discoverabilityDaySpan, perform: { _ in
@@ -464,11 +464,11 @@ struct ContentView: View, Sendable
                 {
                     Button(role: .destructive)
                     {
-                        if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
+                        if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
                         {
                             do
                             {
-                                try FileManager.default.removeItem(atPath: AppConstants.documentsDirectoryPath.path)
+                                try FileManager.default.removeItem(atPath: AppConstants.shared.documentsDirectoryPath.path)
                                 restartApp()
                             }
                             catch
@@ -492,9 +492,9 @@ struct ContentView: View, Sendable
                 {
                     Button
                     {
-                        if FileManager.default.fileExists(atPath: AppConstants.documentsDirectoryPath.path)
+                        if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
                         {
-                            AppConstants.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                            AppConstants.shared.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
                         }
                         else
                         {
@@ -645,7 +645,7 @@ struct ContentView: View, Sendable
 
     func loadTopPackages() async
     {
-        AppConstants.logger.info("Initial setup finished, time to fetch the top packages")
+        AppConstants.shared.logger.info("Initial setup finished, time to fetch the top packages")
 
         defer
         {

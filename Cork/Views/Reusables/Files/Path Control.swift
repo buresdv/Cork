@@ -60,7 +60,7 @@ struct PathControl: NSViewRepresentable
                      case .OK:
                          self.parent.urlToShow = openPanel.url!
                      default:
-                         AppConstants.logger.warning("Didn't select a proper Homebrew executable")
+                         AppConstants.shared.logger.warning("Didn't select a proper Homebrew executable")
                  }
              }
          }

@@ -134,14 +134,14 @@ extension BrewPackage
             {
                 for compatibleSystem in bottle.stable.files.keys
                 {
-                    if compatibleSystem.contains(AppConstants.osVersionString.lookupName)
+                    if compatibleSystem.contains(AppConstants.shared.osVersionString.lookupName)
                     {
-                        AppConstants.logger.debug("Package \(name) is compatible")
+                        AppConstants.shared.logger.debug("Package \(name) is compatible")
                         return true
                     }
                 }
 
-                AppConstants.logger.debug("Package \(name) is NOT compatible")
+                AppConstants.shared.logger.debug("Package \(name) is NOT compatible")
                 return false
             }
         }
@@ -221,10 +221,10 @@ extension BrewPackage
         switch type
         {
         case .formula:
-            rawOutput = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", name])
+            rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", name])
 
         case .cask:
-            rawOutput = await shell(AppConstants.brewExecutablePath, ["info", "--json=v2", "--cask", name])
+            rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", "--cask", name])
         }
 
         // MARK: - Error checking
@@ -232,33 +232,33 @@ extension BrewPackage
         guard !rawOutput.standardOutput.isEmpty
         else
         {
-            AppConstants.logger.error("Did not get any terminal output from the package details loading function")
+            AppConstants.shared.logger.error("Did not get any terminal output from the package details loading function")
 
             throw BrewPackageInfoLoadingError.didNotGetAnyTerminalOutput
         }
 
         if !rawOutput.standardError.isEmpty
         {
-            AppConstants.logger.warning("Standard error of the package details loading function is not empty. Will investigate if the error can be ignored.")
+            AppConstants.shared.logger.warning("Standard error of the package details loading function is not empty. Will investigate if the error can be ignored.")
 
             if rawOutput.standardError.range(of: "(T|t)reating.*as a (formula|cask)", options: .regularExpression) != nil
             {
-                AppConstants.logger.notice("The error of package details loading function was not serious enough to throw an error. Ignoring.")
+                AppConstants.shared.logger.notice("The error of package details loading function was not serious enough to throw an error. Ignoring.")
             }
             else
             {
-                AppConstants.logger.error("Error was serious enough to throw an error")
+                AppConstants.shared.logger.error("Error was serious enough to throw an error")
 
                 throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardError)
             }
         }
 
-        AppConstants.logger.debug("JSON output: \(rawOutput.standardOutput)")
+        AppConstants.shared.logger.debug("JSON output: \(rawOutput.standardOutput)")
 
         guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
         else
         {
-            AppConstants.logger.error("Could not convert string of package details loading function to data")
+            AppConstants.shared.logger.error("Could not convert string of package details loading function to data")
 
             throw BrewPackageInfoLoadingError.couldNotConvertOutputToData
         }
@@ -275,7 +275,7 @@ extension BrewPackage
                 guard let formulaInfo: PackageCommandOutput.Formulae = rawDecodedPackageInfo.formulae?.first
                 else
                 {
-                    AppConstants.logger.error("Could not retrieve the relevant formula during formula details loading")
+                    AppConstants.shared.logger.error("Could not retrieve the relevant formula during formula details loading")
 
                     throw BrewPackageInfoLoadingError.couldNotRetrievePackageFromOutput
                 }
@@ -297,7 +297,7 @@ extension BrewPackage
                 guard let caskInfo: PackageCommandOutput.Casks = rawDecodedPackageInfo.casks?.first
                 else
                 {
-                    AppConstants.logger.error("Could not retrieve the relevant cask during formula details loading")
+                    AppConstants.shared.logger.error("Could not retrieve the relevant cask during formula details loading")
 
                     throw BrewPackageInfoLoadingError.couldNotRetrievePackageFromOutput
                 }
@@ -318,7 +318,7 @@ extension BrewPackage
         }
         catch let brewDetailsLoadingError
         {
-            AppConstants.logger.error("Failed while decoding package info: \(brewDetailsLoadingError)")
+            AppConstants.shared.logger.error("Failed while decoding package info: \(brewDetailsLoadingError)")
 
             throw BrewPackageInfoLoadingError.couldNotDecodeOutput(presentError: brewDetailsLoadingError.localizedDescription)
         }
