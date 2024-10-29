@@ -5,8 +5,8 @@
 //  Created by David Bureš on 10.02.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct StartPage: View
 {
@@ -94,7 +94,7 @@ struct StartPage: View
                         if outdatedPackageTracker.outdatedPackages.isEmpty
                         {
                             appState.isCheckingForPackageUpdates = true
-                            
+
                             defer
                             {
                                 withAnimation
@@ -102,7 +102,7 @@ struct StartPage: View
                                     appState.isCheckingForPackageUpdates = false
                                 }
                             }
-                            
+
                             do
                             {
                                 try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
@@ -111,11 +111,11 @@ struct StartPage: View
                             {
                                 switch outdatedPackageRetrievalError
                                 {
-                                    case .homeNotSet:
-                                        appState.showAlert(errorToShow: .homePathNotSet)
-                                    default:
-                                        AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                                case .homeNotSet:
+                                    appState.showAlert(errorToShow: .homePathNotSet)
+                                default:
+                                    AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                    errorOutReason = outdatedPackageRetrievalError.localizedDescription
                                 }
                             }
                             catch

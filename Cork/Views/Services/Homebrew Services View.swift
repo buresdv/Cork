@@ -10,7 +10,7 @@ import SwiftUI
 struct HomebrewServicesView: View
 {
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
-    
+
     @EnvironmentObject private var appDelegate: AppDelegate
 
     @StateObject var servicesTracker: ServicesTracker = .init()
@@ -109,7 +109,7 @@ struct HomebrewServicesView: View
             Text("state.update-homebrew.terminal.message")
         }
     }
-    
+
     @ViewBuilder
     var dismissAlertButton: some View
     {
@@ -120,22 +120,22 @@ struct HomebrewServicesView: View
             Text("action.close")
         }
     }
-    
+
     // This function is a duplicate of the function in `LoadServicesButton`
     private func loadServices() async
     {
         print("Control active state: \(controlActiveState)")
-        
+
         if servicesState.isLoadingServices == false
         {
             servicesState.isLoadingServices = true
         }
-        
+
         defer
         {
             servicesState.isLoadingServices = false
         }
-        
+
         do
         {
             try await servicesTracker.loadServices()
@@ -144,10 +144,10 @@ struct HomebrewServicesView: View
         {
             switch servicesLoadingError
             {
-                case .homebrewOutdated:
-                    servicesState.showError(.homebrewOutdated)
-                default:
-                    servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
+            case .homebrewOutdated:
+                servicesState.showError(.homebrewOutdated)
+            default:
+                servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
             }
         }
         catch let servicesLoadingError

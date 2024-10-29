@@ -10,10 +10,10 @@ import SwiftUI
 struct LoadServicesButton: View
 {
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
-    
+
     @EnvironmentObject var servicesState: ServicesState
     @EnvironmentObject var servicesTracker: ServicesTracker
-    
+
     var body: some View
     {
         Button
@@ -27,22 +27,22 @@ struct LoadServicesButton: View
                 .help("action.reload-services")
         }
     }
-    
+
     // This function is duplicated in `HomebrewServicesView`
     private func loadServices() async
     {
         print("Control active state: \(controlActiveState)")
-        
+
         if servicesState.isLoadingServices == false
         {
             servicesState.isLoadingServices = true
         }
-        
+
         defer
         {
             servicesState.isLoadingServices = false
         }
-        
+
         do
         {
             try await servicesTracker.loadServices()
@@ -51,10 +51,10 @@ struct LoadServicesButton: View
         {
             switch servicesLoadingError
             {
-                case .homebrewOutdated:
-                    servicesState.showError(.homebrewOutdated)
-                default:
-                    servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
+            case .homebrewOutdated:
+                servicesState.showError(.homebrewOutdated)
+            default:
+                servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
             }
         }
         catch let servicesLoadingError
