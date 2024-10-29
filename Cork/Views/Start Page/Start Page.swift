@@ -89,6 +89,41 @@ struct StartPage: View
                         }
                     }
                     .scrollDisabled(!isOutdatedPackageDropdownExpanded)
+                    .task(priority: .background)
+                    {
+                        if outdatedPackageTracker.outdatedPackages.isEmpty
+                        {
+                            appState.isCheckingForPackageUpdates = true
+                            
+                            defer
+                            {
+                                withAnimation
+                                {
+                                    appState.isCheckingForPackageUpdates = false
+                                }
+                            }
+                            
+                            do
+                            {
+                                try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                            }
+                            catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                            {
+                                switch outdatedPackageRetrievalError
+                                {
+                                    case .homeNotSet:
+                                        appState.showAlert(errorToShow: .homePathNotSet)
+                                    default:
+                                        AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                                }
+                            }
+                            catch
+                            {
+                                AppConstants.logger.error("Unspecified error while pulling package updates")
+                            }
+                        }
+                    }
 
                     ButtonBottomRow
                     {
@@ -111,41 +146,6 @@ struct StartPage: View
         .onAppear
         {
             AppConstants.logger.debug("Cached downloads path: \(AppConstants.brewCachedDownloadsPath)")
-        }
-        .task(priority: .background)
-        {
-            if outdatedPackageTracker.outdatedPackages.isEmpty
-            {
-                appState.isCheckingForPackageUpdates = true
-
-                defer
-                {
-                    withAnimation
-                    {
-                        appState.isCheckingForPackageUpdates = false
-                    }
-                }
-
-                do
-                {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-                }
-                catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                {
-                    switch outdatedPackageRetrievalError
-                    {
-                    case .homeNotSet:
-                        appState.showAlert(errorToShow: .homePathNotSet)
-                    default:
-                        AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
-                    }
-                }
-                catch
-                {
-                    AppConstants.logger.error("Unspecified error while pulling package updates")
-                }
-            }
         }
         .onDrop(of: [.fileURL], isTargeted: $dragOver)
         { providers -> Bool in
