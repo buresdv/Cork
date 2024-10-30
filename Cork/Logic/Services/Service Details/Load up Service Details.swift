@@ -13,9 +13,9 @@ extension HomebrewService
     @MainActor
     func loadDetails() async throws -> ServiceDetails?
     {
-        AppConstants.logger.debug("Will try to load up service details for service \(name)")
+        AppConstants.shared.logger.debug("Will try to load up service details for service \(name)")
 
-        let rawOutput: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["services", "info", name, "--json"])
+        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", name, "--json"])
 
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
@@ -28,7 +28,7 @@ extension HomebrewService
 
         if !rawOutput.standardError.isEmpty
         {
-            AppConstants.logger.error("Failed while loading up service details: Standard Error not empty")
+            AppConstants.shared.logger.error("Failed while loading up service details: Standard Error not empty")
             throw HomebrewServiceLoadingError.standardErrorNotEmpty(standardError: rawOutput.standardError)
         }
 
@@ -50,7 +50,7 @@ extension HomebrewService
         }
         catch let parsingError
         {
-            AppConstants.logger.error("Parsing of service details of service \(self.name) failed: \(parsingError)")
+            AppConstants.shared.logger.error("Parsing of service details of service \(self.name) failed: \(parsingError)")
 
             throw HomebrewServiceLoadingError.servicesParsingFailed
         }

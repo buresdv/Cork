@@ -14,14 +14,14 @@ func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
 
     if let forcedRepoAddress
     {
-        tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardError
+        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardError
     }
     else
     {
-        tapResult = await shell(AppConstants.brewExecutablePath, ["tap", name]).standardError
+        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name]).standardError
     }
 
-    AppConstants.logger.debug("Tapping result: \(tapResult, privacy: .public)")
+    AppConstants.shared.logger.debug("Tapping result: \(tapResult, privacy: .public)")
 
     return tapResult
 }

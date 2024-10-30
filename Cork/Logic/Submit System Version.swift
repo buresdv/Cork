@@ -14,12 +14,12 @@ func submitSystemVersion() async throws
     let corkVersion: String = await String(NSApplication.appVersion!)
 
     let sessionConfiguration: URLSessionConfiguration = .default
-    if AppConstants.proxySettings != nil
+    if AppConstants.shared.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
             kCFNetworkProxiesHTTPEnable: 1,
-            kCFNetworkProxiesHTTPPort: AppConstants.proxySettings!.port,
-            kCFNetworkProxiesHTTPProxy: AppConstants.proxySettings!.host
+            kCFNetworkProxiesHTTPPort: AppConstants.shared.proxySettings!.port,
+            kCFNetworkProxiesHTTPProxy: AppConstants.shared.proxySettings!.host
         ] as [AnyHashable: Any]
     }
 
@@ -30,7 +30,7 @@ func submitSystemVersion() async throws
         isSelfCompiled = true
     #endif
 
-    var urlComponents: URLComponents? = .init(url: AppConstants.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
+    var urlComponents: URLComponents? = .init(url: AppConstants.shared.osSubmissionEndpointURL, resolvingAgainstBaseURL: false)
     urlComponents?.queryItems = [
         URLQueryItem(name: "systemVersion", value: String(ProcessInfo.processInfo.operatingSystemVersion.majorVersion)),
         URLQueryItem(name: "corkVersion", value: corkVersion),
@@ -46,7 +46,7 @@ func submitSystemVersion() async throws
 
     request.httpMethod = "GET"
 
-    let authorizationComplex: String = "\(AppConstants.licensingAuthorization.username):\(AppConstants.licensingAuthorization.passphrase)"
+    let authorizationComplex: String = "\(AppConstants.shared.licensingAuthorization.username):\(AppConstants.shared.licensingAuthorization.passphrase)"
 
     guard let authorizationComplexAsData: Data = authorizationComplex.data(using: .utf8, allowLossyConversion: false)
     else
@@ -61,7 +61,7 @@ func submitSystemVersion() async throws
     if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
     {
         #if DEBUG
-            AppConstants.logger.debug("Sucessfully submitted system version")
+            AppConstants.shared.logger.debug("Sucessfully submitted system version")
         #endif
 
         UserDefaults.standard.setValue(corkVersion, forKey: "lastSubmittedCorkVersion")

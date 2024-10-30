@@ -27,7 +27,7 @@ struct Licensing_NotBoughtOrActivatedView: View
         {
             let timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSinceNow
 
-            if timeIntervalSinceDemoWasActivated < AppConstants.demoLengthInSeconds
+            if timeIntervalSinceDemoWasActivated < AppConstants.shared.demoLengthInSeconds
             {
                 return true
             }
@@ -107,7 +107,7 @@ struct Licensing_NotBoughtOrActivatedView: View
 
                 if let demoActivatedAt
                 {
-                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
                     { // Check if there is still time on the demo
                         Button
                         {
@@ -164,7 +164,7 @@ struct Licensing_NotBoughtOrActivatedView: View
                         {
                             let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
 
-                            AppConstants.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
+                            AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
 
                             if hasSpecifiedUserBoughtCork
                             {
@@ -180,7 +180,7 @@ struct Licensing_NotBoughtOrActivatedView: View
                         }
                         catch let licenseCheckingError as CorkLicenseRetrievalError
                         {
-                            AppConstants.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
+                            AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
 
                             switch licenseCheckingError
                             {
@@ -211,7 +211,7 @@ struct Licensing_NotBoughtOrActivatedView: View
             if let demoActivatedAt
             {
                 let timeIntervalSinceDemoWasActivated: TimeInterval = demoActivatedAt.timeIntervalSinceNow
-                AppConstants.logger.debug("Time interval since demo was activated: \(timeIntervalSinceDemoWasActivated, privacy: .public)")
+                AppConstants.shared.logger.debug("Time interval since demo was activated: \(timeIntervalSinceDemoWasActivated, privacy: .public)")
             }
         }
     }

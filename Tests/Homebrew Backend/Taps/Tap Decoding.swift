@@ -67,7 +67,7 @@ struct TapDecodingTest
     
     private func parseTapInfoForSpeficiedTap(tapName: String) async -> TapInfo?
     {
-        let coreTapRawOutput: String = await shell(AppConstants.brewExecutablePath, ["tap-info", "--json", tapName]).standardOutput
+        let coreTapRawOutput: String = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tapName]).standardOutput
         
         return try? await parseTapInfo(from: coreTapRawOutput)
     }

@@ -36,12 +36,12 @@ struct AddTapFinishedView: View
                     /// Remove that one element of the array that's empty for some reason
                     availableTaps.addedTaps.removeAll(where: { $0.name == "" })
 
-                    AppConstants.logger.info("Available taps: \(availableTaps.addedTaps, privacy: .public)")
+                    AppConstants.shared.logger.info("Available taps: \(availableTaps.addedTaps, privacy: .public)")
                 }
                 .task(priority: .background)
                 { // Force-load the packages from the new tap
-                    AppConstants.logger.info("Will update packages")
-                    await shell(AppConstants.brewExecutablePath, ["update"])
+                    AppConstants.shared.logger.info("Will update packages")
+                    await shell(AppConstants.shared.brewExecutablePath, ["update"])
                 }
             }
         }

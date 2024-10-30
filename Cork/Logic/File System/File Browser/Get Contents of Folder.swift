@@ -59,12 +59,12 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
                     {
                         if targetFolder.appendingPathComponent(item, conformingTo: .fileURL).isDirectory
                         {
-                            AppConstants.logger.error("Failed while getting package version for package \(fullURLToPackageFolderCurrentlyBeingProcessed.lastPathComponent). Package does not have any version installed.")
+                            AppConstants.shared.logger.error("Failed while getting package version for package \(fullURLToPackageFolderCurrentlyBeingProcessed.lastPathComponent). Package does not have any version installed.")
                             throw PackageLoadingError.packageDoesNotHaveAnyVersionsInstalled(item)
                         }
                         else
                         {
-                            AppConstants.logger.error("Failed while getting package version for package \(fullURLToPackageFolderCurrentlyBeingProcessed.lastPathComponent). Package is not a folder")
+                            AppConstants.shared.logger.error("Failed while getting package version for package \(fullURLToPackageFolderCurrentlyBeingProcessed.lastPathComponent). Package is not a folder")
                             throw PackageLoadingError.packageIsNotAFolder(item, targetFolder.appendingPathComponent(item, conformingTo: .fileURL))
                         }
                     }
@@ -108,7 +108,7 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
     }
     catch
     {
-        AppConstants.logger.error("Failed while accessing folder: \(error)")
+        AppConstants.shared.logger.error("Failed while accessing folder: \(error)")
         throw error
     }
 }
@@ -154,7 +154,7 @@ private extension URL
         guard localPackagePath.lastPathComponent != "Cellar"
         else
         {
-            AppConstants.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
+            AppConstants.shared.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
 
             throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"))
         }
@@ -162,7 +162,7 @@ private extension URL
         guard localPackagePath.lastPathComponent != "Caskroom"
         else
         {
-            AppConstants.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
+            AppConstants.shared.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(localPackagePath)")
 
             throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"))
         }
@@ -194,14 +194,14 @@ private extension URL
                     }
                     catch let installReceiptParsingError
                     {
-                        AppConstants.logger.error("Failed to decode install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptParsingError.localizedDescription, privacy: .public)")
+                        AppConstants.shared.logger.error("Failed to decode install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptParsingError.localizedDescription, privacy: .public)")
 
                         throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)"))
                     }
                 }
                 catch let installReceiptLoadingError
                 {
-                    AppConstants.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptLoadingError.localizedDescription, privacy: .public)")
+                    AppConstants.shared.logger.error("Failed to load contents of install receipt for package \(self.lastPathComponent, privacy: .public) with error \(installReceiptLoadingError.localizedDescription, privacy: .public)")
                     throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)"))
                 }
             }
@@ -209,7 +209,7 @@ private extension URL
             { /// There's no install receipt for this package - silently fail and return that the packagw was not installed intentionally
                 // TODO: Add a setting like "Strictly check for errors" that would instead throw an error here
 
-                AppConstants.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent, privacy: .public)")
+                AppConstants.shared.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent, privacy: .public)")
 
                 let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
 
@@ -249,25 +249,25 @@ private extension URL
     /// Get URLs to a package's versions
     var packageVersionURLs: [URL]?
     {
-        AppConstants.logger.debug("Will check URL \(self)")
+        AppConstants.shared.logger.debug("Will check URL \(self)")
         do
         {
             let versions: [URL] = try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: [.isHiddenKey], options: .skipsHiddenFiles)
 
             if versions.isEmpty
             {
-                AppConstants.logger.warning("Package URL \(self, privacy: .public) has no versions installed")
+                AppConstants.shared.logger.warning("Package URL \(self, privacy: .public) has no versions installed")
 
                 return nil
             }
 
-            AppConstants.logger.debug("URL \(self) has these versions: \(versions))")
+            AppConstants.shared.logger.debug("URL \(self) has these versions: \(versions))")
 
             return versions
         }
         catch
         {
-            AppConstants.logger.error("Failed while loading version for package \(lastPathComponent, privacy: .public) at URL \(self, privacy: .public)")
+            AppConstants.shared.logger.error("Failed while loading version for package \(lastPathComponent, privacy: .public) at URL \(self, privacy: .public)")
 
             return nil
         }
@@ -305,7 +305,7 @@ func getContentsOfFolder(targetFolder: URL, options: FileManager.DirectoryEnumer
     }
     catch let folderReadingError as NSError
     {
-        AppConstants.logger.error("\(folderReadingError.localizedDescription)")
+        AppConstants.shared.logger.error("\(folderReadingError.localizedDescription)")
     }
 
     return contentsOfFolder

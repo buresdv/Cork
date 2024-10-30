@@ -165,7 +165,7 @@ struct MaintenanceFinishedView: View
                     {
                         dismiss()
 
-                        appState.cachedDownloadsFolderSize = AppConstants.brewCachedDownloadsPath.directorySize
+                        appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
                     } label: {
                         Text("action.close")
                     }

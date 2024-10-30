@@ -20,7 +20,7 @@ extension URL
         }
         catch let symlinkCheckingError
         {
-            AppConstants.logger.error("Error checking if \(self) is symlink: \(symlinkCheckingError)")
+            AppConstants.shared.logger.error("Error checking if \(self) is symlink: \(symlinkCheckingError)")
 
             return nil
         }

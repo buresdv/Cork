@@ -45,8 +45,8 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         appState.isShowingUninstallationProgressView = true
     }
 
-    let untapResult: String = await shell(AppConstants.brewExecutablePath, ["untap", name]).standardError
-    AppConstants.logger.debug("Untapping result: \(untapResult)")
+    let untapResult: String = await shell(AppConstants.shared.brewExecutablePath, ["untap", name]).standardError
+    AppConstants.shared.logger.debug("Untapping result: \(untapResult)")
 
     defer
     {
@@ -55,7 +55,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
 
     if untapResult.contains("Untapped")
     {
-        AppConstants.logger.info("Untapping was successful")
+        AppConstants.shared.logger.info("Untapping was successful")
         DispatchQueue.main.async
         {
             withAnimation
@@ -75,7 +75,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
     }
     else
     {
-        AppConstants.logger.warning("Untapping failed")
+        AppConstants.shared.logger.warning("Untapping failed")
 
         if untapResult.contains("because it contains the following installed formulae or casks")
         {
@@ -88,7 +88,7 @@ func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, s
         }
         else
         {
-            AppConstants.logger.warning("Could not get index for that tap. Will loop over all of them")
+            AppConstants.shared.logger.warning("Could not get index for that tap. Will loop over all of them")
             
             for index in availableTaps.addedTaps.indices
             {

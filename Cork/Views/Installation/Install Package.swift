@@ -86,7 +86,7 @@ struct AddFormulaView: View
                 }
                 .onAppear
                 {
-                    appState.cachedDownloadsFolderSize = AppConstants.brewCachedDownloadsPath.directorySize
+                    appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
 
                     if notifyAboutPackageInstallationResults
                     {

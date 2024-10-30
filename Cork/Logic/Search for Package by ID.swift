@@ -29,8 +29,8 @@ extension UUID
     {
         var filteredPackage: BrewPackage?
         
-        AppConstants.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
-        AppConstants.logger.log("Cask tracker: \(tracker.foundCasks.count)")
+        AppConstants.shared.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
+        AppConstants.shared.logger.log("Cask tracker: \(tracker.foundCasks.count)")
         
         if !tracker.foundFormulae.isEmpty
         {

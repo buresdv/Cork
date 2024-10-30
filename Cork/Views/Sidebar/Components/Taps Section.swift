@@ -42,7 +42,7 @@ struct TapsSection: View
                         {
                             Task(priority: .userInitiated)
                             {
-                                AppConstants.logger.debug("Would remove \(tap.name, privacy: .public)")
+                                AppConstants.shared.logger.debug("Would remove \(tap.name, privacy: .public)")
 
                                 try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
                             }

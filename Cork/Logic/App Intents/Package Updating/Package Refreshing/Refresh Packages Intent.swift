@@ -34,7 +34,7 @@ struct RefreshPackagesIntent: AppIntent
 
     func perform() async throws -> some ReturnsValue<RefreshIntentResult>
     {
-        let refreshCommandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["update"])
+        let refreshCommandResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
         var refreshErrorWithoutBuggedHomebrewMessages: [String] = refreshCommandResult.standardError.components(separatedBy: "\n")
         refreshErrorWithoutBuggedHomebrewMessages = refreshErrorWithoutBuggedHomebrewMessages.filter { !$0.contains("Updating Homebrew") }

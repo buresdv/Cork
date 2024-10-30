@@ -21,7 +21,7 @@ struct MenuBar_CachedDownloadsCleanup: View
         {
             Button(appState.cachedDownloadsFolderSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
             {
-                AppConstants.logger.log("Will delete cached downloads")
+                AppConstants.shared.logger.log("Will delete cached downloads")
 
                 isDeletingCachedDownloads = true
 
@@ -37,7 +37,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 
                 isDeletingCachedDownloads = false
 
-                appState.cachedDownloadsFolderSize = AppConstants.brewCachedDownloadsPath.directorySize
+                appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
             }
             .disabled(appState.cachedDownloadsFolderSize == 0)
         }

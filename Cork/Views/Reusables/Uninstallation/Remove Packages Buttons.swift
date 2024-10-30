@@ -55,7 +55,7 @@ private struct RemovePackageButton: View
             {
                 Task
                 {
-                    AppConstants.logger.debug("Confirmation of package removal NOT needed")
+                    AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
                     try await brewData.uninstallSelectedPackage(
                         package: package,
@@ -68,7 +68,7 @@ private struct RemovePackageButton: View
             }
             else
             {
-                AppConstants.logger.debug("Confirmation of package removal needed")
+                AppConstants.shared.logger.debug("Confirmation of package removal needed")
                 uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: shouldPurge, isCalledFromSidebar: isCalledFromSidebar)
             }
         } label: {

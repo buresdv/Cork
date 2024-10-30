@@ -12,14 +12,14 @@ import CorkShared
 func saveTaggedIDsToDisk(appState: AppState) throws
 {
     let namesAsString: String = appState.taggedPackageNames.compactMap { $0 }.joined(separator: ":")
-    AppConstants.logger.debug("Names as string: \(namesAsString, privacy: .public)")
+    AppConstants.shared.logger.debug("Names as string: \(namesAsString, privacy: .public)")
 
     do
     {
-        try namesAsString.write(to: AppConstants.metadataFilePath, atomically: true, encoding: .utf8)
+        try namesAsString.write(to: AppConstants.shared.metadataFilePath, atomically: true, encoding: .utf8)
     }
     catch let writingError as NSError
     {
-        AppConstants.logger.error("Error while writing to file: \(writingError, privacy: .public)")
+        AppConstants.shared.logger.error("Error while writing to file: \(writingError, privacy: .public)")
     }
 }

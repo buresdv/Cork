@@ -79,16 +79,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 
     func applicationWillTerminate(_: Notification)
     {
-        AppConstants.logger.debug("Will die...")
+        AppConstants.shared.logger.debug("Will die...")
         do
         {
             try saveTaggedIDsToDisk(appState: appState)
         }
         catch let dataSavingError as NSError
         {
-            AppConstants.logger.error("Failed while trying to save data to disk: \(dataSavingError, privacy: .public)")
+            AppConstants.shared.logger.error("Failed while trying to save data to disk: \(dataSavingError, privacy: .public)")
         }
-        AppConstants.logger.debug("Died")
+        AppConstants.shared.logger.debug("Died")
     }
 
     func applicationDockMenu(_: NSApplication) -> NSMenu?

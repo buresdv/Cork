@@ -111,16 +111,16 @@ struct StartPage: View
                             {
                                 switch outdatedPackageRetrievalError
                                 {
-                                case .homeNotSet:
-                                    appState.showAlert(errorToShow: .homePathNotSet)
-                                default:
-                                    AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                                    errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                                    case .homeNotSet:
+                                        appState.showAlert(errorToShow: .homePathNotSet)
+                                    default:
+                                        AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
                                 }
                             }
                             catch
                             {
-                                AppConstants.logger.error("Unspecified error while pulling package updates")
+                                AppConstants.shared.logger.error("Unspecified error while pulling package updates")
                             }
                         }
                     }
@@ -133,7 +133,7 @@ struct StartPage: View
 
                             Button
                             {
-                                AppConstants.logger.info("Would perform maintenance")
+                                AppConstants.shared.logger.info("Would perform maintenance")
                                 appState.isShowingMaintenanceSheet.toggle()
                             } label: {
                                 Text("start-page.open-maintenance")
@@ -145,7 +145,7 @@ struct StartPage: View
         }
         .onAppear
         {
-            AppConstants.logger.debug("Cached downloads path: \(AppConstants.brewCachedDownloadsPath)")
+            AppConstants.shared.logger.debug("Cached downloads path: \(AppConstants.shared.brewCachedDownloadsPath)")
         }
         .onDrop(of: [.fileURL], isTargeted: $dragOver)
         { providers -> Bool in
@@ -154,7 +154,7 @@ struct StartPage: View
                 {
                     if url.pathExtension == "brewbak" || url.pathExtension.isEmpty
                     {
-                        AppConstants.logger.debug("Correct File Format")
+                        AppConstants.shared.logger.debug("Correct File Format")
 
                         Task(priority: .userInitiated)
                         {
@@ -163,7 +163,7 @@ struct StartPage: View
                     }
                     else
                     {
-                        AppConstants.logger.error("Incorrect file format")
+                        AppConstants.shared.logger.error("Incorrect file format")
                     }
                 }
             })

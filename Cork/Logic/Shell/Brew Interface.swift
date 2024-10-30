@@ -18,7 +18,7 @@ struct SearchResults
 func getListOfFoundPackages(searchWord: String) async -> String
 {
     var parsedResponse: String?
-    parsedResponse = await shell(AppConstants.brewExecutablePath, ["search", searchWord]).standardOutput
+    parsedResponse = await shell(AppConstants.shared.brewExecutablePath, ["search", searchWord]).standardOutput
 
     return parsedResponse!
 }

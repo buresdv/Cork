@@ -103,11 +103,11 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         {
             if type == .formula
             {
-                return AppConstants.brewCellarPath
+                return AppConstants.shared.brewCellarPath
             }
             else
             {
-                return AppConstants.brewCaskPath
+                return AppConstants.shared.brewCaskPath
             }
         }
 
@@ -130,7 +130,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         }
         catch let finderRevealError
         {
-            AppConstants.logger.error("Failed while revealing package: \(finderRevealError.localizedDescription)")
+            AppConstants.shared.logger.error("Failed while revealing package: \(finderRevealError.localizedDescription)")
             /// Play the error sound
             NSSound(named: "ping")?.play()
         }

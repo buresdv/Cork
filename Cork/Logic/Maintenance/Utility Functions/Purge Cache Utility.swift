@@ -31,7 +31,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
     {
         let cachePurgeOutput: TerminalOutput = try await purgeBrewCache()
 
-        AppConstants.logger.debug("Cache purge output:\nStandard output: \(cachePurgeOutput.standardOutput, privacy: .auto)\nStandard error: \(cachePurgeOutput.standardError, privacy: .public)")
+        AppConstants.shared.logger.debug("Cache purge output:\nStandard output: \(cachePurgeOutput.standardOutput, privacy: .auto)\nStandard error: \(cachePurgeOutput.standardError, privacy: .public)")
 
         var packagesHoldingBackCachePurgeTracker: [String] = .init()
 
@@ -44,7 +44,7 @@ func purgeHomebrewCacheUtility() async throws -> [String]
 
             for blockingPackageRaw in packagesHoldingBackCachePurgeInitialArray
             {
-                AppConstants.logger.log("Blocking package: \(blockingPackageRaw, privacy: .public)")
+                AppConstants.shared.logger.log("Blocking package: \(blockingPackageRaw, privacy: .public)")
 
                 guard let packageHoldingBackCachePurgeName = try? blockingPackageRaw.regexMatch("(?<=Skipping ).*?(?=:)")
                 else
@@ -55,14 +55,14 @@ func purgeHomebrewCacheUtility() async throws -> [String]
                 packagesHoldingBackCachePurgeTracker.append(packageHoldingBackCachePurgeName)
             }
 
-            AppConstants.logger.info("These packages are holding back cache purge: \(packagesHoldingBackCachePurgeTracker, privacy: .public)")
+            AppConstants.shared.logger.info("These packages are holding back cache purge: \(packagesHoldingBackCachePurgeTracker, privacy: .public)")
         }
 
         return packagesHoldingBackCachePurgeTracker
     }
     catch let purgingCommandError
     {
-        AppConstants.logger.error("Homebrew cache purging command failed: \(purgingCommandError, privacy: .public)")
+        AppConstants.shared.logger.error("Homebrew cache purging command failed: \(purgingCommandError, privacy: .public)")
         throw HomebrewCachePurgeError.purgingCommandFailed
     }
 }

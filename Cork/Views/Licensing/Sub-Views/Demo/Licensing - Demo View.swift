@@ -25,7 +25,7 @@ struct Licensing_DemoView: View
                 Text("licensing.demo-activated.title")
                     .font(.title)
 
-                Text("licensing.demo.time-until-\((demoActivatedAt + AppConstants.demoLengthInSeconds).formatted(date: .complete, time: .complete))")
+                Text("licensing.demo.time-until-\((demoActivatedAt + AppConstants.shared.demoLengthInSeconds).formatted(date: .complete, time: .complete))")
 
                 HStack
                 {

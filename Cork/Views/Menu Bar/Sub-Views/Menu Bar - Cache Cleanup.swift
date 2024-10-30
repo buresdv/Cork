@@ -21,7 +21,7 @@ struct MenuBar_CacheCleanup: View
             {
                 Task(priority: .userInitiated)
                 {
-                    AppConstants.logger.log("Will purge cache")
+                    AppConstants.shared.logger.log("Will purge cache")
 
                     isPurgingHomebrewCache = true
 
@@ -52,7 +52,7 @@ struct MenuBar_CacheCleanup: View
                     }
                     catch let cachePurgingError
                     {
-                        AppConstants.logger.warning("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription, privacy: .public)")
+                        AppConstants.shared.logger.warning("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription, privacy: .public)")
 
                         sendNotification(
                             title: String(localized: "maintenance.results.package-cache.failure"),

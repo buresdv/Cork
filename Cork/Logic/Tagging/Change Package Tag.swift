@@ -45,7 +45,7 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
         appState.taggedPackageNames.insert(package.name)
     }
 
-    AppConstants.logger.debug("Tagged package with ID \(package.id, privacy: .public): \(package.name, privacy: .public)")
+    AppConstants.shared.logger.debug("Tagged package with ID \(package.id, privacy: .public): \(package.name, privacy: .public)")
 
-    AppConstants.logger.debug("Tagged packages: \(appState.taggedPackageNames, privacy: .public)")
+    AppConstants.shared.logger.debug("Tagged packages: \(appState.taggedPackageNames, privacy: .public)")
 }

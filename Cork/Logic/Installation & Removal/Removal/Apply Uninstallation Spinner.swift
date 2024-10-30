@@ -11,12 +11,12 @@ import CorkShared
 @MainActor
 func applyUninstallationSpinner(to package: BrewPackage, brewData: BrewDataStorage)
 {
-    AppConstants.logger.debug("""
+    AppConstants.shared.logger.debug("""
     Brew data: 
        Installed Formulae: \(brewData.installedFormulae)
        Installed Casks: \(brewData.installedCasks)
     """)
-    AppConstants.logger.debug("Will try to apply uninstallation spinner to package \(package.name)")
+    AppConstants.shared.logger.debug("Will try to apply uninstallation spinner to package \(package.name)")
 
     if package.type == .cask
     {

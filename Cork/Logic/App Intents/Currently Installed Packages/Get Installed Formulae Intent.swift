@@ -36,13 +36,13 @@ struct GetInstalledFormulaeIntent: AppIntent
 
     func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {
-        let allowAccessToFile: Bool = AppConstants.brewCellarPath.startAccessingSecurityScopedResource()
+        let allowAccessToFile: Bool = AppConstants.shared.brewCellarPath.startAccessingSecurityScopedResource()
 
         if allowAccessToFile
         {
             let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: AppState())
 
-            AppConstants.brewCellarPath.stopAccessingSecurityScopedResource()
+            AppConstants.shared.brewCellarPath.stopAccessingSecurityScopedResource()
 
             var minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map
             { package in
@@ -59,7 +59,7 @@ struct GetInstalledFormulaeIntent: AppIntent
         else
         {
             print("Could not obtain access to folder")
-            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.brewCellarPath.absoluteString)
+            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.shared.brewCellarPath.absoluteString)
         }
     }
 }

@@ -36,7 +36,7 @@ func shell(
 }
 
 /// # Usage:
-/// for await output in shell(AppConstants.brewExecutablePath, ["install", package.name])
+/// for await output in shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
 /// {
 ///    switch output
 ///    {
@@ -82,9 +82,9 @@ func shell(
 
     // MARK: - Set up proxy if it's enabled
 
-    if let proxySettings = AppConstants.proxySettings
+    if let proxySettings = AppConstants.shared.proxySettings
     {
-        AppConstants.logger.info("Proxy is enabled")
+        AppConstants.shared.logger.info("Proxy is enabled")
         finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
     }
 
@@ -95,13 +95,13 @@ func shell(
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
 
-    AppConstants.logger.debug("Final environment: \(finalEnvironment)")
+    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 
     // MARK: - Set working directory if provided
 
     if let workingDirectory
     {
-        AppConstants.logger.info("Working directory configured: \(workingDirectory)")
+        AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
         task.currentDirectoryURL = workingDirectory
     }
 
@@ -125,7 +125,7 @@ func shell(
     }
     catch
     {
-        AppConstants.logger.error("\(String(describing: error))")
+        AppConstants.shared.logger.error("\(String(describing: error))")
     }
 
     return AsyncStream
