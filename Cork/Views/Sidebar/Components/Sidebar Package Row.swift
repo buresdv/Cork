@@ -36,6 +36,8 @@ struct SidebarPackageRow: View
         .swipeActions(edge: .trailing, allowsFullSwipe: false)
         {
             UninstallPackageButton(package: package, isCalledFromSidebar: true)
+            
+            PurgePackageButton(package: package, isCalledFromSidebar: true)
         }
     }
 

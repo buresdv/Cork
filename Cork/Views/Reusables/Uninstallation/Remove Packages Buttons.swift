@@ -72,7 +72,18 @@ private struct RemovePackageButton: View
                 uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: shouldPurge, isCalledFromSidebar: isCalledFromSidebar)
             }
         } label: {
-            Label(shouldPurge ? "action.purge-\(package.name)" : "action.uninstall-\(package.name)", systemImage: shouldPurge ? "trash" : "trash")
+            if shouldPurge
+            {
+                Label("action.purge-\(package.name)", systemImage: "trash")
+            }
+            else
+            {
+                Label {
+                    Text("action.uninstall-\(package.name)")
+                } icon: {
+                    Image("custom.trash.triangle.fill")
+                }
+            }
         }
     }
 }
