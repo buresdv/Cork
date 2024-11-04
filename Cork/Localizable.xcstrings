@@ -36469,6 +36469,16 @@
         }
       }
     },
+    "settings.general.package-details.enable-swipe-actions.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable swipe actions"
+          }
+        }
+      }
+    },
     "settings.general.package-details.reveal-in-finder.toggle" : {
       "localizations" : {
         "cs" : {

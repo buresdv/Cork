@@ -22,6 +22,7 @@ struct GeneralPane: View
     @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
 
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
 
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
@@ -148,6 +149,11 @@ struct GeneralPane: View
                         Toggle(isOn: $enableRevealInFinder)
                         {
                             Text("settings.general.package-details.reveal-in-finder.toggle")
+                        }
+                        
+                        Toggle(isOn: $enableSwipeActions)
+                        {
+                            Text("settings.general.package-details.enable-swipe-actions.toggle")
                         }
                     }
                 } label: {

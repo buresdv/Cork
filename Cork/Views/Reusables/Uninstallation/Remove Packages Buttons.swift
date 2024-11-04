@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 
+/// Button for uninstalling packages
 struct UninstallPackageButton: View
 {
     let package: BrewPackage
@@ -20,15 +21,22 @@ struct UninstallPackageButton: View
     }
 }
 
+/// Button for purging packages
+/// Will not display when purging is disabled
 struct PurgePackageButton: View
 {
+    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    
     let package: BrewPackage
 
     let isCalledFromSidebar: Bool
 
     var body: some View
     {
-        RemovePackageButton(package: package, shouldPurge: true, isCalledFromSidebar: isCalledFromSidebar)
+        if allowMoreCompleteUninstallations
+        {
+            RemovePackageButton(package: package, shouldPurge: true, isCalledFromSidebar: isCalledFromSidebar)
+        }
     }
 }
 
@@ -72,7 +80,18 @@ private struct RemovePackageButton: View
                 uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: shouldPurge, isCalledFromSidebar: isCalledFromSidebar)
             }
         } label: {
-            Text(shouldPurge ? "action.purge-\(package.name)" : "action.uninstall-\(package.name)")
+            if shouldPurge
+            {
+                Label {
+                    Text("action.purge-\(package.name)")
+                } icon: {
+                    Image("custom.trash.triangle.fill")
+                }
+            }
+            else
+            {
+                Label("action.uninstall-\(package.name)", systemImage: "trash")
+            }
         }
     }
 }
