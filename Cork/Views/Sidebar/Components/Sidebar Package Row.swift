@@ -11,9 +11,8 @@ struct SidebarPackageRow: View
 {
     let package: BrewPackage
 
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
@@ -29,17 +28,28 @@ struct SidebarPackageRow: View
         {
             contextMenuContent
         }
-        .swipeActions(edge: .leading, allowsFullSwipe: false)
-        {
-            tagUntagButton
-        }
-        .swipeActions(edge: .trailing, allowsFullSwipe: false)
-        {
-            UninstallPackageButton(package: package, isCalledFromSidebar: true)
-                .tint(.orange)
-            
-            PurgePackageButton(package: package, isCalledFromSidebar: true)
-                .tint(.red)
+        .modify
+        { viewProxy in
+            if enableSwipeActions
+            {
+                viewProxy
+                    .swipeActions(edge: .leading, allowsFullSwipe: false)
+                    {
+                        tagUntagButton
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false)
+                    {
+                        PurgePackageButton(package: package, isCalledFromSidebar: true)
+                            .tint(.red)
+                        
+                        UninstallPackageButton(package: package, isCalledFromSidebar: true)
+                            .tint(.orange)
+                    }
+            }
+            else
+            {
+                viewProxy
+            }
         }
     }
 
@@ -60,20 +70,17 @@ struct SidebarPackageRow: View
             Label(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)", systemImage: package.isTagged ? "tag.slash" : "tag")
         }
     }
-    
+
     @ViewBuilder
     var contextMenuContent: some View
     {
         tagUntagButton
-        
+
         Divider()
 
         UninstallPackageButton(package: package, isCalledFromSidebar: true)
 
-        if allowMoreCompleteUninstallations
-        {
-            PurgePackageButton(package: package, isCalledFromSidebar: true)
-        }
+        PurgePackageButton(package: package, isCalledFromSidebar: true)
 
         if enableRevealInFinder
         {
