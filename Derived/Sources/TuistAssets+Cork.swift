@@ -27,6 +27,7 @@ public enum CorkAsset: Sendable {
     public static let customSquareStackBadgePlay = CorkImages(name: "custom.square.stack.badge.play")
     public static let customSquareStackBadgeQuestionmark = CorkImages(name: "custom.square.stack.badge.questionmark")
     public static let customSquareStackTrianglebadgeExclamationmark = CorkImages(name: "custom.square.stack.trianglebadge.exclamationmark")
+    public static let customTrashTriangleFill = CorkImages(name: "custom.trash.triangle.fill")
   }
   public enum PreviewAssets {
   }
