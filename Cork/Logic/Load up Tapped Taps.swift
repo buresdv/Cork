@@ -13,7 +13,7 @@ func loadUpTappedTaps() async -> [BrewTap]
 {
     var finalAvailableTaps: [BrewTap] = .init()
 
-    let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.shared.tapPath, options: .skipsHiddenFiles)
+    let contentsOfTapFolder: [URL] = try! getContentsOfFolder(targetFolder: AppConstants.shared.tapPath, options: .skipsHiddenFiles)
 
     AppConstants.shared.logger.debug("Contents of tap folder: \(contentsOfTapFolder)")
 
@@ -21,7 +21,7 @@ func loadUpTappedTaps() async -> [BrewTap]
     {
         AppConstants.shared.logger.debug("Tap repo: \(tapRepoParentURL)")
 
-        let contentsOfTapRepoParent: [URL] = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
+        let contentsOfTapRepoParent: [URL] = try! getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
 
         for repoURL in contentsOfTapRepoParent
         {

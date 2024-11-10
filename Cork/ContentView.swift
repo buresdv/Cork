@@ -255,6 +255,11 @@ struct ContentView: View, Sendable
         }
         .task(priority: .high)
         {
+            await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
+            await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
+        }
+        .task(priority: .high)
+        {
             AppConstants.shared.logger.info("Started Package Load startup action at \(Date())")
 
             defer
@@ -418,6 +423,9 @@ struct ContentView: View, Sendable
         { error in
             switch error
             {
+            case .couldNotGetContentsOfPackageFolder(let failureReason):
+                EmptyView()
+                    
             case .uninstallationNotPossibleDueToDependency:
                 EmptyView()
 

@@ -14,6 +14,8 @@ extension DisplayableAlert
     {
         switch self
         {
+        case .couldNotGetContentsOfPackageFolder:
+            return String(localized: "alert.could-not-get-contents-of-package-folder.title")
         case .couldNotLoadAnyPackages(let error):
             return String(localized: "alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title")
         case .couldNotLoadCertainPackage(let offendingPackage, _, _):

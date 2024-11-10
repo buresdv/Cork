@@ -13,6 +13,8 @@ extension DisplayableAlert
     {
         switch self
         {
+        case .couldNotGetContentsOfPackageFolder(let localizedError):
+            return String(localized: "alert.could-not-get-contents-of-package-folder.message-\(localizedError)")
         case .couldNotLoadAnyPackages:
             return String(localized: "alert.restart-or-reinstall")
         case .couldNotLoadCertainPackage(_, _, let failureReason):

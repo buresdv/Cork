@@ -8,12 +8,14 @@
 import AppIntents
 import Charts
 import Foundation
+import CorkShared
 
 enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
 {
     case formula
     case cask
 
+    /// User-readable description of the package type
     var description: String
     {
         switch self
@@ -22,6 +24,17 @@ enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
             return String(localized: "package-details.type.formula")
         case .cask:
             return String(localized: "package-details.type.cask")
+        }
+    }
+    
+    /// Parent folder for this package type
+    var parentFolder: URL
+    {
+        switch self {
+            case .formula:
+                return AppConstants.shared.brewCellarPath
+            case .cask:
+                return AppConstants.shared.brewCaskPath
         }
     }
 

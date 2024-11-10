@@ -11645,6 +11645,12 @@
         }
       }
     },
+    "alert.could-not-get-contents-of-package-folder.message-%@" : {
+
+    },
+    "alert.could-not-get-contents-of-package-folder.title" : {
+
+    },
     "alert.could-not-get-new-packages-in-scheduled-update-system.message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -16496,6 +16502,9 @@
           }
         }
       }
+    },
+    "error.package-loading.could-not-read-contents-of-parent-folder.%@" : {
+
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks" : {
       "localizations" : {

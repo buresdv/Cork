@@ -10,7 +10,7 @@ import SwiftUI
 
 enum DisplayableAlert: LocalizedError
 {
-    case couldNotLoadAnyPackages(LocalizedError), couldNotLoadCertainPackage(String, URL, failureReason: String)
+    case couldNotGetContentsOfPackageFolder(String), couldNotLoadAnyPackages(LocalizedError), couldNotLoadCertainPackage(String, URL, failureReason: String)
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly, licenseCheckingFailedDueToNoInternet, licenseCheckingFailedDueToTimeout, licenseCheckingFailedForOtherReason(localizedDescription: String)
     case customBrewExcutableGotDeleted
     case couldNotFindPackageUUIDInList

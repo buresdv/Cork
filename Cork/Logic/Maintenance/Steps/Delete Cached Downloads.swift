@@ -11,7 +11,7 @@ import CorkShared
 func deleteCachedDownloads()
 {
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
-    for url in getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedFormulaeDownloadsPath)
+    for url in try! getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedFormulaeDownloadsPath)
     {
         if let isSymlink = url.isSymlink()
         {
@@ -31,7 +31,7 @@ func deleteCachedDownloads()
     }
 
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
-    for url in getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedCasksDownloadsPath)
+    for url in try! getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedCasksDownloadsPath)
     {
         if let isSymlink = url.isSymlink()
         {
@@ -51,7 +51,7 @@ func deleteCachedDownloads()
     }
 
     /// This folder has the downloads themselves, so we have do **DELETE EVERYTHING THAT IS NOT A SYMLINK**
-    for url in getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedDownloadsPath)
+    for url in try! getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedDownloadsPath)
     {
         if let isSymlink = url.isSymlink()
         {
