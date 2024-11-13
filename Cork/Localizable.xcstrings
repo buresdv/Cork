@@ -12132,6 +12132,7 @@
       }
     },
     "alert.fatal.could-not-filter-invalid-packages" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -15548,6 +15549,9 @@
         }
       }
     },
+    "error.intents.general-failure" : {
+
+    },
     "error.json-parsing.could-not-convert-string-to-data.%@" : {
       "localizations" : {
         "cs" : {
@@ -16280,7 +16284,11 @@
         }
       }
     },
+    "error.package-loading.could-not-convert-contents-of-install-receipt-to-data" : {
+
+    },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16320,7 +16328,11 @@
         }
       }
     },
+    "error.package-loading.could-not-decode-installa-receipt" : {
+
+    },
     "error.package-loading.could-not-decode-installa-receipt-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

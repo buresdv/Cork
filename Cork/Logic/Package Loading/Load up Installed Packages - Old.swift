@@ -8,6 +8,7 @@
 import CorkShared
 import Foundation
 
+/*
 @MainActor
 func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<BrewPackage>
 {
@@ -50,3 +51,4 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
 
     return contentsOfFolder
 }
+*/

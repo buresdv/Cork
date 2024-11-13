@@ -23,7 +23,12 @@ struct GetInstalledCasksIntent: AppIntent
 
         if allowAccessToFile
         {
-            let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: AppState())
+            let dummyBrewData: BrewDataStorage = await .init()
+            
+            guard let installedFormulae: Set<BrewPackage> = await dummyBrewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState()) else
+            {
+                throw IntentError.failedWhilePerformingIntent
+            }
 
             AppConstants.shared.brewCaskPath.stopAccessingSecurityScopedResource()
 

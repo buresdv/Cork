@@ -85,7 +85,7 @@ private extension BrewDataStorage
 
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
 
-            let packageLoader = await withTaskGroup(of: BrewPackage?.self, returning: Set<BrewPackage>.self)
+            let packageLoader: Set<BrewPackage> = await withTaskGroup(of: BrewPackage?.self, returning: Set<BrewPackage>.self)
             { taskGroup in
                 for packageURL in urlsInParentFolder
                 {

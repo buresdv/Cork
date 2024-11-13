@@ -255,11 +255,6 @@ struct ContentView: View, Sendable
         }
         .task(priority: .high)
         {
-            await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
-            await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
-        }
-        .task(priority: .high)
-        {
             AppConstants.shared.logger.info("Started Package Load startup action at \(Date())")
 
             defer
@@ -268,13 +263,13 @@ struct ContentView: View, Sendable
                 appState.isLoadingCasks = false
             }
 
-            async let availableFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: appState)
-            async let availableCasks: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: appState)
+            async let availableFormulae: Set<BrewPackage>? = await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
+            async let availableCasks: Set<BrewPackage>? = await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
 
             async let availableTaps: [BrewTap] = await loadUpTappedTaps()
 
-            brewData.installedFormulae = await availableFormulae
-            brewData.installedCasks = await availableCasks
+            brewData.installedFormulae = await availableFormulae ?? .init()
+            brewData.installedCasks = await availableCasks ?? .init()
 
             tapData.addedTaps = await availableTaps
 

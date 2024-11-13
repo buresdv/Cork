@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CorkShared
 
+/*
 func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
 {
     do
@@ -85,7 +86,8 @@ func getContentsOfFolder(targetFolder: URL) async throws -> Set<BrewPackage>
         throw error
     }
 }
-
+*/
+ 
 // MARK: - Sub-functions
 
 private extension URL
