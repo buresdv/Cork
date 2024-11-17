@@ -8,6 +8,8 @@
 import CorkShared
 import Foundation
 
+typealias BrewPackages = Set<Result<BrewPackage, PackageLoadingError>>
+
 extension BrewDataStorage
 {
     /// Parent function for loading installed packages from disk
@@ -18,7 +20,7 @@ extension BrewDataStorage
     /// - Returns: A set of loaded ``BrewPackage``s for the specified ``PackageType``
     func loadInstalledPackages(
         packageTypeToLoad: PackageType, appState: AppState
-    ) async -> Set<BrewPackage>?
+    ) async -> BrewPackages?
     {
         /// Start tracking when loading started
         let timeLoadingStarted: Date = .now
@@ -75,7 +77,7 @@ private extension BrewDataStorage
     /// Load packages from disk, and convert them into ``BrewPackage``s
     func loadInstalledPackagesFromFolder(
         packageTypeToLoad: PackageType
-    ) async throws(PackageLoadingError) -> Set<BrewPackage>?
+    ) async throws(PackageLoadingError) -> BrewPackages
     {
         do
         {
@@ -85,12 +87,12 @@ private extension BrewDataStorage
 
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
 
-            let packageLoader: Set<BrewPackage> = await withTaskGroup(of: BrewPackage?.self, returning: Set<BrewPackage>.self)
+            let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, PackageLoadingError>.self)
             { taskGroup in
                 for packageURL in urlsInParentFolder
                 {
                     guard taskGroup.addTaskUnlessCancelled(priority: .high, operation: {
-                        try? await self.loadInstalledPackage(packageURL: packageURL)
+                        await self.loadInstalledPackage(packageURL: packageURL)
                     })
                     else
                     {
@@ -98,14 +100,10 @@ private extension BrewDataStorage
                     }
                 }
 
-                var loadedPackages: Set<BrewPackage> = .init()
-
+                var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
                 for await loadedPackage in taskGroup
                 {
-                    if let loadedPackage
-                    {
-                        loadedPackages.insert(loadedPackage)
-                    }
+                    loadedPackages.insert(loadedPackage)
                 }
 
                 return loadedPackages
@@ -124,7 +122,7 @@ private extension BrewDataStorage
     /// For a given `URL` to a package folder containing the various versions of the package, parse the package contained within
     /// - Parameter packageURL: `URL` to the package parent folder
     /// - Returns: A parsed package of the ``BrewPackage`` type
-    func loadInstalledPackage(packageURL: URL) async throws(PackageLoadingError) -> BrewPackage
+    func loadInstalledPackage(packageURL: URL) async -> Result<BrewPackage, PackageLoadingError>
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.lastPathComponent
@@ -138,9 +136,9 @@ private extension BrewDataStorage
             switch packageURL.packageType
             {
             case .formula:
-                throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"))
+                return .failure(PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae")))
             case .cask:
-                throw PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"))
+                return .failure(PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks")))
             }
         }
 
@@ -163,13 +161,15 @@ private extension BrewDataStorage
             {
                 let wasPackageInstalledIntentionally: Bool = try await packageURL.checkIfPackageWasInstalledIntentionally(versionURLs: versionURLs)
 
-                return .init(
-                    name: packageName,
-                    type: packageURL.packageType,
-                    installedOn: packageURL.creationDate,
-                    versions: versionNamesForPackage,
-                    installedIntentionally: wasPackageInstalledIntentionally,
-                    sizeInBytes: packageURL.directorySize
+                return .success(
+                    .init(
+                        name: packageName,
+                        type: packageURL.packageType,
+                        installedOn: packageURL.creationDate,
+                        versions: versionNamesForPackage,
+                        installedIntentionally: wasPackageInstalledIntentionally,
+                        sizeInBytes: packageURL.directorySize
+                    )
                 )
             }
             catch let intentionalInstallationDiscoveryError
@@ -193,7 +193,7 @@ private extension BrewDataStorage
         {
             AppConstants.shared.logger.error("Failed while loading package \(packageURL.lastPathComponent, privacy: .public): \(loadingError.localizedDescription)")
 
-            throw .failedWhileLoadingCertainPackage(packageURL.lastPathComponent, packageURL, failureReason: loadingError.localizedDescription)
+            return .failure(.failedWhileLoadingCertainPackage(packageURL.lastPathComponent, packageURL, failureReason: loadingError.localizedDescription))
         }
     }
 }
