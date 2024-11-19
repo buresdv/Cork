@@ -74,6 +74,6 @@ struct FormulaeSection: View
             }
         }
 
-        return brewData.installedFormulae.filter(filter)
+        return brewData.successfullyLoadedFormulae.filter(filter)
     }
 }

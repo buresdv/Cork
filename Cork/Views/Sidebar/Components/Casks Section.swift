@@ -49,11 +49,11 @@ struct CasksSection: View
     {
         if searchText.isEmpty || searchText.contains("#")
         {
-            return brewData.installedCasks
+            return brewData.successfullyLoadedCasks
         }
         else
         {
-            return brewData.installedCasks.filter { $0.name.contains(searchText) }
+            return brewData.successfullyLoadedCasks.filter { $0.name.contains(searchText) }
         }
     }
 }

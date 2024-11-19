@@ -60,11 +60,13 @@ struct SidebarPackageRow: View
         {
             Task(priority: .userInitiated)
             {
+                /*
                 await changePackageTagStatus(
                     package: package,
                     brewData: brewData,
                     appState: appState
                 )
+                 */
             }
         } label: {
             Label(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)", systemImage: package.isTagged ? "tag.slash" : "tag")

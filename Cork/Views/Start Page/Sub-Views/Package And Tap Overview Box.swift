@@ -21,7 +21,7 @@ struct PackageAndTapOverviewBox: View
         {
             GroupBoxHeadlineGroup(
                 image: "terminal",
-                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count)"),
+                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.successfullyLoadedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count)"),
                 mainText: "start-page.installed-formulae.description",
                 animateNumberChanges: true
             )

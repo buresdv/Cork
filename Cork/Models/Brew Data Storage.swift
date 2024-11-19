@@ -11,21 +11,54 @@ import SwiftUI
 @MainActor
 class BrewDataStorage: ObservableObject
 {
-    @Published var installedFormulae: Set<BrewPackage> = .init()
-    @Published var installedCasks: Set<BrewPackage> = .init()
+    @Published var installedFormulae: BrewPackages = .init()
+    @Published var installedCasks: BrewPackages = .init()
+
+    /// Formulae that were successfuly loaded from disk
+    var successfullyLoadedFormulae: Set<BrewPackage>
+    {
+        return Set(installedFormulae.compactMap
+        { rawResult in
+            if case .success(let success) = rawResult
+            {
+                return success
+            }
+            else
+            {
+                return nil
+            }
+        })
+    }
+
+    /// Casks that were successfuly loaded from disk
+    var successfullyLoadedCasks: Set<BrewPackage>
+    {
+        return Set(installedCasks.compactMap
+        { rawResult in
+            if case .success(let success) = rawResult
+            {
+                return success
+            }
+            else
+            {
+                return nil
+            }
+        })
+    }
 
     func insertPackageIntoTracker(_ package: BrewPackage)
     {
         if package.type == .formula
         {
-            installedFormulae.insert(package)
+            installedFormulae.insert(.success(package))
         }
         else
         {
-            installedCasks.insert(package)
+            installedCasks.insert(.success(package))
         }
     }
 
+    /*
     func removeFormulaFromTracker(withName name: String)
     {
         removePackageFromTracker(withName: name, tracker: .formula)
@@ -52,6 +85,7 @@ class BrewDataStorage: ObservableObject
             }
         }
     }
+     */
 }
 
 @MainActor

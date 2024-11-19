@@ -8,6 +8,7 @@
 import Foundation
 import CorkShared
 
+/*
 @MainActor
 func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, appState: AppState) async
 {
@@ -15,6 +16,17 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
     {
         brewData.installedFormulae = Set(brewData.installedFormulae.map
         { formula in
+            switch formula
+            {
+            case .success(let brewPackage):
+                if brewPackage.name == package.name
+                {
+                    brewPackage.changeTaggedStatus()
+                }
+                return brewPackage
+            case .failure(let error):
+                return .failure(error)
+            }
             var copyFormula: BrewPackage = formula
             if copyFormula.name == package.name
             {
@@ -49,3 +61,4 @@ func changePackageTagStatus(package: BrewPackage, brewData: BrewDataStorage, app
 
     AppConstants.shared.logger.debug("Tagged packages: \(appState.taggedPackageNames, privacy: .public)")
 }
+*/

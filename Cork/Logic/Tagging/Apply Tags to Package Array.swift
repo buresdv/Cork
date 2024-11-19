@@ -8,30 +8,43 @@
 import Foundation
 import CorkShared
 
-@MainActor
-func applyTagsToPackageTrackingArray(appState: AppState, brewData: BrewDataStorage) async throws
+extension BrewDataStorage
 {
-    for taggedName in appState.taggedPackageNames
+    @MainActor
+    func applyTags(appState: AppState) async throws
     {
-        AppConstants.shared.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
-        brewData.installedFormulae = Set(brewData.installedFormulae.map
-        { formula in
-            var copyFormula: BrewPackage = formula
-            if copyFormula.name == taggedName
-            {
-                copyFormula.changeTaggedStatus()
-            }
-            return copyFormula
-        })
+        for taggedName in appState.taggedPackageNames
+        {
+            AppConstants.shared.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
+            self.installedFormulae = Set(self.installedFormulae.map
+            { formula in
+                switch formula
+                {
+                case .success(var brewPackage):
+                    if brewPackage.name == taggedName
+                    {
+                        brewPackage.changeTaggedStatus()
+                    }
+                    return .success(brewPackage)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            })
 
-        brewData.installedCasks = Set(brewData.installedCasks.map
-        { cask in
-            var copyCask: BrewPackage = cask
-            if copyCask.name == taggedName
-            {
-                copyCask.changeTaggedStatus()
-            }
-            return copyCask
-        })
+            self.installedCasks = Set(self.installedCasks.map
+            { cask in
+                switch cask
+                {
+                case .success(var brewPackage):
+                    if brewPackage.name == taggedName
+                    {
+                        brewPackage.changeTaggedStatus()
+                    }
+                    return .success(brewPackage)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            })
+        }
     }
 }

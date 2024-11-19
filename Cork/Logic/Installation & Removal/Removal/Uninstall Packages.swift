@@ -23,6 +23,7 @@ extension BrewDataStorage
         /// Store the old navigation selection to see if it got updated in the middle of switching
         let oldNavigationSelectionId: UUID? = appState.navigationTargetId
 
+        /*
         if shouldApplyUninstallSpinnerToRelevantItemInSidebar
         {
             if package.type == .formula
@@ -54,6 +55,7 @@ extension BrewDataStorage
         {
             appState.isShowingUninstallationProgressView = true
         }
+         */
 
         AppConstants.shared.logger.info("Will try to remove package \(package.name, privacy: .auto)")
         var uninstallCommandOutput: TerminalOutput
@@ -74,7 +76,7 @@ extension BrewDataStorage
             AppConstants.shared.logger.warning("Could not uninstall this package because it's a dependency")
 
             /// If the uninstallation failed, change the status back to "not being modified"
-            resetPackageState(package: package)
+            //resetPackageState(package: package)
 
             do
             {
@@ -99,26 +101,13 @@ extension BrewDataStorage
             appState.packageTryingToBeUninstalledWithSudo = package
             appState.isShowingSudoRequiredForUninstallSheet = true
 
-            resetPackageState(package: package)
+            //resetPackageState(package: package)
         }
         else
         {
             AppConstants.shared.logger.info("Uninstalling can proceed")
 
-            switch package.type
-            {
-            case .formula:
-                withAnimation
-                {
-                    self.removeFormulaFromTracker(withName: package.name)
-                }
-
-            case .cask:
-                withAnimation
-                {
-                    self.removeCaskFromTracker(withName: package.name)
-                }
-            }
+            await synchronizeInstalledPackages(brewData: self)
 
             if appState.navigationTargetId != nil
             {
@@ -144,6 +133,7 @@ extension BrewDataStorage
         }
     }
 
+    /*
     @MainActor
     private func resetPackageState(package: BrewPackage)
     {
@@ -172,4 +162,5 @@ extension BrewDataStorage
             })
         }
     }
+     */
 }
