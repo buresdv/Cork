@@ -161,18 +161,18 @@ struct CorkApp: App
                         AppConstants.shared.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
 
                         Task(priority: .background)
-                        {
+                        { @MainActor in
                             var updateResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
                             AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
 
                             do
                             {
-                                let temporaryOutdatedPackageTracker: OutdatedPackageTracker = await .init()
+                                let temporaryOutdatedPackageTracker: OutdatedPackageTracker = .init()
 
                                 try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewData: brewData)
 
-                                var newOutdatedPackages: Set<OutdatedPackage> = await temporaryOutdatedPackageTracker.outdatedPackages
+                                var newOutdatedPackages: Set<OutdatedPackage> = temporaryOutdatedPackageTracker.outdatedPackages
 
                                 AppConstants.shared.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
 
@@ -184,19 +184,19 @@ struct CorkApp: App
                                     newOutdatedPackages = .init()
                                 }
 
-                                if await newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
+                                if newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
                                 {
                                     AppConstants.shared.logger.log("New updates found")
 
                                     /// Set this to `true` so the normal notification doesn't get sent
-                                    await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
+                                     setWhetherToSendStandardUpdatesAvailableNotification(to: false)
 
-                                    let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
+                                    let differentPackages: Set<OutdatedPackage> =  newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
                                     AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
 
-                                    await outdatedPackageTracker.setOutdatedPackages(to: newOutdatedPackages)
+                                    outdatedPackageTracker.setOutdatedPackages(to: newOutdatedPackages)
 
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1)
                                     {
