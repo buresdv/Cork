@@ -88,6 +88,23 @@ class BrewDataStorage: ObservableObject
      */
 }
 
+extension BrewDataStorage
+{
+    var numberOfInstalledPackages: Int
+    {
+        var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = UserDefaults.standard.bool(forKey: "displayOnlyIntentionallyInstalledPackagesByDefault")
+        
+        if displayOnlyIntentionallyInstalledPackagesByDefault
+        {
+            return self.successfullyLoadedFormulae.filter(\.installedIntentionally).count + self.successfullyLoadedCasks.count
+        }
+        else
+        {
+            return self.successfullyLoadedFormulae.count + self.successfullyLoadedCasks.count
+        }
+    }
+}
+
 @MainActor
 class AvailableTaps: ObservableObject
 {

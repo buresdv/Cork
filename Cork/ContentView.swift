@@ -22,8 +22,6 @@ struct ContentView: View, Sendable
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
     @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
 
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
 
     @Environment(\.openWindow) var openWindow: OpenWindowAction
@@ -143,7 +141,7 @@ struct ContentView: View, Sendable
             }
         }
         .navigationTitle("app-name")
-        .navigationSubtitle("navigation.installed-packages.count-\((displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count) + brewData.installedCasks.count)")
+        .navigationSubtitle("navigation.installed-packages.count-\(brewData.numberOfInstalledPackages)")
         .toolbar(id: "PackageActions")
         {
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
@@ -263,8 +261,8 @@ struct ContentView: View, Sendable
                 appState.isLoadingCasks = false
             }
 
-            async let availableFormulae: Set<BrewPackage>? = await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
-            async let availableCasks: Set<BrewPackage>? = await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
+            async let availableFormulae: BrewPackages? = await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
+            async let availableCasks: BrewPackages? = await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
 
             async let availableTaps: [BrewTap] = await loadUpTappedTaps()
 
@@ -283,7 +281,9 @@ struct ContentView: View, Sendable
 
                 do
                 {
-                    try await applyTagsToPackageTrackingArray(appState: appState, brewData: brewData)
+                    for taggedPackageName in appState.taggedPackageNames {
+                        print(taggedPackageName)
+                    }
                 }
                 catch let taggedStateApplicationError as NSError
                 {

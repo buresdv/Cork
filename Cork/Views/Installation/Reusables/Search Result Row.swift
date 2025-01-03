@@ -33,14 +33,14 @@ struct SearchResultRow: View, Sendable
 
                 if searchedForPackage.type == .formula
                 {
-                    if brewData.installedFormulae.contains(where: { $0.name == searchedForPackage.name })
+                    if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
                     {
                         PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
                 }
                 else
                 {
-                    if brewData.installedCasks.contains(where: { $0.name == searchedForPackage.name })
+                    if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
                     {
                         PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
