@@ -11,7 +11,7 @@ import SwiftUI
 struct StartPage: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     @EnvironmentObject var appState: AppState
 

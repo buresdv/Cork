@@ -13,7 +13,7 @@ struct PackageAndTapOverviewBox: View
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     var body: some View
     {

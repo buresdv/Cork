@@ -29,7 +29,7 @@ struct ContentView: View, Sendable
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var tapData: AvailableTaps
+    @EnvironmentObject var tapData: TapTracker
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
@@ -203,7 +203,25 @@ struct ContentView: View, Sendable
              .defaultCustomization(.hidden)
               */
         }
-        .onAppear
+        .basicsSetup()
+        .packageLoadingTask()
+        .analyticsSetupTask()
+        .cachedDownloadsCalculationTask()
+        .onChanges()
+        .sheets()
+        .alerts()
+        .confirmationDialogs()
+    }
+}
+
+// MARK: - View extensions
+
+private extension ContentView
+{
+    func basicsSetup() -> some View
+    {
+        self
+            .onAppear
         {
             AppConstants.shared.logger.debug("Brew executable path: \(AppConstants.shared.brewExecutablePath, privacy: .public)")
 
@@ -251,6 +269,14 @@ struct ContentView: View, Sendable
                 AppConstants.shared.logger.info("Metadata file exists")
             }
         }
+    }
+}
+
+private extension ContentView
+{
+    func packageLoadingTask() -> some View
+    {
+        self
         .task(priority: .high)
         {
             AppConstants.shared.logger.info("Started Package Load startup action at \(Date())")
@@ -264,12 +290,22 @@ struct ContentView: View, Sendable
             async let availableFormulae: BrewPackages? = await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
             async let availableCasks: BrewPackages? = await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
 
-            async let availableTaps: [BrewTap] = await loadUpTappedTaps()
+            async let availableTaps: [BrewTap] = await tapData.loadUpTappedTaps()
 
             brewData.installedFormulae = await availableFormulae ?? .init()
             brewData.installedCasks = await availableCasks ?? .init()
 
-            tapData.addedTaps = await availableTaps
+            do
+            {
+                tapData.addedTaps = try await availableTaps
+            }
+            catch let tapLoadingError
+            {
+                switch tapLoadingError
+                {
+                
+                }
+            }
 
             appState.assignPackageTypeToCachedDownloads(brewData: brewData)
 
@@ -297,45 +333,68 @@ struct ContentView: View, Sendable
                 appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
             }
         }
-        .task(priority: .background)
-        {
-            AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
-
-            async let analyticsQueryCommand: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
-
-            if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
+    }
+    
+    func analyticsSetupTask() -> some View
+    {
+        self
+            .task(priority: .background)
             {
-                allowBrewAnalytics = true
-                AppConstants.shared.logger.info("Analytics are ENABLED")
-            }
-            else
-            {
-                allowBrewAnalytics = false
-                AppConstants.shared.logger.info("Analytics are DISABLED")
-            }
-        }
-        .task(priority: .background)
-        {
-            AppConstants.shared.logger.info("Started Discoverability startup action at \(Date())")
+                AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
 
-            if enableDiscoverability
-            {
-                if appState.isLoadingFormulae && appState.isLoadingCasks || tapData.addedTaps.isEmpty
+                async let analyticsQueryCommand: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
+
+                if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
                 {
-                    await loadTopPackages()
+                    allowBrewAnalytics = true
+                    AppConstants.shared.logger.info("Analytics are ENABLED")
+                }
+                else
+                {
+                    allowBrewAnalytics = false
+                    AppConstants.shared.logger.info("Analytics are DISABLED")
                 }
             }
-        }
-        .task(priority: .background)
-        {
-            if appState.cachedDownloads.isEmpty
+    }
+    
+    func discoverabilitySetupTask() -> some View
+    {
+        self
+            .task(priority: .background)
             {
-                AppConstants.shared.logger.info("Will calculate cached downloads")
-                await appState.loadCachedDownloadedPackages()
-                appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+                AppConstants.shared.logger.info("Started Discoverability startup action at \(Date())")
+
+                if enableDiscoverability
+                {
+                    if appState.isLoadingFormulae && appState.isLoadingCasks || tapData.addedTaps.isEmpty
+                    {
+                        await loadTopPackages()
+                    }
+                }
             }
-        }
-        .onChange(of: appState.cachedDownloadsFolderSize)
+    }
+    
+    func cachedDownloadsCalculationTask() -> some View
+    {
+        self
+            .task(priority: .background)
+            {
+                if appState.cachedDownloads.isEmpty
+                {
+                    AppConstants.shared.logger.info("Will calculate cached downloads")
+                    await appState.loadCachedDownloadedPackages()
+                    appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+                }
+            }
+    }
+}
+
+private extension ContentView
+{
+    func onChanges() -> some View
+    {
+        self
+            .onChange(of: appState.cachedDownloadsFolderSize)
         { _ in
             Task(priority: .background)
             {
@@ -381,238 +440,263 @@ struct ContentView: View, Sendable
         .onChange(of: customHomebrewPath, perform: { _ in
             restartApp()
         })
-        .sheet(isPresented: $appState.isShowingInstallationSheet)
-        {
-            AddFormulaView(packageInstallationProcessStep: .ready)
-        }
-        .sheet(item: $corruptedPackage, onDismiss: {
-            corruptedPackage = nil
-        }, content: { corruptedPackageInternal in
-            ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
-        })
-        .sheet(isPresented: $appState.isShowingSudoRequiredForUninstallSheet)
-        {
-            SudoRequiredForRemovalSheet()
-        }
-        .sheet(isPresented: $appState.isShowingAddTapSheet)
-        {
-            AddTapView()
-        }
-        .sheet(isPresented: $appState.isShowingUpdateSheet)
-        {
-            UpdatePackagesView()
-        }
-        .sheet(isPresented: $appState.isShowingIncrementalUpdateSheet)
-        {
-            UpdateSomePackagesView()
-        }
-        .sheet(isPresented: $appState.isShowingBrewfileExportProgress)
-        {
-            BrewfileExportProgressView()
-        }
-        .sheet(isPresented: $appState.isShowingBrewfileImportProgress)
-        {
-            BrewfileImportProgressView()
-        }
-        .alert(isPresented: $appState.isShowingFatalError, error: appState.fatalAlertType)
-        { error in
-            switch error
+    }
+}
+
+private extension ContentView
+{
+    /// Various sheets
+    func sheets() -> some View
+    {
+        self
+            .sheet(isPresented: $appState.isShowingInstallationSheet)
             {
-            case .couldNotGetContentsOfPackageFolder(let failureReason):
-                EmptyView()
-                    
-            case .uninstallationNotPossibleDueToDependency:
-                EmptyView()
+                AddFormulaView(packageInstallationProcessStep: .ready)
+            }
+            .sheet(item: $corruptedPackage, onDismiss: {
+                corruptedPackage = nil
+            }, content: { corruptedPackageInternal in
+                ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
+            })
+            .sheet(isPresented: $appState.isShowingSudoRequiredForUninstallSheet)
+            {
+                SudoRequiredForRemovalSheet()
+            }
+            .sheet(isPresented: $appState.isShowingAddTapSheet)
+            {
+                AddTapView()
+            }
+            .sheet(isPresented: $appState.isShowingUpdateSheet)
+            {
+                UpdatePackagesView()
+            }
+            .sheet(isPresented: $appState.isShowingIncrementalUpdateSheet)
+            {
+                UpdateSomePackagesView()
+            }
+            .sheet(isPresented: $appState.isShowingBrewfileExportProgress)
+            {
+                BrewfileExportProgressView()
+            }
+            .sheet(isPresented: $appState.isShowingBrewfileImportProgress)
+            {
+                BrewfileImportProgressView()
+            }
+    }
+}
 
-            case .couldNotLoadAnyPackages:
-                RestartCorkButton()
-
-            case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, _):
-                VStack
+private extension ContentView
+{
+    func alerts() -> some View
+    {
+        self
+            .alert(isPresented: $appState.isShowingFatalError, error: appState.fatalAlertType)
+            { error in
+                switch error
                 {
-                    Button
-                    {
-                        offendingPackageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
-                    } label: {
-                        Text("action.reveal-certain-file-in-finder-\(offendingPackage)")
-                    }
+                case .couldNotGetContentsOfPackageFolder(let failureReason):
+                    EmptyView()
+                        
+                case .uninstallationNotPossibleDueToDependency:
+                    EmptyView()
+
+                case .couldNotLoadAnyPackages:
                     RestartCorkButton()
-                }
 
-            case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
-                EmptyView()
-
-            case .licenseCheckingFailedDueToNoInternet:
-                EmptyView()
-
-            case .licenseCheckingFailedDueToTimeout:
-                EmptyView()
-
-            case .licenseCheckingFailedForOtherReason:
-                EmptyView()
-
-            case .customBrewExcutableGotDeleted:
-                Button
-                {
-                    customHomebrewPath = ""
-                } label: {
-                    Text("action.reset-custom-brew-executable")
-                }
-
-            case .couldNotFindPackageUUIDInList:
-                EmptyView()
-
-            case .couldNotApplyTaggedStateToPackages:
-                VStack
-                {
-                    Button(role: .destructive)
+                case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, _):
+                    VStack
                     {
-                        if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
+                        Button
                         {
-                            do
-                            {
-                                try FileManager.default.removeItem(atPath: AppConstants.shared.documentsDirectoryPath.path)
-                                restartApp()
-                            }
-                            catch
-                            {
-                                appState.fatalAlertType = .couldNotClearMetadata
-                            }
+                            offendingPackageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                        } label: {
+                            Text("action.reveal-certain-file-in-finder-\(offendingPackage)")
                         }
-                        else
-                        {
-                            appState.fatalAlertType = .metadataFolderDoesNotExist
-                        }
-                    } label: {
-                        Text("action.clear-metadata")
+                        RestartCorkButton()
                     }
 
-                    QuitCorkButton()
-                }
+                case .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly:
+                    EmptyView()
 
-            case .couldNotClearMetadata:
-                VStack
-                {
+                case .licenseCheckingFailedDueToNoInternet:
+                    EmptyView()
+
+                case .licenseCheckingFailedDueToTimeout:
+                    EmptyView()
+
+                case .licenseCheckingFailedForOtherReason:
+                    EmptyView()
+
+                case .customBrewExcutableGotDeleted:
                     Button
                     {
-                        if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
-                        {
-                            AppConstants.shared.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
-                        }
-                        else
-                        {
-                            appState.fatalAlertType = .metadataFolderDoesNotExist
-                        }
+                        customHomebrewPath = ""
                     } label: {
-                        Text("action.reveal-in-finder")
+                        Text("action.reset-custom-brew-executable")
                     }
 
-                    QuitCorkButton()
-                }
+                case .couldNotFindPackageUUIDInList:
+                    EmptyView()
 
-            case .metadataFolderDoesNotExist:
-                QuitCorkButton()
-
-            case .couldNotCreateCorkMetadataDirectory:
-                RestartCorkButton()
-
-            case .couldNotCreateCorkMetadataFile:
-                RestartCorkButton()
-
-            case .installedPackageHasNoVersions(let corruptedPackageName):
-                Button
-                {
-                    self.corruptedPackage = .init(name: corruptedPackageName)
-                } label: {
-                    Text("action.repair-\(corruptedPackageName)")
-                }
-
-            case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
-                VStack
-                {
-                    Button
+                case .couldNotApplyTaggedStateToPackages:
+                    VStack
                     {
-                        itemURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
-                    } label: {
-                        Text("action.reveal-certain-file-in-finder-\(itemName)")
+                        Button(role: .destructive)
+                        {
+                            if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
+                            {
+                                do
+                                {
+                                    try FileManager.default.removeItem(atPath: AppConstants.shared.documentsDirectoryPath.path)
+                                    restartApp()
+                                }
+                                catch
+                                {
+                                    appState.fatalAlertType = .couldNotClearMetadata
+                                }
+                            }
+                            else
+                            {
+                                appState.fatalAlertType = .metadataFolderDoesNotExist
+                            }
+                        } label: {
+                            Text("action.clear-metadata")
+                        }
+
+                        QuitCorkButton()
                     }
+
+                case .couldNotClearMetadata:
+                    VStack
+                    {
+                        Button
+                        {
+                            if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
+                            {
+                                AppConstants.shared.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                            }
+                            else
+                            {
+                                appState.fatalAlertType = .metadataFolderDoesNotExist
+                            }
+                        } label: {
+                            Text("action.reveal-in-finder")
+                        }
+
+                        QuitCorkButton()
+                    }
+
+                case .metadataFolderDoesNotExist:
+                    QuitCorkButton()
+
+                case .couldNotCreateCorkMetadataDirectory:
                     RestartCorkButton()
-                }
 
-            case .homePathNotSet:
-                QuitCorkButton()
+                case .couldNotCreateCorkMetadataFile:
+                    RestartCorkButton()
 
-            case .couldNotObtainNotificationPermissions:
-                Button
-                {
-                    appState.dismissAlert()
-                } label: {
-                    Text("action.use-without-notifications")
-                }
+                case .installedPackageHasNoVersions(let corruptedPackageName):
+                    Button
+                    {
+                        self.corruptedPackage = .init(name: corruptedPackageName)
+                    } label: {
+                        Text("action.repair-\(corruptedPackageName)")
+                    }
 
-            case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
-                EmptyView()
+                case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
+                    VStack
+                    {
+                        Button
+                        {
+                            itemURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                        } label: {
+                            Text("action.reveal-certain-file-in-finder-\(itemName)")
+                        }
+                        RestartCorkButton()
+                    }
 
-            case .couldNotParseTopPackages:
-                EmptyView()
+                case .homePathNotSet:
+                    QuitCorkButton()
 
-            case .receivedInvalidResponseFromBrew:
-                Button
-                {
-                    appState.dismissAlert()
-                    enableDiscoverability = false
-                } label: {
-                    Text("action.close")
-                }
-
-            case .topPackageArrayFilterCouldNotRetrieveAnyPackages:
-                VStack
-                {
+                case .couldNotObtainNotificationPermissions:
                     Button
                     {
                         appState.dismissAlert()
                     } label: {
+                        Text("action.use-without-notifications")
+                    }
+
+                case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled:
+                    EmptyView()
+
+                case .couldNotParseTopPackages:
+                    EmptyView()
+
+                case .receivedInvalidResponseFromBrew:
+                    Button
+                    {
+                        appState.dismissAlert()
+                        enableDiscoverability = false
+                    } label: {
                         Text("action.close")
                     }
+
+                case .topPackageArrayFilterCouldNotRetrieveAnyPackages:
+                    VStack
+                    {
+                        Button
+                        {
+                            appState.dismissAlert()
+                        } label: {
+                            Text("action.close")
+                        }
+                        RestartCorkButton()
+                    }
+
+                case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
+                    EmptyView()
+
+                case .couldNotFindPackageInParentDirectory:
+                    EmptyView()
+
+                case .fatalPackageInstallationError:
+                    EmptyView()
+
+                case .couldNotSynchronizePackages:
                     RestartCorkButton()
+
+                case .couldNotGetWorkingDirectory:
+                    EmptyView()
+
+                case .couldNotDumpBrewfile:
+                    EmptyView()
+
+                case .couldNotReadBrewfile:
+                    EmptyView()
+
+                case .couldNotGetBrewfileLocation:
+                    EmptyView()
+
+                case .couldNotImportBrewfile:
+                    EmptyView()
+
+                case .malformedBrewfile:
+                    EmptyView()
                 }
-
-            case .couldNotAssociateAnyPackageWithProvidedPackageUUID:
-                EmptyView()
-
-            case .couldNotFindPackageInParentDirectory:
-                EmptyView()
-
-            case .fatalPackageInstallationError:
-                EmptyView()
-
-            case .couldNotSynchronizePackages:
-                RestartCorkButton()
-
-            case .couldNotGetWorkingDirectory:
-                EmptyView()
-
-            case .couldNotDumpBrewfile:
-                EmptyView()
-
-            case .couldNotReadBrewfile:
-                EmptyView()
-
-            case .couldNotGetBrewfileLocation:
-                EmptyView()
-
-            case .couldNotImportBrewfile:
-                EmptyView()
-
-            case .malformedBrewfile:
-                EmptyView()
+            } message: { error in
+                if let recoverySuggestion = error.recoverySuggestion
+                {
+                    Text(recoverySuggestion)
+                }
             }
-        } message: { error in
-            if let recoverySuggestion = error.recoverySuggestion
-            {
-                Text(recoverySuggestion)
-            }
-        }
+    }
+}
+
+private extension ContentView
+{
+    func confirmationDialogs() -> some View
+    {
+        self
         .confirmationDialog(uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: $uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
         {
             Button(role: .destructive)
@@ -645,7 +729,11 @@ struct ContentView: View, Sendable
             Text("action.warning.cannot-be-undone")
         }
     }
+}
 
+// MARK: - Functions
+private extension ContentView
+{
     func loadTopPackages() async
     {
         AppConstants.shared.logger.info("Initial setup finished, time to fetch the top packages")

@@ -11,7 +11,7 @@ import CorkShared
 struct TapsSection: View
 {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     let searchText: String
 

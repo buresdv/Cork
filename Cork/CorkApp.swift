@@ -19,7 +19,7 @@ struct CorkApp: App
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
     @StateObject var brewData: BrewDataStorage = .init()
-    @StateObject var availableTaps: AvailableTaps = .init()
+    @StateObject var availableTaps: TapTracker = .init()
 
     @StateObject var topPackagesTracker: TopPackagesTracker = .init()
 

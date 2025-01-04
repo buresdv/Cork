@@ -14,6 +14,7 @@ class BrewDataStorage: ObservableObject
     @Published var installedFormulae: BrewPackages = .init()
     @Published var installedCasks: BrewPackages = .init()
 
+    // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk
     var successfullyLoadedFormulae: Set<BrewPackage>
     {
@@ -106,7 +107,7 @@ extension BrewDataStorage
 }
 
 @MainActor
-class AvailableTaps: ObservableObject
+class TapTracker: ObservableObject
 {
     @Published var addedTaps: [BrewTap] = .init()
 }
