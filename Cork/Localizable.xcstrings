@@ -13890,6 +13890,12 @@
         }
       }
     },
+    "alert.tap-loading-failed.tap-itself.title" : {
+
+    },
+    "alert.tap-loading-failed.tap-parent.title" : {
+
+    },
     "alert.top-package-retrieval-function-turned-up-empty.message" : {
       "localizations" : {
         "cs" : {
@@ -16099,37 +16105,37 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Při načítání zastaralých balíčků se vyskytla neimplementovaná chyba: %@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unimplemented error for getting outdated packages: %@"
+            "value" : "%@"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Erro não implementado para obter bibliotecas expiradas: %@"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Непредвиденная ошибка при получении устаревших пакетов: %@"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Неімплементована помилка отримання застарілих пакунків: %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "未完成获取更早的软件包: %@"
           }
         }

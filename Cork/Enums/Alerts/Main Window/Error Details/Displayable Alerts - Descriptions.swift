@@ -80,6 +80,10 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-import-brewfile.title")
         case .malformedBrewfile:
             return String(localized: "alert.malformed-brewfile.title")
+        case .tapLoadingFailedDueToTapParentLocation:
+            return String(localized: "alert.tap-loading-failed.tap-parent.title")
+        case .tapLoadingFailedDueToTapItself:
+            return String(localized: "alert.tap-loading-failed.tap-itself.title")
         }
     }
 }

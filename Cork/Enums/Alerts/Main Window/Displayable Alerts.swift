@@ -12,6 +12,7 @@ enum DisplayableAlert: LocalizedError
 {
     case couldNotGetContentsOfPackageFolder(String), couldNotLoadAnyPackages(LocalizedError), couldNotLoadCertainPackage(String, URL, failureReason: String)
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly, licenseCheckingFailedDueToNoInternet, licenseCheckingFailedDueToTimeout, licenseCheckingFailedForOtherReason(localizedDescription: String)
+    case tapLoadingFailedDueToTapParentLocation(localizedDescription: String), tapLoadingFailedDueToTapItself(localizedDescription: String)
     case customBrewExcutableGotDeleted
     case couldNotFindPackageUUIDInList
     case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage, offendingDependencyProhibitingUninstallation: String), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), installedPackageIsNotAFolder(itemName: String, itemURL: URL), homePathNotSet

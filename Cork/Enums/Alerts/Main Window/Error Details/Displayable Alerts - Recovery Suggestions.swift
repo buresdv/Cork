@@ -9,6 +9,7 @@ import Foundation
 
 extension DisplayableAlert
 {
+    /// Message in the alert
     var recoverySuggestion: String?
     {
         switch self
@@ -79,6 +80,10 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-import-brewfile.message")
         case .malformedBrewfile:
             return String(localized: "alert.malformed-brewfile.message")
+        case .tapLoadingFailedDueToTapParentLocation(localizedDescription: let localizedDescription):
+            return localizedDescription
+        case .tapLoadingFailedDueToTapItself(localizedDescription: let localizedDescription):
+            return localizedDescription
         }
     }
 }

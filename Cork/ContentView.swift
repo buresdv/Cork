@@ -41,7 +41,7 @@ struct ContentView: View, Sendable
     @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
-    @State private var corruptedPackage: CorruptedPackage?
+    @State fileprivate var corruptedPackage: CorruptedPackage?
 
     // MARK: - ViewBuilders
 
@@ -203,31 +203,31 @@ struct ContentView: View, Sendable
              .defaultCustomization(.hidden)
               */
         }
-        .basicsSetup()
-        .packageLoadingTask()
-        .analyticsSetupTask()
-        .cachedDownloadsCalculationTask()
-        .onChanges()
-        .sheets()
-        .alerts()
-        .confirmationDialogs()
+        .basicsSetup(of: self)
+        .packageLoadingTask(of: self)
+        .analyticsSetupTask(of: self)
+        .cachedDownloadsCalculationTask(of: self)
+        .onChanges(boundToView: self)
+        .sheets(of: self)
+        .alerts(of: self)
+        .confirmationDialogs(of: self)
     }
 }
 
 // MARK: - View extensions
 
-private extension ContentView
+private extension View
 {
-    func basicsSetup() -> some View
+    func basicsSetup(of view: ContentView) -> some View
     {
         self
             .onAppear
         {
             AppConstants.shared.logger.debug("Brew executable path: \(AppConstants.shared.brewExecutablePath, privacy: .public)")
 
-            if !customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
+            if !view.customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
             {
-                appState.showAlert(errorToShow: .customBrewExcutableGotDeleted)
+                view.appState.showAlert(errorToShow: .customBrewExcutableGotDeleted)
             }
 
             AppConstants.shared.logger.debug("Documents directory: \(AppConstants.shared.documentsDirectoryPath.path, privacy: .public)")
@@ -272,9 +272,9 @@ private extension ContentView
     }
 }
 
-private extension ContentView
+private extension View
 {
-    func packageLoadingTask() -> some View
+    func packageLoadingTask(of view: ContentView) -> some View
     {
         self
         .task(priority: .high)
@@ -283,59 +283,65 @@ private extension ContentView
 
             defer
             {
-                appState.isLoadingFormulae = false
-                appState.isLoadingCasks = false
+                view.appState.isLoadingFormulae = false
+                view.appState.isLoadingCasks = false
             }
 
-            async let availableFormulae: BrewPackages? = await brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: appState)
-            async let availableCasks: BrewPackages? = await brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: appState)
+            async let availableFormulae: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
+            async let availableCasks: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: view.appState)
 
-            async let availableTaps: [BrewTap] = await tapData.loadUpTappedTaps()
+            async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
 
-            brewData.installedFormulae = await availableFormulae ?? .init()
-            brewData.installedCasks = await availableCasks ?? .init()
+            view.brewData.installedFormulae = await availableFormulae ?? .init()
+            view.brewData.installedCasks = await availableCasks ?? .init()
 
             do
             {
-                tapData.addedTaps = try await availableTaps
+                view.tapData.addedTaps = try await availableTaps
             }
-            catch let tapLoadingError
+            catch let tapLoadingError as TapLoadingError
             {
-                switch tapLoadingError
-                {
-                
+                switch tapLoadingError {
+                case .couldNotAccessParentTapFolder(let errorDetails):
+                    view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapParentLocation(localizedDescription: tapLoadingError.localizedDescription))
+                case .couldNotReadTapFolderContents(let errorDetails):
+                    view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapItself(localizedDescription: tapLoadingError.localizedDescription))
                 }
             }
+            catch
+            {
+                
+            }
 
-            appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+            view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
 
             do
             {
-                appState.taggedPackageNames = try loadTaggedIDsFromDisk()
+                view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
-                AppConstants.shared.logger.info("Tagged packages in appState: \(appState.taggedPackageNames)")
+                AppConstants.shared.logger.info("Tagged packages in appState: \(view.appState.taggedPackageNames)")
 
                 do
                 {
-                    for taggedPackageName in appState.taggedPackageNames {
+                    for taggedPackageName in view.appState.taggedPackageNames {
                         print(taggedPackageName)
                     }
                 }
                 catch let taggedStateApplicationError as NSError
                 {
                     AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
-                    appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
+                    view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
             }
             catch let uuidLoadingError as NSError
             {
                 AppConstants.shared.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
-                appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
+                view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
             }
         }
     }
     
-    func analyticsSetupTask() -> some View
+    func analyticsSetupTask(of view: ContentView) -> some View
     {
         self
             .task(priority: .background)
@@ -346,151 +352,151 @@ private extension ContentView
 
                 if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
                 {
-                    allowBrewAnalytics = true
+                    view.allowBrewAnalytics = true
                     AppConstants.shared.logger.info("Analytics are ENABLED")
                 }
                 else
                 {
-                    allowBrewAnalytics = false
+                    view.allowBrewAnalytics = false
                     AppConstants.shared.logger.info("Analytics are DISABLED")
                 }
             }
     }
     
-    func discoverabilitySetupTask() -> some View
+    func discoverabilitySetupTask(of view: ContentView) -> some View
     {
         self
             .task(priority: .background)
             {
                 AppConstants.shared.logger.info("Started Discoverability startup action at \(Date())")
 
-                if enableDiscoverability
+                if view.enableDiscoverability
                 {
-                    if appState.isLoadingFormulae && appState.isLoadingCasks || tapData.addedTaps.isEmpty
+                    if view.appState.isLoadingFormulae && view.appState.isLoadingCasks || view.tapData.addedTaps.isEmpty
                     {
-                        await loadTopPackages()
+                        await view.loadTopPackages()
                     }
                 }
             }
     }
     
-    func cachedDownloadsCalculationTask() -> some View
+    func cachedDownloadsCalculationTask(of view: ContentView) -> some View
     {
         self
             .task(priority: .background)
             {
-                if appState.cachedDownloads.isEmpty
+                if view.appState.cachedDownloads.isEmpty
                 {
                     AppConstants.shared.logger.info("Will calculate cached downloads")
-                    await appState.loadCachedDownloadedPackages()
-                    appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+                    await view.appState.loadCachedDownloadedPackages()
+                    view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
                 }
             }
     }
 }
 
-private extension ContentView
+private extension View
 {
-    func onChanges() -> some View
+    func onChanges(boundToView view: ContentView) -> some View
     {
         self
-            .onChange(of: appState.cachedDownloadsFolderSize)
+            .onChange(of: view.appState.cachedDownloadsFolderSize)
         { _ in
             Task(priority: .background)
             {
                 AppConstants.shared.logger.info("Will recalculate cached downloads")
-                appState.cachedDownloads = .init()
-                await appState.loadCachedDownloadedPackages()
-                appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+                view.appState.cachedDownloads = .init()
+                await view.appState.loadCachedDownloadedPackages()
+                view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
             }
         }
-        .onChange(of: areNotificationsEnabled, perform: { newValue in
+        .onChange(of: view.areNotificationsEnabled, perform: { newValue in
             if newValue == true
             {
                 Task(priority: .background)
                 {
-                    await appState.setupNotifications()
+                    await view.appState.setupNotifications()
                 }
             }
         })
-        .onChange(of: enableDiscoverability, perform: { newValue in
+        .onChange(of: view.enableDiscoverability, perform: { newValue in
             if newValue == true
             {
                 Task(priority: .userInitiated)
                 {
-                    await loadTopPackages()
+                    await view.loadTopPackages()
                 }
             }
             else
             {
                 AppConstants.shared.logger.info("Will purge top package trackers")
                 /// Clear out the package trackers so they don't take up RAM
-                topPackagesTracker.topFormulae = .init()
-                topPackagesTracker.topCasks = .init()
+                view.topPackagesTracker.topFormulae = .init()
+                view.topPackagesTracker.topCasks = .init()
 
-                AppConstants.shared.logger.info("Package tracker status: \(topPackagesTracker.topFormulae) \(topPackagesTracker.topCasks)")
+                AppConstants.shared.logger.info("Package tracker status: \(view.topPackagesTracker.topFormulae) \(view.topPackagesTracker.topCasks)")
             }
         })
-        .onChange(of: discoverabilityDaySpan, perform: { _ in
+        .onChange(of: view.discoverabilityDaySpan, perform: { _ in
             Task(priority: .userInitiated)
             {
-                await loadTopPackages()
+                await view.loadTopPackages()
             }
         })
-        .onChange(of: customHomebrewPath, perform: { _ in
+        .onChange(of: view.customHomebrewPath, perform: { _ in
             restartApp()
         })
     }
 }
 
-private extension ContentView
+private extension View
 {
     /// Various sheets
-    func sheets() -> some View
+    func sheets(of view: ContentView) -> some View
     {
         self
-            .sheet(isPresented: $appState.isShowingInstallationSheet)
+            .sheet(isPresented: view.$appState.isShowingInstallationSheet)
             {
                 AddFormulaView(packageInstallationProcessStep: .ready)
             }
-            .sheet(item: $corruptedPackage, onDismiss: {
-                corruptedPackage = nil
+            .sheet(item: view.$corruptedPackage, onDismiss: {
+                view.corruptedPackage = nil
             }, content: { corruptedPackageInternal in
                 ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
             })
-            .sheet(isPresented: $appState.isShowingSudoRequiredForUninstallSheet)
+            .sheet(isPresented: view.$appState.isShowingSudoRequiredForUninstallSheet)
             {
                 SudoRequiredForRemovalSheet()
             }
-            .sheet(isPresented: $appState.isShowingAddTapSheet)
+            .sheet(isPresented: view.$appState.isShowingAddTapSheet)
             {
                 AddTapView()
             }
-            .sheet(isPresented: $appState.isShowingUpdateSheet)
+            .sheet(isPresented: view.$appState.isShowingUpdateSheet)
             {
                 UpdatePackagesView()
             }
-            .sheet(isPresented: $appState.isShowingIncrementalUpdateSheet)
+            .sheet(isPresented: view.$appState.isShowingIncrementalUpdateSheet)
             {
                 UpdateSomePackagesView()
             }
-            .sheet(isPresented: $appState.isShowingBrewfileExportProgress)
+            .sheet(isPresented: view.$appState.isShowingBrewfileExportProgress)
             {
                 BrewfileExportProgressView()
             }
-            .sheet(isPresented: $appState.isShowingBrewfileImportProgress)
+            .sheet(isPresented: view.$appState.isShowingBrewfileImportProgress)
             {
                 BrewfileImportProgressView()
             }
     }
 }
 
-private extension ContentView
+private extension View
 {
-    func alerts() -> some View
+    func alerts(of view: ContentView) -> some View
     {
         self
-            .alert(isPresented: $appState.isShowingFatalError, error: appState.fatalAlertType)
+            .alert(isPresented: view.$appState.isShowingFatalError, error: view.appState.fatalAlertType)
             { error in
                 switch error
                 {
@@ -530,7 +536,7 @@ private extension ContentView
                 case .customBrewExcutableGotDeleted:
                     Button
                     {
-                        customHomebrewPath = ""
+                        view.customHomebrewPath = ""
                     } label: {
                         Text("action.reset-custom-brew-executable")
                     }
@@ -552,12 +558,12 @@ private extension ContentView
                                 }
                                 catch
                                 {
-                                    appState.fatalAlertType = .couldNotClearMetadata
+                                    view.appState.fatalAlertType = .couldNotClearMetadata
                                 }
                             }
                             else
                             {
-                                appState.fatalAlertType = .metadataFolderDoesNotExist
+                                view.appState.fatalAlertType = .metadataFolderDoesNotExist
                             }
                         } label: {
                             Text("action.clear-metadata")
@@ -577,7 +583,7 @@ private extension ContentView
                             }
                             else
                             {
-                                appState.fatalAlertType = .metadataFolderDoesNotExist
+                                view.appState.fatalAlertType = .metadataFolderDoesNotExist
                             }
                         } label: {
                             Text("action.reveal-in-finder")
@@ -598,7 +604,7 @@ private extension ContentView
                 case .installedPackageHasNoVersions(let corruptedPackageName):
                     Button
                     {
-                        self.corruptedPackage = .init(name: corruptedPackageName)
+                        view.corruptedPackage = .init(name: corruptedPackageName)
                     } label: {
                         Text("action.repair-\(corruptedPackageName)")
                     }
@@ -621,7 +627,7 @@ private extension ContentView
                 case .couldNotObtainNotificationPermissions:
                     Button
                     {
-                        appState.dismissAlert()
+                        view.appState.dismissAlert()
                     } label: {
                         Text("action.use-without-notifications")
                     }
@@ -635,8 +641,8 @@ private extension ContentView
                 case .receivedInvalidResponseFromBrew:
                     Button
                     {
-                        appState.dismissAlert()
-                        enableDiscoverability = false
+                        view.appState.dismissAlert()
+                        view.enableDiscoverability = false
                     } label: {
                         Text("action.close")
                     }
@@ -646,7 +652,7 @@ private extension ContentView
                     {
                         Button
                         {
-                            appState.dismissAlert()
+                            view.appState.dismissAlert()
                         } label: {
                             Text("action.close")
                         }
@@ -682,6 +688,10 @@ private extension ContentView
 
                 case .malformedBrewfile:
                     EmptyView()
+                case .tapLoadingFailedDueToTapParentLocation(localizedDescription: let localizedDescription):
+                    EmptyView()
+                case .tapLoadingFailedDueToTapItself(localizedDescription: let localizedDescription):
+                    EmptyView()
                 }
             } message: { error in
                 if let recoverySuggestion = error.recoverySuggestion
@@ -692,35 +702,35 @@ private extension ContentView
     }
 }
 
-private extension ContentView
+private extension View
 {
-    func confirmationDialogs() -> some View
+    func confirmationDialogs(of view: ContentView) -> some View
     {
         self
-        .confirmationDialog(uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: $uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
+            .confirmationDialog(view.uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: view.$uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
         {
             Button(role: .destructive)
             {
-                uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation = false
+                view.uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation = false
 
                 Task
                 {
-                    try await brewData.uninstallSelectedPackage(
-                        package: uninstallationConfirmationTracker.packageThatNeedsConfirmation,
-                        appState: appState,
-                        outdatedPackageTracker: outdatedPackageTracker,
-                        shouldRemoveAllAssociatedFiles: uninstallationConfirmationTracker.shouldPurge,
-                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: uninstallationConfirmationTracker.isCalledFromSidebar
+                    try await view.brewData.uninstallSelectedPackage(
+                        package: view.uninstallationConfirmationTracker.packageThatNeedsConfirmation,
+                        appState: view.appState,
+                        outdatedPackageTracker: view.outdatedPackageTracker,
+                        shouldRemoveAllAssociatedFiles: view.uninstallationConfirmationTracker.shouldPurge,
+                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: view.uninstallationConfirmationTracker.isCalledFromSidebar
                     )
                 }
             } label: {
-                Text(uninstallationConfirmationTracker.shouldPurge ? "action.purge-\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall-\(uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)")
+                Text(view.uninstallationConfirmationTracker.shouldPurge ? "action.purge-\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall-\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)")
             }
             .keyboardShortcut(.defaultAction)
 
             Button(role: .cancel)
             {
-                uninstallationConfirmationTracker.dismissConfirmationDialog()
+                view.uninstallationConfirmationTracker.dismissConfirmationDialog()
             } label: {
                 Text("action.cancel")
             }
