@@ -5,9 +5,9 @@
 //  Created by David Bureš on 05.02.2023.
 //
 
+import CorkShared
 import Foundation
 import SwiftUI
-import CorkShared
 
 extension BrewDataStorage
 {
@@ -17,45 +17,25 @@ extension BrewDataStorage
         appState: AppState,
         outdatedPackageTracker: OutdatedPackageTracker,
         shouldRemoveAllAssociatedFiles: Bool,
-        shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false
+        shouldApplyUninstallSpinnerToRelevantItemInSidebar _: Bool = false
     ) async throws
     {
         /// Store the old navigation selection to see if it got updated in the middle of switching
         let oldNavigationSelectionId: UUID? = appState.navigationTargetId
 
-        /*
-        if shouldApplyUninstallSpinnerToRelevantItemInSidebar
+        self.updatePackageInPlace(package)
+        { package in
+            package.changeBeingModifiedStatus()
+        }
+        
+        defer
         {
-            if package.type == .formula
-            {
-                installedFormulae = Set(installedFormulae.map
-                { formula in
-                    var copyFormula: BrewPackage = formula
-                    if copyFormula.name == package.name
-                    {
-                        copyFormula.changeBeingModifiedStatus()
-                    }
-                    return copyFormula
-                })
-            }
-            else
-            {
-                installedCasks = Set(installedCasks.map
-                { cask in
-                    var copyCask: BrewPackage = cask
-                    if copyCask.name == package.name
-                    {
-                        copyCask.changeBeingModifiedStatus()
-                    }
-                    return copyCask
-                })
+            AppConstants.shared.logger.debug("Would reset state now")
+            self.updatePackageInPlace(package)
+            { package in
+                package.isBeingModified = false
             }
         }
-        else
-        {
-            appState.isShowingUninstallationProgressView = true
-        }
-         */
 
         AppConstants.shared.logger.info("Will try to remove package \(package.name, privacy: .auto)")
         var uninstallCommandOutput: TerminalOutput
@@ -74,9 +54,6 @@ extension BrewDataStorage
         if uninstallCommandOutput.standardError.contains("because it is required by")
         {
             AppConstants.shared.logger.warning("Could not uninstall this package because it's a dependency")
-
-            /// If the uninstallation failed, change the status back to "not being modified"
-            //resetPackageState(package: package)
 
             do
             {
@@ -100,8 +77,7 @@ extension BrewDataStorage
 
             appState.packageTryingToBeUninstalledWithSudo = package
             appState.isShowingSudoRequiredForUninstallSheet = true
-
-            //resetPackageState(package: package)
+            
         }
         else
         {
@@ -132,35 +108,4 @@ extension BrewDataStorage
             }
         }
     }
-
-    /*
-    @MainActor
-    private func resetPackageState(package: BrewPackage)
-    {
-        if package.type == .formula
-        {
-            installedFormulae = Set(installedFormulae.map
-            { formula in
-                var copyFormula: BrewPackage = formula
-                if copyFormula.name == package.name, copyFormula.isBeingModified == true
-                {
-                    copyFormula.changeBeingModifiedStatus()
-                }
-                return copyFormula
-            })
-        }
-        else
-        {
-            installedCasks = Set(installedCasks.map
-            { cask in
-                var copyCask: BrewPackage = cask
-                if copyCask.name == package.name, copyCask.isBeingModified == true
-                {
-                    copyCask.changeBeingModifiedStatus()
-                }
-                return copyCask
-            })
-        }
-    }
-     */
 }
