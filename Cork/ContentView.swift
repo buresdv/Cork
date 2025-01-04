@@ -674,6 +674,9 @@ private extension View
 
                 case .fatalPackageInstallationError:
                     EmptyView()
+                    
+                case .fatalPackageUninstallationError(_):
+                    EmptyView()
 
                 case .couldNotSynchronizePackages:
                     RestartCorkButton()

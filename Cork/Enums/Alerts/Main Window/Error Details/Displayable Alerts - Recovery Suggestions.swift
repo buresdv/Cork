@@ -66,6 +66,8 @@ extension DisplayableAlert
             return String(localized: "message.try-again-or-restart")
         case .fatalPackageInstallationError(let errorDetails):
             return errorDetails
+        case .fatalPackageUninstallationError(_, let errorDetails):
+            return errorDetails
         case .couldNotSynchronizePackages(let error):
             return error
         case .couldNotGetWorkingDirectory:

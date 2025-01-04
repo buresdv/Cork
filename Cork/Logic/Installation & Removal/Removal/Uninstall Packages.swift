@@ -81,16 +81,25 @@ extension BrewDataStorage
         }
         else
         {
-            AppConstants.shared.logger.info("Uninstalling can proceed")
-
             await synchronizeInstalledPackages(brewData: self)
-
-            if appState.navigationTargetId != nil
+            
+            if !uninstallCommandOutput.standardError.isEmpty
             {
-                /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
-                if oldNavigationSelectionId == appState.navigationTargetId
+                AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
+                
+                appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name, errorDetails: uninstallCommandOutput.standardError))
+            }
+            else
+            {
+                AppConstants.shared.logger.info("Uninstalling can proceed")
+                
+                if appState.navigationTargetId != nil
                 {
-                    appState.navigationTargetId = nil
+                    /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
+                    if oldNavigationSelectionId == appState.navigationTargetId
+                    {
+                        appState.navigationTargetId = nil
+                    }
                 }
             }
         }

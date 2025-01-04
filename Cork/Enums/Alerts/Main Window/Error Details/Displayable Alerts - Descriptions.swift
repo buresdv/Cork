@@ -66,6 +66,8 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-find-package-in-parent-directory.title")
         case .fatalPackageInstallationError:
             return String(localized: "alert.fatal-installation.error")
+        case .fatalPackageUninstallationError(let packageName, _):
+            return String(localized: "alert.unable-to-uninstall-\(packageName).title")
         case .couldNotSynchronizePackages:
             return String(localized: "alert.fatal.could-not-synchronize-packages.title")
         case .couldNotGetWorkingDirectory:
