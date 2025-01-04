@@ -205,6 +205,7 @@ struct ContentView: View, Sendable
         }
         .basicsSetup(of: self)
         .packageLoadingTask(of: self)
+        .tapLoadingTask(of: self)
         .analyticsSetupTask(of: self)
         .cachedDownloadsCalculationTask(of: self)
         .onChanges(boundToView: self)
@@ -290,28 +291,8 @@ private extension View
             async let availableFormulae: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
             async let availableCasks: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: view.appState)
 
-            async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
-
             view.brewData.installedFormulae = await availableFormulae ?? .init()
             view.brewData.installedCasks = await availableCasks ?? .init()
-
-            do
-            {
-                view.tapData.addedTaps = try await availableTaps
-            }
-            catch let tapLoadingError as TapLoadingError
-            {
-                switch tapLoadingError {
-                case .couldNotAccessParentTapFolder(let errorDetails):
-                    view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapParentLocation(localizedDescription: tapLoadingError.localizedDescription))
-                case .couldNotReadTapFolderContents(let errorDetails):
-                    view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapItself(localizedDescription: tapLoadingError.localizedDescription))
-                }
-            }
-            catch
-            {
-                
-            }
 
             view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
 
@@ -339,6 +320,32 @@ private extension View
                 view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
             }
         }
+    }
+    
+    func tapLoadingTask(of view: ContentView) -> some View
+    {
+        self
+            .task {
+                async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
+                
+                do
+                {
+                    view.tapData.addedTaps = try await availableTaps
+                }
+                catch let tapLoadingError as TapLoadingError
+                {
+                    switch tapLoadingError {
+                    case .couldNotAccessParentTapFolder(let errorDetails):
+                        view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapParentLocation(localizedDescription: errorDetails))
+                    case .couldNotReadTapFolderContents(let errorDetails):
+                        view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapItself(localizedDescription: errorDetails))
+                    }
+                }
+                catch
+                {
+                    
+                }
+            }
     }
     
     func analyticsSetupTask(of view: ContentView) -> some View

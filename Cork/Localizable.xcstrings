@@ -11646,10 +11646,24 @@
       }
     },
     "alert.could-not-get-contents-of-package-folder.message-%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "alert.could-not-get-contents-of-package-folder.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read package info"
+          }
+        }
+      }
     },
     "alert.could-not-get-new-packages-in-scheduled-update-system.message" : {
       "extractionState" : "manual",
@@ -13891,10 +13905,24 @@
       }
     },
     "alert.tap-loading-failed.tap-itself.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read tap info"
+          }
+        }
+      }
     },
     "alert.tap-loading-failed.tap-parent.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t access folder containing Taps"
+          }
+        }
+      }
     },
     "alert.top-package-retrieval-function-turned-up-empty.message" : {
       "localizations" : {
@@ -15556,7 +15584,14 @@
       }
     },
     "error.intents.general-failure" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t execute intent"
+          }
+        }
+      }
     },
     "error.json-parsing.could-not-convert-string-to-data.%@" : {
       "localizations" : {
@@ -16291,7 +16326,14 @@
       }
     },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t decode installation receipt"
+          }
+        }
+      }
     },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
       "extractionState" : "stale",
@@ -16335,7 +16377,14 @@
       }
     },
     "error.package-loading.could-not-decode-installa-receipt" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t decode installation receipt"
+          }
+        }
+      }
     },
     "error.package-loading.could-not-decode-installa-receipt-%@" : {
       "extractionState" : "stale",
@@ -16522,7 +16571,14 @@
       }
     },
     "error.package-loading.could-not-read-contents-of-parent-folder.%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks" : {
       "localizations" : {
