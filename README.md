@@ -6,6 +6,8 @@ A fast GUI for Homebrew written in SwiftUI
 [![Discord Link](https://img.shields.io/discord/1083475351260377119?label=Talk%20to%20me%20on%20Discord&style=flat)](https://discord.gg/kUHg8uGHpG)
 [![Join the Forums](https://img.shields.io/badge/Join%20the%20Forums-orange?style=flat&link=https://forum.corkmac.app/t/cork)](https://forum.corkmac.app/t/cork)
 
+# My whole life is falling apart right now, so the development of Cork will be impacted
+
 ## Special Thanks
 
 I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implementing a system for getting real-time outputs of Brew commands.
