@@ -83,7 +83,7 @@ extension BrewDataStorage
         {
             await synchronizeInstalledPackages(brewData: self)
             
-            if !uninstallCommandOutput.standardError.isEmpty
+            if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
             {
                 AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
                 
