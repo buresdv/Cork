@@ -212,6 +212,7 @@ struct ContentView: View, Sendable
         .sheets(of: self)
         .alerts(of: self)
         .confirmationDialogs(of: self)
+        .topPackagesLoadingTask(of: self)
     }
 }
 
@@ -332,7 +333,7 @@ private extension View
                 {
                     view.appState.isLoadingTaps = false
                 }
-                
+
                 async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
 
                 do
@@ -342,9 +343,9 @@ private extension View
                 catch let tapLoadingError as TapLoadingError
                 {
                     AppConstants.shared.logger.error("Failed while loading taps: \(tapLoadingError.localizedDescription)")
-                    
+
                     view.appState.failedWhileLoadingTaps = true
-                    
+
                     switch tapLoadingError
                     {
                     case .couldNotAccessParentTapFolder(let errorDetails):
@@ -356,7 +357,7 @@ private extension View
                 catch let unimplementedError
                 {
                     AppConstants.shared.logger.error("Failed while loading taps: Unimplemented error: \(unimplementedError.localizedDescription)")
-                    
+
                     view.appState.failedWhileLoadingTaps = true
                 }
             }
@@ -767,6 +768,18 @@ private extension View
     }
 }
 
+private extension View
+{
+    func topPackagesLoadingTask(of view: ContentView) -> some View
+    {
+        self
+            .task(priority: .low)
+            {
+                await view.loadTopPackages()
+            }
+    }
+}
+
 // MARK: - Functions
 
 private extension ContentView
@@ -777,7 +790,7 @@ private extension ContentView
 
         defer
         {
-            appState.isLoadingTopPackages = false
+            self.appState.isLoadingTopPackages = false
         }
 
         await self.topPackagesTracker.loadTopPackages(numberOfDays: self.discoverabilityDaySpan.rawValue, appState: self.appState)
