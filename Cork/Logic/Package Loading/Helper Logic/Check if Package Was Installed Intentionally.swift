@@ -42,7 +42,7 @@ extension URL
         {
             throw .failedToDetermineMostRelevantVersion(packageURL: self)
             
-            //throw .failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-load-version-to-check-from-available-versions"))
+            // throw .failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-load-version-to-check-from-available-versions"))
         }
         
         if path.contains("Cellar")
@@ -76,7 +76,7 @@ extension URL
                         
                         throw IntentionalInstallationDiscoveryError.failedToParseInstallationReceipt(packageURL: self)
                         
-                        //throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)"))
+                        // throw PackageLoadingError.failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-decode-installa-receipt-\(installReceiptParsingError.localizedDescription)"))
                     }
                 }
                 catch let installReceiptLoadingError
@@ -85,12 +85,11 @@ extension URL
                     
                     throw .failedToReadInstallationRecepit(packageURL: self)
                     
-                    //throw .failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)"))
+                    // throw .failedWhileLoadingCertainPackage(self.lastPathComponent, self, failureReason: String(localized: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-\(installReceiptLoadingError.localizedDescription)"))
                 }
             }
             else
             { /// There's no install receipt for this package - silently fail and return that the packagw was not installed intentionally
-              // TODO: Add a setting like "Strictly check for errors" that would instead throw an error here
                 
                 AppConstants.shared.logger.error("There appears to be no install receipt for package \(localPackageInfoJSONPath.lastPathComponent, privacy: .public)")
                 
@@ -100,7 +99,7 @@ extension URL
                 {
                     throw .installationReceiptMissingCompletely(packageURL: self)
                     
-                    //throw .failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.missing-install-receipt"))
+                    // throw .failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.missing-install-receipt"))
                 }
                 else
                 {
@@ -115,7 +114,7 @@ extension URL
         else
         {
             throw .unexpectedFolderName(packageURL: self)
-            //throw .failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.unexpected-folder-name"))
+            // throw .failedWhileLoadingCertainPackage(lastPathComponent, self, failureReason: String(localized: "error.package-loading.unexpected-folder-name"))
         }
     }
 }

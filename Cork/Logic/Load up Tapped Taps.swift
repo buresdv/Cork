@@ -13,6 +13,7 @@ extension TapTracker
     @MainActor
     func loadUpTappedTaps() async throws(TapLoadingError) -> [BrewTap]
     {
+        
         var finalAvailableTaps: [BrewTap] = .init()
 
         do

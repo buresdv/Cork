@@ -17,10 +17,22 @@ struct FormulaeSection: View
 
     let currentTokens: [PackageSearchToken]
     let searchText: String
+    
+    private var areNoFormulaeInstalled: Bool
+    {
+        if !appState.isLoadingFormulae && brewData.numberOfInstalledFormulae == 0
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 
     var body: some View
     {
-        Section("sidebar.section.installed-formulae")
+        Section(areNoFormulaeInstalled ? "sidebar.status.no-formulae-installed" : "sidebar.section.installed-formulae")
         {
             if appState.failedWhileLoadingFormulae
             {
@@ -55,7 +67,7 @@ struct FormulaeSection: View
                 }
             }
         }
-        .collapsible(true)
+        .collapsible(areNoFormulaeInstalled ? false : true)
     }
 
     private var displayedFormulae: Set<BrewPackage>

@@ -328,6 +328,11 @@ private extension View
         self
             .task
             {
+                defer
+                {
+                    view.appState.isLoadingTaps = false
+                }
+                
                 async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
 
                 do
@@ -351,6 +356,8 @@ private extension View
                 catch let unimplementedError
                 {
                     AppConstants.shared.logger.error("Failed while loading taps: Unimplemented error: \(unimplementedError.localizedDescription)")
+                    
+                    view.appState.failedWhileLoadingTaps = true
                 }
             }
     }

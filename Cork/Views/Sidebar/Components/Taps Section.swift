@@ -5,8 +5,8 @@
 //  Created by David Bureš on 03.06.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct TapsSection: View
 {
@@ -21,25 +21,30 @@ struct TapsSection: View
         {
             if appState.failedWhileLoadingTaps
             {
-                HStack {
+                HStack
+                {
                     Image("custom.spigot.badge.xmark")
                     Text("error.package-loading.could-not-load-taps.title")
                 }
             }
             else
             {
-                if !availableTaps.addedTaps.isEmpty
+                if appState.isLoadingTaps
+                {
+                    ProgressView()
+                }
+                else
                 {
                     ForEach(displayedTaps)
                     { tap in
                         NavigationLink(value: tap)
                         {
                             Text(tap.name)
-                            
+
                             if tap.isBeingModified
                             {
                                 Spacer()
-                                
+
                                 ProgressView()
                                     .frame(height: 5)
                                     .scaleEffect(0.5)
@@ -60,10 +65,6 @@ struct TapsSection: View
                             }
                         }
                     }
-                }
-                else
-                {
-                    ProgressView()
                 }
             }
         }

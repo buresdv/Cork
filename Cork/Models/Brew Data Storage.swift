@@ -91,18 +91,28 @@ class BrewDataStorage: ObservableObject
 
 extension BrewDataStorage
 {
-    var numberOfInstalledPackages: Int
+    var numberOfInstalledFormulae: Int
     {
-        var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = UserDefaults.standard.bool(forKey: "displayOnlyIntentionallyInstalledPackagesByDefault")
+        let displayOnlyIntentionallyInstalledPackagesByDefault: Bool = UserDefaults.standard.bool(forKey: "displayOnlyIntentionallyInstalledPackagesByDefault")
         
         if displayOnlyIntentionallyInstalledPackagesByDefault
         {
-            return self.successfullyLoadedFormulae.filter(\.installedIntentionally).count + self.successfullyLoadedCasks.count
+            return self.successfullyLoadedFormulae.filter(\.installedIntentionally).count
         }
         else
         {
-            return self.successfullyLoadedFormulae.count + self.successfullyLoadedCasks.count
+            return self.successfullyLoadedFormulae.count
         }
+    }
+    
+    var numberOfInstalledCasks: Int
+    {
+        return self.successfullyLoadedCasks.count
+    }
+    
+    var numberOfInstalledPackages: Int
+    {
+        return self.numberOfInstalledFormulae + self.numberOfInstalledCasks
     }
 }
 

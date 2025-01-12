@@ -28,7 +28,7 @@ struct StartPage: View
     {
         VStack
         {
-            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+            if appState.isLoadingFormulae && appState.isLoadingCasks || appState.isLoadingTaps
             {
                 ProgressView("start-page.loading")
             }

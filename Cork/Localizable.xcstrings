@@ -40804,6 +40804,26 @@
         }
       }
     },
+    "sidebar.status.no-casks-installed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Casks installed"
+          }
+        }
+      }
+    },
+    "sidebar.status.no-formulae-installed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Formulae installed"
+          }
+        }
+      }
+    },
     "start-page.added-taps.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
