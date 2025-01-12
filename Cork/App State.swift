@@ -62,17 +62,27 @@ class AppState: ObservableObject
 
     @Published var isShowingIncrementalUpdateSheet: Bool = false
 
+    // MARK: - Loading of packages and taps
     @Published var isLoadingFormulae: Bool = true
     @Published var isLoadingCasks: Bool = true
-
+    @Published var isLoadingTaps: Bool = true
+    
     @Published var isLoadingTopPackages: Bool = false
+    
+    // MARK: - Loading errors
+    @Published var failedWhileLoadingFormulae: Bool = false
+    @Published var failedWhileLoadingCasks: Bool = false
+    @Published var failedWhileLoadingTaps: Bool = false
+    
     @Published var failedWhileLoadingTopPackages: Bool = false
 
+    // MARK: - Caches
     @Published var cachedDownloadsFolderSize: Int64 = AppConstants.shared.brewCachedDownloadsPath.directorySize
     @Published var cachedDownloads: [CachedDownload] = .init()
 
     private var cachedDownloadsTemp: [CachedDownload] = .init()
 
+    // MARK: - Tagging
     @Published var taggedPackageNames: Set<String> = .init()
 
     @Published var corruptedPackage: String = ""

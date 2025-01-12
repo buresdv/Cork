@@ -22,25 +22,39 @@ struct FormulaeSection: View
     {
         Section("sidebar.section.installed-formulae")
         {
-            if appState.isLoadingFormulae
+            if appState.failedWhileLoadingFormulae
             {
-                ProgressView()
+                if #available(macOS 14.0, *)
+                {
+                    ContentUnavailableView("error.package-loading.could-not-load-formulae.title", image: "custom.terminal.badge.xmark")
+                }
+                else
+                {
+                    NoContentAvailableViewWithArbitraryImage(title: "error.package-loading.could-not-load-formulae.title", image: "custom.terminal.badge.xmark")
+                }
             }
             else
             {
-                ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
-                    switch sortPackagesBy
-                    {
-                    case .alphabetically:
-                        return firstPackage.name < secondPackage.name
-                    case .byInstallDate:
-                        return firstPackage.installedOn! < secondPackage.installedOn!
-                    case .bySize:
-                        return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                if appState.isLoadingFormulae
+                {
+                    ProgressView()
+                }
+                else
+                {
+                    ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
+                        switch sortPackagesBy
+                        {
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                        }
+                    }))
+                    { formula in
+                        SidebarPackageRow(package: formula)
                     }
-                }))
-                { formula in
-                    SidebarPackageRow(package: formula)
                 }
             }
         }

@@ -34,3 +34,29 @@ struct NoContentAvailableView: View
         .fillAvailableSpace()
     }
 }
+
+struct NoContentAvailableViewWithArbitraryImage: View
+{
+    let title: LocalizedStringKey
+    let image: String
+    let description: Text? = nil
+
+    var body: some View
+    {
+        VStack(alignment: .center, spacing: 10)
+        {
+            Image(image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50)
+
+            Text(title)
+                .font(.title)
+                .multilineTextAlignment(.center)
+
+            description
+        }
+        .foregroundColor(.gray)
+        .fillAvailableSpace()
+    }
+}

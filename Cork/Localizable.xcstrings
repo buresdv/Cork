@@ -16473,6 +16473,26 @@
         }
       }
     },
+    "error.package-loading.could-not-load-casks.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load Casks"
+          }
+        }
+      }
+    },
+    "error.package-loading.could-not-load-formulae.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load Formulae"
+          }
+        }
+      }
+    },
     "error.package-loading.could-not-load-packages" : {
       "localizations" : {
         "cs" : {

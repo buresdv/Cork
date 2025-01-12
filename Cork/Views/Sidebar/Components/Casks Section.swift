@@ -20,25 +20,39 @@ struct CasksSection: View
     {
         Section("sidebar.section.installed-casks")
         {
-            if appState.isLoadingCasks
+            if appState.failedWhileLoadingCasks
             {
-                ProgressView()
+                if #available(macOS 14.0, *)
+                {
+                    ContentUnavailableView("error.package-loading.could-not-load-casks.title", image: "custom.macwindow.badge.xmark")
+                }
+                else
+                {
+                    NoContentAvailableViewWithArbitraryImage(title: "error.package-loading.could-not-load-casks.title", image: "custom.macwindow.badge.xmark")
+                }
             }
             else
             {
-                ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
-                    switch sortPackagesBy
-                    {
-                    case .alphabetically:
-                        return firstPackage.name < secondPackage.name
-                    case .byInstallDate:
-                        return firstPackage.installedOn! < secondPackage.installedOn!
-                    case .bySize:
-                        return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                if appState.isLoadingCasks
+                {
+                    ProgressView()
+                }
+                else
+                {
+                    ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
+                        switch sortPackagesBy
+                        {
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                        }
+                    }))
+                    { cask in
+                        SidebarPackageRow(package: cask)
                     }
-                }))
-                { cask in
-                    SidebarPackageRow(package: cask)
                 }
             }
         }

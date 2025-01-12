@@ -69,6 +69,14 @@ extension BrewDataStorage
                     ))
             }
 
+            switch packageTypeToLoad
+            {
+            case .formula:
+                appState.failedWhileLoadingFormulae = true
+            case .cask:
+                appState.failedWhileLoadingCasks = true
+            }
+            
             return nil
         }
     }
