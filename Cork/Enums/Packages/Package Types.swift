@@ -7,43 +7,37 @@
 
 import AppIntents
 import Charts
-import Foundation
 import CorkShared
+import Foundation
 
-enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
-{
+enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable {
     case formula
     case cask
 
     /// User-readable description of the package type
-    var description: String
-    {
-        switch self
-        {
+    var description: String {
+        switch self {
         case .formula:
             return String(localized: "package-details.type.formula")
         case .cask:
             return String(localized: "package-details.type.cask")
         }
     }
-    
+
     /// Parent folder for this package type
-    var parentFolder: URL
-    {
+    var parentFolder: URL {
         switch self {
-            case .formula:
-                return AppConstants.shared.brewCellarPath
-            case .cask:
-                return AppConstants.shared.brewCaskPath
+        case .formula:
+            return AppConstants.shared.brewCellarPath
+        case .cask:
+            return AppConstants.shared.brewCaskPath
         }
     }
 
     static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
 
-    var displayRepresentation: DisplayRepresentation
-    {
-        switch self
-        {
+    var displayRepresentation: DisplayRepresentation {
+        switch self {
         case .formula:
             DisplayRepresentation(title: "package-details.type.formula")
         case .cask:

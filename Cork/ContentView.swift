@@ -522,7 +522,7 @@ private extension View
             { error in
                 switch error
                 {
-                case .couldNotGetContentsOfPackageFolder(let failureReason):
+                case .couldNotGetContentsOfPackageFolder(_):
                     EmptyView()
 
                 case .uninstallationNotPossibleDueToDependency:
@@ -714,10 +714,10 @@ private extension View
                 case .malformedBrewfile:
                     EmptyView()
 
-                case .tapLoadingFailedDueToTapParentLocation(localizedDescription: let localizedDescription):
+                case .tapLoadingFailedDueToTapParentLocation(localizedDescription: _):
                     EmptyView()
 
-                case .tapLoadingFailedDueToTapItself(localizedDescription: let localizedDescription):
+                case .tapLoadingFailedDueToTapItself(localizedDescription: _):
                     EmptyView()
                 }
             } message: { error in

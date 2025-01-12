@@ -111,11 +111,11 @@ struct StartPage: View
                             {
                                 switch outdatedPackageRetrievalError
                                 {
-                                    case .homeNotSet:
-                                        appState.showAlert(errorToShow: .homePathNotSet)
-                                    default:
-                                        AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                                case .homeNotSet:
+                                    appState.showAlert(errorToShow: .homePathNotSet)
+                                default:
+                                    AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                    errorOutReason = outdatedPackageRetrievalError.localizedDescription
                                 }
                             }
                             catch

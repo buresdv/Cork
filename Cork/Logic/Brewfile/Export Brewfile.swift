@@ -56,7 +56,7 @@ func exportBrewfile(appState: AppState) async throws -> String
         throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
     }
 
-    if !brewfileDumpingResult.standardError.isEmpty
+    if brewfileDumpingResult.standardError.contains("(E|e)rror")
     {
         throw BrewfileDumpingError.errorWhileDumpingBrewfile(error: brewfileDumpingResult.standardError)
     }
