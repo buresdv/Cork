@@ -16561,6 +16561,16 @@
         }
       }
     },
+    "error.package-loading.could-not-load-taps.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load Taps"
+          }
+        }
+      }
+    },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
       "localizations" : {
         "cs" : {

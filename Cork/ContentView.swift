@@ -336,6 +336,10 @@ private extension View
                 }
                 catch let tapLoadingError as TapLoadingError
                 {
+                    AppConstants.shared.logger.error("Failed while loading taps: \(tapLoadingError.localizedDescription)")
+                    
+                    view.appState.failedWhileLoadingTaps = true
+                    
                     switch tapLoadingError
                     {
                     case .couldNotAccessParentTapFolder(let errorDetails):
@@ -344,8 +348,10 @@ private extension View
                         view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapItself(localizedDescription: errorDetails))
                     }
                 }
-                catch
-                {}
+                catch let unimplementedError
+                {
+                    AppConstants.shared.logger.error("Failed while loading taps: Unimplemented error: \(unimplementedError.localizedDescription)")
+                }
             }
     }
 

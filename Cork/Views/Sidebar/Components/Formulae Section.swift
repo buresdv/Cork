@@ -24,13 +24,10 @@ struct FormulaeSection: View
         {
             if appState.failedWhileLoadingFormulae
             {
-                if #available(macOS 14.0, *)
+                HStack
                 {
-                    ContentUnavailableView("error.package-loading.could-not-load-formulae.title", image: "custom.terminal.badge.xmark")
-                }
-                else
-                {
-                    NoContentAvailableViewWithArbitraryImage(title: "error.package-loading.could-not-load-formulae.title", image: "custom.terminal.badge.xmark")
+                    Image("custom.terminal.badge.xmark")
+                    Text("error.package-loading.could-not-load-formulae.title")
                 }
             }
             else

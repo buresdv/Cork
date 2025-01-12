@@ -22,14 +22,8 @@ struct CasksSection: View
         {
             if appState.failedWhileLoadingCasks
             {
-                if #available(macOS 14.0, *)
-                {
-                    ContentUnavailableView("error.package-loading.could-not-load-casks.title", image: "custom.macwindow.badge.xmark")
-                }
-                else
-                {
-                    NoContentAvailableViewWithArbitraryImage(title: "error.package-loading.could-not-load-casks.title", image: "custom.macwindow.badge.xmark")
-                }
+                Image("custom.macwindow.badge.xmark")
+                Text("error.package-loading.could-not-load-casks.title")
             }
             else
             {
