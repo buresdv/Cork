@@ -16,7 +16,7 @@ extension BrewDataStorage
     {
         if package.type == .formula
         {
-            var updatedFormulae = installedFormulae
+            var updatedFormulae: BrewPackages = installedFormulae
             if let index = updatedFormulae.firstIndex(where: {
                 if case .success(let packageCopy) = $0
                 {
@@ -25,7 +25,7 @@ extension BrewDataStorage
                 return false
             })
             {
-                var updatedPackage = package
+                var updatedPackage: BrewPackage = package
                 modification(&updatedPackage)
                 updatedFormulae.remove(at: index)
                 updatedFormulae.insert(.success(updatedPackage))
@@ -34,7 +34,7 @@ extension BrewDataStorage
         }
         else
         {
-            var updatedCasks = installedCasks
+            var updatedCasks: BrewPackages = installedCasks
             if let index = updatedCasks.firstIndex(where: {
                 if case .success(let packageCopy) = $0
                 {
@@ -43,7 +43,7 @@ extension BrewDataStorage
                 return false
             })
             {
-                var updatedPackage = package
+                var updatedPackage: BrewPackage = package
                 modification(&updatedPackage)
                 updatedCasks.remove(at: index)
                 updatedCasks.insert(.success(updatedPackage))
