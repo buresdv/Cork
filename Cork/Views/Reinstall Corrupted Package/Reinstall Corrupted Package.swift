@@ -50,7 +50,14 @@ struct ReinstallCorruptedPackageView: View
                 }
                 .task(priority: .background)
                 {
-                    await synchronizeInstalledPackages(brewData: brewData)
+                    do
+                    {
+                        try await brewData.synchronizeInstalledPackages()
+                    }
+                    catch let synchronizationError
+                    {
+                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                    }
                 }
             }
             .padding()

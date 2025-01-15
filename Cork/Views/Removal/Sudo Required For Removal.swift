@@ -44,7 +44,14 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 
                         Task.detached
                         {
-                            await synchronizeInstalledPackages(brewData: brewData)
+                            do
+                            {
+                                try await brewData.synchronizeInstalledPackages()
+                            }
+                            catch let synchronizationError
+                            {
+                                await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                            }
                         }
                     } label: {
                         Text("action.close")

@@ -11,6 +11,7 @@ import CorkNotifications
 
 struct MenuBar_OrphanCleanup: View
 {
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @State private var isUninstallingOrphanedPackages: Bool = false
@@ -46,7 +47,14 @@ struct MenuBar_OrphanCleanup: View
                         )
                     }
 
-                    await synchronizeInstalledPackages(brewData: brewData)
+                    do
+                    {
+                        try await brewData.synchronizeInstalledPackages()
+                    }
+                    catch let synchronizationError
+                    {
+                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                    }
                 }
             }
         }

@@ -11,6 +11,7 @@ struct SudoRequiredView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
@@ -43,7 +44,14 @@ struct SudoRequiredView: View, Sendable
 
                     Task.detached
                     {
-                        await synchronizeInstalledPackages(brewData: brewData)
+                        do
+                        {
+                            try await brewData.synchronizeInstalledPackages()
+                        }
+                        catch let synchronizatonError
+                        {
+                            await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizatonError.localizedDescription))
+                        }
                     }
                 } label: {
                     Text("action.close")

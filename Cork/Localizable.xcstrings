@@ -16889,6 +16889,9 @@
         }
       }
     },
+    "error.package-synchronization.returned-nil" : {
+
+    },
     "error.permissions.could-not-obtain-folder-access-permissions.%@" : {
       "localizations" : {
         "cs" : {

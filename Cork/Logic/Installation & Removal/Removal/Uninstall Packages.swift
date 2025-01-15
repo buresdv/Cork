@@ -81,26 +81,33 @@ extension BrewDataStorage
         }
         else
         {
-            await synchronizeInstalledPackages(brewData: self)
-            
-            if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
+            do
             {
-                AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
+                try await self.synchronizeInstalledPackages()
                 
-                appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name, errorDetails: uninstallCommandOutput.standardError))
-            }
-            else
-            {
-                AppConstants.shared.logger.info("Uninstalling can proceed")
-                
-                if appState.navigationTargetId != nil
+                if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
                 {
-                    /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
-                    if oldNavigationSelectionId == appState.navigationTargetId
+                    AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
+                    
+                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name, errorDetails: uninstallCommandOutput.standardError))
+                }
+                else
+                {
+                    AppConstants.shared.logger.info("Uninstalling can proceed")
+                    
+                    if appState.navigationTargetId != nil
                     {
-                        appState.navigationTargetId = nil
+                        /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
+                        if oldNavigationSelectionId == appState.navigationTargetId
+                        {
+                            appState.navigationTargetId = nil
+                        }
                     }
                 }
+            }
+            catch let synchronizationError
+            {
+                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
             }
         }
 

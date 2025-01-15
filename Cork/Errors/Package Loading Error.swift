@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Error representing failures while loading
 enum PackageLoadingError: LocalizedError, Hashable
 {
     /// When attempting to get the list of raw URLs from the folder containing the packages, the function for loading packages returned nil, therefore, an error occured

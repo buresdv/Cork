@@ -46,23 +46,28 @@ extension BrewDataStorage
             switch packageLoadingError
             {
             case .couldNotReadContentsOfParentFolder(let loadingError):
+                AppConstants.shared.logger.error("Failed while loading packages: Could not read contents of parent folder: \(loadingError)")
                 appState.showAlert(errorToShow: .couldNotGetContentsOfPackageFolder(loadingError))
             case .failedWhileLoadingPackages:
+                AppConstants.shared.logger.error("Failed while loading packages: Could not read any packages")
                 appState.showAlert(
                     errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
             case .failedWhileLoadingCertainPackage(
                 let offendingPackage, let offendingPackageURL, let failureReason
             ):
+                AppConstants.shared.logger.error("Failed while loading packages: Could not laod a certain package: \(failureReason)")
                 appState.showAlert(
                     errorToShow: .couldNotLoadCertainPackage(
                         offendingPackage, offendingPackageURL,
                         failureReason: failureReason
                     ))
             case .packageDoesNotHaveAnyVersionsInstalled(let offendingPackage):
+                AppConstants.shared.logger.error("Failed while loading packages: Package \(offendingPackage) does not have any versions installed")
                 appState.showAlert(
                     errorToShow: .installedPackageHasNoVersions(
                         corruptedPackageName: offendingPackage))
             case .packageIsNotAFolder(let offendingFile, let offendingFileURL):
+                AppConstants.shared.logger.error("Failed while loading packages: Package \(offendingFileURL.path()) is not a folder")
                 appState.showAlert(
                     errorToShow: .installedPackageIsNotAFolder(
                         itemName: offendingFile, itemURL: offendingFileURL

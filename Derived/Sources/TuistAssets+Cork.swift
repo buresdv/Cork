@@ -22,11 +22,14 @@
 public enum CorkAsset: Sendable {
   public enum Assets {
   public static let accentColor = CorkColors(name: "AccentColor")
+    public static let customMacwindowBadgeXmark = CorkImages(name: "custom.macwindow.badge.xmark")
     public static let customPinFillQuestionmark = CorkImages(name: "custom.pin.fill.questionmark")
+    public static let customSpigotBadgeXmark = CorkImages(name: "custom.spigot.badge.xmark")
     public static let customSquareStackBadgePause = CorkImages(name: "custom.square.stack.badge.pause")
     public static let customSquareStackBadgePlay = CorkImages(name: "custom.square.stack.badge.play")
     public static let customSquareStackBadgeQuestionmark = CorkImages(name: "custom.square.stack.badge.questionmark")
     public static let customSquareStackTrianglebadgeExclamationmark = CorkImages(name: "custom.square.stack.trianglebadge.exclamationmark")
+    public static let customTerminalBadgeXmark = CorkImages(name: "custom.terminal.badge.xmark")
     public static let customTrashTriangleFill = CorkImages(name: "custom.trash.triangle.fill")
   }
   public enum PreviewAssets {
