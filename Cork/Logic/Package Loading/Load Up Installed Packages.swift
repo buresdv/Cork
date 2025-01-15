@@ -106,6 +106,8 @@ private extension BrewDataStorage
             { taskGroup in
                 for packageURL in urlsInParentFolder
                 {
+                    AppConstants.shared.logger.debug("Will add package at URL \(packageURL) to the package loading task group")
+                    
                     guard taskGroup.addTaskUnlessCancelled(priority: .high, operation: {
                         await self.loadInstalledPackage(packageURL: packageURL)
                     })
@@ -118,8 +120,12 @@ private extension BrewDataStorage
                 var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
                 for await loadedPackage in taskGroup
                 {
+                    AppConstants.shared.logger.debug("Will insert package \(loadedPackages) to the package result array")
+                    
                     loadedPackages.insert(loadedPackage)
                 }
+                
+                AppConstants.shared.logger.debug("Loaded packages: \(loadedPackages)")
 
                 return loadedPackages
             }
@@ -141,6 +147,8 @@ private extension BrewDataStorage
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.lastPathComponent
+        
+        AppConstants.shared.logger.debug("Package name to load: \(packageName). Will check if this is a legit package")
 
         /// Check if we're not trying to read versions in the Cellar or Caskroom folder itself - this usually means Homebrew is broken
         guard packageName != "Cellar", packageName != "Caskroom"
@@ -156,6 +164,8 @@ private extension BrewDataStorage
                 return .failure(PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks")))
             }
         }
+        
+        AppConstants.shared.logger.debug("Package \(packageName) is legit. Will try to process it")
 
         /// Let's try to parse the package now
         do
@@ -174,9 +184,13 @@ private extension BrewDataStorage
 
             do
             {
+                AppConstants.shared.logger.debug("Will check if package \(packageName) was installed intentionally")
+                
                 let wasPackageInstalledIntentionally: Bool = try await packageURL.checkIfPackageWasInstalledIntentionally(versionURLs: versionURLs)
-
-                return .success(
+                
+                AppConstants.shared.logger.debug("Package \(packageName) \(wasPackageInstalledIntentionally ? "was" : "was not") installed intentionally")
+                
+                let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
                     .init(
                         name: packageName,
                         type: packageURL.packageType,
@@ -186,6 +200,8 @@ private extension BrewDataStorage
                         sizeInBytes: packageURL.directorySize
                     )
                 )
+
+                return loadedPackage
             }
             catch let intentionalInstallationDiscoveryError
             {

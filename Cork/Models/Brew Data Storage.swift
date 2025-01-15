@@ -30,6 +30,21 @@ class BrewDataStorage: ObservableObject
             }
         })
     }
+    
+    /// Collected errors from failed Formulae loading
+    var unsuccessfullyLoadedFormulaeErrors: Set<PackageLoadingError>
+    {
+        return Set(installedFormulae.compactMap
+       { rawResult in
+            if case .failure(let failure) = rawResult {
+                return failure
+            }
+            else
+            {
+                return nil
+            }
+        })
+    }
 
     /// Casks that were successfuly loaded from disk
     var successfullyLoadedCasks: Set<BrewPackage>
@@ -39,6 +54,21 @@ class BrewDataStorage: ObservableObject
             if case .success(let success) = rawResult
             {
                 return success
+            }
+            else
+            {
+                return nil
+            }
+        })
+    }
+    
+    /// Collected errors from failed Casks loading
+    var unsuccessfullyLoadedCasksErrors: Set<PackageLoadingError>
+    {
+        return Set(installedCasks.compactMap
+        { rawResult in
+            if case .failure(let failure) = rawResult {
+                return failure
             }
             else
             {
