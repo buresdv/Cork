@@ -8,7 +8,7 @@
 import Foundation
 
 /// Error representing failures while loading
-enum PackageLoadingError: LocalizedError, Hashable
+enum PackageLoadingError: LocalizedError, Hashable, Identifiable
 {
     /// When attempting to get the list of raw URLs from the folder containing the packages, the function for loading packages returned nil, therefore, an error occured
     case couldNotReadContentsOfParentFolder(failureReason: String)
@@ -42,5 +42,10 @@ enum PackageLoadingError: LocalizedError, Hashable
         case .numberOLoadedPackagesDosNotMatchNumberOfPackageFolders:
             return String(localized: "error.package-loading.number-of-loaded-poackages-does-not-match-number-of-package-folders", comment: "This error occurs when there's a mismatch between the number of loaded packages, and the number of package folders in the package folders")
         }
+    }
+    
+    var id: UUID
+    {
+        return UUID.init()
     }
 }

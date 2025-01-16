@@ -69,6 +69,14 @@ struct StartPage: View
                                   */
                             }
                         }
+                        
+                        if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+                        {
+                            Section
+                            {
+                                LoadingErrorsBox()
+                            }
+                        }
 
                         Section
                         {

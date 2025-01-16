@@ -42682,6 +42682,12 @@
         }
       }
     },
+    "start-page.unloaded-casks.count-%lld" : {
+
+    },
+    "start-page.unloaded-formulae.count-%lld" : {
+
+    },
     "start-page.upcoming-changes" : {
       "extractionState" : "stale",
       "localizations" : {
