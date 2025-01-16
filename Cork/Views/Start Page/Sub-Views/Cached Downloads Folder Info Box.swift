@@ -11,6 +11,8 @@ import SwiftUI
 struct CachedDownloadsFolderInfoBox: View
 {
     @EnvironmentObject var appState: AppState
+    
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
     var body: some View
     {
@@ -20,7 +22,7 @@ struct CachedDownloadsFolderInfoBox: View
             {
                 GroupBoxHeadlineGroup(
                     image: "archivebox",
-                    title: "start-page.cached-downloads-\(appState.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
+                    title: "start-page.cached-downloads-\(cachedDownloadsTracker.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
                     mainText: "start-page.cached-downloads.description"
                 )
 
@@ -34,13 +36,13 @@ struct CachedDownloadsFolderInfoBox: View
                 }
             }
 
-            if !appState.cachedDownloads.isEmpty
+            if !cachedDownloadsTracker.cachedDownloads.isEmpty
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
                     Chart
                     {
-                        ForEach(appState.cachedDownloads)
+                        ForEach(cachedDownloadsTracker.cachedDownloads)
                         { cachedPackage in
                             BarMark(
                                 x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
@@ -54,10 +56,10 @@ struct CachedDownloadsFolderInfoBox: View
                             }
 
                             /// Insert the separators between the bars, unless it's the last one. Then don't insert the divider
-                            if cachedPackage.packageName != appState.cachedDownloads.last?.packageName
+                            if cachedPackage.packageName != cachedDownloadsTracker.cachedDownloads.last?.packageName
                             {
                                 BarMark(
-                                    x: .value("start-page.cached-downloads.graph.size", appState.cachedDownloadsFolderSize / 500)
+                                    x: .value("start-page.cached-downloads.graph.size", cachedDownloadsTracker.cachedDownloadsFolderSize / 500)
                                 )
                                 .foregroundStyle(Color.white)
                             }

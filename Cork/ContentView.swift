@@ -30,6 +30,8 @@ struct ContentView: View, Sendable
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var tapData: TapTracker
+    
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
@@ -295,7 +297,7 @@ private extension View
                 view.brewData.installedFormulae = await availableFormulae ?? .init()
                 view.brewData.installedCasks = await availableCasks ?? .init()
 
-                view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
+                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
 
                 do
                 {
@@ -407,11 +409,11 @@ private extension View
         self
             .task(priority: .background)
             {
-                if view.appState.cachedDownloads.isEmpty
+                if view.cachedDownloadsTracker.cachedDownloads.isEmpty
                 {
                     AppConstants.shared.logger.info("Will calculate cached downloads")
-                    await view.appState.loadCachedDownloadedPackages()
-                    view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages()
+                    view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
                 }
             }
     }
@@ -422,14 +424,14 @@ private extension View
     func onChanges(boundToView view: ContentView) -> some View
     {
         self
-            .onChange(of: view.appState.cachedDownloadsFolderSize)
+            .onChange(of: view.cachedDownloadsTracker.cachedDownloadsFolderSize)
             { _ in
                 Task(priority: .background)
                 {
                     AppConstants.shared.logger.info("Will recalculate cached downloads")
-                    view.appState.cachedDownloads = .init()
-                    await view.appState.loadCachedDownloadedPackages()
-                    view.appState.assignPackageTypeToCachedDownloads(brewData: view.brewData)
+                    view.cachedDownloadsTracker.cachedDownloads = .init()
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages()
+                    view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
                 }
             }
             .onChange(of: view.areNotificationsEnabled, perform: { newValue in

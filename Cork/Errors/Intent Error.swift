@@ -7,13 +7,16 @@
 
 import Foundation
 
-enum IntentError: LocalizedError {
+enum IntentError: LocalizedError
+{
     case failedWhilePerformingIntent
 
-    var errorDescription: String? {
-        switch self {
-            case .failedWhilePerformingIntent:
-                return String(localized: "error.intents.general-failure")
+    var errorDescription: String?
+    {
+        switch self
+        {
+        case .failedWhilePerformingIntent:
+            return String(localized: "error.intents.general-failure")
         }
     }
 }
