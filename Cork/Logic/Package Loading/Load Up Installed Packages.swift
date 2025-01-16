@@ -72,6 +72,9 @@ extension BrewDataStorage
                     errorToShow: .installedPackageIsNotAFolder(
                         itemName: offendingFile, itemURL: offendingFileURL
                     ))
+            case .numberOLoadedPackagesDosNotMatchNumberOfPackageFolders:
+                AppConstants.shared.logger.error("Failed while loading packages: Number of loaded packages does not match the number of URLs in package folder")
+                appState.showAlert(errorToShow: .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders)
             }
 
             switch packageTypeToLoad
@@ -108,13 +111,21 @@ private extension BrewDataStorage
                 {
                     AppConstants.shared.logger.debug("Will add package at URL \(packageURL) to the package loading task group")
                     
+                    taskGroup.addTask
+                    {
+                        await self.loadInstalledPackage(packageURL: packageURL)
+                    }
+                    
+                    /*
                     guard taskGroup.addTaskUnlessCancelled(priority: .high, operation: {
                         await self.loadInstalledPackage(packageURL: packageURL)
                     })
                     else
                     {
+                        AppConstants.shared.logger.warning("Package loading task group got cancelled")
                         break
                     }
+                     */
                 }
 
                 var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
@@ -130,6 +141,17 @@ private extension BrewDataStorage
                 return loadedPackages
             }
 
+            let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
+            
+            if shouldStrictlyCheckForHomebrewErrors
+            {
+                /// Check if the number of loaded packages, both successful and failed, matches the number of package URLs in the package container folder
+                guard packageLoader.count == urlsInParentFolder.count else
+                {
+                    throw PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders
+                }
+            }
+            
             return packageLoader
         }
         catch let parentFolderReadingError

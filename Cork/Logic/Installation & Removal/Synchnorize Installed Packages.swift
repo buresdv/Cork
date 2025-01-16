@@ -26,7 +26,10 @@ extension BrewDataStorage
             throw .synchronizationReturnedNil
         }
         
-        self.installedFormulae = safeUpdatedFormulaeTracker
-        self.installedCasks = safeUpdatedCasksTracker
+        withAnimation
+        {
+            self.installedFormulae = safeUpdatedFormulaeTracker
+            self.installedCasks = safeUpdatedCasksTracker
+        }
     }
 }

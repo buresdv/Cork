@@ -16769,6 +16769,17 @@
         }
       }
     },
+    "error.package-loading.number-of-loaded-poackages-does-not-match-number-of-package-folders" : {
+      "comment" : "This error occurs when there's a mismatch between the number of loaded packages, and the number of package folders in the package folders",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some packages were not loaded due to an internal error"
+          }
+        }
+      }
+    },
     "error.package-loading.standard-error-not-empty.%@" : {
       "localizations" : {
         "cs" : {
@@ -16890,7 +16901,14 @@
       }
     },
     "error.package-synchronization.returned-nil" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package synchronization failed"
+          }
+        }
+      }
     },
     "error.permissions.could-not-obtain-folder-access-permissions.%@" : {
       "localizations" : {

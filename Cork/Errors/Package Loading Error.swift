@@ -16,6 +16,7 @@ enum PackageLoadingError: LocalizedError, Hashable
     case failedWhileLoadingCertainPackage(String, URL, failureReason: String)
     case packageDoesNotHaveAnyVersionsInstalled(String)
     case packageIsNotAFolder(String, URL)
+    case numberOLoadedPackagesDosNotMatchNumberOfPackageFolders
 
     var errorDescription: String?
     {
@@ -38,6 +39,8 @@ enum PackageLoadingError: LocalizedError, Hashable
             return String(localized: "error.package-loading.\(string)-does-not-have-any-versions-installed")
         case .packageIsNotAFolder(let string, _):
             return String(localized: "error.package-loading.\(string)-not-a-folder", comment: "Package folder in this context means a folder that encloses package versions. Every package has its own folder, and this error occurs when the provided URL does not point to a folder that encloses package versions")
+        case .numberOLoadedPackagesDosNotMatchNumberOfPackageFolders:
+            return String(localized: "error.package-loading.number-of-loaded-poackages-does-not-match-number-of-package-folders", comment: "This error occurs when there's a mismatch between the number of loaded packages, and the number of package folders in the package folders")
         }
     }
 }

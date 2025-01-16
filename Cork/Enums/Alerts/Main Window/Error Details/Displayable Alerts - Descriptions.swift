@@ -50,6 +50,8 @@ extension DisplayableAlert
             return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.title-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")
+        case .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders:
+            return PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders.localizedDescription
         case .couldNotObtainNotificationPermissions:
             return String(localized: "alert.notifications-error-while-obtaining-permissions.title")
         case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):

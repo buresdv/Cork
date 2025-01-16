@@ -645,6 +645,9 @@ private extension View
 
                 case .homePathNotSet:
                     QuitCorkButton()
+                    
+                case .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders:
+                    EmptyView()
 
                 case .couldNotObtainNotificationPermissions:
                     Button
