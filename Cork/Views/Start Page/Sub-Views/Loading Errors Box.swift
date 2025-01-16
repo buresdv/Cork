@@ -17,27 +17,42 @@ struct LoadingErrorsBox: View
     
     var body: some View
     {
-        GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.apple.terminal.badge.xmark")
+        if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty
         {
-            Text("start-page.unloaded-formulae.count-\(brewData.unsuccessfullyLoadedFormulaeErrors.count)")
-            
-            DisclosureGroup(isFormulaeGroupExpanded ? "action.hide" : "action.show")
+            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.apple.terminal.badge.xmark")
             {
-                List(brewData.unsuccessfullyLoadedFormulaeErrors)
-                { error in
-                    Text(error.localizedDescription)
+                VStack(alignment: .leading, spacing: 5)
+                {
+                    Text("start-page.unloaded-formulae.count-\(brewData.unsuccessfullyLoadedFormulaeErrors.count)")
+                    
+                    DisclosureGroup(isFormulaeGroupExpanded ? "action.hide" : "action.show")
+                    {
+                        List(brewData.unsuccessfullyLoadedFormulaeErrors)
+                        { error in
+                            Text(error.localizedDescription)
+                        }
+                        .listStyle(.bordered)
+                    }
                 }
             }
         }
         
-        GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.macwindow.badge.xmark") {
-            Text("start-page.unloaded-casks.count-\(brewData.unsuccessfullyLoadedCasksErrors.count)")
-            
-            DisclosureGroup(isCasksGroupExpanded ? "action.hide" : "action.show")
+        if !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+        {
+            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.macwindow.badge.xmark")
             {
-                List(brewData.unsuccessfullyLoadedCasksErrors)
-                { error in
-                    Text(error.localizedDescription)
+                VStack(alignment: .leading, spacing: 5)
+                {
+                    Text("start-page.unloaded-casks.count-\(brewData.unsuccessfullyLoadedCasksErrors.count)")
+                    
+                    DisclosureGroup(isCasksGroupExpanded ? "action.hide" : "action.show")
+                    {
+                        List(brewData.unsuccessfullyLoadedCasksErrors)
+                        { error in
+                            Text(error.localizedDescription)
+                        }
+                        .listStyle(.bordered)
+                    }
                 }
             }
         }
