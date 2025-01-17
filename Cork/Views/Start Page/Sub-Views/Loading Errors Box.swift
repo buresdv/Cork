@@ -19,19 +19,22 @@ struct LoadingErrorsBox: View
     {
         if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty
         {
-            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.apple.terminal.badge.xmark")
+            GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.terminal.badge.xmark")
             {
                 VStack(alignment: .leading, spacing: 5)
                 {
                     Text("start-page.unloaded-formulae.count-\(brewData.unsuccessfullyLoadedFormulaeErrors.count)")
                     
-                    DisclosureGroup(isFormulaeGroupExpanded ? "action.hide" : "action.show")
+                    DisclosureGroup(isExpanded: $isFormulaeGroupExpanded)
                     {
                         List(brewData.unsuccessfullyLoadedFormulaeErrors)
                         { error in
                             Text(error.localizedDescription)
                         }
                         .listStyle(.bordered)
+                    } label: {
+                        Text(isFormulaeGroupExpanded ? "action.hide" : "action.show")
+                            .font(.subheadline)
                     }
                 }
             }
@@ -45,13 +48,16 @@ struct LoadingErrorsBox: View
                 {
                     Text("start-page.unloaded-casks.count-\(brewData.unsuccessfullyLoadedCasksErrors.count)")
                     
-                    DisclosureGroup(isCasksGroupExpanded ? "action.hide" : "action.show")
+                    DisclosureGroup(isExpanded: $isCasksGroupExpanded)
                     {
                         List(brewData.unsuccessfullyLoadedCasksErrors)
                         { error in
                             Text(error.localizedDescription)
                         }
                         .listStyle(.bordered)
+                    } label: {
+                        Text(isCasksGroupExpanded ? "action.hide" : "action.show")
+                            .font(.subheadline)
                     }
                 }
             }

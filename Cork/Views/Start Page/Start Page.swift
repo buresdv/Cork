@@ -96,7 +96,6 @@ struct StartPage: View
                             }
                         }
                     }
-                    .scrollDisabled(!isOutdatedPackageDropdownExpanded)
                     .task(priority: .background)
                     {
                         if outdatedPackageTracker.outdatedPackages.isEmpty

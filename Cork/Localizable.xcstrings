@@ -42683,10 +42683,48 @@
       }
     },
     "start-page.unloaded-casks.count-%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There’s %lld Cask that couldn't be loaded"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld Casks that couldn't be loaded"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "start-page.unloaded-formulae.count-%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There’s one Formula that couldn’t be loaded"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld Formulae that couldn't be loaded"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "start-page.upcoming-changes" : {
       "extractionState" : "stale",
