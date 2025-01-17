@@ -717,10 +717,10 @@ private extension View
                 case .malformedBrewfile:
                     EmptyView()
 
-                case .tapLoadingFailedDueToTapParentLocation(localizedDescription: _):
+                case .tapLoadingFailedDueToTapParentLocation(let localizedDescription):
                     EmptyView()
 
-                case .tapLoadingFailedDueToTapItself(localizedDescription: _):
+                case .tapLoadingFailedDueToTapItself(let localizedDescription):
                     EmptyView()
                 }
             } message: { error in
