@@ -46,7 +46,7 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-file.title")
         case .installedPackageHasNoVersions(let corruptedPackageName):
             return String(localized: "alert.package-corrupted.title-\(corruptedPackageName)")
-        case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: _):
+        case .installedPackageIsNotAFolder(let itemName, let itemURL):
             return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.title-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")

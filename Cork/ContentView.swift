@@ -631,7 +631,7 @@ private extension View
                         Text("action.repair-\(corruptedPackageName)")
                     }
 
-                case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: let itemURL):
+                case .installedPackageIsNotAFolder(let itemName, let itemURL):
                     VStack
                     {
                         Button
