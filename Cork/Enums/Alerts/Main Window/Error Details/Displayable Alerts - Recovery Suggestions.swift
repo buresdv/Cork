@@ -88,6 +88,8 @@ extension DisplayableAlert
             return localizedDescription
         case .tapLoadingFailedDueToTapItself(localizedDescription: let localizedDescription):
             return localizedDescription
+        case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
+            return PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
         }
     }
 }

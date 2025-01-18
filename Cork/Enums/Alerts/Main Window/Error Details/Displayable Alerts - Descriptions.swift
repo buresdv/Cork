@@ -88,6 +88,8 @@ extension DisplayableAlert
             return String(localized: "alert.tap-loading-failed.tap-parent.title")
         case .tapLoadingFailedDueToTapItself:
             return String(localized: "alert.tap-loading-failed.tap-itself.title")
+        case .triedToThreatFolderContainingPackagesAsPackage:
+            return String(localized: "alert.homebrew-broken.title")
         }
     }
 }

@@ -12946,6 +12946,9 @@
         }
       }
     },
+    "alert.homebrew-broken.title" : {
+
+    },
     "alert.malformed-brewfile.message" : {
       "localizations" : {
         "cs" : {
@@ -16337,6 +16340,7 @@
       }
     },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -16388,6 +16392,7 @@
       }
     },
     "error.package-loading.could-not-decode-installa-receipt" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -16572,6 +16577,7 @@
       }
     },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16690,6 +16696,7 @@
       }
     },
     "error.package-loading.missing-install-receipt" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16821,6 +16828,7 @@
       }
     },
     "error.package-loading.unexpected-folder-name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

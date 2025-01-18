@@ -52,13 +52,6 @@ extension BrewDataStorage
                 AppConstants.shared.logger.error("Failed while loading packages: Could not read any packages")
                 appState.showAlert(
                     errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
-            case .failedWhileLoadingCertainPackage(let failureReason, let packageURL):
-                AppConstants.shared.logger.error("Failed while loading packages: Could not laod a certain package: \(failureReason)")
-                appState.showAlert(
-                    errorToShow: .couldNotLoadCertainPackage(
-                        packageURL.packageNameFromURL(), packageURL,
-                        failureReason: failureReason
-                    ))
             case .packageDoesNotHaveAnyVersionsInstalled(let packageURL):
                 AppConstants.shared.logger.error("Failed while loading packages: Package \(packageURL.packageNameFromURL()) does not have any versions installed")
                 appState.showAlert(
@@ -73,6 +66,12 @@ extension BrewDataStorage
             case .numberOLoadedPackagesDosNotMatchNumberOfPackageFolders:
                 AppConstants.shared.logger.error("Failed while loading packages: Number of loaded packages does not match the number of URLs in package folder")
                 appState.showAlert(errorToShow: .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders)
+            case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
+                appState.showAlert(errorToShow: .triedToThreatFolderContainingPackagesAsPackage(packageType: packageType))
+            case .failedWhileReadingContentsOfPackageFolder(let folderURL, let reportedError):
+                AppConstants.shared.logger.error("Failed while loading packages: Couldn't read contents of package folder \(folderURL) with this error: \(reportedError)")
+            case .failedWhileTryingToDetermineIntentionalInstallation(folderURL: let folderURL, associatedIntentionalDiscoveryError: let associatedIntentionalDiscoveryError):
+                AppConstants.shared.logger.error("Failed while loading packages: Couldn't determine intentional installation status for package \(folderURL) with this error: \(associatedIntentionalDiscoveryError.localizedDescription)")
             }
 
             switch packageTypeToLoad
@@ -176,13 +175,7 @@ private extension BrewDataStorage
         {
             AppConstants.shared.logger.error("The last path component of the requested URL is the package container folder itself - perhaps a misconfigured package folder? Tried to load URL \(packageURL)")
 
-            switch packageURL.packageType
-            {
-            case .formula:
-                return .failure(PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae")))
-            case .cask:
-                return .failure(PackageLoadingError.failedWhileLoadingPackages(failureReason: String(localized: "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks")))
-            }
+            return .failure(.triedToThreatFolderContainingPackagesAsPackage(packageType: packageURL.packageType))
         }
         
         AppConstants.shared.logger.debug("Package \(packageName) is legit. Will try to process it")
@@ -193,6 +186,13 @@ private extension BrewDataStorage
             /// Gets URL to installed versions of a package provided as ``packageURL``
             /// `/opt/homebrew/Cellar/cmake/3.30.5`, `/opt/homebrew/Cellar/cmake/3.30.4`
             let versionURLs: [URL] = try getContentsOfFolder(targetFolder: packageURL, options: [.skipsHiddenFiles])
+            
+            guard !versionURLs.isEmpty else
+            {
+                AppConstants.shared.logger.error("Failed while loading package \(packageURL.packageNameFromURL()) because it has no versions installed")
+                
+                return .failure(.packageDoesNotHaveAnyVersionsInstalled(packageURL: packageURL))
+            }
 
             /// Gets the name of the version, which at this stage is the last path component of the `versionURLs` URL
             let versionNamesForPackage: [String] = versionURLs.map
@@ -225,28 +225,14 @@ private extension BrewDataStorage
             }
             catch let intentionalInstallationDiscoveryError
             {
-                switch intentionalInstallationDiscoveryError
-                {
-                case .failedToDetermineMostRelevantVersion(let packageURL):
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage(failureReason: String(localized: "error.package-loading.could-not-load-version-to-check-from-available-versions"), packageURL: packageURL)
-
-                case .failedToReadInstallationRecepit(let packageURL):
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage( failureReason: String(localized: "error.package-loading.could-not-convert-contents-of-install-receipt-to-data"), packageURL: packageURL)
-                    
-                case .failedToParseInstallationReceipt(let packageURL):
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage( failureReason: String(localized: "error.package-loading.could-not-decode-installa-receipt"), packageURL: packageURL)
-                case .installationReceiptMissingCompletely(let packageURL):
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage( failureReason: String(localized: "error.package-loading.missing-install-receipt"), packageURL: packageURL)
-                case .unexpectedFolderName(let packageURL):
-                    throw PackageLoadingError.failedWhileLoadingCertainPackage( failureReason: String(localized: "error.package-loading.unexpected-folder-name"), packageURL: packageURL)
-                }
+                throw PackageLoadingError.failedWhileTryingToDetermineIntentionalInstallation(folderURL: packageURL, associatedIntentionalDiscoveryError: intentionalInstallationDiscoveryError)
             }
         }
         catch let loadingError
         {
             AppConstants.shared.logger.error("Failed while loading package \(packageURL.lastPathComponent, privacy: .public): \(loadingError.localizedDescription)")
 
-            return .failure(.failedWhileLoadingCertainPackage(failureReason: loadingError.localizedDescription, packageURL: packageURL))
+            return .failure(.failedWhileReadingContentsOfPackageFolder(folderURL: packageURL, reportedError: loadingError.localizedDescription))
         }
     }
 }

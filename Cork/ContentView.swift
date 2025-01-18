@@ -530,6 +530,9 @@ private extension View
 
                 case .couldNotLoadAnyPackages:
                     RestartCorkButton()
+                    
+                case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
+                    RestartCorkButton()
 
                 case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, _):
                     VStack
