@@ -48,10 +48,6 @@ extension BrewDataStorage
             case .couldNotReadContentsOfParentFolder(let loadingError, let folderURL):
                 AppConstants.shared.logger.error("Failed while loading packages: Could not read contents of parent folder (\(folderURL.path()): \(loadingError)")
                 appState.showAlert(errorToShow: .couldNotGetContentsOfPackageFolder(loadingError))
-            case .failedWhileLoadingPackages:
-                AppConstants.shared.logger.error("Failed while loading packages: Could not read any packages")
-                appState.showAlert(
-                    errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
             case .packageDoesNotHaveAnyVersionsInstalled(let packageURL):
                 AppConstants.shared.logger.error("Failed while loading packages: Package \(packageURL.packageNameFromURL()) does not have any versions installed")
                 appState.showAlert(

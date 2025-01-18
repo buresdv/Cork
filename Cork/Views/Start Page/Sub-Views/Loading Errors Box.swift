@@ -29,13 +29,14 @@ struct LoadingErrorsBox: View
                     {
                         List(brewData.unsuccessfullyLoadedFormulaeErrors)
                         { error in
-                            Text(error.localizedDescription)
+                            BrokenPackageListRow(error: error)
                         }
                         .listStyle(.bordered)
                     } label: {
                         Text(isFormulaeGroupExpanded ? "action.hide" : "action.show")
                             .font(.subheadline)
                     }
+                    .disclosureGroupStyle(NoPadding())
                 }
             }
         }
@@ -52,13 +53,14 @@ struct LoadingErrorsBox: View
                     {
                         List(brewData.unsuccessfullyLoadedCasksErrors)
                         { error in
-                            Text(error.localizedDescription)
+                            BrokenPackageListRow(error: error)
                         }
                         .listStyle(.bordered)
                     } label: {
                         Text(isCasksGroupExpanded ? "action.hide" : "action.show")
                             .font(.subheadline)
                     }
+                    .disclosureGroupStyle(NoPadding())
                 }
             }
         }

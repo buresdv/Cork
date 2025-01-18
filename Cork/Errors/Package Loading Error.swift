@@ -10,11 +10,6 @@ import Foundation
 /// Error representing failures while loading
 enum PackageLoadingError: LocalizedError, Hashable, Identifiable
 {
-    /// When attempting to get the list of raw URLs from the folder containing the packages, the function for loading packages returned nil, therefore, an error occured
-    
-    /// Failed while loading any package at all
-    case failedWhileLoadingPackages(failureReason: String?)
-    
     /// Tried to treat the folder `Cellar` or `Caskroom` itself as a package - means Homebrew itself is broken
     case triedToThreatFolderContainingPackagesAsPackage(packageType: PackageType)
     
@@ -49,16 +44,6 @@ enum PackageLoadingError: LocalizedError, Hashable, Identifiable
                 return "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.formulae"
             case .cask:
                 return "error.package-loading.last-path-component-of-checked-package-url-is-folder-containing-packages-itself.casks"
-            }
-            
-        case .failedWhileLoadingPackages(let failureReason):
-            if let failureReason
-            {
-                return String(localized: "error.package-loading.could-not-load-packages.\(failureReason)")
-            }
-            else
-            {
-                return String(localized: "error.package-loading.could-not-load-packages")
             }
 
         case .failedWhileReadingContentsOfPackageFolder(let folderURL, let reportedError):

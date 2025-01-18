@@ -4355,6 +4355,9 @@
         }
       }
     },
+    "action.inspect-error" : {
+
+    },
     "action.open-terminal" : {
       "localizations" : {
         "cs" : {
@@ -4628,6 +4631,9 @@
           }
         }
       }
+    },
+    "action.reinstall-homebrew" : {
+
     },
     "action.reload-services" : {
       "localizations" : {
@@ -16499,6 +16505,7 @@
       }
     },
     "error.package-loading.could-not-load-packages" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16533,6 +16540,7 @@
       }
     },
     "error.package-loading.could-not-load-packages.%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
