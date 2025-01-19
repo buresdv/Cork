@@ -18,7 +18,6 @@ class AppState: ObservableObject
     // MARK: - Licensing
 
     @Published var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
-    @Published var isShowingLicensingSheet: Bool = false
 
     // MARK: - Navigation
 
@@ -29,24 +28,12 @@ class AppState: ObservableObject
     @Published var notificationEnabledInSystemSettings: Bool?
     @Published var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
 
-    // MARK: - Stuff for controlling various sheets from the menu bar
-
-    @Published var isShowingInstallationSheet: Bool = false
-    @Published var isShowingPackageReinstallationSheet: Bool = false
-    @Published var isShowingUninstallationSheet: Bool = false
-    @Published var isShowingMaintenanceSheet: Bool = false
-    @Published var isShowingFastCacheDeletionMaintenanceView: Bool = false
-    @Published var isShowingAddTapSheet: Bool = false
-    @Published var isShowingUpdateSheet: Bool = false
-
     // MARK: - Stuff for controlling the UI in general
 
     @Published var isSearchFieldFocused: Bool = false
 
     // MARK: - Brewfile importing and exporting
-
-    @Published var isShowingBrewfileExportProgress: Bool = false
-    @Published var isShowingBrewfileImportProgress: Bool = false
+    
     @Published var brewfileImportingStage: BrewfileImportStage = .importing
 
     @Published var isCheckingForPackageUpdates: Bool = true
@@ -54,6 +41,8 @@ class AppState: ObservableObject
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: DisplayableAlert? = nil
+    
+    @Published var sheetToShow: DisplayableSheet? = nil
 
     @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
@@ -101,6 +90,18 @@ class AppState: ObservableObject
         isShowingFatalError = false
 
         fatalAlertType = nil
+    }
+    
+    // MARK: - Showing sheets
+    
+    func showSheet(ofType sheetType: DisplayableSheet)
+    {
+        self.sheetToShow = sheetType
+    }
+    
+    func dismissSheet()
+    {
+        self.sheetToShow = nil
     }
 
     // MARK: - Notification setup
@@ -159,7 +160,7 @@ class AppState: ObservableObject
 
     @objc func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
     {
-        isShowingUpdateSheet = true
+        self.showSheet(ofType: .fullUpdate)
 
         sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }

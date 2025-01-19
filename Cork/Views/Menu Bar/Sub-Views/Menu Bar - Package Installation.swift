@@ -19,7 +19,7 @@ struct MenuBar_PackageInstallation: View
         {
             openWindow(id: "main")
             switchCorkToForeground()
-            appState.isShowingInstallationSheet.toggle()
+            appState.showSheet(ofType: .packageInstallation)
         }
     }
 }

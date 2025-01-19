@@ -28,7 +28,7 @@ struct CachedDownloadsFolderInfoBox: View
 
                 Button
                 {
-                    appState.isShowingFastCacheDeletionMaintenanceView = true
+                    appState.showSheet(ofType: .maintenance(fastCacheDeletion: true))
                 } label: {
                     Text("start-page.cached-downloads.action")
                 }

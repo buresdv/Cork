@@ -141,7 +141,7 @@ struct StartPage: View
                             Button
                             {
                                 AppConstants.shared.logger.info("Would perform maintenance")
-                                appState.isShowingMaintenanceSheet.toggle()
+                                appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
                             } label: {
                                 Text("start-page.open-maintenance")
                             }
