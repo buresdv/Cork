@@ -485,24 +485,25 @@ private extension View
                     AddFormulaView()
                 case .tapAddition:
                     AddTapView()
-                    
+
                 case .fullUpdate:
                     UpdatePackagesView()
-                    
+
                 case .partialUpdate:
                     UpdateSomePackagesView()
-                
+
                 case .corruptedPackageFix(let corruptedPackage):
                     ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackage)
-                
+
                 case .sudoRequiredForPackageRemoval:
                     SudoRequiredForRemovalSheet()
-                    
+
                 case .brewfileExport:
                     BrewfileExportProgressView()
-                    
+
                 case .brewfileImport:
                     BrewfileImportProgressView()
+                    
                 case .maintenance(let fastCacheDeletion):
                     switch fastCacheDeletion
                     {
@@ -511,44 +512,46 @@ private extension View
                     case true:
                         MaintenanceView(shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
                     }
+                case .corruptedPackageInspectError(let errorText):
+                    Text(errorText)
                 }
             }
         /*
-        self
-            .sheet(isPresented: view.$appState.isShowingInstallationSheet)
-            {
-                AddFormulaView(packageInstallationProcessStep: .ready)
-            }
-            .sheet(item: view.$corruptedPackage, onDismiss: {
-                view.corruptedPackage = nil
-            }, content: { corruptedPackageInternal in
-                ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
-            })
-            .sheet(isPresented: view.$appState.isShowingSudoRequiredForUninstallSheet)
-            {
-                SudoRequiredForRemovalSheet()
-            }
-            .sheet(isPresented: view.$appState.isShowingAddTapSheet)
-            {
-                AddTapView()
-            }
-            .sheet(isPresented: view.$appState.isShowingUpdateSheet)
-            {
-                UpdatePackagesView()
-            }
-            .sheet(isPresented: view.$appState.isShowingIncrementalUpdateSheet)
-            {
-                UpdateSomePackagesView()
-            }
-            .sheet(isPresented: view.$appState.isShowingBrewfileExportProgress)
-            {
-                BrewfileExportProgressView()
-            }
-            .sheet(isPresented: view.$appState.isShowingBrewfileImportProgress)
-            {
-                BrewfileImportProgressView()
-            }
-         */
+         self
+             .sheet(isPresented: view.$appState.isShowingInstallationSheet)
+             {
+                 AddFormulaView(packageInstallationProcessStep: .ready)
+             }
+             .sheet(item: view.$corruptedPackage, onDismiss: {
+                 view.corruptedPackage = nil
+             }, content: { corruptedPackageInternal in
+                 ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
+             })
+             .sheet(isPresented: view.$appState.isShowingSudoRequiredForUninstallSheet)
+             {
+                 SudoRequiredForRemovalSheet()
+             }
+             .sheet(isPresented: view.$appState.isShowingAddTapSheet)
+             {
+                 AddTapView()
+             }
+             .sheet(isPresented: view.$appState.isShowingUpdateSheet)
+             {
+                 UpdatePackagesView()
+             }
+             .sheet(isPresented: view.$appState.isShowingIncrementalUpdateSheet)
+             {
+                 UpdateSomePackagesView()
+             }
+             .sheet(isPresented: view.$appState.isShowingBrewfileExportProgress)
+             {
+                 BrewfileExportProgressView()
+             }
+             .sheet(isPresented: view.$appState.isShowingBrewfileImportProgress)
+             {
+                 BrewfileImportProgressView()
+             }
+          */
     }
 }
 
@@ -561,7 +564,7 @@ private extension View
             { error in
                 switch error
                 {
-                case .couldNotGetContentsOfPackageFolder(_):
+                case .couldNotGetContentsOfPackageFolder:
                     EmptyView()
 
                 case .uninstallationNotPossibleDueToDependency:
@@ -569,7 +572,7 @@ private extension View
 
                 case .couldNotLoadAnyPackages:
                     RestartCorkButton()
-                    
+
                 case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
                     RestartCorkButton()
 
@@ -687,7 +690,7 @@ private extension View
 
                 case .homePathNotSet:
                     QuitCorkButton()
-                    
+
                 case .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders:
                     EmptyView()
 
@@ -763,6 +766,8 @@ private extension View
                     EmptyView()
 
                 case .tapLoadingFailedDueToTapItself(let localizedDescription):
+                    EmptyView()
+                case .couldNotDeleteCachedDownloads(let error):
                     EmptyView()
                 }
             } message: { error in

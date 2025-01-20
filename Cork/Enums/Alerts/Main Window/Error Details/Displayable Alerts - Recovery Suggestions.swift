@@ -90,6 +90,8 @@ extension DisplayableAlert
             return localizedDescription
         case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
             return PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
+        case .couldNotDeleteCachedDownloads(let associatedError):
+            return associatedError
         }
     }
 }
