@@ -10650,7 +10650,14 @@
       }
     },
     "alert.cache-deletion-failed.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t delete cache"
+          }
+        }
+      }
     },
     "alert.could-not-apply-tags.message" : {
       "localizations" : {
@@ -15055,10 +15062,24 @@
       }
     },
     "debug.action.show-error-inspector" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show error inspector"
+          }
+        }
+      }
     },
     "debug.action.ui" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: UI"
+          }
+        }
+      }
     },
     "debug.navigation" : {
       "localizations" : {
@@ -15095,7 +15116,14 @@
       }
     },
     "error-inspector.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error Inspector"
+          }
+        }
+      }
     },
     "error.brewfile.export.could-not-determine-working-directory" : {
       "localizations" : {
@@ -15327,13 +15355,34 @@
       }
     },
     "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached Cask downloads folder"
+          }
+        }
+      }
     },
     "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached downloads folder"
+          }
+        }
+      }
     },
     "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached Formulae downloads folder"
+          }
+        }
+      }
     },
     "error.data-downloading.invalid-response.%lld" : {
       "localizations" : {
