@@ -32,9 +32,9 @@ class BrewDataStorage: ObservableObject
     }
     
     /// Collected errors from failed Formulae loading
-    var unsuccessfullyLoadedFormulaeErrors: Set<PackageLoadingError>
+    var unsuccessfullyLoadedFormulaeErrors: [PackageLoadingError]
     {
-        return Set(installedFormulae.compactMap
+        return installedFormulae.compactMap
        { rawResult in
             if case .failure(let failure) = rawResult {
                 return failure
@@ -43,7 +43,7 @@ class BrewDataStorage: ObservableObject
             {
                 return nil
             }
-        })
+        }
     }
 
     /// Casks that were successfuly loaded from disk
@@ -63,9 +63,9 @@ class BrewDataStorage: ObservableObject
     }
     
     /// Collected errors from failed Casks loading
-    var unsuccessfullyLoadedCasksErrors: Set<PackageLoadingError>
+    var unsuccessfullyLoadedCasksErrors: [PackageLoadingError]
     {
-        return Set(installedCasks.compactMap
+        return installedCasks.compactMap
         { rawResult in
             if case .failure(let failure) = rawResult {
                 return failure
@@ -74,7 +74,7 @@ class BrewDataStorage: ObservableObject
             {
                 return nil
             }
-        })
+        }
     }
 
     func insertPackageIntoTracker(_ package: BrewPackage)

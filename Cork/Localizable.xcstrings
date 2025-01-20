@@ -4355,6 +4355,16 @@
         }
       }
     },
+    "action.inspect-error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspect error…"
+          }
+        }
+      }
+    },
     "action.open-terminal" : {
       "localizations" : {
         "cs" : {
@@ -4625,6 +4635,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "結束 Cork"
+          }
+        }
+      }
+    },
+    "action.reinstall-homebrew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstall Homebrew"
+          }
+        }
+      }
+    },
+    "action.reinstall-package" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstall"
           }
         }
       }
@@ -10619,6 +10649,16 @@
         }
       }
     },
+    "alert.cache-deletion-failed.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t delete cache"
+          }
+        }
+      }
+    },
     "alert.could-not-apply-tags.message" : {
       "localizations" : {
         "cs" : {
@@ -12946,6 +12986,16 @@
         }
       }
     },
+    "alert.homebrew-broken.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew installation broken"
+          }
+        }
+      }
+    },
     "alert.malformed-brewfile.message" : {
       "localizations" : {
         "cs" : {
@@ -15011,6 +15061,26 @@
         }
       }
     },
+    "debug.action.show-error-inspector" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show error inspector"
+          }
+        }
+      }
+    },
+    "debug.action.ui" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: UI"
+          }
+        }
+      }
+    },
     "debug.navigation" : {
       "localizations" : {
         "cs" : {
@@ -15041,6 +15111,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "调试"
+          }
+        }
+      }
+    },
+    "error-inspector.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error Inspector"
           }
         }
       }
@@ -15270,6 +15350,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法导入 brewfile: %@"
+          }
+        }
+      }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached Cask downloads folder"
+          }
+        }
+      }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached downloads folder"
+          }
+        }
+      }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached Formulae downloads folder"
           }
         }
       }
@@ -16337,6 +16447,7 @@
       }
     },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -16388,6 +16499,7 @@
       }
     },
     "error.package-loading.could-not-decode-installa-receipt" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -16494,6 +16606,7 @@
       }
     },
     "error.package-loading.could-not-load-packages" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16528,6 +16641,7 @@
       }
     },
     "error.package-loading.could-not-load-packages.%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16572,6 +16686,7 @@
       }
     },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16690,6 +16805,7 @@
       }
     },
     "error.package-loading.missing-install-receipt" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -16821,6 +16937,7 @@
       }
     },
     "error.package-loading.unexpected-folder-name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -17820,6 +17937,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Dienste"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Services"
           }
         },
         "es-419" : {
@@ -29489,6 +29612,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "预览"
+          }
+        }
+      }
+    },
+    "repair-package.repair-length.explanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This might take a long time…"
           }
         }
       }
@@ -42678,6 +42811,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 狀態"
+          }
+        }
+      }
+    },
+    "start-page.unloaded-casks.count-%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There’s %lld Cask that couldn't be loaded"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld Casks that couldn't be loaded"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.unloaded-formulae.count-%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There’s one Formula that couldn’t be loaded"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld Formulae that couldn't be loaded"
+                }
+              }
+            }
           }
         }
       }

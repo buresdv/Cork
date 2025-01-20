@@ -20,6 +20,8 @@ struct CorkApp: App
 
     @StateObject var brewData: BrewDataStorage = .init()
     @StateObject var availableTaps: TapTracker = .init()
+    
+    @StateObject var cachedDownloadsTracker: CachedPackagesTracker = .init()
 
     @StateObject var topPackagesTracker: TopPackagesTracker = .init()
 
@@ -36,6 +38,7 @@ struct CorkApp: App
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
+    
     @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
@@ -78,6 +81,7 @@ struct CorkApp: App
                 })
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
+                .environmentObject(cachedDownloadsTracker)
                 .environmentObject(availableTaps)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
@@ -410,6 +414,15 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
+        
+        WindowGroup(id: .errorInspectorWindowID, for: String.self)
+        { $errorToInspect in
+            if let errorToInspect
+            {
+                ErrorInspector(errorText: errorToInspect)
+            }
+        }
+        .windowToolbarStyle(.unifiedCompact)
 
         Settings
         {
@@ -425,6 +438,7 @@ struct CorkApp: App
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
+                .environmentObject(cachedDownloadsTracker)
                 .environmentObject(outdatedPackageTracker)
         }
     }
@@ -582,7 +596,7 @@ struct CorkApp: App
 
                             appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
 
-                            appDelegate.appState.isShowingBrewfileImportProgress = false
+                            appDelegate.appState.showSheet(ofType: .brewfileImport)
                         }
                     }
                 }
@@ -622,7 +636,7 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.isShowingInstallationSheet.toggle()
+            appDelegate.appState.showSheet(ofType: .packageInstallation)
         } label: {
             Text("navigation.menu.packages.install")
         }
@@ -630,7 +644,7 @@ struct CorkApp: App
 
         Button
         {
-            appDelegate.appState.isShowingAddTapSheet.toggle()
+            appDelegate.appState.showSheet(ofType: .tapAddition)
         } label: {
             Text("navigation.menu.packages.add-tap")
         }
@@ -640,7 +654,7 @@ struct CorkApp: App
 
         Button
         {
-            appDelegate.appState.isShowingUpdateSheet = true
+            appDelegate.appState.showSheet(ofType: .fullUpdate)
         } label: {
             Text("navigation.menu.packages.update")
         }
@@ -664,7 +678,7 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.isShowingMaintenanceSheet.toggle()
+            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
         } label: {
             Text("navigation.menu.maintenance.perform")
         }
@@ -672,12 +686,12 @@ struct CorkApp: App
 
         Button
         {
-            appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
+            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: true))
         } label: {
             Text("navigation.menu.maintenance.delete-cached-downloads")
         }
         .keyboardShortcut("m", modifiers: [.command, .option])
-        .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
+        .disabled(cachedDownloadsTracker.cachedDownloadsFolderSize == 0)
     }
 
     @ViewBuilder
@@ -706,6 +720,18 @@ struct CorkApp: App
             }
         } label: {
             Text("debug.action.licensing")
+        }
+        
+        Menu
+        {
+            Button
+            {
+                openWindow(id: .errorInspectorWindowID, value: PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
+            } label: {
+                Text("debug.action.show-error-inspector")
+            }
+        } label: {
+            Text("debug.action.ui")
         }
     }
 

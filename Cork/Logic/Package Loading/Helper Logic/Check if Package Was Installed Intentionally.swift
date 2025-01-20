@@ -8,7 +8,7 @@
 import Foundation
 import CorkShared
 
-enum IntentionalInstallationDiscoveryError: Error
+enum IntentionalInstallationDiscoveryError: Error, Hashable
 {
     /// The function could not determine the most relevant version of the package to read the recepit from
     case failedToDetermineMostRelevantVersion(packageURL: URL)

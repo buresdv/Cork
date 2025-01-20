@@ -12,6 +12,8 @@ struct StartPage: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: TapTracker
+    
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
     @EnvironmentObject var appState: AppState
 
@@ -69,6 +71,14 @@ struct StartPage: View
                                   */
                             }
                         }
+                        
+                        if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+                        {
+                            Section
+                            {
+                                LoadingErrorsBox()
+                            }
+                        }
 
                         Section
                         {
@@ -80,7 +90,7 @@ struct StartPage: View
                             AnalyticsStatusBox()
                         }
 
-                        if appState.cachedDownloadsFolderSize != 0
+                        if cachedDownloadsTracker.cachedDownloadsFolderSize != 0
                         {
                             Section
                             {
@@ -88,7 +98,6 @@ struct StartPage: View
                             }
                         }
                     }
-                    .scrollDisabled(!isOutdatedPackageDropdownExpanded)
                     .task(priority: .background)
                     {
                         if outdatedPackageTracker.outdatedPackages.isEmpty
@@ -134,7 +143,7 @@ struct StartPage: View
                             Button
                             {
                                 AppConstants.shared.logger.info("Would perform maintenance")
-                                appState.isShowingMaintenanceSheet.toggle()
+                                appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
                             } label: {
                                 Text("start-page.open-maintenance")
                             }

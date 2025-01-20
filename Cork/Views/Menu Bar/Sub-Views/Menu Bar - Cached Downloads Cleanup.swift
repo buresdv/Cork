@@ -13,21 +13,40 @@ struct MenuBar_CachedDownloadsCleanup: View
 {
     @EnvironmentObject var appState: AppState
 
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    
     @State private var isDeletingCachedDownloads: Bool = false
 
     var body: some View
     {
         if !isDeletingCachedDownloads
         {
-            Button(appState.cachedDownloadsFolderSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
+            Button(cachedDownloadsTracker.cachedDownloadsFolderSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
             {
                 AppConstants.shared.logger.log("Will delete cached downloads")
 
                 isDeletingCachedDownloads = true
 
-                let reclaimedSpaceAfterCachePurge: Int = .init(appState.cachedDownloadsFolderSize)
+                let reclaimedSpaceAfterCachePurge: Int = .init(cachedDownloadsTracker.cachedDownloadsFolderSize)
 
-                deleteCachedDownloads()
+                do throws(CachedDownloadDeletionError)
+                {
+                    try deleteCachedDownloads()
+                }
+                catch let cacheDeletionError
+                {
+                    switch cacheDeletionError
+                    {
+                    case .couldNotReadContentsOfCachedFormulaeDownloadsFolder(let associatedError):
+                        appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                        
+                    case .couldNotReadContentsOfCachedCasksDownloadsFolder(let associatedError):
+                        appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                        
+                    case .couldNotReadContentsOfCachedDownloadsFolder(let associatedError):
+                        appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                    }
+                }
 
                 sendNotification(
                     title: String(localized: "maintenance.results.cached-downloads"),
@@ -37,9 +56,9 @@ struct MenuBar_CachedDownloadsCleanup: View
 
                 isDeletingCachedDownloads = false
 
-                appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
+                cachedDownloadsTracker.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
             }
-            .disabled(appState.cachedDownloadsFolderSize == 0)
+            .disabled(cachedDownloadsTracker.cachedDownloadsFolderSize == 0)
         }
         else
         {
