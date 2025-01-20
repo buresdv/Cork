@@ -13,6 +13,8 @@ struct MaintenanceRunningView: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
 
     let shouldUninstallOrphans: Bool
@@ -97,10 +99,10 @@ struct MaintenanceRunningView: View
                         }
 
                         /// I have to assign the original value of the appState variable to a different variable, because when it updates at the end of the process, I don't want it to update in the result overview
-                        reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
+                        reclaimedSpaceAfterCachePurge = Int(cachedDownloadsTracker.cachedDownloadsFolderSize)
 
-                        await appState.loadCachedDownloadedPackages()
-                        appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+                        await cachedDownloadsTracker.loadCachedDownloadedPackages()
+                        cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)
                     }
                     else
                     {

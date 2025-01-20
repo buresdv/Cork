@@ -77,7 +77,7 @@ extension BrewDataStorage
             case .cask:
                 appState.failedWhileLoadingCasks = true
             }
-            
+
             return nil
         }
     }
@@ -103,48 +103,49 @@ private extension BrewDataStorage
                 for packageURL in urlsInParentFolder
                 {
                     AppConstants.shared.logger.debug("Will add package at URL \(packageURL) to the package loading task group")
-                    
+
                     taskGroup.addTask
                     {
                         await self.loadInstalledPackage(packageURL: packageURL)
                     }
-                    
+
                     /*
-                    guard taskGroup.addTaskUnlessCancelled(priority: .high, operation: {
-                        await self.loadInstalledPackage(packageURL: packageURL)
-                    })
-                    else
-                    {
-                        AppConstants.shared.logger.warning("Package loading task group got cancelled")
-                        break
-                    }
-                     */
+                     guard taskGroup.addTaskUnlessCancelled(priority: .high, operation: {
+                         await self.loadInstalledPackage(packageURL: packageURL)
+                     })
+                     else
+                     {
+                         AppConstants.shared.logger.warning("Package loading task group got cancelled")
+                         break
+                     }
+                      */
                 }
 
                 var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
                 for await loadedPackage in taskGroup
                 {
                     AppConstants.shared.logger.debug("Will insert package \(loadedPackages) to the package result array")
-                    
+
                     loadedPackages.insert(loadedPackage)
                 }
-                
+
                 AppConstants.shared.logger.debug("Loaded packages: \(loadedPackages)")
 
                 return loadedPackages
             }
 
             let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
-            
+
             if shouldStrictlyCheckForHomebrewErrors
             {
                 /// Check if the number of loaded packages, both successful and failed, matches the number of package URLs in the package container folder
-                guard packageLoader.count == urlsInParentFolder.count else
+                guard packageLoader.count == urlsInParentFolder.count
+                else
                 {
                     throw PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders
                 }
             }
-            
+
             return packageLoader
         }
         catch let parentFolderReadingError
@@ -173,7 +174,7 @@ private extension BrewDataStorage
 
             return .failure(.triedToThreatFolderContainingPackagesAsPackage(packageType: packageURL.packageType))
         }
-        
+
         AppConstants.shared.logger.debug("Package \(packageName) is legit. Will try to process it")
 
         /// Let's try to parse the package now
@@ -201,11 +202,11 @@ private extension BrewDataStorage
             do
             {
                 AppConstants.shared.logger.debug("Will check if package \(packageName) was installed intentionally")
-                
+
                 let wasPackageInstalledIntentionally: Bool = try await packageURL.checkIfPackageWasInstalledIntentionally(versionURLs: versionURLs)
-                
+
                 AppConstants.shared.logger.debug("Package \(packageName) \(wasPackageInstalledIntentionally ? "was" : "was not") installed intentionally")
-                
+
                 let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
                     .init(
                         name: packageName,

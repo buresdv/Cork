@@ -65,12 +65,6 @@ class AppState: ObservableObject
     
     @Published var failedWhileLoadingTopPackages: Bool = false
 
-    // MARK: - Caches
-    @Published var cachedDownloadsFolderSize: Int64 = AppConstants.shared.brewCachedDownloadsPath.directorySize
-    @Published var cachedDownloads: [CachedDownload] = .init()
-
-    private var cachedDownloadsTemp: [CachedDownload] = .init()
-
     // MARK: - Tagging
     @Published var taggedPackageNames: Set<String> = .init()
 
@@ -164,70 +158,6 @@ class AppState: ObservableObject
 
         sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
-
-    func loadCachedDownloadedPackages() async
-    {
-        let smallestDispalyableSize: Int = .init(cachedDownloadsFolderSize / 50)
-
-        var packagesThatAreTooSmallToDisplaySize: Int = 0
-
-        guard let cachedDownloadsFolderContents: [URL] = try? FileManager.default.contentsOfDirectory(at: AppConstants.shared.brewCachedDownloadsPath, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles])
-        else
-        {
-            return
-        }
-
-        let usableCachedDownloads: [URL] = cachedDownloadsFolderContents.filter { $0.pathExtension != "json" }
-
-        for usableCachedDownload in usableCachedDownloads
-        {
-            guard var itemName: String = try? usableCachedDownload.lastPathComponent.regexMatch("(?<=--)(.*?)(?=\\.)")
-            else
-            {
-                return
-            }
-
-            AppConstants.shared.logger.debug("Temp item name: \(itemName, privacy: .public)")
-
-            if itemName.contains("--")
-            {
-                do
-                {
-                    itemName = try itemName.regexMatch(".*?(?=--)")
-                }
-                catch {}
-            }
-
-            guard let itemAttributes = try? FileManager.default.attributesOfItem(atPath: usableCachedDownload.path)
-            else
-            {
-                return
-            }
-
-            guard let itemSize = itemAttributes[.size] as? Int
-            else
-            {
-                return
-            }
-
-            if itemSize < smallestDispalyableSize
-            {
-                packagesThatAreTooSmallToDisplaySize = packagesThatAreTooSmallToDisplaySize + itemSize
-            }
-            else
-            {
-                cachedDownloads.append(CachedDownload(packageName: itemName, sizeInBytes: itemSize))
-            }
-
-            AppConstants.shared.logger.debug("Others size: \(packagesThatAreTooSmallToDisplaySize, privacy: .public)")
-        }
-
-        AppConstants.shared.logger.log("Cached downloads contents: \(self.cachedDownloads)")
-
-        cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
-
-        cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
-    }
 }
 
 private extension UNUserNotificationCenter
@@ -235,38 +165,5 @@ private extension UNUserNotificationCenter
     func authorizationStatus() async -> UNAuthorizationStatus
     {
         await notificationSettings().authorizationStatus
-    }
-}
-
-extension AppState
-{
-    func assignPackageTypeToCachedDownloads(brewData: BrewDataStorage)
-    {
-        var cachedDownloadsTracker: [CachedDownload] = .init()
-
-        AppConstants.shared.logger.debug("Package tracker in cached download assignment function has \(brewData.installedFormulae.count + brewData.installedCasks.count) packages")
-
-        for cachedDownload in cachedDownloads
-        {
-            let normalizedCachedPackageName: String = cachedDownload.packageName.onlyLetters
-
-            if brewData.successfullyLoadedFormulae.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
-            { /// The cached package is a formula
-                AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a formula")
-                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula))
-            }
-            else if brewData.successfullyLoadedCasks.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
-            { /// The cached package is a cask
-                AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a cask")
-                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask))
-            }
-            else
-            { /// The cached package cannot be found
-                AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is unknown")
-                cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .unknown))
-            }
-        }
-
-        cachedDownloads = cachedDownloadsTracker
     }
 }

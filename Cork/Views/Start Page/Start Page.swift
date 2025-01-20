@@ -12,6 +12,8 @@ struct StartPage: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: TapTracker
+    
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
     @EnvironmentObject var appState: AppState
 
@@ -88,7 +90,7 @@ struct StartPage: View
                             AnalyticsStatusBox()
                         }
 
-                        if appState.cachedDownloadsFolderSize != 0
+                        if cachedDownloadsTracker.cachedDownloadsFolderSize != 0
                         {
                             Section
                             {
