@@ -10,6 +10,7 @@ import CorkShared
 
 struct BrokenPackageListRow: View
 {
+    @EnvironmentObject var appState: AppState
     
     let error: PackageLoadingError
     
@@ -33,28 +34,45 @@ struct BrokenPackageListRow: View
             ReinstallHomebrewButton()
 
         case .couldNotReadContentsOfParentFolder(let failureReason, let folderURL):
-            inspectErrorButton
+            inspectErrorButton(errorText: failureReason)
+            
         case .failedWhileReadingContentsOfPackageFolder(let folderURL, let reportedError):
-            inspectErrorButton
+            inspectErrorButton(errorText: reportedError)
+            
         case .failedWhileTryingToDetermineIntentionalInstallation(let folderURL, let associatedIntentionalDiscoveryError):
-            inspectErrorButton
+            inspectErrorButton(errorText: associatedIntentionalDiscoveryError.localizedDescription)
+            
         case .packageDoesNotHaveAnyVersionsInstalled(let packageURL):
-            inspectErrorButton
+            showReinstallSheetButton(packageNameToReinstall: packageURL.packageNameFromURL())
+            
         case .packageIsNotAFolder(let string, let packageURL):
-            inspectErrorButton
+            inspectErrorButton(errorText: string)
+            
         case .numberOLoadedPackagesDosNotMatchNumberOfPackageFolders:
-            inspectErrorButton
+            EmptyView()
         }
     }
     
     @ViewBuilder
-    var inspectErrorButton: some View
+    func inspectErrorButton(errorText: String) -> some View
     {
         Button {
             AppConstants.shared.logger.info("Clicked Inspect")
+            appState.showSheet(ofType: .corruptedPackageInspectError(errorText: errorText))
         } label: {
             Text("action.inspect-error")
         }
 
+    }
+    
+    @ViewBuilder
+    func showReinstallSheetButton(packageNameToReinstall: String) -> some View
+    {
+        Button
+        {
+            appState.showSheet(ofType: .corruptedPackageFix(corruptedPackage: .init(name: packageNameToReinstall)))
+        } label: {
+            Text("action.reinstall-package")
+        }
     }
 }

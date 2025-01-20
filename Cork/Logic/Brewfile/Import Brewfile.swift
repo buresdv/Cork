@@ -27,7 +27,7 @@ enum BrewfileReadingError: LocalizedError
 @MainActor
 func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage) async throws
 {
-    appState.isShowingBrewfileImportProgress = true
+    appState.showSheet(ofType: .brewfileImport)
 
     appState.brewfileImportingStage = .importing
 

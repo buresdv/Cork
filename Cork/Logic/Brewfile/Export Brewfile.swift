@@ -30,11 +30,11 @@ enum BrewfileDumpingError: LocalizedError
 @MainActor
 func exportBrewfile(appState: AppState) async throws -> String
 {
-    appState.isShowingBrewfileExportProgress = true
+    appState.showSheet(ofType: .brewfileExport)
 
     defer
     {
-        appState.isShowingBrewfileExportProgress = false
+        appState.dismissSheet()
     }
 
     let brewfileParentLocation: URL = URL.temporaryDirectory

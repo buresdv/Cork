@@ -105,7 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
             updatePackagesMenuItem.title = String(localized: "start-page.updates.loading")
             updatePackagesMenuItem.isEnabled = false
         }
-        else if appState.isShowingUpdateSheet
+        else if appState.sheetToShow == .fullUpdate
         {
             updatePackagesMenuItem.title = String(localized: "update-packages.updating.updating")
             updatePackagesMenuItem.isEnabled = false

@@ -4356,7 +4356,14 @@
       }
     },
     "action.inspect-error" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspect error…"
+          }
+        }
+      }
     },
     "action.open-terminal" : {
       "localizations" : {
@@ -4633,7 +4640,24 @@
       }
     },
     "action.reinstall-homebrew" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstall Homebrew"
+          }
+        }
+      }
+    },
+    "action.reinstall-package" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstall"
+          }
+        }
+      }
     },
     "action.reload-services" : {
       "localizations" : {
@@ -10625,6 +10649,9 @@
         }
       }
     },
+    "alert.cache-deletion-failed.title" : {
+
+    },
     "alert.could-not-apply-tags.message" : {
       "localizations" : {
         "cs" : {
@@ -12953,7 +12980,14 @@
       }
     },
     "alert.homebrew-broken.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew installation broken"
+          }
+        }
+      }
     },
     "alert.malformed-brewfile.message" : {
       "localizations" : {
@@ -15282,6 +15316,15 @@
           }
         }
       }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder" : {
+
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder" : {
+
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder" : {
+
     },
     "error.data-downloading.invalid-response.%lld" : {
       "localizations" : {
@@ -17836,6 +17879,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Dienste"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Services"
           }
         },
         "es-419" : {
@@ -29505,6 +29554,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "预览"
+          }
+        }
+      }
+    },
+    "repair-package.repair-length.explanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This might take a long time…"
           }
         }
       }

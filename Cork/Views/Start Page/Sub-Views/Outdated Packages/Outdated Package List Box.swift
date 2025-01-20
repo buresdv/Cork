@@ -45,7 +45,7 @@ struct OutdatedPackageListBox: View
                                 {
                                     Button
                                     {
-                                        appState.isShowingUpdateSheet = true
+                                        appState.showSheet(ofType: .fullUpdate)
                                     } label: {
                                         Text("start-page.updates.action")
                                     }
