@@ -514,8 +514,6 @@ private extension View
                     case true:
                         MaintenanceView(shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
                     }
-                case .corruptedPackageInspectError(let errorText):
-                    Text(errorText)
                 }
             }
         /*

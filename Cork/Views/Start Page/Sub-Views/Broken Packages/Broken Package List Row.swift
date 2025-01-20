@@ -10,6 +10,8 @@ import CorkShared
 
 struct BrokenPackageListRow: View
 {
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
+    
     @EnvironmentObject var appState: AppState
     
     let error: PackageLoadingError
@@ -30,22 +32,22 @@ struct BrokenPackageListRow: View
     {
         switch self.error
         {
-        case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
+        case .triedToThreatFolderContainingPackagesAsPackage(_):
             ReinstallHomebrewButton()
 
-        case .couldNotReadContentsOfParentFolder(let failureReason, let folderURL):
+        case .couldNotReadContentsOfParentFolder(let failureReason, _):
             inspectErrorButton(errorText: failureReason)
             
-        case .failedWhileReadingContentsOfPackageFolder(let folderURL, let reportedError):
+        case .failedWhileReadingContentsOfPackageFolder(_, let reportedError):
             inspectErrorButton(errorText: reportedError)
             
-        case .failedWhileTryingToDetermineIntentionalInstallation(let folderURL, let associatedIntentionalDiscoveryError):
+        case .failedWhileTryingToDetermineIntentionalInstallation(_ , let associatedIntentionalDiscoveryError):
             inspectErrorButton(errorText: associatedIntentionalDiscoveryError.localizedDescription)
             
         case .packageDoesNotHaveAnyVersionsInstalled(let packageURL):
             showReinstallSheetButton(packageNameToReinstall: packageURL.packageNameFromURL())
             
-        case .packageIsNotAFolder(let string, let packageURL):
+        case .packageIsNotAFolder(let string, _):
             inspectErrorButton(errorText: string)
             
         case .numberOLoadedPackagesDosNotMatchNumberOfPackageFolders:
@@ -58,7 +60,8 @@ struct BrokenPackageListRow: View
     {
         Button {
             AppConstants.shared.logger.info("Clicked Inspect")
-            appState.showSheet(ofType: .corruptedPackageInspectError(errorText: errorText))
+            
+            openWindow(id: .errorInspectorWindowID, value: errorText)
         } label: {
             Text("action.inspect-error")
         }

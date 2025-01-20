@@ -18,8 +18,6 @@ enum DisplayableSheet: Identifiable, Equatable
     
     case corruptedPackageFix(corruptedPackage: CorruptedPackage)
     
-    case corruptedPackageInspectError(errorText: String)
-    
     case sudoRequiredForPackageRemoval 
     
     case maintenance(fastCacheDeletion: Bool)

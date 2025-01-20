@@ -38,6 +38,7 @@ struct CorkApp: App
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
+    
     @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
@@ -413,6 +414,15 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
+        
+        WindowGroup(id: .errorInspectorWindowID, for: String.self)
+        { $errorToInspect in
+            if let errorToInspect
+            {
+                ErrorInspector(errorText: errorToInspect)
+            }
+        }
+        .windowToolbarStyle(.unifiedCompact)
 
         Settings
         {
@@ -710,6 +720,18 @@ struct CorkApp: App
             }
         } label: {
             Text("debug.action.licensing")
+        }
+        
+        Menu
+        {
+            Button
+            {
+                openWindow(id: .errorInspectorWindowID, value: PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
+            } label: {
+                Text("debug.action.show-error-inspector")
+            }
+        } label: {
+            Text("debug.action.ui")
         }
     }
 

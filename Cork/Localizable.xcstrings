@@ -15054,6 +15054,12 @@
         }
       }
     },
+    "debug.action.show-error-inspector" : {
+
+    },
+    "debug.action.ui" : {
+
+    },
     "debug.navigation" : {
       "localizations" : {
         "cs" : {
@@ -15087,6 +15093,9 @@
           }
         }
       }
+    },
+    "error-inspector.title" : {
+
     },
     "error.brewfile.export.could-not-determine-working-directory" : {
       "localizations" : {
