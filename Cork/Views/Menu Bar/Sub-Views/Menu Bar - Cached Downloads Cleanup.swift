@@ -27,7 +27,24 @@ struct MenuBar_CachedDownloadsCleanup: View
 
                 let reclaimedSpaceAfterCachePurge: Int = .init(appState.cachedDownloadsFolderSize)
 
-                deleteCachedDownloads()
+                do throws(CachedDownloadDeletionError)
+                {
+                    try deleteCachedDownloads()
+                }
+                catch let cacheDeletionError
+                {
+                    switch cacheDeletionError
+                    {
+                    case .couldNotReadContentsOfCachedFormulaeDownloadsFolder(let associatedError):
+                        appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                        
+                    case .couldNotReadContentsOfCachedCasksDownloadsFolder(let associatedError):
+                        appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                        
+                    case .couldNotReadContentsOfCachedDownloadsFolder(let associatedError):
+                        appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                    }
+                }
 
                 sendNotification(
                     title: String(localized: "maintenance.results.cached-downloads"),
