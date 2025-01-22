@@ -4747,6 +4747,12 @@
     },
     "action.inspect-error" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Více informací…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5055,6 +5061,12 @@
     },
     "action.reinstall-homebrew" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znovu nainstalovat Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5065,6 +5077,12 @@
     },
     "action.reinstall-package" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znovu nainstalovat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11605,6 +11623,12 @@
     },
     "alert.cache-deletion-failed.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při mazání mezipaměti se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12731,6 +12755,12 @@
     },
     "alert.could-not-get-contents-of-package-folder.message-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12741,6 +12771,12 @@
     },
     "alert.could-not-get-contents-of-package-folder.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení informací o balíčku se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14158,6 +14194,12 @@
     },
     "alert.homebrew-broken.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew je rozbitý"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15221,6 +15263,12 @@
     },
     "alert.tap-loading-failed.tap-itself.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepodařilo se přečíst informace o pípě"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15231,6 +15279,12 @@
     },
     "alert.tap-loading-failed.tap-parent.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení obsahu složky s pípami se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15499,7 +15553,7 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Balíček %@ se nepodařilo odinstalovat"
           }
         },
@@ -16425,6 +16479,12 @@
     },
     "debug.action.show-error-inspector" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Více informací…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16435,6 +16495,12 @@
     },
     "debug.action.ui" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: UI"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16485,6 +16551,12 @@
     },
     "error-inspector.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspektor chyb"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16760,6 +16832,12 @@
     },
     "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení složky obsahující mezipaměť stažených soudků se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16770,6 +16848,12 @@
     },
     "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení složky obsahující mezipaměť se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16780,6 +16864,12 @@
     },
     "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení složky obsahující mezipaměť stažených vzorců se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17158,6 +17248,12 @@
     },
     "error.intents.general-failure" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při spouštění akce se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17797,8 +17893,8 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Při načítání zastaralých balíčků se vyskytla neimplementovaná chyba: %@"
+            "state" : "translated",
+            "value" : "%@"
           }
         },
         "en" : {
@@ -18171,6 +18267,12 @@
     },
     "error.package-loading.could-not-load-casks.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání soudků se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18181,6 +18283,12 @@
     },
     "error.package-loading.could-not-load-formulae.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání vzorců se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18273,6 +18381,12 @@
     },
     "error.package-loading.could-not-load-taps.title" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání píp se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18330,6 +18444,12 @@
     },
     "error.package-loading.could-not-read-contents-of-parent-folder.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18514,6 +18634,12 @@
     "error.package-loading.number-of-loaded-poackages-does-not-match-number-of-package-folders" : {
       "comment" : "This error occurs when there's a mismatch between the number of loaded packages, and the number of package folders in the package folders",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při načítání balíčků se vyskytla vnitřní chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18663,6 +18789,12 @@
     },
     "error.package-synchronization.returned-nil" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při synchronizaci balíčků se vyskytlas chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19703,6 +19835,12 @@
     "Homebrew Services" : {
       "extractionState" : "stale",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Služby Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -32426,6 +32564,12 @@
     },
     "repair-package.repair-length.explanation" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tohle může chvíli trvat… "
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40217,6 +40361,12 @@
     },
     "settings.general.package-details.enable-swipe-actions.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akce při přetažení"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44794,6 +44944,12 @@
     },
     "sidebar.status.no-casks-installed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenainstalovány žádné soudky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44804,6 +44960,12 @@
     },
     "sidebar.status.no-formulae-installed" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenainstalovány žádné pípy"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46807,6 +46969,36 @@
     },
     "start-page.unloaded-casks.count-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld soudky se nepodařilo načíst"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld soudků se nepodařilo načíst"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jeden soudek se nepodařilo načíst"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld soudků se nepodařilo načíst"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -46829,6 +47021,36 @@
     },
     "start-page.unloaded-formulae.count-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld vzorce se nepodařilo načíst"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld vzorců se nepodařilo načíst"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jeden vzorec se nepodařilo načíst"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld vzorců se nepodařilo načíst"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
