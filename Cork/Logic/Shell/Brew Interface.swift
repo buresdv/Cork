@@ -14,11 +14,3 @@ struct SearchResults
     let foundFormulae: [String]
     let foundCasks: [String]
 }
-
-func getListOfFoundPackages(searchWord: String) async -> String
-{
-    var parsedResponse: String?
-    parsedResponse = await shell(AppConstants.shared.brewExecutablePath, ["search", searchWord]).standardOutput
-
-    return parsedResponse!
-}

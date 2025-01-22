@@ -304,13 +304,10 @@ private extension View
                     view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
                     AppConstants.shared.logger.info("Tagged packages in appState: \(view.appState.taggedPackageNames)")
-
+                    
                     do
                     {
-                        for taggedPackageName in view.appState.taggedPackageNames
-                        {
-                            print(taggedPackageName)
-                        }
+                        try await view.brewData.applyTags(appState: view.appState)
                     }
                     catch let taggedStateApplicationError as NSError
                     {
@@ -470,6 +467,17 @@ private extension View
             .onChange(of: view.customHomebrewPath, perform: { _ in
                 restartApp()
             })
+            .onChange(of: view.appState.taggedPackageNames) { _ in
+                AppConstants.shared.logger.info("Will try to save tagged IDs to disk")
+                do
+                {
+                    try saveTaggedIDsToDisk(appState: view.appState)
+                }
+                catch let dataSavingError as NSError
+                {
+                    AppConstants.shared.logger.error("Failed while trying to save data to disk: \(dataSavingError, privacy: .public)")
+                }
+            }
     }
 }
 
