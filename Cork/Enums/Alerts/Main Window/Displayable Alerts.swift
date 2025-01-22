@@ -10,11 +10,12 @@ import SwiftUI
 
 enum DisplayableAlert: LocalizedError
 {
-    case couldNotLoadAnyPackages(LocalizedError), couldNotLoadCertainPackage(String, URL, failureReason: String)
+    case couldNotGetContentsOfPackageFolder(String), couldNotLoadAnyPackages(LocalizedError), couldNotLoadCertainPackage(String, URL, failureReason: String)
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly, licenseCheckingFailedDueToNoInternet, licenseCheckingFailedDueToTimeout, licenseCheckingFailedForOtherReason(localizedDescription: String)
+    case tapLoadingFailedDueToTapParentLocation(localizedDescription: String), tapLoadingFailedDueToTapItself(localizedDescription: String)
     case customBrewExcutableGotDeleted
     case couldNotFindPackageUUIDInList
-    case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage, offendingDependencyProhibitingUninstallation: String), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), installedPackageIsNotAFolder(itemName: String, itemURL: URL), homePathNotSet
+    case uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: BrewPackage, offendingDependencyProhibitingUninstallation: String), couldNotApplyTaggedStateToPackages, couldNotClearMetadata, metadataFolderDoesNotExist, couldNotCreateCorkMetadataDirectory, couldNotCreateCorkMetadataFile, installedPackageHasNoVersions(corruptedPackageName: String), installedPackageIsNotAFolder(itemName: String, itemURL: URL), homePathNotSet, numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders, triedToThreatFolderContainingPackagesAsPackage(packageType: PackageType)
     case couldNotObtainNotificationPermissions
     case couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: String)
     case couldNotParseTopPackages(error: String)
@@ -23,7 +24,10 @@ enum DisplayableAlert: LocalizedError
     case couldNotAssociateAnyPackageWithProvidedPackageUUID
     case couldNotFindPackageInParentDirectory
     case fatalPackageInstallationError(String)
+    case fatalPackageUninstallationError(packageName: String, errorDetails: String)
     case couldNotSynchronizePackages(error: String)
+    
+    case couldNotDeleteCachedDownloads(error: String)
 
     // MARK: - Brewfile exporting/importing
 

@@ -5,9 +5,9 @@
 //  Created by David Bureš on 05.02.2023.
 //
 
+import CorkShared
 import Foundation
 import SwiftUI
-import CorkShared
 
 extension BrewDataStorage
 {
@@ -17,42 +17,24 @@ extension BrewDataStorage
         appState: AppState,
         outdatedPackageTracker: OutdatedPackageTracker,
         shouldRemoveAllAssociatedFiles: Bool,
-        shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false
+        shouldApplyUninstallSpinnerToRelevantItemInSidebar _: Bool = false
     ) async throws
     {
         /// Store the old navigation selection to see if it got updated in the middle of switching
         let oldNavigationSelectionId: UUID? = appState.navigationTargetId
 
-        if shouldApplyUninstallSpinnerToRelevantItemInSidebar
-        {
-            if package.type == .formula
-            {
-                installedFormulae = Set(installedFormulae.map
-                { formula in
-                    var copyFormula: BrewPackage = formula
-                    if copyFormula.name == package.name
-                    {
-                        copyFormula.changeBeingModifiedStatus()
-                    }
-                    return copyFormula
-                })
-            }
-            else
-            {
-                installedCasks = Set(installedCasks.map
-                { cask in
-                    var copyCask: BrewPackage = cask
-                    if copyCask.name == package.name
-                    {
-                        copyCask.changeBeingModifiedStatus()
-                    }
-                    return copyCask
-                })
-            }
+        self.updatePackageInPlace(package)
+        { package in
+            package.changeBeingModifiedStatus()
         }
-        else
+        
+        defer
         {
-            appState.isShowingUninstallationProgressView = true
+            AppConstants.shared.logger.debug("Would reset state now")
+            self.updatePackageInPlace(package)
+            { package in
+                package.isBeingModified = false
+            }
         }
 
         AppConstants.shared.logger.info("Will try to remove package \(package.name, privacy: .auto)")
@@ -72,9 +54,6 @@ extension BrewDataStorage
         if uninstallCommandOutput.standardError.contains("because it is required by")
         {
             AppConstants.shared.logger.warning("Could not uninstall this package because it's a dependency")
-
-            /// If the uninstallation failed, change the status back to "not being modified"
-            resetPackageState(package: package)
 
             do
             {
@@ -98,35 +77,37 @@ extension BrewDataStorage
 
             appState.packageTryingToBeUninstalledWithSudo = package
             appState.isShowingSudoRequiredForUninstallSheet = true
-
-            resetPackageState(package: package)
+            
         }
         else
         {
-            AppConstants.shared.logger.info("Uninstalling can proceed")
-
-            switch package.type
+            do
             {
-            case .formula:
-                withAnimation
+                try await self.synchronizeInstalledPackages()
+                
+                if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
                 {
-                    self.removeFormulaFromTracker(withName: package.name)
+                    AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
+                    
+                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name, errorDetails: uninstallCommandOutput.standardError))
                 }
-
-            case .cask:
-                withAnimation
+                else
                 {
-                    self.removeCaskFromTracker(withName: package.name)
+                    AppConstants.shared.logger.info("Uninstalling can proceed")
+                    
+                    if appState.navigationTargetId != nil
+                    {
+                        /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
+                        if oldNavigationSelectionId == appState.navigationTargetId
+                        {
+                            appState.navigationTargetId = nil
+                        }
+                    }
                 }
             }
-
-            if appState.navigationTargetId != nil
+            catch let synchronizationError
             {
-                /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
-                if oldNavigationSelectionId == appState.navigationTargetId
-                {
-                    appState.navigationTargetId = nil
-                }
+                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
             }
         }
 
@@ -141,35 +122,6 @@ extension BrewDataStorage
             {
                 outdatedPackageTracker.outdatedPackages.remove(at: index)
             }
-        }
-    }
-
-    @MainActor
-    private func resetPackageState(package: BrewPackage)
-    {
-        if package.type == .formula
-        {
-            installedFormulae = Set(installedFormulae.map
-            { formula in
-                var copyFormula: BrewPackage = formula
-                if copyFormula.name == package.name, copyFormula.isBeingModified == true
-                {
-                    copyFormula.changeBeingModifiedStatus()
-                }
-                return copyFormula
-            })
-        }
-        else
-        {
-            installedCasks = Set(installedCasks.map
-            { cask in
-                var copyCask: BrewPackage = cask
-                if copyCask.name == package.name, copyCask.isBeingModified == true
-                {
-                    copyCask.changeBeingModifiedStatus()
-                }
-                return copyCask
-            })
         }
     }
 }

@@ -13,7 +13,7 @@ struct TapDetailView: View, Sendable
     let tap: BrewTap
 
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     @State private var isLoadingTapInfo: Bool = true
     

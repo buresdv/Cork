@@ -5,9 +5,10 @@
 //  Created by David Bureš on 11.02.2023.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
+/*
 @MainActor
 func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<BrewPackage>
 {
@@ -29,6 +30,8 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
     {
         switch packageLoadingError
         {
+        case .couldNotReadContentsOfParentFolder(let failureReason):
+            appState.showAlert(errorToShow: .couldNotGetContentsOfPackageFolder(failureReason))
         case .failedWhileLoadingPackages:
             appState.showAlert(errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
         case .failedWhileLoadingCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
@@ -48,3 +51,4 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
 
     return contentsOfFolder
 }
+*/

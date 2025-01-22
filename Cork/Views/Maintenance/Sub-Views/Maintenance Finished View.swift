@@ -16,6 +16,9 @@ struct MaintenanceFinishedView: View
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    
     @EnvironmentObject var outdatedPackageTacker: OutdatedPackageTracker
 
     let shouldUninstallOrphans: Bool
@@ -165,7 +168,7 @@ struct MaintenanceFinishedView: View
                     {
                         dismiss()
 
-                        appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
+                        cachedDownloadsTracker.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
                     } label: {
                         Text("action.close")
                     }
@@ -180,7 +183,14 @@ struct MaintenanceFinishedView: View
         {
             Task
             {
-                await synchronizeInstalledPackages(brewData: brewData)
+                do
+                {
+                    try await brewData.synchronizeInstalledPackages()
+                }
+                catch let synchronizationError
+                {
+                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                }
             }
         }
     }

@@ -48,7 +48,14 @@ class InstallationProgressTracker: ObservableObject
             try await installCask(using: brewData)
         }
 
-        await synchronizeInstalledPackages(brewData: brewData)
+        do
+        {
+            try await brewData.synchronizeInstalledPackages()
+        }
+        catch let synchronizationError
+        {
+            AppConstants.shared.logger.error("Package isntallation function failed to synchronize packages: \(synchronizationError.localizedDescription)")
+        }
 
         return installationResult
     }

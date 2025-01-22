@@ -8,104 +8,131 @@
 import Foundation
 import CorkShared
 
-@MainActor
-func loadUpTappedTaps() async -> [BrewTap]
+extension TapTracker
 {
-    var finalAvailableTaps: [BrewTap] = .init()
-
-    let contentsOfTapFolder: [URL] = getContentsOfFolder(targetFolder: AppConstants.shared.tapPath, options: .skipsHiddenFiles)
-
-    AppConstants.shared.logger.debug("Contents of tap folder: \(contentsOfTapFolder)")
-
-    for tapRepoParentURL in contentsOfTapFolder
+    @MainActor
+    func loadUpTappedTaps() async throws(TapLoadingError) -> [BrewTap]
     {
-        AppConstants.shared.logger.debug("Tap repo: \(tapRepoParentURL)")
+        
+        var finalAvailableTaps: [BrewTap] = .init()
 
-        let contentsOfTapRepoParent: [URL] = getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
-
-        for repoURL in contentsOfTapRepoParent
+        do
         {
-            let repoParentComponents: [String] = repoURL.pathComponents
+            let contentsOfTapFolder: [URL] = try getContentsOfFolder(targetFolder: AppConstants.shared.tapPath, options: .skipsHiddenFiles)
 
-            let repoParentName: String = repoParentComponents.penultimate()!
+            AppConstants.shared.logger.debug("Contents of tap folder: \(contentsOfTapFolder)")
 
-            let repoNameRaw: String = repoParentComponents.last!
-            let repoName: String = .init(repoNameRaw.dropFirst(9))
-
-            let fullTapName: String = "\(repoParentName)/\(repoName)"
-
-            AppConstants.shared.logger.info("Full tap name: \(fullTapName)")
-
-            finalAvailableTaps.append(BrewTap(name: fullTapName))
-        }
-    }
-
-    let nonLocalBasicTaps: [BrewTap] = await withTaskGroup(of: BrewTap?.self)
-    { taskGroup in
-        if finalAvailableTaps.filter({ $0.name == "homebrew/core" }).isEmpty
-        {
-            AppConstants.shared.logger.warning("Couldn't find homebrew/core in local taps")
-            taskGroup.addTask
+            for tapRepoParentURL in contentsOfTapFolder
             {
-                let isCoreAdded: Bool = await checkIfTapIsAdded(tapToCheck: "homebrew/core")
-                if isCoreAdded
+                AppConstants.shared.logger.debug("Tap repo: \(tapRepoParentURL)")
+
+                do
                 {
-                    AppConstants.shared.logger.info("homebrew/core is added, but not in local taps")
-                    return BrewTap(name: "homebrew/core")
+                    let contentsOfTapRepoParent: [URL] = try getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
+
+                    for repoURL in contentsOfTapRepoParent
+                    {
+                        let repoParentComponents: [String] = repoURL.pathComponents
+
+                        let repoParentName: String = repoParentComponents.penultimate()!
+
+                        let repoNameRaw: String = repoParentComponents.last!
+                        let repoName: String = .init(repoNameRaw.dropFirst(9))
+
+                        let fullTapName: String = "\(repoParentName)/\(repoName)"
+
+                        AppConstants.shared.logger.info("Full tap name: \(fullTapName)")
+
+                        finalAvailableTaps.append(BrewTap(name: fullTapName))
+                    }
+                }
+                catch let tapFolderReadingError
+                {
+                    throw TapLoadingError.couldNotReadTapFolderContents(errorDetails: tapFolderReadingError.localizedDescription)
+                }
+            }
+
+            let nonLocalBasicTaps: [BrewTap] = await withTaskGroup(of: BrewTap?.self)
+            { taskGroup in
+                if finalAvailableTaps.filter({ $0.name == "homebrew/core" }).isEmpty
+                {
+                    AppConstants.shared.logger.warning("Couldn't find homebrew/core in local taps")
+                    taskGroup.addTask
+                    {
+                        let isCoreAdded: Bool = await self.checkIfTapIsAdded(tapToCheck: "homebrew/core")
+                        if isCoreAdded
+                        {
+                            AppConstants.shared.logger.info("homebrew/core is added, but not in local taps")
+                            return BrewTap(name: "homebrew/core")
+                        }
+                        else
+                        {
+                            AppConstants.shared.logger.warning("homebrew/core is not added and not in local taps")
+                            return nil
+                        }
+                    }
                 }
                 else
                 {
-                    AppConstants.shared.logger.warning("homebrew/core is not added and not in local taps")
-                    return nil
+                    AppConstants.shared.logger.info("Found homebrew/core in local taps")
                 }
-            }
-        }
-        else
-        {
-            AppConstants.shared.logger.info("Found homebrew/core in local taps")
-        }
 
-        if finalAvailableTaps.filter({ $0.name == "homebrew/cask" }).isEmpty
-        {
-            AppConstants.shared.logger.warning("Couldn't find homebrew/cask in local taps")
-            taskGroup.addTask
-            {
-                let isCaskAdded: Bool = await checkIfTapIsAdded(tapToCheck: "homebrew/cask")
-                if isCaskAdded
+                if finalAvailableTaps.filter({ $0.name == "homebrew/cask" }).isEmpty
                 {
-                    return BrewTap(name: "homebrew/cask")
+                    AppConstants.shared.logger.warning("Couldn't find homebrew/cask in local taps")
+                    taskGroup.addTask
+                    {
+                        let isCaskAdded: Bool = await self.checkIfTapIsAdded(tapToCheck: "homebrew/cask")
+                        if isCaskAdded
+                        {
+                            return BrewTap(name: "homebrew/cask")
+                        }
+                        else
+                        {
+                            AppConstants.shared.logger.warning("homebrew/cask is not added and not in local taps")
+                            return nil
+                        }
+                    }
                 }
                 else
                 {
-                    AppConstants.shared.logger.warning("homebrew/cask is not added and not in local taps")
-                    return nil
+                    AppConstants.shared.logger.info("Found homebrew/cask in local taps")
                 }
+
+                var nonLocalBasicTapsInternal: [BrewTap] = .init()
+
+                for await tap in taskGroup
+                {
+                    if let tap = tap
+                    {
+                        nonLocalBasicTapsInternal.append(tap)
+                    }
+                }
+
+                return nonLocalBasicTapsInternal
             }
-        }
-        else
-        {
-            AppConstants.shared.logger.info("Found homebrew/cask in local taps")
-        }
 
-        var nonLocalBasicTapsInternal: [BrewTap] = .init()
+            finalAvailableTaps.append(contentsOf: nonLocalBasicTaps)
 
-        for await tap in taskGroup
+            return finalAvailableTaps
+        }
+        catch let tapFolderReadingError
         {
-            if let tap = tap
+            let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
+            
+            if shouldStrictlyCheckForHomebrewErrors
             {
-                nonLocalBasicTapsInternal.append(tap)
+                throw TapLoadingError.couldNotAccessParentTapFolder(errorDetails: tapFolderReadingError.localizedDescription)
+            }
+            else
+            {
+                return [.init(name: "homebrew/core"), .init(name: "homebrew/cask")]
             }
         }
-
-        return nonLocalBasicTapsInternal
     }
 
-    finalAvailableTaps.append(contentsOf: nonLocalBasicTaps)
-
-    return finalAvailableTaps
-}
-
-private func checkIfTapIsAdded(tapToCheck _: String) async -> Bool
-{
-    return true
+    private func checkIfTapIsAdded(tapToCheck _: String) async -> Bool
+    {
+        return true
+    }
 }

@@ -9,10 +9,13 @@ import Foundation
 
 extension DisplayableAlert
 {
+    /// Message in the alert
     var recoverySuggestion: String?
     {
         switch self
         {
+        case .couldNotGetContentsOfPackageFolder(let localizedError):
+            return String(localized: "alert.could-not-get-contents-of-package-folder.message-\(localizedError)")
         case .couldNotLoadAnyPackages:
             return String(localized: "alert.restart-or-reinstall")
         case .couldNotLoadCertainPackage(_, _, let failureReason):
@@ -43,10 +46,12 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-directory-or-folder.message")
         case .installedPackageHasNoVersions:
             return String(localized: "alert.package-corrupted.message")
-        case .installedPackageIsNotAFolder(itemName: let itemName, _):
+        case .installedPackageIsNotAFolder(let itemName, _):
             return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.message-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.message")
+        case .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders:
+            return nil
         case .couldNotObtainNotificationPermissions:
             return String(localized: "alert.notifications-error-while-obtaining-permissions.message")
         case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
@@ -63,6 +68,8 @@ extension DisplayableAlert
             return String(localized: "message.try-again-or-restart")
         case .fatalPackageInstallationError(let errorDetails):
             return errorDetails
+        case .fatalPackageUninstallationError(_, let errorDetails):
+            return errorDetails
         case .couldNotSynchronizePackages(let error):
             return error
         case .couldNotGetWorkingDirectory:
@@ -77,6 +84,14 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-import-brewfile.message")
         case .malformedBrewfile:
             return String(localized: "alert.malformed-brewfile.message")
+        case .tapLoadingFailedDueToTapParentLocation(localizedDescription: let localizedDescription):
+            return localizedDescription
+        case .tapLoadingFailedDueToTapItself(localizedDescription: let localizedDescription):
+            return localizedDescription
+        case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
+            return PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
+        case .couldNotDeleteCachedDownloads(let associatedError):
+            return associatedError
         }
     }
 }

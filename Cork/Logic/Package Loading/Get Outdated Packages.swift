@@ -125,7 +125,7 @@ extension OutdatedPackageTracker
 
         for outdatedFormula in intermediaryArray
         {
-            if let foundOutdatedFormula = brewData.installedFormulae.first(where: { $0.name == outdatedFormula.name })
+            if let foundOutdatedFormula = brewData.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
             {
                 finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,
@@ -145,7 +145,7 @@ extension OutdatedPackageTracker
 
         for outdatedCask in intermediaryArray
         {
-            if let foundOutdatedCask = brewData.installedCasks.first(where: { $0.name == outdatedCask.name })
+            if let foundOutdatedCask = brewData.successfullyLoadedCasks.first(where: { $0.name == outdatedCask.name })
             {
                 finalOutdatedCaskTracker.insert(.init(
                     package: foundOutdatedCask,

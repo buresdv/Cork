@@ -18,6 +18,8 @@ struct AddFormulaView: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
 
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    
     @State private var foundPackageSelection: UUID? = nil
 
     @ObservedObject var searchResultTracker: SearchResultTracker = .init()
@@ -86,7 +88,7 @@ struct AddFormulaView: View
                 }
                 .onAppear
                 {
-                    appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
+                    cachedDownloadsTracker.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
 
                     if notifyAboutPackageInstallationResults
                     {
@@ -193,7 +195,7 @@ struct AddFormulaView: View
         .fixedSize() // TODO: Remove this fixedSize later
         .onDisappear
         {
-            appState.assignPackageTypeToCachedDownloads(brewData: brewData)
+            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)
         }
     }
 }

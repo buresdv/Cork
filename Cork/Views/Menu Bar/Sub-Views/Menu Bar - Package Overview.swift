@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuBar_PackageOverview: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     var body: some View
     {

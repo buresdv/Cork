@@ -10,7 +10,7 @@ import CorkShared
 
 struct AddTapFinishedView: View
 {
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     let requestedTap: String
 

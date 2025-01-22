@@ -4745,6 +4745,16 @@
         }
       }
     },
+    "action.inspect-error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspect error…"
+          }
+        }
+      }
+    },
     "action.open-terminal" : {
       "localizations" : {
         "cs" : {
@@ -5039,6 +5049,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "結束 Cork"
+          }
+        }
+      }
+    },
+    "action.reinstall-homebrew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstall Homebrew"
+          }
+        }
+      }
+    },
+    "action.reinstall-package" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstall"
           }
         }
       }
@@ -11573,6 +11603,16 @@
         }
       }
     },
+    "alert.cache-deletion-failed.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t delete cache"
+          }
+        }
+      }
+    },
     "alert.could-not-apply-tags.message" : {
       "localizations" : {
         "cs" : {
@@ -12689,6 +12729,26 @@
         }
       }
     },
+    "alert.could-not-get-contents-of-package-folder.message-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "alert.could-not-get-contents-of-package-folder.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read package info"
+          }
+        }
+      }
+    },
     "alert.could-not-get-new-packages-in-scheduled-update-system.message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -13211,7 +13271,19 @@
         }
       }
     },
+    "alert.fatal-uninstallation-error.title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t uninstall package"
+          }
+        }
+      }
+    },
     "alert.fatal.could-not-filter-invalid-packages" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -14080,6 +14152,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 的設定不如 Cork 所預期"
+          }
+        }
+      }
+    },
+    "alert.homebrew-broken.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew installation broken"
           }
         }
       }
@@ -15137,6 +15219,26 @@
         }
       }
     },
+    "alert.tap-loading-failed.tap-itself.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read tap info"
+          }
+        }
+      }
+    },
+    "alert.tap-loading-failed.tap-parent.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t access folder containing Taps"
+          }
+        }
+      }
+    },
     "alert.top-package-retrieval-function-turned-up-empty.message" : {
       "localizations" : {
         "cs" : {
@@ -15397,49 +15499,49 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Balíček %@ se nepodařilo odinstalovat"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@ konnte nicht entfernt werden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn't Uninstall %@"
+            "value" : "Couldn't uninstall %@"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "No se pudo desinstalar %@"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Impossible de désinstaller %@"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%@을(를) 제거할 수 없습니다."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Não foi possível desinstalar %@"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Не удалось удалить %@"
           }
         },
@@ -15451,13 +15553,13 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Неможливо видалити %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "无法卸载 %@"
           }
         }
@@ -16321,6 +16423,26 @@
         }
       }
     },
+    "debug.action.show-error-inspector" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show error inspector"
+          }
+        }
+      }
+    },
+    "debug.action.ui" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: UI"
+          }
+        }
+      }
+    },
     "debug.navigation" : {
       "localizations" : {
         "cs" : {
@@ -16357,6 +16479,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "调试"
+          }
+        }
+      }
+    },
+    "error-inspector.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error Inspector"
           }
         }
       }
@@ -16622,6 +16754,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法导入 brewfile: %@"
+          }
+        }
+      }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached Cask downloads folder"
+          }
+        }
+      }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached downloads folder"
+          }
+        }
+      }
+    },
+    "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t read contents of cached Formulae downloads folder"
           }
         }
       }
@@ -16990,6 +17152,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无效的 Homebrew 响应"
+          }
+        }
+      }
+    },
+    "error.intents.general-failure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t execute intent"
           }
         }
       }
@@ -17625,25 +17797,25 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Při načítání zastaralých balíčků se vyskytla neimplementovaná chyba: %@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unimplemented error for getting outdated packages: %@"
+            "value" : "%@"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Erro não implementado para obter bibliotecas expiradas: %@"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Непредвиденная ошибка при получении устаревших пакетов: %@"
           }
         },
@@ -17655,13 +17827,13 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Неімплементована помилка отримання застарілих пакунків: %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "未完成获取更早的软件包: %@"
           }
         }
@@ -17840,7 +18012,19 @@
         }
       }
     },
+    "error.package-loading.could-not-convert-contents-of-install-receipt-to-data" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t decode installation receipt"
+          }
+        }
+      }
+    },
     "error.package-loading.could-not-convert-contents-of-install-receipt-to-data-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -17886,7 +18070,19 @@
         }
       }
     },
+    "error.package-loading.could-not-decode-installa-receipt" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t decode installation receipt"
+          }
+        }
+      }
+    },
     "error.package-loading.could-not-decode-installa-receipt-%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -17973,7 +18169,28 @@
         }
       }
     },
+    "error.package-loading.could-not-load-casks.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load Casks"
+          }
+        }
+      }
+    },
+    "error.package-loading.could-not-load-formulae.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load Formulae"
+          }
+        }
+      }
+    },
     "error.package-loading.could-not-load-packages" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -18014,6 +18231,7 @@
       }
     },
     "error.package-loading.could-not-load-packages.%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -18053,7 +18271,18 @@
         }
       }
     },
+    "error.package-loading.could-not-load-taps.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t load Taps"
+          }
+        }
+      }
+    },
     "error.package-loading.could-not-load-version-to-check-from-available-versions" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -18095,6 +18324,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法从提供的软件包版本列表中加载任何软件包"
+          }
+        }
+      }
+    },
+    "error.package-loading.could-not-read-contents-of-parent-folder.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
           }
         }
       }
@@ -18180,6 +18419,7 @@
       }
     },
     "error.package-loading.missing-install-receipt" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -18271,6 +18511,17 @@
         }
       }
     },
+    "error.package-loading.number-of-loaded-poackages-does-not-match-number-of-package-folders" : {
+      "comment" : "This error occurs when there's a mismatch between the number of loaded packages, and the number of package folders in the package folders",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some packages were not loaded due to an internal error"
+          }
+        }
+      }
+    },
     "error.package-loading.standard-error-not-empty.%@" : {
       "localizations" : {
         "cs" : {
@@ -18318,6 +18569,7 @@
       }
     },
     "error.package-loading.unexpected-folder-name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -18405,6 +18657,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法从所提供的软件包跟踪器 UUID 中找到任何软件包"
+          }
+        }
+      }
+    },
+    "error.package-synchronization.returned-nil" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package synchronization failed"
           }
         }
       }
@@ -19445,6 +19707,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew Dienste"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew Services"
           }
         },
         "es-419" : {
@@ -32156,6 +32424,16 @@
         }
       }
     },
+    "repair-package.repair-length.explanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This might take a long time…"
+          }
+        }
+      }
+    },
     "repair-package.repair-process-%@" : {
       "comment" : "MARK: - Package Repairing",
       "localizations" : {
@@ -44514,6 +44792,26 @@
         }
       }
     },
+    "sidebar.status.no-casks-installed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Casks installed"
+          }
+        }
+      }
+    },
+    "sidebar.status.no-formulae-installed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Formulae installed"
+          }
+        }
+      }
+    },
     "start-page.added-taps.count-%lld" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -46503,6 +46801,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 狀態"
+          }
+        }
+      }
+    },
+    "start-page.unloaded-casks.count-%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There’s %lld Cask that couldn't be loaded"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld Casks that couldn't be loaded"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.unloaded-formulae.count-%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There’s one Formula that couldn’t be loaded"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld Formulae that couldn't be loaded"
+                }
+              }
+            }
           }
         }
       }

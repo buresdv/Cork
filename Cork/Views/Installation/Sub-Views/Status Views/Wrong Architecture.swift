@@ -11,6 +11,7 @@ struct WrongArchitectureView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
@@ -37,7 +38,15 @@ struct WrongArchitectureView: View, Sendable
 
                         Task.detached
                         {
-                            await synchronizeInstalledPackages(brewData: brewData)
+                            do
+                            {
+                                try await brewData.synchronizeInstalledPackages()
+                            }
+                            catch let synchronizationError
+                            {
+                                await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                            }
+                            
                         }
                     } label: {
                         Text("action.close")

@@ -28,9 +28,9 @@ struct TopPackagesSection: View
                     switch trackerType
                     {
                     case .formula:
-                        !brewData.installedFormulae.map(\.name).contains($0.packageName)
+                        !brewData.successfullyLoadedFormulae.map(\.name).contains($0.packageName)
                     case .cask:
-                        !brewData.installedCasks.map(\.name).contains($0.packageName)
+                        !brewData.successfullyLoadedCasks.map(\.name).contains($0.packageName)
                     }
 
                 }.prefix(15))

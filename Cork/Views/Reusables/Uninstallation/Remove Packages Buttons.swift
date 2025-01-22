@@ -50,7 +50,7 @@ private struct RemovePackageButton: View
 
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
-    let package: BrewPackage
+    var package: BrewPackage
 
     let shouldPurge: Bool
     let isCalledFromSidebar: Bool

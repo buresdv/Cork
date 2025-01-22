@@ -24,7 +24,7 @@ enum UntapError: LocalizedError
 }
 
 @MainActor
-func removeTap(name: String, availableTaps: AvailableTaps, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+func removeTap(name: String, availableTaps: TapTracker, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
     var indexToReplaceGlobal: Int?
 

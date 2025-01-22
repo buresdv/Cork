@@ -23,22 +23,29 @@ struct MenuBar_PackageUpdating: View
         {
             if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
-                if !appState.isShowingUpdateSheet
+                if let sanitizedSheetState = appState.sheetToShow
                 {
-                    Menu
+                    if sanitizedSheetState != .fullUpdate || sanitizedSheetState != .partialUpdate
                     {
-                        ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
-                        { outdatedPackage in
-                            SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
+                        Menu
+                        {
+                            ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                            { outdatedPackage in
+                                SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
+                            }
+                        } label: {
+                            Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
                         }
-                    } label: {
-                        Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                        
+                        Button("navigation.upgrade-packages")
+                        {
+                            switchCorkToForeground()
+                            appState.showSheet(ofType: .fullUpdate)
+                        }
                     }
-                    
-                    Button("navigation.upgrade-packages")
+                    else
                     {
-                        switchCorkToForeground()
-                        appState.isShowingUpdateSheet = true
+                        Text("update-packages.detail-stage.pouring")
                     }
                 }
                 else

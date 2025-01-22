@@ -15,45 +15,68 @@ struct CasksSection: View
     @EnvironmentObject var brewData: BrewDataStorage
 
     let searchText: String
+    
+    private var areNoCasksInstalled: Bool
+    {
+        if !appState.isLoadingCasks && brewData.numberOfInstalledCasks == 0
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 
     var body: some View
     {
-        Section("sidebar.section.installed-casks")
+        Section(areNoCasksInstalled ? "sidebar.status.no-casks-installed" : "sidebar.section.installed-casks")
         {
-            if appState.isLoadingCasks
+            if appState.failedWhileLoadingCasks
             {
-                ProgressView()
+                HStack
+                {
+                    Image("custom.macwindow.badge.xmark")
+                    Text("error.package-loading.could-not-load-casks.title")
+                }
             }
             else
             {
-                ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
-                    switch sortPackagesBy
-                    {
-                    case .alphabetically:
-                        return firstPackage.name < secondPackage.name
-                    case .byInstallDate:
-                        return firstPackage.installedOn! < secondPackage.installedOn!
-                    case .bySize:
-                        return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                if appState.isLoadingCasks
+                {
+                    ProgressView()
+                }
+                else
+                {
+                    ForEach(displayedCasks.sorted(by: { firstPackage, secondPackage in
+                        switch sortPackagesBy
+                        {
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                        }
+                    }))
+                    { cask in
+                        SidebarPackageRow(package: cask)
                     }
-                }))
-                { cask in
-                    SidebarPackageRow(package: cask)
                 }
             }
         }
-        .collapsible(true)
+        .collapsible(areNoCasksInstalled ? false : true)
     }
 
     private var displayedCasks: Set<BrewPackage>
     {
         if searchText.isEmpty || searchText.contains("#")
         {
-            return brewData.installedCasks
+            return brewData.successfullyLoadedCasks
         }
         else
         {
-            return brewData.installedCasks.filter { $0.name.contains(searchText) }
+            return brewData.successfullyLoadedCasks.filter { $0.name.contains(searchText) }
         }
     }
 }
