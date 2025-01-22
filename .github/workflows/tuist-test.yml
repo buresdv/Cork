@@ -1,0 +1,15 @@
+name: Build Application
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: jdx/mise-action@v2
+      - run: tuist test Cork
