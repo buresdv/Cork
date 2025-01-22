@@ -19,11 +19,11 @@ enum CachedDownloadDeletionError: LocalizedError
     {
         switch self
         {
-        case .couldNotReadContentsOfCachedFormulaeDownloadsFolder(let associatedError):
+        case .couldNotReadContentsOfCachedFormulaeDownloadsFolder:
             return String(localized: "error.cache-deletion.could-not-read-contents-of-cached-formulae-downloads-folder")
-        case .couldNotReadContentsOfCachedCasksDownloadsFolder(let associatedError):
+        case .couldNotReadContentsOfCachedCasksDownloadsFolder:
             return String(localized: "error.cache-deletion.could-not-read-contents-of-cached-casks-downloads-folder")
-        case .couldNotReadContentsOfCachedDownloadsFolder(let associatedError):
+        case .couldNotReadContentsOfCachedDownloadsFolder:
             return String(localized: "error.cache-deletion.could-not-read-contents-of-cached-downloads-folder")
         }
     }

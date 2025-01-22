@@ -46,7 +46,7 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-file.title")
         case .installedPackageHasNoVersions(let corruptedPackageName):
             return String(localized: "alert.package-corrupted.title-\(corruptedPackageName)")
-        case .installedPackageIsNotAFolder(let itemName, let itemURL):
+        case .installedPackageIsNotAFolder(let itemName, _):
             return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.title-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")
@@ -90,7 +90,7 @@ extension DisplayableAlert
             return String(localized: "alert.tap-loading-failed.tap-itself.title")
         case .triedToThreatFolderContainingPackagesAsPackage:
             return String(localized: "alert.homebrew-broken.title")
-        case .couldNotDeleteCachedDownloads(let associatedError):
+        case .couldNotDeleteCachedDownloads:
             return String(localized: "alert.cache-deletion-failed.title")
         }
     }

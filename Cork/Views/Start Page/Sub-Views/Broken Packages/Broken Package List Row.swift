@@ -32,7 +32,7 @@ struct BrokenPackageListRow: View
     {
         switch self.error
         {
-        case .triedToThreatFolderContainingPackagesAsPackage(_):
+        case .triedToThreatFolderContainingPackagesAsPackage:
             ReinstallHomebrewButton()
 
         case .couldNotReadContentsOfParentFolder(let failureReason, _):
@@ -41,7 +41,7 @@ struct BrokenPackageListRow: View
         case .failedWhileReadingContentsOfPackageFolder(_, let reportedError):
             inspectErrorButton(errorText: reportedError)
             
-        case .failedWhileTryingToDetermineIntentionalInstallation(_ , let associatedIntentionalDiscoveryError):
+        case .failedWhileTryingToDetermineIntentionalInstallation(_, let associatedIntentionalDiscoveryError):
             inspectErrorButton(errorText: associatedIntentionalDiscoveryError.localizedDescription)
             
         case .packageDoesNotHaveAnyVersionsInstalled(let packageURL):

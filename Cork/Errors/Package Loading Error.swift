@@ -49,7 +49,7 @@ enum PackageLoadingError: LocalizedError, Hashable, Identifiable
         case .failedWhileReadingContentsOfPackageFolder(let folderURL, let reportedError):
             return String(localized: "error.package-loading.could-not-load-\(folderURL.packageNameFromURL())-at-\(folderURL.absoluteString)-because-\(reportedError)", comment: "Couldn't load package (package name) at (package URL) because (failure reason)")
             
-        case .failedWhileTryingToDetermineIntentionalInstallation(let folderURL, let associatedIntentionalDiscoveryError):
+        case .failedWhileTryingToDetermineIntentionalInstallation(_, let associatedIntentionalDiscoveryError):
             return associatedIntentionalDiscoveryError.localizedDescription
             
         case .packageDoesNotHaveAnyVersionsInstalled(let packageURL):

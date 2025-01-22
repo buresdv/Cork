@@ -66,7 +66,7 @@ extension BrewDataStorage
                 appState.showAlert(errorToShow: .triedToThreatFolderContainingPackagesAsPackage(packageType: packageType))
             case .failedWhileReadingContentsOfPackageFolder(let folderURL, let reportedError):
                 AppConstants.shared.logger.error("Failed while loading packages: Couldn't read contents of package folder \(folderURL) with this error: \(reportedError)")
-            case .failedWhileTryingToDetermineIntentionalInstallation(folderURL: let folderURL, associatedIntentionalDiscoveryError: let associatedIntentionalDiscoveryError):
+            case .failedWhileTryingToDetermineIntentionalInstallation(let folderURL, let associatedIntentionalDiscoveryError):
                 AppConstants.shared.logger.error("Failed while loading packages: Couldn't determine intentional installation status for package \(folderURL) with this error: \(associatedIntentionalDiscoveryError.localizedDescription)")
             }
 

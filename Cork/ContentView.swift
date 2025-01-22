@@ -581,7 +581,7 @@ private extension View
                 case .couldNotLoadAnyPackages:
                     RestartCorkButton()
 
-                case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
+                case .triedToThreatFolderContainingPackagesAsPackage:
                     RestartCorkButton()
 
                 case .couldNotLoadCertainPackage(let offendingPackage, let offendingPackageURL, _):
@@ -770,12 +770,12 @@ private extension View
                 case .malformedBrewfile:
                     EmptyView()
 
-                case .tapLoadingFailedDueToTapParentLocation(let localizedDescription):
+                case .tapLoadingFailedDueToTapParentLocation:
                     EmptyView()
 
-                case .tapLoadingFailedDueToTapItself(let localizedDescription):
+                case .tapLoadingFailedDueToTapItself:
                     EmptyView()
-                case .couldNotDeleteCachedDownloads(let error):
+                case .couldNotDeleteCachedDownloads:
                     EmptyView()
                 }
             } message: { error in

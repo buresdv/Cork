@@ -26,6 +26,6 @@ enum DisplayableSheet: Identifiable, Equatable
     
     var id: UUID
     {
-        return UUID.init()
+        return .init()
     }
 }

@@ -84,9 +84,9 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-import-brewfile.message")
         case .malformedBrewfile:
             return String(localized: "alert.malformed-brewfile.message")
-        case .tapLoadingFailedDueToTapParentLocation(localizedDescription: let localizedDescription):
+        case .tapLoadingFailedDueToTapParentLocation(let localizedDescription):
             return localizedDescription
-        case .tapLoadingFailedDueToTapItself(localizedDescription: let localizedDescription):
+        case .tapLoadingFailedDueToTapItself(let localizedDescription):
             return localizedDescription
         case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
             return PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
