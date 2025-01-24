@@ -38,13 +38,6 @@ struct InstallationTerminatedUnexpectedlyView: View
                 } label: {
                     Text("action.show-terminal-output")
                 }
-
-                HStack
-                {
-                    Spacer()
-
-                    DismissSheetButton()
-                }
             }
         }
         .fixedSize()

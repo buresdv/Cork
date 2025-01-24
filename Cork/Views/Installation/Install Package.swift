@@ -41,7 +41,7 @@ struct AddFormulaView: View
     
     var isDismissable: Bool
     {
-        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning].contains(packageInstallationProcessStep)
+        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly].contains(packageInstallationProcessStep)
     }
 
     var sheetTitle: LocalizedStringKey
@@ -115,26 +115,7 @@ struct AddFormulaView: View
                         )
 
                     case .finished:
-                        DisappearableSheet
-                        {
-                            ComplexWithIcon(systemName: "checkmark.seal")
-                            {
-                                HeadlineWithSubheadline(
-                                    headline: "add-package.finished",
-                                    subheadline: "add-package.finished.description",
-                                    alignment: .leading
-                                )
-                            }
-                        }
-                        .onAppear
-                        {
-                            cachedDownloadsTracker.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
-
-                            if notifyAboutPackageInstallationResults
-                            {
-                                sendNotification(title: String(localized: "notification.install-finished"))
-                            }
-                        }
+                        InstallationFinishedSuccessfullyView()
 
                     case .fatalError: /// This shows up when the function for executing the install action throws an error
                         InstallationFatalErrorView(installationProgressTracker: installationProgressTracker)
@@ -164,6 +145,15 @@ struct AddFormulaView: View
                         {
                             Button
                             {
+                                do
+                                {
+                                    try await brewData.synchronizeInstalledPackages()
+                                }
+                                catch let synchronizationError
+                                {
+                                    await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                                }
+                                
                                 dismiss()
                             } label: {
                                 Text("action.cancel")

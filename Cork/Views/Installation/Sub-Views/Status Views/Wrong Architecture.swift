@@ -27,32 +27,6 @@ struct WrongArchitectureView: View, Sendable
                     subheadline: "add-package.install.wrong-architecture-\(installationProgressTracker.packageBeingInstalled.package.name).user-architecture-is-\(ProcessInfo().CPUArchitecture == .arm ? "Apple Silicon" : "Intel")",
                     alignment: .leading
                 )
-
-                HStack
-                {
-                    Spacer()
-
-                    Button
-                    {
-                        dismiss()
-
-                        Task.detached
-                        {
-                            do
-                            {
-                                try await brewData.synchronizeInstalledPackages()
-                            }
-                            catch let synchronizationError
-                            {
-                                await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                            }
-                            
-                        }
-                    } label: {
-                        Text("action.close")
-                    }
-                    .keyboardShortcut(.cancelAction)
-                }
             }
         }
         .fixedSize()
