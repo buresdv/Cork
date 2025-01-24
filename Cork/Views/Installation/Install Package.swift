@@ -145,16 +145,19 @@ struct AddFormulaView: View
                         {
                             Button
                             {
-                                do
+                                Task
                                 {
-                                    try await brewData.synchronizeInstalledPackages()
+                                    dismiss()
+                                    
+                                    do
+                                    {
+                                        try await brewData.synchronizeInstalledPackages()
+                                    }
+                                    catch let synchronizationError
+                                    {
+                                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                                    }
                                 }
-                                catch let synchronizationError
-                                {
-                                    await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                                }
-                                
-                                dismiss()
                             } label: {
                                 Text("action.cancel")
                             }
