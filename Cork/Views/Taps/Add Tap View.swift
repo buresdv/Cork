@@ -71,7 +71,7 @@ struct AddTapView: View
         {
             SheetTemplate(isShowingTitle: shouldShowSheetTitle)
             {
-                VStack
+                Group
                 {
                     switch progress
                     {
