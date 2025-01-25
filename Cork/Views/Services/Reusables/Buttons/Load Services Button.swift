@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ButtonKit
 
 struct LoadServicesButton: View
 {
@@ -16,16 +17,14 @@ struct LoadServicesButton: View
 
     var body: some View
     {
-        Button
+        AsyncButton
         {
-            Task(priority: .userInitiated)
-            {
-                await loadServices()
-            }
+            await loadServices()
         } label: {
             Label("action.reload-services", systemImage: "arrow.clockwise")
                 .help("action.reload-services")
         }
+        .asyncButtonStyle(.plainStyle)
     }
 
     // This function is duplicated in `HomebrewServicesView`

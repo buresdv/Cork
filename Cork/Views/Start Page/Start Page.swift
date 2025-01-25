@@ -165,7 +165,7 @@ struct StartPage: View
                     {
                         AppConstants.shared.logger.debug("Correct File Format")
 
-                        Task(priority: .userInitiated)
+                        Task
                         {
                             try await importBrewfile(from: url, appState: appState, brewData: brewData)
                         }

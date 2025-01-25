@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ButtonKit
 
 struct SudoRequiredForRemovalSheet: View, Sendable
 {
@@ -38,25 +39,23 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 
                 HStack
                 {
-                    Button
+                    AsyncButton
                     {
                         dismiss()
 
-                        Task.detached
+                        do
                         {
-                            do
-                            {
-                                try await brewData.synchronizeInstalledPackages()
-                            }
-                            catch let synchronizationError
-                            {
-                                await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                            }
+                            try await brewData.synchronizeInstalledPackages()
+                        }
+                        catch let synchronizationError
+                        {
+                            appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
                         }
                     } label: {
                         Text("action.close")
                     }
                     .keyboardShortcut(.cancelAction)
+                    .asyncButtonStyle(.plainStyle)
 
                     Spacer()
 

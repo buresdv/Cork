@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import CorkNotifications
+import ButtonKit
 
 struct MenuBar_CacheCleanup: View
 {
@@ -17,50 +18,49 @@ struct MenuBar_CacheCleanup: View
     {
         if !isPurgingHomebrewCache
         {
-            Button("maintenance.steps.downloads.purge-cache")
+            AsyncButton
             {
-                Task(priority: .userInitiated)
+                AppConstants.shared.logger.log("Will purge cache")
+
+                isPurgingHomebrewCache = true
+
+                defer
                 {
-                    AppConstants.shared.logger.log("Will purge cache")
+                    isPurgingHomebrewCache = false
+                }
 
-                    isPurgingHomebrewCache = true
+                do
+                {
+                    let packagesHoldingBackCachePurge: [String] = try await purgeHomebrewCacheUtility()
 
-                    defer
+                    if packagesHoldingBackCachePurge.isEmpty
                     {
-                        isPurgingHomebrewCache = false
-                    }
-
-                    do
-                    {
-                        let packagesHoldingBackCachePurge: [String] = try await purgeHomebrewCacheUtility()
-
-                        if packagesHoldingBackCachePurge.isEmpty
-                        {
-                            sendNotification(
-                                title: String(localized: "maintenance.results.package-cache"),
-                                sensitivity: .active
-                            )
-                        }
-                        else
-                        {
-                            sendNotification(
-                                title: String(localized: "maintenance.results.package-cache"),
-                                body: String(localized: "maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))"),
-                                sensitivity: .active
-                            )
-                        }
-                    }
-                    catch let cachePurgingError
-                    {
-                        AppConstants.shared.logger.warning("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription, privacy: .public)")
-
                         sendNotification(
-                            title: String(localized: "maintenance.results.package-cache.failure"),
-                            body: String(localized: "maintenance.results.package-cache.failure.details-\(cachePurgingError.localizedDescription)"),
+                            title: String(localized: "maintenance.results.package-cache"),
+                            sensitivity: .active
+                        )
+                    }
+                    else
+                    {
+                        sendNotification(
+                            title: String(localized: "maintenance.results.package-cache"),
+                            body: String(localized: "maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurge.formatted(.list(type: .and)))"),
                             sensitivity: .active
                         )
                     }
                 }
+                catch let cachePurgingError
+                {
+                    AppConstants.shared.logger.warning("There were errors while purging Homebrew cache: \(cachePurgingError.localizedDescription, privacy: .public)")
+
+                    sendNotification(
+                        title: String(localized: "maintenance.results.package-cache.failure"),
+                        body: String(localized: "maintenance.results.package-cache.failure.details-\(cachePurgingError.localizedDescription)"),
+                        sensitivity: .active
+                    )
+                }
+            } label: {
+                Text("maintenance.steps.downloads.purge-cache")
             }
         }
         else

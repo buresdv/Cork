@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import ButtonKit
 
 struct Licensing_NotBoughtOrActivatedView: View
 {
@@ -139,60 +140,57 @@ struct Licensing_NotBoughtOrActivatedView: View
                     .disabled(isDemoButtonDisabled)
                 }
 
-                Button
+                AsyncButton
                 {
-                    Task(priority: .userInitiated)
+                    withAnimation
                     {
-                        withAnimation
-                        {
-                            isCheckingLicense = true
-                        }
+                        isCheckingLicense = true
+                    }
 
-                        defer
+                    defer
+                    {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3)
                         {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3)
+                            withAnimation
                             {
-                                withAnimation
-                                {
-                                    isCheckingLicense = false
-                                    hasCheckingFailed = false
-                                }
+                                isCheckingLicense = false
+                                hasCheckingFailed = false
                             }
                         }
+                    }
 
-                        do
+                    do
+                    {
+                        let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
+
+                        AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
+
+                        if hasSpecifiedUserBoughtCork
                         {
-                            let hasSpecifiedUserBoughtCork: Bool = try await checkIfUserBoughtCork(for: emailFieldContents)
-
-                            AppConstants.shared.logger.debug("Has \(emailFieldContents) bought Cork? \(hasSpecifiedUserBoughtCork ? "YES" : "NO")")
-
-                            if hasSpecifiedUserBoughtCork
+                            appState.licensingState = .bought
+                        }
+                        else
+                        {
+                            withAnimation
                             {
-                                appState.licensingState = .bought
-                            }
-                            else
-                            {
-                                withAnimation
-                                {
-                                    hasCheckingFailed = true
-                                }
+                                hasCheckingFailed = true
                             }
                         }
-                        catch let licenseCheckingError as CorkLicenseRetrievalError
-                        {
-                            AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
+                    }
+                    catch let licenseCheckingError as CorkLicenseRetrievalError
+                    {
+                        AppConstants.shared.logger.error("\(licenseCheckingError.localizedDescription, privacy: .public)")
 
-                            switch licenseCheckingError
-                            {
-                            case .authorizationComplexNotEncodedProperly:
-                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
-                            case .notConnectedToTheInternet:
-                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
-                            case .operationTimedOut:
-                                appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
-                            case .otherError(let localizedDescription):
-                                appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
-                            }
+                        switch licenseCheckingError
+                        {
+                        case .authorizationComplexNotEncodedProperly:
+                            appState.showAlert(errorToShow: .licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly)
+                        case .notConnectedToTheInternet:
+                            appState.showAlert(errorToShow: .licenseCheckingFailedDueToNoInternet)
+                        case .operationTimedOut:
+                            appState.showAlert(errorToShow: .licenseCheckingFailedDueToTimeout)
+                        case .otherError(let localizedDescription):
+                            appState.showAlert(errorToShow: .licenseCheckingFailedForOtherReason(localizedDescription: localizedDescription))
                         }
                     }
                 } label: {
@@ -200,6 +198,8 @@ struct Licensing_NotBoughtOrActivatedView: View
                 }
                 .keyboardShortcut(.defaultAction)
                 .disabled(emailFieldContents.isEmpty || !emailFieldContents.contains("@") || !emailFieldContents.contains("."))
+                .disabledWhenLoading()
+                .asyncButtonStyle(.none)
             }
         }
         .padding()
