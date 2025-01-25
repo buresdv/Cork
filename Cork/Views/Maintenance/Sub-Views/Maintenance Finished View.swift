@@ -157,8 +157,6 @@ struct MaintenanceFinishedView: View
             }
             .fixedSize()
         }
-        .padding()
-        // .frame(minWidth: 300, minHeight: 150)
         .task
         {
             do
