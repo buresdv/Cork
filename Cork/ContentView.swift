@@ -9,6 +9,7 @@
 
 import CorkShared
 import SwiftUI
+import ButtonKit
 
 struct ContentView: View, Sendable
 {
@@ -794,24 +795,22 @@ private extension View
         self
             .confirmationDialog(view.uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: view.$uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
             {
-                Button(role: .destructive)
+                AsyncButton(role: .destructive)
                 {
                     view.uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation = false
 
-                    Task
-                    {
-                        try await view.brewData.uninstallSelectedPackage(
-                            package: view.uninstallationConfirmationTracker.packageThatNeedsConfirmation,
-                            appState: view.appState,
-                            outdatedPackageTracker: view.outdatedPackageTracker,
-                            shouldRemoveAllAssociatedFiles: view.uninstallationConfirmationTracker.shouldPurge,
-                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: view.uninstallationConfirmationTracker.isCalledFromSidebar
-                        )
-                    }
+                    try await view.brewData.uninstallSelectedPackage(
+                        package: view.uninstallationConfirmationTracker.packageThatNeedsConfirmation,
+                        appState: view.appState,
+                        outdatedPackageTracker: view.outdatedPackageTracker,
+                        shouldRemoveAllAssociatedFiles: view.uninstallationConfirmationTracker.shouldPurge,
+                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: view.uninstallationConfirmationTracker.isCalledFromSidebar
+                    )
                 } label: {
                     Text(view.uninstallationConfirmationTracker.shouldPurge ? "action.purge-\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall-\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)")
                 }
                 .keyboardShortcut(.defaultAction)
+                .asyncButtonStyle(.plainStyle)
 
                 Button(role: .cancel)
                 {
