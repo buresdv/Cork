@@ -133,7 +133,5 @@ struct MaintenanceRunningView: View
                     maintenanceSteps = .finished
                 }
         }
-        .padding()
-        .frame(width: 200)
     }
 }
