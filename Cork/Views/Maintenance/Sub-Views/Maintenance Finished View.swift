@@ -179,18 +179,15 @@ struct MaintenanceFinishedView: View
         }
         .padding()
         // .frame(minWidth: 300, minHeight: 150)
-        .onAppear // This should stay this way, I don' want the task to be cancelled when the view disappears
+        .task
         {
-            Task
+            do
             {
-                do
-                {
-                    try await brewData.synchronizeInstalledPackages()
-                }
-                catch let synchronizationError
-                {
-                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                }
+                try await brewData.synchronizeInstalledPackages()
+            }
+            catch let synchronizationError
+            {
+                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
             }
         }
     }

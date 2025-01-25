@@ -8,6 +8,7 @@
 import CorkNotifications
 import CorkShared
 import SwiftUI
+import ButtonKit
 
 struct AddFormulaView: View
 {
@@ -143,25 +144,23 @@ struct AddFormulaView: View
                     {
                         ToolbarItem(placement: .cancellationAction)
                         {
-                            Button
+                            AsyncButton
                             {
-                                Task
+                                dismiss()
+                                
+                                do
                                 {
-                                    dismiss()
-                                    
-                                    do
-                                    {
-                                        try await brewData.synchronizeInstalledPackages()
-                                    }
-                                    catch let synchronizationError
-                                    {
-                                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                                    }
+                                    try await brewData.synchronizeInstalledPackages()
+                                }
+                                catch let synchronizationError
+                                {
+                                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
                                 }
                             } label: {
                                 Text("action.cancel")
                             }
                             .keyboardShortcut(.cancelAction)
+                            .disabledWhenLoading()
                         }
                     }
                 }
