@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "%@" : {
       "localizations" : {
@@ -7643,6 +7650,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "隱藏詳細訊息"
+          }
+        }
+      }
+    },
+    "add-package.install.installation-terminated.no-terminal-output-provided" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew neposkytnul žádný výstup"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew didn’t provide any output"
           }
         }
       }

@@ -30,6 +30,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(name: "CorkNotifications"),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
+            .external(name: "ButtonKit"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
         ], settings: .settings(configurations: [
             .debug(

@@ -24,19 +24,26 @@ struct InstallationTerminatedUnexpectedlyView: View
                     subheadline: "add-package.install.installation-terminated.subheadline",
                     alignment: .leading
                 )
-
-                DisclosureGroup
+                
+                if usableLiveTerminalOutput.isEmpty
                 {
-                    List
+                    OutlinedPillText(text: "add-package.install.installation-terminated.no-terminal-output-provided", color: .secondary)                        
+                }
+                else
+                {
+                    DisclosureGroup
                     {
-                        ForEach(usableLiveTerminalOutput)
-                        { outputLine in
-                            Text(outputLine.line)
+                        List
+                        {
+                            ForEach(usableLiveTerminalOutput)
+                            { outputLine in
+                                Text(outputLine.line)
+                            }
                         }
+                        .frame(height: 100, alignment: .leading)
+                    } label: {
+                        Text("action.show-terminal-output")
                     }
-                    .frame(height: 100, alignment: .leading)
-                } label: {
-                    Text("action.show-terminal-output")
                 }
             }
         }
