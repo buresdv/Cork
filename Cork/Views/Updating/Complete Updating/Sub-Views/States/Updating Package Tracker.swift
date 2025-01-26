@@ -53,6 +53,7 @@ struct UpdatingPackageTrackerStateView: View
                     case .couldNotDecodeCommandOutput(let decodingError):
                         // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
                         AppConstants.shared.logger.error("Could not decode outdated package command output: \(decodingError)")
+                        appState.showAlert(errorToShow: .receivedInvalidResponseFromBrew)
                     case .otherError:
                         AppConstants.shared.logger.error("Something went wrong")
                     }
