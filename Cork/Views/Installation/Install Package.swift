@@ -42,7 +42,7 @@ struct AddFormulaView: View
     
     var isDismissable: Bool
     {
-        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly].contains(packageInstallationProcessStep)
+        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly, .installing].contains(packageInstallationProcessStep)
     }
 
     var sheetTitle: LocalizedStringKey
@@ -150,7 +150,7 @@ struct AddFormulaView: View
                                 
                                 do
                                 {
-                                    try await brewData.synchronizeInstalledPackages()
+                                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
                                 }
                                 catch let synchronizationError
                                 {

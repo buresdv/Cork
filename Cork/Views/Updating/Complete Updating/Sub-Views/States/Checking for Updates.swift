@@ -31,7 +31,7 @@ struct CheckingForUpdatesStateView: View
                 forceKeepTerminalOutputInMemory: true
             )
         }
-        .task(priority: .userInitiated)
+        .task
         {
             updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
 

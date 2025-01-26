@@ -585,7 +585,7 @@ struct CorkApp: App
 
                     do
                     {
-                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
+                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData, cachedPackagesTracker: cachedDownloadsTracker)
                     }
                     catch let brewfileImportingError
                     {
@@ -688,7 +688,7 @@ struct CorkApp: App
             Text("navigation.menu.maintenance.delete-cached-downloads")
         }
         .keyboardShortcut("m", modifiers: [.command, .option])
-        .disabled(cachedDownloadsTracker.cachedDownloadsFolderSize == 0)
+        .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
     }
 
     @ViewBuilder

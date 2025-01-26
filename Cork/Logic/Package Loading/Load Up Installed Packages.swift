@@ -128,8 +128,17 @@ private extension BrewDataStorage
 
                     loadedPackages.insert(loadedPackage)
                 }
+                
+                let loggableLoadedPackages: String = loadedPackages.compactMap { rawResult in
+                    switch rawResult {
+                    case .success(let success):
+                        return success.name
+                    case .failure(let failure):
+                        return failure.errorDescription
+                    }
+                }.formatted(.list(type: .and))
 
-                AppConstants.shared.logger.debug("Loaded packages: \(loadedPackages)")
+                AppConstants.shared.logger.debug("Loaded \(packageTypeToLoad.description): \(loggableLoadedPackages)")
 
                 return loadedPackages
             }

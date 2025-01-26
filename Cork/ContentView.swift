@@ -366,7 +366,7 @@ private extension View
     func analyticsSetupTask(of view: ContentView) -> some View
     {
         self
-            .task(priority: .background)
+            .task
             {
                 AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
 
@@ -388,7 +388,7 @@ private extension View
     func discoverabilitySetupTask(of view: ContentView) -> some View
     {
         self
-            .task(priority: .background)
+            .task
             {
                 AppConstants.shared.logger.info("Started Discoverability startup action at \(Date())")
 
@@ -405,13 +405,12 @@ private extension View
     func cachedDownloadsCalculationTask(of view: ContentView) -> some View
     {
         self
-            .task(priority: .background)
+            .task
             {
                 if view.cachedDownloadsTracker.cachedDownloads.isEmpty
                 {
                     AppConstants.shared.logger.info("Will calculate cached downloads")
-                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages()
-                    view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewData: view.brewData)
                 }
             }
     }
@@ -422,20 +421,19 @@ private extension View
     func onChanges(boundToView view: ContentView) -> some View
     {
         self
-            .onChange(of: view.cachedDownloadsTracker.cachedDownloadsFolderSize)
+            .onChange(of: view.cachedDownloadsTracker.cachedDownloadsSize)
             { _ in
-                Task(priority: .background)
+                #warning("FIXME: This might fuck up the memory")
+                Task
                 {
                     AppConstants.shared.logger.info("Will recalculate cached downloads")
-                    view.cachedDownloadsTracker.cachedDownloads = .init()
-                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages()
-                    view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewData: view.brewData)
                 }
             }
             .onChange(of: view.areNotificationsEnabled, perform: { newValue in
                 if newValue == true
                 {
-                    Task(priority: .background)
+                    Task
                     {
                         await view.appState.setupNotifications()
                     }
@@ -444,7 +442,7 @@ private extension View
             .onChange(of: view.enableDiscoverability, perform: { newValue in
                 if newValue == true
                 {
-                    Task(priority: .userInitiated)
+                    Task
                     {
                         await view.loadTopPackages()
                     }
@@ -460,7 +458,7 @@ private extension View
                 }
             })
             .onChange(of: view.discoverabilityDaySpan, perform: { _ in
-                Task(priority: .userInitiated)
+                Task
                 {
                     await view.loadTopPackages()
                 }
@@ -525,42 +523,6 @@ private extension View
                     }
                 }
             }
-        /*
-         self
-             .sheet(isPresented: view.$appState.isShowingInstallationSheet)
-             {
-                 AddFormulaView(packageInstallationProcessStep: .ready)
-             }
-             .sheet(item: view.$corruptedPackage, onDismiss: {
-                 view.corruptedPackage = nil
-             }, content: { corruptedPackageInternal in
-                 ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackageInternal)
-             })
-             .sheet(isPresented: view.$appState.isShowingSudoRequiredForUninstallSheet)
-             {
-                 SudoRequiredForRemovalSheet()
-             }
-             .sheet(isPresented: view.$appState.isShowingAddTapSheet)
-             {
-                 AddTapView()
-             }
-             .sheet(isPresented: view.$appState.isShowingUpdateSheet)
-             {
-                 UpdatePackagesView()
-             }
-             .sheet(isPresented: view.$appState.isShowingIncrementalUpdateSheet)
-             {
-                 UpdateSomePackagesView()
-             }
-             .sheet(isPresented: view.$appState.isShowingBrewfileExportProgress)
-             {
-                 BrewfileExportProgressView()
-             }
-             .sheet(isPresented: view.$appState.isShowingBrewfileImportProgress)
-             {
-                 BrewfileImportProgressView()
-             }
-          */
     }
 }
 
@@ -801,6 +763,7 @@ private extension View
 
                     try await view.brewData.uninstallSelectedPackage(
                         package: view.uninstallationConfirmationTracker.packageThatNeedsConfirmation,
+                        cachedPackagesTracker: view.cachedDownloadsTracker,
                         appState: view.appState,
                         outdatedPackageTracker: view.outdatedPackageTracker,
                         shouldRemoveAllAssociatedFiles: view.uninstallationConfirmationTracker.shouldPurge,
@@ -830,7 +793,7 @@ private extension View
     func topPackagesLoadingTask(of view: ContentView) -> some View
     {
         self
-            .task(priority: .low)
+            .task
             {
                 await view.loadTopPackages()
             }

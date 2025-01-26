@@ -14,6 +14,7 @@ struct MenuBar_OrphanCleanup: View
 {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @State private var isUninstallingOrphanedPackages: Bool = false
 
@@ -48,7 +49,7 @@ struct MenuBar_OrphanCleanup: View
 
                 do
                 {
-                    try await brewData.synchronizeInstalledPackages()
+                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
                 }
                 catch let synchronizationError
                 {

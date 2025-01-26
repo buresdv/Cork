@@ -10,10 +10,15 @@ import CorkShared
 
 extension CachedPackagesTracker
 {
+    /// Load cached downloads and assign their types
     @MainActor
-    func loadCachedDownloadedPackages() async
+    func loadCachedDownloadedPackages(brewData: BrewDataStorage) async
     {
-        let smallestDispalyableSize: Int = .init(cachedDownloadsFolderSize / 50)
+        AppConstants.shared.logger.info("Will load cached downloaded packages")
+        
+        self.cachedDownloads = .init()
+        
+        let smallestDispalyableSize: Int = .init(cachedDownloadsSize / 50)
 
         var packagesThatAreTooSmallToDisplaySize: Int = 0
 
@@ -68,10 +73,10 @@ extension CachedPackagesTracker
             AppConstants.shared.logger.debug("Others size: \(packagesThatAreTooSmallToDisplaySize, privacy: .public)")
         }
 
-        AppConstants.shared.logger.log("Cached downloads contents: \(self.cachedDownloads)")
-
         cachedDownloads = cachedDownloads.sorted(by: { $0.sizeInBytes < $1.sizeInBytes })
 
         cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
+        
+        self.assignPackageTypeToCachedDownloads(brewData: brewData)
     }
 }

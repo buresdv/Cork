@@ -13,7 +13,7 @@ struct StartPage: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: TapTracker
     
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @EnvironmentObject var appState: AppState
 
@@ -90,7 +90,7 @@ struct StartPage: View
                             AnalyticsStatusBox()
                         }
 
-                        if cachedDownloadsTracker.cachedDownloadsFolderSize != 0
+                        if cachedPackagesTracker.cachedDownloadsSize != 0
                         {
                             Section
                             {
@@ -98,7 +98,7 @@ struct StartPage: View
                             }
                         }
                     }
-                    .task(priority: .background)
+                    .task
                     {
                         if outdatedPackageTracker.outdatedPackages.isEmpty
                         {
@@ -166,8 +166,8 @@ struct StartPage: View
                         AppConstants.shared.logger.debug("Correct File Format")
 
                         Task
-                        {
-                            try await importBrewfile(from: url, appState: appState, brewData: brewData)
+                        { @MainActor in
+                            try await importBrewfile(from: url, appState: appState, brewData: brewData, cachedPackagesTracker: cachedPackagesTracker)
                         }
                     }
                     else

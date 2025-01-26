@@ -11,8 +11,13 @@ import CorkShared
 
 class CachedPackagesTracker: ObservableObject
 {
-    @Published var cachedDownloadsFolderSize: Int64 = AppConstants.shared.brewCachedDownloadsPath.directorySize
     @Published var cachedDownloads: [CachedDownload] = .init()
 
     private var cachedDownloadsTemp: [CachedDownload] = .init()
+    
+    /// Calculate the size of the cached downloads dynamically without accessing the file system for the operation
+    var cachedDownloadsSize: Int
+    {
+        return cachedDownloads.reduce(0) { $0 + $1.sizeInBytes }
+    }
 }

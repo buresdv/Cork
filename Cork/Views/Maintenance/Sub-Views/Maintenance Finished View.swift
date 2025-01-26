@@ -161,7 +161,7 @@ struct MaintenanceFinishedView: View
         {
             do
             {
-                try await brewData.synchronizeInstalledPackages()
+                try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
             }
             catch let synchronizationError
             {

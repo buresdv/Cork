@@ -22,7 +22,7 @@ struct CachedDownloadsFolderInfoBox: View
             {
                 GroupBoxHeadlineGroup(
                     image: "archivebox",
-                    title: "start-page.cached-downloads-\(cachedDownloadsTracker.cachedDownloadsFolderSize.formatted(.byteCount(style: .file)))",
+                    title: "start-page.cached-downloads-\(cachedDownloadsTracker.cachedDownloadsSize.formatted(.byteCount(style: .file)))",
                     mainText: "start-page.cached-downloads.description"
                 )
 
@@ -59,7 +59,7 @@ struct CachedDownloadsFolderInfoBox: View
                             if cachedPackage.packageName != cachedDownloadsTracker.cachedDownloads.last?.packageName
                             {
                                 BarMark(
-                                    x: .value("start-page.cached-downloads.graph.size", cachedDownloadsTracker.cachedDownloadsFolderSize / 500)
+                                    x: .value("start-page.cached-downloads.graph.size", cachedDownloadsTracker.cachedDownloadsSize / 500)
                                 )
                                 .foregroundStyle(Color.white)
                             }

@@ -30,9 +30,6 @@ struct InstallationFinishedSuccessfullyView: View
         }
         .onAppear
         {
-            cachedDownloadsTracker.cachedDownloadsFolderSize =
-                AppConstants.shared.brewCachedDownloadsPath.directorySize
-
             if notifyAboutPackageInstallationResults
             {
                 sendNotification(

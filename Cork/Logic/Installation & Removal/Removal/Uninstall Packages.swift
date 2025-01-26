@@ -14,6 +14,7 @@ extension BrewDataStorage
     @MainActor
     func uninstallSelectedPackage(
         package: BrewPackage,
+        cachedPackagesTracker: CachedPackagesTracker,
         appState: AppState,
         outdatedPackageTracker: OutdatedPackageTracker,
         shouldRemoveAllAssociatedFiles: Bool,
@@ -83,7 +84,7 @@ extension BrewDataStorage
         {
             do
             {
-                try await self.synchronizeInstalledPackages()
+                try await self.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
                 
                 if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
                 {

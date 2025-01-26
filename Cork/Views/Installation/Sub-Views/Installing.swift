@@ -14,6 +14,8 @@ struct InstallingPackageView: View
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
 
@@ -111,11 +113,15 @@ struct InstallingPackageView: View
                     }
             }
         }
-        .task(priority: .userInitiated)
+        .task
         {
             do
             {
-                let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(using: brewData)
+                let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(
+                    using: brewData,
+                    cachedPackagesTracker: cachedPackagesTracker
+                )
+                
                 AppConstants.shared.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
 
                 /// Check if the package installation stag at the end of the install process was something unexpected. Normal package installations go through multiple steps, and the three listed below are not supposed to be the end state. This means that something went wrong during the installation

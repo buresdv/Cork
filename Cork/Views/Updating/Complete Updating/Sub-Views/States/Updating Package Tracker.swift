@@ -20,7 +20,7 @@ struct UpdatingPackageTrackerStateView: View
     var body: some View
     {
         Text("update-packages.updating.updating-outdated-package")
-            .task(priority: .userInitiated)
+            .task
             {
                 do
                 {

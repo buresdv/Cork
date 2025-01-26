@@ -16,6 +16,7 @@ struct PackageModificationButtons: View
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
@@ -83,6 +84,7 @@ struct PackageModificationButtons: View
 
                                         try await brewData.uninstallSelectedPackage(
                                             package: package,
+                                            cachedPackagesTracker: cachedPackagesTracker,
                                             appState: appState,
                                             outdatedPackageTracker: outdatedPackageTracker,
                                             shouldRemoveAllAssociatedFiles: false,

@@ -22,7 +22,7 @@ struct AddTapAddingView: View
         {
             Text("add-tap.progress-\(requestedTap)")
         }
-        .task(priority: .medium)
+        .task
         {
             var tapResult: String
 
