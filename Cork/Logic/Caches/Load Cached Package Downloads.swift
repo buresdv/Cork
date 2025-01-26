@@ -18,7 +18,7 @@ extension CachedPackagesTracker
         
         self.cachedDownloads = .init()
         
-        let smallestDispalyableSize: Int = .init(cachedDownloadsSize / 50)
+        let smallestDispalyableSize: Int = .init(AppConstants.shared.brewCachedDownloadsPath.directorySize / 50)
 
         var packagesThatAreTooSmallToDisplaySize: Int = 0
 

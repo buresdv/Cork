@@ -25,6 +25,18 @@ struct StartPage: View
     @State private var errorOutReason: String?
 
     @State private var dragOver: Bool = false
+    
+    var shouldShowCachedDownloadsGraph: Bool
+    {
+        if cachedPackagesTracker.cachedDownloadsSize == 0
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
 
     var body: some View
     {
@@ -90,7 +102,7 @@ struct StartPage: View
                             AnalyticsStatusBox()
                         }
 
-                        if cachedPackagesTracker.cachedDownloadsSize != 0
+                        if shouldShowCachedDownloadsGraph
                         {
                             Section
                             {
