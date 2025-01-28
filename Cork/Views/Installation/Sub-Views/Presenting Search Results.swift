@@ -150,7 +150,7 @@ private struct SearchResultsSection: View
             {
                 ForEach(packageList)
                 { package in
-                    SearchResultRow(searchedForPackage: package)
+                    SearchResultRow(searchedForPackage: package, context: .searchResults, downloadCount: nil)
                 }
             }
         } header: {

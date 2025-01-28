@@ -16,7 +16,9 @@ struct SearchResultRow: View, Sendable
     @EnvironmentObject var brewData: BrewDataStorage
 
     let searchedForPackage: BrewPackage
-
+    let context: Self.Context
+    let downloadCount: Int?
+    
     @State private var description: String?
     @State private var isCompatible: Bool?
 
@@ -30,35 +32,46 @@ struct SearchResultRow: View, Sendable
             HStack(alignment: .center)
             {
                 SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: true)
-
-                if searchedForPackage.type == .formula
+                
+                switch context
                 {
-                    if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
+                case .topPackages:
+                    Spacer()
+                    
+                    if let downloadCount
                     {
-                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                        Text("add-package.top-packages.list-item-\(downloadCount)")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
                     }
-                }
-                else
-                {
-                    if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
+                    
+                case .searchResults:
+                    if searchedForPackage.type == .formula
                     {
-                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
-                    }
-                }
-
-                if let isCompatible
-                {
-                    if !isCompatible
-                    {
-                        if showCompatibilityWarning
+                        if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
                         {
-                            HStack(alignment: .center, spacing: 4)
+                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                        }
+                    }
+                    else
+                    {
+                        if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
+                        {
+                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                        }
+                    }
+                    
+                    if let isCompatible
+                    {
+                        if !isCompatible
+                        {
+                            if showCompatibilityWarning
                             {
                                 Image(systemName: "exclamationmark.circle")
                                 Text("add-package.result.not-optimized-for-\(AppConstants.shared.osVersionString.fullName)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.red)
                             }
-                            .font(.subheadline)
-                            .foregroundColor(.red)
                         }
                     }
                 }
@@ -136,5 +149,10 @@ struct SearchResultRow: View, Sendable
                 }
             }
         }
+    }
+    
+    enum Context {
+        case searchResults
+        case topPackages
     }
 }
