@@ -8,7 +8,7 @@ on:
       - main
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v3
       - uses: jdx/mise-action@v2
