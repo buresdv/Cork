@@ -35,31 +35,11 @@ struct SudoRequiredView: View, Sendable
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
-
-            HStack
+        }
+        .toolbar
+        {
+            ToolbarItem(placement: .primaryAction)
             {
-                Button
-                {
-                    dismiss()
-
-                    Task.detached
-                    {
-                        do
-                        {
-                            try await brewData.synchronizeInstalledPackages()
-                        }
-                        catch let synchronizatonError
-                        {
-                            await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizatonError.localizedDescription))
-                        }
-                    }
-                } label: {
-                    Text("action.close")
-                }
-                .keyboardShortcut(.cancelAction)
-
-                Spacer()
-
                 Button
                 {
                     openTerminal()

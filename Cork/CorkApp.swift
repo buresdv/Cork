@@ -12,6 +12,7 @@ import CorkShared
 import DavidFoundation
 import SwiftUI
 import UserNotifications
+import ButtonKit
 
 @main
 struct CorkApp: App
@@ -164,7 +165,7 @@ struct CorkApp: App
                     { (completion: NSBackgroundActivityScheduler.CompletionHandler) in
                         AppConstants.shared.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
 
-                        Task(priority: .background)
+                        Task
                         {
                             var updateResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
@@ -273,7 +274,7 @@ struct CorkApp: App
                 }
                 .onChange(of: areNotificationsEnabled)
                 { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
-                    Task(priority: .background)
+                    Task
                     {
                         await appDelegate.appState.requestNotificationAuthorization()
 
@@ -534,87 +535,83 @@ struct CorkApp: App
     @ViewBuilder
     var backupAndRestoreMenuBarSection: some View
     {
-        Button
+        AsyncButton
         {
-            Task(priority: .userInitiated)
+            do
             {
-                do
+                brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+
+                isShowingBrewfileExporter = true
+            }
+            catch let brewfileExportError as BrewfileDumpingError
+            {
+                AppConstants.shared.logger.error("\(brewfileExportError)")
+
+                switch brewfileExportError
                 {
-                    brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+                case .couldNotDetermineWorkingDirectory:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
 
-                    isShowingBrewfileExporter = true
-                }
-                catch let brewfileExportError as BrewfileDumpingError
-                {
-                    AppConstants.shared.logger.error("\(brewfileExportError)")
+                case .errorWhileDumpingBrewfile(let error):
+                    appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile(error: error))
 
-                    switch brewfileExportError
-                    {
-                    case .couldNotDetermineWorkingDirectory:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
-
-                    case .errorWhileDumpingBrewfile(let error):
-                        appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile(error: error))
-
-                    case .couldNotReadBrewfile:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
-                    }
+                case .couldNotReadBrewfile:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
                 }
             }
         } label: {
             Text("navigation.menu.import-export.export-brewfile")
         }
+        .asyncButtonStyle(.plainStyle)
 
-        Button
+        AsyncButton
         {
-            Task(priority: .userInitiated)
+            do
             {
-                do
+                let picker: NSOpenPanel = .init()
+                picker.allowsMultipleSelection = false
+                picker.canChooseDirectories = false
+                picker.allowedFileTypes = ["brewbak", ""]
+
+                if picker.runModal() == .OK
                 {
-                    let picker: NSOpenPanel = .init()
-                    picker.allowsMultipleSelection = false
-                    picker.canChooseDirectories = false
-                    picker.allowedFileTypes = ["brewbak", ""]
-
-                    if picker.runModal() == .OK
+                    guard let brewfileURL = picker.url
+                    else
                     {
-                        guard let brewfileURL = picker.url
-                        else
-                        {
-                            throw BrewfileReadingError.couldNotGetBrewfileLocation
-                        }
+                        throw BrewfileReadingError.couldNotGetBrewfileLocation
+                    }
 
-                        AppConstants.shared.logger.debug("\(brewfileURL.path)")
+                    AppConstants.shared.logger.debug("\(brewfileURL.path)")
 
-                        do
-                        {
-                            try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
-                        }
-                        catch let brewfileImportingError
-                        {
-                            AppConstants.shared.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
+                    do
+                    {
+                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData, cachedPackagesTracker: cachedDownloadsTracker)
+                    }
+                    catch let brewfileImportingError
+                    {
+                        AppConstants.shared.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
 
-                            appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
+                        appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
 
-                            appDelegate.appState.showSheet(ofType: .brewfileImport)
-                        }
+                        appDelegate.appState.showSheet(ofType: .brewfileImport)
                     }
                 }
-                catch let error as BrewfileReadingError
+            }
+            catch let error as BrewfileReadingError
+            {
+                switch error
                 {
-                    switch error
-                    {
-                    case .couldNotGetBrewfileLocation:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
+                case .couldNotGetBrewfileLocation:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
 
-                    case .couldNotImportFile:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
-                    }
+                case .couldNotImportFile:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
                 }
             }
         } label: {
             Text("navigation.menu.import-export.import-brewfile")
         }
+        .asyncButtonStyle(.plainStyle)
     }
 
     @ViewBuilder
@@ -691,7 +688,7 @@ struct CorkApp: App
             Text("navigation.menu.maintenance.delete-cached-downloads")
         }
         .keyboardShortcut("m", modifiers: [.command, .option])
-        .disabled(cachedDownloadsTracker.cachedDownloadsFolderSize == 0)
+        .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
     }
 
     @ViewBuilder

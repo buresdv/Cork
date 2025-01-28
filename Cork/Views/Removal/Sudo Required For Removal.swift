@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ButtonKit
 
 struct SudoRequiredForRemovalSheet: View, Sendable
 {
@@ -13,6 +14,7 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     var body: some View
     {
@@ -38,25 +40,23 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 
                 HStack
                 {
-                    Button
+                    AsyncButton
                     {
                         dismiss()
 
-                        Task.detached
+                        do
                         {
-                            do
-                            {
-                                try await brewData.synchronizeInstalledPackages()
-                            }
-                            catch let synchronizationError
-                            {
-                                await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                            }
+                            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                        }
+                        catch let synchronizationError
+                        {
+                            appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
                         }
                     } label: {
                         Text("action.close")
                     }
                     .keyboardShortcut(.cancelAction)
+                    .asyncButtonStyle(.plainStyle)
 
                     Spacer()
 

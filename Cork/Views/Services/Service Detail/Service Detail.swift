@@ -61,7 +61,7 @@ struct ServiceDetailView: View
                 }
             }
         }
-        .task(id: service.id, priority: .userInitiated)
+        .task(id: service.id)
         {
             AppConstants.shared.logger.log("Service details pane for service \(service.name) appeared; will try to load details")
 

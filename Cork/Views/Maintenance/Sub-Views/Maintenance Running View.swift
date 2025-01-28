@@ -33,7 +33,7 @@ struct MaintenanceRunningView: View
         ProgressView
         {
             Text(currentMaintenanceStepText)
-                .task(priority: .userInitiated)
+                .task
                 {
                     if shouldUninstallOrphans
                     {
@@ -99,10 +99,8 @@ struct MaintenanceRunningView: View
                         }
 
                         /// I have to assign the original value of the appState variable to a different variable, because when it updates at the end of the process, I don't want it to update in the result overview
-                        reclaimedSpaceAfterCachePurge = Int(cachedDownloadsTracker.cachedDownloadsFolderSize)
+                        reclaimedSpaceAfterCachePurge = Int(cachedDownloadsTracker.cachedDownloadsSize)
 
-                        await cachedDownloadsTracker.loadCachedDownloadedPackages()
-                        cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)
                     }
                     else
                     {
@@ -133,7 +131,5 @@ struct MaintenanceRunningView: View
                     maintenanceSteps = .finished
                 }
         }
-        .padding()
-        .frame(width: 200)
     }
 }

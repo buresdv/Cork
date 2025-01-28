@@ -5,9 +5,10 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
-import SwiftUI
-import CorkShared
 import CorkNotifications
+import CorkShared
+import SwiftUI
+import ButtonKit
 
 struct AddFormulaView: View
 {
@@ -19,7 +20,7 @@ struct AddFormulaView: View
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
-    
+
     @State private var foundPackageSelection: UUID? = nil
 
     @ObservedObject var searchResultTracker: SearchResultTracker = .init()
@@ -34,165 +35,137 @@ struct AddFormulaView: View
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
     @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
 
+    var shouldShowSheetTitle: Bool
+    {
+        [.ready, .presentingSearchResults].contains(packageInstallationProcessStep)
+    }
+    
+    var isDismissable: Bool
+    {
+        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly, .installing].contains(packageInstallationProcessStep)
+    }
+
+    var sheetTitle: LocalizedStringKey
+    {
+        switch packageInstallationProcessStep
+        {
+        case .ready:
+            return "add-package.title"
+        case .searching:
+            return ""
+        case .presentingSearchResults:
+            return "add-package.title"
+        case .installing:
+            return ""
+        case .finished:
+            return ""
+        case .fatalError:
+            return ""
+        case .requiresSudoPassword:
+            return ""
+        case .wrongArchitecture:
+            return ""
+        case .binaryAlreadyExists:
+            return ""
+        case .anotherProcessAlreadyRunning:
+            return ""
+        case .installationTerminatedUnexpectedly:
+            return ""
+        }
+    }
+
     var body: some View
     {
-        VStack(alignment: .leading, spacing: 10)
+        NavigationStack
         {
-            switch packageInstallationProcessStep
+            SheetTemplate(isShowingTitle: shouldShowSheetTitle)
             {
-            case .ready:
-                SheetWithTitle(title: "add-package.title")
+                Group
                 {
-                    InstallationInitialView(
-                        searchResultTracker: searchResultTracker,
-                        packageRequested: $packageRequested,
-                        foundPackageSelection: $foundPackageSelection,
-                        installationProgressTracker: installationProgressTracker,
-                        packageInstallationProcessStep: $packageInstallationProcessStep
-                    )
-                }
-
-            case .searching:
-                InstallationSearchingView(
-                    packageRequested: $packageRequested,
-                    searchResultTracker: searchResultTracker,
-                    packageInstallationProcessStep: $packageInstallationProcessStep
-                )
-
-            case .presentingSearchResults:
-                PresentingSearchResultsView(
-                    searchResultTracker: searchResultTracker,
-                    packageRequested: $packageRequested,
-                    foundPackageSelection: $foundPackageSelection,
-                    packageInstallationProcessStep: $packageInstallationProcessStep,
-                    installationProgressTracker: installationProgressTracker
-                )
-
-            case .installing:
-                InstallingPackageView(
-                    installationProgressTracker: installationProgressTracker,
-                    packageInstallationProcessStep: $packageInstallationProcessStep
-                )
-
-            case .finished:
-                DisappearableSheet
-                {
-                    ComplexWithIcon(systemName: "checkmark.seal")
+                    switch packageInstallationProcessStep
                     {
-                        HeadlineWithSubheadline(
-                            headline: "add-package.finished",
-                            subheadline: "add-package.finished.description",
-                            alignment: .leading
+                    case .ready:
+                        InstallationInitialView(
+                            searchResultTracker: searchResultTracker,
+                            packageRequested: $packageRequested,
+                            foundPackageSelection: $foundPackageSelection,
+                            installationProgressTracker: installationProgressTracker,
+                            packageInstallationProcessStep: $packageInstallationProcessStep
                         )
-                    }
-                }
-                .onAppear
-                {
-                    cachedDownloadsTracker.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
 
-                    if notifyAboutPackageInstallationResults
-                    {
-                        sendNotification(title: String(localized: "notification.install-finished"))
-                    }
-                }
-
-            case .fatalError: /// This shows up when the function for executing the install action throws an error
-                VStack(alignment: .leading)
-                {
-                    ComplexWithIcon(systemName: "exclamationmark.triangle")
-                    {
-                        HeadlineWithSubheadline(
-                            headline: "add-package.fatal-error-\(installationProgressTracker.packageBeingInstalled.package.name)",
-                            subheadline: "add-package.fatal-error.description",
-                            alignment: .leading
+                    case .searching:
+                        InstallationSearchingView(
+                            packageRequested: $packageRequested,
+                            searchResultTracker: searchResultTracker,
+                            packageInstallationProcessStep: $packageInstallationProcessStep
                         )
-                    }
 
-                    HStack
-                    {
-                        Button
-                        {
-                            restartApp()
-                        } label: {
-                            Text("action.restart")
-                        }
+                    case .presentingSearchResults:
+                        PresentingSearchResultsView(
+                            searchResultTracker: searchResultTracker,
+                            packageRequested: $packageRequested,
+                            foundPackageSelection: $foundPackageSelection,
+                            packageInstallationProcessStep: $packageInstallationProcessStep,
+                            installationProgressTracker: installationProgressTracker
+                        )
 
-                        Spacer()
+                    case .installing:
+                        InstallingPackageView(
+                            installationProgressTracker: installationProgressTracker,
+                            packageInstallationProcessStep: $packageInstallationProcessStep
+                        )
 
-                        DismissSheetButton()
+                    case .finished:
+                        InstallationFinishedSuccessfullyView()
+
+                    case .fatalError: /// This shows up when the function for executing the install action throws an error
+                        InstallationFatalErrorView(installationProgressTracker: installationProgressTracker)
+
+                    case .requiresSudoPassword:
+                        SudoRequiredView(installationProgressTracker: installationProgressTracker)
+
+                    case .wrongArchitecture:
+                        WrongArchitectureView(installationProgressTracker: installationProgressTracker)
+
+                    case .binaryAlreadyExists:
+                        BinaryAlreadyExistsView(installationProgressTracker: installationProgressTracker)
+
+                    case .anotherProcessAlreadyRunning:
+                        AnotherProcessAlreadyRunningView()
+
+                    case .installationTerminatedUnexpectedly:
+                        InstallationTerminatedUnexpectedlyView(terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput)
                     }
                 }
-
-            case .requiresSudoPassword:
-                SudoRequiredView(installationProgressTracker: installationProgressTracker)
-
-            case .wrongArchitecture:
-                WrongArchitectureView(installationProgressTracker: installationProgressTracker)
-
-            case .binaryAlreadyExists:
-                BinaryAlreadyExistsView(installationProgressTracker: installationProgressTracker)
-
-            case .anotherProcessAlreadyRunning:
-                VStack(alignment: .leading)
+                .navigationTitle(sheetTitle)
+                .toolbar
                 {
-                    ComplexWithImage(image: Image(localURL: URL(string: "/System/Library/CoreServices/KeyboardSetupAssistant.app/Contents/Resources/AppIcon.icns")!)!)
+                    if isDismissable
                     {
-                        VStack(alignment: .leading, spacing: 10)
+                        ToolbarItem(placement: .cancellationAction)
                         {
-                            Text("add-package.install.another-homebrew-process-blocking-install.title")
-                                .font(.headline)
-
-                            Text("add-package.install.another-homebrew-process-blocking-install.description")
-
-                            HStack
+                            AsyncButton
                             {
-                                Button("add-package.clear-brew-locks", role: .destructive)
+                                dismiss()
+                                
+                                do
                                 {
-                                    if let contentsOfLockFolder = try? FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/usr/local/var/homebrew/locks"), includingPropertiesForKeys: [.isRegularFileKey])
-                                    {
-                                        for lockURL in contentsOfLockFolder
-                                        {
-                                            try? FileManager.default.removeItem(at: lockURL)
-                                        }
-                                    }
-
-                                    dismiss()
+                                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
                                 }
-                                Spacer()
-                                DismissSheetButton()
+                                catch let synchronizationError
+                                {
+                                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                                }
+                            } label: {
+                                Text("action.cancel")
                             }
+                            .keyboardShortcut(.cancelAction)
+                            .disabledWhenLoading()
                         }
                     }
                 }
-                .fixedSize()
-
-            /*
-             default:
-                 VStack(alignment: .leading)
-                 {
-                     ComplexWithIcon(systemName: "wifi.exclamationmark")
-                     {
-                         HeadlineWithSubheadline(
-                             headline: "add-package.network-error",
-                             subheadline: "add-package.network-error.description",
-                             alignment: .leading
-                         )
-                     }
-             
-                     HStack
-                     {
-                         Spacer()
-             
-                         DismissSheetButton()
-                     }
-                 }
-                      */
-            case .installationTerminatedUnexpectedly:
-                InstallationTerminatedUnexpectedlyView(terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput)
             }
         }
-        .padding()
-        .fixedSize() // TODO: Remove this fixedSize later
         .onDisappear
         {
             cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)

@@ -22,7 +22,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput
+    func installPackage(using brewData: BrewDataStorage, cachedPackagesTracker: CachedPackagesTracker) async throws -> TerminalOutput
     {
         let package: BrewPackage = packageBeingInstalled.package
 
@@ -50,7 +50,7 @@ class InstallationProgressTracker: ObservableObject
 
         do
         {
-            try await brewData.synchronizeInstalledPackages()
+            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
         }
         catch let synchronizationError
         {

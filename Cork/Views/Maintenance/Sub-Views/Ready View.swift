@@ -5,8 +5,8 @@
 //  Created by David Bureš on 25.02.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct MaintenanceReadyView: View
 {
@@ -30,91 +30,81 @@ struct MaintenanceReadyView: View
 
     var body: some View
     {
-        SheetWithTitle(title: "maintenance.title")
+        VStack(alignment: .leading, spacing: 10)
         {
-            VStack(alignment: .leading, spacing: 10)
+            Form
             {
-                Form
+                LabeledContent("maintenance.steps.packages")
                 {
-                    LabeledContent("maintenance.steps.packages")
+                    VStack(alignment: .leading)
                     {
-                        VStack(alignment: .leading)
+                        Toggle(isOn: $shouldUninstallOrphans)
                         {
-                            Toggle(isOn: $shouldUninstallOrphans)
-                            {
-                                Text("maintenance.steps.packages.uninstall-orphans")
-                            }
-                        }
-                    }
-
-                    LabeledContent("maintenance.steps.downloads")
-                    {
-                        VStack(alignment: .leading)
-                        {
-                            Toggle(isOn: $shouldPurgeCache)
-                            {
-                                Text("maintenance.steps.downloads.purge-cache")
-                            }
-                            Toggle(isOn: $shouldDeleteDownloads)
-                            {
-                                Text("maintenance.steps.downloads.delete-cached-downloads")
-                            }
-                        }
-                    }
-
-                    LabeledContent("maintenance.steps.other")
-                    {
-                        Toggle(isOn: $shouldPerformHealthCheck)
-                        {
-                            Text("maintenance.steps.other.health-check")
+                            Text("maintenance.steps.packages.uninstall-orphans")
                         }
                     }
                 }
 
-                if isShowingControlButtons
+                LabeledContent("maintenance.steps.downloads")
                 {
-                    HStack
+                    VStack(alignment: .leading)
                     {
-                        DismissSheetButton()
-
-                        Spacer()
-
-                        Button
+                        Toggle(isOn: $shouldPurgeCache)
                         {
-                            AppConstants.shared.logger.debug("Start")
-
-                            maintenanceSteps = .maintenanceRunning
-                        } label: {
-                            Text("maintenance.steps.start")
+                            Text("maintenance.steps.downloads.purge-cache")
                         }
-                        .keyboardShortcut(.defaultAction)
-                        .disabled(isStartDisabled)
+                        Toggle(isOn: $shouldDeleteDownloads)
+                        {
+                            Text("maintenance.steps.downloads.delete-cached-downloads")
+                        }
                     }
-                    // .padding(.top)
                 }
-            }
-            .onAppear
-            {
-                if !forcedOptions
+
+                LabeledContent("maintenance.steps.other")
                 {
-                    /// Replace the provided values with those from AppStorage
-                    /// I have to do this because I don't want the settings in the sheet itself to affect those in the defaults
-                    shouldUninstallOrphans = default_shouldUninstallOrphans
-                    shouldPurgeCache = default_shouldPurgeCache
-                    shouldDeleteDownloads = default_shouldDeleteDownloads
-                    shouldPerformHealthCheck = default_shouldPerformHealthCheck
+                    Toggle(isOn: $shouldPerformHealthCheck)
+                    {
+                        Text("maintenance.steps.other.health-check")
+                    }
                 }
             }
         }
-        .if(enablePadding, transform: { viewProxy in
-            viewProxy
-                .padding()
-        })
+        .toolbar
+        {
+            if isShowingControlButtons
+            {
+                ToolbarItem(placement: .primaryAction)
+                {
+                    Button
+                    {
+                        AppConstants.shared.logger.debug("Start")
+
+                        maintenanceSteps = .maintenanceRunning
+                    } label: {
+                        Text("maintenance.steps.start")
+                    }
+                    .keyboardShortcut(.defaultAction)
+                    .disabled(isStartDisabled)
+                }
+            }
+        }
+        .onAppear
+        {
+            if !forcedOptions
+            {
+                /// Replace the provided values with those from AppStorage
+                /// I have to do this because I don't want the settings in the sheet itself to affect those in the defaults
+                shouldUninstallOrphans = default_shouldUninstallOrphans
+                shouldPurgeCache = default_shouldPurgeCache
+                shouldDeleteDownloads = default_shouldDeleteDownloads
+                shouldPerformHealthCheck = default_shouldPerformHealthCheck
+            }
+        }
     }
 
     private var isStartDisabled: Bool
     {
-        [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy 
+        [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy
         {
             !$0
         }

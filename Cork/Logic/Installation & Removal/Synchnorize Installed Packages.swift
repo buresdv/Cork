@@ -11,7 +11,8 @@ import SwiftUI
 
 extension BrewDataStorage
 {
-    func synchronizeInstalledPackages() async throws(PackageSynchronizationError)
+    /// Synchronizes installed packages and cached downloads
+    func synchronizeInstalledPackages(cachedPackagesTracker: CachedPackagesTracker) async throws(PackageSynchronizationError)
     {
         AppConstants.shared.logger.debug("Will start synchronization process")
         
@@ -31,5 +32,7 @@ extension BrewDataStorage
             self.installedFormulae = safeUpdatedFormulaeTracker
             self.installedCasks = safeUpdatedCasksTracker
         }
+        
+        await cachedPackagesTracker.loadCachedDownloadedPackages(brewData: self)
     }
 }

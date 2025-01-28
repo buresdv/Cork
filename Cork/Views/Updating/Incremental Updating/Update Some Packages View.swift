@@ -37,7 +37,7 @@ struct UpdateSomePackagesView: View
                     Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.name)")
                 }
                 .frame(width: 200)
-                .task(priority: .userInitiated)
+                .task
                 {
                     for (index, outdatedPackage) in selectedPackages.enumerated()
                     {

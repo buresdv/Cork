@@ -21,13 +21,13 @@ struct MenuBar_CachedDownloadsCleanup: View
     {
         if !isDeletingCachedDownloads
         {
-            Button(cachedDownloadsTracker.cachedDownloadsFolderSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
+            Button(cachedDownloadsTracker.cachedDownloadsSize != 0 ? "maintenance.steps.downloads.delete-cached-downloads" : "navigation.menu.maintenance.no-cached-downloads")
             {
                 AppConstants.shared.logger.log("Will delete cached downloads")
 
                 isDeletingCachedDownloads = true
 
-                let reclaimedSpaceAfterCachePurge: Int = .init(cachedDownloadsTracker.cachedDownloadsFolderSize)
+                let reclaimedSpaceAfterCachePurge: Int = .init(cachedDownloadsTracker.cachedDownloadsSize)
 
                 do throws(CachedDownloadDeletionError)
                 {
@@ -55,10 +55,8 @@ struct MenuBar_CachedDownloadsCleanup: View
                 )
 
                 isDeletingCachedDownloads = false
-
-                cachedDownloadsTracker.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
             }
-            .disabled(cachedDownloadsTracker.cachedDownloadsFolderSize == 0)
+            .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
         }
         else
         {

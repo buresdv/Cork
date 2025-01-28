@@ -33,11 +33,6 @@ struct PresentingSearchResultsView: View
     {
         VStack
         {
-            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
-            {
-                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
-            }
-
             List(selection: $foundPackageSelection)
             {
                 SearchResultsSection(
@@ -51,56 +46,79 @@ struct PresentingSearchResultsView: View
                 )
             }
             .listStyle(.bordered(alternatesRowBackgrounds: true))
-            .frame(width: 300, height: 300)
+            .frame(minHeight: 200)
 
-            HStack
+            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
             {
-                DismissSheetButton()
-
-                Spacer()
-
-                PreviewPackageButtonWithCustomAction
-                {
-                    do
-                    {
-                        let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
-
-                        openWindow(value: requestedPackageToPreview)
-
-                        AppConstants.shared.logger.debug("Would preview package \(requestedPackageToPreview.name)")
-                    }
-                    catch {}
-                }
-                .disabled(foundPackageSelection == nil)
-
-                if isSearchFieldFocused
-                {
-                    Button
-                    {
-                        packageInstallationProcessStep = .searching
-                    } label: {
-                        Text("add-package.search.action")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(packageRequested.isEmpty)
-                }
-                else
-                {
-                    Button
-                    {
-                        getRequestedPackages()
-
-                        packageInstallationProcessStep = .installing
-                    } label: {
-                        Text("add-package.install.action")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(foundPackageSelection == nil)
-                }
+                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
+            }
+        }
+        .toolbar
+        {
+            ToolbarItem(placement: .primaryAction)
+            {
+                searchForPackageButton
+            }
+            
+            ToolbarItem(placement: .primaryAction) {
+                startInstallProcessButton
+            }
+            
+            ToolbarItemGroup(placement: .automatic)
+            {
+                previewPackageButton
+                
+                startInstallProcessButton
             }
         }
     }
 
+    @ViewBuilder
+    var previewPackageButton: some View
+    {
+        PreviewPackageButtonWithCustomAction
+        {
+            do
+            {
+                let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
+
+                openWindow(value: requestedPackageToPreview)
+
+                AppConstants.shared.logger.debug("Would preview package \(requestedPackageToPreview.name)")
+            }
+            catch {}
+        }
+        .disabled(foundPackageSelection == nil)
+    }
+    
+    @ViewBuilder
+    var searchForPackageButton: some View
+    {
+        Button
+        {
+            packageInstallationProcessStep = .searching
+        } label: {
+            Text("add-package.search.action")
+        }
+        .keyboardShortcut(.defaultAction)
+        .disabled(packageRequested.isEmpty || !isSearchFieldFocused)
+    }
+    
+    @ViewBuilder
+    var startInstallProcessButton: some View
+    {
+        Button
+        {
+            getRequestedPackages()
+
+            packageInstallationProcessStep = .installing
+        } label: {
+            Text("add-package.install.action")
+        }
+        .keyboardShortcut(.defaultAction)
+        .disabled(foundPackageSelection == nil)
+    }
+    
     private func getRequestedPackages()
     {
         if let foundPackageSelection

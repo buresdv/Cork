@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "buttonkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Dean151/ButtonKit",
+      "state" : {
+        "revision" : "5d049dec3ec474ea2ad79eb4acd066edeacb9953",
+        "version" : "0.6.1"
+      }
+    },
+    {
       "identity" : "davidfoundation",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buresdv/DavidFoundation",

@@ -15,6 +15,7 @@ struct ReinstallCorruptedPackageView: View
     
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     let corruptedPackageToReinstall: CorruptedPackage
 
@@ -51,7 +52,7 @@ struct ReinstallCorruptedPackageView: View
 
                     }
                 }
-                .task(priority: .userInitiated)
+                .task
                 {
                     let reinstallationResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
                     AppConstants.shared.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutput, privacy: .public)\nStandard error:\(reinstallationResult.standardError, privacy: .public)")
@@ -70,11 +71,11 @@ struct ReinstallCorruptedPackageView: View
                             alignment: .leading
                         )
                     }
-                    .task(priority: .background)
+                    .task
                     {
                         do
                         {
-                            try await brewData.synchronizeInstalledPackages()
+                            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
                         }
                         catch let synchronizationError
                         {

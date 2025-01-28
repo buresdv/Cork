@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import ButtonKit
 
 /// Button for uninstalling packages
 struct UninstallPackageButton: View
@@ -47,6 +48,7 @@ private struct RemovePackageButton: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
@@ -57,22 +59,20 @@ private struct RemovePackageButton: View
 
     var body: some View
     {
-        Button(role: .destructive)
+        AsyncButton(role: .destructive)
         {
             if !shouldRequestPackageRemovalConfirmation
             {
-                Task
-                {
-                    AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
+                AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
-                    try await brewData.uninstallSelectedPackage(
-                        package: package,
-                        appState: appState,
-                        outdatedPackageTracker: outdatedPackageTracker,
-                        shouldRemoveAllAssociatedFiles: shouldPurge,
-                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: isCalledFromSidebar
-                    )
-                }
+                try await brewData.uninstallSelectedPackage(
+                    package: package,
+                    cachedPackagesTracker: cachedPackagesTracker,
+                    appState: appState,
+                    outdatedPackageTracker: outdatedPackageTracker,
+                    shouldRemoveAllAssociatedFiles: shouldPurge,
+                    shouldApplyUninstallSpinnerToRelevantItemInSidebar: isCalledFromSidebar
+                )
             }
             else
             {

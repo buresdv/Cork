@@ -28,10 +28,10 @@ struct BinaryAlreadyExistsView: View, Sendable
                     subheadline: "add-package.install.binary-already-exists.subheadline",
                     alignment: .leading
                 )
-
-                Spacer()
-
-                HStack
+            }
+            .toolbar
+            {
+                ToolbarItem(placement: .primaryAction)
                 {
                     Button
                     {
@@ -39,28 +39,6 @@ struct BinaryAlreadyExistsView: View, Sendable
                     } label: {
                         Text("action.reveal-applications-folder-in-finder")
                     }
-
-                    Spacer()
-
-                    Button
-                    {
-                        dismiss()
-
-                        Task.detached
-                        {
-                            do
-                            {
-                                try await brewData.synchronizeInstalledPackages()
-                            }
-                            catch let synchronizationError
-                            {
-                                await appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-                            }
-                        }
-                    } label: {
-                        Text("action.close")
-                    }
-                    .keyboardShortcut(.cancelAction)
                 }
             }
         }

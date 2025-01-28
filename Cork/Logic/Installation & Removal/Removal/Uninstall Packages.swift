@@ -14,6 +14,7 @@ extension BrewDataStorage
     @MainActor
     func uninstallSelectedPackage(
         package: BrewPackage,
+        cachedPackagesTracker: CachedPackagesTracker,
         appState: AppState,
         outdatedPackageTracker: OutdatedPackageTracker,
         shouldRemoveAllAssociatedFiles: Bool,
@@ -83,7 +84,7 @@ extension BrewDataStorage
         {
             do
             {
-                try await self.synchronizeInstalledPackages()
+                try await self.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
                 
                 if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
                 {
@@ -116,12 +117,9 @@ extension BrewDataStorage
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        Task
+        if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
         {
-            if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
-            {
-                outdatedPackageTracker.outdatedPackages.remove(at: index)
-            }
+            outdatedPackageTracker.outdatedPackages.remove(at: index)
         }
     }
 }

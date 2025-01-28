@@ -45,7 +45,7 @@ struct HomebrewServicesView: View
         {
             LoadServicesButton()
         }
-        .task(priority: .userInitiated)
+        .task
         {
             await loadServices()
         }

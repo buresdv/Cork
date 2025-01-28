@@ -13,7 +13,7 @@ struct StartPage: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: TapTracker
     
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @EnvironmentObject var appState: AppState
 
@@ -25,6 +25,18 @@ struct StartPage: View
     @State private var errorOutReason: String?
 
     @State private var dragOver: Bool = false
+    
+    var shouldShowCachedDownloadsGraph: Bool
+    {
+        if cachedPackagesTracker.cachedDownloadsSize == 0
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
 
     var body: some View
     {
@@ -90,7 +102,7 @@ struct StartPage: View
                             AnalyticsStatusBox()
                         }
 
-                        if cachedDownloadsTracker.cachedDownloadsFolderSize != 0
+                        if shouldShowCachedDownloadsGraph
                         {
                             Section
                             {
@@ -98,7 +110,7 @@ struct StartPage: View
                             }
                         }
                     }
-                    .task(priority: .background)
+                    .task
                     {
                         if outdatedPackageTracker.outdatedPackages.isEmpty
                         {
@@ -165,9 +177,9 @@ struct StartPage: View
                     {
                         AppConstants.shared.logger.debug("Correct File Format")
 
-                        Task(priority: .userInitiated)
-                        {
-                            try await importBrewfile(from: url, appState: appState, brewData: brewData)
+                        Task
+                        { @MainActor in
+                            try await importBrewfile(from: url, appState: appState, brewData: brewData, cachedPackagesTracker: cachedPackagesTracker)
                         }
                     }
                     else
