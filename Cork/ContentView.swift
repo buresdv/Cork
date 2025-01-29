@@ -162,13 +162,13 @@ struct ContentView: View, Sendable
                 self.installPackageButton
             }
 
-            ToolbarItem(id: "maintenance", placement: .secondaryAction)
+            ToolbarItem(id: "maintenance", placement: .primaryAction)
             {
                 self.performMaintenanceButton
             }
             .defaultCustomization(.hidden)
 
-            ToolbarItem(id: "manageServices", placement: .secondaryAction)
+            ToolbarItem(id: "manageServices", placement: .primaryAction)
             {
                 self.manageServicesButton
             }
