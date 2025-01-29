@@ -128,7 +128,7 @@ Prerequisites:
 
 #### Installing Mise
 
-*Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tusit specifically, like the aforementioned version synchronization.*
+*Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tuist specifically, like the aforementioned version synchronization.*
 
 1. Install Mise using `curl https://mise.run | sh`
 2. Initialize Mise using the command you see after the installation finishes. It's located under `mise: run the following to activate mise in your shell:`.\
