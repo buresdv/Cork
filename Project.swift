@@ -59,8 +59,8 @@ let project = Project(
     settings: .settings(
         base: [
             "SWIFT_VERSION": "6.0",
-            "MARKETING_VERSION": "1.5",
-            "CURRENT_PROJECT_VERSION": "86"
+            "MARKETING_VERSION": "v1.5.1",
+            "CURRENT_PROJECT_VERSION": "87"
         ],
         configurations: [
             .debug(
