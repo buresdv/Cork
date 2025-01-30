@@ -8,6 +8,12 @@
             "state" : "translated",
             "value" : ""
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -1632,6 +1638,12 @@
             "value" : "Mike Simons"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1670,6 +1682,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Criou a configuração do Tuist para compilar versões auto-hospedadas"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разработал конфигурацию Tuist для сборки собственных версий Cork"
           }
         },
         "tr" : {
@@ -4768,6 +4786,12 @@
             "state" : "translated",
             "value" : "Inspect error…"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подробности ошибки…"
+          }
         }
       }
     },
@@ -5082,6 +5106,12 @@
             "state" : "translated",
             "value" : "Reinstall Homebrew"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переустановить Homebrew"
+          }
         }
       }
     },
@@ -5097,6 +5127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reinstall"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переустановить"
           }
         }
       }
@@ -7666,6 +7702,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew didn’t provide any output"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вывод от Homebrew отсутствует"
           }
         }
       }
@@ -11660,6 +11702,12 @@
             "state" : "translated",
             "value" : "Couldn’t delete cache"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось удалить кеш"
+          }
         }
       }
     },
@@ -12792,6 +12840,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -12807,6 +12861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t read package info"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось считать данные пакета"
           }
         }
       }
@@ -14231,6 +14291,12 @@
             "state" : "translated",
             "value" : "Homebrew installation broken"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew поврежден"
+          }
         }
       }
     },
@@ -15300,6 +15366,12 @@
             "state" : "translated",
             "value" : "Couldn’t read tap info"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось считать информацию об источнике"
+          }
         }
       }
     },
@@ -15315,6 +15387,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t access folder containing Taps"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось получить доступ к папке с данными об источниках"
           }
         }
       }
@@ -15621,7 +15699,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Не удалось удалить %@"
           }
         },
@@ -16403,6 +16481,12 @@
             "value" : "DEBUG: Ativa a demo"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Activate demo"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16441,6 +16525,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: Ativando licença"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Licensing"
           }
         },
         "tr" : {
@@ -16483,6 +16573,12 @@
             "value" : "DEBUG: Reinicar estdo de licença"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Reset licensing state"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16516,6 +16612,12 @@
             "state" : "translated",
             "value" : "Show error inspector"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать инспектор ошибок"
+          }
         }
       }
     },
@@ -16528,6 +16630,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: UI"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: UI"
@@ -16550,6 +16658,12 @@
           }
         },
         "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG"
@@ -16587,6 +16701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error Inspector"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Инспектор ошибок"
           }
         }
       }
@@ -16869,6 +16989,12 @@
             "state" : "translated",
             "value" : "Couldn’t read contents of cached Cask downloads folder"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось считать содержимое папки с кешем загрузок приложений macOS"
+          }
         }
       }
     },
@@ -16885,6 +17011,12 @@
             "state" : "translated",
             "value" : "Couldn’t read contents of cached downloads folder"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось считать содержимое папки с кешем загрузок"
+          }
         }
       }
     },
@@ -16900,6 +17032,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t read contents of cached Formulae downloads folder"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось считать содержимое папки с кешем загрузок приложений/библиотек"
           }
         }
       }
@@ -17284,6 +17422,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t execute intent"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось выполнить действия"
           }
         }
       }
@@ -17937,8 +18081,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Непредвиденная ошибка при получении устаревших пакетов: %@"
+            "state" : "translated",
+            "value" : "%@"
           }
         },
         "tr" : {
@@ -18073,6 +18217,12 @@
             "value" : "A biblioteca %@ não tem nenhuma versão instalada"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакет %@ не имеет установленных версий"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18112,6 +18262,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ não é uma pasta de biblioteca"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ не является папкой, содержащей версии пакета"
           }
         },
         "tr" : {
@@ -18271,6 +18427,12 @@
             "value" : "Não foi possível carregar a biblioteca %1$@ (%2$@):%3$@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить пакет %1$@ (%2$@): %3$@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18304,6 +18466,12 @@
             "state" : "translated",
             "value" : "Couldn’t load Casks"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить приложения macOS"
+          }
         }
       }
     },
@@ -18319,6 +18487,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t load Formulae"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить приложения/библиотеки"
           }
         }
       }
@@ -18418,6 +18592,12 @@
             "state" : "translated",
             "value" : "Couldn’t load Taps"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось загрузить источники"
+          }
         }
       }
     },
@@ -18481,6 +18661,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -18502,6 +18688,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "O caminho específico que aponta para a pasta do Cask, não a biblioteca. O teu Homebrew está corrompido, isto não é um problema do Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Указанный путь ведет к папке приложения macOS, а не к папке, содержащей пакет.\nЭто является проблемой с вашим Homebrew, а не с Cork."
           }
         },
         "tr" : {
@@ -18542,6 +18734,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "O caminho específico que aponta para a pasta da Formulae, não a biblioteca. O teu Homebrew está corrompido, isto não é um problema do Cork"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Указанный путь ведет к папке приложения или библиотеки, а не к папке, содержащей пакет.\nЭто является проблемой с вашим Homebrew, а не с Cork."
           }
         },
         "tr" : {
@@ -18670,6 +18868,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some packages were not loaded due to an internal error"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Некоторые пакеты не удалось загрузить из-за внутренней проблемы"
           }
         }
       }
@@ -18825,6 +19029,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package synchronization failed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхронизация пакетов не удалась"
           }
         }
       }
@@ -32568,6 +32778,12 @@
             "value" : "Pré-visualização"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Просмотр"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -32600,6 +32816,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This might take a long time…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, подождите…"
           }
         }
       }
@@ -40399,6 +40621,12 @@
             "value" : "Enable swipe actions"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить жесты смахивания с помощью трекпада и Magic Mouse"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44981,6 +45209,12 @@
             "state" : "translated",
             "value" : "No Casks installed"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет установленных приложений macOS"
+          }
         }
       }
     },
@@ -44996,6 +45230,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Formulae installed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет установленных приложений/библиотек"
           }
         }
       }
@@ -46821,6 +47061,12 @@
             "value" : "Não foi possível verificar bibliotecas desatualizadas"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "При поиске устаревших пакетов произошла ошибка"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -47042,6 +47288,36 @@
               }
             }
           }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld приложения macOS не удалось загрузить"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld приложений macOS не удалось загрузить"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "1 приложение macOS не удалось загрузить"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld приложений macOS не удалось загрузить"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -47090,6 +47366,36 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "There are %lld Formulae that couldn't be loaded"
+                }
+              }
+            }
+          }
+        },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld приложения/библиотеки не удалось загрузить"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld приложений/библиотек не удалось загрузить"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "1 приложение/библиотеку не удалось загрузить"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld приложений/библиотек не удалось загрузить"
                 }
               }
             }
