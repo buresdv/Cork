@@ -13,6 +13,20 @@ import CorkShared
 /// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 {
+    final private class SizeCache: Identifiable, Equatable, Hashable, Codable, @unchecked Sendable
+    {
+        static func == (lhs: BrewPackage.SizeCache, rhs: BrewPackage.SizeCache) -> Bool
+        {
+            lhs.size == rhs.size
+        }
+        func hash(into hasher: inout Hasher)
+        {
+            hasher.combine(size)
+        }
+        
+        var size: Int64? = nil
+    }
+    
     var id: UUID = .init()
     let name: String
 
@@ -61,7 +75,14 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 
     var installedIntentionally: Bool = true
 
-    let sizeInBytes: Int64?
+    let url: URL?
+    private let sizeCache: SizeCache = .init()
+    var sizeInBytes: Int64?
+    {
+        if let size = sizeCache.size { return size }
+        sizeCache.size = url?.directorySize
+        return sizeCache.size
+    }
 
     var isBeingModified: Bool = false
 

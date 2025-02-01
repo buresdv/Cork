@@ -125,7 +125,7 @@ struct SearchResultRow: View, Sendable
 
                     do
                     {
-                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
+                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], url: nil)
 
                         do
                         {
