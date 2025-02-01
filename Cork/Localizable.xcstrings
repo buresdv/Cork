@@ -17330,6 +17330,7 @@
       }
     },
     "error.finder-reveal.could-not-find-package-in-parent" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -17371,6 +17372,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法在父文件夹中找到所要求的软件包"
+          }
+        }
+      }
+    },
+    "error.finder-reveal.no-url" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package has no URL"
           }
         }
       }
