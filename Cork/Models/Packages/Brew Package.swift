@@ -111,50 +111,24 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     {
         enum FinderRevealError: LocalizedError
         {
-            case couldNotFindPackageInParent
+            case noURL
 
             var errorDescription: String?
             {
-                return String(localized: "error.finder-reveal.could-not-find-package-in-parent")
+                return String(localized: "error.finder-reveal.no-url")
             }
         }
-
-        var packageURL: URL?
-        var packageLocationParent: URL
+        
+        guard let url = url else
         {
-            if type == .formula
-            {
-                return AppConstants.shared.brewCellarPath
-            }
-            else
-            {
-                return AppConstants.shared.brewCaskPath
-            }
-        }
-
-        do
-        {
-            let contentsOfParentFolder: [URL] = try FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
-            
-            packageURL = contentsOfParentFolder.filter
-            {
-                $0.lastPathComponent.contains(name)
-            }.first
-            
-            guard let packageURL
-            else
-            {
-                throw FinderRevealError.couldNotFindPackageInParent
-            }
-            
-            packageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
-        }
-        catch let finderRevealError
-        {
+            let finderRevealError: FinderRevealError = .noURL
             AppConstants.shared.logger.error("Failed while revealing package: \(finderRevealError.localizedDescription)")
             /// Play the error sound
             NSSound(named: "ping")?.play()
+            throw finderRevealError
         }
+            
+        url.revealInFinder(.openParentDirectoryAndHighlightTarget)
     }
 }
 
