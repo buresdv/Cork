@@ -14,6 +14,12 @@
             "state" : "translated",
             "value" : ""
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -4792,6 +4798,12 @@
             "state" : "translated",
             "value" : "Подробности ошибки…"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查错误…"
+          }
         }
       }
     },
@@ -5112,6 +5124,12 @@
             "state" : "translated",
             "value" : "Переустановить Homebrew"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新安装 Homebrew"
+          }
         }
       }
     },
@@ -5133,6 +5151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Переустановить"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新安装"
           }
         }
       }
@@ -7708,6 +7732,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вывод от Homebrew отсутствует"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 未提供任何输出"
           }
         }
       }
@@ -11708,6 +11738,12 @@
             "state" : "translated",
             "value" : "Не удалось удалить кеш"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法删除缓存"
+          }
         }
       }
     },
@@ -12846,6 +12882,12 @@
             "state" : "translated",
             "value" : "%@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
         }
       }
     },
@@ -12867,6 +12909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось считать данные пакета"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取软件包信息"
           }
         }
       }
@@ -14297,6 +14345,12 @@
             "state" : "translated",
             "value" : "Homebrew поврежден"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew 安装损坏"
+          }
         }
       }
     },
@@ -15372,6 +15426,12 @@
             "state" : "translated",
             "value" : "Не удалось считать информацию об источнике"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取 Tap 信息"
+          }
         }
       }
     },
@@ -15393,6 +15453,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось получить доступ к папке с данными об источниках"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法访问包含 Tap 的文件夹"
           }
         }
       }
@@ -15717,7 +15783,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "无法卸载 %@"
           }
         }
@@ -16618,6 +16684,12 @@
             "state" : "translated",
             "value" : "Показать инспектор ошибок"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示错误检查器"
+          }
         }
       }
     },
@@ -16636,6 +16708,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: UI"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: UI"
@@ -16707,6 +16785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Инспектор ошибок"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误检查器"
           }
         }
       }
@@ -16995,6 +17079,12 @@
             "state" : "translated",
             "value" : "Не удалось считать содержимое папки с кешем загрузок приложений macOS"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取 Cask 下载缓存文件夹中的内容"
+          }
         }
       }
     },
@@ -17017,6 +17107,12 @@
             "state" : "translated",
             "value" : "Не удалось считать содержимое папки с кешем загрузок"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取下载缓存文件夹中的内容"
+          }
         }
       }
     },
@@ -17038,6 +17134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось считать содержимое папки с кешем загрузок приложений/библиотек"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法读取 Formulae 下载缓存文件夹中的内容"
           }
         }
       }
@@ -17428,6 +17530,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось выполнить действия"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法执行操作"
           }
         }
       }
@@ -18099,8 +18207,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "未完成获取更早的软件包: %@"
+            "state" : "translated",
+            "value" : "%@"
           }
         }
       }
@@ -18472,6 +18580,12 @@
             "state" : "translated",
             "value" : "Не удалось загрузить приложения macOS"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载 Cask"
+          }
         }
       }
     },
@@ -18493,6 +18607,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось загрузить приложения/библиотеки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载 Formulae"
           }
         }
       }
@@ -18598,6 +18718,12 @@
             "state" : "translated",
             "value" : "Не удалось загрузить источники"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载 Tap"
+          }
         }
       }
     },
@@ -18663,6 +18789,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -18875,6 +19007,12 @@
             "state" : "translated",
             "value" : "Некоторые пакеты не удалось загрузить из-за внутренней проблемы"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由于内部错误，部分软件包未能加载"
+          }
         }
       }
     },
@@ -19035,6 +19173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Синхронизация пакетов не удалась"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包同步失败"
           }
         }
       }
@@ -32823,6 +32967,12 @@
             "state" : "translated",
             "value" : "Пожалуйста, подождите…"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这可能需要很长时间…"
+          }
         }
       }
     },
@@ -40632,6 +40782,12 @@
             "state" : "translated",
             "value" : "Kaydırma eylemlerini etkinleştir"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用滑动手势"
+          }
         }
       }
     },
@@ -45215,6 +45371,12 @@
             "state" : "translated",
             "value" : "Нет установленных приложений macOS"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未安装任何 Casks"
+          }
         }
       }
     },
@@ -45236,6 +45398,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нет установленных приложений/библиотек"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未安装任何 Formulae"
           }
         }
       }
@@ -47318,6 +47486,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "有 %lld 个 Cask 无法加载"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -47396,6 +47576,18 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld приложений/библиотек не удалось загрузить"
+                }
+              }
+            }
+          }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "有 %lld 个 Formulae 未能加载"
                 }
               }
             }
