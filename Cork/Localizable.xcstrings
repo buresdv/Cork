@@ -47520,7 +47520,7 @@
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "Jeden vzorec se nepodařilo načíst"
                 }
               },
@@ -47539,7 +47539,7 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "There’s one Formula that couldn’t be loaded"
+                  "value" : "There’s %lld Formula that couldn’t be loaded"
                 }
               },
               "other" : {
@@ -47568,7 +47568,7 @@
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "translated",
+                  "state" : "needs_review",
                   "value" : "1 приложение/библиотеку не удалось загрузить"
                 }
               },
