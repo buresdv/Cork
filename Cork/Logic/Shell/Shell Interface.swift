@@ -53,6 +53,16 @@ func shell(
     workingDirectory: URL? = nil
 ) -> AsyncStream<StreamedTerminalOutput>
 {
+    shell(launchPath, arguments, environment: environment, workingDirectory: workingDirectory).stream
+}
+
+func shell(
+    _ launchPath: URL,
+    _ arguments: [String],
+    environment: [String: String]? = nil,
+    workingDirectory: URL? = nil
+) -> (stream: AsyncStream<StreamedTerminalOutput>, process: Process)
+{
     let task: Process = .init()
 
     var finalEnvironment: [String: String] = .init()
@@ -128,7 +138,7 @@ func shell(
         AppConstants.shared.logger.error("\(String(describing: error))")
     }
 
-    return AsyncStream
+    let stream: AsyncStream<StreamedTerminalOutput> = AsyncStream
     { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
             guard let standardOutput = String(data: handler.availableData, encoding: .utf8)
@@ -162,4 +172,5 @@ func shell(
             continuation.finish()
         }
     }
+    return (stream, task)
 }
