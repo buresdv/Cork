@@ -5,8 +5,8 @@
 //  Created by David Bureš on 22.02.2023.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 class InstallationProgressTracker: ObservableObject
 {
@@ -60,13 +60,14 @@ class InstallationProgressTracker: ObservableObject
         return installationResult
     }
 
+    // MARK: - Formula Installation
+
     @MainActor
     private func installFormula(using _: BrewDataStorage) async throws -> [String]
     {
         let package: BrewPackage = packageBeingInstalled.package
         var packageDependencies: [String] = .init()
-        /// For some reason, the line `fetching [package name]` appears twice during the matching process, and the first one is a dud. Ignore that first one.
-        var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
+        var hasAlreadyMatchedPackage = false
         var installOutput: [String] = .init()
 
         AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
@@ -76,83 +77,65 @@ class InstallationProgressTracker: ObservableObject
             switch output
             {
             case .standardOutput(let outputLine):
-
-                AppConstants.shared.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
+                AppConstants.shared.logger.debug("Package install line out: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
                     packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
                 }
 
-                AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
-
-                if outputLine.contains("Fetching dependencies")
+                if let stage = BrewInstallationStage.matchingFormula(
+                    outputLine,
+                    packageName: package.name,
+                    packageDependencies: packageDependencies,
+                    hasAlreadyMatchedPackage: hasAlreadyMatchedPackage
+                )
                 {
-                    // First, we have to get a list of all the dependencies
-                    var matchedDependencies: String = try outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
-                    matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
+                    switch stage
+                    {
+                    case .fetchingDependencies:
+                        AppConstants.shared.logger.warning("Output line: \(outputLine)")
+                        var matchedDependencies = try outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
+                        matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",")
+                        packageDependencies = matchedDependencies.components(separatedBy: ", ")
 
-                    AppConstants.shared.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
+                        AppConstants.shared.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
+                        numberOfPackageDependencies = packageDependencies.count
+                        packageBeingInstalled.packageInstallationProgress = 1
 
-                    packageDependencies = matchedDependencies.components(separatedBy: ", ") // Make the dependency list into an array
+                    case .installingDependencies:
+                        AppConstants.shared.logger.info("Will install dependencies!")
+                        packageBeingInstalled.installationStage = .installingDependencies
+                        numberInLineOfPackageCurrentlyBeingInstalled += 1
+                        packageBeingInstalled.packageInstallationProgress += Double(10) / (3 * Double(numberOfPackageDependencies))
 
-                    AppConstants.shared.logger.debug("Package Dependencies: \(packageDependencies)")
+                    case .installingPackage:
+                        if hasAlreadyMatchedPackage
+                        {
+                            AppConstants.shared.logger.info("Will install the package itself!")
+                            packageBeingInstalled.installationStage = .installingPackage
+                        }
+                        else
+                        {
+                            AppConstants.shared.logger.info("Matched the dud line about the package itself being installed!")
+                            hasAlreadyMatchedPackage = true
+                        }
+                        packageBeingInstalled.packageInstallationProgress += (10 - packageBeingInstalled.packageInstallationProgress) / 2
 
-                    AppConstants.shared.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
+                    case .requiresSudoPassword:
+                        packageBeingInstalled.installationStage = .requiresSudoPassword
 
-                    numberOfPackageDependencies = packageDependencies.count // Assign the number of dependencies to the tracker for the user to see
+                    case .finished:
+                        packageBeingInstalled.packageInstallationProgress = 10
+                        packageBeingInstalled.installationStage = .finished
 
-                    packageBeingInstalled.packageInstallationProgress = 1
-                }
-
-                else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(package.name) dependency")
-                {
-                    AppConstants.shared.logger.info("Will install dependencies!")
-                    packageBeingInstalled.installationStage = .installingDependencies
-
-                    // Increment by 1 for each package that finished installing
-                    numberInLineOfPackageCurrentlyBeingInstalled = numberInLineOfPackageCurrentlyBeingInstalled + 1
-                    AppConstants.shared.logger.info("Installing dependency \(self.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
-
-                    // TODO: Add a math formula for advancing the stepper
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * Double(numberOfPackageDependencies)))
-                }
-
-                else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
-                {
-                    AppConstants.shared.logger.info("Will fetch dependencies!")
-                    packageBeingInstalled.installationStage = .fetchingDependencies
-
-                    numberInLineOfPackageCurrentlyBeingFetched = numberInLineOfPackageCurrentlyBeingFetched + 1
-
-                    AppConstants.shared.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
-
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(numberOfPackageDependencies) * Double(5))))
-                }
-
-                else if outputLine.contains("Fetching \(package.name)") || outputLine.contains("Installing \(package.name)")
-                {
-                    if hasAlreadyMatchedLineAboutInstallingPackageItself
-                    { /// Only the second line about the package being installed is valid
-                        AppConstants.shared.logger.info("Will install the package itself!")
-                        packageBeingInstalled.installationStage = .installingPackage
-
-                        // TODO: Add a math formula for advancing the stepper
-                        packageBeingInstalled.packageInstallationProgress = Double(packageBeingInstalled.packageInstallationProgress) + Double((Double(10) - Double(packageBeingInstalled.packageInstallationProgress)) / Double(2))
-
-                        AppConstants.shared.logger.info("Stepper value: \(Double(Double(10) / (Double(3) * Double(self.numberOfPackageDependencies))))")
-                    }
-                    else
-                    { /// When it appears for the first time, ignore it
-                        AppConstants.shared.logger.info("Matched the dud line about the package itself being installed!")
-                        hasAlreadyMatchedLineAboutInstallingPackageItself = true
-                        packageBeingInstalled.packageInstallationProgress = Double(packageBeingInstalled.packageInstallationProgress) + Double((Double(10) - Double(packageBeingInstalled.packageInstallationProgress)) / Double(2))
+                    default:
+                        break
                     }
                 }
 
                 installOutput.append(outputLine)
-
-                    AppConstants.shared.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
+                AppConstants.shared.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
 
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Errored out: \(errorLine, privacy: .public)")
@@ -162,24 +145,25 @@ class InstallationProgressTracker: ObservableObject
                     packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
                 }
 
-                if errorLine.contains("a password is required")
+                if let stage = BrewInstallationStage.matchingFormula(
+                    errorLine,
+                    packageName: package.name,
+                    packageDependencies: packageDependencies,
+                    hasAlreadyMatchedPackage: hasAlreadyMatchedPackage
+                )
                 {
-                    AppConstants.shared.logger.warning("Install requires sudo")
-
                     packageBeingInstalled.installationStage = .requiresSudoPassword
                 }
             }
         }
 
-        packageBeingInstalled.packageInstallationProgress = 10
-
-        packageBeingInstalled.installationStage = .finished
-
         return installOutput
     }
 
+    // MARK: - Cask Installation
+
     @MainActor
-    func installCask(using _: BrewDataStorage) async throws
+    private func installCask(using _: BrewDataStorage) async throws
     {
         let package: BrewPackage = packageBeingInstalled.package
 
@@ -198,53 +182,38 @@ class InstallationProgressTracker: ObservableObject
                     packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
                 }
 
-                if outputLine.contains("Downloading")
+                if let stage = BrewInstallationStage.matchingCask(outputLine)
                 {
-                    AppConstants.shared.logger.info("Will download Cask")
+                    switch stage
+                    {
+                    case .downloadingCask:
+                        AppConstants.shared.logger.info("Will download Cask")
+                        packageBeingInstalled.installationStage = .downloadingCask
+                        packageBeingInstalled.packageInstallationProgress += 2
 
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
+                    case .installingCask:
+                        AppConstants.shared.logger.info("Will install Cask")
+                        packageBeingInstalled.installationStage = .installingCask
+                        packageBeingInstalled.packageInstallationProgress += 2
 
-                    packageBeingInstalled.installationStage = .downloadingCask
-                }
-                else if outputLine.contains("Installing Cask")
-                {
-                    AppConstants.shared.logger.info("Will install Cask")
+                    case .movingCask:
+                        AppConstants.shared.logger.info("Moving App")
+                        packageBeingInstalled.installationStage = .movingCask
+                        packageBeingInstalled.packageInstallationProgress += 2
 
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
+                    case .linkingCaskBinary:
+                        AppConstants.shared.logger.info("Linking Binary")
+                        packageBeingInstalled.installationStage = .linkingCaskBinary
+                        packageBeingInstalled.packageInstallationProgress += 2
 
-                    packageBeingInstalled.installationStage = .installingCask
-                }
-                else if outputLine.contains("Moving App")
-                {
-                    AppConstants.shared.logger.info("Moving App")
+                    case .finished:
+                        AppConstants.shared.logger.info("Finished installing app")
+                        packageBeingInstalled.installationStage = .finished
+                        packageBeingInstalled.packageInstallationProgress = 10
 
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
-
-                    packageBeingInstalled.installationStage = .movingCask
-                }
-                else if outputLine.contains("Linking binary")
-                {
-                    AppConstants.shared.logger.info("Linking Binary")
-
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
-
-                    packageBeingInstalled.installationStage = .linkingCaskBinary
-                }
-                else if outputLine.contains("Purging files")
-                {
-                    AppConstants.shared.logger.info("Purging old version of cask \(package.name)")
-
-                    packageBeingInstalled.installationStage = .installingCask
-
-                    packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 1
-                }
-                else if outputLine.contains("was successfully installed")
-                {
-                    AppConstants.shared.logger.info("Finished installing app")
-
-                    packageBeingInstalled.installationStage = .finished
-
-                    packageBeingInstalled.packageInstallationProgress = 10
+                    default:
+                        break
+                    }
                 }
 
             case .standardError(let errorLine):
@@ -255,23 +224,198 @@ class InstallationProgressTracker: ObservableObject
                     packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
                 }
 
-                if errorLine.contains("a password is required")
+                if let stage = BrewInstallationStage.matchingCask(errorLine)
                 {
-                    AppConstants.shared.logger.warning("Install requires sudo")
-
-                    packageBeingInstalled.installationStage = .requiresSudoPassword
+                    packageBeingInstalled.installationStage = .terminatedUnexpectedly
                 }
-                else if errorLine.contains("there is already an App at")
-                {
-                    AppConstants.shared.logger.warning("The app already exists")
+            }
+        }
+    }
+}
 
-                    packageBeingInstalled.installationStage = .binaryAlreadyExists
+// MARK: - Match Conditions
+
+private enum MatchCondition
+{
+    case simple(String)
+    case complex((String) -> Bool)
+}
+
+private protocol InstallationStage
+{
+    var matchConditions: [MatchCondition] { get }
+}
+
+// MARK: - Installation Stage Enum
+
+enum BrewInstallationStage: InstallationStage
+{
+    // Formula-specific stages
+    case fetchingDependencies(packageDependencies: [String])
+    case installingDependencies
+    case installingPackage(packageName: String, isFirstMatch: Bool)
+
+    // Cask-specific stages
+    case downloadingCask
+    case installingCask
+    case movingCask
+    case linkingCaskBinary
+
+    // Common stages
+    case requiresSudoPassword
+    case finished
+    case binaryAlreadyExists
+    case wrongArchitecture
+
+    fileprivate var matchConditions: [MatchCondition]
+    {
+        switch self
+        {
+        case .fetchingDependencies(let dependencies):
+            return [
+                .simple("Fetching dependencies"),
+                .complex
+                { line in
+                    line.contains("Already downloaded") ||
+                        (line.contains("Fetching") && dependencies.contains { line.contains($0) })
                 }
-                else if errorLine.contains(/depends on hardware architecture being.+but you are running/)
-                {
-                    AppConstants.shared.logger.warning("Package is wrong architecture")
+            ]
 
-                    packageBeingInstalled.installationStage = .wrongArchitecture
+        case .installingDependencies:
+            return [
+                .simple("Installing dependencies"),
+                .complex
+                { line in
+                    line.contains("Installing") && line.contains("dependency")
+                }
+            ]
+
+        case .installingPackage(let packageName, let isFirstMatch):
+            return [
+                .complex
+                { line in
+                    (line.contains("Fetching \(packageName)") ||
+                        line.contains("Installing \(packageName)")) &&
+                        isFirstMatch
+                }
+            ]
+
+        case .downloadingCask:
+            return [
+                .simple("Downloading")
+            ]
+
+        case .installingCask:
+            return [
+                .simple("Installing Cask"),
+                .simple("Purging files")
+            ]
+
+        case .movingCask:
+            return [
+                .simple("Moving App")
+            ]
+
+        case .linkingCaskBinary:
+            return [
+                .simple("Linking binary")
+            ]
+
+        case .requiresSudoPassword:
+            return [
+                .simple("a password is required")
+            ]
+
+        case .finished:
+            return [
+                .simple("was successfully installed")
+            ]
+
+        case .binaryAlreadyExists:
+            return [
+                .simple("there is already an App at")
+            ]
+
+        case .wrongArchitecture:
+            return [
+                .complex
+                { line in
+                    line.matches(of: /depends on hardware architecture being.+but you are running/).isEmpty
+                }
+            ]
+        }
+    }
+
+    var description: String
+    {
+        switch self
+        {
+        case .fetchingDependencies: 
+            return "Fetching Dependencies"
+        case .installingDependencies:
+            return "Installing Dependencies"
+        case .installingPackage: 
+            return "Installing Package"
+        case .downloadingCask: 
+            return "Downloading Cask"
+        case .installingCask: 
+            return "Installing Cask"
+        case .movingCask: 
+            return "Moving Cask"
+        case .linkingCaskBinary: 
+            return "Linking Binary"
+        case .requiresSudoPassword: 
+            return "Requires Sudo Password"
+        case .finished: 
+            return "Finished"
+        case .binaryAlreadyExists: 
+            return "Binary Already Exists"
+        case .wrongArchitecture: 
+            return "Wrong Architecture"
+        }
+    }
+
+    static func matchingFormula(_ output: String, packageName: String, packageDependencies: [String], hasAlreadyMatchedPackage: Bool) -> Self?
+    {
+        let allCases: [Self] = [
+            .fetchingDependencies(packageDependencies: packageDependencies),
+            .installingDependencies,
+            .installingPackage(packageName: packageName, isFirstMatch: !hasAlreadyMatchedPackage),
+            .requiresSudoPassword,
+            .finished
+        ]
+
+        return matchStage(output, from: allCases)
+    }
+
+    static func matchingCask(_ output: String) -> Self?
+    {
+        let allCases: [Self] = [
+            .downloadingCask,
+            .installingCask,
+            .movingCask,
+            .linkingCaskBinary,
+            .requiresSudoPassword,
+            .binaryAlreadyExists,
+            .wrongArchitecture,
+            .finished
+        ]
+
+        return matchStage(output, from: allCases)
+    }
+
+    private static func matchStage(_ output: String, from cases: [Self]) -> Self?
+    {
+        return cases.first
+        { stage in
+            stage.matchConditions.contains
+            { condition in
+                switch condition
+                {
+                case .simple(let pattern):
+                    return output.contains(pattern)
+                case .complex(let matcher):
+                    return matcher(output)
                 }
             }
         }
