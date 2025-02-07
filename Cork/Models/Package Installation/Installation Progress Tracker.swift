@@ -95,12 +95,16 @@ class InstallationProgressTracker: ObservableObject
                     {
                     case .fetchingDependencies:
                         AppConstants.shared.logger.warning("Output line: \(outputLine)")
-                        var matchedDependencies = try outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
-                        matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",")
-                        packageDependencies = matchedDependencies.components(separatedBy: ", ")
 
-                        AppConstants.shared.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
-                        numberOfPackageDependencies = packageDependencies.count
+                        if var matchedDependencies = try? outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
+                        {
+                            AppConstants.shared.logger.info("Matched a line describing the dependencies that will be downloaded")
+                            matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",")
+                            packageDependencies = matchedDependencies.components(separatedBy: ", ")
+
+                            AppConstants.shared.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
+                            numberOfPackageDependencies = packageDependencies.count
+                        }
                         packageBeingInstalled.packageInstallationProgress = 1
 
                     case .installingDependencies:
@@ -273,20 +277,21 @@ enum BrewInstallationStage: InstallationStage
         {
         case .fetchingDependencies(let dependencies):
             return [
-                .simple("Fetching dependencies"),
                 .complex
                 { line in
-                    line.contains("Already downloaded") ||
-                        (line.contains("Fetching") && dependencies.contains { line.contains($0) })
+                    // Match both the initial dependency announcement and subsequent downloads
+                    line.contains("Installing") && line.contains("dependency:") ||
+                        line.contains("Downloading") && dependencies.contains { line.contains($0) }
                 }
             ]
 
         case .installingDependencies:
             return [
-                .simple("Installing dependencies"),
                 .complex
                 { line in
-                    line.contains("Installing") && line.contains("dependency")
+                    // Match both the "Pouring" line and when dependencies are being installed
+                    line.contains("==> Pouring") ||
+                        (line.contains("Installing") && line.contains("dependency:"))
                 }
             ]
 
@@ -294,36 +299,37 @@ enum BrewInstallationStage: InstallationStage
             return [
                 .complex
                 { line in
-                    (line.contains("Fetching \(packageName)") ||
-                        line.contains("Installing \(packageName)")) &&
+                    // Match when we're installing the main package itself
+                    line.contains("==> Pouring") && line.contains(packageName) ||
+                        (line.contains("Installing \(packageName)") && !line.contains("dependency:")) &&
                         isFirstMatch
                 }
             ]
 
         case .downloadingCask:
             return [
-                .simple("Downloading")
+                .simple("==> Downloading")
             ]
 
         case .installingCask:
             return [
-                .simple("Installing Cask"),
-                .simple("Purging files")
+                .simple("==> Installing Cask"),
+                .simple("==> Purging files")
             ]
 
         case .movingCask:
             return [
-                .simple("Moving App")
+                .simple("==> Moving App")
             ]
 
         case .linkingCaskBinary:
             return [
-                .simple("Linking binary")
+                .simple("==> Linking binary")
             ]
 
         case .requiresSudoPassword:
             return [
-                .simple("a password is required")
+                .simple("password is required")
             ]
 
         case .finished:
@@ -340,7 +346,8 @@ enum BrewInstallationStage: InstallationStage
             return [
                 .complex
                 { line in
-                    line.matches(of: /depends on hardware architecture being.+but you are running/).isEmpty
+                    line.contains("depends on hardware architecture being") &&
+                        line.contains("but you are running")
                 }
             ]
         }
@@ -350,27 +357,27 @@ enum BrewInstallationStage: InstallationStage
     {
         switch self
         {
-        case .fetchingDependencies: 
+        case .fetchingDependencies:
             return "Fetching Dependencies"
         case .installingDependencies:
             return "Installing Dependencies"
-        case .installingPackage: 
+        case .installingPackage:
             return "Installing Package"
-        case .downloadingCask: 
+        case .downloadingCask:
             return "Downloading Cask"
-        case .installingCask: 
+        case .installingCask:
             return "Installing Cask"
-        case .movingCask: 
+        case .movingCask:
             return "Moving Cask"
-        case .linkingCaskBinary: 
+        case .linkingCaskBinary:
             return "Linking Binary"
-        case .requiresSudoPassword: 
+        case .requiresSudoPassword:
             return "Requires Sudo Password"
-        case .finished: 
+        case .finished:
             return "Finished"
-        case .binaryAlreadyExists: 
+        case .binaryAlreadyExists:
             return "Binary Already Exists"
-        case .wrongArchitecture: 
+        case .wrongArchitecture:
             return "Wrong Architecture"
         }
     }
