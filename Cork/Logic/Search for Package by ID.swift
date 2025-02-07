@@ -24,12 +24,13 @@ private enum PackageRetrievalByUUIDError: LocalizedError
 
 extension UUID
 {
+    /// Get a package by UUID from a list
     func getPackage(tracker: SearchResultTracker) throws -> BrewPackage
     {
         var filteredPackage: BrewPackage?
         
-        AppConstants.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
-        AppConstants.logger.log("Cask tracker: \(tracker.foundCasks.count)")
+        AppConstants.shared.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
+        AppConstants.shared.logger.log("Cask tracker: \(tracker.foundCasks.count)")
         
         if !tracker.foundFormulae.isEmpty
         {
@@ -50,6 +51,32 @@ extension UUID
             throw PackageRetrievalByUUIDError.couldNotfindAnypackagesInTracker
         }
     }
+    
+    /// Get a top package by UUID from top package list
+    @MainActor
+    func getPackage(tracker: TopPackagesTracker, packageType: PackageType) throws -> BrewPackage
+    {
+        if packageType == .formula
+        {
+            guard let foundTopFormula: TopPackage = tracker.topFormulae.filter({ $0.id == self }).first
+            else
+            {
+                throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
+            }
+            
+            return .init(name: foundTopFormula.packageName, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
+        }
+        else
+        {
+            guard let foundTopCask: TopPackage = tracker.topCasks.filter({ $0.id == self }).first
+            else
+            {
+                throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
+            }
+            
+            return .init(name: foundTopCask.packageName, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil)
+        }
+    }
 }
 
 enum TopPackageRetrievalError: LocalizedError
@@ -63,31 +90,6 @@ enum TopPackageRetrievalError: LocalizedError
         case .resultingArrayWasEmptyEvenThoughPackagesWereInIt:
             return String(localized: "error.top-packages.impossible-error")
         }
-    }
-}
-
-@MainActor
-func getTopPackageFromUUID(requestedPackageUUID: UUID, packageType: PackageType, topPackageTracker: TopPackagesTracker) throws -> BrewPackage
-{
-    if packageType == .formula
-    {
-        guard let foundTopFormula: TopPackage = topPackageTracker.topFormulae.filter({ $0.id == requestedPackageUUID }).first
-        else
-        {
-            throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
-        }
-
-        return .init(name: foundTopFormula.packageName, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
-    }
-    else
-    {
-        guard let foundTopCask: TopPackage = topPackageTracker.topCasks.filter({ $0.id == requestedPackageUUID }).first
-        else
-        {
-            throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
-        }
-
-        return .init(name: foundTopCask.packageName, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil)
     }
 }
 

@@ -35,7 +35,7 @@ struct UpdatingPackagesStateView: View
                 isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput
             )
         }
-        .task(priority: .userInitiated)
+        .task
         {
             await updatePackages(updateProgressTracker: updateProgressTracker, detailStage: updateProcessDetailsStage)
 

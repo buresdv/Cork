@@ -22,6 +22,7 @@ struct GeneralPane: View
     @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
 
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
 
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
@@ -149,6 +150,11 @@ struct GeneralPane: View
                         {
                             Text("settings.general.package-details.reveal-in-finder.toggle")
                         }
+                        
+                        Toggle(isOn: $enableSwipeActions)
+                        {
+                            Text("settings.general.package-details.enable-swipe-actions.toggle")
+                        }
                     }
                 } label: {
                     Text("settings.general.package-details")
@@ -163,6 +169,8 @@ struct GeneralPane: View
                             Text("settings.general.menubar.toggle")
                         }
 
+                        // TODO: Enable again once Apple fixes issue raised in ticket #408
+                        /*
                         Toggle(isOn: $startWithoutWindow)
                         {
                             Text("settings.general.menubar.start-minimized.toggle")
@@ -176,6 +184,7 @@ struct GeneralPane: View
                                 startWithoutWindow = false
                             }
                         }
+                         */
                     }
                 } label: {
                     Text("settings.general.menubar")

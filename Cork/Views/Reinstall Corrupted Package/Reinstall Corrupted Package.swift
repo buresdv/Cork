@@ -11,8 +11,11 @@ import CorkShared
 
 struct ReinstallCorruptedPackageView: View
 {
+    @Environment(\.dismiss) var dismiss: DismissAction
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     let corruptedPackageToReinstall: CorruptedPackage
 
@@ -20,41 +23,69 @@ struct ReinstallCorruptedPackageView: View
 
     var body: some View
     {
-        switch corruptedPackageReinstallationStage
+        NavigationStack
         {
-        case .installing:
-            ProgressView
+            switch corruptedPackageReinstallationStage
             {
-                Text("repair-package.repair-process-\(corruptedPackageToReinstall.name)")
-            }
-            .progressViewStyle(.linear)
-            .padding()
-            .task(priority: .userInitiated)
-            {
-                let reinstallationResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
-                AppConstants.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutput, privacy: .public)\nStandard error:\(reinstallationResult.standardError, privacy: .public)")
-
-                corruptedPackageReinstallationStage = .finished
-            }
-
-        case .finished:
-            DisappearableSheet
-            {
-                ComplexWithIcon(systemName: "checkmark.seal")
+            case .installing:
+                ProgressView
                 {
-                    HeadlineWithSubheadline(
-                        headline: "repair-package.repairing-finished.headline-\(corruptedPackageToReinstall.name)",
-                        subheadline: "repair-package.repairing-finished.subheadline",
-                        alignment: .leading
-                    )
+                    VStack(alignment: .leading)
+                    {
+                        Text("repair-package.repair-process-\(corruptedPackageToReinstall.name)")
+                            
+                        SubtitleText(text: "repair-package.repair-length.explanation")
+                    }
                 }
-                .task(priority: .background)
+                .progressViewStyle(.linear)
+                .padding()
+                .toolbar
                 {
-                    await synchronizeInstalledPackages(brewData: brewData)
+                    ToolbarItem(placement: .cancellationAction)
+                    {
+                        Button
+                        {
+                            dismiss()
+                        } label: {
+                            Text("action.cancel")
+                        }
+
+                    }
                 }
+                .task
+                {
+                    let reinstallationResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
+                    AppConstants.shared.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutput, privacy: .public)\nStandard error:\(reinstallationResult.standardError, privacy: .public)")
+
+                    corruptedPackageReinstallationStage = .finished
+                }
+
+            case .finished:
+                DisappearableSheet
+                {
+                    ComplexWithIcon(systemName: "checkmark.seal")
+                    {
+                        HeadlineWithSubheadline(
+                            headline: "repair-package.repairing-finished.headline-\(corruptedPackageToReinstall.name)",
+                            subheadline: "repair-package.repairing-finished.subheadline",
+                            alignment: .leading
+                        )
+                    }
+                    .task
+                    {
+                        do
+                        {
+                            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                        }
+                        catch let synchronizationError
+                        {
+                            appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                        }
+                    }
+                }
+                .padding()
+                .fixedSize()
             }
-            .padding()
-            .fixedSize()
         }
     }
 }

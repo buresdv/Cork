@@ -7,7 +7,9 @@
 
 import SwiftUI
 import CorkShared
+import ButtonKit
 
+/// Button for uninstalling packages
 struct UninstallPackageButton: View
 {
     let package: BrewPackage
@@ -20,15 +22,22 @@ struct UninstallPackageButton: View
     }
 }
 
+/// Button for purging packages
+/// Will not display when purging is disabled
 struct PurgePackageButton: View
 {
+    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    
     let package: BrewPackage
 
     let isCalledFromSidebar: Bool
 
     var body: some View
     {
-        RemovePackageButton(package: package, shouldPurge: true, isCalledFromSidebar: isCalledFromSidebar)
+        if allowMoreCompleteUninstallations
+        {
+            RemovePackageButton(package: package, shouldPurge: true, isCalledFromSidebar: isCalledFromSidebar)
+        }
     }
 }
 
@@ -39,40 +48,50 @@ private struct RemovePackageButton: View
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
-    let package: BrewPackage
+    var package: BrewPackage
 
     let shouldPurge: Bool
     let isCalledFromSidebar: Bool
 
     var body: some View
     {
-        Button(role: .destructive)
+        AsyncButton(role: .destructive)
         {
             if !shouldRequestPackageRemovalConfirmation
             {
-                Task
-                {
-                    AppConstants.logger.debug("Confirmation of package removal NOT needed")
+                AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
-                    try await brewData.uninstallSelectedPackage(
-                        package: package,
-                        appState: appState,
-                        outdatedPackageTracker: outdatedPackageTracker,
-                        shouldRemoveAllAssociatedFiles: shouldPurge,
-                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: isCalledFromSidebar
-                    )
+                try await brewData.uninstallSelectedPackage(
+                    package: package,
+                    cachedPackagesTracker: cachedPackagesTracker,
+                    appState: appState,
+                    outdatedPackageTracker: outdatedPackageTracker,
+                    shouldRemoveAllAssociatedFiles: shouldPurge,
+                    shouldApplyUninstallSpinnerToRelevantItemInSidebar: isCalledFromSidebar
+                )
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Confirmation of package removal needed")
+                uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: shouldPurge, isCalledFromSidebar: isCalledFromSidebar)
+            }
+        } label: {
+            if shouldPurge
+            {
+                Label {
+                    Text("action.purge-\(package.name)")
+                } icon: {
+                    Image("custom.trash.triangle.fill")
                 }
             }
             else
             {
-                AppConstants.logger.debug("Confirmation of package removal needed")
-                uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: shouldPurge, isCalledFromSidebar: isCalledFromSidebar)
+                Label("action.uninstall-\(package.name)", systemImage: "trash")
             }
-        } label: {
-            Text(shouldPurge ? "action.purge-\(package.name)" : "action.uninstall-\(package.name)")
         }
     }
 }

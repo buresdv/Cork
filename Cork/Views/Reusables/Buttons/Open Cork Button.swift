@@ -15,9 +15,16 @@ struct OpenCorkButton: View
     {
         Button("menubar.open.cork")
         {
+            let activationPolicy: NSApplication.ActivationPolicy = NSApp.activationPolicy()
+            
             openWindow(id: "main")
 
             switchCorkToForeground()
+            
+            if activationPolicy == .accessory
+            {
+                NSApp.setActivationPolicy(.regular)
+            }
         }
     }
 }

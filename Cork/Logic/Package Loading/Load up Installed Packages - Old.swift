@@ -5,13 +5,14 @@
 //  Created by David Bureš on 11.02.2023.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
+/*
 @MainActor
 func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<BrewPackage>
 {
-    AppConstants.logger.info("Started \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .public)")
+    AppConstants.shared.logger.info("Started \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .public)")
 
     var contentsOfFolder: Set<BrewPackage> = .init()
 
@@ -20,15 +21,17 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
         switch whatToLoad
         {
         case .formula:
-            contentsOfFolder = try await getContentsOfFolder(targetFolder: AppConstants.brewCellarPath)
+            contentsOfFolder = try await getContentsOfFolder(targetFolder: AppConstants.shared.brewCellarPath)
         case .cask:
-            contentsOfFolder = try await getContentsOfFolder(targetFolder: AppConstants.brewCaskPath)
+            contentsOfFolder = try await getContentsOfFolder(targetFolder: AppConstants.shared.brewCaskPath)
         }
     }
     catch let packageLoadingError as PackageLoadingError
     {
         switch packageLoadingError
         {
+        case .couldNotReadContentsOfParentFolder(let failureReason):
+            appState.showAlert(errorToShow: .couldNotGetContentsOfPackageFolder(failureReason))
         case .failedWhileLoadingPackages:
             appState.showAlert(errorToShow: .couldNotLoadAnyPackages(packageLoadingError))
         case .failedWhileLoadingCertainPackage(let offendingPackage, let offendingPackageURL, let failureReason):
@@ -44,7 +47,8 @@ func loadUpPackages(whatToLoad: PackageType, appState: AppState) async -> Set<Br
         print("Something got completely fucked up while loading packages")
     }
 
-    AppConstants.logger.info("Finished \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .auto)")
+    AppConstants.shared.logger.info("Finished \(whatToLoad == .formula ? "Formula" : "Cask", privacy: .public) loading task at \(Date(), privacy: .auto)")
 
     return contentsOfFolder
 }
+*/

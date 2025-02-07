@@ -14,6 +14,8 @@ extension DisplayableAlert
     {
         switch self
         {
+        case .couldNotGetContentsOfPackageFolder:
+            return String(localized: "alert.could-not-get-contents-of-package-folder.title")
         case .couldNotLoadAnyPackages(let error):
             return String(localized: "alert.fatal.could-not-load-any-packages-\(error.localizedDescription).title")
         case .couldNotLoadCertainPackage(let offendingPackage, _, _):
@@ -44,10 +46,12 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-create-metadata-file.title")
         case .installedPackageHasNoVersions(let corruptedPackageName):
             return String(localized: "alert.package-corrupted.title-\(corruptedPackageName)")
-        case .installedPackageIsNotAFolder(itemName: let itemName, itemURL: _):
+        case .installedPackageIsNotAFolder(let itemName, _):
             return String(localized: "alert.tried-to-load-package-that-is-not-a-folder.title-\(itemName)")
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")
+        case .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders:
+            return PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders.localizedDescription
         case .couldNotObtainNotificationPermissions:
             return String(localized: "alert.notifications-error-while-obtaining-permissions.title")
         case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):
@@ -64,6 +68,8 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-find-package-in-parent-directory.title")
         case .fatalPackageInstallationError:
             return String(localized: "alert.fatal-installation.error")
+        case .fatalPackageUninstallationError(let packageName, _):
+            return String(localized: "alert.unable-to-uninstall-\(packageName).title")
         case .couldNotSynchronizePackages:
             return String(localized: "alert.fatal.could-not-synchronize-packages.title")
         case .couldNotGetWorkingDirectory:
@@ -78,6 +84,14 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-import-brewfile.title")
         case .malformedBrewfile:
             return String(localized: "alert.malformed-brewfile.title")
+        case .tapLoadingFailedDueToTapParentLocation:
+            return String(localized: "alert.tap-loading-failed.tap-parent.title")
+        case .tapLoadingFailedDueToTapItself:
+            return String(localized: "alert.tap-loading-failed.tap-itself.title")
+        case .triedToThreatFolderContainingPackagesAsPackage:
+            return String(localized: "alert.homebrew-broken.title")
+        case .couldNotDeleteCachedDownloads:
+            return String(localized: "alert.cache-deletion-failed.title")
         }
     }
 }

@@ -12,6 +12,7 @@ struct BinaryAlreadyExistsView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
@@ -27,10 +28,10 @@ struct BinaryAlreadyExistsView: View, Sendable
                     subheadline: "add-package.install.binary-already-exists.subheadline",
                     alignment: .leading
                 )
-
-                Spacer()
-
-                HStack
+            }
+            .toolbar
+            {
+                ToolbarItem(placement: .primaryAction)
                 {
                     Button
                     {
@@ -38,21 +39,6 @@ struct BinaryAlreadyExistsView: View, Sendable
                     } label: {
                         Text("action.reveal-applications-folder-in-finder")
                     }
-
-                    Spacer()
-
-                    Button
-                    {
-                        dismiss()
-
-                        Task.detached
-                        {
-                            await synchronizeInstalledPackages(brewData: brewData)
-                        }
-                    } label: {
-                        Text("action.close")
-                    }
-                    .keyboardShortcut(.cancelAction)
                 }
             }
         }

@@ -36,10 +36,10 @@ public func sendNotification(title: String, body: String? = nil, subtitle: Strin
 
         let request: UNNotificationRequest = .init(identifier: UUID().uuidString, content: notification, trigger: nil)
 
-        AppConstants.notificationCenter.add(request)
+        AppConstants.shared.notificationCenter.add(request)
     }
     else
     {
-        AppConstants.logger.info("Will not send notification because they're disabled")
+        AppConstants.shared.logger.info("Will not send notification because they're disabled")
     }
 }

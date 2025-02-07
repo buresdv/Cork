@@ -5,13 +5,15 @@
 //  Created by David Bureš on 10.02.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct StartPage: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
+    
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @EnvironmentObject var appState: AppState
 
@@ -23,12 +25,24 @@ struct StartPage: View
     @State private var errorOutReason: String?
 
     @State private var dragOver: Bool = false
+    
+    var shouldShowCachedDownloadsGraph: Bool
+    {
+        if cachedPackagesTracker.cachedDownloadsSize == 0
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
 
     var body: some View
     {
         VStack
         {
-            if appState.isLoadingFormulae && appState.isLoadingCasks || availableTaps.addedTaps.isEmpty
+            if appState.isLoadingFormulae && appState.isLoadingCasks || appState.isLoadingTaps
             {
                 ProgressView("start-page.loading")
             }
@@ -69,6 +83,14 @@ struct StartPage: View
                                   */
                             }
                         }
+                        
+                        if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+                        {
+                            Section
+                            {
+                                LoadingErrorsBox()
+                            }
+                        }
 
                         Section
                         {
@@ -80,7 +102,7 @@ struct StartPage: View
                             AnalyticsStatusBox()
                         }
 
-                        if appState.cachedDownloadsFolderSize != 0
+                        if shouldShowCachedDownloadsGraph
                         {
                             Section
                             {
@@ -88,7 +110,41 @@ struct StartPage: View
                             }
                         }
                     }
-                    .scrollDisabled(!isOutdatedPackageDropdownExpanded)
+                    .task
+                    {
+                        if outdatedPackageTracker.outdatedPackages.isEmpty
+                        {
+                            appState.isCheckingForPackageUpdates = true
+
+                            defer
+                            {
+                                withAnimation
+                                {
+                                    appState.isCheckingForPackageUpdates = false
+                                }
+                            }
+
+                            do
+                            {
+                                try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                            }
+                            catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                            {
+                                switch outdatedPackageRetrievalError
+                                {
+                                case .homeNotSet:
+                                    appState.showAlert(errorToShow: .homePathNotSet)
+                                default:
+                                    AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                    errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                                }
+                            }
+                            catch
+                            {
+                                AppConstants.shared.logger.error("Unspecified error while pulling package updates")
+                            }
+                        }
+                    }
 
                     ButtonBottomRow
                     {
@@ -98,8 +154,8 @@ struct StartPage: View
 
                             Button
                             {
-                                AppConstants.logger.info("Would perform maintenance")
-                                appState.isShowingMaintenanceSheet.toggle()
+                                AppConstants.shared.logger.info("Would perform maintenance")
+                                appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
                             } label: {
                                 Text("start-page.open-maintenance")
                             }
@@ -110,42 +166,7 @@ struct StartPage: View
         }
         .onAppear
         {
-            AppConstants.logger.debug("Cached downloads path: \(AppConstants.brewCachedDownloadsPath)")
-        }
-        .task(priority: .background)
-        {
-            if outdatedPackageTracker.outdatedPackages.isEmpty
-            {
-                appState.isCheckingForPackageUpdates = true
-
-                defer
-                {
-                    withAnimation
-                    {
-                        appState.isCheckingForPackageUpdates = false
-                    }
-                }
-
-                do
-                {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-                }
-                catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                {
-                    switch outdatedPackageRetrievalError
-                    {
-                    case .homeNotSet:
-                        appState.showAlert(errorToShow: .homePathNotSet)
-                    default:
-                        AppConstants.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                        errorOutReason = outdatedPackageRetrievalError.localizedDescription
-                    }
-                }
-                catch
-                {
-                    AppConstants.logger.error("Unspecified error while pulling package updates")
-                }
-            }
+            AppConstants.shared.logger.debug("Cached downloads path: \(AppConstants.shared.brewCachedDownloadsPath)")
         }
         .onDrop(of: [.fileURL], isTargeted: $dragOver)
         { providers -> Bool in
@@ -154,16 +175,16 @@ struct StartPage: View
                 {
                     if url.pathExtension == "brewbak" || url.pathExtension.isEmpty
                     {
-                        AppConstants.logger.debug("Correct File Format")
+                        AppConstants.shared.logger.debug("Correct File Format")
 
-                        Task(priority: .userInitiated)
-                        {
-                            try await importBrewfile(from: url, appState: appState, brewData: brewData)
+                        Task
+                        { @MainActor in
+                            try await importBrewfile(from: url, appState: appState, brewData: brewData, cachedPackagesTracker: cachedPackagesTracker)
                         }
                     }
                     else
                     {
-                        AppConstants.logger.error("Incorrect file format")
+                        AppConstants.shared.logger.error("Incorrect file format")
                     }
                 }
             })

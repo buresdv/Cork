@@ -14,12 +14,12 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: U
 {
     let showRealTimeTerminalOutputs: Bool = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
 
-    for await output in shell(AppConstants.brewExecutablePath, ["upgrade"])
+    for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade"])
     {
         switch output
         {
         case .standardOutput(let outputLine):
-            AppConstants.logger.log("Upgrade function output: \(outputLine, privacy: .public)")
+            AppConstants.shared.logger.log("Upgrade function output: \(outputLine, privacy: .public)")
 
             if showRealTimeTerminalOutputs
             {
@@ -51,7 +51,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: U
                 detailStage.currentStage = .cleanup
             }
 
-            AppConstants.logger.info("Current updating stage: \(detailStage.currentStage.description, privacy: .public)")
+            AppConstants.shared.logger.info("Current updating stage: \(detailStage.currentStage.description, privacy: .public)")
 
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
@@ -66,11 +66,11 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: U
             {
                 updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-                AppConstants.logger.log("Ignorable upgrade function error: \(errorLine, privacy: .public)")
+                AppConstants.shared.logger.log("Ignorable upgrade function error: \(errorLine, privacy: .public)")
             }
             else
             {
-                AppConstants.logger.warning("Upgrade function error: \(errorLine, privacy: .public)")
+                AppConstants.shared.logger.warning("Upgrade function error: \(errorLine, privacy: .public)")
                 updateProgressTracker.errors.append("Upgrade error: \(errorLine)")
             }
         }

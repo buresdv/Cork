@@ -8,65 +8,103 @@
 import Foundation
 import CorkShared
 
-func deleteCachedDownloads()
+func deleteCachedDownloads() throws(CachedDownloadDeletionError)
 {
+    let shouldStrictlyCheckForHomebrewErrors: Bool = UserDefaults.standard.bool(forKey: "strictlyCheckForHomebrewErrors")
+    
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
-    for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedFormulaeDownloadsPath)
+    do
     {
-        if let isSymlink = url.isSymlink()
+        for url in try getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedFormulaeDownloadsPath)
         {
-            if isSymlink
+            if let isSymlink = url.isSymlink()
             {
-                try? FileManager.default.removeItem(at: url)
+                if isSymlink
+                {
+                    try? FileManager.default.removeItem(at: url)
+                }
+                else
+                {
+                    AppConstants.shared.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                }
             }
             else
             {
-                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                AppConstants.shared.logger.warning("Could not check symlink status of \(url)")
             }
         }
-        else
+    }
+    catch let brewCachedFormulaeDownloadsFolderReadingError
+    {
+        AppConstants.shared.logger.error("Failed while deleting cached downloads (brewCachedFormulaeDownloadsPath): \(brewCachedFormulaeDownloadsFolderReadingError)")
+        
+        if shouldStrictlyCheckForHomebrewErrors
         {
-            AppConstants.logger.warning("Could not check symlink status of \(url)")
+            throw .couldNotReadContentsOfCachedFormulaeDownloadsFolder(associatedError: brewCachedFormulaeDownloadsFolderReadingError.localizedDescription)
         }
     }
 
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
-    for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedCasksDownloadsPath)
+    do
     {
-        if let isSymlink = url.isSymlink()
+        for url in try getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedCasksDownloadsPath)
         {
-            if isSymlink
+            if let isSymlink = url.isSymlink()
             {
-                try? FileManager.default.removeItem(at: url)
+                if isSymlink
+                {
+                    try? FileManager.default.removeItem(at: url)
+                }
+                else
+                {
+                    AppConstants.shared.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                }
             }
             else
             {
-                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                AppConstants.shared.logger.warning("Could not check symlink status of \(url)")
             }
         }
-        else
+    }
+    catch let brewCachedCasksDownloadsFolderReadingError
+    {
+        AppConstants.shared.logger.error("Failed while deleting cached downloads (brewCachedCasksDownloadsPath): \(brewCachedCasksDownloadsFolderReadingError)")
+        
+        if shouldStrictlyCheckForHomebrewErrors
         {
-            AppConstants.logger.warning("Could not check symlink status of \(url)")
+            throw .couldNotReadContentsOfCachedDownloadsFolder(associatedError: brewCachedCasksDownloadsFolderReadingError.localizedDescription)
         }
     }
 
     /// This folder has the downloads themselves, so we have do **DELETE EVERYTHING THAT IS NOT A SYMLINK**
-    for url in getContentsOfFolder(targetFolder: AppConstants.brewCachedDownloadsPath)
+    do
     {
-        if let isSymlink = url.isSymlink()
+        for url in try getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedDownloadsPath)
         {
-            if isSymlink
+            if let isSymlink = url.isSymlink()
             {
-                AppConstants.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                if isSymlink
+                {
+                    AppConstants.shared.logger.info("Ignoring cached download at location \(url, privacy: .auto)")
+                }
+                else
+                {
+                    try? FileManager.default.removeItem(at: url)
+                }
             }
             else
             {
-                try? FileManager.default.removeItem(at: url)
+                AppConstants.shared.logger.warning("Could not check symlink status of \(url)")
             }
         }
-        else
+    }
+    catch let brewCachedDownloadsFolderReadingError
+    {
+        AppConstants.shared.logger.error("Failed while deleting cached downloads (brewCachedDownloadsPath): \(brewCachedDownloadsFolderReadingError)")
+        
+        if shouldStrictlyCheckForHomebrewErrors
         {
-            AppConstants.logger.warning("Could not check symlink status of \(url)")
+            throw .couldNotReadContentsOfCachedDownloadsFolder(associatedError: brewCachedDownloadsFolderReadingError.localizedDescription)
         }
     }
 }

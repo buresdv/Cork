@@ -30,6 +30,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(name: "CorkNotifications"),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
+            .external(name: "ButtonKit"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
         ], settings: .settings(configurations: [
             .debug(
@@ -56,6 +57,11 @@ let project = Project(
         .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins", requirement: .upToNextMajor(from: "0.56.2")),
     ],
     settings: .settings(
+        base: [
+            "SWIFT_VERSION": "6.0",
+            "MARKETING_VERSION": "1.5.2",
+            "CURRENT_PROJECT_VERSION": "88"
+        ],
         configurations: [
             .debug(
                 name: "Debug",
@@ -127,6 +133,19 @@ let project = Project(
                 ),
             ])
         ),
+        .target(
+            name: "CorkTests",
+            destinations: [.mac],
+            product: .unitTests,
+            bundleId: "com.davidbures.cork-tests",
+            sources: [
+                "Tests/**",
+                "Cork/**/*.swift"
+            ],
+            dependencies: [
+                .target(name: "Cork")
+            ]
+        )
     ]
 
 )

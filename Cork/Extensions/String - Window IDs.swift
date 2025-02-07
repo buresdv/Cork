@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension String
 {
@@ -13,4 +14,5 @@ extension String
     static let previewWindowID: String = "window.package-preview"
     static let servicesWindowID: String = "services"
     static let aboutWindowID: String = "about"
+    static let errorInspectorWindowID: String = "error-inspector"
 }

@@ -11,6 +11,7 @@ struct SudoRequiredView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
@@ -34,24 +35,11 @@ struct SudoRequiredView: View, Sendable
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
-
-            HStack
+        }
+        .toolbar
+        {
+            ToolbarItem(placement: .primaryAction)
             {
-                Button
-                {
-                    dismiss()
-
-                    Task.detached
-                    {
-                        await synchronizeInstalledPackages(brewData: brewData)
-                    }
-                } label: {
-                    Text("action.close")
-                }
-                .keyboardShortcut(.cancelAction)
-
-                Spacer()
-
                 Button
                 {
                     openTerminal()

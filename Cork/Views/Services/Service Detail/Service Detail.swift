@@ -61,9 +61,9 @@ struct ServiceDetailView: View
                 }
             }
         }
-        .task(priority: .userInitiated)
+        .task(id: service.id)
         {
-            AppConstants.logger.log("Service details pane for service \(service.name) appeared; will try to load details")
+            AppConstants.shared.logger.log("Service details pane for service \(service.name) appeared; will try to load details")
 
             defer
             {
@@ -76,13 +76,13 @@ struct ServiceDetailView: View
             }
             catch let servicesLoadingError
             {
-                AppConstants.logger.error("Failed while loading services: \(servicesLoadingError.localizedDescription)")
+                AppConstants.shared.logger.error("Failed while loading services: \(servicesLoadingError.localizedDescription)")
                 erroredOutWhileLoadingServiceDetails = true
             }
         }
         .onDisappear
         {
-            AppConstants.logger.log("Service details pane for \(service.name) disappeared; will purge details tracker")
+            AppConstants.shared.logger.log("Service details pane for \(service.name) disappeared; will purge details tracker")
 
             serviceDetails = nil
         }

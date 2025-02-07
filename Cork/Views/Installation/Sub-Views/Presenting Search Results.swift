@@ -33,11 +33,6 @@ struct PresentingSearchResultsView: View
     {
         VStack
         {
-            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
-            {
-                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
-            }
-
             List(selection: $foundPackageSelection)
             {
                 SearchResultsSection(
@@ -51,64 +46,79 @@ struct PresentingSearchResultsView: View
                 )
             }
             .listStyle(.bordered(alternatesRowBackgrounds: true))
-            .frame(width: 300, height: 300)
+            .frame(minHeight: 200)
 
-            HStack
+            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
             {
-                DismissSheetButton()
-
-                Spacer()
-
-                // Show the preview window on macOS 14 and newer only
-                if #available(macOS 14, *)
-                {
-                    Button
-                    {
-                        do
-                        {
-                            let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
-                            
-                            openWindow(value: requestedPackageToPreview)
-                            
-                            AppConstants.logger.debug("Would preview package \(requestedPackageToPreview.name)")
-                        } catch let error
-                        {
-                            
-                        }
-                    } label: {
-                        Text("preview-package.action")
-                    }
-                    .disabled(foundPackageSelection == nil)
-                }
+                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
+            }
+        }
+        .toolbar
+        {
+            ToolbarItem(placement: .primaryAction)
+            {
+                searchForPackageButton
+            }
+            
+            ToolbarItem(placement: .primaryAction) {
+                startInstallProcessButton
+            }
+            
+            ToolbarItemGroup(placement: .automatic)
+            {
+                previewPackageButton
                 
-                if isSearchFieldFocused
-                {
-                    Button
-                    {
-                        packageInstallationProcessStep = .searching
-                    } label: {
-                        Text("add-package.search.action")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(packageRequested.isEmpty)
-                }
-                else
-                {
-                    Button
-                    {
-                        getRequestedPackages()
-
-                        packageInstallationProcessStep = .installing
-                    } label: {
-                        Text("add-package.install.action")
-                    }
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(foundPackageSelection == nil)
-                }
+                startInstallProcessButton
             }
         }
     }
 
+    @ViewBuilder
+    var previewPackageButton: some View
+    {
+        PreviewPackageButtonWithCustomAction
+        {
+            do
+            {
+                let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
+
+                openWindow(value: requestedPackageToPreview)
+
+                AppConstants.shared.logger.debug("Would preview package \(requestedPackageToPreview.name)")
+            }
+            catch {}
+        }
+        .disabled(foundPackageSelection == nil)
+    }
+    
+    @ViewBuilder
+    var searchForPackageButton: some View
+    {
+        Button
+        {
+            packageInstallationProcessStep = .searching
+        } label: {
+            Text("add-package.search.action")
+        }
+        .keyboardShortcut(.defaultAction)
+        .disabled(packageRequested.isEmpty || !isSearchFieldFocused)
+    }
+    
+    @ViewBuilder
+    var startInstallProcessButton: some View
+    {
+        Button
+        {
+            getRequestedPackages()
+
+            packageInstallationProcessStep = .installing
+        } label: {
+            Text("add-package.install.action")
+        }
+        .keyboardShortcut(.defaultAction)
+        .disabled(foundPackageSelection == nil)
+    }
+    
     private func getRequestedPackages()
     {
         if let foundPackageSelection
@@ -120,13 +130,13 @@ struct PresentingSearchResultsView: View
                 installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
 
                 #if DEBUG
-                    AppConstants.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                    AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
                 #endif
             }
             catch let packageByUUIDRetrievalError
             {
                 #if DEBUG
-                    AppConstants.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
+                    AppConstants.shared.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
                 #endif
 
                 dismiss()
@@ -158,7 +168,7 @@ private struct SearchResultsSection: View
             {
                 ForEach(packageList)
                 { package in
-                    SearchResultRow(searchedForPackage: package)
+                    SearchResultRow(searchedForPackage: package, context: .searchResults, downloadCount: nil)
                 }
             }
         } header: {

@@ -30,7 +30,7 @@ struct CustomHomebrewExecutableView: View
                     {
                         GroupBox
                         {
-                            PathControl(urlToShow: URL(filePath: AppConstants.brewExecutablePath.path), style: .standard, width: 295)
+                            PathControl(urlToShow: URL(filePath: AppConstants.shared.brewExecutablePath.path), style: .standard, width: 295)
                                 .disabled(true)
                         }
 
@@ -82,19 +82,19 @@ struct CustomHomebrewExecutableView: View
             case .success(let success):
                 if success.first!.lastPathComponent == "brew"
                 {
-                    AppConstants.logger.info("Valid brew executable: \(success.first!.path)")
+                    AppConstants.shared.logger.info("Valid brew executable: \(success.first!.path)")
 
                     customHomebrewPath = success.first!.path
                 }
                 else
                 {
-                    AppConstants.logger.error("Not a valid brew executable")
+                    AppConstants.shared.logger.error("Not a valid brew executable")
 
                     settingsState.alertType = .customHomebrewLocationNotABrewExecutable(executablePath: success.first!.path)
                     settingsState.isShowingAlert = true
                 }
             case .failure(let failure):
-                AppConstants.logger.error("Failure: \(failure)")
+                AppConstants.shared.logger.error("Failure: \(failure)")
 
                 settingsState.alertType = .customHomebrewLocationNotAnExecutableAtAll
                 settingsState.isShowingAlert = true

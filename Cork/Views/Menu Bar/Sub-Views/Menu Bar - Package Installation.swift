@@ -9,14 +9,17 @@ import SwiftUI
 
 struct MenuBar_PackageInstallation: View
 {
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
+    
     @EnvironmentObject var appState: AppState
 
     var body: some View
     {
         Button("navigation.install-package")
         {
+            openWindow(id: "main")
             switchCorkToForeground()
-            appState.isShowingInstallationSheet.toggle()
+            appState.showSheet(ofType: .packageInstallation)
         }
     }
 }

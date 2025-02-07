@@ -106,8 +106,9 @@ struct PackageDetailView: View, Sendable
             }
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
-        .task(priority: .userInitiated)
+        .task(id: package.id)
         {
+            isLoadingDetails = true
             defer
             {
                 if isLoadingDetails
@@ -132,7 +133,7 @@ struct PackageDetailView: View, Sendable
             }
             catch let packageInfoDecodingError
             {
-                AppConstants.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
+                AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
                 erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }
@@ -144,7 +145,7 @@ extension PackageDetailView
 {
     func isPreview() -> PackageDetailView
     {
-        var modifiedView = self
+        var modifiedView: PackageDetailView = self
         modifiedView.isInPreviewWindow = true
         return modifiedView
     }

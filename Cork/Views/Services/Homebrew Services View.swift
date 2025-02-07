@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HomebrewServicesView: View
 {
-    @EnvironmentObject private var appDelegate: AppDelegate
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
+
+    @EnvironmentObject private var appDelegate: AppDelegate
 
     @StateObject var servicesTracker: ServicesTracker = .init()
     @StateObject var servicesState: ServicesState = .init()
@@ -18,85 +19,22 @@ struct HomebrewServicesView: View
     @State private var hasTriedToUpdateHomebrewThroughCork: Bool = false
     @State private var isShowingHomebrewUpdateInstructions: Bool = false
 
-    var activeServices: Set<HomebrewService>
-    {
-        return servicesTracker.services.filter { $0.status == .scheduled || $0.status == .started }
-    }
-
-    var unknownServices: Set<HomebrewService>
-    {
-        return servicesTracker.services.filter { $0.status == .unknown }
-    }
-
-    var erroredOutServices: Set<HomebrewService>
-    {
-        return servicesTracker.services.filter { $0.status == .error }
-    }
-
-    var inactiveServices: Set<HomebrewService>
-    {
-        return servicesTracker.services.subtracting(activeServices).subtracting(unknownServices).subtracting(erroredOutServices)
-    }
+    @State private var navigationTargetLocal: NavigationTargetServices?
 
     var body: some View
     {
         NavigationSplitView
         {
             ServicesSidebarView()
+                .navigationDestination(for: HomebrewService.self)
+                { service in
+                    ServiceDetailView(service: service)
+                        .id(service.id)
+                }
         } detail: {
-            if servicesState.isLoadingServices
+            NavigationStack
             {
-                ProgressView("service-status-page.loading")
-            }
-            else
-            {
-                if servicesTracker.services.isEmpty
-                {
-                    if #available(macOS 14.0, *)
-                    {
-                        ContentUnavailableView(label: {
-                            Label("service-status-page.no-services-found", systemImage: "magnifyingglass")
-                        }, description: {}, actions: {
-                            loadServicesButton
-                                .labelStyle(.titleOnly)
-                        })
-                    }
-                    else
-                    {
-                        Text("service-status-page.no-services-found")
-                    }
-                }
-                else
-                {
-                    FullSizeGroupedForm
-                    {
-                        Section
-                        {
-                            if !activeServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.play"), title: "service-status-page.active-services-\(activeServices.count)", mainText: "service-status-page.active-services.description", animateNumberChanges: true)
-                            }
-
-                            if !erroredOutServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.trianglebadge.exclamationmark"), title: "service-status-page.errored-out-services-\(erroredOutServices.count)", mainText: "service-status-page.errored-out-services.description", animateNumberChanges: true)
-                            }
-
-                            if !inactiveServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.pause"), title: "service-status-page.inactive-services-\(inactiveServices.count)", mainText: "service-status-page.inactive-services.description", animateNumberChanges: true)
-                            }
-
-                            if !unknownServices.isEmpty
-                            {
-                                GroupBoxHeadlineGroupWithArbitraryImage(image: Image("custom.square.stack.badge.questionmark"), title: "service-status-page.unknown-services-\(unknownServices.count)", mainText: "service-status-page.unknown-services.description", animateNumberChanges: true)
-                            }
-                        } header: {
-                            Text("service-status-page.title")
-                                .font(.title)
-                        }
-                    }
-                }
+                ServicesStartPage()
             }
         }
         .environmentObject(servicesTracker)
@@ -105,9 +43,9 @@ struct HomebrewServicesView: View
         .navigationSubtitle(servicesState.isLoadingServices ? "service-status-page.loading" : "services.count.\(servicesTracker.services.count)")
         .toolbar
         {
-            loadServicesButton
+            LoadServicesButton()
         }
-        .task(priority: .userInitiated)
+        .task
         {
             await loadServices()
         }
@@ -118,7 +56,7 @@ struct HomebrewServicesView: View
             case .couldNotLoadServices(error: ""):
                 EmptyView()
             case .couldNotLoadServices:
-                loadServicesButton
+                LoadServicesButton()
                 dismissAlertButton
             case .couldNotStartService:
                 EmptyView()
@@ -131,7 +69,7 @@ struct HomebrewServicesView: View
                 {
                     Button
                     {
-                        appDelegate.appState.isShowingUpdateSheet = true
+                        appDelegate.appState.showSheet(ofType: .fullUpdate)
                         hasTriedToUpdateHomebrewThroughCork = true
                     } label: {
                         Text("action.update-homebrew")
@@ -173,21 +111,6 @@ struct HomebrewServicesView: View
     }
 
     @ViewBuilder
-    var loadServicesButton: some View
-    {
-        Button
-        {
-            Task(priority: .userInitiated)
-            {
-                await loadServices()
-            }
-        } label: {
-            Label("action.reload-services", systemImage: "arrow.clockwise")
-                .help("action.reload-services")
-        }
-    }
-
-    @ViewBuilder
     var dismissAlertButton: some View
     {
         Button
@@ -198,7 +121,8 @@ struct HomebrewServicesView: View
         }
     }
 
-    func loadServices() async
+    // This function is a duplicate of the function in `LoadServicesButton`
+    private func loadServices() async
     {
         print("Control active state: \(controlActiveState)")
 

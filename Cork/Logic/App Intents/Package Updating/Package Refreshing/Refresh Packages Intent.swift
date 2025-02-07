@@ -15,9 +15,9 @@ enum RefreshIntentResult: String, AppEnum
     case refreshedWithErrors
     case failed
 
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intent.refresh.result.display-representation")
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intent.refresh.result.display-representation")
 
-    static var caseDisplayRepresentations: [RefreshIntentResult: DisplayRepresentation] = [
+    static let caseDisplayRepresentations: [RefreshIntentResult: DisplayRepresentation] = [
         .refreshed: DisplayRepresentation(title: "intent.refresh.result.refreshed"),
         .refreshedWithErrors: DisplayRepresentation(title: "intent.refresh.result.refreshed-with-errors"),
         .failed: DisplayRepresentation(title: "intent.refresh.result.failed")
@@ -26,15 +26,15 @@ enum RefreshIntentResult: String, AppEnum
 
 struct RefreshPackagesIntent: AppIntent
 {
-    static var title: LocalizedStringResource = "intent.refresh.title"
-    static var description: LocalizedStringResource = "intent.refresh.description"
+    static let title: LocalizedStringResource = "intent.refresh.title"
+    static let description: LocalizedStringResource = "intent.refresh.description"
 
-    static var isDiscoverable: Bool = true
-    static var openAppWhenRun: Bool = false
+    static let isDiscoverable: Bool = true
+    static let openAppWhenRun: Bool = false
 
     func perform() async throws -> some ReturnsValue<RefreshIntentResult>
     {
-        let refreshCommandResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["update"])
+        let refreshCommandResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
         var refreshErrorWithoutBuggedHomebrewMessages: [String] = refreshCommandResult.standardError.components(separatedBy: "\n")
         refreshErrorWithoutBuggedHomebrewMessages = refreshErrorWithoutBuggedHomebrewMessages.filter { !$0.contains("Updating Homebrew") }

@@ -14,7 +14,7 @@ struct MenuBarItem: View
     @EnvironmentObject var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 

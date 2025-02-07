@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AddTapInitialView: View
 {
-    @Environment(\.dismiss) var dismiss: DismissAction
-
     @Binding var requestedTap: String
     @Binding var forcedRepoAddress: String
     @Binding var progress: TapAddingStates
@@ -24,62 +22,51 @@ struct AddTapInitialView: View
 
     var body: some View
     {
-        SheetWithTitle(title: isShowingManualRepoAddressInputField ? "add-tap.manual-repo-address.title" : "add-tap")
+        VStack(alignment: .leading, spacing: 10)
         {
-            VStack(alignment: .leading, spacing: 10)
-            {
-                TextField("homebrew/core", text: $requestedTap)
-                    .onSubmit
-                    {
-                        checkIfTapNameIsValid(tapName: requestedTap)
-                    }
-                    .popover(isPresented: $isShowingErrorPopover)
-                    {
-                        VStack(alignment: .leading)
-                        {
-                            switch tapInputError
-                            {
-                            case .empty:
-                                Text("add-tap.typing.error.empty")
-                                    .font(.headline)
-                                Text("add-tap.typing.error.empty.description")
-                            case .missingSlash:
-                                Text("add-tap.typing.error.slash")
-                                    .font(.headline)
-                                Text("add-tap.typing.error.slash.description")
-                            }
-                        }
-                        .padding()
-                    }
-
-                if isShowingManualRepoAddressInputField
+            TextField("homebrew/core", text: $requestedTap)
+                .onSubmit
                 {
-                    VStack(alignment: .leading, spacing: 5)
+                    checkIfTapNameIsValid(tapName: requestedTap)
+                }
+                .popover(isPresented: $isShowingErrorPopover)
+                {
+                    VStack(alignment: .leading)
                     {
-                        Text("add-tap.manual-repo-address.label")
-                            .font(.subheadline)
-                        TextField("https://gitea.com/some-cool-address", text: $forcedRepoAddress)
-                            .focused($isForcedAddressFieldFocused)
-                            .onAppear
-                            {
-                                isForcedAddressFieldFocused = true
-                            }
+                        switch tapInputError
+                        {
+                        case .empty:
+                            Text("add-tap.typing.error.empty")
+                                .font(.headline)
+                            Text("add-tap.typing.error.empty.description")
+                        case .missingSlash:
+                            Text("add-tap.typing.error.slash")
+                                .font(.headline)
+                            Text("add-tap.typing.error.slash.description")
+                        }
                     }
+                    .padding()
+                }
+
+            if isShowingManualRepoAddressInputField
+            {
+                VStack(alignment: .leading, spacing: 5)
+                {
+                    Text("add-tap.manual-repo-address.label")
+                        .font(.subheadline)
+                    TextField("https://gitea.com/some-cool-address", text: $forcedRepoAddress)
+                        .focused($isForcedAddressFieldFocused)
+                        .onAppear
+                        {
+                            isForcedAddressFieldFocused = true
+                        }
                 }
             }
-
-            HStack
+        }
+        .toolbar
+        {
+            ToolbarItem(placement: .primaryAction)
             {
-                Button
-                {
-                    dismiss()
-                } label: {
-                    Text("action.cancel")
-                }
-                .keyboardShortcut(.cancelAction)
-
-                Spacer()
-
                 Button
                 {
                     checkIfTapNameIsValid(tapName: requestedTap)
@@ -117,6 +104,10 @@ struct AddTapInitialView: View
         {
             tapInputError = error
             isShowingErrorPopover = true
+        }
+        else
+        {
+            progress = .tapping
         }
     }
 }

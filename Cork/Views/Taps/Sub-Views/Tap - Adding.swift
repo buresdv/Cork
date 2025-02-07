@@ -22,7 +22,7 @@ struct AddTapAddingView: View
         {
             Text("add-tap.progress-\(requestedTap)")
         }
-        .task(priority: .medium)
+        .task
         {
             var tapResult: String
 
@@ -35,11 +35,11 @@ struct AddTapAddingView: View
                 tapResult = await addTap(name: requestedTap, forcedRepoAddress: forcedRepoAddress)
             }
 
-            AppConstants.logger.debug("Result: \(tapResult, privacy: .public)")
+            AppConstants.shared.logger.debug("Result: \(tapResult, privacy: .public)")
 
             if tapResult.contains("Tapped")
             {
-                AppConstants.logger.info("Tapping was successful!")
+                AppConstants.shared.logger.info("Tapping was successful!")
                 progress = .finished
             }
             else
@@ -49,7 +49,7 @@ struct AddTapAddingView: View
 
                 if tapResult.contains("Repository not found")
                 {
-                    AppConstants.logger.error("Repository was not found")
+                    AppConstants.shared.logger.error("Repository was not found")
 
                     tappingError = .repositoryNotFound
                 }

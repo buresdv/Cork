@@ -11,9 +11,26 @@ struct TopPackagesSection: View
 {
     @EnvironmentObject var brewData: BrewDataStorage
 
-    let packageTracker: [TopPackage]
+    let packageTracker: TopPackagesTracker
 
     let trackerType: PackageType
+    
+    private var packages: [TopPackage]
+    {
+        switch trackerType
+        {
+        case .formula:
+            packageTracker.sortedTopFormulae.filter
+            {
+                !brewData.successfullyLoadedFormulae.map(\.name).contains($0.packageName)
+            }
+        case .cask:
+            packageTracker.sortedTopCasks.filter
+            {
+                !brewData.successfullyLoadedCasks.map(\.name).contains($0.packageName)
+            }
+        }
+    }
 
     @State private var isCollapsed: Bool = false
 
@@ -23,19 +40,9 @@ struct TopPackagesSection: View
         {
             if !isCollapsed
             {
-                ForEach(packageTracker.filter
-                {
-                    switch trackerType
-                    {
-                    case .formula:
-                        !brewData.installedFormulae.map(\.name).contains($0.packageName)
-                    case .cask:
-                        !brewData.installedCasks.map(\.name).contains($0.packageName)
-                    }
-
-                }.prefix(15))
-                { topFormula in
-                    TopPackageListItem(topPackage: topFormula)
+                ForEach(packages.prefix(15))
+                { topPackage in
+                    SearchResultRow(searchedForPackage: BrewPackage(name: topPackage.packageName, type: trackerType, installedOn: nil, versions: [], sizeInBytes: nil), context: .topPackages, downloadCount: topPackage.packageDownloads)
                 }
             }
         } header: {

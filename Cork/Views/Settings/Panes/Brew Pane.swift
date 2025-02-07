@@ -57,8 +57,8 @@ struct BrewPane: View
                         {
                             isPerformingBrewAnalyticsChangeCommand = true
 
-                            AppConstants.logger.debug("Will ENABLE analytics")
-                            await shell(AppConstants.brewExecutablePath, ["analytics", "on"])
+                            AppConstants.shared.logger.debug("Will ENABLE analytics")
+                            await shell(AppConstants.shared.brewExecutablePath, ["analytics", "on"])
 
                             isPerformingBrewAnalyticsChangeCommand = false
                         }
@@ -69,8 +69,8 @@ struct BrewPane: View
                         {
                             isPerformingBrewAnalyticsChangeCommand = true
 
-                            AppConstants.logger.debug("Will DISABLE analytics")
-                            await shell(AppConstants.brewExecutablePath, ["analytics", "off"])
+                            AppConstants.shared.logger.debug("Will DISABLE analytics")
+                            await shell(AppConstants.shared.brewExecutablePath, ["analytics", "off"])
 
                             isPerformingBrewAnalyticsChangeCommand = false
                         }

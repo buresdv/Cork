@@ -12,6 +12,7 @@ import CorkShared
 import DavidFoundation
 import SwiftUI
 import UserNotifications
+import ButtonKit
 
 @main
 struct CorkApp: App
@@ -19,7 +20,9 @@ struct CorkApp: App
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
     @StateObject var brewData: BrewDataStorage = .init()
-    @StateObject var availableTaps: AvailableTaps = .init()
+    @StateObject var availableTaps: TapTracker = .init()
+    
+    @StateObject var cachedDownloadsTracker: CachedPackagesTracker = .init()
 
     @StateObject var topPackagesTracker: TopPackagesTracker = .init()
 
@@ -36,6 +39,7 @@ struct CorkApp: App
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
+    
     @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
@@ -53,8 +57,8 @@ struct CorkApp: App
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler: NSBackgroundActivityScheduler = .init(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
         scheduler.repeats = true
-        scheduler.interval = AppConstants.backgroundUpdateInterval
-        scheduler.tolerance = AppConstants.backgroundUpdateIntervalTolerance
+        scheduler.interval = AppConstants.shared.backgroundUpdateInterval
+        scheduler.tolerance = AppConstants.shared.backgroundUpdateIntervalTolerance
         scheduler.qualityOfService = .background
 
         return scheduler
@@ -78,6 +82,7 @@ struct CorkApp: App
                 })
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
+                .environmentObject(cachedDownloadsTracker)
                 .environmentObject(availableTaps)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
@@ -99,7 +104,7 @@ struct CorkApp: App
                         let currentCorkVersion: String = "1.4.1"
 
                         #if DEBUG
-                            AppConstants.logger.debug("There's no saved Cork version - Will save 1.4.1")
+                            AppConstants.shared.logger.debug("There's no saved Cork version - Will save 1.4.1")
                         #endif
 
                         lastSubmittedCorkVersion = currentCorkVersion
@@ -108,7 +113,7 @@ struct CorkApp: App
                     if lastSubmittedCorkVersion != String(NSApplication.appVersion!)
                     { /// Submit the version if this version has not already been submitted
                         #if DEBUG
-                            AppConstants.logger.debug("Last submitted version doesn't match current version")
+                            AppConstants.shared.logger.debug("Last submitted version doesn't match current version")
                         #endif
 
                         try? await submitSystemVersion()
@@ -116,7 +121,7 @@ struct CorkApp: App
                     else
                     {
                         #if DEBUG
-                            AppConstants.logger.debug("Last submitted version matches the current version")
+                            AppConstants.shared.logger.debug("Last submitted version matches the current version")
                         #endif
                     }
                 }
@@ -125,7 +130,7 @@ struct CorkApp: App
                     print("Licensing state: \(appDelegate.appState.licensingState)")
 
                     #if SELF_COMPILED
-                        AppConstants.logger.debug("Will set licensing state to Self Compiled")
+                        AppConstants.shared.logger.debug("Will set licensing state to Self Compiled")
                         appDelegate.appState.licensingState = .selfCompiled
                     #else
                         if !hasValidatedEmail
@@ -134,13 +139,13 @@ struct CorkApp: App
                             {
                                 if let demoActivatedAt
                                 {
-                                    let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.demoLengthInSeconds
+                                    let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.shared.demoLengthInSeconds
 
-                                    AppConstants.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
+                                    AppConstants.shared.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
 
-                                    AppConstants.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+                                    AppConstants.shared.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
 
-                                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
                                     { // Check if there is still time on the demo
                                         /// do stuff if there is
                                     }
@@ -158,45 +163,45 @@ struct CorkApp: App
                     // Start the background update scheduler when the app starts
                     backgroundUpdateTimer.schedule
                     { (completion: NSBackgroundActivityScheduler.CompletionHandler) in
-                        AppConstants.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
+                        AppConstants.shared.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
 
-                        Task(priority: .background)
+                        Task
                         {
-                            var updateResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["update"])
+                            var updateResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
-                            AppConstants.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
+                            AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
 
                             do
                             {
-                                let temporaryOutdatedPackageTracker: OutdatedPackageTracker = .init()
+                                let temporaryOutdatedPackageTracker: OutdatedPackageTracker = await .init()
 
                                 try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewData: brewData)
 
-                                var newOutdatedPackages: Set<OutdatedPackage> = temporaryOutdatedPackageTracker.outdatedPackages
+                                var newOutdatedPackages: Set<OutdatedPackage> = await temporaryOutdatedPackageTracker.outdatedPackages
 
-                                AppConstants.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
+                                AppConstants.shared.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
 
                                 defer
                                 {
-                                    AppConstants.logger.log("Will purge temporary update trackers")
+                                    AppConstants.shared.logger.log("Will purge temporary update trackers")
 
                                     updateResult = .init(standardOutput: "", standardError: "")
                                     newOutdatedPackages = .init()
                                 }
 
-                                if newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
+                                if await newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
                                 {
-                                    AppConstants.logger.log("New updates found")
+                                    AppConstants.shared.logger.log("New updates found")
 
                                     /// Set this to `true` so the normal notification doesn't get sent
-                                    sendStandardUpdatesAvailableNotification = false
+                                    await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
 
-                                    let differentPackages: Set<OutdatedPackage> = newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
-                                    AppConstants.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
+                                    let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
+                                    AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
 
-                                    outdatedPackageTracker.outdatedPackages = newOutdatedPackages
+                                    await outdatedPackageTracker.setOutdatedPackages(to: newOutdatedPackages)
 
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1)
                                     {
@@ -205,12 +210,12 @@ struct CorkApp: App
                                 }
                                 else
                                 {
-                                    AppConstants.logger.log("No new updates found")
+                                    AppConstants.shared.logger.log("No new updates found")
                                 }
                             }
                             catch
                             {
-                                AppConstants.logger.error("Something got fucked up about checking for outdated packages")
+                                AppConstants.shared.logger.error("Something got fucked up about checking for outdated packages")
                             }
                         }
 
@@ -221,13 +226,13 @@ struct CorkApp: App
                 { newValue in
                     if let newValue
                     { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
-                        AppConstants.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
+                        AppConstants.shared.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
                         hasFinishedLicensingWorkflow = true
                     }
                 }
                 .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
                 { outdatedPackageCount in
-                    AppConstants.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
+                    AppConstants.shared.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
 
                     // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
                     withAnimation
@@ -251,7 +256,7 @@ struct CorkApp: App
                             // TODO: Changing the package display type sends a notificaiton, which is not visible since the app is in the foreground. Once macOS 15 comes out, move `sendStandardUpdatesAvailableNotification` into the AppState and suppress it
                             if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
                             {
-                                AppConstants.logger.log("Will try to send notification")
+                                AppConstants.shared.logger.log("Will try to send notification")
 
                                 /// This needs to be checked because when the background update system finds an update, we don't want to send this normal notification.
                                 /// Instead, we want to send a more succinct notification that includes only the new package
@@ -269,7 +274,7 @@ struct CorkApp: App
                 }
                 .onChange(of: areNotificationsEnabled)
                 { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
-                    Task(priority: .background)
+                    Task
                     {
                         await appDelegate.appState.requestNotificationAuthorization()
 
@@ -302,9 +307,9 @@ struct CorkApp: App
                     switch result
                     {
                     case .success(let success):
-                        AppConstants.logger.log("Succeeded in exporting: \(success, privacy: .public)")
+                        AppConstants.shared.logger.log("Succeeded in exporting: \(success, privacy: .public)")
                     case .failure(let failure):
-                        AppConstants.logger.error("Failed in exporting: \(failure, privacy: .public)")
+                        AppConstants.shared.logger.error("Failed in exporting: \(failure, privacy: .public)")
                     }
                 }
                 .fileImporter(
@@ -316,9 +321,9 @@ struct CorkApp: App
                     switch result
                     {
                     case .success(let success):
-                        AppConstants.logger.debug("Succeeded in importing: \(success, privacy: .public)")
+                        AppConstants.shared.logger.debug("Succeeded in importing: \(success, privacy: .public)")
                     case .failure(let failure):
-                        AppConstants.logger.error("Failed in importing: \(failure, privacy: .public)")
+                        AppConstants.shared.logger.error("Failed in importing: \(failure, privacy: .public)")
                     }
                 }
         }
@@ -410,6 +415,15 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
+        
+        WindowGroup(id: .errorInspectorWindowID, for: String.self)
+        { $errorToInspect in
+            if let errorToInspect
+            {
+                ErrorInspector(errorText: errorToInspect)
+            }
+        }
+        .windowToolbarStyle(.unifiedCompact)
 
         Settings
         {
@@ -425,6 +439,7 @@ struct CorkApp: App
                 .environmentObject(appDelegate.appState)
                 .environmentObject(brewData)
                 .environmentObject(availableTaps)
+                .environmentObject(cachedDownloadsTracker)
                 .environmentObject(outdatedPackageTracker)
         }
     }
@@ -509,98 +524,94 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.navigationSelection = nil
+            appDelegate.appState.navigationTargetId = nil
         } label: {
             Text("action.go-to-status-page.menu-bar")
         }
-        .disabled(appDelegate.appState.navigationSelection == nil)
+        .disabled(appDelegate.appState.navigationTargetId == nil)
         Divider()
     }
 
     @ViewBuilder
     var backupAndRestoreMenuBarSection: some View
     {
-        Button
+        AsyncButton
         {
-            Task(priority: .userInitiated)
+            do
             {
-                do
+                brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+
+                isShowingBrewfileExporter = true
+            }
+            catch let brewfileExportError as BrewfileDumpingError
+            {
+                AppConstants.shared.logger.error("\(brewfileExportError)")
+
+                switch brewfileExportError
                 {
-                    brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+                case .couldNotDetermineWorkingDirectory:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
 
-                    isShowingBrewfileExporter = true
-                }
-                catch let brewfileExportError as BrewfileDumpingError
-                {
-                    AppConstants.logger.error("\(brewfileExportError)")
+                case .errorWhileDumpingBrewfile(let error):
+                    appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile(error: error))
 
-                    switch brewfileExportError
-                    {
-                    case .couldNotDetermineWorkingDirectory:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotGetWorkingDirectory)
-
-                    case .errorWhileDumpingBrewfile(let error):
-                        appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile(error: error))
-
-                    case .couldNotReadBrewfile:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
-                    }
+                case .couldNotReadBrewfile:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile(error: brewfileExportError.localizedDescription))
                 }
             }
         } label: {
             Text("navigation.menu.import-export.export-brewfile")
         }
+        .asyncButtonStyle(.plainStyle)
 
-        Button
+        AsyncButton
         {
-            Task(priority: .userInitiated)
+            do
             {
-                do
+                let picker: NSOpenPanel = .init()
+                picker.allowsMultipleSelection = false
+                picker.canChooseDirectories = false
+                picker.allowedFileTypes = ["brewbak", ""]
+
+                if picker.runModal() == .OK
                 {
-                    let picker: NSOpenPanel = .init()
-                    picker.allowsMultipleSelection = false
-                    picker.canChooseDirectories = false
-                    picker.allowedFileTypes = ["brewbak", ""]
-
-                    if picker.runModal() == .OK
+                    guard let brewfileURL = picker.url
+                    else
                     {
-                        guard let brewfileURL = picker.url
-                        else
-                        {
-                            throw BrewfileReadingError.couldNotGetBrewfileLocation
-                        }
+                        throw BrewfileReadingError.couldNotGetBrewfileLocation
+                    }
 
-                        AppConstants.logger.debug("\(brewfileURL.path)")
+                    AppConstants.shared.logger.debug("\(brewfileURL.path)")
 
-                        do
-                        {
-                            try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData)
-                        }
-                        catch let brewfileImportingError
-                        {
-                            AppConstants.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
+                    do
+                    {
+                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData, cachedPackagesTracker: cachedDownloadsTracker)
+                    }
+                    catch let brewfileImportingError
+                    {
+                        AppConstants.shared.logger.error("\(brewfileImportingError.localizedDescription, privacy: .public)")
 
-                            appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
+                        appDelegate.appState.showAlert(errorToShow: .malformedBrewfile)
 
-                            appDelegate.appState.isShowingBrewfileImportProgress = false
-                        }
+                        appDelegate.appState.showSheet(ofType: .brewfileImport)
                     }
                 }
-                catch let error as BrewfileReadingError
+            }
+            catch let error as BrewfileReadingError
+            {
+                switch error
                 {
-                    switch error
-                    {
-                    case .couldNotGetBrewfileLocation:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
+                case .couldNotGetBrewfileLocation:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotGetBrewfileLocation)
 
-                    case .couldNotImportFile:
-                        appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
-                    }
+                case .couldNotImportFile:
+                    appDelegate.appState.showAlert(errorToShow: .couldNotImportBrewfile)
                 }
             }
         } label: {
             Text("navigation.menu.import-export.import-brewfile")
         }
+        .asyncButtonStyle(.plainStyle)
     }
 
     @ViewBuilder
@@ -622,7 +633,7 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.isShowingInstallationSheet.toggle()
+            appDelegate.appState.showSheet(ofType: .packageInstallation)
         } label: {
             Text("navigation.menu.packages.install")
         }
@@ -630,7 +641,7 @@ struct CorkApp: App
 
         Button
         {
-            appDelegate.appState.isShowingAddTapSheet.toggle()
+            appDelegate.appState.showSheet(ofType: .tapAddition)
         } label: {
             Text("navigation.menu.packages.add-tap")
         }
@@ -640,7 +651,7 @@ struct CorkApp: App
 
         Button
         {
-            appDelegate.appState.isShowingUpdateSheet = true
+            appDelegate.appState.showSheet(ofType: .fullUpdate)
         } label: {
             Text("navigation.menu.packages.update")
         }
@@ -664,7 +675,7 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.isShowingMaintenanceSheet.toggle()
+            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
         } label: {
             Text("navigation.menu.maintenance.perform")
         }
@@ -672,12 +683,12 @@ struct CorkApp: App
 
         Button
         {
-            appDelegate.appState.isShowingFastCacheDeletionMaintenanceView.toggle()
+            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: true))
         } label: {
             Text("navigation.menu.maintenance.delete-cached-downloads")
         }
         .keyboardShortcut("m", modifiers: [.command, .option])
-        .disabled(appDelegate.appState.cachedDownloadsFolderSize == 0)
+        .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
     }
 
     @ViewBuilder
@@ -707,6 +718,18 @@ struct CorkApp: App
         } label: {
             Text("debug.action.licensing")
         }
+        
+        Menu
+        {
+            Button
+            {
+                openWindow(id: .errorInspectorWindowID, value: PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
+            } label: {
+                Text("debug.action.show-error-inspector")
+            }
+        } label: {
+            Text("debug.action.ui")
+        }
     }
 
     // MARK: - Functions
@@ -724,5 +747,10 @@ struct CorkApp: App
         {
             NSApp.dockTile.badgeLabel = ""
         }
+    }
+    
+    private func setWhetherToSendStandardUpdatesAvailableNotification(to newValue: Bool)
+    {
+        self.sendStandardUpdatesAvailableNotification = newValue
     }
 }

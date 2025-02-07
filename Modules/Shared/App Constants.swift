@@ -7,44 +7,74 @@
 
 import Foundation
 import OSLog
-import UserNotifications
+@preconcurrency import UserNotifications
 
-public struct AppConstants
+public struct AppConstants: Sendable
 {
+    
+    // MARK: - Initializer
+    init()
+    {
+        
+        let internalLogger: Logger = .init(subsystem: "com.davidbures.cork", category: "Cork")
+        
+        // MARK: - Initialize proxy settings
+        self.proxySettings = {
+            let proxySettings: [String: Any]? = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any]
+            
+            guard let httpProxyHost = proxySettings?[kCFNetworkProxiesHTTPProxy as String] as? String
+            else
+            {
+                internalLogger.error("Could not get proxy host")
+                
+                return nil
+            }
+            guard let httpProxyPort = proxySettings?[kCFNetworkProxiesHTTPPort as String] as? Int
+            else
+            {
+                internalLogger.error("Could not get proxy port")
+                
+                return nil
+            }
+            
+            return (host: httpProxyHost, port: httpProxyPort)
+        }()
+        
+        // MARK: -
+        self.documentsDirectoryPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(component: "Cork", directoryHint: .isDirectory)
+        
+        self.metadataFilePath = self.documentsDirectoryPath.appending(component: "Metadata", directoryHint: .notDirectory).appendingPathExtension("brewmeta")
+        
+        self.brewCachePath = URL.libraryDirectory.appending(component: "Caches", directoryHint: .isDirectory).appending(component: "Homebrew", directoryHint: .isDirectory)
+        
+        self.brewCachedFormulaeDownloadsPath = brewCachePath
+        
+        self.brewCachedCasksDownloadsPath = brewCachePath.appending(component: "Cask", directoryHint: .isDirectory)
+        
+        self.brewCachedDownloadsPath = brewCachePath.appending(component: "downloads", directoryHint: .isDirectory)
+        
+        self.logger = internalLogger
+    }
+    
+    // MARK: - Shared Instance
+    
+    public static let shared: AppConstants = .init()
+    
     // MARK: - Logging
 
-    public static let logger: Logger = .init(subsystem: "com.davidbures.cork", category: "Cork")
+    public let logger: Logger
 
     // MARK: - Notification stuff
 
-    public static let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
+    public let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
 
     // MARK: - Proxy settings
 
-    public static let proxySettings: (host: String, port: Int)? = {
-        let proxySettings: [String: Any]? = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() as? [String: Any]
-
-        guard let httpProxyHost = proxySettings?[kCFNetworkProxiesHTTPProxy as String] as? String
-        else
-        {
-            AppConstants.logger.error("Could not get proxy host")
-
-            return nil
-        }
-        guard let httpProxyPort = proxySettings?[kCFNetworkProxiesHTTPPort as String] as? Int
-        else
-        {
-            AppConstants.logger.error("Could not get proxy port")
-
-            return nil
-        }
-
-        return (host: httpProxyHost, port: httpProxyPort)
-    }()
+    public let proxySettings: (host: String, port: Int)?
 
     // MARK: - Basic executables and file locations
 
-    public static let brewExecutablePath: URL = {
+    public let brewExecutablePath: URL = {
         /// If a custom Homebrew path is defined, use it. Otherwise, use the default paths
         if let homebrewPath = UserDefaults.standard.string(forKey: "customHomebrewPath"), !homebrewPath.isEmpty
         {
@@ -65,7 +95,7 @@ public struct AppConstants
         }
     }()
 
-    public static let brewCellarPath: URL = {
+    public let brewCellarPath: URL = {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Cellar")
         { // Apple Sillicon
             return URL(filePath: "/opt/homebrew/Cellar")
@@ -76,7 +106,7 @@ public struct AppConstants
         }
     }()
 
-    public static let brewCaskPath: URL = {
+    public let brewCaskPath: URL = {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Caskroom")
         { // Apple Sillicon
             return URL(filePath: "/opt/homebrew/Caskroom")
@@ -87,7 +117,7 @@ public struct AppConstants
         }
     }()
 
-    public static let tapPath: URL = {
+    public let tapPath: URL = {
         if FileManager.default.fileExists(atPath: "/opt/homebrew/Library/Taps")
         { // Apple Sillicon
             return URL(filePath: "/opt/homebrew/Library/Taps")
@@ -100,37 +130,40 @@ public struct AppConstants
 
     // MARK: - Storage for tagging
 
-    public static let documentsDirectoryPath: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(component: "Cork", directoryHint: .isDirectory)
-    public static let metadataFilePath: URL = documentsDirectoryPath.appending(component: "Metadata", directoryHint: .notDirectory).appendingPathExtension("brewmeta")
+    public let documentsDirectoryPath: URL
+    public let metadataFilePath: URL
 
     // MARK: - Brew Cache
 
-    public static let brewCachePath: URL = URL.libraryDirectory.appending(component: "Caches", directoryHint: .isDirectory).appending(component: "Homebrew", directoryHint: .isDirectory) // /Users/david/Library/Caches/Homebrew
+    /// Path to the cached downloads
+    /// `/Users/david/Library/Caches/Homebrew`
+    public let brewCachePath: URL
 
-    /// These two have the symlinks to the actual downloads
-    public static let brewCachedFormulaeDownloadsPath: URL = brewCachePath
-    public static let brewCachedCasksDownloadsPath: URL = brewCachePath.appending(component: "Cask", directoryHint: .isDirectory)
+    /// Has symlinks to the cached downloads
+    /// `/Users/david/Library/Caches/Homebrew`
+    public let brewCachedFormulaeDownloadsPath: URL
+    public let brewCachedCasksDownloadsPath: URL
 
     /// This one has all the downloaded files themselves
-    public static let brewCachedDownloadsPath: URL = brewCachePath.appending(component: "downloads", directoryHint: .isDirectory)
+    public let brewCachedDownloadsPath: URL
 
     // MARK: - Licensing
 
-    public static let demoLengthInSeconds: Double = 604_800 // 7 days
+    public let demoLengthInSeconds: Double = 604_800 // 7 days
 
-    public static let authorizationEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
-    public static let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
+    public let authorizationEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/38aacca6-5da8-453c-a001-804b15751319")!
+    public let licensingAuthorization: (username: String, passphrase: String) = ("cork-authorization", "choosy-defame-neon-resume-cahoots")
 
     // MARK: - Temporary OS version submission
 
-    public static let osSubmissionEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/3a971576-fa96-479e-9dc4-e052fe33270b")!
+    public let osSubmissionEndpointURL: URL = .init(string: "https://automation.tomoserver.eu/webhook/3a971576-fa96-479e-9dc4-e052fe33270b")!
 
     // MARK: - Misc Stuff
 
-    public static let backgroundUpdateInterval: TimeInterval = 10 * 60
-    public static let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60
+    public let backgroundUpdateInterval: TimeInterval = 10 * 60
+    public let backgroundUpdateIntervalTolerance: TimeInterval = 1 * 60
 
-    public static let osVersionString: (lookupName: String, fullName: String) = {
+    public let osVersionString: (lookupName: String, fullName: String) = {
         let versionDictionary: [Int: (lookupName: String, fullName: String)] = [
             15: ("sequoia", "Sequoia"),
             14: ("sonoma", "Sonoma"),

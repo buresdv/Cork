@@ -22,7 +22,7 @@ func parseTapInfo(from rawJSON: String) async throws -> TapInfo?
         guard let jsonAsData: Data = rawJSON.data(using: .utf8, allowLossyConversion: false)
         else
         {
-            AppConstants.logger.error("Could not convert tap JSON string into data")
+            AppConstants.shared.logger.error("Could not convert tap JSON string into data")
             throw JSONParsingError.couldNotConvertStringToData(failureReason: nil)
         }
 
@@ -30,7 +30,7 @@ func parseTapInfo(from rawJSON: String) async throws -> TapInfo?
     }
     catch let decodingError
     {
-        AppConstants.logger.error("Failed while decoding tap info: \(decodingError.localizedDescription, privacy: .public)\n-\(decodingError, privacy: .public)")
+        AppConstants.shared.logger.error("Failed while decoding tap info: \(decodingError.localizedDescription, privacy: .public)\n-\(decodingError, privacy: .public)")
 
         throw JSONParsingError.couldNotDecode(failureReason: decodingError.localizedDescription)
     }

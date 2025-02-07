@@ -12,14 +12,14 @@ extension ServicesTracker
 {
     func killService(_ serviceToKill: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
     {
-        for await output in shell(AppConstants.brewExecutablePath, ["services", "kill", serviceToKill.name])
+        for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "kill", serviceToKill.name])
         {
             switch output
             {
             case .standardOutput(let outputLine):
-                AppConstants.logger.debug("Service killing output: \(outputLine)")
+                AppConstants.shared.logger.debug("Service killing output: \(outputLine)")
             case .standardError(let errorLine):
-                AppConstants.logger.error("Service killing error: \(errorLine)")
+                AppConstants.shared.logger.error("Service killing error: \(errorLine)")
             }
         }
 
@@ -31,7 +31,7 @@ extension ServicesTracker
         }
         catch let servicesSynchronizationError
         {
-            AppConstants.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
+            AppConstants.shared.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
 
             servicesState.showError(.couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription))
         }

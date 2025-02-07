@@ -62,7 +62,7 @@ struct OnboardingDefaultsSlider: View
             }
             .onChange(of: sliderValue)
             { _ in
-                AppConstants.logger.debug("New slider value: \(sliderValue, privacy: .public)")
+                AppConstants.shared.logger.debug("New slider value: \(sliderValue, privacy: .public)")
                 if sliderValue == 0
                 {
                     setupLevel = .basic
@@ -84,7 +84,7 @@ struct OnboardingDefaultsSlider: View
                     setupLevel = .advanced
                 }
 
-                AppConstants.logger.debug("\(String(describing: setupLevel.name.stringValue()))")
+                AppConstants.shared.logger.debug("\(String(describing: setupLevel.name.stringValue()))")
             }
         })
     }

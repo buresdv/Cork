@@ -13,11 +13,8 @@ struct SidebarServiceRow: View
 
     var body: some View
     {
-        NavigationLink
+        NavigationLink(value: service)
         {
-            ServiceDetailView(service: service)
-                .id(service.id)
-        } label: {
             Text(service.name)
         }
         .contextMenu

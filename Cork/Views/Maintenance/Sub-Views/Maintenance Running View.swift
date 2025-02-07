@@ -13,6 +13,8 @@ struct MaintenanceRunningView: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
 
     let shouldUninstallOrphans: Bool
@@ -31,7 +33,7 @@ struct MaintenanceRunningView: View
         ProgressView
         {
             Text(currentMaintenanceStepText)
-                .task(priority: .userInitiated)
+                .task
                 {
                     if shouldUninstallOrphans
                     {
@@ -43,12 +45,12 @@ struct MaintenanceRunningView: View
                         }
                         catch let orphanUninstallatioError
                         {
-                            AppConstants.logger.error("Orphan uninstallation error: \(orphanUninstallatioError.localizedDescription, privacy: .public))")
+                            AppConstants.shared.logger.error("Orphan uninstallation error: \(orphanUninstallatioError.localizedDescription, privacy: .public))")
                         }
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not uninstall orphans")
+                        AppConstants.shared.logger.info("Will not uninstall orphans")
                     }
 
                     if shouldPurgeCache
@@ -59,35 +61,50 @@ struct MaintenanceRunningView: View
                         {
                             packagesHoldingBackCachePurge = try await purgeHomebrewCacheUtility()
 
-                            AppConstants.logger.info("Length of array of packages that are holding back cache purge: \(packagesHoldingBackCachePurge.count)")
+                            AppConstants.shared.logger.info("Length of array of packages that are holding back cache purge: \(packagesHoldingBackCachePurge.count)")
                         }
                         catch let homebrewCachePurgingError
                         {
-                            AppConstants.logger.error("Homebrew cache purging error: \(homebrewCachePurgingError.localizedDescription, privacy: .public))")
+                            AppConstants.shared.logger.error("Homebrew cache purging error: \(homebrewCachePurgingError.localizedDescription, privacy: .public))")
                         }
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not purge cache")
+                        AppConstants.shared.logger.info("Will not purge cache")
                     }
 
                     if shouldDeleteDownloads
                     {
-                        AppConstants.logger.info("Will delete downloads")
+                        AppConstants.shared.logger.info("Will delete downloads")
 
                         currentMaintenanceStepText = "maintenance.step.deleting-cached-downloads"
 
-                        deleteCachedDownloads()
+                        do throws(CachedDownloadDeletionError)
+                        {
+                            try deleteCachedDownloads()
+                        }
+                        catch let cacheDeletionError
+                        {
+                            switch cacheDeletionError
+                            {
+                            case .couldNotReadContentsOfCachedFormulaeDownloadsFolder(let associatedError):
+                                appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                                
+                            case .couldNotReadContentsOfCachedCasksDownloadsFolder(let associatedError):
+                                appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                                
+                            case .couldNotReadContentsOfCachedDownloadsFolder(let associatedError):
+                                appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                            }
+                        }
 
                         /// I have to assign the original value of the appState variable to a different variable, because when it updates at the end of the process, I don't want it to update in the result overview
-                        reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
+                        reclaimedSpaceAfterCachePurge = Int(cachedDownloadsTracker.cachedDownloadsSize)
 
-                        await appState.loadCachedDownloadedPackages()
-                        appState.assignPackageTypeToCachedDownloads(brewData: brewData)
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not delete downloads")
+                        AppConstants.shared.logger.info("Will not delete downloads")
                     }
 
                     if shouldPerformHealthCheck
@@ -97,24 +114,22 @@ struct MaintenanceRunningView: View
                         do
                         {
                             let healthCheckOutput: TerminalOutput = try await performBrewHealthCheck()
-                            AppConstants.logger.debug("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
+                            AppConstants.shared.logger.log("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
 
                             brewHealthCheckFoundNoProblems = true
                         }
                         catch let healthCheckError
                         {
-                            AppConstants.logger.error("Health check error: \(healthCheckError, privacy: .public)")
+                            AppConstants.shared.logger.error("Health check error: \(healthCheckError, privacy: .public)")
                         }
                     }
                     else
                     {
-                        AppConstants.logger.info("Will not perform health check")
+                        AppConstants.shared.logger.info("Will not perform health check")
                     }
 
                     maintenanceSteps = .finished
                 }
         }
-        .padding()
-        .frame(width: 200)
     }
 }

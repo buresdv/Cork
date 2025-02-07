@@ -12,18 +12,18 @@ extension ServicesTracker
 {
     func startService(_ serviceToStart: HomebrewService, servicesState: ServicesState, serviceModificationProgress: ServiceModificationProgress) async
     {
-        for await output in shell(AppConstants.brewExecutablePath, ["services", "start", serviceToStart.name])
+        for await output in shell(AppConstants.shared.brewExecutablePath, ["services", "start", serviceToStart.name])
         {
             switch output
             {
             case .standardOutput(let outputLine):
-                AppConstants.logger.debug("Services startup output line: \(outputLine)")
+                AppConstants.shared.logger.debug("Services startup output line: \(outputLine)")
                 switch outputLine
                 {
                 case _ where outputLine.contains("Successfully started"):
-                    AppConstants.logger.debug("Started \(serviceToStart.name) with no problems")
+                    AppConstants.shared.logger.debug("Started \(serviceToStart.name) with no problems")
                 default:
-                    AppConstants.logger.debug("Service started, but there were some problems")
+                    AppConstants.shared.logger.debug("Service started, but there were some problems")
                 }
 
                 serviceModificationProgress.progress += 1
@@ -32,12 +32,12 @@ extension ServicesTracker
                 switch errorLine
                 {
                 case _ where errorLine.contains("must be run as root"):
-                    AppConstants.logger.debug("Service must be run as root")
+                    AppConstants.shared.logger.debug("Service must be run as root")
 
                     servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: String(localized: "services.error.must-be-run-as-root")))
 
                 default:
-                    AppConstants.logger.warning("Could not start service: \(errorLine)")
+                    AppConstants.shared.logger.warning("Could not start service: \(errorLine)")
 
                     servicesState.showError(.couldNotStartService(offendingService: serviceToStart.name, errorThrown: errorLine))
                 }
@@ -52,7 +52,7 @@ extension ServicesTracker
         }
         catch let servicesSynchronizationError
         {
-            AppConstants.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
+            AppConstants.shared.logger.error("Could not synchronize services: \(servicesSynchronizationError.localizedDescription)")
 
             servicesState.showError(.couldNotSynchronizeServices(errorThrown: servicesSynchronizationError.localizedDescription))
         }

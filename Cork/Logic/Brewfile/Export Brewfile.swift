@@ -10,7 +10,7 @@ import CorkShared
 
 enum BrewfileDumpingError: LocalizedError
 {
-    case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile
+    case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile(error: String)
 
     var errorDescription: String?
     {
@@ -20,8 +20,8 @@ enum BrewfileDumpingError: LocalizedError
             return String(localized: "error.brewfile.export.could-not-determine-working-directory")
         case .errorWhileDumpingBrewfile(let error):
             return String(localized: "error.brewfile.export.could-not-dump-with-error.\(error)")
-        case .couldNotReadBrewfile:
-            return String(localized: "error.brewfile.export.could-not-read-temporary-brewfile")
+        case .couldNotReadBrewfile(let error):
+            return error
         }
     }
 }
@@ -30,18 +30,18 @@ enum BrewfileDumpingError: LocalizedError
 @MainActor
 func exportBrewfile(appState: AppState) async throws -> String
 {
-    appState.isShowingBrewfileExportProgress = true
+    appState.showSheet(ofType: .brewfileExport)
 
     defer
     {
-        appState.isShowingBrewfileExportProgress = false
+        appState.dismissSheet()
     }
 
     let brewfileParentLocation: URL = URL.temporaryDirectory
 
     let pathRawOutput: TerminalOutput = await shell(URL(string: "/bin/pwd")!, ["-L"])
 
-    let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
+    let brewfileDumpingResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
 
     /// Throw an error if the working directory could not be determined
     if !pathRawOutput.standardError.isEmpty
@@ -56,12 +56,12 @@ func exportBrewfile(appState: AppState) async throws -> String
         throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
     }
 
-    if !brewfileDumpingResult.standardError.isEmpty
+    if brewfileDumpingResult.standardError.contains("(E|e)rror")
     {
         throw BrewfileDumpingError.errorWhileDumpingBrewfile(error: brewfileDumpingResult.standardError)
     }
 
-    AppConstants.logger.info("Path: \(workingDirectory, privacy: .auto)")
+    AppConstants.shared.logger.info("Path: \(workingDirectory, privacy: .auto)")
 
     print("Brewfile dumping result: \(brewfileDumpingResult)")
 
@@ -78,7 +78,7 @@ func exportBrewfile(appState: AppState) async throws -> String
     }
     catch let brewfileReadingError
     {
-        AppConstants.logger.error("Error while reading contents of Brewfile: \(brewfileReadingError, privacy: .public)")
-        throw BrewfileDumpingError.couldNotReadBrewfile
+        AppConstants.shared.logger.error("Error while reading contents of Brewfile: \(brewfileReadingError, privacy: .public)")
+        throw BrewfileDumpingError.couldNotReadBrewfile(error: brewfileReadingError.localizedDescription)
     }
 }

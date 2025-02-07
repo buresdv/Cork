@@ -28,23 +28,39 @@ struct GetInstalledFormulaeIntent: AppIntent
     @Parameter(title: "intent.get-installed-packages.limit-to-manually-installed-packages")
     var getOnlyManuallyInstalledPackages: Bool
 
-    static var title: LocalizedStringResource = "intent.get-installed-formulae.title"
-    static var description: LocalizedStringResource = "intent.get-installed-formulae.description"
+    static let title: LocalizedStringResource = "intent.get-installed-formulae.title"
+    static let description: LocalizedStringResource = "intent.get-installed-formulae.description"
 
-    static var isDiscoverable: Bool = true
-    static var openAppWhenRun: Bool = false
+    static let isDiscoverable: Bool = true
+    static let openAppWhenRun: Bool = false
 
     func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {
-        let allowAccessToFile: Bool = AppConstants.brewCellarPath.startAccessingSecurityScopedResource()
+        let allowAccessToFile: Bool = AppConstants.shared.brewCellarPath.startAccessingSecurityScopedResource()
 
         if allowAccessToFile
         {
-            let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: AppState())
+            let dummyBrewData: BrewDataStorage = await .init()
+            
+            guard let installedFormulae: BrewPackages = await dummyBrewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState()) else
+            {
+                throw IntentError.failedWhilePerformingIntent
+            }
 
-            AppConstants.brewCellarPath.stopAccessingSecurityScopedResource()
+            /// Filter out all packages that gave an error
+            let validInstalledFormulae: Set<BrewPackage> = Set(installedFormulae.compactMap { rawResult in
+                if case let .success(success) = rawResult {
+                    return success
+                }
+                else
+                {
+                    return nil
+                }
+            })
+            
+            AppConstants.shared.brewCellarPath.stopAccessingSecurityScopedResource()
 
-            var minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map
+            var minimalPackages: [MinimalHomebrewPackage] = validInstalledFormulae.map
             { package in
                 .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
             }
@@ -59,7 +75,7 @@ struct GetInstalledFormulaeIntent: AppIntent
         else
         {
             print("Could not obtain access to folder")
-            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.brewCellarPath.absoluteString)
+            throw FolderAccessingError.couldNotObtainPermissionToAccessFolder(formattedPath: AppConstants.shared.brewCellarPath.absoluteString)
         }
     }
 }

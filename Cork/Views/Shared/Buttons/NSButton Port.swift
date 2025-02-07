@@ -32,7 +32,7 @@ struct SUIButton: NSViewRepresentable
             self.parent = parent
         }
 
-        @objc func buttonClicked(_: Any?)
+        @MainActor @objc func buttonClicked(_: Any?)
         {
             parent.action()
         }

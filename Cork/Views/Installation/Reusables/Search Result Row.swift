@@ -16,7 +16,9 @@ struct SearchResultRow: View, Sendable
     @EnvironmentObject var brewData: BrewDataStorage
 
     let searchedForPackage: BrewPackage
-
+    let context: Self.Context
+    let downloadCount: Int?
+    
     @State private var description: String?
     @State private var isCompatible: Bool?
 
@@ -30,35 +32,46 @@ struct SearchResultRow: View, Sendable
             HStack(alignment: .center)
             {
                 SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: true)
-
-                if searchedForPackage.type == .formula
+                
+                switch context
                 {
-                    if brewData.installedFormulae.contains(where: { $0.name == searchedForPackage.name })
+                case .topPackages:
+                    Spacer()
+                    
+                    if let downloadCount
                     {
-                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                        Text("add-package.top-packages.list-item-\(downloadCount)")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
                     }
-                }
-                else
-                {
-                    if brewData.installedCasks.contains(where: { $0.name == searchedForPackage.name })
+                    
+                case .searchResults:
+                    if searchedForPackage.type == .formula
                     {
-                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
-                    }
-                }
-
-                if let isCompatible
-                {
-                    if !isCompatible
-                    {
-                        if showCompatibilityWarning
+                        if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
                         {
-                            HStack(alignment: .center, spacing: 4)
+                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                        }
+                    }
+                    else
+                    {
+                        if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
+                        {
+                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                        }
+                    }
+                    
+                    if let isCompatible
+                    {
+                        if !isCompatible
+                        {
+                            if showCompatibilityWarning
                             {
                                 Image(systemName: "exclamationmark.circle")
-                                Text("add-package.result.not-optimized-for-\(AppConstants.osVersionString.fullName)")
+                                Text("add-package.result.not-optimized-for-\(AppConstants.shared.osVersionString.fullName)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.red)
                             }
-                            .font(.subheadline)
-                            .foregroundColor(.red)
                         }
                     }
                 }
@@ -99,7 +112,7 @@ struct SearchResultRow: View, Sendable
         {
             if showDescriptionsInSearchResults
             {
-                AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
+                AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
 
                 if description == nil
                 {
@@ -108,7 +121,7 @@ struct SearchResultRow: View, Sendable
                         isLoadingDescription = false
                     }
 
-                    AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
+                    AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
 
                     do
                     {
@@ -124,7 +137,7 @@ struct SearchResultRow: View, Sendable
                         }
                         catch let descriptionParsingError
                         { // This happens when a package doesn' have any description at all, hence why we don't display an error
-                            AppConstants.logger.error("Failed while parsing searched-for package info: \(descriptionParsingError.localizedDescription, privacy: .public)")
+                            AppConstants.shared.logger.error("Failed while parsing searched-for package info: \(descriptionParsingError.localizedDescription, privacy: .public)")
 
                             descriptionParsingFailed = true
                         }
@@ -132,9 +145,14 @@ struct SearchResultRow: View, Sendable
                 }
                 else
                 {
-                    AppConstants.logger.info("\(searchedForPackage.name, privacy: .auto) already has its description loaded")
+                    AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) already has its description loaded")
                 }
             }
         }
+    }
+    
+    enum Context {
+        case searchResults
+        case topPackages
     }
 }

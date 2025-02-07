@@ -30,7 +30,7 @@ struct PackagesIncludedInTapList: View
                         {
                             SanitizedPackageName(packageName: package, shouldShowVersion: true)
 
-                            if brewData.installedFormulae.contains(where: { $0.name == package }) || brewData.installedCasks.contains(where: { $0.name == package })
+                            if brewData.successfullyLoadedFormulae.contains(where: { $0.name == package }) || brewData.successfullyLoadedCasks.contains(where: { $0.name == package })
                             {
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }

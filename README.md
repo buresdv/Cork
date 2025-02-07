@@ -6,6 +6,8 @@ A fast GUI for Homebrew written in SwiftUI
 [![Discord Link](https://img.shields.io/discord/1083475351260377119?label=Talk%20to%20me%20on%20Discord&style=flat)](https://discord.gg/kUHg8uGHpG)
 [![Join the Forums](https://img.shields.io/badge/Join%20the%20Forums-orange?style=flat&link=https://forum.corkmac.app/t/cork)](https://forum.corkmac.app/t/cork)
 
+# My whole life is falling apart right now, so the development of Cork will be impacted
+
 ## Special Thanks
 
 I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implementing a system for getting real-time outputs of Brew commands.
@@ -34,7 +36,7 @@ Cork is not just an interface for Homebrew. It has many features that are either
 - [x] Knowing which packages you installed intentionally, and which packages were installed only as dependencies. While somewhat possible with the `brew leaves` command, it is often unreliable, often not listing packages that should be included.
 - [x] Updating of only selected packages. Again, while possible with Homebrew alone, Cork makes it so easy you wouldn't believe it is not this simple in Homebrew itself.
 - [x] Showing you exactly which packages a package is a dependency of. Super annoying in Homebrew, effortless with Cork.
-- [x] Effortlessly managing Homebrew services with a simple click of a button in a beutiful sub-window.
+- [x] Effortlessly managing Homebrew services with a simple click of a button in a beautiful sub-window.
 - [x] And many other features! Just try Cork out and try finding them all 😉
 
 ## Getting Cork
@@ -102,7 +104,7 @@ Compiling Cork is simple, as it does not have many dependencies. It uses Tuist t
 Prerequisites:
 
 * macOS Ventura or newer
-* Xcode 15 or newer
+* Xcode 16 or newer
 * Git
 * Homebrew
 
@@ -126,7 +128,7 @@ Prerequisites:
 
 #### Installing Mise
 
-*Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tusit specifically, like the aforementioned version synchronization.*
+*Cork uses Mise to prevent conflicts arising from mismatched Tuist versions across Macs. Mise is a tool similar to Homebrew, but offers some advantages for Tuist specifically, like the aforementioned version synchronization.*
 
 1. Install Mise using `curl https://mise.run | sh`
 2. Initialize Mise using the command you see after the installation finishes. It's located under `mise: run the following to activate mise in your shell:`.\
@@ -187,7 +189,7 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 
 Cork is licensed under [Commons Clause](https://commonsclause.com).
 
-This means that Cork open-source and you can do whatever you want with Cork's source, like modifying it, contributing to it etc., but you can't sell or distribute Cork or modified versions of it.
+This means that Cork's source source is available and you can modify it, contribute to it etc., but you can't sell or distribute Cork or modified versions of it.
 
 Moreover, you can’t distribute compiled versions of Cork without consulting me first. Compiling versions for your personal use is fine.
 

@@ -37,7 +37,7 @@ struct LicensingView: View
                 appState.licensingState = .selfCompiled
             #else
 
-                AppConstants.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
+                AppConstants.shared.logger.debug("Has validated email? \(hasValidatedEmail ? "YES" : "NO")")
 
                 if hasValidatedEmail
                 {
@@ -47,7 +47,7 @@ struct LicensingView: View
                 {
                     if let demoActivatedAt
                     {
-                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.demoLengthInSeconds) > 0
+                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
                         { // Check if there is still time on the demo
                             appState.licensingState = .demo
                         }

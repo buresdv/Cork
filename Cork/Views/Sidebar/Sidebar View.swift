@@ -19,6 +19,8 @@ struct SidebarView: View
         .formula, .cask, .tap, .intentionallyInstalledPackage
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
+    
+    @State private var localNavigationTragetId: UUID?
 
     var suggestedTokens: [PackageSearchToken]
     {
@@ -35,7 +37,7 @@ struct SidebarView: View
     var body: some View
     {
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $appState.navigationSelection)
+        List(selection: $localNavigationTragetId)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -50,6 +52,18 @@ struct SidebarView: View
             if currentTokens.isEmpty || currentTokens.contains(.tap)
             {
                 TapsSection(searchText: searchText)
+            }
+        }
+        .onChange(of: localNavigationTragetId)
+        { newValue in
+            if appState.navigationTargetId != newValue {
+                appState.navigationTargetId = newValue
+            }
+        }
+        .onReceive(appState.$navigationTargetId.receive(on: DispatchQueue.main))
+        { newValue in
+            if localNavigationTragetId != newValue {
+                localNavigationTragetId = newValue
             }
         }
         .listStyle(.sidebar)
@@ -91,22 +105,16 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationSelection = nil
+                    appState.navigationTargetId = nil
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(appState.navigationSelection == nil || !searchText.isEmpty || !currentTokens.isEmpty)
+                .disabled(
+                    appState.navigationTargetId == nil || !searchText.isEmpty || !currentTokens.isEmpty
+                )
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
-        }
-        .sheet(isPresented: $appState.isShowingMaintenanceSheet)
-        {
-            MaintenanceView()
-        }
-        .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView)
-        {
-            MaintenanceView(shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
         }
     }
 }

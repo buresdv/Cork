@@ -39,7 +39,7 @@ class BrewPackageDetails: ObservableObject
     let outdated: Bool
     let caveats: String?
 
-    let isCompatible: Bool
+    let isCompatible: Bool?
 
     // MARK: - Mutable properties
 
@@ -48,7 +48,7 @@ class BrewPackageDetails: ObservableObject
 
     // MARK: - Init
 
-    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, pinned: Bool, isCompatible: Bool)
+    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, pinned: Bool, isCompatible: Bool?)
     {
         self.name = name
         self.description = description
@@ -67,12 +67,12 @@ class BrewPackageDetails: ObservableObject
 
     func loadDependents() async
     {
-        AppConstants.logger.debug("Will load dependents for \(self.name)")
-        let packageDependentsRaw: String = await shell(AppConstants.brewExecutablePath, ["uses", "--installed", name]).standardOutput
+        AppConstants.shared.logger.debug("Will load dependents for \(self.name)")
+        let packageDependentsRaw: String = await shell(AppConstants.shared.brewExecutablePath, ["uses", "--installed", name]).standardOutput
 
         let finalDependents: [String] = packageDependentsRaw.components(separatedBy: "\n").dropLast()
 
-        AppConstants.logger.debug("Dependents loaded: \(finalDependents)")
+        AppConstants.shared.logger.debug("Dependents loaded: \(finalDependents)")
 
         dependents = finalDependents
     }
@@ -81,20 +81,20 @@ class BrewPackageDetails: ObservableObject
     {
         if pinned
         {
-            let pinResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["unpin", name])
+            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", name])
 
             if !pinResult.standardError.isEmpty
             {
-                AppConstants.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
                 throw PinningUnpinningError.failedWhileChangingPinnedStatus
             }
         }
         else
         {
-            let unpinResult: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["pin", name])
+            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", name])
             if !unpinResult.standardError.isEmpty
             {
-                AppConstants.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
                 throw PinningUnpinningError.failedWhileChangingPinnedStatus
             }
         }

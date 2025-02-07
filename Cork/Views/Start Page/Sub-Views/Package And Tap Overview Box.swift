@@ -13,7 +13,7 @@ struct PackageAndTapOverviewBox: View
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     var body: some View
     {
@@ -21,7 +21,7 @@ struct PackageAndTapOverviewBox: View
         {
             GroupBoxHeadlineGroup(
                 image: "terminal",
-                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.installedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count)"),
+                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.successfullyLoadedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count)"),
                 mainText: "start-page.installed-formulae.description",
                 animateNumberChanges: true
             )
@@ -29,7 +29,7 @@ struct PackageAndTapOverviewBox: View
             {
                 Button
                 {
-                    AppConstants.brewCellarPath.revealInFinder(.openTargetItself)
+                    AppConstants.shared.brewCellarPath.revealInFinder(.openTargetItself)
                 } label: {
                     Text("action.reveal-in-finder")
                 }
@@ -47,7 +47,7 @@ struct PackageAndTapOverviewBox: View
             {
                 Button
                 {
-                    AppConstants.brewCaskPath.revealInFinder(.openTargetItself)
+                    AppConstants.shared.brewCaskPath.revealInFinder(.openTargetItself)
                 } label: {
                     Text("action.reveal-in-finder")
                 }
@@ -65,7 +65,7 @@ struct PackageAndTapOverviewBox: View
             {
                 Button
                 {
-                    AppConstants.tapPath.revealInFinder(.openTargetItself)
+                    AppConstants.shared.tapPath.revealInFinder(.openTargetItself)
                 } label: {
                     Text("action.reveal-in-finder")
                 }

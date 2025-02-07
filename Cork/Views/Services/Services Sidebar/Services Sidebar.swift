@@ -13,10 +13,12 @@ struct ServicesSidebarView: View
     @EnvironmentObject var servicesTracker: ServicesTracker
 
     @State private var searchText: String = ""
+    
+    @State private var localNavigationTargetId: UUID?
 
     var body: some View
     {
-        List(selection: $servicesState.navigationSelection)
+        List(selection: $localNavigationTargetId)
         {
             ForEach(displayedServices.sorted(by: { $0.name < $1.name }))
             { homebrewService in
@@ -29,16 +31,22 @@ struct ServicesSidebarView: View
             {
                 Button
                 {
-                    servicesState.navigationSelection = nil
+                    servicesState.navigationTargetId = nil
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
-                .disabled(servicesState.navigationSelection == nil)
+                .disabled(servicesState.navigationTargetId == nil)
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }
         .searchable(text: $searchText, placement: .sidebar, prompt: Text("services-sidebar.search.prompt"))
+        .onChange(of: localNavigationTargetId)
+        { newValue in
+            if servicesState.navigationTargetId != newValue {
+                servicesState.navigationTargetId = newValue
+            }
+        }
     }
 
     private var displayedServices: Set<HomebrewService>

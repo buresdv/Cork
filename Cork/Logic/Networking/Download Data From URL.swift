@@ -36,12 +36,12 @@ enum DataDownloadingError: LocalizedError
 func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async throws -> Data
 {
     let sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
-    if AppConstants.proxySettings != nil
+    if AppConstants.shared.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
             kCFNetworkProxiesHTTPEnable: 1,
-            kCFNetworkProxiesHTTPPort: AppConstants.proxySettings!.port,
-            kCFNetworkProxiesHTTPProxy: AppConstants.proxySettings!.host
+            kCFNetworkProxiesHTTPPort: AppConstants.shared.proxySettings!.port,
+            kCFNetworkProxiesHTTPProxy: AppConstants.shared.proxySettings!.host
         ] as [AnyHashable: Any]
     }
 
@@ -64,7 +64,7 @@ func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async th
     guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
     else
     {
-        AppConstants.logger.error("Received invalid networking response: \(response)")
+        AppConstants.shared.logger.error("Received invalid networking response: \(response)")
 
         let responseCast: HTTPURLResponse? = response as? HTTPURLResponse
         throw DataDownloadingError.invalidResponseCode(responseCode: responseCast?.statusCode)

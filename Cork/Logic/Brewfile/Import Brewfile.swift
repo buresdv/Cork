@@ -25,17 +25,17 @@ enum BrewfileReadingError: LocalizedError
 }
 
 @MainActor
-func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage) async throws
+func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage, cachedPackagesTracker: CachedPackagesTracker) async throws
 {
-    appState.isShowingBrewfileImportProgress = true
+    appState.showSheet(ofType: .brewfileImport)
 
     appState.brewfileImportingStage = .importing
 
-    AppConstants.logger.info("Brewfile import path: \(url.path)")
+    AppConstants.shared.logger.info("Brewfile import path: \(url.path)")
 
-    let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
+    let brewfileImportingResultRaw: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "--file", url.path, "--no-lock"])
 
-    AppConstants.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutput, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardError)")
+    AppConstants.shared.logger.info("Brewfile import result:\nStandard output: \(brewfileImportingResultRaw.standardOutput, privacy: .public)\nStandard error: \(brewfileImportingResultRaw.standardError)")
 
     if !brewfileImportingResultRaw.standardError.isEmpty
     {
@@ -44,5 +44,12 @@ func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage
 
     appState.brewfileImportingStage = .finished
 
-    await synchronizeInstalledPackages(brewData: brewData)
+    do
+    {
+        try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+    }
+    catch let synchronizationError
+    {
+        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+    }
 }

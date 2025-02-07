@@ -8,6 +8,7 @@
 import AppKit
 import Foundation
 
+@MainActor
 func switchCorkToForeground()
 {
     if #available(macOS 14.0, *)

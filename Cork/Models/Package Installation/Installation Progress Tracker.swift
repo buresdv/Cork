@@ -22,17 +22,17 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installPackage(using brewData: BrewDataStorage) async throws -> TerminalOutput
+    func installPackage(using brewData: BrewDataStorage, cachedPackagesTracker: CachedPackagesTracker) async throws -> TerminalOutput
     {
         let package: BrewPackage = packageBeingInstalled.package
 
-        AppConstants.logger.debug("Installing package \(package.name, privacy: .auto)")
+        AppConstants.shared.logger.debug("Installing package \(package.name, privacy: .auto)")
 
         var installationResult: TerminalOutput = .init(standardOutput: "", standardError: "")
 
         if package.type == .formula
         {
-            AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
+            AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
 
             let output: String = try await installFormula(using: brewData).joined(separator: "")
 
@@ -44,11 +44,18 @@ class InstallationProgressTracker: ObservableObject
         }
         else
         {
-            AppConstants.logger.info("Package is Cask")
+            AppConstants.shared.logger.info("Package is Cask")
             try await installCask(using: brewData)
         }
 
-        await synchronizeInstalledPackages(brewData: brewData)
+        do
+        {
+            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+        }
+        catch let synchronizationError
+        {
+            AppConstants.shared.logger.error("Package isntallation function failed to synchronize packages: \(synchronizationError.localizedDescription)")
+        }
 
         return installationResult
     }
@@ -62,22 +69,22 @@ class InstallationProgressTracker: ObservableObject
         var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
         var installOutput: [String] = .init()
 
-        AppConstants.logger.info("Package \(package.name, privacy: .public) is Formula")
+        AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
 
-        for await output in shell(AppConstants.brewExecutablePath, ["install", package.name])
+        for await output in shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
         {
             switch output
             {
             case .standardOutput(let outputLine):
 
-                AppConstants.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
+                AppConstants.shared.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
                     packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
                 }
 
-                AppConstants.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
+                AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
 
                 if outputLine.contains("Fetching dependencies")
                 {
@@ -85,13 +92,13 @@ class InstallationProgressTracker: ObservableObject
                     var matchedDependencies: String = try outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
-                    AppConstants.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
+                    AppConstants.shared.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
 
                     packageDependencies = matchedDependencies.components(separatedBy: ", ") // Make the dependency list into an array
 
-                    AppConstants.logger.debug("Package Dependencies: \(packageDependencies)")
+                    AppConstants.shared.logger.debug("Package Dependencies: \(packageDependencies)")
 
-                    AppConstants.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
+                    AppConstants.shared.logger.debug("Will fetch \(packageDependencies.count) dependencies!")
 
                     numberOfPackageDependencies = packageDependencies.count // Assign the number of dependencies to the tracker for the user to see
 
@@ -100,12 +107,12 @@ class InstallationProgressTracker: ObservableObject
 
                 else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(package.name) dependency")
                 {
-                    AppConstants.logger.info("Will install dependencies!")
+                    AppConstants.shared.logger.info("Will install dependencies!")
                     packageBeingInstalled.installationStage = .installingDependencies
 
                     // Increment by 1 for each package that finished installing
                     numberInLineOfPackageCurrentlyBeingInstalled = numberInLineOfPackageCurrentlyBeingInstalled + 1
-                    AppConstants.logger.info("Installing dependency \(self.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
+                    AppConstants.shared.logger.info("Installing dependency \(self.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
 
                     // TODO: Add a math formula for advancing the stepper
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * Double(numberOfPackageDependencies)))
@@ -113,12 +120,12 @@ class InstallationProgressTracker: ObservableObject
 
                 else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
                 {
-                    AppConstants.logger.info("Will fetch dependencies!")
+                    AppConstants.shared.logger.info("Will fetch dependencies!")
                     packageBeingInstalled.installationStage = .fetchingDependencies
 
                     numberInLineOfPackageCurrentlyBeingFetched = numberInLineOfPackageCurrentlyBeingFetched + 1
 
-                    AppConstants.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
+                    AppConstants.shared.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
 
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(numberOfPackageDependencies) * Double(5))))
                 }
@@ -127,17 +134,17 @@ class InstallationProgressTracker: ObservableObject
                 {
                     if hasAlreadyMatchedLineAboutInstallingPackageItself
                     { /// Only the second line about the package being installed is valid
-                        AppConstants.logger.info("Will install the package itself!")
+                        AppConstants.shared.logger.info("Will install the package itself!")
                         packageBeingInstalled.installationStage = .installingPackage
 
                         // TODO: Add a math formula for advancing the stepper
                         packageBeingInstalled.packageInstallationProgress = Double(packageBeingInstalled.packageInstallationProgress) + Double((Double(10) - Double(packageBeingInstalled.packageInstallationProgress)) / Double(2))
 
-                        AppConstants.logger.info("Stepper value: \(Double(Double(10) / (Double(3) * Double(self.numberOfPackageDependencies))))")
+                        AppConstants.shared.logger.info("Stepper value: \(Double(Double(10) / (Double(3) * Double(self.numberOfPackageDependencies))))")
                     }
                     else
                     { /// When it appears for the first time, ignore it
-                        AppConstants.logger.info("Matched the dud line about the package itself being installed!")
+                        AppConstants.shared.logger.info("Matched the dud line about the package itself being installed!")
                         hasAlreadyMatchedLineAboutInstallingPackageItself = true
                         packageBeingInstalled.packageInstallationProgress = Double(packageBeingInstalled.packageInstallationProgress) + Double((Double(10) - Double(packageBeingInstalled.packageInstallationProgress)) / Double(2))
                     }
@@ -145,10 +152,10 @@ class InstallationProgressTracker: ObservableObject
 
                 installOutput.append(outputLine)
 
-                    AppConstants.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
+                    AppConstants.shared.logger.debug("Current installation stage: \(self.packageBeingInstalled.installationStage.description, privacy: .public)")
 
             case .standardError(let errorLine):
-                AppConstants.logger.error("Errored out: \(errorLine, privacy: .public)")
+                AppConstants.shared.logger.error("Errored out: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
@@ -157,7 +164,7 @@ class InstallationProgressTracker: ObservableObject
 
                 if errorLine.contains("a password is required")
                 {
-                    AppConstants.logger.warning("Install requires sudo")
+                    AppConstants.shared.logger.warning("Install requires sudo")
 
                     packageBeingInstalled.installationStage = .requiresSudoPassword
                 }
@@ -176,15 +183,15 @@ class InstallationProgressTracker: ObservableObject
     {
         let package: BrewPackage = packageBeingInstalled.package
 
-        AppConstants.logger.info("Package is Cask")
-        AppConstants.logger.debug("Installing package \(package.name, privacy: .public)")
+        AppConstants.shared.logger.info("Package is Cask")
+        AppConstants.shared.logger.debug("Installing package \(package.name, privacy: .public)")
 
-        for await output in shell(AppConstants.brewExecutablePath, ["install", "--no-quarantine", package.name])
+        for await output in shell(AppConstants.shared.brewExecutablePath, ["install", "--no-quarantine", package.name])
         {
             switch output
             {
             case .standardOutput(let outputLine):
-                AppConstants.logger.info("Output line: \(outputLine, privacy: .public)")
+                AppConstants.shared.logger.info("Output line: \(outputLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
@@ -193,7 +200,7 @@ class InstallationProgressTracker: ObservableObject
 
                 if outputLine.contains("Downloading")
                 {
-                    AppConstants.logger.info("Will download Cask")
+                    AppConstants.shared.logger.info("Will download Cask")
 
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
 
@@ -201,7 +208,7 @@ class InstallationProgressTracker: ObservableObject
                 }
                 else if outputLine.contains("Installing Cask")
                 {
-                    AppConstants.logger.info("Will install Cask")
+                    AppConstants.shared.logger.info("Will install Cask")
 
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
 
@@ -209,7 +216,7 @@ class InstallationProgressTracker: ObservableObject
                 }
                 else if outputLine.contains("Moving App")
                 {
-                    AppConstants.logger.info("Moving App")
+                    AppConstants.shared.logger.info("Moving App")
 
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
 
@@ -217,7 +224,7 @@ class InstallationProgressTracker: ObservableObject
                 }
                 else if outputLine.contains("Linking binary")
                 {
-                    AppConstants.logger.info("Linking Binary")
+                    AppConstants.shared.logger.info("Linking Binary")
 
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + 2
 
@@ -225,7 +232,7 @@ class InstallationProgressTracker: ObservableObject
                 }
                 else if outputLine.contains("Purging files")
                 {
-                    AppConstants.logger.info("Purging old version of cask \(package.name)")
+                    AppConstants.shared.logger.info("Purging old version of cask \(package.name)")
 
                     packageBeingInstalled.installationStage = .installingCask
 
@@ -233,7 +240,7 @@ class InstallationProgressTracker: ObservableObject
                 }
                 else if outputLine.contains("was successfully installed")
                 {
-                    AppConstants.logger.info("Finished installing app")
+                    AppConstants.shared.logger.info("Finished installing app")
 
                     packageBeingInstalled.installationStage = .finished
 
@@ -241,7 +248,7 @@ class InstallationProgressTracker: ObservableObject
                 }
 
             case .standardError(let errorLine):
-                AppConstants.logger.error("Line had error: \(errorLine, privacy: .public)")
+                AppConstants.shared.logger.error("Line had error: \(errorLine, privacy: .public)")
 
                 if showRealTimeTerminalOutputs
                 {
@@ -250,19 +257,19 @@ class InstallationProgressTracker: ObservableObject
 
                 if errorLine.contains("a password is required")
                 {
-                    AppConstants.logger.warning("Install requires sudo")
+                    AppConstants.shared.logger.warning("Install requires sudo")
 
                     packageBeingInstalled.installationStage = .requiresSudoPassword
                 }
                 else if errorLine.contains("there is already an App at")
                 {
-                    AppConstants.logger.warning("The app already exists")
+                    AppConstants.shared.logger.warning("The app already exists")
 
                     packageBeingInstalled.installationStage = .binaryAlreadyExists
                 }
                 else if errorLine.contains(/depends on hardware architecture being.+but you are running/)
                 {
-                    AppConstants.logger.warning("Package is wrong architecture")
+                    AppConstants.shared.logger.warning("Package is wrong architecture")
 
                     packageBeingInstalled.installationStage = .wrongArchitecture
                 }

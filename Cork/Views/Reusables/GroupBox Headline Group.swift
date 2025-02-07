@@ -110,3 +110,25 @@ struct GroupBoxHeadlineGroupWithArbitraryContent<Content: View>: View
         .padding(2)
     }
 }
+
+struct GroupBoxHeadlineGroupWithArbitraryImageAndContent<Content: View>: View
+{
+    var imageName: String?
+    
+    @ViewBuilder var content: Content
+    var body: some View {
+        HStack(alignment: .top, spacing: 15)
+        {
+            if let imageName
+            {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 26, height: 26)
+            }
+
+            content
+        }
+        .padding(2)
+    }
+}

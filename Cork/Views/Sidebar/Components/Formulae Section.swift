@@ -17,34 +17,57 @@ struct FormulaeSection: View
 
     let currentTokens: [PackageSearchToken]
     let searchText: String
+    
+    private var areNoFormulaeInstalled: Bool
+    {
+        if !appState.isLoadingFormulae && brewData.numberOfInstalledFormulae == 0
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 
     var body: some View
     {
-        Section("sidebar.section.installed-formulae")
+        Section(areNoFormulaeInstalled ? "sidebar.status.no-formulae-installed" : "sidebar.section.installed-formulae")
         {
-            if appState.isLoadingFormulae
+            if appState.failedWhileLoadingFormulae
             {
-                ProgressView()
+                HStack
+                {
+                    Image("custom.terminal.badge.xmark")
+                    Text("error.package-loading.could-not-load-formulae.title")
+                }
             }
             else
             {
-                ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
-                    switch sortPackagesBy
-                    {
-                    case .alphabetically:
-                        return firstPackage.name < secondPackage.name
-                    case .byInstallDate:
-                        return firstPackage.installedOn! < secondPackage.installedOn!
-                    case .bySize:
-                        return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                if appState.isLoadingFormulae
+                {
+                    ProgressView()
+                }
+                else
+                {
+                    ForEach(displayedFormulae.sorted(by: { firstPackage, secondPackage in
+                        switch sortPackagesBy
+                        {
+                        case .alphabetically:
+                            return firstPackage.name < secondPackage.name
+                        case .byInstallDate:
+                            return firstPackage.installedOn! < secondPackage.installedOn!
+                        case .bySize:
+                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                        }
+                    }))
+                    { formula in
+                        SidebarPackageRow(package: formula)
                     }
-                }))
-                { formula in
-                    SidebarPackageRow(package: formula)
                 }
             }
         }
-        .collapsible(true)
+        .collapsible(areNoFormulaeInstalled ? false : true)
     }
 
     private var displayedFormulae: Set<BrewPackage>
@@ -74,6 +97,6 @@ struct FormulaeSection: View
             }
         }
 
-        return brewData.installedFormulae.filter(filter)
+        return brewData.successfullyLoadedFormulae.filter(filter)
     }
 }
