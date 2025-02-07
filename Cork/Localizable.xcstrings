@@ -15,6 +15,12 @@
             "value" : ""
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4787,6 +4793,12 @@
             "value" : "Подробности ошибки…"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірити помилку..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5113,6 +5125,12 @@
             "value" : "Переустановить Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевстановити Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5139,6 +5157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Переустановить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевстановити"
           }
         },
         "zh-Hans" : {
@@ -7720,6 +7744,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вывод от Homebrew отсутствует"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew не надав жодного результату"
           }
         },
         "zh-Hans" : {
@@ -11727,6 +11757,12 @@
             "value" : "Не удалось удалить кеш"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити кеш"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12871,6 +12907,12 @@
             "value" : "%@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12897,6 +12939,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось считать данные пакета"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати інформацію про пакет"
           }
         },
         "zh-Hans" : {
@@ -13436,6 +13484,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t uninstall package"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити пакет"
           }
         }
       }
@@ -14332,6 +14386,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew поврежден"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення Homebrew зламалося"
           }
         },
         "zh-Hans" : {
@@ -15415,6 +15475,12 @@
             "value" : "Не удалось считать информацию об источнике"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати інформацію про Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15441,6 +15507,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось получить доступ к папке с данными об источниках"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося отримати доступ до папки, що містить Tapʼи"
           }
         },
         "zh-Hans" : {
@@ -16673,6 +16745,12 @@
             "value" : "Показать инспектор ошибок"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати інспектор помилок"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16699,6 +16777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: UI"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДЛАДКА: Інтерфейс користувача"
           }
         },
         "zh-Hans" : {
@@ -16773,6 +16857,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Инспектор ошибок"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інспектор помилок"
           }
         },
         "zh-Hans" : {
@@ -17069,6 +17159,12 @@
             "value" : "Не удалось считать содержимое папки с кешем загрузок приложений macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати вміст кешованої папки завантажень Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17097,6 +17193,12 @@
             "value" : "Не удалось считать содержимое папки с кешем загрузок"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати вміст кешованої папки завантажень"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17123,6 +17225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось считать содержимое папки с кешем загрузок приложений/библиотек"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати вміст кешованої папки завантажень Formula"
           }
         },
         "zh-Hans" : {
@@ -17519,6 +17627,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось выполнить действия"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося здійснити намір"
           }
         },
         "zh-Hans" : {
@@ -18329,6 +18443,12 @@
             "state" : "translated",
             "value" : "Couldn’t decode installation receipt"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося розшифрувати сертифікат встановлення"
+          }
         }
       }
     },
@@ -18386,6 +18506,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t decode installation receipt"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося розшифрувати сертифікат встановлення"
           }
         }
       }
@@ -18504,6 +18630,12 @@
             "value" : "Не удалось загрузить приложения macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18530,6 +18662,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось загрузить приложения/библиотеки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити Formula"
           }
         },
         "zh-Hans" : {
@@ -18642,6 +18780,12 @@
             "value" : "Не удалось загрузить источники"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18712,6 +18856,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -18931,6 +19081,12 @@
             "value" : "Некоторые пакеты не удалось загрузить из-за внутренней проблемы"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деякі пакети не були завантажені через внутрішню помилку"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19096,6 +19252,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Синхронизация пакетов не удалась"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося синхронізувати пакет"
           }
         },
         "zh-Hans" : {
@@ -32885,6 +33047,12 @@
             "value" : "Пожалуйста, подождите…"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це може зайняти багато часу..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40700,6 +40868,12 @@
             "value" : "Kaydırma eylemlerini etkinleştir"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ввімкнути дії свайпами"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45289,6 +45463,12 @@
             "value" : "Нет установленных приложений macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає встановлених Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45315,6 +45495,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нет установленных приложений/библиотек"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає встановлених Formula"
           }
         },
         "zh-Hans" : {
@@ -47398,6 +47584,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -47487,6 +47703,36 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld приложений/библиотек не удалось загрузить"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
                 }
               }
             }
