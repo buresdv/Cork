@@ -76,8 +76,8 @@ extension DisplayableAlert
             return String(localized: "message.try-again-or-restart")
         case .couldNotDumpBrewfile(let error):
             return String(localized: "message.try-again-or-restart-\(error)")
-        case .couldNotReadBrewfile:
-            return String(localized: "message.try-again-or-restart")
+        case .couldNotReadBrewfile(let error):
+            return error
         case .couldNotGetBrewfileLocation:
             return String(localized: "alert.could-not-get-brewfile-location.message")
         case .couldNotImportBrewfile:

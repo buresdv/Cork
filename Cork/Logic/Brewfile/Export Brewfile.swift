@@ -10,7 +10,7 @@ import CorkShared
 
 enum BrewfileDumpingError: LocalizedError
 {
-    case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile
+    case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile(error: String)
 
     var errorDescription: String?
     {
@@ -20,8 +20,8 @@ enum BrewfileDumpingError: LocalizedError
             return String(localized: "error.brewfile.export.could-not-determine-working-directory")
         case .errorWhileDumpingBrewfile(let error):
             return String(localized: "error.brewfile.export.could-not-dump-with-error.\(error)")
-        case .couldNotReadBrewfile:
-            return String(localized: "error.brewfile.export.could-not-read-temporary-brewfile")
+        case .couldNotReadBrewfile(let error):
+            return error
         }
     }
 }
@@ -79,6 +79,6 @@ func exportBrewfile(appState: AppState) async throws -> String
     catch let brewfileReadingError
     {
         AppConstants.shared.logger.error("Error while reading contents of Brewfile: \(brewfileReadingError, privacy: .public)")
-        throw BrewfileDumpingError.couldNotReadBrewfile
+        throw BrewfileDumpingError.couldNotReadBrewfile(error: brewfileReadingError.localizedDescription)
     }
 }

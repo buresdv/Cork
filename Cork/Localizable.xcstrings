@@ -16888,6 +16888,7 @@
       }
     },
     "error.brewfile.export.could-not-read-temporary-brewfile" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

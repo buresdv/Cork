@@ -556,7 +556,7 @@ struct CorkApp: App
                     appDelegate.appState.showAlert(errorToShow: .couldNotDumpBrewfile(error: error))
 
                 case .couldNotReadBrewfile:
-                    appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile)
+                    appDelegate.appState.showAlert(errorToShow: .couldNotReadBrewfile(error: brewfileExportError.localizedDescription))
                 }
             }
         } label: {

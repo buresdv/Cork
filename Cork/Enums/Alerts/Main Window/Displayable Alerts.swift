@@ -31,6 +31,6 @@ enum DisplayableAlert: LocalizedError
 
     // MARK: - Brewfile exporting/importing
 
-    case couldNotGetWorkingDirectory, couldNotDumpBrewfile(error: String), couldNotReadBrewfile
+    case couldNotGetWorkingDirectory, couldNotDumpBrewfile(error: String), couldNotReadBrewfile(error: String)
     case couldNotGetBrewfileLocation, couldNotImportBrewfile, malformedBrewfile
 }
