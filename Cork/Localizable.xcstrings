@@ -7410,6 +7410,16 @@
         }
       }
     },
+    "add-package.install.calculating-dependencies" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculating Dependencies..."
+          }
+        }
+      }
+    },
     "add-package.install.downloading-cask-%@" : {
       "localizations" : {
         "cs" : {
@@ -8139,6 +8149,7 @@
       }
     },
     "add-package.install.loading-dependencies" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

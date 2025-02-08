@@ -10,7 +10,7 @@ import Foundation
 
 class InstallationProgressTracker: ObservableObject
 {
-    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0), installationStage: .downloadingCask, packageInstallationProgress: 0)
+    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0), installationStage: .ready, packageInstallationProgress: 0)
 
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
@@ -91,6 +91,7 @@ class InstallationProgressTracker: ObservableObject
                     hasAlreadyMatchedPackage: hasAlreadyMatchedPackage
                 )
                 {
+                    packageBeingInstalled.installationStage = stage
                     switch stage
                     {
                     case .calculatingDependencies:
@@ -109,7 +110,6 @@ class InstallationProgressTracker: ObservableObject
 
                     case .fetchingDependencies(let packageDependencies):
                         AppConstants.shared.logger.info("Will fetch dependencies!")
-                        packageBeingInstalled.installationStage = .fetchingDependencies
 
                         numberInLineOfPackageCurrentlyBeingFetched = numberInLineOfPackageCurrentlyBeingFetched + 1
 
@@ -117,17 +117,15 @@ class InstallationProgressTracker: ObservableObject
 
                         packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(numberOfPackageDependencies) * Double(5))))
 
-                    case .installingDependencies(let packageName):
+                    case .installingDependencies:
                         AppConstants.shared.logger.info("Will install dependencies!")
-                        packageBeingInstalled.installationStage = .installingDependencies
                         numberInLineOfPackageCurrentlyBeingInstalled += 1
                         packageBeingInstalled.packageInstallationProgress += Double(10) / (3 * Double(numberOfPackageDependencies))
 
-                    case .installingPackage(let packageName, let isFirstMatch):
+                    case .installingPackage:
                         if hasAlreadyMatchedPackage
                         {
                             AppConstants.shared.logger.info("Will install the package itself!")
-                            packageBeingInstalled.installationStage = .installingPackage
                         }
                         else
                         {
@@ -166,7 +164,7 @@ class InstallationProgressTracker: ObservableObject
                     hasAlreadyMatchedPackage: hasAlreadyMatchedPackage
                 )
                 {
-                    packageBeingInstalled.installationStage = .requiresSudoPassword
+                    packageBeingInstalled.installationStage = stage
                 }
             }
         }
@@ -198,31 +196,27 @@ class InstallationProgressTracker: ObservableObject
 
                 if let stage = BrewInstallationStage.matchingCask(outputLine)
                 {
+                    packageBeingInstalled.installationStage = stage
                     switch stage
                     {
                     case .downloadingCask:
                         AppConstants.shared.logger.info("Will download Cask")
-                        packageBeingInstalled.installationStage = .downloadingCask
                         packageBeingInstalled.packageInstallationProgress += 2
 
                     case .installingCask:
                         AppConstants.shared.logger.info("Will install Cask")
-                        packageBeingInstalled.installationStage = .installingCask
                         packageBeingInstalled.packageInstallationProgress += 2
 
                     case .movingCask:
                         AppConstants.shared.logger.info("Moving App")
-                        packageBeingInstalled.installationStage = .movingCask
                         packageBeingInstalled.packageInstallationProgress += 2
 
                     case .linkingCaskBinary:
                         AppConstants.shared.logger.info("Linking Binary")
-                        packageBeingInstalled.installationStage = .linkingCaskBinary
                         packageBeingInstalled.packageInstallationProgress += 2
 
                     case .finished:
                         AppConstants.shared.logger.info("Finished installing app")
-                        packageBeingInstalled.installationStage = .finished
                         packageBeingInstalled.packageInstallationProgress = 10
 
                     default:
@@ -240,7 +234,7 @@ class InstallationProgressTracker: ObservableObject
 
                 if let stage = BrewInstallationStage.matchingCask(errorLine)
                 {
-                    packageBeingInstalled.installationStage = .terminatedUnexpectedly
+                    packageBeingInstalled.installationStage = stage
                 }
             }
         }
@@ -262,7 +256,7 @@ private protocol InstallationStage
 
 // MARK: - Installation Stage Enum
 
-enum BrewInstallationStage: InstallationStage
+enum BrewInstallationStage: InstallationStage, Equatable
 {
     // Formula-specific stages
     case calculatingDependencies
@@ -277,10 +271,12 @@ enum BrewInstallationStage: InstallationStage
     case linkingCaskBinary
 
     // Common stages
+    case ready
     case requiresSudoPassword
     case finished
     case binaryAlreadyExists
     case wrongArchitecture
+    case terminatedUnexpectedly
 
     fileprivate var matchConditions: [MatchCondition]
     {
@@ -308,7 +304,7 @@ enum BrewInstallationStage: InstallationStage
                 }
             ]
 
-        case .installingPackage(let packageName, let isFirstMatch):
+        case .installingPackage(let packageName, _):
             return [
                 .simple("Fetching \(packageName)"),
                 .simple("Installing \(packageName)")
@@ -334,6 +330,9 @@ enum BrewInstallationStage: InstallationStage
             return [
                 .simple("==> Linking binary")
             ]
+            
+        case .ready:
+            return []
 
         case .requiresSudoPassword:
             return [
@@ -358,6 +357,9 @@ enum BrewInstallationStage: InstallationStage
                         line.contains("but you are running")
                 }
             ]
+            
+        case .terminatedUnexpectedly:
+            return []
         }
     }
 
@@ -381,6 +383,8 @@ enum BrewInstallationStage: InstallationStage
             return "Moving Cask"
         case .linkingCaskBinary:
             return "Linking Binary"
+        case .ready:
+            return "Ready"
         case .requiresSudoPassword:
             return "Requires Sudo Password"
         case .finished:
@@ -389,6 +393,8 @@ enum BrewInstallationStage: InstallationStage
             return "Binary Already Exists"
         case .wrongArchitecture:
             return "Wrong Architecture"
+        case .terminatedUnexpectedly:
+            return "Terminated Unexpectedly"
         }
     }
 
