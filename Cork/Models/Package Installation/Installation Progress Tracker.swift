@@ -423,18 +423,26 @@ enum BrewInstallationStage: InstallationStage
 
     private static func matchStage(_ output: String, from cases: [Self]) -> Self?
     {
-        return cases.first
-        { stage in
-            stage.matchConditions.contains
-            { condition in
+        for stage in cases
+        {
+            for condition in stage.matchConditions
+            {
                 switch condition
                 {
                 case .simple(let pattern):
-                    return output.contains(pattern)
+                    if output.contains(pattern)
+                    {
+                        return stage
+                    }
                 case .complex(let matcher):
-                    return matcher(output)
+                    if matcher(output)
+                    {
+                        return stage
+                    }
                 }
             }
         }
+
+        return nil
     }
 }
