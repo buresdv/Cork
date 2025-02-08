@@ -93,7 +93,7 @@ class InstallationProgressTracker: ObservableObject
                 {
                     switch stage
                     {
-                    case .fetchingDependencies:
+                    case .calculatingDependencies:
                         AppConstants.shared.logger.warning("Output line: \(outputLine)")
 
                         if var matchedDependencies = try? outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
@@ -107,13 +107,23 @@ class InstallationProgressTracker: ObservableObject
                         }
                         packageBeingInstalled.packageInstallationProgress = 1
 
-                    case .installingDependencies:
+                    case .fetchingDependencies(let packageDependencies):
+                        AppConstants.shared.logger.info("Will fetch dependencies!")
+                        packageBeingInstalled.installationStage = .fetchingDependencies
+
+                        numberInLineOfPackageCurrentlyBeingFetched = numberInLineOfPackageCurrentlyBeingFetched + 1
+
+                        AppConstants.shared.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
+
+                        packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(numberOfPackageDependencies) * Double(5))))
+
+                    case .installingDependencies(let packageName):
                         AppConstants.shared.logger.info("Will install dependencies!")
                         packageBeingInstalled.installationStage = .installingDependencies
                         numberInLineOfPackageCurrentlyBeingInstalled += 1
                         packageBeingInstalled.packageInstallationProgress += Double(10) / (3 * Double(numberOfPackageDependencies))
 
-                    case .installingPackage:
+                    case .installingPackage(let packageName, let isFirstMatch):
                         if hasAlreadyMatchedPackage
                         {
                             AppConstants.shared.logger.info("Will install the package itself!")
@@ -255,8 +265,9 @@ private protocol InstallationStage
 enum BrewInstallationStage: InstallationStage
 {
     // Formula-specific stages
+    case calculatingDependencies
     case fetchingDependencies(packageDependencies: [String])
-    case installingDependencies
+    case installingDependencies(packageName: String)
     case installingPackage(packageName: String, isFirstMatch: Bool)
 
     // Cask-specific stages
@@ -275,35 +286,32 @@ enum BrewInstallationStage: InstallationStage
     {
         switch self
         {
+        case .calculatingDependencies:
+            return [
+                .simple("Fetching dependencies")
+            ]
+
         case .fetchingDependencies(let dependencies):
             return [
+                .simple("Already downloaded"),
                 .complex
                 { line in
-                    // Match both the initial dependency announcement and subsequent downloads
-                    line.contains("Installing") && line.contains("dependency:") ||
-                        line.contains("Downloading") && dependencies.contains { line.contains($0) }
+                    line.contains("Fetching") && line.containsElementFromArray(dependencies)
                 }
             ]
 
-        case .installingDependencies:
+        case .installingDependencies(let packageName):
             return [
                 .complex
                 { line in
-                    // Match both the "Pouring" line and when dependencies are being installed
-                    line.contains("==> Pouring") ||
-                        (line.contains("Installing") && line.contains("dependency:"))
+                    line.contains("Installing dependencies") || line.contains("Installing \(packageName) dependency")
                 }
             ]
 
         case .installingPackage(let packageName, let isFirstMatch):
             return [
-                .complex
-                { line in
-                    // Match when we're installing the main package itself
-                    line.contains("==> Pouring") && line.contains(packageName) ||
-                        (line.contains("Installing \(packageName)") && !line.contains("dependency:")) &&
-                        isFirstMatch
-                }
+                .simple("Fetching \(packageName)"),
+                .simple("Installing \(packageName)")
             ]
 
         case .downloadingCask:
@@ -357,6 +365,8 @@ enum BrewInstallationStage: InstallationStage
     {
         switch self
         {
+        case .calculatingDependencies:
+            return "Calculating dependencies"
         case .fetchingDependencies:
             return "Fetching Dependencies"
         case .installingDependencies:
@@ -386,7 +396,7 @@ enum BrewInstallationStage: InstallationStage
     {
         let allCases: [Self] = [
             .fetchingDependencies(packageDependencies: packageDependencies),
-            .installingDependencies,
+            .installingDependencies(packageName: packageName),
             .installingPackage(packageName: packageName, isFirstMatch: !hasAlreadyMatchedPackage),
             .requiresSudoPassword,
             .finished
