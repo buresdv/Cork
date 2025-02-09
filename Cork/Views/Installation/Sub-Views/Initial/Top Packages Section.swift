@@ -42,7 +42,7 @@ struct TopPackagesSection: View
             {
                 ForEach(packages.prefix(15))
                 { topPackage in
-                    SearchResultRow(searchedForPackage: BrewPackage(name: topPackage.packageName, type: trackerType, installedOn: nil, versions: [], sizeInBytes: nil), context: .topPackages, downloadCount: topPackage.packageDownloads)
+                    SearchResultRow(searchedForPackage: BrewPackage(name: topPackage.packageName, type: trackerType, installedOn: nil, versions: [], url: nil), context: .topPackages, downloadCount: topPackage.packageDownloads)
                 }
             }
         } header: {

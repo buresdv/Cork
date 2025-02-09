@@ -64,7 +64,7 @@ extension UUID
                 throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
             }
             
-            return .init(name: foundTopFormula.packageName, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
+            return .init(name: foundTopFormula.packageName, type: .formula, installedOn: nil, versions: [], url: nil)
         }
         else
         {
@@ -74,7 +74,7 @@ extension UUID
                 throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
             }
             
-            return .init(name: foundTopCask.packageName, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil)
+            return .init(name: foundTopCask.packageName, type: .cask, installedOn: nil, versions: [], url: nil)
         }
     }
 }

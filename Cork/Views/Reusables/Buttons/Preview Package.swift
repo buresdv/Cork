@@ -18,7 +18,7 @@ struct PreviewPackageButton: View
     {
         Button
         {
-            let constructedPackage: BrewPackage = .init(name: packageNameToPreview, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
+            let constructedPackage: BrewPackage = .init(name: packageNameToPreview, type: .formula, installedOn: nil, versions: [], url: nil)
             
             openWindow(value: constructedPackage)
         } label: {
