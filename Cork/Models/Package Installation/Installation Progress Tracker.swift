@@ -15,10 +15,26 @@ class InstallationProgressTracker: ObservableObject
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
+    
+    private var installationProcess: Process?
 
     private var showRealTimeTerminalOutputs: Bool
     {
         UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
+    }
+    
+    deinit
+    {
+        cancel()
+    }
+    
+    @discardableResult
+    func cancel() -> Bool
+    {
+        guard let installationProcess else {return false}
+        installationProcess.terminate()
+        self.installationProcess = nil
+        return true
     }
 
     @MainActor
@@ -71,7 +87,9 @@ class InstallationProgressTracker: ObservableObject
 
         AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
 
-        for await output in shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
+        installationProcess = process
+        for await output in stream
         {
             switch output
             {
@@ -186,7 +204,9 @@ class InstallationProgressTracker: ObservableObject
         AppConstants.shared.logger.info("Package is Cask")
         AppConstants.shared.logger.debug("Installing package \(package.name, privacy: .public)")
 
-        for await output in shell(AppConstants.shared.brewExecutablePath, ["install", "--no-quarantine", package.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--no-quarantine", package.name])
+        installationProcess = process
+        for await output in stream
         {
             switch output
             {
