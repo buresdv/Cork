@@ -94,6 +94,11 @@ func shell(
     {
         finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
     }
+    
+    // MARK: - Automatically accept EULA if enabled
+    if UserDefaults.standard.bool(forKey: "automaticallyAcceptEULA") {
+        finalEnvironment["HOMEBREW_ACCEPT_EULA"] = "Y"
+    }
 
     AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
 

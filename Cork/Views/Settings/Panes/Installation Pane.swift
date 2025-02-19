@@ -20,6 +20,8 @@ struct InstallationAndUninstallationPane: View
 
     @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
     @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
+    
+    @AppStorage("automaticallyAcceptEULA") var automaticallyAcceptEULA: Bool = false
 
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
@@ -101,6 +103,11 @@ struct InstallationAndUninstallationPane: View
                             }
                             .disabled(!showRealTimeTerminalOutputOfOperations)
                             .padding(.leading)
+                        }
+                        
+                        Toggle(isOn: $automaticallyAcceptEULA)
+                        {
+                            Text("settings.install-uninstall.installation.automatically-accept-eulas")
                         }
 
                         VStack(alignment: .leading)
