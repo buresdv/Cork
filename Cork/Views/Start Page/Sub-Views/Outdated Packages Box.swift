@@ -10,7 +10,7 @@ import SwiftUI
 struct OutdatedPackagesBox: View
 {
     /// The type of outdated package box that will show up
-    enum OutdatedPackageDisplayStage
+    enum OutdatedPackageDisplayStage: Equatable
     {
         case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
     }
@@ -47,16 +47,20 @@ struct OutdatedPackagesBox: View
 
     var body: some View
     {
-        switch outdatedPackageDisplayStage
+        Group
         {
-        case .checkingForUpdates:
-            OutdatedPackageLoaderBox()
-        case .showingOutdatedPackages:
-            OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
-        case .noUpdatesAvailable:
-            NoUpdatesAvailableBox()
-        case .erroredOut(let reason):
-            LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
+            switch outdatedPackageDisplayStage
+            {
+            case .checkingForUpdates:
+                OutdatedPackageLoaderBox()
+            case .showingOutdatedPackages:
+                OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
+            case .noUpdatesAvailable:
+                NoUpdatesAvailableBox()
+            case .erroredOut(let reason):
+                LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
+            }
         }
+        .animation(.snappy, value: outdatedPackageDisplayStage)
     }
 }

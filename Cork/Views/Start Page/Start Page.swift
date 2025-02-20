@@ -73,7 +73,6 @@ struct StartPage: View
                             isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded,
                             errorOutReason: errorOutReason
                         )
-                        .transition(.move(edge: .top))
                     } header: {
                         HStack(alignment: .center, spacing: 10)
                         {
@@ -227,6 +226,6 @@ struct StartPage: View
             }
         }
         .animation(.easeInOut, value: dragOver)
-        .animation(.snappy, value: startPageStage)
+        .animation(.interpolatingSpring, value: startPageStage)
     }
 }
