@@ -44,12 +44,9 @@ class AppState: ObservableObject
     
     @Published var sheetToShow: DisplayableSheet? = nil
 
-    @Published var isShowingSudoRequiredForUninstallSheet: Bool = false
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
 
     @Published var isShowingRemoveTapFailedAlert: Bool = false
-
-    @Published var isShowingIncrementalUpdateSheet: Bool = false
 
     // MARK: - Loading of packages and taps
     @Published var isLoadingFormulae: Bool = true
@@ -69,6 +66,12 @@ class AppState: ObservableObject
     @Published var taggedPackageNames: Set<String> = .init()
 
     @Published var corruptedPackage: String = ""
+    
+    // MARK: - Other
+    var enableExtraAnimations: Bool
+    {
+        return UserDefaults.standard.bool(forKey: "enableExtraAnimations")
+    }
 
     // MARK: - Showing errors
 

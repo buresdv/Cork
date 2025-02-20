@@ -10,9 +10,14 @@ import SwiftUI
 
 struct StartPage: View
 {
+    enum StartPageStage
+    {
+        case loading, showingBrewOverview
+    }
+
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: TapTracker
-    
+
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @EnvironmentObject var appState: AppState
@@ -25,7 +30,19 @@ struct StartPage: View
     @State private var errorOutReason: String?
 
     @State private var dragOver: Bool = false
-    
+
+    var startPageStage: StartPageStage
+    {
+        if appState.isLoadingFormulae && appState.isLoadingCasks || appState.isLoadingTaps
+        {
+            return .loading
+        }
+        else
+        {
+            return .showingBrewOverview
+        }
+    }
+
     var shouldShowCachedDownloadsGraph: Bool
     {
         if cachedPackagesTracker.cachedDownloadsSize == 0
@@ -42,126 +59,120 @@ struct StartPage: View
     {
         VStack
         {
-            if appState.isLoadingFormulae && appState.isLoadingCasks || appState.isLoadingTaps
+            switch startPageStage
             {
+            case .loading:
                 ProgressView("start-page.loading")
-            }
-            else
-            {
-                VStack
+                    .transition(.push(from: .top))
+            case .showingBrewOverview:
+                FullSizeGroupedForm
                 {
-                    FullSizeGroupedForm
+                    Section
                     {
-                        Section
+                        OutdatedPackagesBox(
+                            isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded,
+                            errorOutReason: errorOutReason
+                        )
+                    } header: {
+                        HStack(alignment: .center, spacing: 10)
                         {
-                            OutdatedPackagesBox(
-                                isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded,
-                                errorOutReason: errorOutReason
-                            )
-                            .transition(.move(edge: .top))
-                            .animation(.easeIn, value: appState.isCheckingForPackageUpdates)
-                        } header: {
-                            HStack(alignment: .center, spacing: 10)
-                            {
-                                Text("start-page.status")
-                                    .font(.title)
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            Text("start-page.status")
+                                .font(.title)
+                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
-                                /*
-                                 Button
-                                 {
-                                     NSWorkspace.shared.open(URL(string: "https://blog.corkmac.app/p/upcoming-changes-to-the-install-process")!)
-                                 } label: {
-                                     Text("start-page.upcoming-changes")
-                                         .padding(.horizontal, 6)
-                                         .padding(.vertical, 1)
-                                         .foregroundColor(.white)
-                                         .background(.blue)
-                                         .clipShape(.capsule)
-                                 }
-                                 .buttonStyle(.plain)
-                                  */
-                            }
-                        }
-                        
-                        if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
-                        {
-                            Section
-                            {
-                                LoadingErrorsBox()
-                            }
-                        }
-
-                        Section
-                        {
-                            PackageAndTapOverviewBox()
-                        }
-
-                        Section
-                        {
-                            AnalyticsStatusBox()
-                        }
-
-                        if shouldShowCachedDownloadsGraph
-                        {
-                            Section
-                            {
-                                CachedDownloadsFolderInfoBox()
-                            }
-                        }
-                    }
-                    .task
-                    {
-                        if outdatedPackageTracker.outdatedPackages.isEmpty
-                        {
-                            appState.isCheckingForPackageUpdates = true
-
-                            defer
-                            {
-                                withAnimation
-                                {
-                                    appState.isCheckingForPackageUpdates = false
-                                }
-                            }
-
-                            do
-                            {
-                                try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-                            }
-                            catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                            {
-                                switch outdatedPackageRetrievalError
-                                {
-                                case .homeNotSet:
-                                    appState.showAlert(errorToShow: .homePathNotSet)
-                                default:
-                                    AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                                    errorOutReason = outdatedPackageRetrievalError.localizedDescription
-                                }
-                            }
-                            catch
-                            {
-                                AppConstants.shared.logger.error("Unspecified error while pulling package updates")
-                            }
+                            /*
+                             Button
+                             {
+                                 NSWorkspace.shared.open(URL(string: "https://blog.corkmac.app/p/upcoming-changes-to-the-install-process")!)
+                             } label: {
+                                 Text("start-page.upcoming-changes")
+                                     .padding(.horizontal, 6)
+                                     .padding(.vertical, 1)
+                                     .foregroundColor(.white)
+                                     .background(.blue)
+                                     .clipShape(.capsule)
+                             }
+                             .buttonStyle(.plain)
+                              */
                         }
                     }
 
-                    ButtonBottomRow
+                    if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
                     {
-                        HStack
+                        Section
                         {
-                            Spacer()
+                            LoadingErrorsBox()
+                        }
+                    }
 
-                            Button
-                            {
-                                AppConstants.shared.logger.info("Would perform maintenance")
-                                appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
-                            } label: {
-                                Text("start-page.open-maintenance")
-                            }
+                    Section
+                    {
+                        PackageAndTapOverviewBox()
+                    }
+
+                    Section
+                    {
+                        AnalyticsStatusBox()
+                    }
+
+                    if shouldShowCachedDownloadsGraph
+                    {
+                        Section
+                        {
+                            CachedDownloadsFolderInfoBox()
                         }
                     }
                 }
+                .task
+                {
+                    if outdatedPackageTracker.outdatedPackages.isEmpty
+                    {
+                        appState.isCheckingForPackageUpdates = true
+
+                        defer
+                        {
+                            withAnimation
+                            {
+                                appState.isCheckingForPackageUpdates = false
+                            }
+                        }
+
+                        do
+                        {
+                            try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                        }
+                        catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                        {
+                            switch outdatedPackageRetrievalError
+                            {
+                            case .homeNotSet:
+                                appState.showAlert(errorToShow: .homePathNotSet)
+                            default:
+                                AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                            }
+                        }
+                        catch
+                        {
+                            AppConstants.shared.logger.error("Unspecified error while pulling package updates")
+                        }
+                    }
+                }
+                .transition(.push(from: .top))
+
+                ButtonBottomRow
+                {
+                    Spacer()
+
+                    Button
+                    {
+                        AppConstants.shared.logger.info("Would perform maintenance")
+                        appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
+                    } label: {
+                        Text("start-page.open-maintenance")
+                    }
+                }
+                .transition(.push(from: .top))
             }
         }
         .onAppear
@@ -215,5 +226,6 @@ struct StartPage: View
             }
         }
         .animation(.easeInOut, value: dragOver)
+        .animation(appState.enableExtraAnimations ? .interpolatingSpring : .none, value: startPageStage)
     }
 }

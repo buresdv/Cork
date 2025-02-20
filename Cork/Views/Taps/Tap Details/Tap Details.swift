@@ -66,19 +66,16 @@ struct TapDetailView: View, Sendable
                             
                             ButtonBottomRow
                             {
-                                HStack
+                                Spacer()
+                                
+                                AsyncButton
                                 {
-                                    Spacer()
-                                    
-                                    AsyncButton
-                                    {
-                                        try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
-                                    } label: {
-                                        Text("tap-details.remove-\(tap.name)")
-                                    }
-                                    .asyncButtonStyle(.trailing)
-                                    .disabledWhenLoading()
+                                    try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                } label: {
+                                    Text("tap-details.remove-\(tap.name)")
                                 }
+                                .asyncButtonStyle(.trailing)
+                                .disabledWhenLoading()
                             }
                         }
                     }

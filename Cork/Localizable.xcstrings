@@ -39347,6 +39347,22 @@
         }
       }
     },
+    "settings.geeral.package-details.enable-extra-animations.toggle" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povolit dodatečné animace"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable extra animations"
+          }
+        }
+      }
+    },
     "settings.general" : {
       "comment" : "MARK: - Settings",
       "localizations" : {
@@ -41871,6 +41887,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安裝："
+          }
+        }
+      }
+    },
+    "settings.install-uninstall.installation.automatically-accept-eulas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automaticky přijímat licenční podmínky"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatically accept package EULAs"
           }
         }
       }
@@ -47647,7 +47680,7 @@
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
+                  "state" : "translated",
                   "value" : "Jeden vzorec se nepodařilo načíst"
                 }
               },

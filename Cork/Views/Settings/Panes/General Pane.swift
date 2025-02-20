@@ -23,6 +23,7 @@ struct GeneralPane: View
 
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
     @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
+    @AppStorage("enableExtraAnimations") var enableExtraAnimations: Bool = true
 
     @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
 
@@ -154,6 +155,11 @@ struct GeneralPane: View
                         Toggle(isOn: $enableSwipeActions)
                         {
                             Text("settings.general.package-details.enable-swipe-actions.toggle")
+                        }
+                        
+                        Toggle(isOn: $enableExtraAnimations)
+                        {
+                            Text("settings.geeral.package-details.enable-extra-animations.toggle")
                         }
                     }
                 } label: {

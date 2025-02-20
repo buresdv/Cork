@@ -147,6 +147,7 @@ struct AddFormulaView: View
                             AsyncButton
                             {
                                 dismiss()
+                                installationProgressTracker.cancel()
                                 
                                 do
                                 {
