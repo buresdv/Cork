@@ -15,6 +15,12 @@
             "value" : ""
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1661,12 +1667,6 @@
             "state" : "translated",
             "value" : "Mike Simons"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mike Simons"
-          }
         }
       }
     },
@@ -1706,12 +1706,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Створено конфігурацію Tuist для компіляції саморозміщуваних версій"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已创建用于编译自托管版本的 Tuist 配置"
           }
         }
       }
@@ -4799,6 +4793,12 @@
             "value" : "Подробности ошибки…"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірити помилку..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5125,6 +5125,12 @@
             "value" : "Переустановить Homebrew"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевстановити Homebrew"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5151,6 +5157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Переустановить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевстановити"
           }
         },
         "zh-Hans" : {
@@ -7734,6 +7746,12 @@
             "value" : "Вывод от Homebrew отсутствует"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew не надав жодного результату"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9407,7 +9425,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Шукати пакет..."
+            "value" : "Шукати пакети…"
           }
         },
         "zh-Hans" : {
@@ -11739,6 +11757,12 @@
             "value" : "Не удалось удалить кеш"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити кеш"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12883,6 +12907,12 @@
             "value" : "%@"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12909,6 +12939,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось считать данные пакета"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати інформацію про пакет"
           }
         },
         "zh-Hans" : {
@@ -13449,6 +13485,12 @@
             "state" : "translated",
             "value" : "Couldn’t uninstall package"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося видалити пакет"
+          }
         }
       }
     },
@@ -13850,7 +13892,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Неможливо створити безпечне зʼєднання із сервером авторизації"
+            "value" : "Неможливо створити безпечне зʼєднання з сервером авторизації"
           }
         },
         "zh-Hans" : {
@@ -14162,8 +14204,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Homebrew 没有返回有效数据"
+            "state" : "needs_review",
+            "value" : "无法解析 Homebrew 的响应"
           }
         },
         "zh-Hant" : {
@@ -14344,6 +14386,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew поврежден"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлення Homebrew зламалося"
           }
         },
         "zh-Hans" : {
@@ -15179,8 +15227,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Homebrew 没有返回有效数据"
+            "state" : "needs_review",
+            "value" : "无法解析热门软件包"
           }
         },
         "zh-Hant" : {
@@ -15427,6 +15475,12 @@
             "value" : "Не удалось считать информацию об источнике"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати інформацію про Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15453,6 +15507,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось получить доступ к папке с данными об источниках"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося отримати доступ до папки, що містить Tapʼи"
           }
         },
         "zh-Hans" : {
@@ -15777,7 +15837,7 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Неможливо видалити %@"
           }
         },
@@ -16685,6 +16745,12 @@
             "value" : "Показать инспектор ошибок"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати інспектор помилок"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16711,6 +16777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: UI"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДЛАДКА: Інтерфейс користувача"
           }
         },
         "zh-Hans" : {
@@ -16785,6 +16857,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Инспектор ошибок"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інспектор помилок"
           }
         },
         "zh-Hans" : {
@@ -17081,6 +17159,12 @@
             "value" : "Не удалось считать содержимое папки с кешем загрузок приложений macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати вміст кешованої папки завантажень Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17109,6 +17193,12 @@
             "value" : "Не удалось считать содержимое папки с кешем загрузок"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати вміст кешованої папки завантажень"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17135,6 +17225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось считать содержимое папки с кешем загрузок приложений/библиотек"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прочитати вміст кешованої папки завантажень Formula"
           }
         },
         "zh-Hans" : {
@@ -17533,6 +17629,12 @@
             "value" : "Не удалось выполнить действия"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося здійснити намір"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17578,12 +17680,6 @@
             "state" : "translated",
             "value" : "Не вдалося перетворити наданий String у Data з помилкою: %@"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法将提供的字符串转换为数据，错误: %@"
-          }
         }
       }
     },
@@ -17623,12 +17719,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося декодувати надані дані за допомогою вбудованого декодера JSON: %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法使用内置的 JSON 解码器解码所提供的数据，错误: %@"
           }
         }
       }
@@ -17670,12 +17760,6 @@
             "state" : "translated",
             "value" : "Не вдалося зашифрувати авторизаційний комплекс для отримання ліцензії"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "授权许可检索的复杂信息无法编码"
-          }
         }
       }
     },
@@ -17715,12 +17799,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося підключитися до Інтернету. Перевірку ліцензії завершити не вдасться "
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法连接互联网。Cork 将无法完成许可证检查。"
           }
         }
       }
@@ -17762,12 +17840,6 @@
             "state" : "translated",
             "value" : "Під час отримання статусу ліцензії виникла нереалізована помилка: %@"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "获取许可证状态时发生无法识别的错误: %@"
-          }
         }
       }
     },
@@ -17807,12 +17879,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перевірка статусу ліцензії, термін дії якої закінчився"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "检查许可证状态超时"
           }
         }
       }
@@ -17854,12 +17920,6 @@
             "state" : "translated",
             "value" : "Не вдалося очистити кеш"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法清除缓存"
-          }
         }
       }
     },
@@ -17900,12 +17960,6 @@
             "state" : "translated",
             "value" : "Стандартна помилка не порожня"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "标准错误不为空"
-          }
         }
       }
     },
@@ -17945,12 +17999,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося отримати інформацію про кількість зайвих пакетів, які було деінстальовано в результаті цієї операції"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法获取此操作卸载的孤立软件包数量"
           }
         }
       }
@@ -18021,12 +18069,6 @@
             "state" : "translated",
             "value" : "Не вдалося видалити зайві пакети: %@"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法卸载以下孤立包: %@"
-          }
         }
       }
     },
@@ -18066,12 +18108,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неочікуваний вивід терміналу функції деінсталяції зайвих пакетів"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "孤立包卸载功能出现意外的终端输出"
           }
         }
       }
@@ -18202,8 +18238,8 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Неімплементована помилка отримання застарілих пакунків: %@"
+            "state" : "translated",
+            "value" : "Не реалізована помилка отримання застарілих пакунків: %@"
           }
         },
         "zh-Hans" : {
@@ -18407,6 +18443,12 @@
             "state" : "translated",
             "value" : "Couldn’t decode installation receipt"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося розшифрувати сертифікат встановлення"
+          }
         }
       }
     },
@@ -18464,6 +18506,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t decode installation receipt"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося розшифрувати сертифікат встановлення"
           }
         }
       }
@@ -18556,7 +18604,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         }
@@ -18580,6 +18628,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось загрузить приложения macOS"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити Cask"
           }
         },
         "zh-Hans" : {
@@ -18608,6 +18662,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не удалось загрузить приложения/библиотеки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити Formula"
           }
         },
         "zh-Hans" : {
@@ -18720,6 +18780,12 @@
             "value" : "Не удалось загрузить источники"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити Tap"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18790,6 +18856,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -19009,6 +19081,12 @@
             "value" : "Некоторые пакеты не удалось загрузить из-за внутренней проблемы"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деякі пакети не були завантажені через внутрішню помилку"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19174,6 +19252,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Синхронизация пакетов не удалась"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося синхронізувати пакет"
           }
         },
         "zh-Hans" : {
@@ -25628,7 +25712,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Додати Tap"
+            "value" : "Додати новий Tap"
           }
         },
         "zh-Hans" : {
@@ -30603,7 +30687,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Привітайтеся зі світом додатків"
+            "value" : "Привітайтеся зі світовими додатками"
           }
         },
         "zh-Hans" : {
@@ -32658,7 +32742,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Відколи Cork не має доступу до папки Програми, він не може отримати фактичний розмір Cask, тільки метадані повʼязані з ним."
+            "value" : "Оскільки Cork не має доступу до папки Програми, він не може отримати фактичний розмір Cask, тільки метадані повʼязані з ним."
           }
         },
         "zh-Hans" : {
@@ -32940,12 +33024,6 @@
             "state" : "translated",
             "value" : "Переглянути"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "预览"
-          }
         }
       }
     },
@@ -32967,6 +33045,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пожалуйста, подождите…"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це може зайняти багато часу..."
           }
         },
         "zh-Hans" : {
@@ -40757,7 +40841,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Пакетна інформація:"
+            "value" : "інформація про пакет:"
           }
         },
         "zh-Hans" : {
@@ -40798,6 +40882,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaydırma eylemlerini etkinleştir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ввімкнути дії свайпами"
           }
         },
         "zh-Hans" : {
@@ -41953,7 +42043,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Вимкнути автоматичне прибирання"
+            "value" : "Вимкнути автоматичне очищення"
           }
         },
         "zh-Hans" : {
@@ -45406,6 +45496,12 @@
             "value" : "Нет установленных приложений macOS"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає встановлених Cask"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45432,6 +45528,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нет установленных приложений/библиотек"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає встановлених Formula"
           }
         },
         "zh-Hans" : {
@@ -46278,7 +46380,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ці файли є залишками від завершених інсталяцій пакетів. Їх безпечно видаляти."
+            "value" : "Ці файли є залишками від завершених інсталяцій пакетів. Їх можна безпечно видалити."
           }
         },
         "zh-Hans" : {
@@ -47280,12 +47382,6 @@
             "state" : "translated",
             "value" : "Не вдалося перевірити застарілі пакети"
           }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法检查有更新可用的软件包"
-          }
         }
       }
     },
@@ -47521,6 +47617,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити Cask %lld "
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -47615,6 +47741,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Не вдалося завантажити %lld Formula"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -47689,7 +47845,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Прочитати про важливі зміни Cork"
+            "value" : "Прочитати про важливі зміни в Cork"
           }
         },
         "zh-Hans" : {
@@ -50971,7 +51127,7 @@
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Я навіть не знаю що Ви зробили, щоб це зʼявилось"
+            "value" : "Я навіть не знаю, що Ви зробили, щоб це зʼявилось"
           }
         },
         "zh-Hans" : {
