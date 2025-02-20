@@ -77,7 +77,7 @@ extension BrewDataStorage
             AppConstants.shared.logger.error("Could not uninstall this package because sudo is required")
 
             appState.packageTryingToBeUninstalledWithSudo = package
-            appState.isShowingSudoRequiredForUninstallSheet = true
+            appState.showSheet(ofType: .sudoRequiredForPackageRemoval)
             
         }
         else
