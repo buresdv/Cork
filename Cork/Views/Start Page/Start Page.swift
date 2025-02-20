@@ -226,6 +226,6 @@ struct StartPage: View
             }
         }
         .animation(.easeInOut, value: dragOver)
-        .animation(.interpolatingSpring, value: startPageStage)
+        .animation(appState.enableExtraAnimations ? .interpolatingSpring : .none, value: startPageStage)
     }
 }

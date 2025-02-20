@@ -66,6 +66,12 @@ class AppState: ObservableObject
     @Published var taggedPackageNames: Set<String> = .init()
 
     @Published var corruptedPackage: String = ""
+    
+    // MARK: - Other
+    var enableExtraAnimations: Bool
+    {
+        return UserDefaults.standard.bool(forKey: "enableExtraAnimations")
+    }
 
     // MARK: - Showing errors
 
