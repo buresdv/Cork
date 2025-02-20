@@ -54,7 +54,7 @@ struct OutdatedPackageListBox: View
                                 {
                                     Button
                                     {
-                                        appState.isShowingIncrementalUpdateSheet = true
+                                        appState.showSheet(ofType: .partialUpdate)
                                     } label: {
                                         Text("start-page.update-incremental.package-count-\(packagesMarkedForUpdating.count)")
                                     }
