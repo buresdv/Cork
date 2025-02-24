@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
+import CorkShared
 
 struct PackageDetailHeaderComplex: View
 {
+    enum PackageDependantsDisplayStage: Equatable
+    {
+        case loadingDependants, showingDependants(dependantsToShow: [String]), noDependantsToShow
+    }
+    
+    @EnvironmentObject var appState: AppState
+    
     let package: BrewPackage
     
     var isInPreviewWindow: Bool
@@ -16,6 +24,47 @@ struct PackageDetailHeaderComplex: View
     @ObservedObject var packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
+    
+    @Namespace var packageDependantsAnimationNamespace
+    
+    /// Controls whether the pill for showing dependants is shown
+    var packageDependantsDisplayStage: PackageDependantsDisplayStage
+    {
+        if packageDetails.installedAsDependency
+        {
+            if let dependants = packageDetails.dependents
+            {
+                if dependants.isEmpty // This happens when the package was originally installed as a dependency, but the parent is no longer installed
+                {
+                    return .noDependantsToShow
+                }
+                else
+                {
+                    return .showingDependants(dependantsToShow: dependants)
+                }
+            }
+            else
+            {
+                return .loadingDependants
+            }
+        }
+        else
+        {
+            return .noDependantsToShow
+        }
+    }
+    
+    var packageDependantsPillColor: Color
+    {
+        switch self.packageDependantsDisplayStage {
+        case .loadingDependants:
+            return .init(nsColor: NSColor.tertiaryLabelColor)
+        case .showingDependants:
+            return .secondary
+        case .noDependantsToShow:
+            return .clear
+        }
+    }
 
     var body: some View
     {
@@ -46,36 +95,15 @@ struct PackageDetailHeaderComplex: View
                 {
                     if !isInPreviewWindow
                     {
-                        if packageDetails.installedAsDependency
-                        {
-                            if let packageDependents = packageDetails.dependents
-                            {
-                                if !packageDependents.isEmpty // This happens when the package was originally installed as a dependency, but the parent is no longer installed
-                                {
-                                    OutlinedPillText(text: "package-details.dependants.dependency-of-\(packageDependents.formatted(.list(type: .and)))", color: .secondary)
-                                }
-                            }
-                            else
-                            {
-                                OutlinedPill(content: {
-                                    HStack(alignment: .center, spacing: 5)
-                                    {
-                                        ProgressView()
-                                            .controlSize(.mini)
-                                        
-                                        Text("package-details.dependants.loading")
-                                    }
-                                }, color: Color(nsColor: NSColor.tertiaryLabelColor))
-                            }
-                        }
-                        if packageDetails.outdated
-                        {
-                            OutlinedPillText(text: "package-details.outdated", color: .orange)
-                        }
+                        
+                        dependantsPill
+                        
+                        packageDetailsPill
                     }
 
                     PackageCaveatMinifiedDisplayView(caveats: packageDetails.caveats)
                 }
+                .animation(appState.enableExtraAnimations ? .interpolatingSpring : .none, value: packageDependantsDisplayStage)
 
                 if !isLoadingDetails
                 {
@@ -90,6 +118,43 @@ struct PackageDetailHeaderComplex: View
                     }
                 }
             }
+        }
+    }
+    
+    @ViewBuilder
+    var dependantsPill: some View
+    {
+        if packageDetails.installedAsDependency
+        {
+            
+            OutlinedPill(content: {
+                switch packageDependantsDisplayStage
+                {
+                case .loadingDependants:
+                    HStack(alignment: .center, spacing: 5)
+                    {
+                        ProgressView()
+                            .controlSize(.mini)
+                        
+                        Text("package-details.dependants.loading")
+                            .matchedGeometryEffect(id: "dependantsPillContents", in: packageDependantsAnimationNamespace)
+                    }
+                case .showingDependants(let dependantsToShow):
+                    Text("package-details.dependants.dependency-of-\(dependantsToShow.formatted(.list(type: .and)))")
+                        .matchedGeometryEffect(id: "dependantsPillContents", in: packageDependantsAnimationNamespace)
+                case .noDependantsToShow:
+                    EmptyView()
+                }
+            }, color: packageDependantsPillColor)
+        }
+    }
+    
+    @ViewBuilder
+    var packageDetailsPill: some View
+    {
+        if packageDetails.outdated
+        {
+            OutlinedPillText(text: "package-details.outdated", color: .orange)
         }
     }
 }

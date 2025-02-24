@@ -42,14 +42,14 @@ struct OutlinedPillText: View
 struct OutlinedPill<Content: View>: View
 {
     @ViewBuilder var content: Content
-    @State var color: Color
+    let color: Color
 
     var body: some View
     {
         content
             .font(.caption2)
             .padding(.horizontal, 4)
-            .foregroundColor(color)
+            .foregroundStyle(color)
             .overlay(RoundedRectangle(cornerRadius: 7).stroke(color, lineWidth: 1))
     }
 }
