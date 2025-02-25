@@ -39360,6 +39360,12 @@
             "state" : "translated",
             "value" : "Enable extra animations"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути додаткові анімації"
+          }
         }
       }
     },
@@ -41904,6 +41910,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automatically accept package EULAs"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автоматично приймати ліцензійні угоди пакету"
           }
         }
       }
