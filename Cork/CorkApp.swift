@@ -13,6 +13,7 @@ import DavidFoundation
 import SwiftUI
 import UserNotifications
 import ButtonKit
+import Defaults
 
 @main
 struct CorkApp: App
@@ -38,10 +39,10 @@ struct CorkApp: App
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
     
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
+    @Default(.showInMenuBar) var showInMenuBar
 
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
     
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 

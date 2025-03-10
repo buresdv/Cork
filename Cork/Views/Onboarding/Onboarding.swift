@@ -8,32 +8,33 @@
 import SwiftUI
 import CorkShared
 import CorkNotifications
+import Defaults
 
 struct OnboardingView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
 
-    @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
 
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
 
-    @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
+    
+    @Default(.showInMenuBar) var showInMenuBar
 
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
 
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
+    
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning
 
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
-
-    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
-
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @Default(.enableDiscoverability) var enableDiscoverability
 
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
 
