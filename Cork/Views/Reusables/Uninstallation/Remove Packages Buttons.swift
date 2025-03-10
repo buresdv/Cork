@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import Defaults
 
 /// Button for uninstalling packages
 struct UninstallPackageButton: View
@@ -26,7 +27,7 @@ struct UninstallPackageButton: View
 /// Will not display when purging is disabled
 struct PurgePackageButton: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
     
     let package: BrewPackage
 

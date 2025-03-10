@@ -5,11 +5,13 @@
 //  Created by David Bureš on 05.04.2023.
 //
 
+import CorkShared
+import Defaults
 import SwiftUI
 
 struct AnalyticsStatusBox: View
 {
-    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics
 
     var body: some View
     {
