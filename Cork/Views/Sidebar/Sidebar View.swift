@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct SidebarView: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
 
     @Environment(AppState.self) var appState: AppState
 

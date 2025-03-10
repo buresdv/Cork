@@ -14,8 +14,10 @@ import CorkShared
 @Observable
 class AppDelegate: NSObject, NSApplicationDelegate
 {
-    @ObservationIgnored @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
-    @ObservationIgnored @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
+    @ObservableDefault(.showInMenuBar) 
+    @ObservationIgnored
+    var showInMenuBar
+    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     @MainActor let appState: AppState = .init()
 
