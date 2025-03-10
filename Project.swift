@@ -33,6 +33,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "DavidFoundation"),
             .external(name: "ButtonKit"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
+            .external(name: "Defaults")
         ], settings: .settings(configurations: [
             .debug(
                 name: "Debug",
@@ -84,6 +85,9 @@ let project = Project(
             bundleId: "com.davidbures.cork-shared",
             sources: [
                 "Modules/Shared/**/*.swift"
+            ],
+            dependencies: [
+                .external(name: "Defaults")
             ],
             settings: .settings(configurations: [
                 .debug(

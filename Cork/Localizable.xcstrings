@@ -45410,6 +45410,7 @@
       }
     },
     "settings.discoverability.sorting.by-fewest-downloads" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45498,6 +45499,7 @@
       }
     },
     "settings.discoverability.sorting.by-most-downloads" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45586,6 +45588,7 @@
       }
     },
     "settings.discoverability.sorting.random" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

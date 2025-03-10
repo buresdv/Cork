@@ -11,7 +11,7 @@ import CorkNotifications
 
 struct NoUpdatesAvailableStageView: View
 {
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
 
     var body: some View
     {

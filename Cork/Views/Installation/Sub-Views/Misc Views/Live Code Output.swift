@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct LiveTerminalOutputView: View
 {
-    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations
     @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
 
     @Binding var lineArray: [RealTimeTerminalLine]

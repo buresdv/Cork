@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 class SettingsState: ObservableObject
 {
@@ -20,7 +22,7 @@ class SettingsState: ObservableObject
 
 struct SettingsView: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
     @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
 
     @StateObject var settingsState: SettingsState = .init()

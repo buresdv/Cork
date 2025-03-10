@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct CasksSection: View
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
+    @Default(.sortPackagesBy) var sortPackagesBy
 
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker

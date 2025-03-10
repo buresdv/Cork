@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct BrewPane: View
 {
     @AppStorage("strictlyCheckForHomebrewErrors") var strictlyCheckForHomebrewErrors: Bool = false
 
-    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics
     @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
 
     @EnvironmentObject var settingsState: SettingsState

@@ -7,11 +7,12 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct SearchResultRow: View, Sendable
 {
-    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
-    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 

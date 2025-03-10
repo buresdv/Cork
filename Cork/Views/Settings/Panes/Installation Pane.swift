@@ -6,26 +6,27 @@
 //
 
 import SwiftUI
+import Defaults
+import CorkShared
 
 struct InstallationAndUninstallationPane: View
 {
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning
     @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
-
-    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
 
     @AppStorage("purgeCacheAfterEveryUninstallation") var purgeCacheAfterEveryUninstallation: Bool = false
     @AppStorage("removeOrphansAfterEveryUninstallation") var removeOrphansAfterEveryUninstallation: Bool = false
 
-    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations
     @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
 
     @AppStorage("automaticallyAcceptEULA") var automaticallyAcceptEULA: Bool = false
 
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
 
     @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
 

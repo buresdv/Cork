@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import Defaults
 
 struct DependencyList: View
 {
-    @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
-    @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
-
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
     @State private var dependencySearchText: String = ""
 
     @State var dependencies: [BrewPackageDependency]

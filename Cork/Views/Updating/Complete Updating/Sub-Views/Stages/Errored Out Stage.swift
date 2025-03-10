@@ -11,7 +11,7 @@ import CorkNotifications
 
 struct ErroredOutStageView: View
 {
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
 
     @Environment(\.dismiss) var dismiss: DismissAction
 

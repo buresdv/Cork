@@ -7,16 +7,18 @@
 
 import LaunchAtLogin
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct GeneralPane: View
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
-    @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
+    @Default(.sortPackagesBy) var sortPackagesBy
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
 
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
 
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
     @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
@@ -25,9 +27,8 @@ struct GeneralPane: View
     @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
     @AppStorage("enableExtraAnimations") var enableExtraAnimations: Bool = true
 
-    @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
-
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
+    @Default(.showInMenuBar) var showInMenuBar
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric

@@ -7,12 +7,14 @@
 
 import Foundation
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct DiscoverabilityPane: View
 {
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @Default(.enableDiscoverability) var enableDiscoverability
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
-    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+    @Default(.sortTopPackagesBy) var sortTopPackagesBy
 
     @Environment(AppState.self) var appState: AppState
 

@@ -8,14 +8,15 @@
 import SwiftUI
 import UserNotifications
 import CorkShared
+import Defaults
 
 struct NotificationsPane: View
 {
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
 
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
 
     @Environment(AppState.self) var appState: AppState
 
