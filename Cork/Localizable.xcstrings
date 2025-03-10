@@ -41819,6 +41819,16 @@
         }
       }
     },
+    "settings.install-uninstall.include-greedy-packages.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show packages not managed by Homebrew"
+          }
+        }
+      }
+    },
     "settings.install-uninstall.installation" : {
       "comment" : "MARK: - Settings: Install/Uninstall",
       "extractionState" : "manual",

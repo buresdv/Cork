@@ -11,6 +11,8 @@ struct InstallationAndUninstallationPane: View
 {
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
+    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    
     @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
@@ -74,6 +76,14 @@ struct InstallationAndUninstallationPane: View
                     }
                 } label: {
                     Text("settings.install-uninstall.package-removal.label")
+                }
+
+                LabeledContent {
+                    Toggle(isOn: $includeGreedyOutdatedPackages) {
+                        Text("settings.install-uninstall.include-greedy-packages.toggle")
+                    }
+                } label: {
+                    Text("settings.general.outdated-packages.info-amount")
                 }
 
                 LabeledContent
