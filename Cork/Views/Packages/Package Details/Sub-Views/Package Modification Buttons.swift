@@ -8,10 +8,11 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import Defaults
 
 struct PackageModificationButtons: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker

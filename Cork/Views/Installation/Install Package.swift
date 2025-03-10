@@ -33,7 +33,7 @@ struct AddFormulaView: View
     @FocusState var isSearchFieldFocused: Bool
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
 
     var shouldShowSheetTitle: Bool
     {

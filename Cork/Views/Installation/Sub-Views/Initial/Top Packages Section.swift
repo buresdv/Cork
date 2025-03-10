@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct TopPackagesSection: View
 {
