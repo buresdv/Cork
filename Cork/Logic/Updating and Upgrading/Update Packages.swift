@@ -13,8 +13,9 @@ import CorkShared
 func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: UpdatingProcessDetails) async
 {
     let showRealTimeTerminalOutputs: Bool = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
+    let includeGreedyPackages: Bool = UserDefaults.standard.bool(forKey: "includeGreedyOutdatedPackages")
 
-    for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade"])
+    for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
     {
         switch output
         {
