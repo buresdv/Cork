@@ -13,7 +13,7 @@ import CorkShared
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
+    @Default(.showInMenuBar) var showInMenuBar
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     @MainActor let appState: AppState = .init()

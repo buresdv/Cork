@@ -7,21 +7,22 @@
 
 // swiftlint:disable file_length
 
-import CorkShared
-import SwiftUI
 import ButtonKit
+import CorkShared
+import Defaults
+import SwiftUI
 
 struct ContentView: View, Sendable
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
-    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    @Default(.sortPackagesBy) var sortPackagesBy
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics
 
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
 
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @Default(.enableDiscoverability) var enableDiscoverability
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
-    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+    @Default(.sortTopPackagesBy) var sortTopPackagesBy
 
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
 
@@ -31,7 +32,7 @@ struct ContentView: View, Sendable
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var tapData: TapTracker
-    
+
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
@@ -305,7 +306,7 @@ private extension View
                     view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
                     AppConstants.shared.logger.info("Tagged packages in appState: \(view.appState.taggedPackageNames)")
-                    
+
                     do
                     {
                         try await view.brewData.applyTags(appState: view.appState)
@@ -466,7 +467,8 @@ private extension View
             .onChange(of: view.customHomebrewPath, perform: { _ in
                 restartApp()
             })
-            .onChange(of: view.appState.taggedPackageNames) { _ in
+            .onChange(of: view.appState.taggedPackageNames)
+            { _ in
                 AppConstants.shared.logger.info("Will try to save tagged IDs to disk")
                 do
                 {
@@ -512,7 +514,7 @@ private extension View
 
                 case .brewfileImport:
                     BrewfileImportProgressView()
-                    
+
                 case .maintenance(let fastCacheDeletion):
                     switch fastCacheDeletion
                     {

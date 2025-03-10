@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct FormulaeSection: View
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
+    @Default(.sortPackagesBy) var sortPackagesBy
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage

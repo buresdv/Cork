@@ -13,7 +13,7 @@ struct InstallationFinishedSuccessfullyView: View
 {
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
 
     var body: some View
     {

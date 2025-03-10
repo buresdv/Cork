@@ -7,11 +7,13 @@
 
 import Foundation
 import SwiftUI
+import CorkShared
+import Defaults
 
 @MainActor
 class TopPackagesTracker: ObservableObject, Sendable
 {
-    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+    @Default(.sortTopPackagesBy) var sortTopPackagesBy
 
     @Published var topFormulae: [TopPackage] = .init()
     @Published var topCasks: [TopPackage] = .init()
