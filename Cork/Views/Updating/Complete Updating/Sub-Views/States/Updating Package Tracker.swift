@@ -26,7 +26,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    async let outdatedPackages: Set<OutdatedPackage> = try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
                     
                     updateProgressTracker.updateProgress = 10
 

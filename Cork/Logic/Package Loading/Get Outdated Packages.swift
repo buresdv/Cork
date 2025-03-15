@@ -57,8 +57,8 @@ extension OutdatedPackageTracker
         let formulae: [Formulae]
         let casks: [Casks]
     }
-
-    func getOutdatedPackages(brewData: BrewDataStorage) async throws -> Set<OutdatedPackage>
+    
+    func getOutdatedPackages(brewData: BrewDataStorage) async throws
     {
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew
         async let outdatedPackagesNonGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewData: brewData, forUpdatingType: .homebrew)
@@ -66,9 +66,13 @@ extension OutdatedPackageTracker
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew, plus those that are not
         async let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewData: brewData, forUpdatingType: .selfUpdating)
         
+        print("Contents of non-greedy update checker: \(try await outdatedPackagesNonGreedy.map(\.package.name)), \(try await outdatedPackagesNonGreedy.count)")
+        print("Contents of greedy update checker: \(try await outdatedPackagesGreedy.map(\.package.name)), \(try await outdatedPackagesGreedy.count)")
+        
+        /// This includes only those packages that are greedy
         let difference: Set<OutdatedPackage> = try await outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
         
-        return difference
+        self.outdatedPackages = try await outdatedPackagesNonGreedy.union(difference)
     }
 
     /// Load outdated packages into the outdated package tracker
@@ -76,11 +80,10 @@ extension OutdatedPackageTracker
     {
         // First, we have to pull the newest updates
         await shell(AppConstants.shared.brewExecutablePath, ["update"])
-
+        
         // Then we can get the updating under way
-        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", "--json=v2"])
-
-        print("Outdated package function oputput: \(rawOutput)")
+        /// Introduces an empty argument in case the updating is non-greedy
+        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
         // MARK: - Error checking
 
