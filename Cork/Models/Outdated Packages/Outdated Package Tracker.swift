@@ -12,6 +12,8 @@ import SwiftUI
 class OutdatedPackageTracker: ObservableObject, Sendable
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
+    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
 
     @Published var outdatedPackages: Set<OutdatedPackage> = .init()
 

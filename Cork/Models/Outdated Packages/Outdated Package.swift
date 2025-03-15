@@ -9,6 +9,15 @@ import Foundation
 
 struct OutdatedPackage: Identifiable, Equatable, Hashable
 {
+    enum PackageUpdatingType
+    {
+        /// The package is updating through Homebrew
+        case homebrew
+        
+        /// The package updates itself
+        case selfUpdating
+    }
+    
     let id: UUID = .init()
 
     let package: BrewPackage
@@ -17,4 +26,6 @@ struct OutdatedPackage: Identifiable, Equatable, Hashable
     let newerVersion: String
 
     var isMarkedForUpdating: Bool = true
+    
+    var updatingManagedBy: PackageUpdatingType
 }
