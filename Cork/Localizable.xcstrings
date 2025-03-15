@@ -4804,6 +4804,12 @@
             "state" : "translated",
             "value" : "检查错误…"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hatayı incele…"
+          }
         }
       }
     },
@@ -5136,6 +5142,12 @@
             "state" : "translated",
             "value" : "重新安装 Homebrew"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew'u Yeniden Kur"
+          }
         }
       }
     },
@@ -5169,6 +5181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重新安装"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeniden Yükle"
           }
         }
       }
@@ -7757,6 +7775,12 @@
             "state" : "translated",
             "value" : "Homebrew 未提供任何输出"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew herhangi bir çıktı vermedi"
+          }
         }
       }
     },
@@ -9495,7 +9519,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bulunan Casklar"
+            "value" : "Bulunan Cask'lar"
           }
         },
         "uk" : {
@@ -9800,7 +9824,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Liste Başı Casklar"
+            "value" : "Liste Başı Cask'lar"
           }
         },
         "uk" : {
@@ -11768,6 +11792,12 @@
             "state" : "translated",
             "value" : "无法删除缓存"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önbellek silinemedi"
+          }
         }
       }
     },
@@ -12907,6 +12937,12 @@
             "value" : "%@"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12951,6 +12987,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法读取软件包信息"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket bilgisi okunamadı"
           }
         }
       }
@@ -13490,6 +13532,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося видалити пакет"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket kaldırılamadı"
           }
         }
       }
@@ -14398,6 +14446,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew 安装损坏"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew kurulumu bozuk"
           }
         }
       }
@@ -15486,6 +15540,12 @@
             "state" : "translated",
             "value" : "无法读取 Tap 信息"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap bilgisi okunamadı"
+          }
         }
       }
     },
@@ -15519,6 +15579,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法访问包含 Tap 的文件夹"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap'ları içeren klasöre erişilemedi"
           }
         }
       }
@@ -16756,6 +16822,12 @@
             "state" : "translated",
             "value" : "显示错误检查器"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hata denetleyicisini göster"
+          }
         }
       }
     },
@@ -16789,6 +16861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: UI"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HATA AYIKLAMA: UI"
           }
         }
       }
@@ -16869,6 +16947,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "错误检查器"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hata Denetleyicisi"
           }
         }
       }
@@ -17170,6 +17254,12 @@
             "state" : "translated",
             "value" : "无法读取 Cask 下载缓存文件夹中的内容"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önbelleğe alınmış Cask indirmelerinin bulunduğu klasörün içeriği okunamadı"
+          }
         }
       }
     },
@@ -17204,6 +17294,12 @@
             "state" : "translated",
             "value" : "无法读取下载缓存文件夹中的内容"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önbelleğe alınmış indirmeler klasörünün içeriği okunamadı"
+          }
         }
       }
     },
@@ -17237,6 +17333,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法读取 Formulae 下载缓存文件夹中的内容"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önbelleğe alınmış Formul indirme klasörünün içeriği okunamadı"
           }
         }
       }
@@ -17639,6 +17741,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法执行操作"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşlem gerçekleştirilemedi"
           }
         }
       }
@@ -18449,6 +18557,12 @@
             "state" : "translated",
             "value" : "Не вдалося розшифрувати сертифікат встановлення"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurulum belgesi çözümlenemedi"
+          }
         }
       }
     },
@@ -18512,6 +18626,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося розшифрувати сертифікат встановлення"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurulum belgesi çözümlenemedi"
           }
         }
       }
@@ -18641,6 +18761,12 @@
             "state" : "translated",
             "value" : "无法加载 Cask"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask'lar yüklenemedi"
+          }
         }
       }
     },
@@ -18674,6 +18800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法加载 Formulae"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formüller yüklenemedi"
           }
         }
       }
@@ -18791,6 +18923,12 @@
             "state" : "translated",
             "value" : "无法加载 Tap"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap'lar yüklenemedi"
+          }
         }
       }
     },
@@ -18856,6 +18994,12 @@
           }
         },
         "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -19092,6 +19236,12 @@
             "state" : "translated",
             "value" : "由于内部错误，部分软件包未能加载"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İçsel bir hata nedeniyle bazı paketler yüklenemedi"
+          }
         }
       }
     },
@@ -19264,6 +19414,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "软件包同步失败"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket senkronizasyonu başarısız oldu"
           }
         }
       }
@@ -19775,7 +19931,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Liste başı Casklar çözümlenemedi"
+            "value" : "Liste başı Cask'lar çözümlenemedi"
           }
         },
         "uk" : {
@@ -20864,7 +21020,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kurulu Formüllerin ve Caskların listesini getir"
+            "value" : "Kurulu Formüllerin ve Cask'ların listesini getir"
           }
         },
         "uk" : {
@@ -33058,6 +33214,12 @@
             "state" : "translated",
             "value" : "这可能需要很长时间…"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu işlem uzun sürebilir…"
+          }
         }
       }
     },
@@ -39366,6 +39528,12 @@
             "state" : "translated",
             "value" : "Увімкнути додаткові анімації"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekstra animasyonları etkinleştir"
+          }
         }
       }
     },
@@ -41916,6 +42084,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Автоматично приймати ліцензійні угоди пакету"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket lisans anlaşmalarını (EULA) otomatik olarak kabul et"
           }
         }
       }
@@ -45389,7 +45563,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kurulu Casklar"
+            "value" : "Kurulu Cask'lar"
           }
         },
         "uk" : {
@@ -45519,6 +45693,12 @@
             "state" : "translated",
             "value" : "未安装任何 Casks"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yüklü Cask yok"
+          }
         }
       }
     },
@@ -45552,6 +45732,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未安装任何 Formulae"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yüklü Formül yok"
           }
         }
       }
@@ -46936,7 +47122,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Casklar, grafik arayüzü içeren yazılım paketleridir"
+            "value" : "Cask'lar, grafik arayüzü içeren yazılım paketleridir"
           }
         },
         "uk" : {
@@ -47670,6 +47856,24 @@
               }
             }
           }
+        },
+        "tr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Cask yüklenemedi"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Cask yüklenemedi"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -47790,6 +47994,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "有 %lld 个 Formulae 未能加载"
+                }
+              }
+            }
+          }
+        },
+        "tr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld adet Formül yüklenemedi"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld adet Formül yüklenemedi"
                 }
               }
             }
@@ -49203,7 +49425,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Çoğunlukla Casklar"
+            "value" : "Çoğunlukla Cask'lar"
           }
         },
         "uk" : {
@@ -49279,7 +49501,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sadece Casklar"
+            "value" : "Sadece Cask'lar"
           }
         },
         "uk" : {
