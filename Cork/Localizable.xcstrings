@@ -48840,6 +48840,28 @@
         }
       }
     },
+    "start-page.updates.self-updating.%lld.list" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is 1 additional package that’s opted out of Homebrew’s updating mechanism"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld additional packages that are opted out of Homebrew’s updating mechanism"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "state.disabled" : {
       "localizations" : {
         "cs" : {

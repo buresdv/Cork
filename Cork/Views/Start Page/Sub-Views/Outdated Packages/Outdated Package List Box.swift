@@ -16,10 +16,22 @@ struct OutdatedPackageListBox: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isDropdownExpanded: Bool
+    
+    @State private var isSelfUpdatingSectionExpanded: Bool = false
 
     private var packagesMarkedForUpdating: [OutdatedPackage]
     {
         return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
+    }
+
+    private var packagesManagedByHomebrew: Set<OutdatedPackage>
+    {
+        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .homebrew }
+    }
+
+    private var packagesThatUpdateThemselves: Set<OutdatedPackage>
+    {
+        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
     }
 
     var body: some View
@@ -64,14 +76,18 @@ struct OutdatedPackageListBox: View
 
                             DisclosureGroup(isExpanded: $isDropdownExpanded)
                             {
-                                if outdatedPackageInfoDisplayAmount != .all
+                                outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
+
+                                if !packagesThatUpdateThemselves.isEmpty
                                 {
-                                    outdatedPackageOverview_list
+                                    DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded) {
+                                        outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
+                                    } label: {
+                                        Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
+                                            .font(.subheadline)
+                                    }
                                 }
-                                else
-                                {
-                                    outdatedPackageOverview_table
-                                }
+
                             } label: {
                                 Text("start-page.updates.list")
                                     .font(.subheadline)
@@ -81,6 +97,21 @@ struct OutdatedPackageListBox: View
                     }
                 }
             }
+        }
+    }
+
+    // MARK: - Outdated package list complex
+
+    @ViewBuilder
+    func outdatedPackageListComplex(packagesToShow: Set<OutdatedPackage>) -> some View
+    {
+        if outdatedPackageInfoDisplayAmount != .all
+        {
+            outdatedPackageOverview_list(packagesToShow: packagesToShow)
+        }
+        else
+        {
+            outdatedPackageOverview_table(packagesToShow: packagesToShow)
         }
     }
 
@@ -153,13 +184,13 @@ struct OutdatedPackageListBox: View
     // MARK: - Outdated package list view builders
 
     @ViewBuilder
-    var outdatedPackageOverview_list: some View
+    func outdatedPackageOverview_list(packagesToShow: Set<OutdatedPackage>) -> some View
     {
         List
         {
             Section
             {
-                ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                ForEach(packagesToShow.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                 { outdatedPackage in
                     Toggle(isOn: Binding<Bool>(
                         get: {
@@ -197,7 +228,7 @@ struct OutdatedPackageListBox: View
     }
 
     @ViewBuilder
-    var outdatedPackageOverview_table: some View
+    func outdatedPackageOverview_table(packagesToShow: Set<OutdatedPackage>) -> some View
     {
         VStack(alignment: .trailing)
         {
@@ -225,34 +256,34 @@ struct OutdatedPackageListBox: View
                     }
                 }
                 .width(45)
-                
+
                 TableColumn("package-details.dependencies.results.name", value: \.package.name)
-                
+
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
                     Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
                         .foregroundColor(.orange)
                 }
-                
+
                 TableColumn("start-page.updates.newest-version")
                 { outdatedPackage in
                     Text(outdatedPackage.newerVersion)
                         .foregroundColor(.blue)
                 }
-                
+
                 TableColumn("package-details.type")
                 { outdatedPackage in
                     Text(outdatedPackage.package.type.description)
                 }
-                
+
             } rows: {
-                ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                ForEach(packagesToShow.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                 { outdatedPackage in
                     TableRow(outdatedPackage)
-                        .contextMenu {
+                        .contextMenu
+                        {
                             PreviewPackageButton(packageNameToPreview: outdatedPackage.package.name)
                         }
-
                 }
             }
 
