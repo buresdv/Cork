@@ -48848,13 +48848,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "There is 1 additional package that’s opted out of Homebrew’s updating mechanism"
+                  "value" : "There is 1 additional package not managed by Homebrew"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "There are %lld additional packages that are opted out of Homebrew’s updating mechanism"
+                  "value" : "There are %lld additional packages not managed by Homebrew"
                 }
               }
             }

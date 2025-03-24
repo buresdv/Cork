@@ -16,7 +16,7 @@ struct OutdatedPackageListBox: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isDropdownExpanded: Bool
-    
+
     @State private var isSelfUpdatingSectionExpanded: Bool = false
 
     private var packagesMarkedForUpdating: [OutdatedPackage]
@@ -61,6 +61,10 @@ struct OutdatedPackageListBox: View
                                     } label: {
                                         Text("start-page.updates.action")
                                     }
+                                    
+                                    #if DEBUG
+                                    Text(String(packagesMarkedForUpdating.count))
+                                    #endif
                                 }
                                 else
                                 {
@@ -80,7 +84,8 @@ struct OutdatedPackageListBox: View
 
                                 if !packagesThatUpdateThemselves.isEmpty
                                 {
-                                    DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded) {
+                                    DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded)
+                                    {
                                         outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
                                     } label: {
                                         Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
@@ -238,7 +243,8 @@ struct OutdatedPackageListBox: View
                 { outdatedPackage in
                     Toggle(isOn: Binding<Bool>(
                         get: {
-                            outdatedPackage.isMarkedForUpdating
+                            /// This was vibe-coded. It fixes the problem, but I have no idea why.
+                            outdatedPackageTracker.outdatedPackages.contains(where: { $0.id == outdatedPackage.id && $0.isMarkedForUpdating })
                         }, set: { toggleState in
                             outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
                             { modifiedElement in
