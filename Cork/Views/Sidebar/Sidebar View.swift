@@ -116,13 +116,5 @@ struct SidebarView: View
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }
-        .sheet(isPresented: $appState.isShowingMaintenanceSheet)
-        {
-            MaintenanceView()
-        }
-        .sheet(isPresented: $appState.isShowingFastCacheDeletionMaintenanceView)
-        {
-            MaintenanceView(shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
-        }
     }
 }

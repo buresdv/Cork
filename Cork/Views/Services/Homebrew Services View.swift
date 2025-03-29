@@ -45,7 +45,7 @@ struct HomebrewServicesView: View
         {
             LoadServicesButton()
         }
-        .task(priority: .userInitiated)
+        .task
         {
             await loadServices()
         }
@@ -69,7 +69,7 @@ struct HomebrewServicesView: View
                 {
                     Button
                     {
-                        appDelegate.appState.isShowingUpdateSheet = true
+                        appDelegate.appState.showSheet(ofType: .fullUpdate)
                         hasTriedToUpdateHomebrewThroughCork = true
                     } label: {
                         Text("action.update-homebrew")

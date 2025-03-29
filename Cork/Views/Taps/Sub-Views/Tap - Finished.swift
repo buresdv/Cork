@@ -10,7 +10,7 @@ import CorkShared
 
 struct AddTapFinishedView: View
 {
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     let requestedTap: String
 
@@ -38,7 +38,7 @@ struct AddTapFinishedView: View
 
                     AppConstants.shared.logger.info("Available taps: \(availableTaps.addedTaps, privacy: .public)")
                 }
-                .task(priority: .background)
+                .task
                 { // Force-load the packages from the new tap
                     AppConstants.shared.logger.info("Will update packages")
                     await shell(AppConstants.shared.brewExecutablePath, ["update"])

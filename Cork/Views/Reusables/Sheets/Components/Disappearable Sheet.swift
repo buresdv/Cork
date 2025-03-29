@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DisappearableSheet<Content: View>: View
 {
+    @EnvironmentObject var appState: AppState
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @ViewBuilder var sheetContent: Content
@@ -20,7 +21,7 @@ struct DisappearableSheet<Content: View>: View
             {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3)
                 {
-                    dismiss()
+                    appState.dismissSheet()
                 }
             }
     }

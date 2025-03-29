@@ -23,11 +23,27 @@ struct GetInstalledCasksIntent: AppIntent
 
         if allowAccessToFile
         {
-            let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .cask, appState: AppState())
+            let dummyBrewData: BrewDataStorage = await .init()
+            
+            guard let installedCasks: BrewPackages = await dummyBrewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState()) else
+            {
+                throw IntentError.failedWhilePerformingIntent
+            }
 
+            /// Filter out all packages that gave an error
+            let validInstalledCasks: Set<BrewPackage> = Set(installedCasks.compactMap({ rawResult in
+                if case let .success(success) = rawResult {
+                    return success
+                }
+                else
+                {
+                    return nil
+                }
+            }))
+            
             AppConstants.shared.brewCaskPath.stopAccessingSecurityScopedResource()
 
-            let minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map
+            let minimalPackages: [MinimalHomebrewPackage] = validInstalledCasks.map
             { package in
                 .init(name: package.name, type: .cask, installDate: package.installedOn, installedIntentionally: true)
             }

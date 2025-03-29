@@ -5,9 +5,9 @@
 //  Created by David Bureš on 21.06.2024.
 //
 
+import CorkShared
 import Foundation
 import SwiftUI
-import CorkShared
 
 enum OutdatedPackageRetrievalError: LocalizedError
 {
@@ -57,17 +57,33 @@ extension OutdatedPackageTracker
         let formulae: [Formulae]
         let casks: [Casks]
     }
+    
+    func getOutdatedPackages(brewData: BrewDataStorage) async throws
+    {
+        /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew
+        async let outdatedPackagesNonGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewData: brewData, forUpdatingType: .homebrew)
+
+        /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew, plus those that are not
+        async let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewData: brewData, forUpdatingType: .selfUpdating)
+        
+        print("Contents of non-greedy update checker: \(try await outdatedPackagesNonGreedy.map(\.package.name)), \(try await outdatedPackagesNonGreedy.count)")
+        print("Contents of greedy update checker: \(try await outdatedPackagesGreedy.map(\.package.name)), \(try await outdatedPackagesGreedy.count)")
+        
+        /// This includes only those packages that are greedy
+        let difference: Set<OutdatedPackage> = try await outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
+        
+        self.outdatedPackages = try await outdatedPackagesNonGreedy.union(difference)
+    }
 
     /// Load outdated packages into the outdated package tracker
-    func getOutdatedPackages(brewData: BrewDataStorage) async throws
+    private func getOutdatedPackagesInternal(brewData: BrewDataStorage, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async throws -> Set<OutdatedPackage>
     {
         // First, we have to pull the newest updates
         await shell(AppConstants.shared.brewExecutablePath, ["update"])
-
+        
         // Then we can get the updating under way
-        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", "--json=v2"])
-
-        print("Outdated package function oputput: \(rawOutput)")
+        /// Introduces an empty argument in case the updating is non-greedy
+        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
         // MARK: - Error checking
 
@@ -105,10 +121,10 @@ extension OutdatedPackageTracker
 
             // MARK: - Outdated package matching
 
-            async let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewData: brewData)
-            async let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewData: brewData)
+            async let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewData: brewData, forUpdatingType: updatingType)
+            async let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewData: brewData, forUpdatingType: updatingType)
 
-            outdatedPackages = await finalOutdatedFormulae.union(finalOutdatedCasks)
+            return await finalOutdatedFormulae.union(finalOutdatedCasks)
         }
         catch let decodingError
         {
@@ -119,18 +135,19 @@ extension OutdatedPackageTracker
 
     // MARK: - Helper functions
 
-    private func getOutdatedFormulae(from intermediaryArray: [OutdatedPackageCommandOutput.Formulae], brewData: BrewDataStorage) async -> Set<OutdatedPackage>
+    private func getOutdatedFormulae(from intermediaryArray: [OutdatedPackageCommandOutput.Formulae], brewData: BrewDataStorage, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
     {
         var finalOutdatedFormulaTracker: Set<OutdatedPackage> = .init()
 
         for outdatedFormula in intermediaryArray
         {
-            if let foundOutdatedFormula = brewData.installedFormulae.first(where: { $0.name == outdatedFormula.name })
+            if let foundOutdatedFormula = brewData.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
             {
                 finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,
                     installedVersions: outdatedFormula.installedVersions,
-                    newerVersion: outdatedFormula.currentVersion
+                    newerVersion: outdatedFormula.currentVersion,
+                    updatingManagedBy: updatingType
                 )
                 )
             }
@@ -139,18 +156,19 @@ extension OutdatedPackageTracker
         return finalOutdatedFormulaTracker
     }
 
-    private func getOutdatedCasks(from intermediaryArray: [OutdatedPackageCommandOutput.Casks], brewData: BrewDataStorage) async -> Set<OutdatedPackage>
+    private func getOutdatedCasks(from intermediaryArray: [OutdatedPackageCommandOutput.Casks], brewData: BrewDataStorage, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
     {
         var finalOutdatedCaskTracker: Set<OutdatedPackage> = .init()
 
         for outdatedCask in intermediaryArray
         {
-            if let foundOutdatedCask = brewData.installedCasks.first(where: { $0.name == outdatedCask.name })
+            if let foundOutdatedCask = brewData.successfullyLoadedCasks.first(where: { $0.name == outdatedCask.name })
             {
                 finalOutdatedCaskTracker.insert(.init(
                     package: foundOutdatedCask,
                     installedVersions: outdatedCask.installedVersions,
-                    newerVersion: outdatedCask.currentVersion
+                    newerVersion: outdatedCask.currentVersion,
+                    updatingManagedBy: updatingType
                 )
                 )
             }

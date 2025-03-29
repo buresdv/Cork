@@ -10,6 +10,8 @@ import CorkShared
 
 struct UpdatingPackageTrackerStateView: View
 {
+    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -20,12 +22,12 @@ struct UpdatingPackageTrackerStateView: View
     var body: some View
     {
         Text("update-packages.updating.updating-outdated-package")
-            .task(priority: .userInitiated)
+            .task
             {
                 do
                 {
                     try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-
+                    
                     updateProgressTracker.updateProgress = 10
 
                     if updateProgressTracker.errors.isEmpty
@@ -53,6 +55,7 @@ struct UpdatingPackageTrackerStateView: View
                     case .couldNotDecodeCommandOutput(let decodingError):
                         // TODO: Swallow the error for now so that I don't have to bother the translators. Add alert later
                         AppConstants.shared.logger.error("Could not decode outdated package command output: \(decodingError)")
+                        appState.showAlert(errorToShow: .receivedInvalidResponseFromBrew)
                     case .otherError:
                         AppConstants.shared.logger.error("Something went wrong")
                     }

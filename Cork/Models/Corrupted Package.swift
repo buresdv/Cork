@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CorruptedPackage: Identifiable
+struct CorruptedPackage: Identifiable, Equatable
 {
     let id: UUID = .init()
     let name: String

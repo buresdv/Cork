@@ -35,23 +35,13 @@ struct AddTapErrorView: View
                         Text("add-tap.error.other.description")
                     }
                 }
-
-                HStack
+            }
+            .frame(width: 320)
+            .fixedSize(horizontal: false, vertical: true)
+            .toolbar
+            {
+                ToolbarItem(placement: .primaryAction)
                 {
-                    DismissSheetButton()
-
-                    Spacer()
-
-                    if tappingError == .repositoryNotFound
-                    {
-                        Button
-                        {
-                            progress = .manuallyInputtingTapRepoAddress
-                        } label: {
-                            Text("add-tap.manual-repo-address.show")
-                        }
-                    }
-
                     Button
                     {
                         progress = .ready
@@ -60,9 +50,19 @@ struct AddTapErrorView: View
                     }
                     .keyboardShortcut(.defaultAction)
                 }
+                
+                if tappingError == .repositoryNotFound
+                {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button
+                        {
+                            progress = .manuallyInputtingTapRepoAddress
+                        } label: {
+                            Text("add-tap.manual-repo-address.show")
+                        }
+                    }
+                }
             }
-            .frame(width: 320)
-            .fixedSize(horizontal: false, vertical: true)
         }
     }
 }

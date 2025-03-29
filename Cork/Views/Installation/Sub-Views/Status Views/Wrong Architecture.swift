@@ -11,6 +11,7 @@ struct WrongArchitectureView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
@@ -26,24 +27,6 @@ struct WrongArchitectureView: View, Sendable
                     subheadline: "add-package.install.wrong-architecture-\(installationProgressTracker.packageBeingInstalled.package.name).user-architecture-is-\(ProcessInfo().CPUArchitecture == .arm ? "Apple Silicon" : "Intel")",
                     alignment: .leading
                 )
-
-                HStack
-                {
-                    Spacer()
-
-                    Button
-                    {
-                        dismiss()
-
-                        Task.detached
-                        {
-                            await synchronizeInstalledPackages(brewData: brewData)
-                        }
-                    } label: {
-                        Text("action.close")
-                    }
-                    .keyboardShortcut(.cancelAction)
-                }
             }
         }
         .fixedSize()

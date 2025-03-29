@@ -78,7 +78,16 @@ identifier_name:
     - GlobalAPIKey
   allowed_symbols: ["_"]
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging, summary)
-#custom_rules:
+custom_rules:
+  enum_associated_value_let_syntax:
+    name: "Enum Associated Value Let Syntax"
+    regex: 'case\s+\.?\w+\([^)]*:\s*[^)]'
+    message: "Use `let` syntax for enum associated values (e.g., `case .example(let value)` instead of `case .example(value: _)`)"
+    severity: warning
+    match_kinds:
+      - keyword # matches 'case'
+      - identifier # matches enum case names
+      - attribute.builtin # matches associated value declarations
 #  brackets_newline:
 #      name: "Opening Brackets not on Next Line"
 #      message: "Opening brackets should be placed on their own lines"

@@ -9,6 +9,12 @@ import SwiftUI
 
 struct OutdatedPackagesBox: View
 {
+    /// The type of outdated package box that will show up
+    enum OutdatedPackageDisplayStage: Equatable
+    {
+        case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
+    }
+
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
@@ -16,26 +22,45 @@ struct OutdatedPackagesBox: View
 
     let errorOutReason: String?
 
-    var body: some View
+    var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
     {
         if let errorOutReason
         {
-            LoadingOfOutdatedPackagesFailedListBox(errorOutReason: errorOutReason)
+            return .erroredOut(reason: errorOutReason)
         }
         else
         {
             if appState.isCheckingForPackageUpdates
             {
-                OutdatedPackageLoaderBox()
+                return .checkingForUpdates
             }
             else if outdatedPackageTracker.displayableOutdatedPackages.isEmpty
             {
-                NoUpdatesAvailableBox()
+                return .noUpdatesAvailable
             }
             else
             {
-                OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
+                return .showingOutdatedPackages
             }
         }
+    }
+
+    var body: some View
+    {
+        Group
+        {
+            switch outdatedPackageDisplayStage
+            {
+            case .checkingForUpdates:
+                OutdatedPackageLoaderBox()
+            case .showingOutdatedPackages:
+                OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
+            case .noUpdatesAvailable:
+                NoUpdatesAvailableBox()
+            case .erroredOut(let reason):
+                LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
+            }
+        }
+        .animation(.snappy, value: outdatedPackageDisplayStage)
     }
 }

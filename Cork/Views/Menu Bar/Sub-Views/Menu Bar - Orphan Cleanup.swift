@@ -5,13 +5,16 @@
 //  Created by David Bureš on 30.03.2024.
 //
 
-import SwiftUI
-import CorkShared
+import ButtonKit
 import CorkNotifications
+import CorkShared
+import SwiftUI
 
 struct MenuBar_OrphanCleanup: View
 {
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @State private var isUninstallingOrphanedPackages: Bool = false
 
@@ -19,35 +22,41 @@ struct MenuBar_OrphanCleanup: View
     {
         if !isUninstallingOrphanedPackages
         {
-            Button("maintenance.steps.packages.uninstall-orphans")
+            AsyncButton
             {
-                Task(priority: .userInitiated)
+                AppConstants.shared.logger.log("Will delete orphans")
+
+                do
                 {
-                    AppConstants.shared.logger.log("Will delete orphans")
+                    let orphanUninstallResult: Int = try await uninstallOrphansUtility()
 
-                    do
-                    {
-                        let orphanUninstallResult: Int = try await uninstallOrphansUtility()
-
-                        sendNotification(
-                            title: String(localized: "maintenance.results.orphans-removed"),
-                            body: String(localized: "maintenance.results.orphans-count-\(orphanUninstallResult)"),
-                            sensitivity: .active
-                        )
-                    }
-                    catch let orphanUninstallationError
-                    {
-                        AppConstants.shared.logger.error("Failed while uninstalling orphans: \(orphanUninstallationError, privacy: .public)")
-
-                        sendNotification(
-                            title: String(localized: "maintenance.results.orphans.failure"),
-                            body: String(localized: "maintenance.results.orphans.failure.details-\(orphanUninstallationError.localizedDescription)"),
-                            sensitivity: .active
-                        )
-                    }
-
-                    await synchronizeInstalledPackages(brewData: brewData)
+                    sendNotification(
+                        title: String(localized: "maintenance.results.orphans-removed"),
+                        body: String(localized: "maintenance.results.orphans-count-\(orphanUninstallResult)"),
+                        sensitivity: .active
+                    )
                 }
+                catch let orphanUninstallationError
+                {
+                    AppConstants.shared.logger.error("Failed while uninstalling orphans: \(orphanUninstallationError, privacy: .public)")
+
+                    sendNotification(
+                        title: String(localized: "maintenance.results.orphans.failure"),
+                        body: String(localized: "maintenance.results.orphans.failure.details-\(orphanUninstallationError.localizedDescription)"),
+                        sensitivity: .active
+                    )
+                }
+
+                do
+                {
+                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                }
+                catch let synchronizationError
+                {
+                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                }
+            } label: {
+                Text("maintenance.steps.packages.uninstall-orphans")
             }
         }
         else

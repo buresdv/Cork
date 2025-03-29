@@ -47,9 +47,9 @@ struct InstallationInitialView: View
                 {
                     List(selection: $foundPackageSelection)
                     {
-                        TopPackagesSection(packageTracker: topPackagesTracker.sortedTopFormulae, trackerType: .formula)
+                        TopPackagesSection(packageTracker: topPackagesTracker, trackerType: .formula)
 
-                        TopPackagesSection(packageTracker: topPackagesTracker.sortedTopCasks, trackerType: .cask)
+                        TopPackagesSection(packageTracker: topPackagesTracker, trackerType: .cask)
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
                     .frame(minHeight: 200)
@@ -72,64 +72,83 @@ struct InstallationInitialView: View
             {
                 foundPackageSelection = nil // Clear all selected items when the user looks for a different package
             }
-
-            HStack
+        }
+        .toolbar
+        {
+            if enableDiscoverability
             {
-                DismissSheetButton()
-
-                Spacer()
-
-                if enableDiscoverability
+                ToolbarItemGroup(placement: .automatic)
                 {
-                    PreviewPackageButtonWithCustomAction
-                    {
-                        guard let packageToPreview: BrewPackage = getTopPackageFromTracker() else
-                        {
-                            AppConstants.shared.logger.error("Could not retrieve top package to preview")
-                            
-                            return
-                        }
-                        
-                        openWindow(value: packageToPreview)
-                    }
-                    .disabled(foundPackageSelection == nil)
+                    previewPackageButton
                     
-                    Button
-                    {
-                        guard let packageToInstall: BrewPackage = getTopPackageFromTracker() else
-                        {
-                            AppConstants.shared.logger.error("Could not retrieve top package to install")
-                            
-                            return
-                        }
-                        
-                        installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-                        
-                        AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
-                        
-                        packageInstallationProcessStep = .installing
-                        
-                    } label: {
-                        Text("add-package.install.action")
-                    }
-                    .keyboardShortcut(foundPackageSelection != nil ? .defaultAction : .init(.end))
-                    .disabled(foundPackageSelection == nil)
+                    startInstallProcessForTopPackageButton
                 }
-
-                Button
-                {
-                    packageInstallationProcessStep = .searching
-                } label: {
-                    Text("add-package.search.action")
-                }
-                .keyboardShortcut(foundPackageSelection == nil ? .defaultAction : .init(.end))
-                .disabled(packageRequested.isEmpty)
+            }
+            
+            ToolbarItem(placement: .primaryAction)
+            {
+                searchForPackageButton
             }
         }
         .onAppear
         {
             foundPackageSelection = nil
         }
+    }
+    
+    @ViewBuilder
+    var previewPackageButton: some View
+    {
+        PreviewPackageButtonWithCustomAction
+        {
+            guard let packageToPreview: BrewPackage = getTopPackageFromTracker() else
+            {
+                AppConstants.shared.logger.error("Could not retrieve top package to preview")
+                
+                return
+            }
+            
+            openWindow(value: packageToPreview)
+        }
+        .disabled(foundPackageSelection == nil)
+    }
+    
+    @ViewBuilder
+    var startInstallProcessForTopPackageButton: some View
+    {
+        Button
+        {
+            guard let packageToInstall: BrewPackage = getTopPackageFromTracker() else
+            {
+                AppConstants.shared.logger.error("Could not retrieve top package to install")
+                
+                return
+            }
+            
+            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
+            
+            AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+            
+            packageInstallationProcessStep = .installing
+            
+        } label: {
+            Text("add-package.install.action")
+        }
+        .keyboardShortcut(foundPackageSelection != nil ? .defaultAction : .init(.end))
+        .disabled(foundPackageSelection == nil)
+    }
+    
+    @ViewBuilder
+    var searchForPackageButton: some View
+    {
+        Button
+        {
+            packageInstallationProcessStep = .searching
+        } label: {
+            Text("add-package.search.action")
+        }
+        .keyboardShortcut(foundPackageSelection == nil ? .defaultAction : .init(.end))
+        .disabled(packageRequested.isEmpty)
     }
     
     func getTopPackageFromTracker() -> BrewPackage?

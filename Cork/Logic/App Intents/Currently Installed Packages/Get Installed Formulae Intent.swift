@@ -40,11 +40,27 @@ struct GetInstalledFormulaeIntent: AppIntent
 
         if allowAccessToFile
         {
-            let installedFormulae: Set<BrewPackage> = await loadUpPackages(whatToLoad: .formula, appState: AppState())
+            let dummyBrewData: BrewDataStorage = await .init()
+            
+            guard let installedFormulae: BrewPackages = await dummyBrewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState()) else
+            {
+                throw IntentError.failedWhilePerformingIntent
+            }
 
+            /// Filter out all packages that gave an error
+            let validInstalledFormulae: Set<BrewPackage> = Set(installedFormulae.compactMap { rawResult in
+                if case let .success(success) = rawResult {
+                    return success
+                }
+                else
+                {
+                    return nil
+                }
+            })
+            
             AppConstants.shared.brewCellarPath.stopAccessingSecurityScopedResource()
 
-            var minimalPackages: [MinimalHomebrewPackage] = installedFormulae.map
+            var minimalPackages: [MinimalHomebrewPackage] = validInstalledFormulae.map
             { package in
                 .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
             }

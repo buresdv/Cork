@@ -37,7 +37,7 @@ struct UpdateSomePackagesView: View
                     Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.name)")
                 }
                 .frame(width: 200)
-                .task(priority: .userInitiated)
+                .task
                 {
                     for (index, outdatedPackage) in selectedPackages.enumerated()
                     {
@@ -87,17 +87,6 @@ struct UpdateSomePackagesView: View
                     {
                         packageUpdatingStage = .finished
                     }
-
-                    do
-                    {
-                        AppConstants.shared.logger.debug("Will synchronize outdated packages")
-                        try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-                    }
-                    catch let packageSynchronizationError
-                    {
-                        AppConstants.shared.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
-                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: packageSynchronizationError.localizedDescription))
-                    }
                 }
 
             case .finished:
@@ -120,5 +109,30 @@ struct UpdateSomePackagesView: View
             }
         }
         .padding()
+        .onDisappear
+        {
+            Task
+            {
+                do
+                {
+                    appState.isCheckingForPackageUpdates = true
+                    
+                    defer
+                    {
+                        appState.isCheckingForPackageUpdates = false
+                    }
+                    
+                    AppConstants.shared.logger.debug("Will synchronize outdated packages")
+                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                }
+                catch let packageSynchronizationError
+                {
+                    AppConstants.shared.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
+                    
+                    appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: packageSynchronizationError.localizedDescription))
+                    
+                }
+            }
+        }
     }
 }

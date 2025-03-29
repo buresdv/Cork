@@ -5,8 +5,8 @@
 //  Created by David Bureš on 04.10.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct MaintenanceFinishedView: View
 {
@@ -16,6 +16,9 @@ struct MaintenanceFinishedView: View
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+
     @EnvironmentObject var outdatedPackageTacker: OutdatedPackageTracker
 
     let shouldUninstallOrphans: Bool
@@ -67,120 +70,102 @@ struct MaintenanceFinishedView: View
     {
         ComplexWithIcon(systemName: "checkmark.seal")
         {
-            VStack(alignment: .center)
+            VStack(alignment: .leading, spacing: 5)
             {
-                VStack(alignment: .leading, spacing: 5)
+                Text("maintenance.finished")
+                    .font(.headline)
+
+                if shouldUninstallOrphans
                 {
-                    Text("maintenance.finished")
-                        .font(.headline)
+                    Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
+                }
 
-                    if shouldUninstallOrphans
+                if shouldPurgeCache
+                {
+                    VStack(alignment: .leading)
                     {
-                        Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
-                    }
+                        Text("maintenance.results.package-cache")
 
-                    if shouldPurgeCache
-                    {
-                        VStack(alignment: .leading)
+                        if !displayablePackagesHoldingBackCachePurge.isEmpty
                         {
-                            Text("maintenance.results.package-cache")
-
-                            if !displayablePackagesHoldingBackCachePurge.isEmpty
+                            if displayablePackagesHoldingBackCachePurge.count >= 3
                             {
-                                if displayablePackagesHoldingBackCachePurge.count >= 3
-                                {
-                                    let packageNamesNotTruncated: [String] = Array(displayablePackagesHoldingBackCachePurge.prefix(3))
+                                let packageNamesNotTruncated: [String] = Array(displayablePackagesHoldingBackCachePurge.prefix(3))
 
-                                    let numberOfTruncatedPackages: Int = displayablePackagesHoldingBackCachePurge.count - packageNamesNotTruncated.count
+                                let numberOfTruncatedPackages: Int = displayablePackagesHoldingBackCachePurge.count - packageNamesNotTruncated.count
 
-                                    Text("maintenance.results.package-cache.skipped-\(packageNamesNotTruncated.formatted(.list(type: .and)))-and-\(numberOfTruncatedPackages)-others")
-                                        .font(.caption)
-                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
-                                }
-                                else
-                                {
-                                    Text("maintenance.results.package-cache.skipped-\(displayablePackagesHoldingBackCachePurge.formatted(.list(type: .and)))")
-                                        .font(.caption)
-                                        .foregroundColor(Color(nsColor: NSColor.systemGray))
-                                }
+                                Text("maintenance.results.package-cache.skipped-\(packageNamesNotTruncated.formatted(.list(type: .and)))-and-\(numberOfTruncatedPackages)-others")
+                                    .font(.caption)
+                                    .foregroundColor(Color(nsColor: NSColor.systemGray))
                             }
-
-                            /*
-                             if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
-                             {
-                             if packagesHoldingBackCachePurgeTracker.count > 2
-                             {
-
-                             Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker[0...1].joined(separator: ", "))-and-\(packagesHoldingBackCachePurgeTracker.count - 2)-others")
-                             .font(.caption)
-                             .foregroundColor(Color(nsColor: NSColor.systemGray))
-
-                             }
-                             else
-                             {
-                             Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker.joined(separator: ", "))")
-                             .font(.caption)
-                             .foregroundColor(Color(nsColor: NSColor.systemGray))
-                             }
-                             }
-                             */
+                            else
+                            {
+                                Text("maintenance.results.package-cache.skipped-\(displayablePackagesHoldingBackCachePurge.formatted(.list(type: .and)))")
+                                    .font(.caption)
+                                    .foregroundColor(Color(nsColor: NSColor.systemGray))
+                            }
                         }
-                    }
 
-                    if shouldDeleteDownloads
-                    {
-                        VStack(alignment: .leading)
-                        {
-                            Text("maintenance.results.cached-downloads")
-                            Text("maintenance.results.cached-downloads.summary-\(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))")
-                                .font(.caption)
-                                .foregroundColor(Color(nsColor: NSColor.systemGray))
-                        }
-                    }
+                        /*
+                         if cachePurgingSkippedPackagesDueToMostRecentVersionsNotBeingInstalled
+                         {
+                         if packagesHoldingBackCachePurgeTracker.count > 2
+                         {
 
-                    if shouldPerformHealthCheck
-                    {
-                        if brewHealthCheckFoundNoProblems
-                        {
-                            Text("maintenance.results.health-check.problems-none")
-                        }
-                        else
-                        {
-                            Text("maintenance.results.health-check.problems")
-                                .onAppear
-                                {
-                                    maintenanceFoundNoProblems = false
-                                }
-                        }
+                         Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker[0...1].joined(separator: ", "))-and-\(packagesHoldingBackCachePurgeTracker.count - 2)-others")
+                         .font(.caption)
+                         .foregroundColor(Color(nsColor: NSColor.systemGray))
+
+                         }
+                         else
+                         {
+                         Text("maintenance.results.package-cache.skipped-\(packagesHoldingBackCachePurgeTracker.joined(separator: ", "))")
+                         .font(.caption)
+                         .foregroundColor(Color(nsColor: NSColor.systemGray))
+                         }
+                         }
+                         */
                     }
                 }
 
-                Spacer()
-
-                HStack
+                if shouldDeleteDownloads
                 {
-                    Spacer()
-
-                    Button
+                    VStack(alignment: .leading)
                     {
-                        dismiss()
-
-                        appState.cachedDownloadsFolderSize = AppConstants.shared.brewCachedDownloadsPath.directorySize
-                    } label: {
-                        Text("action.close")
+                        Text("maintenance.results.cached-downloads")
+                        Text("maintenance.results.cached-downloads.summary-\(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))")
+                            .font(.caption)
+                            .foregroundColor(Color(nsColor: NSColor.systemGray))
                     }
-                    .keyboardShortcut(.defaultAction)
+                }
+
+                if shouldPerformHealthCheck
+                {
+                    if brewHealthCheckFoundNoProblems
+                    {
+                        Text("maintenance.results.health-check.problems-none")
+                    }
+                    else
+                    {
+                        Text("maintenance.results.health-check.problems")
+                            .onAppear
+                            {
+                                maintenanceFoundNoProblems = false
+                            }
+                    }
                 }
             }
             .fixedSize()
         }
-        .padding()
-        // .frame(minWidth: 300, minHeight: 150)
-        .onAppear // This should stay this way, I don' want the task to be cancelled when the view disappears
+        .task
         {
-            Task
+            do
             {
-                await synchronizeInstalledPackages(brewData: brewData)
+                try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+            }
+            catch let synchronizationError
+            {
+                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
             }
         }
     }

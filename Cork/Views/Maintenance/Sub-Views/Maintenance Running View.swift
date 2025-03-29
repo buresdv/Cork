@@ -13,6 +13,8 @@ struct MaintenanceRunningView: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
+    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
 
     let shouldUninstallOrphans: Bool
@@ -31,7 +33,7 @@ struct MaintenanceRunningView: View
         ProgressView
         {
             Text(currentMaintenanceStepText)
-                .task(priority: .userInitiated)
+                .task
                 {
                     if shouldUninstallOrphans
                     {
@@ -77,13 +79,28 @@ struct MaintenanceRunningView: View
 
                         currentMaintenanceStepText = "maintenance.step.deleting-cached-downloads"
 
-                        deleteCachedDownloads()
+                        do throws(CachedDownloadDeletionError)
+                        {
+                            try deleteCachedDownloads()
+                        }
+                        catch let cacheDeletionError
+                        {
+                            switch cacheDeletionError
+                            {
+                            case .couldNotReadContentsOfCachedFormulaeDownloadsFolder(let associatedError):
+                                appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                                
+                            case .couldNotReadContentsOfCachedCasksDownloadsFolder(let associatedError):
+                                appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                                
+                            case .couldNotReadContentsOfCachedDownloadsFolder(let associatedError):
+                                appState.showAlert(errorToShow: .couldNotDeleteCachedDownloads(error: associatedError))
+                            }
+                        }
 
                         /// I have to assign the original value of the appState variable to a different variable, because when it updates at the end of the process, I don't want it to update in the result overview
-                        reclaimedSpaceAfterCachePurge = Int(appState.cachedDownloadsFolderSize)
+                        reclaimedSpaceAfterCachePurge = Int(cachedDownloadsTracker.cachedDownloadsSize)
 
-                        await appState.loadCachedDownloadedPackages()
-                        appState.assignPackageTypeToCachedDownloads(brewData: brewData)
                     }
                     else
                     {
@@ -114,7 +131,5 @@ struct MaintenanceRunningView: View
                     maintenanceSteps = .finished
                 }
         }
-        .padding()
-        .frame(width: 200)
     }
 }

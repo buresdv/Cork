@@ -7,13 +7,14 @@
 
 import SwiftUI
 import CorkShared
+import ButtonKit
 
 struct TapDetailView: View, Sendable
 {
     let tap: BrewTap
 
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var availableTaps: AvailableTaps
+    @EnvironmentObject var availableTaps: TapTracker
 
     @State private var isLoadingTapInfo: Bool = true
     
@@ -65,22 +66,16 @@ struct TapDetailView: View, Sendable
                             
                             ButtonBottomRow
                             {
-                                HStack
+                                Spacer()
+                                
+                                AsyncButton
                                 {
-                                    Spacer()
-                                    
-                                    UninstallationProgressWheel()
-                                    
-                                    Button
-                                    {
-                                        Task(priority: .userInitiated)
-                                        {
-                                            try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
-                                        }
-                                    } label: {
-                                        Text("tap-details.remove-\(tap.name)")
-                                    }
+                                    try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                } label: {
+                                    Text("tap-details.remove-\(tap.name)")
                                 }
+                                .asyncButtonStyle(.trailing)
+                                .disabledWhenLoading()
                             }
                         }
                     }
@@ -92,7 +87,7 @@ struct TapDetailView: View, Sendable
             }
         }
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
-        .task(id: tap.id, priority: .userInitiated)
+        .task(id: tap.id)
         {
             isLoadingTapInfo = true
             

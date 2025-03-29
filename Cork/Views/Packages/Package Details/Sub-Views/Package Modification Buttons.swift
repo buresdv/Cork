@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import ButtonKit
 
 struct PackageModificationButtons: View
 {
@@ -15,13 +16,12 @@ struct PackageModificationButtons: View
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     let package: BrewPackage
     @ObservedObject var packageDetails: BrewPackageDetails
-
-    @State private var isPinning: Bool = false
 
     let isLoadingDetails: Bool
 
@@ -35,45 +35,21 @@ struct PackageModificationButtons: View
                 {
                     if package.type == .formula
                     {
-                        Button
+                        AsyncButton
                         {
-                            Task
+                            do
                             {
-                                withAnimation
-                                {
-                                    isPinning = true
-                                }
-
-                                defer
-                                {
-                                    withAnimation
-                                    {
-                                        isPinning = false
-                                    }
-                                }
-
-                                do
-                                {
-                                    try await packageDetails.changePinnedStatus()
-                                }
-                                catch let pinningUnpinningError
-                                {
-                                    AppConstants.shared.logger.error("Failed while pinning/unpinning package \(package.name): \(pinningUnpinningError)")
-                                }
+                                try await packageDetails.changePinnedStatus()
+                            }
+                            catch let pinningUnpinningError
+                            {
+                                AppConstants.shared.logger.error("Failed while pinning/unpinning package \(package.name): \(pinningUnpinningError)")
                             }
                         } label: {
-                            HStack(alignment: .center, spacing: 5)
-                            {
-                                if isPinning
-                                {
-                                    ProgressView()
-                                        .controlSize(.mini)
-                                        .transition(.move(edge: .leading).combined(with: .opacity))
-                                }
-                                Text(packageDetails.pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
-                            }
+                            Text(packageDetails.pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
                         }
-                        .disabled(isPinning)
+                        .asyncButtonStyle(.leading)
+                        .disabledWhenLoading()
                     }
 
                     Spacer()
@@ -108,6 +84,7 @@ struct PackageModificationButtons: View
 
                                         try await brewData.uninstallSelectedPackage(
                                             package: package,
+                                            cachedPackagesTracker: cachedPackagesTracker,
                                             appState: appState,
                                             outdatedPackageTracker: outdatedPackageTracker,
                                             shouldRemoveAllAssociatedFiles: false,
@@ -122,7 +99,6 @@ struct PackageModificationButtons: View
                                 }
                             }
                             .fixedSize()
-                            .disabled(isPinning)
                         }
                     }
                 }
