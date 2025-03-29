@@ -45715,6 +45715,12 @@
             "state" : "translated",
             "value" : "Show packages not managed by Homebrew"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show packages not managed by Homebrew"
+          }
         }
       }
     },
@@ -53384,6 +53390,24 @@
               }
             }
           }
+        },
+        "en-GB" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld outdated unmanaged package"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld outdated unmanaged packages"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -53406,12 +53430,36 @@
               }
             }
           }
+        },
+        "en-GB" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is 1 additional package that is not managed by Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld additional packages that are not managed by Homebrew"
+                }
+              }
+            }
+          }
         }
       }
     },
     "start-page.updates.unmanaged-only.list" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unmanaged outdated packages"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unmanaged outdated packages"
@@ -56022,6 +56070,12 @@
     "update-packages.no-managed-updates" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All packages managed by Homebrew are up to date"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "All packages managed by Homebrew are up to date"
