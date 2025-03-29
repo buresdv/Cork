@@ -12,18 +12,34 @@ import SwiftUI
 class OutdatedPackageTracker: ObservableObject, Sendable
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    
+    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
 
     @Published var outdatedPackages: Set<OutdatedPackage> = .init()
 
     var displayableOutdatedPackages: Set<OutdatedPackage>
     {
-        if displayOnlyIntentionallyInstalledPackagesByDefault
+        /// Depending on whether greedy updating is enabled:
+        /// - If enabled, include packages that are also self-updating
+        /// - If disabled, include only packages whose updates are managed by Homebrew
+        var relevantOutdatedPackages: Set<OutdatedPackage>
+        
+        if includeGreedyOutdatedPackages
         {
-            return outdatedPackages.filter(\.package.installedIntentionally)
+            relevantOutdatedPackages = outdatedPackages
         }
         else
         {
-            return outdatedPackages
+            relevantOutdatedPackages = outdatedPackages.filter{ $0.updatingManagedBy == .homebrew }
+        }
+        
+        if displayOnlyIntentionallyInstalledPackagesByDefault
+        {
+            return relevantOutdatedPackages.filter(\.package.installedIntentionally)
+        }
+        else
+        {
+            return relevantOutdatedPackages
         }
     }
 }

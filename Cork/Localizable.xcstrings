@@ -88,6 +88,7 @@
       }
     },
     "→" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -41987,6 +41988,16 @@
         }
       }
     },
+    "settings.install-uninstall.include-greedy-packages.toggle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show packages not managed by Homebrew"
+          }
+        }
+      }
+    },
     "settings.install-uninstall.installation" : {
       "comment" : "MARK: - Settings: Install/Uninstall",
       "extractionState" : "manual",
@@ -49052,6 +49063,60 @@
         }
       }
     },
+    "start-page.updates.only-unmanaged.count-%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld unmanaged outdated package"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld unmanaged outdated packages"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.updates.self-updating.%lld.list" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is 1 additional package not managed by Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld additional packages not managed by Homebrew"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.updates.unmanaged-only.list" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unmanaged outdated packages"
+          }
+        }
+      }
+    },
     "state.disabled" : {
       "localizations" : {
         "cs" : {
@@ -51450,6 +51515,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新 %@⋯"
+          }
+        }
+      }
+    },
+    "update-packages.no-managed-updates" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All packages managed by Homebrew are up to date"
           }
         }
       }

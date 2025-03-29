@@ -11,6 +11,8 @@ struct InstallationAndUninstallationPane: View
 {
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
+    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+
     @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
@@ -20,7 +22,7 @@ struct InstallationAndUninstallationPane: View
 
     @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
     @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
-    
+
     @AppStorage("automaticallyAcceptEULA") var automaticallyAcceptEULA: Bool = false
 
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
@@ -78,6 +80,16 @@ struct InstallationAndUninstallationPane: View
 
                 LabeledContent
                 {
+                    Toggle(isOn: $includeGreedyOutdatedPackages)
+                    {
+                        Text("settings.install-uninstall.include-greedy-packages.toggle")
+                    }
+                } label: {
+                    Text("settings.general.outdated-packages.info-amount")
+                }
+
+                LabeledContent
+                {
                     Toggle(isOn: $showCompatibilityWarning)
                     {
                         Text("settings.install-uninstall.compatibility-checking.toggle")
@@ -104,7 +116,7 @@ struct InstallationAndUninstallationPane: View
                             .disabled(!showRealTimeTerminalOutputOfOperations)
                             .padding(.leading)
                         }
-                        
+
                         Toggle(isOn: $automaticallyAcceptEULA)
                         {
                             Text("settings.install-uninstall.installation.automatically-accept-eulas")

@@ -111,7 +111,9 @@ func shell(
     
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
-    task.arguments = arguments
+    
+    /// Filter out empty things from the arguments so they don't fuck it up
+    task.arguments = arguments.filter({ $0 != "" })
     
     let pipe: Pipe = .init()
     task.standardOutput = pipe
@@ -234,7 +236,9 @@ func shell(
 
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
-    task.arguments = arguments
+    
+    /// Filter out empty things from the arguments so they don't fuck it up
+    task.arguments = arguments.filter({ $0 != "" })
 
     let pipe: Pipe = .init()
     task.standardOutput = pipe

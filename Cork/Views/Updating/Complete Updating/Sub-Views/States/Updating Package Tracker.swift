@@ -10,6 +10,8 @@ import CorkShared
 
 struct UpdatingPackageTrackerStateView: View
 {
+    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
@@ -25,7 +27,7 @@ struct UpdatingPackageTrackerStateView: View
                 do
                 {
                     try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-
+                    
                     updateProgressTracker.updateProgress = 10
 
                     if updateProgressTracker.errors.isEmpty

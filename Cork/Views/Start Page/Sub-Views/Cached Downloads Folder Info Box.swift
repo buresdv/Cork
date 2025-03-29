@@ -59,7 +59,7 @@ struct CachedDownloadsFolderInfoBox: View
                             if cachedPackage.packageName != cachedDownloadsTracker.cachedDownloads.last?.packageName
                             {
                                 BarMark(
-                                    x: .value("start-page.cached-downloads.graph.size", cachedDownloadsTracker.cachedDownloadsSize / 500)
+                                    x: .value("start-page.cached-downloads.graph.size", cachedDownloadsTracker.cachedDownloadsSize / 350)
                                 )
                                 .foregroundStyle(Color.white)
                             }
@@ -84,7 +84,7 @@ struct CachedDownloadsFolderInfoBox: View
             }
         }
     }
-
+    
     @ViewBuilder
     func chartLegendItem(item: CachedDownloadType) -> some View
     {
