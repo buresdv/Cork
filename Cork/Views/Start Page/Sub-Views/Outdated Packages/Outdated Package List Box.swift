@@ -9,6 +9,18 @@ import SwiftUI
 
 struct OutdatedPackageListBox: View
 {
+    enum OutdatedPackageListBoxViewType
+    {
+        /// Only packages that are managed by Homerbew are outdated
+        case managedOnly
+        
+        /// Both packages that are managed by Homebrew, and those that are not (available only through the `--greedy` flag) are available
+        case bothManagedAndUnmanaged
+        
+        /// Only unmanaged packages (available only through the `--greedy` flag) are availabe
+        case unmanagedOnly
+    }
+    
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
 
@@ -34,6 +46,22 @@ struct OutdatedPackageListBox: View
         return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
     }
 
+    private var outdatedPackageListBoxType: OutdatedPackageListBoxViewType
+    {
+        if !packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
+        { /// Managed packages are not empty, unmanaged packages are not empty
+            return .bothManagedAndUnmanaged
+        }
+        else if packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
+        { /// Managed packages are empty, unmanaged packages are not empty
+            return .unmanagedOnly
+        }
+        else
+        {
+            return .managedOnly
+        }
+    }
+    
     var body: some View
     {
         Grid
@@ -48,8 +76,18 @@ struct OutdatedPackageListBox: View
                         {
                             HStack(alignment: .firstTextBaseline)
                             {
-                                Text("start-page.updates.count-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
-                                    .font(.headline)
+                                Group
+                                {
+                                    if packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
+                                    { /// If the only outdated packages are those that update themselves, show a special message
+                                        Text("start-page.updates.only-unmanaged.count-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                                    }
+                                    else
+                                    { /// Otherwise, show the standard message
+                                        Text("start-page.updates.count-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                                    }
+                                }
+                                .font(.headline)
 
                                 Spacer()
 
@@ -80,24 +118,42 @@ struct OutdatedPackageListBox: View
 
                             DisclosureGroup(isExpanded: $isDropdownExpanded)
                             {
-                                outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
-
-                                if !packagesThatUpdateThemselves.isEmpty
+                                switch outdatedPackageListBoxType
                                 {
-                                    DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded)
+                                case .managedOnly:
+                                    outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
+                                case .unmanagedOnly:
+                                    outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
+                                case .bothManagedAndUnmanaged:
+                                    outdatedPackageListComplex(packagesToShow: packagesManagedByHomebrew)
+                                    
+                                    if !packagesThatUpdateThemselves.isEmpty
                                     {
-                                        outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
-                                    } label: {
-                                        Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
-                                            .font(.subheadline)
+                                        DisclosureGroup(isExpanded: $isSelfUpdatingSectionExpanded)
+                                        {
+                                            outdatedPackageListComplex(packagesToShow: packagesThatUpdateThemselves)
+                                        } label: {
+                                            Text("start-page.updates.self-updating.\(packagesThatUpdateThemselves.count).list")
+                                                .font(.subheadline)
+                                        }
                                     }
                                 }
 
                             } label: {
-                                Text("start-page.updates.list")
-                                    .font(.subheadline)
+                                Group
+                                {
+                                    if outdatedPackageListBoxType == .unmanagedOnly
+                                    {
+                                        Text("start-page.updates.unmanaged-only.list")
+                                    }
+                                    else
+                                    {
+                                        Text("start-page.updates.list")
+                                    }
+                                }
+                                .font(.subheadline)
                             }
-                            .disclosureGroupStyle(NoPadding())
+                            
                         }
                     }
                 }
@@ -110,13 +166,22 @@ struct OutdatedPackageListBox: View
     @ViewBuilder
     func outdatedPackageListComplex(packagesToShow: Set<OutdatedPackage>) -> some View
     {
-        if outdatedPackageInfoDisplayAmount != .all
+        if packagesToShow.isEmpty
         {
-            outdatedPackageOverview_list(packagesToShow: packagesToShow)
+            Text("update-packages.no-managed-updates")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
         }
         else
         {
-            outdatedPackageOverview_table(packagesToShow: packagesToShow)
+            if outdatedPackageInfoDisplayAmount != .all
+            {
+                outdatedPackageOverview_list(packagesToShow: packagesToShow)
+            }
+            else
+            {
+                outdatedPackageOverview_table(packagesToShow: packagesToShow)
+            }
         }
     }
 
@@ -268,13 +333,11 @@ struct OutdatedPackageListBox: View
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
                     Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
-                        .foregroundColor(.orange)
                 }
 
                 TableColumn("start-page.updates.newest-version")
                 { outdatedPackage in
                     Text(outdatedPackage.newerVersion)
-                        .foregroundColor(.blue)
                 }
 
                 TableColumn("package-details.type")
@@ -292,6 +355,7 @@ struct OutdatedPackageListBox: View
                         }
                 }
             }
+            .tableStyle(.bordered)
 
             HStack(alignment: .center)
             {
@@ -347,19 +411,21 @@ private struct OutdatedPackageListBoxRow: View
 
             HStack(alignment: .center)
             {
+                let installedVersions: String = outdatedPackage.installedVersions.formatted(.list(type: .and))
+                let newerVersion: String = outdatedPackage.newerVersion
+                
+                let pillForegroundColor: NSColor = .secondaryLabelColor
+                let pillBackgroundColor: NSColor = .quinaryLabel
+                
                 if showOldVersionsInOutdatedPackageList
                 {
-                    OutlinedPill(content: {
-                        Text(outdatedPackage.installedVersions.formatted(.list(type: .and)))
-                    }, color: .orange)
-
-                    Text("→")
-                        .foregroundColor(.secondary)
+                    
+                    PillText(text: "\(installedVersions) → \(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
                 }
-
-                OutlinedPill(content: {
-                    Text(outdatedPackage.newerVersion)
-                }, color: .blue)
+                else
+                {
+                    PillText(text: "\(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
+                }
             }
         }
     }

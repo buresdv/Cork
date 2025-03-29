@@ -88,6 +88,7 @@
       }
     },
     "→" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -48840,6 +48841,28 @@
         }
       }
     },
+    "start-page.updates.only-unmanaged.count-%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld unmanaged outdated package"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld unmanaged outdated packages"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "start-page.updates.self-updating.%lld.list" : {
       "localizations" : {
         "en" : {
@@ -48858,6 +48881,16 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "start-page.updates.unmanaged-only.list" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unmanaged outdated packages"
           }
         }
       }
@@ -51260,6 +51293,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新 %@⋯"
+          }
+        }
+      }
+    },
+    "update-packages.no-managed-updates" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All packages managed by Homebrew are up to date"
           }
         }
       }
