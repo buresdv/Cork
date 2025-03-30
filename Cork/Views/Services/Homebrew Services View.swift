@@ -37,8 +37,6 @@ struct HomebrewServicesView: View
                 ServicesStartPage()
             }
         }
-        .environmentObject(servicesTracker)
-        .environmentObject(servicesState)
         .navigationTitle("services.title")
         .navigationSubtitle(servicesState.isLoadingServices ? "service-status-page.loading" : "services.count.\(servicesTracker.services.count)")
         .toolbar
@@ -108,6 +106,8 @@ struct HomebrewServicesView: View
         } message: {
             Text("state.update-homebrew.terminal.message")
         }
+        .environmentObject(servicesTracker)
+        .environmentObject(servicesState)
     }
 
     @ViewBuilder

@@ -88,6 +88,12 @@ extension ServicesTracker
                 throw HomebrewServiceLoadingError.otherError("There was a failure encoding Services data")
             }
 
+            /// Without this guard, the decoding throws, even if there was no error, just because the data is empty
+            guard !decodableData.isEmpty else
+            {
+                return
+            }
+            
             let rawDecodedServicesData: [ServiceCommandOutput] = try decoder.decode([ServiceCommandOutput].self, from: decodableData)
 
             var finalServices: Set<HomebrewService> = .init()
