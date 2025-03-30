@@ -45800,6 +45800,12 @@
     },
     "settings.install-uninstall.include-greedy-packages.toggle" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit balíčky nespravované přes Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -53481,6 +53487,36 @@
     },
     "start-page.updates.only-unmanaged.count-%lld" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld zastaralé balíčky, které nejsou spravovány přes Homebrew"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld zastaralých balíčků, které nejsou spravovány přes Homebrew"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jeden balíček nespravovaný přes Homebrew je zastaralý"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld zastaralých balíčků, které nejsou spravovány přes Homebrew"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -53533,6 +53569,36 @@
     },
     "start-page.updates.self-updating.%lld.list" : {
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld další zastaralé balíčky, které nejsou spravovány přes Homebrew"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld dalších zastaralých balíčků, které nejsou spravovány přes Homebrew"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jeden další balíček nespravovaný přes Homebrew je zastaralý"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Máte %lld dalších zastaralých balíčků, které nejsou spravovány přes Homebrew"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -53585,6 +53651,12 @@
     },
     "start-page.updates.unmanaged-only.list" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nespravované zastaralé balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56207,6 +56279,12 @@
     },
     "update-packages.no-managed-updates" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny balíčky spravované přes Homebrew jsou aktualizované"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
