@@ -1812,6 +1812,12 @@
             "state" : "translated",
             "value" : "Mike Simons"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
         }
       }
     },
@@ -1857,6 +1863,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Створено конфігурацію Tuist для компіляції саморозміщуваних версій"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建了用于自行编译版本的 Tuist 配置"
           }
         }
       }
@@ -15465,8 +15477,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "无法解析 Homebrew 的响应"
+            "state" : "translated",
+            "value" : "Homebrew 没有返回有效数据"
           }
         },
         "zh-Hant" : {
@@ -16578,8 +16590,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "无法解析热门软件包"
+            "state" : "translated",
+            "value" : "Homebrew 没有返回有效数据"
           }
         },
         "zh-Hant" : {
@@ -19361,6 +19373,12 @@
             "state" : "translated",
             "value" : "Не вдалося перетворити наданий String у Data з помилкою: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法将提供的字符串转换为数据，出错: %@"
+          }
         }
       }
     },
@@ -19406,6 +19424,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося декодувати надані дані за допомогою вбудованого декодера JSON: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法使用内置 JSON 解码器解码所提供的数据: %@"
           }
         }
       }
@@ -19453,6 +19477,12 @@
             "state" : "translated",
             "value" : "Не вдалося зашифрувати авторизаційний комплекс для отримання ліцензії"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用于许可检索的授权无法被编码"
+          }
         }
       }
     },
@@ -19498,6 +19528,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося підключитися до Інтернету. Перевірку ліцензії завершити не вдасться "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法连接互联网。无法完成许可校对"
           }
         }
       }
@@ -19545,6 +19581,12 @@
             "state" : "translated",
             "value" : "Під час отримання статусу ліцензії виникла нереалізована помилка: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "获取许可证状态时发生未实现的错误: %@"
+          }
         }
       }
     },
@@ -19590,6 +19632,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перевірка статусу ліцензії, термін дії якої закінчився"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "检查许可证状态超时"
           }
         }
       }
@@ -19637,6 +19685,12 @@
             "state" : "translated",
             "value" : "Не вдалося очистити кеш"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缓存清除失败"
+          }
         }
       }
     },
@@ -19683,6 +19737,12 @@
             "state" : "translated",
             "value" : "Стандартна помилка не порожня"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "标准报错不为空"
+          }
         }
       }
     },
@@ -19728,6 +19788,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не вдалося отримати інформацію про кількість зайвих пакетів, які було деінстальовано в результаті цієї операції"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法获得因该操作而卸载的孤立包数量"
           }
         }
       }
@@ -19810,6 +19876,12 @@
             "state" : "translated",
             "value" : "Не вдалося видалити зайві пакети: %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法卸载孤立包: %@"
+          }
         }
       }
     },
@@ -19855,6 +19927,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неочікуваний вивід терміналу функції деінсталяції зайвих пакетів"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "卸载孤立包功能出现意外终端输出"
           }
         }
       }
@@ -20435,7 +20513,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         }
@@ -36151,6 +36229,12 @@
             "state" : "translated",
             "value" : "Переглянути"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "预览"
+          }
         }
       }
     },
@@ -43045,6 +43129,12 @@
             "state" : "translated",
             "value" : "Увімкнути додаткові анімації"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用额外动画"
+          }
         }
       }
     },
@@ -45721,6 +45811,12 @@
             "state" : "translated",
             "value" : "Show packages not managed by Homebrew"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示非 Homebrew 管理的软件包"
+          }
         }
       }
     },
@@ -45839,6 +45935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Автоматично приймати ліцензійні угоди пакету"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自动接受软件包最终用户许可协议"
           }
         }
       }
@@ -51767,6 +51869,12 @@
             "state" : "translated",
             "value" : "Не вдалося перевірити застарілі пакети"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法检查有可用更新软件包"
+          }
         }
       }
     },
@@ -53408,6 +53516,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "存在 %lld 个未受管理的有可用更新的软件包"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -53448,6 +53568,18 @@
               }
             }
           }
+        },
+        "zh-Hans" : {
+          "variations" : {
+            "plural" : {
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld 个未受 Homebrew 管理的软件包"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -53463,6 +53595,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unmanaged outdated packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有可用更新的不受管理软件包"
           }
         }
       }
@@ -56079,6 +56217,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All packages managed by Homebrew are up to date"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有受 Homebrew 管理的软件包均为最新版本"
           }
         }
       }
