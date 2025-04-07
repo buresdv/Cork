@@ -15,7 +15,7 @@ struct CorkShortcuts: AppShortcutsProvider
         AppShortcut(
             intent: GetInstalledPackagesIntent(),
             phrases: [
-                "Show me my installed Homebrew packages"
+                "Show me my installed Homebrew packages in ${applicationName}"
             ]
         )
     }
