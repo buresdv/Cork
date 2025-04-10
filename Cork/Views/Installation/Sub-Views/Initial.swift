@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct InstallationInitialView: View
 {
