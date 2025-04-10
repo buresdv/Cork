@@ -150,7 +150,7 @@ struct AboutView: View
                         .font(.caption)
                 }
 
-                Text("about.copyright")
+                Text("about.copyright-\(String(Calendar.current.component(.year, from: .now)))")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
 
