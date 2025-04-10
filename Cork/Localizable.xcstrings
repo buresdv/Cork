@@ -44811,6 +44811,7 @@
       }
     },
     "settings.general.sort-packages.alphabetically" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -44893,6 +44894,7 @@
       }
     },
     "settings.general.sort-packages.install-date" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -44975,6 +44977,7 @@
       }
     },
     "settings.general.sort-packages.size" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

@@ -8,7 +8,22 @@
 import Foundation
 import Defaults
 
-public enum PackageSortingOptions: String, Codable, CaseIterable, Defaults.Serializable
+public enum PackageSortingOptions: Codable, CaseIterable, Identifiable, Defaults.Serializable
 {
     case alphabetically, byInstallDate, bySize
+    
+    public var id: Self { self }
+
+    public var description: LocalizedStringResource
+    {
+        switch self
+        {
+        case .alphabetically:
+            return "settings.general.sort-packages.alphabetically"
+        case .byInstallDate:
+            return "settings.general.sort-packages.install-date"
+        case .bySize:
+            return "settings.general.sort-packages.size"
+        }
+    }
 }
