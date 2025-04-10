@@ -147,6 +147,8 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 > If you don't know which shell you're running, use the command `echo $SHELL`. The last part of the output after the last slash is the name of your shell
 > In my case, the output of the command is `/bin/zsh`. This means my shell is `zsh`
 
+4. Restart your shell. Sometimes, restarting the terminal is required.
+
 #### Installing Tuist
 
 1. Install Tuist using `mise install tuist`
@@ -154,11 +156,22 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 #### Compiling Cork
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise use tuist@4.25.0 && tuist install && tuist generate --no-binary-cache`. Xcode will open the project.
+1. Execute the following commands one after the other:
+- `git clone https://github.com/buresdv/Cork.git`
+- `cd Cork`
+- `mise use tuist@latest`
 
+  > At this point, if you try to use tuist (e.g. `which tuist`), the shell should be able to find it. If not, go back to the Mise installation steps or restart your terminal. Continue only if tuist is recognized as a command.
+
+- `tuist install`
+- `tuist generate --no-binary-cache`
+
+  > At this point, Xcode will try to open the project.
+
+<br>
 <div style= "margin-left: 1rem">
   <details>
-    <summary>What does this command do?</summary>
+    <summary>What do these commands do?</summary>
     <br>
     <ol>
       <li><code>git clone https://github.com/buresdv/Cork.git</code> downloads the source code</li>
@@ -169,6 +182,7 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
     </ol>
   </details>
 </div>
+<br>
 
 2. Wait until all the dependencies are resolved. It should take a couple minutes at most
 3. In the file browser on the left, click `Cork` at the very top. It's the icon with the App Store logo
