@@ -8,6 +8,7 @@
 import CorkNotifications
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct InstallationFinishedSuccessfullyView: View
 {

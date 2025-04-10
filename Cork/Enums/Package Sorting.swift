@@ -7,7 +7,4 @@
 
 import Foundation
 
-enum PackageSortingOptions: String, Codable, CaseIterable
-{
-    case alphabetically, byInstallDate, bySize
-}
+

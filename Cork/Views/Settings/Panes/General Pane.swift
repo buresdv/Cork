@@ -39,14 +39,11 @@ struct GeneralPane: View
         {
             Form
             {
-                Picker(selection: $sortPackagesBy)
-                {
-                    Text("settings.general.sort-packages.alphabetically")
-                        .tag(PackageSortingOptions.alphabetically)
-                    Text("settings.general.sort-packages.install-date")
-                        .tag(PackageSortingOptions.byInstallDate)
-                    Text("settings.general.sort-packages.size")
-                        .tag(PackageSortingOptions.bySize)
+                Picker(selection: $sortPackagesBy) {
+                    ForEach(PackageSortingOptions.allCases)
+                    { packageSortingOption in
+                        Text(packageSortingOption.description)
+                    }
                 } label: {
                     Text("settings.general.sort-packages")
                 }
