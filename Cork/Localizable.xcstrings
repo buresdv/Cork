@@ -67,6 +67,12 @@
             "value" : "%@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -115,6 +121,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "→"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "→"
@@ -261,6 +273,12 @@
             "value" : "À propos"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informazioni"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -329,6 +347,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contactez-moi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contattami"
           }
         },
         "ko" : {
@@ -413,6 +437,12 @@
             "value" : "Contribuer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contribuisci"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -490,6 +520,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub"
@@ -577,6 +613,12 @@
             "value" : "Mastodon"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mastodon"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -657,6 +699,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Site internet"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sito web"
           }
         },
         "ko" : {
@@ -741,6 +789,12 @@
             "value" : "Contributeurs"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contributori Riconosciuti"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -818,6 +872,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rob Napier"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rob Napier"
@@ -905,6 +965,12 @@
             "value" : "A apporté une aide précieuse pour toutes sortes de problèmes, de l'asynchrone Swift au blocage des installations de paquets."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha fornito un aiuto inestimabile con tutti i tipi di problemi, dall’async di Swift al blocco delle installazioni dei pacchetti"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -982,6 +1048,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Łukasz Rutkowski"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Łukasz Rutkowski"
@@ -1069,6 +1141,12 @@
             "value" : "A corrigé de nombreux problèmes liés à l'asynchronisme et à SwiftUI"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha risolto molti problemi di async e di SwiftUI"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1146,6 +1224,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jierong Li"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jierong Li"
@@ -1233,6 +1317,12 @@
             "value" : "A corrigé le problème de mise à jour des paquets sur la page de démarrage"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha risolto i problemi di aggiornamento del conto dei pacchetti all’avvio"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1310,6 +1400,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscar Bazaldua"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Oscar Bazaldua"
@@ -1397,6 +1493,12 @@
             "value" : "A fait la première pull request approuvée ; a corrigé les mise a jour des paquets, en collaboration avec Jierong Li."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha creato la prima pull request approvata; risolto il conto dei pacchetti, insieme a Jierong Li"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1474,6 +1576,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andrey Radchishin"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Andrey Radchishin"
@@ -1561,6 +1669,12 @@
             "value" : "A ajouté un moyen de revenir à la page de statut de Homebrew"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha aggiunto un modo di tornare indietro alla pagina Stato Homebrew"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1638,6 +1752,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christian Tietze"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Christian Tietze"
@@ -1725,6 +1845,12 @@
             "value" : "A proposé de nombreuses optimisations de logique avancées et a continuellement offert un précieux soutien en Swift"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha ideato numerose ottimizzazioni logiche avanzate, oltre a offrire costantemente un prezioso supporto con Swift"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1789,6 +1915,12 @@
             "value" : "Mike Simons"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1839,6 +1971,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Created the Tuist configuration for compiling self-hosted versions"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creata la configurazione di Tuist per compilare le versioni self-hosted"
           }
         },
         "pt-PT" : {
@@ -1909,6 +2047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "© 2023 David Bureš et ses contributeurs."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "© 2023 David Bureš e contributori."
           }
         },
         "ko" : {
@@ -1993,6 +2137,12 @@
             "value" : "Paquets utilisés"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pacchetti Usati"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2070,6 +2220,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DavidFoundation"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "DavidFoundation"
@@ -2157,6 +2313,12 @@
             "value" : "Mon propre paquet qui offre quelques fonctionnalités de base."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il mio pacchetto che fornisce alcune funzionalità di base utili"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2234,6 +2396,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LaunchAtLogin"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "LaunchAtLogin"
@@ -2321,6 +2489,12 @@
             "value" : "Un package qui permet à Cork de démarrer lorsque vous vous connectez"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un pacchetto che permette di avviare Cork all’accesso"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2401,6 +2575,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "[Politique de confidentialité](https://corkmac.app/privacy-fr.html)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
           }
         },
         "ko" : {
@@ -2485,6 +2665,12 @@
             "value" : "Remerciements spéciaux"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ringraziamenti Speciali"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2562,6 +2748,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seb Jachec"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seb Jachec"
@@ -2649,6 +2841,12 @@
             "value" : "Implémentation d'une fonction pour obtenir les sorties en temps réel des commandes, rendant plus de la moitié de toutes les fonctionnalités de Cork beaucoup plus rapides."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha implementato una funzione per ottenere output in tempo reale dei comandi, rendendo più della metà di tutte le funzionalità di Cork molto più veloci"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2731,6 +2929,12 @@
             "value" : "A mis en place un moyen de ne pas demander de licence pour les utilisateurs qui ont compilé Cork eux-mêmes."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha implementato il modo di saltare la licenza per gli utenti che hanno compilato Cork da soli"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2796,6 +3000,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimitri Bouniol"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dimitri Bouniol"
@@ -2871,6 +3081,12 @@
             "value" : "Ben Carlsson"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ben Carlsson"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2941,6 +3157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À propos de Cork"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informazioni su Cork"
           }
         },
         "ko" : {
@@ -3020,6 +3242,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jerry Zhang"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jerry Zhang"
@@ -3107,6 +3335,12 @@
             "value" : "Traduction de Cork en Chinois Simplifié"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha tradotto Cork in Cinese Semplificato"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3184,6 +3418,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sh95014"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "sh95014"
@@ -3271,6 +3511,12 @@
             "value" : "Traduction de Cork en Chinois Traditionnel"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha tradotto Cork in Cinese Tradizionale"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3348,6 +3594,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maurice Meysel"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maurice Meysel"
@@ -3435,6 +3687,12 @@
             "value" : "Traduction de Cork en Allemand"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha tradotto Cork in Tedesco"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3512,6 +3770,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bryan Ledda"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bryan Ledda"
@@ -3599,6 +3863,12 @@
             "value" : "Traduction de Cork en Français"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha tradotto Cork in Francese"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3677,6 +3947,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nikita Utkin"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nikita Utkin"
@@ -3765,6 +4041,12 @@
             "value" : "Traduction de Cork en Russe"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha tradotto Cork in Russo"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3843,6 +4125,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Igor Petruchek"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Igor Petruchek"
@@ -3931,6 +4219,12 @@
             "value" : "Traduction de Cork en Ukrainien"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha tradotto Cork in Ucraino"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4011,6 +4305,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Traductions"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traduttori"
           }
         },
         "ko" : {
@@ -4095,6 +4395,12 @@
             "value" : "Version %@ (%@)"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versione %@ (%@)"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4175,6 +4481,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayer la démonstration"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova la Demo"
           }
         },
         "ko" : {
@@ -4259,6 +4571,12 @@
             "value" : "Acheter Cork"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acquista Cork"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4339,6 +4657,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annuler"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annula"
           }
         },
         "ko" : {
@@ -4423,6 +4747,12 @@
             "value" : "Activer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attiva"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4503,6 +4833,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Effacer les métadonnées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancella metadati"
           }
         },
         "ko" : {
@@ -4587,6 +4923,12 @@
             "value" : "Fermer"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4667,6 +5009,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Copier"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia"
           }
         },
         "ko" : {
@@ -4751,6 +5099,12 @@
             "value" : "Copier dans le presse-papiers"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia negli Appunti"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4833,6 +5187,12 @@
             "value" : "Terminé"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fatto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4901,6 +5261,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Finir dans Terminal"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finisci nel Terminale"
           }
         },
         "pt-PT" : {
@@ -4972,6 +5338,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Page de statut"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagina dello Stato"
           }
         },
         "ko" : {
@@ -5056,6 +5428,12 @@
             "value" : "Allez à la page de statut"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vai alla Pagina dello Staro"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5138,6 +5516,12 @@
             "value" : "Cacher"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nascondi"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5202,6 +5586,12 @@
             "value" : "Inspect error…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ispeziona errore…"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5264,6 +5654,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir le Terminal"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apri Terminale"
           }
         },
         "ko" : {
@@ -5348,6 +5744,12 @@
             "value" : "Purger %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina %@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5430,6 +5832,12 @@
             "value" : "Êtes-vous sûr de vouloir purger %@ ?"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei sicuro di voler eliminare %@?"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5506,6 +5914,12 @@
             "value" : "Quitter Cork"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esci da Cork"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5570,6 +5984,12 @@
             "value" : "Reinstall Homebrew"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstalla Homebrew"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5616,6 +6036,12 @@
             "value" : "Reinstall"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstalla"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5660,6 +6086,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reload Services"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricarica Servizi"
           }
         },
         "pt-PT" : {
@@ -5730,6 +6162,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réparer %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripara %@"
           }
         },
         "ko" : {
@@ -5815,6 +6253,12 @@
             "value" : "Réparer Homebrew"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripara Homebrew"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5898,6 +6342,12 @@
             "value" : "Envoyer un Email…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invia un’Email…"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5978,6 +6428,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Signalez sur GitHub…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segnala su GitHub…"
           }
         },
         "ko" : {
@@ -6063,6 +6519,12 @@
             "value" : "Signalez un problème"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segnala Bug"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6143,6 +6605,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réinitialiser l'exécutable à l'emplacement par défaut"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripristina eseguibile alla posizione predefinita"
           }
         },
         "ko" : {
@@ -6227,6 +6695,12 @@
             "value" : "Redémarrer Cork"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riavvia Cork"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6297,6 +6771,12 @@
             "value" : "Révéler Applications dans le Finder"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rivela Applicazioni in Finder"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6353,6 +6833,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Révéler %@ dans Finder"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rivela %@ in Finder"
           }
         },
         "pt-PT" : {
@@ -6423,6 +6909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher dans le Finder"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rivela in Finder"
           }
         },
         "ko" : {
@@ -6507,6 +6999,12 @@
             "value" : "Afficher"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6569,6 +7067,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show Terminal output"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra output del Terminale"
           }
         },
         "pt-PT" : {
@@ -6640,6 +7144,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Envoyer un retour"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invia Feedback"
           }
         },
         "ko" : {
@@ -6724,6 +7234,12 @@
             "value" : "Désinstaller %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disinstalla %@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6806,6 +7322,12 @@
             "value" : "Êtes-vous sûr de vouloir désinstaller %@ ?"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei sicuro di voler disinstallare %@?"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6864,6 +7386,12 @@
             "value" : "Update Homebrew and all packages"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiorna Homebrew e tutti i pacchetti"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6914,6 +7442,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Homebrew through Terminal"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiorna Homebrew tramite il Terminale"
           }
         },
         "pt-PT" : {
@@ -6984,6 +7518,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Utilisez Cork sans notifications"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa Cork senza notifiche"
           }
         },
         "ko" : {
@@ -7068,6 +7608,12 @@
             "value" : "Cette action ne pourra pas être annulée"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa azione non può essere annullata"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7124,6 +7670,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Report on the forums…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segnala nei forum…"
           }
         },
         "pt-PT" : {
@@ -7194,6 +7746,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Arrêt"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ferma"
           }
         },
         "ko" : {
@@ -7278,6 +7836,12 @@
             "value" : "Le chargement des paquets les plus importants a été interrompu"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il caricamento dei pacchetti più importanti è stato interrotto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7352,6 +7916,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur s'est produite lors de l'installation de %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C’è stato un errore nell’installazione di %@"
           }
         },
         "ko" : {
@@ -7434,6 +8004,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayez d'installer le package à nouveau, ou redémarrez Cork.\nSi le problème persiste, redémarrez votre Mac"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova a reinstallare il pacchetto, o a riavviare Cork\nSe il problema persiste, riavvia il tuo Mac"
           }
         },
         "ko" : {
@@ -7519,6 +8095,12 @@
             "value" : "Une erreur s'est produite lors du processus d'installation"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C’è stato un errore durante il processo di installazione"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7599,6 +8181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquet installé avec succès"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pacchetti installati correttamente"
           }
         },
         "ko" : {
@@ -7683,6 +8271,12 @@
             "value" : "Il n'y a eu aucune erreur"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non c’è stato nessun errore"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7763,6 +8357,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installa"
           }
         },
         "ko" : {
@@ -7847,6 +8447,12 @@
             "value" : "Vous pouvez soit attendre que ce processus se termine, soit le forcer à s'arrêter.\nForcer son arrêt peut entraîner la suppression de votre installation Homebrew."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puoi aspettare che il processo finisca o chiuderlo subito\nLa chiusura forzata potrebbe portare al malfunzionamento della tua installazione di Homebrew"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7929,6 +8535,12 @@
             "value" : "Un autre processus Homebrew est déjà en cours d'exécution"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un altro processo di Homebrew è già in esecuzione"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7999,6 +8611,12 @@
             "value" : "%@ a été installé en dehors de Homebrew"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ è stato installato fuori da Homebrew"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8055,6 +8673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce Cask est déjà présent dans le dossier Applications\nDésinstallez-le, puis réessayez"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo Cask è già presente nella cartella Applicazioni\nDisinstallalo, poi riprova"
           }
         },
         "pt-PT" : {
@@ -8125,6 +8749,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Téléchargement %@…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scarico %@…"
           }
         },
         "ko" : {
@@ -8209,6 +8839,12 @@
             "value" : "Récuperation des dépendances…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recupero le dipendenze…"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8289,6 +8925,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terminé"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fatto"
           }
         },
         "ko" : {
@@ -8373,6 +9015,12 @@
             "value" : "Masquer les détails"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nascondi dettagli"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8437,6 +9085,12 @@
             "value" : "Homebrew did not provide any output"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew non ha fornito nessun output"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8481,6 +9135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew ha terminato l’installazione di questo pacchetto prima che potesse iniziare correttamente\nControlla sotto per vedere l’output del comando di installazione"
           }
         },
         "pt-PT" : {
@@ -8533,6 +9193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package installation terminated unexpectedly"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’installazione del pacchetto è terminata inaspettatamente"
           }
         },
         "pt-PT" : {
@@ -8603,6 +9269,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installation %@…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installo %@…"
           }
         },
         "ko" : {
@@ -8687,6 +9359,12 @@
             "value" : "Installation de dépendance %lld/%lld"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installo Dipendenze %lld/%lld"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8767,6 +9445,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installation du paquet…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installo Pacchetto…"
           }
         },
         "ko" : {
@@ -8851,6 +9535,12 @@
             "value" : "Liaisons des binaires…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Associo gli Eseguibili…"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8931,6 +9621,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des dépendances…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carico Dipendenze…"
           }
         },
         "ko" : {
@@ -9015,6 +9711,12 @@
             "value" : "Déplacement de %@ dans le répertoire des applications…"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sposto %@ nella cartella Applicazioni…"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9095,6 +9797,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Construction du graphe des dépendances…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creazione del grafico delle dipendenze…"
           }
         },
         "ko" : {
@@ -9179,6 +9887,12 @@
             "value" : "Des permissions élevées sont nécessaires pour installer %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per installare %@ sono necessari permessi elevati"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9261,6 +9975,12 @@
             "value" : "Vous devrez installer ce package via le Terminal.\nUtilisez la commande ci-dessous."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dovrai installare questo pacchetto tramite il Terminale.\nUsa il comando seguente"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9341,6 +10061,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher les détails"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra dettagli"
           }
         },
         "ko" : {
@@ -9426,6 +10152,12 @@
             "value" : "%1$@ ne supporte pas les processeurs %2$@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ non supporta i chip %2$@"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9500,6 +10232,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce paquet n'est pas compatible avec votre processeur"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo pacchetto non supporta il tuo chip"
           }
         },
         "ko" : {
@@ -9577,6 +10315,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veuillez vérifier votre accès à Internet"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connessione di rete insufficiente"
           }
         },
         "ko" : {
@@ -9662,6 +10406,12 @@
             "value" : "Votre connexion internet n'est pas suffisamment stable pour garantir la réussite de l'installation"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tua connessione di rete non è abbastanza stabile da garantire un’installazione corretta"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9742,6 +10492,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déjà installé"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Già installato"
           }
         },
         "ko" : {
@@ -9827,6 +10583,12 @@
             "value" : "Aucune description fournie"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna descrizione fornita"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9907,6 +10669,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement de la description…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carico descrizione…"
           }
         },
         "ko" : {
@@ -9992,6 +10760,12 @@
             "value" : "Impossible de charger la description"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile caricare la descrizione"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10073,6 +10847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Non optimisé pour %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non ottimizzato per %@"
           }
         },
         "ko" : {
@@ -10157,6 +10937,12 @@
             "value" : "Rechercher"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10237,6 +11023,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechercher un package…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca pacchetti…"
           }
         },
         "ko" : {
@@ -10321,6 +11113,12 @@
             "value" : "Cask trouvés"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask trovati"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10403,6 +11201,12 @@
             "value" : "Formules trouvées"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae trovate"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10483,6 +11287,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recherche pour %@…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerco %@…"
           }
         },
         "ko" : {
@@ -10568,6 +11378,12 @@
             "value" : "Installer un paquet"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installa pacchetti"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10650,6 +11466,12 @@
             "value" : "Casks populaires"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask migliori"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10730,6 +11552,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Formules populaires"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formulae migliori"
           }
         },
         "ko" : {
@@ -11071,6 +11899,12 @@
             "value" : "Des autorisations élevées sont requises pour désinstaller %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’installazione di %@ richiede permessi elevati"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11151,6 +11985,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous devrez désinstaller ce package via le Terminal.\nUtilisez la commande ci-dessous."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dovrai installare questo pacchetto tramite il Terminale.\nUsa il comando seguente."
           }
         },
         "ko" : {
@@ -11236,6 +12076,12 @@
             "value" : "Ajouter un tap"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi Tap"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11316,6 +12162,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajouter"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi"
           }
         },
         "ko" : {
@@ -11400,6 +12252,12 @@
             "value" : "Ajouté avec succès de %@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ aggiunto correttamente"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11480,6 +12338,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il n'y a eu aucune erreur"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non ci sono stati errori"
           }
         },
         "ko" : {
@@ -11564,6 +12428,12 @@
             "value" : "Essayez à nouveau"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riprova"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11644,6 +12514,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une erreur s'est produite lors de l'ajout de %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C’è stato un errore durante l’aggiunta di %@"
           }
         },
         "ko" : {
@@ -11728,6 +12604,12 @@
             "value" : "Essayez de l'ajouter à nouveau dans quelques minutes"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova a raggiungerlo fra qualche minuto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11808,6 +12690,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ n'existe pas"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ non esiste"
           }
         },
         "ko" : {
@@ -11892,6 +12780,12 @@
             "value" : "Vérifiez que vous avez correctement saisi le nom"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assicurati di aver scritto il nome correttamente"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11972,6 +12866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adresse du tap :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indirizzo Tap:"
           }
         },
         "ko" : {
@@ -12056,6 +12956,12 @@
             "value" : "Utiliser une adresse externe"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa indirizzo esterno"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12138,6 +13044,12 @@
             "value" : "Ajouter un tap à partir d'une adresse externe"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi Tap da indirizzo esterno"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12218,6 +13130,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajout de %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungendo %@"
           }
         },
         "ko" : {
@@ -12303,6 +13221,12 @@
             "value" : "Nom du tap vide"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome del Tap vuoto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12384,6 +13308,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous n'avez pas saisi de nom de tap"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai inserito nessun nome del Tap"
           }
         },
         "ko" : {
@@ -12468,6 +13398,12 @@
             "value" : "Le nom du tap doit contenir un slash"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il nome del tap richiede uno slash"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12548,6 +13484,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Les noms de tap doivent toujours contenir un slash"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I nomi dei Tap devono sempre contenere uno slash"
           }
         },
         "ko" : {
@@ -12632,6 +13574,12 @@
             "value" : "Cliquez sur \"Ouvrir le Terminal\" ci-dessous.\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Entrée) pour exécuter la commande.\nSuivez les instructions pour installer %@, puis revenez à Cork et fermez cette boîte de dialogue"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premi “Apri Terminale” qui sotto\nUsa ⌘+V per inserire il comando, poi premi ↩ (Invio) per eseguire il comando\nSegui le istruzioni per installare %@, torna a Cork e chiudi questo dialogo"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12714,6 +13662,12 @@
             "value" : "Cliquez sur \"Ouvrir le terminal\" ci-dessous\nUtilisez ⌘+V pour insérer la commande, puis appuyez sur ↩ (Retour) pour exécuter la commande\nSuivez les instructions pour désinstaller %@, retournez à Cork et fermez cette boîte de dialogue"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premi “Apri Terminale” qui sotto\nUsa ⌘+V per inserire il comando, poi premi ↩ (Invio) per eseguire il comando\nSegui le istruzioni per disinstallare %@, torna a Cork e chiudi questo dialogo"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12778,6 +13732,12 @@
             "value" : "Could not delete cache"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile eliminare la cache"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12840,6 +13800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Essayez de redémarrer Cork. Si le problème persiste, effacez les métadonnées de Cork"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova a riavviare Cork. Se il problema persiste, pulisci i metadati di Cork"
           }
         },
         "ko" : {
@@ -12924,6 +13890,12 @@
             "value" : "Impossible d'appliquer l'état tagué aux paquets"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile applicare lo stato taggato ai pacchetto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13004,6 +13976,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cork n'a pas pu trouver ce paquet dans la base de données des paquets"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cork non ha potuto trovare questo pacchetto nel database dei pacchetti"
           }
         },
         "ko" : {
@@ -13088,6 +14066,12 @@
             "value" : "Impossible de trouver le paquet dans la base de données"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile trovare il pacchetto nel database"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13168,6 +14152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Supprimez manuellement le dossier des métadonnées ou essayez de redémarrer Cork"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina la cartella metadata manualmente, o prova a riavviare Cork"
           }
         },
         "ko" : {
@@ -13252,6 +14242,12 @@
             "value" : "Impossible d'effacer les métadonnées"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile pulire i metadati"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13332,6 +14328,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Assurez-vous d'avoir donné à Cork l'autorisation d'accéder à votre dossier Documents."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assicurati di aver dato a Cork il permesso di accedere alla cartella Documenti"
           }
         },
         "ko" : {
@@ -13416,6 +14418,12 @@
             "value" : "Impossible de créer le dossier des métadonnées"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile creare la cartella Metadata"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13496,6 +14504,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de créer le fichier de métadonnées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibilev creare il file metadati"
           }
         },
         "ko" : {
@@ -13580,6 +14594,12 @@
             "value" : "Impossible d'écrire une sauvegarde Homebrew"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile scrivere il backup di Homebrew"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13662,6 +14682,12 @@
             "value" : "Impossible de trouver ce paquet"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile trovare questo pacchetto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13732,6 +14758,12 @@
             "value" : "Impossible de trouver le paquet sélectionné dans la liste des paquets disponibles"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile trovare il pacchetto selezionato tra quelli disponibili"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13800,6 +14832,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déplacez le fichier de sauvegarde vers un autre emplacement, puis réessayez"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sposta il file di backup in una posizione diversa, poi riprova"
           }
         },
         "ko" : {
@@ -13884,6 +14922,12 @@
             "value" : "Autorisations insuffisantes pour lire le fichier de sauvegarde"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permessi insufficienti per leggere il file di backup"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13966,6 +15010,12 @@
             "value" : "Impossible de créer le dossier parent de sauvegarde"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile creare la cartella padre del backup"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14030,6 +15080,12 @@
             "value" : "%@"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14074,6 +15130,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not read package info"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile leggere le informazioni del pacchetto"
           }
         },
         "ru" : {
@@ -14139,6 +15201,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il y a eu une erreur lors de l'analyse des paquets obsolètes"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C’è stato un errore nel raccogliere i pacchetti non aggiornati"
           }
         },
         "ko" : {
@@ -14224,6 +15292,12 @@
             "value" : "Impossible de récupérer les paquets obsolètes"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile reperire i pacchetti non aggiornati"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14304,6 +15378,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déplacez le fichier de sauvegarde vers un autre emplacement, puis réessayez"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sposta il file di backup in un’altra posizione, poi riprova"
           }
         },
         "ko" : {
@@ -14388,6 +15468,12 @@
             "value" : "Impossible de lire le fichier de sauvegarde"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile leggere il file di backup"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14468,6 +15554,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de lire la sauvegarde"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile leggere il backup"
           }
         },
         "ko" : {
@@ -14552,6 +15644,12 @@
             "value" : "Le paquet %@ a empêché le chargement"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il pacchetto %@ ha impedito il caricamento"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14622,6 +15720,12 @@
             "value" : "Une erreur fatale s'est produite lors de l'installation du paquet"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C’è stato un errore fatale durante l’installazione del pacchetto"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14681,6 +15785,12 @@
             "value" : "Could not uninstall package"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile installare il pacchetto"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14714,6 +15824,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not properly load installed packages"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile caricare correttamente i pacchetti installati"
           }
         },
         "pt-PT" : {
@@ -14786,6 +15902,12 @@
             "value" : "Impossible de charger les paquets (%@)"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile caricare i pacchetti (%@)"
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14854,6 +15976,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impossible de synchroniser les paquets"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è stato possibile sincronizzare i pacchetti"
           }
         },
         "ko" : {
@@ -14938,6 +16066,12 @@
             "value" : "Impossible de trouver l'exécutable Homebrew personnalisé"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile trovare l’eseguibile personalizzato di Homebrew"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15018,6 +16152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vérifiez que votre réseau fonctionne correctement, puis réessayez"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controlla che la rete funzioni correttamente, poi riprova"
           }
         },
         "ko" : {
@@ -15102,6 +16242,12 @@
             "value" : "Impossible d'établir une connexion sécurisée avec le serveur d'autorisation"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile stabilire una connessione sicura al server di autorizzazione"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15166,6 +16312,12 @@
             "value" : "Your Mac is not connected to the internet. Check your internet settings."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo Mac non è connesso a internet. Controlla le impostazioni della connessione a internet."
+          }
+        },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15216,6 +16368,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not connect to the internet"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile connettersi a internet"
           }
         },
         "pt-PT" : {
