@@ -9,6 +9,7 @@ import AppIntents
 import Charts
 import CorkShared
 import Foundation
+import SwiftUI
 
 enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable {
     case formula
@@ -21,6 +22,17 @@ enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
             return String(localized: "package-details.type.formula")
         case .cask:
             return String(localized: "package-details.type.cask")
+        }
+    }
+    
+    /// Localization keys for description of the package type
+    var localizableDescription: LocalizedStringKey
+    {
+        switch self {
+        case .formula:
+            return "package-details.type.formula"
+        case .cask:
+            return "package-details.type.cask"
         }
     }
 

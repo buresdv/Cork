@@ -7138,6 +7138,16 @@
         }
       }
     },
+    "action.search-again" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Again"
+          }
+        }
+      }
+    },
     "action.show" : {
       "localizations" : {
         "cs" : {
@@ -11340,6 +11350,16 @@
         }
       }
     },
+    "add-package.search.results.casks.none-found" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Casks found"
+          }
+        }
+      }
+    },
     "add-package.search.results.formulae" : {
       "localizations" : {
         "cs" : {
@@ -11424,6 +11444,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "尋獲 Formula"
+          }
+        }
+      }
+    },
+    "add-package.search.results.formulae.none-found" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Formulae found"
+          }
+        }
+      }
+    },
+    "add-package.search.results.packages.none-found" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No results found"
           }
         }
       }
@@ -13797,6 +13837,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩（輸入鍵）來執行指令\n遵照指示安裝 %@，回到 Cork 關閉本對話"
+          }
+        }
+      }
+    },
+    "add.package.search.results.packages.none-found.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try searching for another package"
           }
         }
       }
