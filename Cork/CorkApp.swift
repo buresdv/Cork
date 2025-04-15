@@ -412,6 +412,7 @@ struct CorkApp: App
         { $packageToPreview in
             PackagePreview(packageToPreview: packageToPreview)
                 .navigationTitle(packageToPreview?.name ?? "")
+                .environmentObject(appDelegate.appState)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
