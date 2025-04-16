@@ -14,7 +14,7 @@ enum DisplayableSheet: Identifiable, Equatable
     
     case tapAddition
     
-    case fullUpdate, partialUpdate
+    case fullUpdate, partialUpdate(packagesToUpdate: [OutdatedPackage])
     
     case corruptedPackageFix(corruptedPackage: CorruptedPackage)
     

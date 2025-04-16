@@ -25,7 +25,7 @@ struct MenuBar_PackageUpdating: View
             {
                 if let sanitizedSheetState = appState.sheetToShow
                 {
-                    if sanitizedSheetState != .fullUpdate || sanitizedSheetState != .partialUpdate
+                    if sanitizedSheetState != .fullUpdate || sanitizedSheetState != .partialUpdate(packagesToUpdate: .init())
                     {
                         Menu
                         {
