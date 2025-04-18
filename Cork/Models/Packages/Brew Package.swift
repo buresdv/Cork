@@ -57,7 +57,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     var isTagged: Bool = false
 
     let installedOn: Date?
-    let versions: [String]
+    var versions: [String]
 
     var installedIntentionally: Bool = true
 
