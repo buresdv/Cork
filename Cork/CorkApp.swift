@@ -44,6 +44,8 @@ struct CorkApp: App
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    
+    @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
     @State private var sendStandardUpdatesAvailableNotification: Bool = true
 
@@ -301,7 +303,7 @@ struct CorkApp: App
                     isPresented: $isShowingBrewfileExporter,
                     document: StringFile(initialText: brewfileContents),
                     contentType: .homebrewBackup,
-                    defaultFilename: String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: .numeric, time: .omitted))")
+                    defaultFilename: String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: defaultBackupDateFormat, time: .omitted))")
                 )
                 { result in
                     switch result

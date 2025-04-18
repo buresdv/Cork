@@ -44606,6 +44606,66 @@
         }
       }
     },
+    "settings.general.backup-date-format" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backup date format:"
+          }
+        }
+      }
+    },
+    "settings.general.backup-number-style.abbreviated" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbreviated"
+          }
+        }
+      }
+    },
+    "settings.general.backup-number-style.complete" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "settings.general.backup-number-style.long" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Long"
+          }
+        }
+      }
+    },
+    "settings.general.backup-number-style.numeric" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numeric"
+          }
+        }
+      }
+    },
+    "settings.general.backup-number-style.omitted" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitted"
+          }
+        }
+      }
+    },
     "settings.general.dependencies" : {
       "localizations" : {
         "cs" : {
