@@ -14,4 +14,30 @@ class SearchResultTracker: ObservableObject
     @Published var foundFormulae: [BrewPackage] = .init()
     @Published var foundCasks: [BrewPackage] = .init()
     @Published var selectedPackagesForInstallation: [String] = .init()
+    
+    enum PurgeType
+    {
+        /// Purge the Formulae tracker
+        case formula
+        
+        /// Purge the Cask tracker
+        case cask
+        
+        /// Purge both the Formulae and Cask tracker
+        case both
+    }
+    
+    /// Clear the tracker
+    func purge(type purgeType: PurgeType)
+    {
+        switch purgeType {
+        case .formula:
+            self.foundFormulae = .init()
+        case .cask:
+            self.foundCasks = .init()
+        case .both:
+            self.foundFormulae = .init()
+            self.foundCasks = .init()
+        }
+    }
 }
