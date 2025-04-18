@@ -27,24 +27,21 @@ struct LiveTerminalOutputView: View
             {
                 ScrollViewReader
                 { proxy in
-                    ScrollView
+                    List
                     {
-                        VStack(alignment: .leading, spacing: 5)
-                        {
-                            ForEach(lineArray)
-                            { line in
-                                Text(line.line)
-                                    .id(line.id)
-                            }
+                        ForEach(lineArray)
+                        { line in
+                            Text(line.line)
+                                .id(line.id)
                         }
                     }
+                    .frame(minHeight: 200)
+                    .listStyle(.bordered)
                     .onChange(of: lineArray)
                     { _ in
                         proxy.scrollTo(lineArray.last?.id, anchor: .bottom)
                     }
-                    .frame(width: 300, height: 200)
-                    .fixedSize()
-                    .border(Color(nsColor: NSColor.separatorColor))
+                    
                 }
                 // }
             }
