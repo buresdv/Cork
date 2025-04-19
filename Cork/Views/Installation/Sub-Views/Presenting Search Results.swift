@@ -49,23 +49,7 @@ struct PresentingSearchResultsView: View
             {
                 if !wereAnyPackagesFound
                 {
-                    if #available(macOS 14.0, *)
-                    {
-                        ContentUnavailableView {
-                            Label("add-package.search.results.packages.none-found", image: "custom.shippingbox.badge.magnifyingglass")
-                        } description: {
-                            Text("add.package.search.results.packages.none-found.description")
-                        } actions: {
-                            EmptyView()
-                        }
-
-                    } else {
-                        VStack(alignment: .center, spacing: 5) {
-                            Text("add-package.search.results.packages.none-found")
-                            
-                            restartSearchButton
-                        }
-                    }
+                    noPackagesFoundStates
                 }
                 else
                 {
@@ -110,6 +94,28 @@ struct PresentingSearchResultsView: View
     }
 
     @ViewBuilder
+    var noPackagesFoundStates: some View
+    {
+        if #available(macOS 14.0, *)
+        {
+            ContentUnavailableView {
+                Label("add-package.search.results.packages.none-found", image: "custom.shippingbox.badge.magnifyingglass")
+            } description: {
+                Text("add.package.search.results.packages.none-found.description")
+            } actions: {
+                EmptyView()
+            }
+
+        } else {
+            VStack(alignment: .center, spacing: 5) {
+                Text("add-package.search.results.packages.none-found")
+                
+                restartSearchButton
+            }
+        }
+    }
+    
+    @ViewBuilder
     var previewPackageButton: some View
     {
         PreviewPackageButtonWithCustomAction
@@ -147,7 +153,7 @@ struct PresentingSearchResultsView: View
         {
             getRequestedPackages()
 
-            packageInstallationProcessStep = .installing
+            // packageInstallationProcessStep = .installing
         } label: {
             Text("add-package.install.action")
         }
@@ -172,7 +178,11 @@ struct PresentingSearchResultsView: View
         {
             do
             {
-                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: foundPackageSelection, installationStage: .ready, packageInstallationProgress: 0)
+                let packageToInstall: BrewPackage = try foundPackageSelection.getPackage(tracker: searchResultTracker)
+
+                AppConstants.shared.logger.debug("Got package to install: \(packageToInstall.name), version \(packageToInstall.versions.formatted(.list(type: .and)))")
+                
+                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
 
                 #if DEBUG
                     AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
@@ -204,30 +214,7 @@ private struct SearchResultsSection: View
     {
         if packageList.isEmpty
         {
-            Group
-            {
-                if #available(macOS 14.0, *)
-                {
-                    switch sectionType
-                    {
-                    case .formula:
-                        SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
-                    case .cask:
-                        SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
-                    }
-                }
-                else
-                {
-                    switch sectionType
-                    {
-                    case .formula:
-                        Text("add-package.search.results.formulae.none-found")
-                    case .cask:
-                        Text("add-package.search.results.casks.none-found")
-                    }
-                }
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+            noPackagesFoundStates
         }
         else
         {
@@ -244,5 +231,34 @@ private struct SearchResultsSection: View
                 CollapsibleSectionHeader(headerText: sectionType == .formula ? "add-package.search.results.formulae" : "add-package.search.results.casks", isCollapsed: $isSectionCollapsed)
             }
         }
+    }
+    
+    @ViewBuilder
+    var noPackagesFoundStates: some View
+    {
+        Group
+        {
+            if #available(macOS 14.0, *)
+            {
+                switch sectionType
+                {
+                case .formula:
+                    SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
+                case .cask:
+                    SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
+                }
+            }
+            else
+            {
+                switch sectionType
+                {
+                case .formula:
+                    Text("add-package.search.results.formulae.none-found")
+                case .cask:
+                    Text("add-package.search.results.casks.none-found")
+                }
+            }
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
     }
 }
