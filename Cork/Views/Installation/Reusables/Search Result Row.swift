@@ -24,6 +24,20 @@ struct SearchResultRow: View, Sendable
 
     @State private var isLoadingDescription: Bool = true
     @State private var descriptionParsingFailed: Bool = false
+    
+    @State private var selectedVersion: String = ""
+    
+    var packageHasMultipleInstallableVersion: Bool
+    {
+        if searchedForPackage.versions.count > 1
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 
     var body: some View
     {
@@ -31,8 +45,32 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: true)
                 
+                SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: packageHasMultipleInstallableVersion ? false : true)
+                
+                if packageHasMultipleInstallableVersion
+                {
+                    Picker(selection: $selectedVersion) {
+                        ForEach(searchedForPackage.versions, id: \.self)
+                        { packageVersion in
+                            Text(packageVersion)
+                        }
+                    } label: {
+                        EmptyView()
+                    }
+                    .labelsHidden()
+                    .controlSize(.small)
+                    .fixedSize(horizontal: true, vertical: true)
+                    .onAppear
+                    {
+                        self.selectedVersion = searchedForPackage.versions.first!
+                    }
+                }
+                else
+                {
+                    Text(searchedForPackage.versions.formatted(.list(type: .and)))
+                }
+
                 switch context
                 {
                 case .topPackages:
