@@ -18,7 +18,7 @@ struct PresentingSearchResultsView: View
     @ObservedObject var searchResultTracker: SearchResultTracker
 
     @Binding var packageRequested: String
-    @Binding var foundPackageSelection: UUID?
+    @Binding var foundPackageSelection: BrewPackage?
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
@@ -114,15 +114,15 @@ struct PresentingSearchResultsView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            do
+            guard let selectedPackage = foundPackageSelection else
             {
-                let requestedPackageToPreview: BrewPackage = try foundPackageSelection!.getPackage(tracker: searchResultTracker)
-
-                openWindow(value: requestedPackageToPreview)
-
-                AppConstants.shared.logger.debug("Would preview package \(requestedPackageToPreview.name)")
+                AppConstants.shared.logger.error("Failed to preview package")
+                
+                return
             }
-            catch {}
+            openWindow(value: selectedPackage)
+
+            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
         }
         .disabled(foundPackageSelection == nil)
     }
@@ -172,9 +172,7 @@ struct PresentingSearchResultsView: View
         {
             do
             {
-                let packageToInstall: BrewPackage = try foundPackageSelection.getPackage(tracker: searchResultTracker)
-
-                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
+                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: foundPackageSelection, installationStage: .ready, packageInstallationProgress: 0)
 
                 #if DEBUG
                     AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
