@@ -100,7 +100,6 @@ struct InstallingPackageView: View
                             isRealTimeTerminalOutputExpanded: $isShowingRealTimeOutput
                         )
                     }
-                    .fixedSize()
                 }
                 .allAnimationsDisabled()
             }

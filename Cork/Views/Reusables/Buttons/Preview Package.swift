@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import ButtonKit
 
 /// Preview a package according to its name
 struct PreviewPackageButton: View
@@ -18,7 +19,7 @@ struct PreviewPackageButton: View
     {
         Button
         {
-            let constructedPackage: BrewPackage = .init(name: packageNameToPreview, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
+            let constructedPackage: BrewPackage = .init(name: packageNameToPreview, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil)
             
             openWindow(value: constructedPackage)
         } label: {

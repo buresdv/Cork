@@ -13,30 +13,58 @@ class TopPackagesTracker: ObservableObject, Sendable
 {
     @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
 
-    @Published var topFormulae: [TopPackage] = .init()
-    @Published var topCasks: [TopPackage] = .init()
+    @Published var topFormulae: [BrewPackage] = .init()
+    @Published var topCasks: [BrewPackage] = .init()
 
-    var sortedTopFormulae: [TopPackage]
+    var sortedTopFormulae: [BrewPackage]
     {
         switch sortTopPackagesBy
         {
         case .mostDownloads:
-            return topFormulae.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+            return topFormulae.sorted { firstPackage, secondPackage in
+                guard let firstPackageDownloadCount = firstPackage.downloadCount, let secondPackageDownloadCount = secondPackage.downloadCount else
+                {
+                    return .init()
+                }
+                
+                return firstPackageDownloadCount > secondPackageDownloadCount
+            }
         case .fewestDownloads:
-            return topFormulae.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+            return topFormulae.sorted { firstPackage, secondPackage in
+                guard let firstPackageDownloadCount = firstPackage.downloadCount, let secondPackageDownloadCount = secondPackage.downloadCount else
+                {
+                    return .init()
+                }
+                
+                return firstPackageDownloadCount < secondPackageDownloadCount
+            }
         case .random:
             return topFormulae.shuffled()
         }
     }
 
-    var sortedTopCasks: [TopPackage]
+    var sortedTopCasks: [BrewPackage]
     {
         switch sortTopPackagesBy
         {
         case .mostDownloads:
-            return topCasks.sorted(by: { $0.packageDownloads > $1.packageDownloads })
+            return topCasks.sorted { firstPackage, secondPackage in
+                guard let firstPackageDownloadCount = firstPackage.downloadCount, let secondPackageDownloadCount = secondPackage.downloadCount else
+                {
+                    return .init()
+                }
+                
+                return firstPackageDownloadCount > secondPackageDownloadCount
+            }
         case .fewestDownloads:
-            return topCasks.sorted(by: { $0.packageDownloads < $1.packageDownloads })
+            return topCasks.sorted { firstPackage, secondPackage in
+                guard let firstPackageDownloadCount = firstPackage.downloadCount, let secondPackageDownloadCount = secondPackage.downloadCount else
+                {
+                    return .init()
+                }
+                
+                return firstPackageDownloadCount < secondPackageDownloadCount
+            }
         case .random:
             return topCasks.shuffled()
         }
