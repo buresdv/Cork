@@ -42,6 +42,9 @@ class AppState: ObservableObject
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: DisplayableAlert? = nil
     
+    @Published var isShowingConfirmationDialog: Bool = false
+    @Published var confirmationDialogType: ConfirmationDialog?
+    
     @Published var sheetToShow: DisplayableSheet? = nil
 
     @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
@@ -101,6 +104,20 @@ class AppState: ObservableObject
         self.sheetToShow = nil
     }
 
+    // MARK: Showing confirmation dialogs
+    
+    func showConfirmationDialog(ofType confirmationDialogType: ConfirmationDialog)
+    {
+        self.confirmationDialogType = confirmationDialogType
+        self.isShowingConfirmationDialog = true
+    }
+    
+    func dismissConfirmationDialog()
+    {
+        self.isShowingConfirmationDialog = false
+        self.confirmationDialogType = nil
+    }
+    
     // MARK: - Notification setup
 
     func setupNotifications() async

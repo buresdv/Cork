@@ -39,7 +39,6 @@ struct ContentView: View, Sendable
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
@@ -755,36 +754,42 @@ private extension View
     func confirmationDialogs(of view: ContentView) -> some View
     {
         self
-            .confirmationDialog(view.uninstallationConfirmationTracker.shouldPurge ? "action.purge.confirm.title.\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall.confirm.title.\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)", isPresented: view.$uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation)
-            {
-                AsyncButton(role: .destructive)
+            .confirmationDialog(view.appState.confirmationDialogType?.title ?? "error.generic", isPresented: view.$appState.isShowingConfirmationDialog, presenting: view.appState.confirmationDialogType, actions: { dialogType in
+                switch dialogType
                 {
-                    view.uninstallationConfirmationTracker.isShowingUninstallOrPurgeConfirmation = false
-
-                    try await view.brewData.uninstallSelectedPackage(
-                        package: view.uninstallationConfirmationTracker.packageThatNeedsConfirmation,
-                        cachedPackagesTracker: view.cachedDownloadsTracker,
-                        appState: view.appState,
-                        outdatedPackageTracker: view.outdatedPackageTracker,
-                        shouldRemoveAllAssociatedFiles: view.uninstallationConfirmationTracker.shouldPurge,
-                        shouldApplyUninstallSpinnerToRelevantItemInSidebar: view.uninstallationConfirmationTracker.isCalledFromSidebar
-                    )
-                } label: {
-                    Text(view.uninstallationConfirmationTracker.shouldPurge ? "action.purge-\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)" : "action.uninstall-\(view.uninstallationConfirmationTracker.packageThatNeedsConfirmation.name)")
+                case .uninstallPackage(let packageToUninstall):
+                    AsyncButton
+                    {
+                        try await view.brewData.uninstallSelectedPackage(
+                            package: packageToUninstall,
+                            cachedPackagesTracker: view.cachedDownloadsTracker,
+                            appState: view.appState,
+                            outdatedPackageTracker: view.outdatedPackageTracker,
+                            shouldRemoveAllAssociatedFiles: false
+                        )
+                    } label: {
+                        Text("action.uninstall-\(packageToUninstall.name)")
+                    }
+                    .keyboardShortcut(.defaultAction)
+                    .asyncButtonStyle(.plainStyle)
+                    
+                case .purgePackage(let packageToPurge):
+                    AsyncButton
+                    {
+                        try await view.brewData.uninstallSelectedPackage(
+                            package: packageToPurge,
+                            cachedPackagesTracker: view.cachedDownloadsTracker,
+                            appState: view.appState,
+                            outdatedPackageTracker: view.outdatedPackageTracker,
+                            shouldRemoveAllAssociatedFiles: true
+                        )
+                    } label: {
+                        Text("action.purge-\(packageToPurge.name)")
+                    }
                 }
-                .keyboardShortcut(.defaultAction)
-                .asyncButtonStyle(.plainStyle)
-
-                Button(role: .cancel)
-                {
-                    view.uninstallationConfirmationTracker.dismissConfirmationDialog()
-                } label: {
-                    Text("action.cancel")
-                }
-                .keyboardShortcut(.cancelAction)
-            } message: {
-                Text("action.warning.cannot-be-undone")
-            }
+            }, message: { dialogType in
+                Text(dialogType.message)
+            })
     }
 }
 

@@ -21,7 +21,7 @@ struct AddFormulaView: View
 
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
-    @State private var foundPackageSelection: UUID? = nil
+    @State private var foundPackageSelection: BrewPackage?
 
     @ObservedObject var searchResultTracker: SearchResultTracker = .init()
     @ObservedObject var installationProgressTracker: InstallationProgressTracker = .init()

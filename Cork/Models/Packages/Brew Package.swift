@@ -62,6 +62,9 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     var installedIntentionally: Bool = true
 
     let sizeInBytes: Int64?
+    
+    /// Download count for top packages
+    let downloadCount: Int?
 
     var isBeingModified: Bool = false
 

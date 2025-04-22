@@ -17,8 +17,7 @@ extension BrewDataStorage
         cachedPackagesTracker: CachedPackagesTracker,
         appState: AppState,
         outdatedPackageTracker: OutdatedPackageTracker,
-        shouldRemoveAllAssociatedFiles: Bool,
-        shouldApplyUninstallSpinnerToRelevantItemInSidebar _: Bool = false
+        shouldRemoveAllAssociatedFiles: Bool
     ) async throws
     {
         /// Store the old navigation selection to see if it got updated in the middle of switching

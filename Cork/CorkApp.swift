@@ -29,8 +29,6 @@ struct CorkApp: App
     @StateObject var updateProgressTracker: UpdateProgressTracker = .init()
     @StateObject var outdatedPackageTracker: OutdatedPackageTracker = .init()
 
-    @StateObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker = .init()
-
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
 
@@ -87,7 +85,6 @@ struct CorkApp: App
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
                 .environmentObject(topPackagesTracker)
-                .environmentObject(uninstallationConfirmationTracker)
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false

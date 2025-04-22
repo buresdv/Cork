@@ -18,7 +18,6 @@ struct PackageModificationButtons: View
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
 
     let package: BrewPackage
     @ObservedObject var packageDetails: BrewPackageDetails
@@ -65,13 +64,13 @@ struct PackageModificationButtons: View
 
                         if !allowMoreCompleteUninstallations
                         {
-                            UninstallPackageButton(package: package, isCalledFromSidebar: false)
+                            UninstallPackageButton(package: package)
                         }
                         else
                         {
                             Menu
                             {
-                                PurgePackageButton(package: package, isCalledFromSidebar: false)
+                                PurgePackageButton(package: package)
                             } label: {
                                 Text("action.uninstall-\(package.name)")
                             } primaryAction: {
@@ -87,15 +86,14 @@ struct PackageModificationButtons: View
                                             cachedPackagesTracker: cachedPackagesTracker,
                                             appState: appState,
                                             outdatedPackageTracker: outdatedPackageTracker,
-                                            shouldRemoveAllAssociatedFiles: false,
-                                            shouldApplyUninstallSpinnerToRelevantItemInSidebar: false
+                                            shouldRemoveAllAssociatedFiles: false
                                         )
                                     }
                                 }
                                 else
                                 {
                                     AppConstants.shared.logger.debug("Confirmation of package removal needed")
-                                    uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: false, isCalledFromSidebar: false)
+                                    appState.showConfirmationDialog(ofType: .uninstallPackage(package))
                                 }
                             }
                             .fixedSize()
