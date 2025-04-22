@@ -151,9 +151,7 @@ struct PresentingSearchResultsView: View
     {
         Button
         {
-            getRequestedPackages()
-
-            // packageInstallationProcessStep = .installing
+            packageInstallationProcessStep = .installing
         } label: {
             Text("add-package.install.action")
         }
@@ -169,35 +167,6 @@ struct PresentingSearchResultsView: View
             packageInstallationProcessStep = .ready
         } label: {
             Text("action.search-again")
-        }
-    }
-    
-    private func getRequestedPackages()
-    {
-        if let foundPackageSelection
-        {
-            do
-            {
-                let packageToInstall: BrewPackage = try foundPackageSelection.getPackage(tracker: searchResultTracker)
-
-                AppConstants.shared.logger.debug("Got package to install: \(packageToInstall.name), version \(packageToInstall.versions.formatted(.list(type: .and)))")
-                
-                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-
-                #if DEBUG
-                    AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
-                #endif
-            }
-            catch let packageByUUIDRetrievalError
-            {
-                #if DEBUG
-                    AppConstants.shared.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
-                #endif
-
-                dismiss()
-
-                appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
-            }
         }
     }
 }

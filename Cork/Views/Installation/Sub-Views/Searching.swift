@@ -47,11 +47,11 @@ struct InstallationSearchingView: View, Sendable
 
         for formula in await foundFormulae
         {
-            foundFormulaeTracker.append(BrewPackage(name: formula, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil))
+            foundFormulaeTracker.append(BrewPackage(name: formula, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil))
         }
         for cask in await foundCasks
         {
-            foundCasksTracker.append(BrewPackage(name: cask, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil))
+            foundCasksTracker.append(BrewPackage(name: cask, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil))
         }
 
         return (foundFormulaeTracker, foundCasksTracker)
@@ -95,7 +95,7 @@ struct InstallationSearchingView: View, Sendable
                 else
                 { /// If it doesn't match, it's not in the array yet. Let's add it to the array
                     tempArray.append(
-                        .init(name: packageNameWithoutItsVersion, type: unprocessedFoundPackage.type, installedOn: nil, versions: [packageVersionWithoutItsName], sizeInBytes: nil)
+                        .init(name: packageNameWithoutItsVersion, type: unprocessedFoundPackage.type, installedOn: nil, versions: [packageVersionWithoutItsName], sizeInBytes: nil, downloadCount: nil)
                     )
                 }
             }
