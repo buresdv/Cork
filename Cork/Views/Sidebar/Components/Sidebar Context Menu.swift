@@ -43,9 +43,9 @@ struct SidebarContextMenu: View
 
         Divider()
 
-        UninstallPackageButton(package: package, isCalledFromSidebar: true)
+        UninstallPackageButton(package: package)
 
-        PurgePackageButton(package: package, isCalledFromSidebar: true)
+        PurgePackageButton(package: package)
 
         if enableRevealInFinder
         {
