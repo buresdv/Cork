@@ -7553,6 +7553,17 @@
         }
       }
     },
+    "action.update-%@" : {
+      "comment" : "Updating individual packages - \"Update (package name)\"",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update %@"
+          }
+        }
+      }
+    },
     "action.update-homebrew" : {
       "localizations" : {
         "cs" : {

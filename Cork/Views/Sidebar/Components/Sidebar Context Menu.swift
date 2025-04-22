@@ -12,14 +12,34 @@ struct SidebarContextMenu: View
 {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
+    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
     
     let package: BrewPackage
     
+    var isPackageOutdated: Bool
+    {
+        if outdatedPackageTracker.displayableOutdatedPackages.contains(where: { $0.package.name == package.name })
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+    
     var body: some View
     {
         TagUntagButton(package: package)
+        
+        Divider()
+    
+        if isPackageOutdated
+        {
+            UpdatePackageButton(packageToUpdate: package)
+        }
 
         Divider()
 
