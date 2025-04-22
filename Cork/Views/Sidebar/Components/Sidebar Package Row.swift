@@ -40,10 +40,10 @@ struct SidebarPackageRow: View
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: false)
                     {
-                        PurgePackageButton(package: package, isCalledFromSidebar: true)
+                        PurgePackageButton(package: package)
                             .tint(.red)
                         
-                        UninstallPackageButton(package: package, isCalledFromSidebar: true)
+                        UninstallPackageButton(package: package)
                             .tint(.orange)
                     }
             }
@@ -72,9 +72,9 @@ struct SidebarPackageRow: View
 
         Divider()
 
-        UninstallPackageButton(package: package, isCalledFromSidebar: true)
+        UninstallPackageButton(package: package)
 
-        PurgePackageButton(package: package, isCalledFromSidebar: true)
+        PurgePackageButton(package: package)
 
         if enableRevealInFinder
         {

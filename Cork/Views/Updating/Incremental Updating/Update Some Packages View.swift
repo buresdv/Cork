@@ -15,7 +15,7 @@ struct UpdateSomePackagesView: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
-    @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
+    @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil)
     @State private var updateProgress: Double = 0.0
 
     @State private var packageUpdatingErrors: [String] = .init()

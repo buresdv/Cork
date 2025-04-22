@@ -20513,6 +20513,9 @@
         }
       }
     },
+    "error.generic" : {
+
+    },
     "error.generic-couldnt-decode-json.%@" : {
       "localizations" : {
         "cs" : {

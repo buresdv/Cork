@@ -17,7 +17,6 @@ struct SearchResultRow: View, Sendable
 
     let searchedForPackage: BrewPackage
     let context: Self.Context
-    let downloadCount: Int?
     
     @State private var description: String?
     @State private var isCompatible: Bool?
@@ -38,7 +37,7 @@ struct SearchResultRow: View, Sendable
                 case .topPackages:
                     Spacer()
                     
-                    if let downloadCount
+                    if let downloadCount = searchedForPackage.downloadCount
                     {
                         Text("add-package.top-packages.list-item-\(downloadCount)")
                             .foregroundStyle(.secondary)
@@ -108,6 +107,7 @@ struct SearchResultRow: View, Sendable
                 }
             }
         }
+        .tag(searchedForPackage)
         .task
         {
             if showDescriptionsInSearchResults
@@ -125,7 +125,7 @@ struct SearchResultRow: View, Sendable
 
                     do
                     {
-                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil)
+                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], sizeInBytes: nil, downloadCount: nil)
 
                         do
                         {
