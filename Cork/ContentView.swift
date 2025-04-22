@@ -497,8 +497,8 @@ private extension View
                 case .fullUpdate:
                     UpdatePackagesView()
 
-                case .partialUpdate:
-                    UpdateSomePackagesView()
+                case .partialUpdate(let packagesToUpdate):
+                    UpdateSomePackagesView(packagesToUpdate: packagesToUpdate)
 
                 case .corruptedPackageFix(let corruptedPackage):
                     ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackage)
