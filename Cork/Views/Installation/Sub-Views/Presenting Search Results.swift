@@ -7,6 +7,7 @@
 
 import CorkShared
 import SwiftUI
+import ButtonKit
 
 struct PresentingSearchResultsView: View
 {
@@ -149,12 +150,19 @@ struct PresentingSearchResultsView: View
     @ViewBuilder
     var startInstallProcessButton: some View
     {
-        Button
+        // This has to be an AsyncButton so it shakes
+        AsyncButton
         {
-            packageInstallationProcessStep = .installing
+            guard let packageToInstall = foundPackageSelection else
+            {
+                throw PackageInstallationInitializationError.couldNotStartInstallProcessWithPackage(package: nil)
+            }
+            
+            packageInstallationProcessStep = .installing(packageToInstall: packageToInstall)
         } label: {
             Text("add-package.install.action")
         }
+        .throwableButtonStyle(.shake)
         .keyboardShortcut(.defaultAction)
         .disabled(foundPackageSelection == nil)
     }

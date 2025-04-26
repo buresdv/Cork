@@ -5,8 +5,8 @@
 //  Created by David Bureš on 29.09.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct InstallingPackageView: View
 {
@@ -14,10 +14,12 @@ struct InstallingPackageView: View
 
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
-    
+
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
+
+    let packageToInstall: BrewPackage
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
@@ -27,13 +29,13 @@ struct InstallingPackageView: View
     {
         VStack(alignment: .leading)
         {
-            if installationProgressTracker.packageBeingInstalled.installationStage != .finished
+            if installationProgressTracker.installationStage != .finished
             {
-                ProgressView(value: installationProgressTracker.packageBeingInstalled.packageInstallationProgress, total: 10)
+                ProgressView(value: installationProgressTracker.installationProgress, total: 10)
                 {
                     VStack(alignment: .leading)
                     {
-                        switch installationProgressTracker.packageBeingInstalled.installationStage
+                        switch installationProgressTracker.installationStage
                         {
                         case .ready:
                             Text("add-package.install.ready")
@@ -56,36 +58,36 @@ struct InstallingPackageView: View
 
                         // CASKS
                         case .downloadingCask:
-                            Text("add-package.install.downloading-cask-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.downloading-cask-\(packageToInstall.name)")
 
                         case .installingCask:
-                            Text("add-package.install.installing-cask-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.installing-cask-\(packageToInstall.name)")
 
                         case .linkingCaskBinary:
                             Text("add-package.install.linking-cask-binary")
 
                         case .movingCask:
-                            Text("add-package.install.moving-cask-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.moving-cask-\(packageToInstall.name)")
 
                         case .requiresSudoPassword:
-                            Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.requires-sudo-password-\(packageToInstall.name)")
                                 .onAppear
                                 {
-                                    packageInstallationProcessStep = .requiresSudoPassword
+                                    packageInstallationProcessStep = .requiresSudoPassword(packageThatWasGettingInstalled: packageToInstall)
                                 }
 
                         case .wrongArchitecture:
                             Text("add-package.install.wrong-architecture.title")
                                 .onAppear
                                 {
-                                    packageInstallationProcessStep = .wrongArchitecture
+                                    packageInstallationProcessStep = .wrongArchitecture(packageThatWasGettingInstalled: packageToInstall)
                                 }
 
                         case .binaryAlreadyExists:
-                            Text("add-package.install.binary-already-exists-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.binary-already-exists-\(packageToInstall.name)")
                                 .onAppear
                                 {
-                                    packageInstallationProcessStep = .binaryAlreadyExists
+                                    packageInstallationProcessStep = .binaryAlreadyExists(packageThatWasGettingInstalled: packageToInstall)
                                 }
 
                         case .terminatedUnexpectedly:
@@ -96,7 +98,7 @@ struct InstallingPackageView: View
                                 }
                         }
                         LiveTerminalOutputView(
-                            lineArray: $installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput,
+                            lineArray: $installationProgressTracker.realTimeTerminalOutput,
                             isRealTimeTerminalOutputExpanded: $isShowingRealTimeOutput
                         )
                     }
@@ -117,19 +119,19 @@ struct InstallingPackageView: View
             do
             {
                 let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(
-                    using: brewData,
+                    packageToInstall: packageToInstall, using: brewData,
                     cachedPackagesTracker: cachedPackagesTracker
                 )
-                
+
                 AppConstants.shared.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
 
                 /// Check if the package installation stag at the end of the install process was something unexpected. Normal package installations go through multiple steps, and the three listed below are not supposed to be the end state. This means that something went wrong during the installation
-                let installationStage: PackageInstallationStage = installationProgressTracker.packageBeingInstalled.installationStage
+                let installationStage: PackageInstallationStage = installationProgressTracker.installationStage
                 if [.installingCask, .installingPackage, .ready].contains(installationStage)
                 {
                     AppConstants.shared.logger.warning("The installation process quit before it was supposed to")
 
-                    installationProgressTracker.packageBeingInstalled.installationStage = .terminatedUnexpectedly
+                    installationProgressTracker.installationStage = .terminatedUnexpectedly
                 }
             }
             catch let fatalInstallationError
