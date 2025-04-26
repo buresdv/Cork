@@ -72,12 +72,28 @@ struct PackageDetailHeaderComplex: View
         {
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
-                SanitizedPackageName(packageName: package.name, shouldShowVersion: false)
-                    .font(.title)
+                HStack(alignment: .firstTextBaseline, spacing: 4)
+                {
+                    Text(package.name)
+                        .font(.title)
+                    
+                    if let homebrewVersion = package.homebrewVersion
+                    {
+                        HStack(alignment: .firstTextBaseline, spacing: 2)
+                        {
+                            Image(systemName: "lock")
+                            
+                            Text(homebrewVersion)
+                        }
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundStyle(.tertiary)
+                    }
+                }
                 
                 if !package.versions.isEmpty
                 {
-                    Text("v. \(package.versions.formatted(.list(type: .and))))")
+                    Text("v. \(package.versions.formatted(.list(type: .and)))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
