@@ -69,35 +69,31 @@ struct InstallationSearchingView: View, Sendable
         {
             AppConstants.shared.logger.debug("Will try to process raw package name \(unprocessedFoundPackage.name)")
             
-            /// Let's check if there's a version defined for this package, by checking if it contains a `@`. If it doesn't, just append the name of the package itself, because this means it doesn't have any specific versions defined.
-            if !unprocessedFoundPackage.name.contains("@")
+            let splitPackageNameAndVersion: (packageName: String, homebrewVersion: String?) = unprocessedFoundPackage.name.splitPackageNameFromHomebrewVersion()
+            
+            // Let's check if there's a version defined for this package. Is there isn't, just append the name of the package itself, because this means it doesn't have any specific versions defined.
+            guard let packageHomebrewVersion = splitPackageNameAndVersion.homebrewVersion else
             {
                 AppConstants.shared.logger.debug("Package name \(unprocessedFoundPackage.name) doesn't have a \"@\" character. Will place it directly into the tracker")
                 
                 tempArray.append(unprocessedFoundPackage)
+                
+                continue
+            }
+            
+            AppConstants.shared.logger.debug("Package name \(unprocessedFoundPackage.name) has a \"@\" character. Will process it")
+            
+            /// Let's see if there already is an identical package - We do this by finding the first index of a package inside the temporary array whose name matches this unprocessed package
+            /// If it matches, it is already in the tracker, and we just need to add another version to it
+            if let indexOfPreviouslyProcessedPackage = tempArray.firstIndex(where: { $0.name == splitPackageNameAndVersion.packageName })
+            {
+                tempArray[indexOfPreviouslyProcessedPackage].versions.append(packageHomebrewVersion)
             }
             else
-            { /// If it has a version defined, split its `name@version` to separate its name from its version
-                
-                AppConstants.shared.logger.debug("Package name \(unprocessedFoundPackage.name) has a \"@\" character. Will process it")
-                
-                let splitPackageName: [String] = unprocessedFoundPackage.name.components(separatedBy: "@")
-                
-                let packageNameWithoutItsVersion: String = splitPackageName[0]
-                let packageVersionWithoutItsName: String = splitPackageName[1]
-                
-                /// Let's see if there already is an identical package - We do this by finding the first index of a package inside the temporary array whose name matches this unprocessed package
-                /// If it matches, it is already in the tracker, and we just need to add another version to it
-                if let indexOfPreviouslyProcessedPackage = tempArray.firstIndex(where: { $0.name == packageNameWithoutItsVersion })
-                {
-                    tempArray[indexOfPreviouslyProcessedPackage].versions.append(packageVersionWithoutItsName)
-                }
-                else
-                { /// If it doesn't match, it's not in the array yet. Let's add it to the array
-                    tempArray.append(
-                        .init(name: packageNameWithoutItsVersion, type: unprocessedFoundPackage.type, installedOn: nil, versions: [packageVersionWithoutItsName], sizeInBytes: nil, downloadCount: nil)
-                    )
-                }
+            { /// If it doesn't match, it's not in the array yet. Let's add it to the array
+                tempArray.append(
+                    .init(name: splitPackageNameAndVersion.packageName, type: unprocessedFoundPackage.type, installedOn: nil, versions: [packageHomebrewVersion], sizeInBytes: nil, downloadCount: nil)
+                )
             }
         }
         

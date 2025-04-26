@@ -216,12 +216,15 @@ private extension BrewDataStorage
 
                 AppConstants.shared.logger.debug("Package \(packageName) \(wasPackageInstalledIntentionally ? "was" : "was not") installed intentionally")
 
+                let splitPackageNameAndHomebrewVersion: (packageName: String, homebrewVersion: String?) = packageName.splitPackageNameFromHomebrewVersion()
+                
                 let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
                     .init(
-                        name: packageName,
+                        name: splitPackageNameAndHomebrewVersion.packageName,
                         type: packageURL.packageType,
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,
+                        homebrewVersion: splitPackageNameAndHomebrewVersion.homebrewVersion,
                         installedIntentionally: wasPackageInstalledIntentionally,
                         sizeInBytes: packageURL.directorySize,
                         downloadCount: nil
