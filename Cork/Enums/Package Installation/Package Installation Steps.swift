@@ -7,7 +7,17 @@
 
 import Foundation
 
-enum PackageInstallationProcessSteps
+enum PackageInstallationProcessSteps: Equatable
 {
-    case ready, searching, presentingSearchResults, installing, finished, fatalError, requiresSudoPassword, wrongArchitecture, binaryAlreadyExists, anotherProcessAlreadyRunning, installationTerminatedUnexpectedly
+    case ready
+    case searching
+    case presentingSearchResults
+    case installing(packageToInstall: BrewPackage)
+    case finished
+    case fatalError(packageThatWasGettingInstalled: BrewPackage)
+    case requiresSudoPassword(packageThatWasGettingInstalled: BrewPackage)
+    case wrongArchitecture(packageThatWasGettingInstalled: BrewPackage)
+    case binaryAlreadyExists(packageThatWasGettingInstalled: BrewPackage)
+    case anotherProcessAlreadyRunning
+    case installationTerminatedUnexpectedly
 }
