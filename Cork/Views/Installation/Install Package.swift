@@ -5,10 +5,10 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+import ButtonKit
 import CorkNotifications
 import CorkShared
 import SwiftUI
-import ButtonKit
 
 struct AddFormulaView: View
 {
@@ -39,10 +39,35 @@ struct AddFormulaView: View
     {
         [.ready, .presentingSearchResults].contains(packageInstallationProcessStep)
     }
-    
+
     var isDismissable: Bool
     {
-        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly, .installing].contains(packageInstallationProcessStep)
+        if case .installing = packageInstallationProcessStep
+        {
+            return true
+        }
+
+        if case .binaryAlreadyExists = packageInstallationProcessStep
+        {
+            return true
+        }
+
+        if case .fatalError = packageInstallationProcessStep
+        {
+            return true
+        }
+
+        if case .wrongArchitecture = packageInstallationProcessStep
+        {
+            return true
+        }
+
+        if case .requiresSudoPassword = packageInstallationProcessStep
+        {
+            return true
+        }
+
+        return [.ready, .presentingSearchResults, .anotherProcessAlreadyRunning, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly].contains(packageInstallationProcessStep)
     }
 
     var sheetTitle: LocalizedStringKey
@@ -109,32 +134,40 @@ struct AddFormulaView: View
                             installationProgressTracker: installationProgressTracker
                         )
 
-                    case .installing:
+                    case .installing(let packageToInstall):
                         InstallingPackageView(
                             installationProgressTracker: installationProgressTracker,
+                            packageToInstall: packageToInstall,
                             packageInstallationProcessStep: $packageInstallationProcessStep
                         )
 
                     case .finished:
                         InstallationFinishedSuccessfullyView()
 
-                    case .fatalError: /// This shows up when the function for executing the install action throws an error
-                        InstallationFatalErrorView(installationProgressTracker: installationProgressTracker)
+                    case .fatalError(let packageThatWasGettingInstalled): /// This shows up when the function for executing the install action throws an error
+                        InstallationFatalErrorView(
+                            installationProgressTracker: installationProgressTracker,
+                            packageThatWasGettingInstalled: packageThatWasGettingInstalled
+                        )
 
-                    case .requiresSudoPassword:
-                        SudoRequiredView(installationProgressTracker: installationProgressTracker)
+                    case .requiresSudoPassword(let packageThatWasGettingInstalled):
+                        SudoRequiredView(
+                            packageThatWasGettingInstalled: packageThatWasGettingInstalled
+                        )
 
-                    case .wrongArchitecture:
-                        WrongArchitectureView(installationProgressTracker: installationProgressTracker)
+                    case .wrongArchitecture(let packageThatWasGettingInstalled):
+                        WrongArchitectureView(
+                            packageThatWasGettingInstalled: packageThatWasGettingInstalled
+                        )
 
-                    case .binaryAlreadyExists:
-                        BinaryAlreadyExistsView(installationProgressTracker: installationProgressTracker)
+                    case .binaryAlreadyExists(let packageThatWasGettingInstalled):
+                        BinaryAlreadyExistsView(installationProgressTracker: installationProgressTracker, packageThatWasGettingInstalled: packageThatWasGettingInstalled)
 
                     case .anotherProcessAlreadyRunning:
                         AnotherProcessAlreadyRunningView()
 
                     case .installationTerminatedUnexpectedly:
-                        InstallationTerminatedUnexpectedlyView(terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput)
+                        InstallationTerminatedUnexpectedlyView(terminalOutputOfTheInstallation: installationProgressTracker.realTimeTerminalOutput)
                     }
                 }
                 .navigationTitle(sheetTitle)
@@ -148,7 +181,7 @@ struct AddFormulaView: View
                             {
                                 dismiss()
                                 installationProgressTracker.cancel()
-                                
+
                                 do
                                 {
                                     try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)

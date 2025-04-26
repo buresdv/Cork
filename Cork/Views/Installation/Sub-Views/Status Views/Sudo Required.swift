@@ -14,7 +14,7 @@ struct SudoRequiredView: View, Sendable
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    let packageThatWasGettingInstalled: BrewPackage
 
     var body: some View
     {
@@ -24,14 +24,14 @@ struct SudoRequiredView: View, Sendable
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                    Text("add-package.install.requires-sudo-password-\(packageThatWasGettingInstalled.name)")
                         .font(.headline)
 
-                    ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
+                    manualInstallInstructions
                 }
             }
 
-            Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packageBeingInstalled.package.name)")
+            Text("add.package.install.requires-sudo-password.terminal-instructions-\(packageThatWasGettingInstalled.name)")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -51,19 +51,15 @@ struct SudoRequiredView: View, Sendable
         }
         .fixedSize()
     }
-}
-
-private struct ManualInstallInstructions: View
-{
-    let installationProgressTracker: InstallationProgressTracker
-
-    var manualInstallCommand: String
+    
+    @ViewBuilder
+    var manualInstallInstructions: some View
     {
-        return "brew install \(installationProgressTracker.packageBeingInstalled.package.type == .cask ? "--cask" : "") \(installationProgressTracker.packageBeingInstalled.package.name)"
-    }
-
-    var body: some View
-    {
+        var manualInstallCommand: String
+        {
+            return "brew install \(packageThatWasGettingInstalled.type == .cask ? "--cask" : "") \(packageThatWasGettingInstalled.name)"
+        }
+        
         VStack
         {
             Text("add-package.install.requires-sudo-password.description")
