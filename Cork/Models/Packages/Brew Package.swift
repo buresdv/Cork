@@ -58,6 +58,15 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 
     let installedOn: Date?
     var versions: [String]
+    
+    /// This is an internal Homebrew version for limiting package updates. Use this to compare installed versions with those in the tracker
+    /// # Discussion
+    /// For example, a package called `python@3` is limited to versions that begin with `3`. However, the package installed as `python@3` might actually have an installed version of `python@3.14`.
+    ///
+    /// If we just compare installed versions, `python@3` would not be considered the same package as `python@3.14`, despite them coming from the same `python@3` formula.
+    ///
+    /// Therefore, we need to separate the above `[String]` `versions` parameter from this one
+    var homebrewVersion: String?
 
     var installedIntentionally: Bool = true
 
@@ -67,11 +76,6 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     let downloadCount: Int?
 
     var isBeingModified: Bool = false
-
-    func getFormattedVersions() -> String
-    {
-        return versions.formatted(.list(type: .and))
-    }
 
     mutating func changeTaggedStatus()
     {
@@ -145,5 +149,30 @@ extension FormatStyle where Self == Date.FormatStyle
     static var packageInstallationStyle: Self
     {
         dateTime.day().month(.wide).year().weekday(.wide).hour().minute()
+    }
+}
+
+extension String
+{
+    
+    /// Separate a package's name from its Homebrew version
+    /// - Returns: Tuple containig the package's name, along with its Homebrew version
+    func splitPackageNameFromHomebrewVersion() -> (packageName: String, homebrewVersion: String?)
+    {
+        guard self.contains("@") else
+        {
+            AppConstants.shared.logger.warning("Package \(self, privacy: .public) doesn't include version annotation. Will not split its name.")
+            
+            return (self, nil)
+        }
+        
+        AppConstants.shared.logger.info("Package \(self, privacy: .public) has a version annotation. Will split its name from its Homebrew version")
+        
+        let splitPackageName: [String] = self.components(separatedBy: "@")
+        
+        let packageNameWithoutItsVersion: String = splitPackageName[0]
+        let packageVersionWithoutItsName: String = splitPackageName[1]
+        
+        return (packageNameWithoutItsVersion, packageVersionWithoutItsName)
     }
 }

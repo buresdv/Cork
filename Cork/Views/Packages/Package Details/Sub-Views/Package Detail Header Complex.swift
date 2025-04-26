@@ -77,7 +77,7 @@ struct PackageDetailHeaderComplex: View
                 
                 if !package.versions.isEmpty
                 {
-                    Text("v. \(package.getFormattedVersions())")
+                    Text("v. \(package.versions.formatted(.list(type: .and))))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
