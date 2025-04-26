@@ -37,6 +37,63 @@ struct SearchResultRow: View, Sendable
             return false
         }
     }
+    
+    /// Checks if this package is already installed.
+    /// # Returns
+    /// - `isInstalled`: Whether this package, or another version of this package, is already installed
+    /// - `installedPackage`: The already installed version of this package. Must be returned for precise installed version checking
+    var isPackageAlreadyInstalled: (isInstalled: Bool, overlappingVersions: [String]?)
+    {
+        /// Whether this package is already installed
+        var isInstalled: Bool = false
+        
+        /// The already installed version of this package from the tracker
+        var installedPackage: BrewPackage?
+        
+        switch searchedForPackage.type
+        {
+        case .formula:
+            if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
+            {
+                isInstalled = true
+                
+                installedPackage = brewData.successfullyLoadedFormulae.filter({ $0.name == searchedForPackage.name }).first
+                
+                print("Installed package: \(installedPackage)")
+            }
+        case .cask:
+            if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
+            {
+                isInstalled = true
+                
+                installedPackage = brewData.successfullyLoadedCasks.filter({ $0.name == searchedForPackage.name }).first
+            }
+        }
+        
+        let overlappingVersions: [String]? = {
+            guard packageHasMultipleInstallableVersion == true else
+            {
+                AppConstants.shared.logger.log("Searched-for package \(searchedForPackage.name) has no multiple installable versions")
+                return nil
+            }
+            
+            guard let installedVersions: [String] = installedPackage?.versions else
+            {
+                AppConstants.shared.logger.warning("Failed to determine overlapping versions for searched-for package \(searchedForPackage.name)")
+                
+                return nil
+            }
+            
+            let availableVersions: [String] = searchedForPackage.versions
+            
+            let installedVersionsAsSet: Set<String> = Set(installedVersions)
+            let installableVersionsAsSet: Set<String> = Set(availableVersions)
+            
+            return Array(installableVersionsAsSet.intersection(installedVersionsAsSet))
+        }()
+        
+        return (isInstalled, overlappingVersions)
+    }
 
     var body: some View
     {
@@ -49,10 +106,30 @@ struct SearchResultRow: View, Sendable
                 
                 if packageHasMultipleInstallableVersion
                 {
-                    Picker(selection: $selectedVersion) {
+                    Picker(selection: $selectedVersion)
+                    {
                         ForEach(searchedForPackage.versions, id: \.self)
                         { packageVersion in
+                            
+                            var isThisVersionAlreadyInstalled: Bool
+                            {
+                                guard let overlappingVersions = isPackageAlreadyInstalled.overlappingVersions else
+                                {
+                                    return false
+                                }
+                                
+                                if overlappingVersions.contains(packageVersion)
+                                {
+                                    return true
+                                }
+                                else
+                                {
+                                    return false
+                                }
+                            }
+                            
                             Text(packageVersion)
+                                .disabled(isThisVersionAlreadyInstalled)
                         }
                     } label: {
                         EmptyView()
@@ -83,19 +160,9 @@ struct SearchResultRow: View, Sendable
                     }
                     
                 case .searchResults:
-                    if searchedForPackage.type == .formula
+                    if isPackageAlreadyInstalled.isInstalled
                     {
-                        if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
-                        {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
-                        }
-                    }
-                    else
-                    {
-                        if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
-                        {
-                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
-                        }
+                        PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
                     
                     if let isCompatible

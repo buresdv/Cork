@@ -125,7 +125,6 @@ struct InstallationInitialView: View
                 return
             }
             
-            
             AppConstants.shared.logger.debug("Packages to install: \(packageToInstall.name, privacy: .public)")
             
             packageInstallationProcessStep = .installing(packageToInstall: packageToInstall)

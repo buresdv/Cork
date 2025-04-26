@@ -7,7 +7,8 @@
 
 import Foundation
 
-public struct Version
+
+private struct Version
 {
     let major: UInt
     let minor: UInt
