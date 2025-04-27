@@ -7,7 +7,8 @@
 
 import Foundation
 
-class SearchResultTracker: ObservableObject
+@MainActor
+final class SearchResultTracker: ObservableObject, PackageTrackable
 {
     /// These two have to be arrays because the order matters
     /// When searching, Homebrew returns the best result at the top

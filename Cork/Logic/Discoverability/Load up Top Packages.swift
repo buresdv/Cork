@@ -39,13 +39,13 @@ extension TopPackagesTracker
 
             return decoder
         }()
-
-        async let topFormulae: [BrewPackage] = await loadTopFormulae(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
-        async let topCasks: [BrewPackage] = await loadTopCasks(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
+        
+        async let unprocessedTopFormulae: [BrewPackage] = await loadTopFormulae(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
+        async let unprocessedTopCasks: [BrewPackage] = await loadTopCasks(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
 
         do
         {
-            self.topFormulae = try await topFormulae
+            self.topFormulae = try await self.processRawPackageArray(trackingArray: unprocessedTopFormulae)
         }
         catch let topFormulaeLoadingError
         {
@@ -55,7 +55,7 @@ extension TopPackagesTracker
 
         do
         {
-            self.topCasks = try await topCasks
+            self.topCasks = try await self.processRawPackageArray(trackingArray: unprocessedTopCasks)
         }
         catch let topCasksLoadingError
         {
