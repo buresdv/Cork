@@ -7151,6 +7151,12 @@
             "state" : "translated",
             "value" : "Search Again"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Again"
+          }
         }
       }
     },
@@ -7569,6 +7575,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update %@"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update %@"
@@ -11386,6 +11398,12 @@
             "state" : "translated",
             "value" : "No Casks found"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Casks found"
+          }
         }
       }
     },
@@ -11490,6 +11508,12 @@
             "state" : "translated",
             "value" : "No Formulae found"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Formulae found"
+          }
         }
       }
     },
@@ -11502,6 +11526,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No results found"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No results found"
@@ -13891,6 +13921,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try searching for another package"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try searching for another package"
@@ -20569,6 +20605,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occurred"
@@ -44682,6 +44724,12 @@
             "state" : "translated",
             "value" : "Backup date format:"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backup date format:"
+          }
         }
       }
     },
@@ -44694,6 +44742,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbreviated"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbreviated"
@@ -44714,6 +44768,12 @@
             "state" : "translated",
             "value" : "Complete"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete"
+          }
         }
       }
     },
@@ -44726,6 +44786,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Long"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Long"
@@ -44746,6 +44812,12 @@
             "state" : "translated",
             "value" : "Numeric"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numeric"
+          }
         }
       }
     },
@@ -44758,6 +44830,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitted"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Omitted"
