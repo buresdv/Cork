@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-class TopPackagesTracker: ObservableObject, Sendable
+class TopPackagesTracker: ObservableObject, Sendable, PackageTrackable
 {
     @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
 

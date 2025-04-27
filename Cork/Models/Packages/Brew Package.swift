@@ -77,6 +77,11 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 
     var isBeingModified: Bool = false
 
+    mutating func setHomebrewVersion(to version: String)
+    {
+        homebrewVersion = version
+    }
+    
     mutating func changeTaggedStatus()
     {
         isTagged.toggle()
