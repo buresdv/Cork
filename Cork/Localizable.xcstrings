@@ -7140,6 +7140,12 @@
     },
     "action.search-again" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znovu vyhledat"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7556,6 +7562,12 @@
     "action.update-%@" : {
       "comment" : "Updating individual packages - \"Update (package name)\"",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualizovat %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11363,6 +11375,12 @@
     },
     "add-package.search.results.casks.none-found" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebyly nalezeny žádné Soudky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11461,6 +11479,12 @@
     },
     "add-package.search.results.formulae.none-found" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebyly nalezeny žádné Vzorce"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11471,6 +11495,12 @@
     },
     "add-package.search.results.packages.none-found" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nebyly nalezeny žádné balíčky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13854,6 +13884,12 @@
     },
     "add.package.search.results.packages.none-found.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkuste vyhledat něco jiného"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20525,7 +20561,20 @@
       }
     },
     "error.generic" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyskytla se chyba"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred"
+          }
+        }
+      }
     },
     "error.generic-couldnt-decode-json.%@" : {
       "localizations" : {
@@ -44622,6 +44671,12 @@
     },
     "settings.general.backup-date-format" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formát data záloh"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44632,6 +44687,12 @@
     },
     "settings.general.backup-number-style.abbreviated" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkrácený"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44642,6 +44703,12 @@
     },
     "settings.general.backup-number-style.complete" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úplný"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44652,6 +44719,12 @@
     },
     "settings.general.backup-number-style.long" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dlouhý"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44662,6 +44735,12 @@
     },
     "settings.general.backup-number-style.numeric" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Číselný"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44672,6 +44751,12 @@
     },
     "settings.general.backup-number-style.omitted" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vynechaný"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
