@@ -5,8 +5,8 @@
 //  Created by David Bureš on 12.02.2023.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct SearchResultRow: View, Sendable
 {
@@ -17,15 +17,15 @@ struct SearchResultRow: View, Sendable
 
     let searchedForPackage: BrewPackage
     let context: Self.Context
-    
+
     @State private var description: String?
     @State private var isCompatible: Bool?
 
     @State private var isLoadingDescription: Bool = true
     @State private var descriptionParsingFailed: Bool = false
-    
+
     @State private var selectedVersion: String = ""
-    
+
     var packageHasMultipleInstallableVersion: Bool
     {
         if searchedForPackage.versions.count > 1
@@ -37,7 +37,7 @@ struct SearchResultRow: View, Sendable
             return false
         }
     }
-    
+
     /// Checks if this package is already installed.
     /// # Returns
     /// - `isInstalled`: Whether this package, or another version of this package, is already installed
@@ -46,53 +46,68 @@ struct SearchResultRow: View, Sendable
     {
         /// Whether this package is already installed
         var isInstalled: Bool = false
-        
+
         /// The already installed version of this package from the tracker
         var installedPackage: BrewPackage?
-        
+
         switch searchedForPackage.type
         {
         case .formula:
             if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
             {
                 isInstalled = true
-                
-                installedPackage = brewData.successfullyLoadedFormulae.filter({ $0.name == searchedForPackage.name }).first
-                
-                print("Installed package: \(installedPackage)")
+
+                installedPackage = brewData.successfullyLoadedFormulae.filter { $0.name == searchedForPackage.name }.first
             }
         case .cask:
             if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
             {
                 isInstalled = true
-                
-                installedPackage = brewData.successfullyLoadedCasks.filter({ $0.name == searchedForPackage.name }).first
+
+                installedPackage = brewData.successfullyLoadedCasks.filter { $0.name == searchedForPackage.name }.first
             }
         }
-        
-        let overlappingVersions: [String]? = {
-            guard packageHasMultipleInstallableVersion == true else
-            {
-                AppConstants.shared.logger.log("Searched-for package \(searchedForPackage.name) has no multiple installable versions")
-                return nil
-            }
-            
-            guard let installedVersions: [String] = installedPackage?.versions else
-            {
-                AppConstants.shared.logger.warning("Failed to determine overlapping versions for searched-for package \(searchedForPackage.name)")
-                
-                return nil
-            }
-            
-            let availableVersions: [String] = searchedForPackage.versions
-            
-            let installedVersionsAsSet: Set<String> = Set(installedVersions)
-            let installableVersionsAsSet: Set<String> = Set(availableVersions)
-            
-            return Array(installableVersionsAsSet.intersection(installedVersionsAsSet))
-        }()
-        
-        return (isInstalled, overlappingVersions)
+
+        if let installedPackage
+        {
+            let overlappingVersions: [String]? = {
+                /// Double-check that the package we want to install actually has mutliple installable versions
+                guard packageHasMultipleInstallableVersion == true
+                else
+                {
+                    AppConstants.shared.logger.log("Searched-for package \(searchedForPackage.name, privacy: .public) has no multiple installable versions (was expecting a list of multiple installable versions, but there is only one installable versionn)")
+                    return nil
+                }
+
+                /// Check which Homebrew version of this package is already installed
+                guard let installedVersion: String = installedPackage.homebrewVersion
+                else
+                {
+                    AppConstants.shared.logger.warning("Searched-for package \(searchedForPackage.name, privacy: .public) has no defined Homebrew version (was expecting a Homebrew version, got nil instead")
+
+                    return nil
+                }
+
+                AppConstants.shared.logger.info("Determined that the Homebrew version for installed package \(installedPackage.name) is \(installedVersion)")
+
+                let availableVersionsToInstall: [String] = searchedForPackage.versions
+
+                let installedVersionsAsSet: Set<String> = Set(arrayLiteral: installedVersion)
+                let installableVersionsAsSet: Set<String> = Set(availableVersionsToInstall)
+
+                let finalVersionIntersectionSet: Set<String> = installableVersionsAsSet.intersection(installedVersionsAsSet)
+
+                AppConstants.shared.logger.info("Final version intersection set for package \(searchedForPackage.name): \(finalVersionIntersectionSet.formatted(.list(type: .and)), privacy: .public)")
+
+                return Array(finalVersionIntersectionSet)
+            }()
+
+            return (isInstalled, overlappingVersions)
+        }
+        else
+        {
+            return (isInstalled, nil)
+        }
     }
 
     var body: some View
@@ -101,35 +116,51 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                
                 SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: packageHasMultipleInstallableVersion ? false : true)
-                
+
                 if packageHasMultipleInstallableVersion
                 {
                     Picker(selection: $selectedVersion)
                     {
                         ForEach(searchedForPackage.versions, id: \.self)
                         { packageVersion in
-                            
+
                             var isThisVersionAlreadyInstalled: Bool
                             {
-                                guard let overlappingVersions = isPackageAlreadyInstalled.overlappingVersions else
+                                AppConstants.shared.logger.debug("Will try to determine if version \(packageVersion) of package \(searchedForPackage.name) is already installed and should be disabled")
+
+                                guard let overlappingVersions = isPackageAlreadyInstalled.overlappingVersions
+                                else
                                 {
+                                    AppConstants.shared.logger.debug("Package \(searchedForPackage.name) has no determinable overlapping versions (something in the function that determines whether a package is already installed got fucked)")
+
                                     return false
                                 }
-                                
+
                                 if overlappingVersions.contains(packageVersion)
                                 {
+                                    AppConstants.shared.logger.debug("Version \(packageVersion) of package \(searchedForPackage.name) is included in overlapping versions (overlapping versions array: \(overlappingVersions.formatted(.list(type: .and))) and will be disabled")
+
                                     return true
                                 }
                                 else
                                 {
+                                    AppConstants.shared.logger.debug("Version \(packageVersion) of package \(searchedForPackage.name) is not included in overlapping versions (overlapping versions array: \(overlappingVersions.formatted(.list(type: .and))) and will NOT be disabled")
+
                                     return false
                                 }
                             }
-                            
-                            Text(packageVersion)
-                                .disabled(isThisVersionAlreadyInstalled)
+
+                            if #available(macOS 14.0, *)
+                            {
+                                Text(packageVersion)
+                                    .selectionDisabled(isThisVersionAlreadyInstalled)
+                            }
+                            else
+                            {
+                                Text(packageVersion)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     } label: {
                         EmptyView()
@@ -151,20 +182,20 @@ struct SearchResultRow: View, Sendable
                 {
                 case .topPackages:
                     Spacer()
-                    
+
                     if let downloadCount = searchedForPackage.downloadCount
                     {
                         Text("add-package.top-packages.list-item-\(downloadCount)")
                             .foregroundStyle(.secondary)
                             .font(.caption)
                     }
-                    
+
                 case .searchResults:
-                    if isPackageAlreadyInstalled.isInstalled
+                    if isPackageAlreadyInstalled.isInstalled && !packageHasMultipleInstallableVersion
                     {
                         PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                     }
-                    
+
                     if let isCompatible
                     {
                         if !isCompatible
@@ -255,8 +286,9 @@ struct SearchResultRow: View, Sendable
             }
         }
     }
-    
-    enum Context {
+
+    enum Context
+    {
         case searchResults
         case topPackages
     }
