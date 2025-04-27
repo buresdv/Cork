@@ -15,14 +15,16 @@ struct UpdateSomePackagesView: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
-    @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
+    @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil)
     @State private var updateProgress: Double = 0.0
 
     @State private var packageUpdatingErrors: [String] = .init()
 
-    var selectedPackages: [OutdatedPackage]
+    let packagesToUpdate: [OutdatedPackage]
+    
+    var numberOfPackagesToUpdate: Int
     {
-        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
+        packagesToUpdate.count
     }
 
     var body: some View
@@ -32,14 +34,14 @@ struct UpdateSomePackagesView: View
             switch packageUpdatingStage
             {
             case .updating:
-                ProgressView(value: updateProgress, total: Double(selectedPackages.count))
+                ProgressView(value: updateProgress, total: Double(packagesToUpdate.count))
                 {
                     Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.name)")
                 }
                 .frame(width: 200)
                 .task
                 {
-                    for (index, outdatedPackage) in selectedPackages.enumerated()
+                    for (index, outdatedPackage) in packagesToUpdate.enumerated()
                     {
                         packageBeingCurrentlyUpdated = outdatedPackage.package
 
@@ -62,11 +64,11 @@ struct UpdateSomePackagesView: View
                             {
                             case .standardOutput(let outputLine):
                                 AppConstants.shared.logger.info("Individual package updating output: \(outputLine)")
-                                updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
+                                updateProgress = updateProgress + (Double(numberOfPackagesToUpdate) / 100)
 
                             case .standardError(let errorLine):
                                 AppConstants.shared.logger.info("Individual package updating error: \(errorLine)")
-                                updateProgress = updateProgress + (Double(selectedPackages.count) / 100)
+                                updateProgress = updateProgress + (Double(numberOfPackagesToUpdate) / 100)
 
                                 if !errorLine.contains("The post-install step did not complete successfully")
                                 {

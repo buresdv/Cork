@@ -223,7 +223,8 @@ private extension BrewDataStorage
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,
                         installedIntentionally: wasPackageInstalledIntentionally,
-                        sizeInBytes: packageURL.directorySize
+                        sizeInBytes: packageURL.directorySize,
+                        downloadCount: nil
                     )
                 )
 

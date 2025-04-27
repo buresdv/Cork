@@ -15,19 +15,19 @@ struct TopPackagesSection: View
 
     let trackerType: PackageType
     
-    private var packages: [TopPackage]
+    private var packages: [BrewPackage]
     {
         switch trackerType
         {
         case .formula:
             packageTracker.sortedTopFormulae.filter
             {
-                !brewData.successfullyLoadedFormulae.map(\.name).contains($0.packageName)
+                !brewData.successfullyLoadedFormulae.map(\.name).contains($0.name)
             }
         case .cask:
             packageTracker.sortedTopCasks.filter
             {
-                !brewData.successfullyLoadedCasks.map(\.name).contains($0.packageName)
+                !brewData.successfullyLoadedCasks.map(\.name).contains($0.name)
             }
         }
     }
@@ -42,7 +42,7 @@ struct TopPackagesSection: View
             {
                 ForEach(packages.prefix(15))
                 { topPackage in
-                    SearchResultRow(searchedForPackage: BrewPackage(name: topPackage.packageName, type: trackerType, installedOn: nil, versions: [], sizeInBytes: nil), context: .topPackages, downloadCount: topPackage.packageDownloads)
+                    SearchResultRow(searchedForPackage: topPackage, context: .topPackages)
                 }
             }
         } header: {

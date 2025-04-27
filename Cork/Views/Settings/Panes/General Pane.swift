@@ -30,6 +30,8 @@ struct GeneralPane: View
     @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
     @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
+    @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
+
     var body: some View
     {
         SettingsPaneTemplate
@@ -151,12 +153,12 @@ struct GeneralPane: View
                         {
                             Text("settings.general.package-details.reveal-in-finder.toggle")
                         }
-                        
+
                         Toggle(isOn: $enableSwipeActions)
                         {
                             Text("settings.general.package-details.enable-swipe-actions.toggle")
                         }
-                        
+
                         Toggle(isOn: $enableExtraAnimations)
                         {
                             Text("settings.geeral.package-details.enable-extra-animations.toggle")
@@ -177,20 +179,20 @@ struct GeneralPane: View
 
                         // TODO: Enable again once Apple fixes issue raised in ticket #408
                         /*
-                        Toggle(isOn: $startWithoutWindow)
-                        {
-                            Text("settings.general.menubar.start-minimized.toggle")
-                        }
-                        .padding([.leading])
-                        .disabled(!showInMenuBar)
-                        .onChange(of: showInMenuBar)
-                        { newValue in
-                            if newValue == false
-                            {
-                                startWithoutWindow = false
-                            }
-                        }
-                         */
+                         Toggle(isOn: $startWithoutWindow)
+                         {
+                             Text("settings.general.menubar.start-minimized.toggle")
+                         }
+                         .padding([.leading])
+                         .disabled(!showInMenuBar)
+                         .onChange(of: showInMenuBar)
+                         { newValue in
+                             if newValue == false
+                             {
+                                 startWithoutWindow = false
+                             }
+                         }
+                          */
                     }
                 } label: {
                     Text("settings.general.menubar")
@@ -204,6 +206,31 @@ struct GeneralPane: View
                     }
                 } label: {
                     Text("settings.general.launch-at-login")
+                }
+
+                LabeledContent {
+                    VStack(alignment: .leading, spacing: 6)
+                    {
+                        Picker(selection: $defaultBackupDateFormat)
+                        {
+                            ForEach(Date.FormatStyle.DateStyle.allCases)
+                            { dateStyle in
+                                Text(dateStyle.localizedDescription)
+                            }
+                        } label: {
+                            Text("settings.general.backup-date-format")
+                        }
+                        .labelsHidden()
+                        
+                        if let demoDate: Date = Calendar.current.date(from: .init(calendar: .current, timeZone: .gmt, year: 2022, month: 7, day: 3))
+                        {
+                            Text(demoDate.formatted(date: defaultBackupDateFormat, time: .omitted))
+                                .font(.caption)
+                                .foregroundColor(Color(nsColor: NSColor.systemGray))
+                        }
+                    }
+                } label: {
+                    Text("settings.general.backup-date-format")
                 }
             }
         }

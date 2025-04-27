@@ -14,11 +14,9 @@ struct UninstallPackageButton: View
 {
     let package: BrewPackage
 
-    let isCalledFromSidebar: Bool
-
     var body: some View
     {
-        RemovePackageButton(package: package, shouldPurge: false, isCalledFromSidebar: isCalledFromSidebar)
+        RemovePackageButton(package: package, shouldPurge: false)
     }
 }
 
@@ -30,13 +28,11 @@ struct PurgePackageButton: View
     
     let package: BrewPackage
 
-    let isCalledFromSidebar: Bool
-
     var body: some View
     {
         if allowMoreCompleteUninstallations
         {
-            RemovePackageButton(package: package, shouldPurge: true, isCalledFromSidebar: isCalledFromSidebar)
+            RemovePackageButton(package: package, shouldPurge: true)
         }
     }
 }
@@ -50,12 +46,9 @@ private struct RemovePackageButton: View
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
-    @EnvironmentObject var uninstallationConfirmationTracker: UninstallationConfirmationTracker
-
     var package: BrewPackage
 
     let shouldPurge: Bool
-    let isCalledFromSidebar: Bool
 
     var body: some View
     {
@@ -70,14 +63,19 @@ private struct RemovePackageButton: View
                     cachedPackagesTracker: cachedPackagesTracker,
                     appState: appState,
                     outdatedPackageTracker: outdatedPackageTracker,
-                    shouldRemoveAllAssociatedFiles: shouldPurge,
-                    shouldApplyUninstallSpinnerToRelevantItemInSidebar: isCalledFromSidebar
+                    shouldRemoveAllAssociatedFiles: shouldPurge
                 )
             }
             else
             {
                 AppConstants.shared.logger.debug("Confirmation of package removal needed")
-                uninstallationConfirmationTracker.showConfirmationDialog(packageThatNeedsConfirmation: package, shouldPurge: shouldPurge, isCalledFromSidebar: isCalledFromSidebar)
+                
+                if !shouldPurge
+                {
+                    appState.showConfirmationDialog(ofType: .uninstallPackage(package))
+                } else {
+                    appState.showConfirmationDialog(ofType: .purgePackage(package))
+                }
             }
         } label: {
             if shouldPurge

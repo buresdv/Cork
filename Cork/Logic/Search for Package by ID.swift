@@ -22,63 +22,6 @@ private enum PackageRetrievalByUUIDError: LocalizedError
     }
 }
 
-extension UUID
-{
-    /// Get a package by UUID from a list
-    func getPackage(tracker: SearchResultTracker) throws -> BrewPackage
-    {
-        var filteredPackage: BrewPackage?
-        
-        AppConstants.shared.logger.log("Formula tracker: \(tracker.foundFormulae.count)")
-        AppConstants.shared.logger.log("Cask tracker: \(tracker.foundCasks.count)")
-        
-        if !tracker.foundFormulae.isEmpty
-        {
-            filteredPackage = tracker.foundFormulae.filter { $0.id == self }.first
-        }
-        
-        if filteredPackage == nil
-        {
-            filteredPackage = tracker.foundCasks.filter { $0.id == self }.first
-        }
-        
-        if let filteredPackage
-        {
-            return filteredPackage
-        }
-        else
-        {
-            throw PackageRetrievalByUUIDError.couldNotfindAnypackagesInTracker
-        }
-    }
-    
-    /// Get a top package by UUID from top package list
-    @MainActor
-    func getPackage(tracker: TopPackagesTracker, packageType: PackageType) throws -> BrewPackage
-    {
-        if packageType == .formula
-        {
-            guard let foundTopFormula: TopPackage = tracker.topFormulae.filter({ $0.id == self }).first
-            else
-            {
-                throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
-            }
-            
-            return .init(name: foundTopFormula.packageName, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil)
-        }
-        else
-        {
-            guard let foundTopCask: TopPackage = tracker.topCasks.filter({ $0.id == self }).first
-            else
-            {
-                throw TopPackageRetrievalError.resultingArrayWasEmptyEvenThoughPackagesWereInIt
-            }
-            
-            return .init(name: foundTopCask.packageName, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil)
-        }
-    }
-}
-
 enum TopPackageRetrievalError: LocalizedError
 {
     case resultingArrayWasEmptyEvenThoughPackagesWereInIt

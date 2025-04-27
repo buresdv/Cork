@@ -40,8 +40,8 @@ extension TopPackagesTracker
             return decoder
         }()
 
-        async let topFormulae: [TopPackage] = await loadTopFormulae(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
-        async let topCasks: [TopPackage] = await loadTopCasks(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
+        async let topFormulae: [BrewPackage] = await loadTopFormulae(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
+        async let topCasks: [BrewPackage] = await loadTopCasks(numberOfDays: numberOfDays, downloadsCutoff: packageDownloadsCutoff, decoder: decoder)
 
         do
         {
@@ -66,7 +66,7 @@ extension TopPackagesTracker
 
     // MARK: - Loading top formulae
 
-    private func loadTopFormulae(numberOfDays: Int, downloadsCutoff: Int, decoder: JSONDecoder) async throws -> [TopPackage]
+    private func loadTopFormulae(numberOfDays: Int, downloadsCutoff: Int, decoder: JSONDecoder) async throws -> [BrewPackage]
     {
         struct TopFormulaeOutput: Codable
         {
@@ -99,7 +99,7 @@ extension TopPackagesTracker
 
                     if normalizedDownloadNumber > downloadsCutoff
                     {
-                        return .init(packageName: rawTopFormula.formula, packageDownloads: normalizedDownloadNumber)
+                        return .init(name: rawTopFormula.formula, type: .formula, installedOn: nil, versions: .init(), sizeInBytes: nil, downloadCount: normalizedDownloadNumber)
                     }
                     else
                     {
@@ -122,7 +122,7 @@ extension TopPackagesTracker
 
     // MARK: - Loading top casks
 
-    private func loadTopCasks(numberOfDays: Int, downloadsCutoff: Int, decoder: JSONDecoder) async throws -> [TopPackage]
+    private func loadTopCasks(numberOfDays: Int, downloadsCutoff: Int, decoder: JSONDecoder) async throws -> [BrewPackage]
     {
         struct TopCasksOutput: Codable
         {
@@ -155,7 +155,7 @@ extension TopPackagesTracker
 
                     if normalizedDownloadNumber > downloadsCutoff
                     {
-                        return .init(packageName: rawTopCask.cask, packageDownloads: normalizedDownloadNumber)
+                        return .init(name: rawTopCask.cask, type: .cask, installedOn: nil, versions: .init(), sizeInBytes: nil, downloadCount: normalizedDownloadNumber)
                     }
                     else
                     {
