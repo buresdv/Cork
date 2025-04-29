@@ -12,6 +12,14 @@ import SwiftUI
 
 struct AddFormulaView: View
 {
+    struct PackageSelectedToBeInstalled: Identifiable, Equatable, Hashable
+    {
+        var id: UUID = .init()
+        
+        var package: BrewPackage?
+        var version: String?
+    }
+    
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @State private var packageRequested: String = ""
@@ -21,7 +29,7 @@ struct AddFormulaView: View
 
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
-    @State private var foundPackageSelection: BrewPackage?
+    @State private var foundPackageSelection: PackageSelectedToBeInstalled?
 
     @ObservedObject var searchResultTracker: SearchResultTracker = .init()
     @ObservedObject var installationProgressTracker: InstallationProgressTracker = .init()

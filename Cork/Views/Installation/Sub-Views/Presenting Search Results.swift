@@ -11,6 +11,11 @@ import ButtonKit
 
 struct PresentingSearchResultsView: View
 {
+    enum PackageInstallationInitializationError: Error
+    {
+        case couldNotStartInstallProcessWithPackage(package: BrewPackage?)
+    }
+    
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
@@ -19,7 +24,7 @@ struct PresentingSearchResultsView: View
     @ObservedObject var searchResultTracker: SearchResultTracker
 
     @Binding var packageRequested: String
-    @Binding var foundPackageSelection: BrewPackage?
+    @Binding var foundPackageSelection: AddFormulaView.PackageSelectedToBeInstalled?
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
@@ -121,7 +126,7 @@ struct PresentingSearchResultsView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let selectedPackage = foundPackageSelection else
+            guard let selectedPackage = foundPackageSelection?.package else
             {
                 AppConstants.shared.logger.error("Failed to preview package")
                 
@@ -153,7 +158,7 @@ struct PresentingSearchResultsView: View
         // This has to be an AsyncButton so it shakes
         AsyncButton
         {
-            guard let packageToInstall = foundPackageSelection else
+            guard let packageToInstall = foundPackageSelection?.package else
             {
                 throw PackageInstallationInitializationError.couldNotStartInstallProcessWithPackage(package: nil)
             }
