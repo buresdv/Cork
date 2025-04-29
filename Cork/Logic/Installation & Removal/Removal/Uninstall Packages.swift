@@ -37,16 +37,16 @@ extension BrewDataStorage
             }
         }
 
-        AppConstants.shared.logger.info("Will try to remove package \(package.name, privacy: .auto)")
+        AppConstants.shared.logger.info("Will try to remove package \(package.fullName, privacy: .auto)")
         var uninstallCommandOutput: TerminalOutput
 
         if !shouldRemoveAllAssociatedFiles
         {
-            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", package.name])
+            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", package.fullName])
         }
         else
         {
-            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.name])
+            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.fullName])
         }
 
         AppConstants.shared.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardError)")
@@ -116,7 +116,7 @@ extension BrewDataStorage
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.fullName })
         {
             outdatedPackageTracker.outdatedPackages.remove(at: index)
         }

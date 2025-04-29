@@ -118,7 +118,7 @@ struct InstallationInitialView: View
     {
         Button
         {
-            guard let packageToInstall: BrewPackage = foundPackageSelection?.package else
+            guard let packageToInstall: BrewPackage = foundPackageSelection?.constructPackageOfRelevantVersion() else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to install")
                 

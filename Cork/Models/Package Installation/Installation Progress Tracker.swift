@@ -5,36 +5,36 @@
 //  Created by David Bureš on 22.02.2023.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 class InstallationProgressTracker: ObservableObject
 {
     @Published var installationStage: PackageInstallationStage = .downloadingCask
     @Published var installationProgress: Double = 0
-    
+
     @Published var realTimeTerminalOutput: [RealTimeTerminalLine] = .init()
-    
+
     @Published var numberOfPackageDependencies: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
     @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
-    
+
     private var installationProcess: Process?
 
     private var showRealTimeTerminalOutputs: Bool
     {
         UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
     }
-    
+
     deinit
     {
         cancel()
     }
-    
+
     @discardableResult
     func cancel() -> Bool
     {
-        guard let installationProcess else {return false}
+        guard let installationProcess else { return false }
         installationProcess.terminate()
         self.installationProcess = nil
         return true
@@ -87,7 +87,7 @@ class InstallationProgressTracker: ObservableObject
 
         AppConstants.shared.logger.info("Package \(packageToInstall.name, privacy: .public) is Formula")
 
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", packageToInstall.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", packageToInstall.fullName])
         installationProcess = process
         for await output in stream
         {
@@ -107,7 +107,7 @@ class InstallationProgressTracker: ObservableObject
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
-                    var matchedDependencies: String = try outputLine.regexMatch("(?<=\(packageToInstall.name): ).*?(.*)")
+                    var matchedDependencies: String = try outputLine.regexMatch("(?<=\(packageToInstall.fullName): ).*?(.*)")
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
                     AppConstants.shared.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
@@ -170,7 +170,7 @@ class InstallationProgressTracker: ObservableObject
 
                 installOutput.append(outputLine)
 
-                    AppConstants.shared.logger.debug("Current installation stage: \(self.installationStage.description, privacy: .public)")
+                AppConstants.shared.logger.debug("Current installation stage: \(self.installationStage.description, privacy: .public)")
 
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Errored out: \(errorLine, privacy: .public)")
@@ -202,7 +202,7 @@ class InstallationProgressTracker: ObservableObject
         AppConstants.shared.logger.info("Package is Cask")
         AppConstants.shared.logger.debug("Installing package \(packageToInstall.name, privacy: .public)")
 
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--no-quarantine", packageToInstall.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--no-quarantine", packageToInstall.fullName])
         installationProcess = process
         for await output in stream
         {
@@ -213,7 +213,7 @@ class InstallationProgressTracker: ObservableObject
 
                 if showRealTimeTerminalOutputs
                 {
-                   realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
+                    realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
                 }
 
                 if outputLine.contains("Downloading")

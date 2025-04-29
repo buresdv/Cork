@@ -161,7 +161,7 @@ struct PresentingSearchResultsView: View
         // This has to be an AsyncButton so it shakes
         AsyncButton
         {
-            guard let packageToInstall = foundPackageSelection?.package
+            guard let packageToInstall = foundPackageSelection?.constructPackageOfRelevantVersion()
             else
             {
                 throw PackageInstallationInitializationError.couldNotStartInstallProcessWithPackage(package: nil)

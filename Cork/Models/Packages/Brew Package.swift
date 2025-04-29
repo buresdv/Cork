@@ -14,7 +14,20 @@ import CorkShared
 struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 {    
     var id: UUID = .init()
+    /// Display name for the package. Excludes Homebrew version
     let name: String
+    
+    /// Internal Homebrew name for the package. Includes Homebrew version
+    var fullName: String {
+        if let sanitizedHomewbrewVersion = self.homebrewVersion
+        {
+            return "\(self.name)@\(sanitizedHomewbrewVersion)"
+        }
+        else
+        {
+            return self.name
+        }
+    }
 
     lazy var sanitizedName: String? = {
         var packageNameWithoutTap: String
