@@ -5,9 +5,9 @@
 //  Created by David Bureš on 29.09.2023.
 //
 
+import ButtonKit
 import CorkShared
 import SwiftUI
-import ButtonKit
 
 struct PresentingSearchResultsView: View
 {
@@ -15,7 +15,7 @@ struct PresentingSearchResultsView: View
     {
         case couldNotStartInstallProcessWithPackage(package: BrewPackage?)
     }
-    
+
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
@@ -34,7 +34,7 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
-    
+
     var wereAnyPackagesFound: Bool
     {
         if searchResultTracker.foundFormulae.isEmpty && searchResultTracker.foundCasks.isEmpty
@@ -104,32 +104,36 @@ struct PresentingSearchResultsView: View
     {
         if #available(macOS 14.0, *)
         {
-            ContentUnavailableView {
+            ContentUnavailableView
+            {
                 Label("add-package.search.results.packages.none-found", image: "custom.shippingbox.badge.magnifyingglass")
             } description: {
                 Text("add.package.search.results.packages.none-found.description")
             } actions: {
                 EmptyView()
             }
-
-        } else {
-            VStack(alignment: .center, spacing: 5) {
+        }
+        else
+        {
+            VStack(alignment: .center, spacing: 5)
+            {
                 Text("add-package.search.results.packages.none-found")
-                
+
                 restartSearchButton
             }
         }
     }
-    
+
     @ViewBuilder
     var previewPackageButton: some View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let selectedPackage = foundPackageSelection?.package else
+            guard let selectedPackage = foundPackageSelection?.package
+            else
             {
                 AppConstants.shared.logger.error("Failed to preview package")
-                
+
                 return
             }
             openWindow(value: selectedPackage)
@@ -158,11 +162,12 @@ struct PresentingSearchResultsView: View
         // This has to be an AsyncButton so it shakes
         AsyncButton
         {
-            guard let packageToInstall = foundPackageSelection?.package else
+            guard let packageToInstall = foundPackageSelection?.package
+            else
             {
                 throw PackageInstallationInitializationError.couldNotStartInstallProcessWithPackage(package: nil)
             }
-            
+
             packageInstallationProcessStep = .installing(packageToInstall: packageToInstall)
         } label: {
             Text("add-package.install.action")
@@ -214,7 +219,7 @@ private struct SearchResultsSection: View
             }
         }
     }
-    
+
     @ViewBuilder
     var noPackagesFoundStates: some View
     {

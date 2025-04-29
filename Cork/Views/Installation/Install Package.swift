@@ -14,10 +14,18 @@ struct AddFormulaView: View
 {
     struct PackageSelectedToBeInstalled: Identifiable, Equatable, Hashable
     {
-        var id: UUID = .init()
+        var id: UUID
         
         var package: BrewPackage?
+        
         var version: String?
+        
+        init(package: BrewPackage? = nil, version: String? = nil) {
+            self.package = package
+            self.version = version
+            
+            self.id = package?.id ?? .init()
+        }
     }
     
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -113,6 +121,9 @@ struct AddFormulaView: View
         {
             SheetTemplate(isShowingTitle: shouldShowSheetTitle)
             {
+#if DEBUG
+                        Text("\(foundPackageSelection?.package?.name ?? "nil"): \(foundPackageSelection?.version ?? "nil")")
+#endif
                 Group
                 {
                     switch packageInstallationProcessStep
