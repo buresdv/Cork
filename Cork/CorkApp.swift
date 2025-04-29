@@ -407,10 +407,10 @@ struct CorkApp: App
         .windowResizability(.contentSize)
         .defaultPosition(.center)
         
-        WindowGroup(id: .previewWindowID, for: BrewPackage.self)
+        WindowGroup(id: .previewWindowID, for: AddFormulaView.PackageSelectedToBeInstalled.self)
         { $packageToPreview in
-            PackagePreview(packageToPreview: packageToPreview)
-                .navigationTitle(packageToPreview?.name ?? "")
+            PackagePreview(selectedPackageToPreview: packageToPreview)
+                .navigationTitle(packageToPreview?.package?.name ?? "")
                 .environmentObject(appDelegate.appState)
         }
         .windowResizability(.contentSize)

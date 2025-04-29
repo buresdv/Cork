@@ -101,7 +101,7 @@ struct InstallationInitialView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let packageToPreview: BrewPackage = foundPackageSelection?.package else
+            guard let packageToPreview: AddFormulaView.PackageSelectedToBeInstalled = foundPackageSelection else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to preview")
                 

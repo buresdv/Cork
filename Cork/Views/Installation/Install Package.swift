@@ -12,7 +12,7 @@ import SwiftUI
 
 struct AddFormulaView: View
 {
-    struct PackageSelectedToBeInstalled: Identifiable, Equatable, Hashable
+    struct PackageSelectedToBeInstalled: Identifiable, Equatable, Hashable, Codable
     {
         var id: UUID
         
@@ -25,6 +25,32 @@ struct AddFormulaView: View
             self.version = version
             
             self.id = package?.id ?? .init()
+        }
+        
+        /// Create a package with the relevant version selected, for previewing and installing
+        func constructPackageOfRelevantVersion() -> BrewPackage?
+        {
+            /// First, see if there's a package to construct
+            guard var newPackage = self.package else
+            {
+                /// If not, just return nil and the process will fail
+                return nil
+            }
+            
+            /// Now that we have a package, let's see if there's a specific Homebrew version selected
+            if let selectedHomebrewVersion = self.version
+            {
+                /// If there is a version defined, construct a package that's identical, apart from its Homebrew version
+                newPackage.versions = .init()
+                newPackage.homebrewVersion = selectedHomebrewVersion
+                
+                return newPackage
+            }
+            else
+            {
+                /// If there's no Homebrew version defined, just return the package itself with no versions
+                return newPackage
+            }
         }
     }
     

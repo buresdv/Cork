@@ -10,13 +10,13 @@ import SwiftUI
 struct PackagePreview: View
 {
 
-    let packageToPreview: BrewPackage?
+    let selectedPackageToPreview: AddFormulaView.PackageSelectedToBeInstalled?
 
     var body: some View
     {
-        if let packageToPreview
+        if let finalPackageOfRelevantVersion = selectedPackageToPreview?.constructPackageOfRelevantVersion()
         {
-            PackageDetailView(package: packageToPreview)
+            PackageDetailView(package: finalPackageOfRelevantVersion)
                 .isPreview()
                 .fixedSize()
         }

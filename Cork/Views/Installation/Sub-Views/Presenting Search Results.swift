@@ -129,16 +129,15 @@ struct PresentingSearchResultsView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let selectedPackage = foundPackageSelection?.package
+            guard let selectedPackage: AddFormulaView.PackageSelectedToBeInstalled = foundPackageSelection
             else
             {
                 AppConstants.shared.logger.error("Failed to preview package")
 
                 return
             }
+            
             openWindow(value: selectedPackage)
-
-            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
         }
         .disabled(foundPackageSelection == nil)
     }
