@@ -29,7 +29,7 @@ struct InstallationInitialView: View
 
     @Binding var packageRequested: String
 
-    @Binding var foundPackageSelection: BrewPackage?
+    @Binding var foundPackageSelection: AddFormulaView.PackageSelectedToBeInstalled?
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
 
@@ -101,7 +101,7 @@ struct InstallationInitialView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let packageToPreview: BrewPackage = foundPackageSelection else
+            guard let packageToPreview: BrewPackage = foundPackageSelection?.package else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to preview")
                 
@@ -118,7 +118,7 @@ struct InstallationInitialView: View
     {
         Button
         {
-            guard let packageToInstall: BrewPackage = foundPackageSelection else
+            guard let packageToInstall: BrewPackage = foundPackageSelection?.package else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to install")
                 
