@@ -39,11 +39,13 @@ struct TestTopPackageHandling
         // MARK: - Confirm the top packages are sorted correctly
         mockedTopPackageTracker.sortTopPackagesBy = .mostDownloads
         
-        #expect(mockedTopPackageTracker.sortedTopFormulae[0].packageDownloads > mockedTopPackageTracker.sortedTopFormulae[1].packageDownloads)
+        #expect(mockedTopPackageTracker.sortedTopFormulae.randomElement() != nil)
+        
+        #expect(mockedTopPackageTracker.sortedTopFormulae[0].downloadCount ?? 0 > mockedTopPackageTracker.sortedTopFormulae[1].downloadCount ?? 0)
         
         mockedTopPackageTracker.sortTopPackagesBy = .fewestDownloads
         
-        #expect(mockedTopPackageTracker.sortedTopFormulae[0].packageDownloads < mockedTopPackageTracker.sortedTopFormulae[1].packageDownloads)
+        #expect(mockedTopPackageTracker.sortedTopFormulae[0].downloadCount ?? 0 < mockedTopPackageTracker.sortedTopFormulae[1].downloadCount ?? 0)
         
         mockedTopPackageTracker.sortTopPackagesBy = .mostDownloads
     }
