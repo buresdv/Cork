@@ -29,7 +29,7 @@ struct InstallationInitialView: View
 
     @Binding var packageRequested: String
 
-    @Binding var foundPackageSelection: AddFormulaView.PackageSelectedToBeInstalled?
+    @Binding var foundPackageSelection: UUID?
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
 

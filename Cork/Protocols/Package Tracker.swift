@@ -12,6 +12,7 @@ import CorkShared
 protocol PackageTrackable: ObservableObject, Sendable
 {
     func processRawPackageArray(trackingArray: [BrewPackage]) async -> [BrewPackage]
+    func findPackageInTrackerByUUID(packageToFind: BrewPackage) -> BrewPackage?
 }
 
 extension PackageTrackable
@@ -58,5 +59,20 @@ extension PackageTrackable
         }
         
         return tempArray
+    }
+}
+
+extension PackageTrackable
+{
+    /// Find a package in the tracking array by its UUID
+    /// The result is the found package in the tracking array
+    func findPackageInTrackerByUUID(trackingArray: [BrewPackage], uuidToFind: UUID) -> BrewPackage?
+    {
+        guard let foundPackage = trackingArray.first(where: { $0.id == uuidToFind }) else
+        {
+            return nil
+        }
+        
+        return foundPackage
     }
 }

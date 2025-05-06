@@ -243,7 +243,7 @@ struct SearchResultRow: View, Sendable
                 }
             }
         }
-        .tag(AddFormulaView.PackageSelectedToBeInstalled(package: searchedForPackage, version: selectedVersion.isEmpty ? nil : selectedVersion))
+        .tag(searchedForPackage.id)
         .task
         {
             if showDescriptionsInSearchResults
