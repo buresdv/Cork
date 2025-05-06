@@ -6753,6 +6753,12 @@
             "state" : "translated",
             "value" : "Search Again"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторный поиск"
+          }
         }
       }
     },
@@ -7091,6 +7097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновить %@"
           }
         }
       }
@@ -10733,6 +10745,12 @@
             "state" : "translated",
             "value" : "No Casks found"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приложения macOS не найдены"
+          }
         }
       }
     },
@@ -10843,6 +10861,12 @@
             "state" : "translated",
             "value" : "No Formulae found"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Консольные приложения/библиотеки не найдены"
+          }
         }
       }
     },
@@ -10864,6 +10888,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No results found"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ничего не найдено"
           }
         }
       }
@@ -13259,6 +13289,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try searching for another package"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Убедитесь, что вы ввели верное название пакета"
           }
         }
       }
@@ -19672,6 +19708,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An error occurred"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка"
           }
         }
       }
@@ -42570,6 +42612,12 @@
             "value" : "Enable extra animations"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить дополнительные анимации"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42692,6 +42740,12 @@
             "state" : "translated",
             "value" : "Backup date format:"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Формат даты для резервных копий:"
+          }
         }
       }
     },
@@ -42713,6 +42767,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbreviated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сокращенный"
           }
         }
       }
@@ -42736,6 +42796,12 @@
             "state" : "translated",
             "value" : "Complete"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата с месяцем прописью + день недели"
+          }
         }
       }
     },
@@ -42757,6 +42823,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Long"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата с месяцем прописью"
           }
         }
       }
@@ -42780,6 +42852,12 @@
             "state" : "translated",
             "value" : "Numeric"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата цифрами"
+          }
         }
       }
     },
@@ -42801,6 +42879,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Omitted"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дата цифрами + время"
           }
         }
       }
@@ -45319,6 +45403,12 @@
             "value" : "Show packages not managed by Homebrew"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показывать самообновляющиеся пакеты"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45430,6 +45520,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automatically accept package EULAs"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автоматически принимать лицензионные соглашения"
           }
         },
         "tr" : {
@@ -51711,8 +51807,8 @@
               },
               "one" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "1 приложение/библиотеку не удалось загрузить"
+                  "state" : "translated",
+                  "value" : "%lld приложение/библиотеку не удалось загрузить"
                 }
               },
               "other" : {
@@ -52888,6 +52984,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найдено %lld устаревших самообновляющихся пакетов"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найдено %lld устаревших самообновляющихся пакетов"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найден %lld устаревший самообновляющийся пакет"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найдено %lld устаревших самообновляющихся пакетов"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -52970,6 +53096,36 @@
             }
           }
         },
+        "ru" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найдено еще %lld самообновляющихся пакетов"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найдено еще %lld самообновляющихся пакетов"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найден еще %lld самообновляющийся пакет"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Найдено еще %lld самообновляющихся пакетов"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -53002,6 +53158,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unmanaged outdated packages"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Устаревшие самообновляющиеся пакеты"
           }
         },
         "zh-Hans" : {
@@ -55630,6 +55792,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All packages managed by Homebrew are up to date"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все пакеты, требующие ручного обновления, имеют последние версии"
           }
         },
         "zh-Hans" : {
