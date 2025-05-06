@@ -7,12 +7,12 @@
 
 // swiftlint:disable file_length
 
+import ButtonKit
 import CorkNotifications
 import CorkShared
 import DavidFoundation
 import SwiftUI
 import UserNotifications
-import ButtonKit
 
 @main
 struct CorkApp: App
@@ -21,7 +21,7 @@ struct CorkApp: App
 
     @StateObject var brewData: BrewDataStorage = .init()
     @StateObject var availableTaps: TapTracker = .init()
-    
+
     @StateObject var cachedDownloadsTracker: CachedPackagesTracker = .init()
 
     @StateObject var topPackagesTracker: TopPackagesTracker = .init()
@@ -37,12 +37,12 @@ struct CorkApp: App
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
-    
+
     @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
     @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
     @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
-    
+
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
     @State private var sendStandardUpdatesAvailableNotification: Bool = true
@@ -406,16 +406,33 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
-        
+
         WindowGroup(id: .previewWindowID, for: AddFormulaView.PackageSelectedToBeInstalled.self)
         { $packageToPreview in
+            let previewWindowName: String = {
+                if let packageName = packageToPreview?.package?.name
+                {
+                    if let packageHomebrewVersion = packageToPreview?.version
+                    {
+                        return "\(packageName)􀎠\(packageHomebrewVersion)"
+                    }
+                    else
+                    {
+                        return packageName
+                    }
+                }
+                else
+                {
+                    return ""
+                }
+            }()
             PackagePreview(selectedPackageToPreview: packageToPreview)
-                .navigationTitle(packageToPreview?.package?.name ?? "")
+                .navigationTitle(previewWindowName)
                 .environmentObject(appDelegate.appState)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
-        
+
         WindowGroup(id: .errorInspectorWindowID, for: String.self)
         { $errorToInspect in
             if let errorToInspect
@@ -718,7 +735,7 @@ struct CorkApp: App
         } label: {
             Text("debug.action.licensing")
         }
-        
+
         Menu
         {
             Button
@@ -748,7 +765,7 @@ struct CorkApp: App
             NSApp.dockTile.badgeLabel = ""
         }
     }
-    
+
     private func setWhetherToSendStandardUpdatesAvailableNotification(to newValue: Bool)
     {
         self.sendStandardUpdatesAvailableNotification = newValue
