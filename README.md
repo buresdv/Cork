@@ -2,17 +2,13 @@
 
 A fast GUI for Homebrew written in SwiftUI
 
-[![Mastodon Link](https://img.shields.io/mastodon/follow/108939255808776594?domain=https%3A%2F%2Fmstdn.social&label=Follow%20me%20for%20updates&style=flat)](https://mstdn.social/@davidbures)
+[![Follow me on Bluesky](https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff&label=Follow%20me%20on&color=0285FF)](https://bsky.app/profile/buresdv.eu)
 [![Discord Link](https://img.shields.io/discord/1083475351260377119?label=Talk%20to%20me%20on%20Discord&style=flat)](https://discord.gg/kUHg8uGHpG)
-[![Join the Forums](https://img.shields.io/badge/Join%20the%20Forums-orange?style=flat&link=https://forum.corkmac.app/t/cork)](https://forum.corkmac.app/t/cork)
+[![Mastodon Link](https://img.shields.io/mastodon/follow/108939255808776594?domain=https%3A%2F%2Fmstdn.social&label=Follow%20me%20for%20updates&style=flat)](https://mstdn.social/@davidbures)
 
 # My whole life is falling apart right now, so the development of Cork will be impacted
 
 ## Special Thanks
-
-I'd like to personally thank [Seb Jachec](https://github.com/sebj) for implementing a system for getting real-time outputs of Brew commands.
-
-Without his contribution, many of the processes that depend on real-time outputs, such as installation, uninstallation and updating of packages, would be impossible.
 
 I'd like to personally thank [Dmitri Bouniol](https://github.com/dimitribouniol) and [Ben Carlsson](https://twos.dev) for coming up with a way for self-compiled builds to bypass the license check.
 
@@ -192,5 +188,3 @@ Cork is licensed under [Commons Clause](https://commonsclause.com).
 This means that Cork's source source is available and you can modify it, contribute to it etc., but you can't sell or distribute Cork or modified versions of it.
 
 Moreover, you can’t distribute compiled versions of Cork without consulting me first. Compiling versions for your personal use is fine.
-
-[![Mutable.ai Auto Wiki](https://img.shields.io/badge/Auto_Wiki-Mutable.ai-blue)](https://wiki.mutable.ai/buresdv/Cork)
