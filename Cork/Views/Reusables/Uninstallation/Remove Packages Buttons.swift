@@ -43,7 +43,7 @@ private struct RemovePackageButton: View
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var package: BrewPackage
@@ -62,7 +62,7 @@ private struct RemovePackageButton: View
                     package: package,
                     cachedDownloadsTracker: cachedDownloadsTracker,
                     appState: appState,
-                    outdatedPackageTracker: outdatedPackageTracker,
+                    outdatedPackagesTracker: outdatedPackagesTracker,
                     shouldRemoveAllAssociatedFiles: shouldPurge
                 )
             }

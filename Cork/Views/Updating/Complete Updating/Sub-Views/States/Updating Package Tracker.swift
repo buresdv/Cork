@@ -13,7 +13,7 @@ struct UpdatingPackageTrackerStateView: View
     @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
     
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
@@ -28,7 +28,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
+                    try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                     
                     updateProgressTracker.updateProgress = 10
 

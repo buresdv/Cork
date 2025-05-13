@@ -23,7 +23,7 @@ struct StartPage: View
     @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
 
@@ -122,7 +122,7 @@ struct StartPage: View
                 }
                 .task
                 {
-                    if outdatedPackageTracker.outdatedPackages.isEmpty
+                    if outdatedPackagesTracker.outdatedPackages.isEmpty
                     {
                         appState.isCheckingForPackageUpdates = true
 
@@ -136,7 +136,7 @@ struct StartPage: View
 
                         do
                         {
-                            try await outdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
+                            try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                         }
                         catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
                         {

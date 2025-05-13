@@ -10,7 +10,7 @@ import CorkShared
 
 struct CheckingForUpdatesStateView: View
 {
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
@@ -35,7 +35,7 @@ struct CheckingForUpdatesStateView: View
         }
         .task
         {
-            updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
+            updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackagesTracker: outdatedPackagesTracker)
 
             AppConstants.shared.logger.debug("Update availability result: \(updateAvailability.description, privacy: .public)")
 

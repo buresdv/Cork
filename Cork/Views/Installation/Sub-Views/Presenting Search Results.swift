@@ -22,7 +22,7 @@ struct PresentingSearchResultsView: View
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     @State private var isFormulaeSectionCollapsed: Bool = false
     @State private var isCasksSectionCollapsed: Bool = false

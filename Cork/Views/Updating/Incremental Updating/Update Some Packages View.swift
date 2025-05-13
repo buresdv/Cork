@@ -12,7 +12,7 @@ struct UpdateSomePackagesView: View
 {
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
     @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil)
@@ -125,7 +125,7 @@ struct UpdateSomePackagesView: View
                     }
                     
                     AppConstants.shared.logger.debug("Will synchronize outdated packages")
-                    try await outdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
+                    try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                 }
                 catch let packageSynchronizationError
                 {

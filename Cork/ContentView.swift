@@ -38,7 +38,7 @@ struct ContentView: View, Sendable
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
@@ -783,7 +783,7 @@ private extension View
                             package: packageToUninstall,
                             cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
-                            outdatedPackageTracker: view.outdatedPackageTracker,
+                            outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: false
                         )
                     } label: {
@@ -799,7 +799,7 @@ private extension View
                             package: packageToPurge,
                             cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
-                            outdatedPackageTracker: view.outdatedPackageTracker,
+                            outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: true
                         )
                     } label: {
