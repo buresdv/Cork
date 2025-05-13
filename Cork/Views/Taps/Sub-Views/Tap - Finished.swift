@@ -10,7 +10,7 @@ import CorkShared
 
 struct AddTapFinishedView: View
 {
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
     let requestedTap: String
 
@@ -30,13 +30,13 @@ struct AddTapFinishedView: View
                 {
                     withAnimation
                     {
-                        availableTaps.addedTaps.prepend(BrewTap(name: requestedTap))
+                        tapTracker.addedTaps.prepend(BrewTap(name: requestedTap))
                     }
 
                     /// Remove that one element of the array that's empty for some reason
-                    availableTaps.addedTaps.removeAll(where: { $0.name == "" })
+                    tapTracker.addedTaps.removeAll(where: { $0.name == "" })
 
-                    AppConstants.shared.logger.info("Available taps: \(availableTaps.addedTaps, privacy: .public)")
+                    AppConstants.shared.logger.info("Available taps: \(tapTracker.addedTaps, privacy: .public)")
                 }
                 .task
                 { // Force-load the packages from the new tap

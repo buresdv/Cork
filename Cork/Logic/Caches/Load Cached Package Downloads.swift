@@ -8,11 +8,11 @@
 import Foundation
 import CorkShared
 
-extension CachedPackagesTracker
+extension CachedDownloadsTracker
 {
     /// Load cached downloads and assign their types
     @MainActor
-    func loadCachedDownloadedPackages(brewData: BrewDataStorage) async
+    func loadCachedDownloadedPackages(brewPackagesTracker: BrewPackagesTracker) async
     {
         AppConstants.shared.logger.info("Will load cached downloaded packages")
         
@@ -77,6 +77,6 @@ extension CachedPackagesTracker
 
         cachedDownloads.append(.init(packageName: String(localized: "start-page.cached-downloads.graph.other-smaller-packages"), sizeInBytes: packagesThatAreTooSmallToDisplaySize, packageType: .other))
         
-        self.assignPackageTypeToCachedDownloads(brewData: brewData)
+        self.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
     }
 }
