@@ -27,7 +27,7 @@ struct ContentView: View, Sendable
 
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var tapData: TapTracker
@@ -504,7 +504,7 @@ private extension View
     func sheets(of view: ContentView) -> some View
     {
         self
-            .sheet(item: view.$appState.sheetToShow)
+            .sheet(item: Bindable(view.appState).sheetToShow)
             { sheetType in
                 switch sheetType
                 {
@@ -549,7 +549,7 @@ private extension View
     func alerts(of view: ContentView) -> some View
     {
         self
-            .alert(isPresented: view.$appState.isShowingFatalError, error: view.appState.fatalAlertType)
+            .alert(isPresented: Bindable(view.appState).isShowingFatalError, error: view.appState.fatalAlertType)
             { error in
                 switch error
                 {
@@ -773,7 +773,7 @@ private extension View
     func confirmationDialogs(of view: ContentView) -> some View
     {
         self
-            .confirmationDialog(view.appState.confirmationDialogType?.title ?? "error.generic", isPresented: view.$appState.isShowingConfirmationDialog, presenting: view.appState.confirmationDialogType, actions: { dialogType in
+            .confirmationDialog(view.appState.confirmationDialogType?.title ?? "error.generic", isPresented: Bindable(view.appState).isShowingConfirmationDialog, presenting: view.appState.confirmationDialogType, actions: { dialogType in
                 switch dialogType
                 {
                 case .uninstallPackage(let packageToUninstall):

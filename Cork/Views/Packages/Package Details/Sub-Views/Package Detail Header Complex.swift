@@ -15,7 +15,7 @@ struct PackageDetailHeaderComplex: View
         case loadingDependants, showingDependants(dependantsToShow: [String]), noDependantsToShow
     }
     
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     
     let package: BrewPackage

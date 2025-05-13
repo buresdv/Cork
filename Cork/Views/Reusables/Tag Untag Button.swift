@@ -10,7 +10,7 @@ import CorkShared
 
 struct TagUntagButton: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     
     let package: BrewPackage

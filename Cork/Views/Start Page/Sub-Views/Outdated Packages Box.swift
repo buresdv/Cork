@@ -15,7 +15,7 @@ struct OutdatedPackagesBox: View
         case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
     }
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool

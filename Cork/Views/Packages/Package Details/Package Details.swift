@@ -55,7 +55,7 @@ struct PackageDetailView: View, Sendable
 
     @EnvironmentObject var brewData: BrewDataStorage
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var isShowingExpandedDependencies: Bool = false
