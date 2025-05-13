@@ -16,7 +16,7 @@ struct SidebarPackageRow: View
 
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {

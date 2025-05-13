@@ -17,7 +17,7 @@ struct InstallingPackageView: View
     
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 

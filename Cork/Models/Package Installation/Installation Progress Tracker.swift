@@ -8,13 +8,14 @@
 import Foundation
 import CorkShared
 
-class InstallationProgressTracker: ObservableObject
+@Observable
+class InstallationProgressTracker
 {
-    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
+    var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
 
-    @Published var numberOfPackageDependencies: Int = 0
-    @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
-    @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
+    var numberOfPackageDependencies: Int = 0
+    var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
+    var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
     
     private var installationProcess: Process?
 

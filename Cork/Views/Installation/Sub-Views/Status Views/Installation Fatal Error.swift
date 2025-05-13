@@ -9,14 +9,14 @@ import SwiftUI
 
 struct InstallationFatalErrorView: View
 {
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    let packageBeingInstalled: BrewPackage
 
     var body: some View
     {
         ComplexWithIcon(systemName: "exclamationmark.triangle")
         {
             HeadlineWithSubheadline(
-                headline: "add-package.fatal-error-\(installationProgressTracker.packageBeingInstalled.package.name)",
+                headline: "add-package.fatal-error-\(packageBeingInstalled.name)",
                 subheadline: "add-package.fatal-error.description",
                 alignment: .leading
             )

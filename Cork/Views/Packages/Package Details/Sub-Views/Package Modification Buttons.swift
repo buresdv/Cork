@@ -17,7 +17,7 @@ struct PackageModificationButtons: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(AppState.self) var appState: AppState
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let package: BrewPackage
     @ObservedObject var packageDetails: BrewPackageDetails
@@ -85,7 +85,7 @@ struct PackageModificationButtons: View
                                             package: package,
                                             cachedDownloadsTracker: cachedDownloadsTracker,
                                             appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            outdatedPackagesTracker: outdatedPackagesTracker,
                                             shouldRemoveAllAssociatedFiles: false
                                         )
                                     }
