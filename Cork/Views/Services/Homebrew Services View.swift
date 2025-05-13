@@ -11,7 +11,7 @@ struct HomebrewServicesView: View
 {
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
 
-    @EnvironmentObject private var appDelegate: AppDelegate
+    @Environment(AppDelegate.self) var appDelegate: AppDelegate
 
     @StateObject var servicesTracker: ServicesTracker = .init()
     @StateObject var servicesState: ServicesState = .init()

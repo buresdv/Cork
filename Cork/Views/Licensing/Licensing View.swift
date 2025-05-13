@@ -13,7 +13,7 @@ struct LicensingView: View
     @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {

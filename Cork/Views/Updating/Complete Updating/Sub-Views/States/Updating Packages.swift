@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpdatingPackagesStateView: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 

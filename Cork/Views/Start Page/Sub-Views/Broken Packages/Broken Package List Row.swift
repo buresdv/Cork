@@ -12,7 +12,7 @@ struct BrokenPackageListRow: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
     
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     
     let error: PackageLoadingError
     

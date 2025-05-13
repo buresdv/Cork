@@ -12,7 +12,7 @@ struct UpdatingPackageTrackerStateView: View
 {
     @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
     
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var brewData: BrewDataStorage

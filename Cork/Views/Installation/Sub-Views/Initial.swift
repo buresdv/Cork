@@ -16,7 +16,7 @@ struct InstallationInitialView: View
     @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
 
