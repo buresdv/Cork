@@ -13,14 +13,14 @@ struct FormulaeSection: View
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let currentTokens: [PackageSearchToken]
     let searchText: String
     
     private var areNoFormulaeInstalled: Bool
     {
-        if !appState.isLoadingFormulae && brewData.numberOfInstalledFormulae == 0
+        if !appState.isLoadingFormulae && brewPackagesTracker.numberOfInstalledFormulae == 0
         {
             return true
         }
@@ -97,6 +97,6 @@ struct FormulaeSection: View
             }
         }
 
-        return brewData.successfullyLoadedFormulae.filter(filter)
+        return brewPackagesTracker.successfullyLoadedFormulae.filter(filter)
     }
 }

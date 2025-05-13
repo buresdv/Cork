@@ -41,10 +41,10 @@ private struct RemovePackageButton: View
 {
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var package: BrewPackage
 
@@ -58,9 +58,9 @@ private struct RemovePackageButton: View
             {
                 AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
-                try await brewData.uninstallSelectedPackage(
+                try await brewPackagesTracker.uninstallSelectedPackage(
                     package: package,
-                    cachedPackagesTracker: cachedPackagesTracker,
+                    cachedDownloadsTracker: cachedDownloadsTracker,
                     appState: appState,
                     outdatedPackageTracker: outdatedPackageTracker,
                     shouldRemoveAllAssociatedFiles: shouldPurge

@@ -10,24 +10,24 @@ import SwiftUI
 struct LoadingErrorsBox: View
 {
     
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     @State private var isFormulaeGroupExpanded: Bool = false
     @State private var isCasksGroupExpanded: Bool = false
     
     var body: some View
     {
-        if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty
+        if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty
         {
             GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.terminal.badge.xmark")
             {
                 VStack(alignment: .leading, spacing: 5)
                 {
-                    Text("start-page.unloaded-formulae.count-\(brewData.unsuccessfullyLoadedFormulaeErrors.count)")
+                    Text("start-page.unloaded-formulae.count-\(brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.count)")
                     
                     DisclosureGroup(isExpanded: $isFormulaeGroupExpanded)
                     {
-                        List(brewData.unsuccessfullyLoadedFormulaeErrors)
+                        List(brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors)
                         { error in
                             BrokenPackageListRow(error: error)
                         }
@@ -41,17 +41,17 @@ struct LoadingErrorsBox: View
             }
         }
         
-        if !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+        if !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
         {
             GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.macwindow.badge.xmark")
             {
                 VStack(alignment: .leading, spacing: 5)
                 {
-                    Text("start-page.unloaded-casks.count-\(brewData.unsuccessfullyLoadedCasksErrors.count)")
+                    Text("start-page.unloaded-casks.count-\(brewPackagesTracker.unsuccessfullyLoadedCasksErrors.count)")
                     
                     DisclosureGroup(isExpanded: $isCasksGroupExpanded)
                     {
-                        List(brewData.unsuccessfullyLoadedCasksErrors)
+                        List(brewPackagesTracker.unsuccessfullyLoadedCasksErrors)
                         { error in
                             BrokenPackageListRow(error: error)
                         }

@@ -40,7 +40,7 @@ struct GetInstalledFormulaeIntent: AppIntent
 
         if allowAccessToFile
         {
-            let dummyBrewData: BrewDataStorage = await .init()
+            let dummyBrewData: BrewPackagesTracker = await .init()
             
             guard let installedFormulae: BrewPackages = await dummyBrewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState()) else
             {

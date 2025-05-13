@@ -15,7 +15,7 @@ struct UpdatingPackageTrackerStateView: View
     @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Binding var packageUpdatingStage: PackageUpdatingStage
 
@@ -28,7 +28,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                     
                     updateProgressTracker.updateProgress = 10
 

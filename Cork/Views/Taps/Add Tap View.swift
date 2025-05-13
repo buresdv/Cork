@@ -35,7 +35,7 @@ struct AddTapView: View
 
     @State private var tappingError: TappingError = .other
 
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     var isDismissable: Bool

@@ -11,7 +11,7 @@ import CorkShared
 struct UpdateSomePackagesView: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
@@ -125,7 +125,7 @@ struct UpdateSomePackagesView: View
                     }
                     
                     AppConstants.shared.logger.debug("Will synchronize outdated packages")
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                    try await outdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                 }
                 catch let packageSynchronizationError
                 {

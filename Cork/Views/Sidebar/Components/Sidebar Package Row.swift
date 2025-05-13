@@ -15,7 +15,7 @@ struct SidebarPackageRow: View
     @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
 
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     var body: some View

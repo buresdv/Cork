@@ -12,7 +12,7 @@ import Foundation
 /// Includes packages that were loaded properly, along those whose loading failed
 typealias BrewPackages = Set<Result<BrewPackage, PackageLoadingError>>
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     /// Parent function for loading installed packages from disk
     /// Abstracts away the function ``loadInstalledPackagesFromFolder(packageTypeToLoad:)``, transforming errors thrown by ``loadInstalledPackagesFromFolder(packageTypeToLoad:)`` into displayable errors
@@ -83,7 +83,7 @@ extension BrewDataStorage
     }
 }
 
-private extension BrewDataStorage
+private extension BrewPackagesTracker
 {
     /// Load packages from disk, and convert them into ``BrewPackage``s
     func loadInstalledPackagesFromFolder(

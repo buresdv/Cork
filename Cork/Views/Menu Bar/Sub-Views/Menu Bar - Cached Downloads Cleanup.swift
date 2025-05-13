@@ -13,7 +13,7 @@ struct MenuBar_CachedDownloadsCleanup: View
 {
     @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @State private var isDeletingCachedDownloads: Bool = false
 

@@ -11,7 +11,7 @@ import CorkShared
 struct SidebarContextMenu: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false

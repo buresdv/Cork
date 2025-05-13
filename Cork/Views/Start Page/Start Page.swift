@@ -15,10 +15,10 @@ struct StartPage: View
         case loading, showingBrewOverview
     }
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @Environment(AppState.self) var appState: AppState
 
@@ -43,7 +43,7 @@ struct StartPage: View
 
     var shouldShowCachedDownloadsGraph: Bool
     {
-        if cachedPackagesTracker.cachedDownloadsSize == 0
+        if cachedDownloadsTracker.cachedDownloadsSize == 0
         {
             return false
         }
@@ -94,7 +94,7 @@ struct StartPage: View
                         }
                     }
 
-                    if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+                    if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
                     {
                         Section
                         {
@@ -117,6 +117,41 @@ struct StartPage: View
                         Section
                         {
                             CachedDownloadsFolderInfoBox()
+                        }
+                    }
+                }
+                .task
+                {
+                    if outdatedPackageTracker.outdatedPackages.isEmpty
+                    {
+                        appState.isCheckingForPackageUpdates = true
+
+                        defer
+                        {
+                            withAnimation
+                            {
+                                appState.isCheckingForPackageUpdates = false
+                            }
+                        }
+
+                        do
+                        {
+                            try await outdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
+                        }
+                        catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
+                        {
+                            switch outdatedPackageRetrievalError
+                            {
+                            case .homeNotSet:
+                                appState.showAlert(errorToShow: .homePathNotSet)
+                            default:
+                                AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
+                                errorOutReason = outdatedPackageRetrievalError.localizedDescription
+                            }
+                        }
+                        catch
+                        {
+                            AppConstants.shared.logger.error("Unspecified error while pulling package updates")
                         }
                     }
                 }
@@ -152,7 +187,7 @@ struct StartPage: View
 
                         Task
                         { @MainActor in
-                            try await importBrewfile(from: url, appState: appState, brewData: brewData, cachedPackagesTracker: cachedPackagesTracker)
+                            try await importBrewfile(from: url, appState: appState, brewPackagesTracker: brewPackagesTracker, cachedDownloadsTracker: cachedDownloadsTracker)
                         }
                     }
                     else

@@ -13,8 +13,8 @@ import SwiftUI
 struct MenuBar_OrphanCleanup: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @State private var isUninstallingOrphanedPackages: Bool = false
 
@@ -49,7 +49,7 @@ struct MenuBar_OrphanCleanup: View
 
                 do
                 {
-                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                    try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                 }
                 catch let synchronizationError
                 {

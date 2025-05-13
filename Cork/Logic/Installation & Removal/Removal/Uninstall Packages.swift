@@ -9,12 +9,12 @@ import CorkShared
 import Foundation
 import SwiftUI
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     @MainActor
     func uninstallSelectedPackage(
         package: BrewPackage,
-        cachedPackagesTracker: CachedPackagesTracker,
+        cachedDownloadsTracker: CachedDownloadsTracker,
         appState: AppState,
         outdatedPackageTracker: OutdatedPackageTracker,
         shouldRemoveAllAssociatedFiles: Bool
@@ -83,7 +83,7 @@ extension BrewDataStorage
         {
             do
             {
-                try await self.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                try await self.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                 
                 if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
                 {

@@ -15,9 +15,9 @@ struct MaintenanceFinishedView: View
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @EnvironmentObject var outdatedPackageTacker: OutdatedPackageTracker
 
@@ -47,7 +47,7 @@ struct MaintenanceFinishedView: View
             /// 2. Get the names of the packages that were installed intentionally
             /// 3. Get only the names of packages that were installed intentionally, and are also holding back cache purge
             /// **Motivation**: When the user only wants to see packages they have installed intentionally, they will be confused if a dependency suddenly shows up here
-            // let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewData.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
+            // let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewPackagesTracker.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
 
             /// **Motivation**: Same as above, but more performant
             /// Instead of looking through all packages, it only looks through packages that are outdated. Since only outdated packages can hold back purging, it kills two birds with one stone
@@ -179,7 +179,7 @@ struct MaintenanceFinishedView: View
         {
             do
             {
-                try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+                try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
             }
             catch let synchronizationError
             {

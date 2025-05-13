@@ -18,7 +18,7 @@ struct InstallationInitialView: View
 
     @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
