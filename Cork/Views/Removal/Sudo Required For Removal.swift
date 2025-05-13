@@ -12,9 +12,9 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var body: some View
     {
@@ -46,7 +46,7 @@ struct SudoRequiredForRemovalSheet: View, Sendable
 
                         do
                         {
-                            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                            try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                         }
                         catch let synchronizationError
                         {

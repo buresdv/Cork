@@ -9,10 +9,10 @@ import CorkShared
 import Foundation
 import SwiftUI
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     /// Synchronizes installed packages and cached downloads
-    func synchronizeInstalledPackages(cachedPackagesTracker: CachedPackagesTracker) async throws(PackageSynchronizationError)
+    func synchronizeInstalledPackages(cachedDownloadsTracker: CachedDownloadsTracker) async throws(PackageSynchronizationError)
     {
         AppConstants.shared.logger.debug("Will start synchronization process")
         
@@ -33,6 +33,6 @@ extension BrewDataStorage
             self.installedCasks = safeUpdatedCasksTracker
         }
         
-        await cachedPackagesTracker.loadCachedDownloadedPackages(brewData: self)
+        await cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: self)
     }
 }

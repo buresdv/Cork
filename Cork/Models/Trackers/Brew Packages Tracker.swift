@@ -1,5 +1,5 @@
 //
-//  Brew Data Storage.swift
+//  Brew Packages Tracker.swift
 //  Cork
 //
 //  Created by David Bureš on 03.07.2022.
@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-@MainActor
-class BrewDataStorage: ObservableObject
+@Observable @MainActor
+class BrewPackagesTracker
 {
-    @Published var installedFormulae: BrewPackages = .init()
-    @Published var installedCasks: BrewPackages = .init()
+    var installedFormulae: BrewPackages = .init()
+    var installedCasks: BrewPackages = .init()
 
     // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk
@@ -76,7 +76,8 @@ class BrewDataStorage: ObservableObject
             }
         }
     }
-
+    
+    // MARK: - Functions
     func insertPackageIntoTracker(_ package: BrewPackage)
     {
         if package.type == .formula
@@ -88,38 +89,9 @@ class BrewDataStorage: ObservableObject
             installedCasks.insert(.success(package))
         }
     }
-
-    /*
-    func removeFormulaFromTracker(withName name: String)
-    {
-        removePackageFromTracker(withName: name, tracker: .formula)
-    }
-
-    func removeCaskFromTracker(withName name: String)
-    {
-        removePackageFromTracker(withName: name, tracker: .cask)
-    }
-
-    private func removePackageFromTracker(withName name: String, tracker: PackageType)
-    {
-        switch tracker
-        {
-        case .formula:
-            if let index = installedFormulae.firstIndex(where: { $0.name == name })
-            {
-                installedFormulae.remove(at: index)
-            }
-        case .cask:
-            if let index = installedCasks.firstIndex(where: { $0.name == name })
-            {
-                installedCasks.remove(at: index)
-            }
-        }
-    }
-     */
 }
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     var numberOfInstalledFormulae: Int
     {
@@ -144,10 +116,4 @@ extension BrewDataStorage
     {
         return self.numberOfInstalledFormulae + self.numberOfInstalledCasks
     }
-}
-
-@MainActor
-class TapTracker: ObservableObject
-{
-    @Published var addedTaps: [BrewTap] = .init()
 }

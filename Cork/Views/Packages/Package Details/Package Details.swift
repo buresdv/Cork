@@ -16,7 +16,7 @@ struct PackageDetailView: View, Sendable
 
     @State private var packageDetails: BrewPackageDetails? = nil
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker

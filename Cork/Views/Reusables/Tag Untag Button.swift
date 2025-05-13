@@ -11,7 +11,7 @@ import CorkShared
 struct TagUntagButton: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     let package: BrewPackage
     
@@ -28,7 +28,7 @@ struct TagUntagButton: View
     {
         AppConstants.shared.logger.info("Will change tagged status of \(package.name). Current state of the tagged package tracker: \(appState.taggedPackageNames)")
         
-        brewData.updatePackageInPlace(package)
+        brewPackagesTracker.updatePackageInPlace(package)
         { package in
             package.changeTaggedStatus()
         }

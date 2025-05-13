@@ -12,8 +12,8 @@ struct PackageAndTapOverviewBox: View
 {
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
     var body: some View
     {
@@ -21,7 +21,7 @@ struct PackageAndTapOverviewBox: View
         {
             GroupBoxHeadlineGroup(
                 image: "terminal",
-                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewData.successfullyLoadedFormulae.filter(\.installedIntentionally).count : brewData.installedFormulae.count)"),
+                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewPackagesTracker.successfullyLoadedFormulae.filter(\.installedIntentionally).count : brewPackagesTracker.installedFormulae.count)"),
                 mainText: "start-page.installed-formulae.description",
                 animateNumberChanges: true
             )
@@ -39,7 +39,7 @@ struct PackageAndTapOverviewBox: View
 
             GroupBoxHeadlineGroup(
                 image: "macwindow",
-                title: LocalizedStringKey("start-page.installed-casks.count-\(brewData.installedCasks.count)"),
+                title: LocalizedStringKey("start-page.installed-casks.count-\(brewPackagesTracker.installedCasks.count)"),
                 mainText: "start-page.installed-casks.description",
                 animateNumberChanges: true
             )
@@ -57,7 +57,7 @@ struct PackageAndTapOverviewBox: View
 
             GroupBoxHeadlineGroup(
                 image: "spigot",
-                title: LocalizedStringKey("start-page.added-taps.count-\(availableTaps.addedTaps.count)"),
+                title: LocalizedStringKey("start-page.added-taps.count-\(tapTracker.addedTaps.count)"),
                 mainText: "start-page.added-taps.description",
                 animateNumberChanges: true
             )

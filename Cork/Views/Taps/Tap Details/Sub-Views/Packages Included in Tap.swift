@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PackagesIncludedInTapList: View
 {
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let packages: [String]
 
@@ -30,7 +30,7 @@ struct PackagesIncludedInTapList: View
                         {
                             SanitizedPackageName(packageName: package, shouldShowVersion: true)
 
-                            if brewData.successfullyLoadedFormulae.contains(where: { $0.name == package }) || brewData.successfullyLoadedCasks.contains(where: { $0.name == package })
+                            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package })
                             {
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }

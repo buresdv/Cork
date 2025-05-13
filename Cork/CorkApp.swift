@@ -19,10 +19,10 @@ struct CorkApp: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
-    @StateObject var brewData: BrewDataStorage = .init()
-    @StateObject var availableTaps: TapTracker = .init()
+    @State var brewPackagesTracker: BrewPackagesTracker = .init()
+    @State var tapTracker: TapTracker = .init()
     
-    @StateObject var cachedDownloadsTracker: CachedPackagesTracker = .init()
+    @State var cachedDownloadsTracker: CachedDownloadsTracker = .init()
 
     @StateObject var topPackagesTracker: TopPackagesTracker = .init()
 
@@ -81,9 +81,9 @@ struct CorkApp: App
                         .interactiveDismissDisabled()
                 })
                 .environment(appDelegate.appState)
-                .environmentObject(brewData)
-                .environmentObject(cachedDownloadsTracker)
-                .environmentObject(availableTaps)
+                .environment(brewPackagesTracker)
+                .environment(tapTracker)
+                .environment(cachedDownloadsTracker)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
                 .environmentObject(topPackagesTracker)
@@ -174,7 +174,7 @@ struct CorkApp: App
                             {
                                 let temporaryOutdatedPackageTracker: OutdatedPackageTracker = await .init()
 
-                                try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                                try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
 
                                 var newOutdatedPackages: Set<OutdatedPackage> = await temporaryOutdatedPackageTracker.outdatedPackages
 
@@ -412,6 +412,7 @@ struct CorkApp: App
             PackagePreview(packageToPreview: packageToPreview)
                 .navigationTitle(packageToPreview?.name ?? "")
                 .environment(appDelegate.appState)
+                .environment(brewPackagesTracker)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
@@ -437,9 +438,9 @@ struct CorkApp: App
         {
             MenuBarItem()
                 .environment(appDelegate.appState)
-                .environmentObject(brewData)
-                .environmentObject(availableTaps)
-                .environmentObject(cachedDownloadsTracker)
+                .environment(brewPackagesTracker)
+                .environment(tapTracker)
+                .environment(cachedDownloadsTracker)
                 .environmentObject(outdatedPackageTracker)
         }
     }
@@ -585,7 +586,7 @@ struct CorkApp: App
 
                     do
                     {
-                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData, cachedPackagesTracker: cachedDownloadsTracker)
+                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewPackagesTracker: brewPackagesTracker, cachedDownloadsTracker: cachedDownloadsTracker)
                     }
                     catch let brewfileImportingError
                     {
