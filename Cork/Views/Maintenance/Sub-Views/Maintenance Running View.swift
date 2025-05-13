@@ -11,9 +11,9 @@ import CorkShared
 struct MaintenanceRunningView: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
     
     @State var currentMaintenanceStepText: LocalizedStringKey = "maintenance.step.initial"
 

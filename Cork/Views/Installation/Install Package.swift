@@ -16,10 +16,10 @@ struct AddFormulaView: View
 
     @State private var packageRequested: String = ""
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @State private var foundPackageSelection: BrewPackage?
 
@@ -151,7 +151,7 @@ struct AddFormulaView: View
                                 
                                 do
                                 {
-                                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+                                    try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                                 }
                                 catch let synchronizationError
                                 {
@@ -169,7 +169,7 @@ struct AddFormulaView: View
         }
         .onDisappear
         {
-            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)
+            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
         }
     }
 }

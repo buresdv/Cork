@@ -25,7 +25,7 @@ enum BrewfileReadingError: LocalizedError
 }
 
 @MainActor
-func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage, cachedPackagesTracker: CachedPackagesTracker) async throws
+func importBrewfile(from url: URL, appState: AppState, brewPackagesTracker: BrewPackagesTracker, cachedDownloadsTracker: CachedDownloadsTracker) async throws
 {
     appState.showSheet(ofType: .brewfileImport)
 
@@ -46,7 +46,7 @@ func importBrewfile(from url: URL, appState: AppState, brewData: BrewDataStorage
 
     do
     {
-        try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+        try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
     }
     catch let synchronizationError
     {
