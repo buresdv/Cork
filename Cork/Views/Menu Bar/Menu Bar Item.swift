@@ -11,7 +11,7 @@ struct MenuBarItem: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var availableTaps: TapTracker

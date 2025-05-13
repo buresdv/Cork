@@ -11,7 +11,7 @@ import CorkShared
 struct UpdatePackageButton: View
 {
     
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
     
     let packageToUpdate: BrewPackage
