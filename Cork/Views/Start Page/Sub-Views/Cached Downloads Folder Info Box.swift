@@ -40,6 +40,18 @@ struct CachedDownloadsFolderInfoBox: View
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
+                    Chart(cachedDownloadsTracker.cachedDownloads) { cachedDownload in
+                        BarMark(
+                            x: .value("start-page.cached-downloads.graph.size", cachedDownload.sizeInBytes),
+                            stacking: .normalized
+                        )
+                        .foregroundStyle(cachedDownload.packageType?.color ?? .mint)
+                    }
+                    .chartForegroundStyleScale([
+                        PackageType.formula: .purple,
+                        PackageType.cask: .orange
+                    ])
+                    
                     Chart
                     {
                         ForEach(cachedDownloadsTracker.cachedDownloads)
