@@ -16,7 +16,7 @@ extension BrewPackagesTracker
         package: BrewPackage,
         cachedDownloadsTracker: CachedDownloadsTracker,
         appState: AppState,
-        outdatedPackageTracker: OutdatedPackageTracker,
+        outdatedPackagesTracker: OutdatedPackagesTracker,
         shouldRemoveAllAssociatedFiles: Bool
     ) async throws
     {
@@ -116,9 +116,9 @@ extension BrewPackagesTracker
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        if let index = outdatedPackagesTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
         {
-            outdatedPackageTracker.outdatedPackages.remove(at: index)
+            outdatedPackagesTracker.outdatedPackages.remove(at: index)
         }
     }
 }
