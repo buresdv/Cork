@@ -8,7 +8,7 @@
 import Foundation
 import CorkShared
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     @MainActor
     func applyTags(appState: AppState) async throws

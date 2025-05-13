@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MenuBar_PackageOverview: View
 {
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
     var body: some View
     {
-        Text("menu-bar.state-overview-\(brewData.installedFormulae.count)-\(brewData.installedCasks.count)-\(availableTaps.addedTaps.count)")
+        Text("menu-bar.state-overview-\(brewPackagesTracker.numberOfInstalledFormulae)-\(brewPackagesTracker.numberOfInstalledCasks)-\(tapTracker.numberOfAddedTaps)")
     }
 }

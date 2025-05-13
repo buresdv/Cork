@@ -29,10 +29,10 @@ struct ContentView: View, Sendable
 
     @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var tapData: TapTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
     
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
 
@@ -143,7 +143,7 @@ struct ContentView: View, Sendable
             }
         }
         .navigationTitle("app-name")
-        .navigationSubtitle("navigation.installed-packages.count-\(self.brewData.numberOfInstalledPackages)")
+        .navigationSubtitle("navigation.installed-packages.count-\(self.brewPackagesTracker.numberOfInstalledPackages)")
         .toolbar(id: "PackageActions")
         {
             ToolbarItem(id: "updatePackages", placement: .primaryAction)
@@ -297,13 +297,13 @@ private extension View
                     view.appState.isLoadingCasks = false
                 }
 
-                async let availableFormulae: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
-                async let availableCasks: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: view.appState)
+                async let availableFormulae: BrewPackages? = await view.brewPackagesTracker.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
+                async let availableCasks: BrewPackages? = await view.brewPackagesTracker.loadInstalledPackages(packageTypeToLoad: .cask, appState: view.appState)
 
-                view.brewData.installedFormulae = await availableFormulae ?? .init()
-                view.brewData.installedCasks = await availableCasks ?? .init()
+                view.brewPackagesTracker.installedFormulae = await availableFormulae ?? .init()
+                view.brewPackagesTracker.installedCasks = await availableCasks ?? .init()
 
-                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
+                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: view.brewPackagesTracker)
 
                 // MARK: - Getting tagged packages
                 do
@@ -314,7 +314,7 @@ private extension View
                     
                     do
                     {
-                        try await view.brewData.applyTags(appState: view.appState)
+                        try await view.brewPackagesTracker.applyTags(appState: view.appState)
                     }
                     catch let taggedStateApplicationError as NSError
                     {
@@ -352,11 +352,11 @@ private extension View
                     view.appState.isLoadingTaps = false
                 }
 
-                async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
+                async let tapTracker: [BrewTap] = await view.tapTracker.loadUpTappedTaps()
 
                 do
                 {
-                    view.tapData.addedTaps = try await availableTaps
+                    view.tapTracker.addedTaps = try await tapTracker
                 }
                 catch let tapLoadingError as TapLoadingError
                 {
@@ -412,7 +412,7 @@ private extension View
 
                 if view.enableDiscoverability
                 {
-                    if view.appState.isLoadingFormulae && view.appState.isLoadingCasks || view.tapData.addedTaps.isEmpty
+                    if view.appState.isLoadingFormulae && view.appState.isLoadingCasks || view.tapTracker.addedTaps.isEmpty
                     {
                         await view.loadTopPackages()
                     }
@@ -428,7 +428,7 @@ private extension View
                 if view.cachedDownloadsTracker.cachedDownloads.isEmpty
                 {
                     AppConstants.shared.logger.info("Will calculate cached downloads")
-                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: view.brewPackagesTracker)
                 }
             }
     }
@@ -445,7 +445,7 @@ private extension View
                 Task
                 {
                     AppConstants.shared.logger.info("Will recalculate cached downloads")
-                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: view.brewPackagesTracker)
                 }
             }
             .onChange(of: view.areNotificationsEnabled, perform: { newValue in
@@ -779,9 +779,9 @@ private extension View
                 case .uninstallPackage(let packageToUninstall):
                     AsyncButton
                     {
-                        try await view.brewData.uninstallSelectedPackage(
+                        try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToUninstall,
-                            cachedPackagesTracker: view.cachedDownloadsTracker,
+                            cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
                             outdatedPackageTracker: view.outdatedPackageTracker,
                             shouldRemoveAllAssociatedFiles: false
@@ -795,9 +795,9 @@ private extension View
                 case .purgePackage(let packageToPurge):
                     AsyncButton
                     {
-                        try await view.brewData.uninstallSelectedPackage(
+                        try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToPurge,
-                            cachedPackagesTracker: view.cachedDownloadsTracker,
+                            cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
                             outdatedPackageTracker: view.outdatedPackageTracker,
                             shouldRemoveAllAssociatedFiles: true

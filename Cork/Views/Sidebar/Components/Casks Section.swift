@@ -12,13 +12,13 @@ struct CasksSection: View
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let searchText: String
     
     private var areNoCasksInstalled: Bool
     {
-        if !appState.isLoadingCasks && brewData.numberOfInstalledCasks == 0
+        if !appState.isLoadingCasks && brewPackagesTracker.numberOfInstalledCasks == 0
         {
             return true
         }
@@ -72,11 +72,11 @@ struct CasksSection: View
     {
         if searchText.isEmpty || searchText.contains("#")
         {
-            return brewData.successfullyLoadedCasks
+            return brewPackagesTracker.successfullyLoadedCasks
         }
         else
         {
-            return brewData.successfullyLoadedCasks.filter { $0.name.contains(searchText) }
+            return brewPackagesTracker.successfullyLoadedCasks.filter { $0.name.contains(searchText) }
         }
     }
 }

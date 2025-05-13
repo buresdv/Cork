@@ -12,7 +12,7 @@ import ButtonKit
 struct TapsSection: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
     let searchText: String
 
@@ -57,7 +57,7 @@ struct TapsSection: View
                             {
                                 AppConstants.shared.logger.debug("Would remove \(tap.name, privacy: .public)")
 
-                                try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                try await removeTap(name: tap.name, tapTracker: tapTracker, appState: appState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
                             } label: {
                                 Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name)")
                             }
@@ -73,11 +73,11 @@ struct TapsSection: View
     {
         if searchText.isEmpty || searchText.contains("#")
         {
-            return availableTaps.addedTaps
+            return tapTracker.addedTaps
         }
         else
         {
-            return availableTaps.addedTaps.filter { $0.name.contains(searchText) }
+            return tapTracker.addedTaps.filter { $0.name.contains(searchText) }
         }
     }
 }
