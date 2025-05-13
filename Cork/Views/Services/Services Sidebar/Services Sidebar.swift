@@ -10,7 +10,7 @@ import SwiftUI
 struct ServicesSidebarView: View
 {
     @EnvironmentObject var servicesState: ServicesState
-    @EnvironmentObject var servicesTracker: ServicesTracker
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
 
     @State private var searchText: String = ""
     

@@ -15,7 +15,7 @@ class ServiceModificationProgress: ObservableObject
 
 struct ServiceModificationButtons: View
 {
-    @EnvironmentObject var servicesTracker: ServicesTracker
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
     @EnvironmentObject var servicesState: ServicesState
 
     let service: HomebrewService
