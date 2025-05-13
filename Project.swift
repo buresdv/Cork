@@ -16,6 +16,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
         product: .app,
         productName: "Cork",
         bundleId: "com.davidbures.cork",
+        deploymentTargets: .macOS("14.0.0"),
         infoPlist: .file(path: "Cork/Info.plist"),
         sources: [
             "Cork/**/*.swift",
