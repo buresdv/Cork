@@ -12,7 +12,7 @@ struct InstallingPackageView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
     
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker

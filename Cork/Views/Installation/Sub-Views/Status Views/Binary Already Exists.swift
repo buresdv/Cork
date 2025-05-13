@@ -12,7 +12,7 @@ struct BinaryAlreadyExistsView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker

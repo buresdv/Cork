@@ -11,7 +11,7 @@ struct SidebarView: View
 {
     @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
@@ -36,6 +36,7 @@ struct SidebarView: View
 
     var body: some View
     {
+        @Bindable var appState: AppState = appState
         /// Navigation selection enables "Home" button behaviour. [2023.09]
         List(selection: $localNavigationTragetId)
         {
@@ -55,12 +56,12 @@ struct SidebarView: View
             }
         }
         .onChange(of: localNavigationTragetId)
-        { newValue in
+        { _, newValue in
             if appState.navigationTargetId != newValue {
                 appState.navigationTargetId = newValue
             }
         }
-        .onReceive(appState.$navigationTargetId.receive(on: DispatchQueue.main))
+        .onReceive(appState.navigationTargetId.publisher.receive(on: DispatchQueue.main))
         { newValue in
             if localNavigationTragetId != newValue {
                 localNavigationTragetId = newValue
@@ -73,7 +74,7 @@ struct SidebarView: View
             if #available(macOS 14.0, *)
             {
                 viewProxy
-                    .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), isPresented: $appState.isSearchFieldFocused, placement: .sidebar, prompt: Text("sidebar.search.prompt"))
+                    .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), isPresented: Bindable(appState).isSearchFieldFocused, placement: .sidebar, prompt: Text("sidebar.search.prompt"))
                     { token in
                         Label
                         {
