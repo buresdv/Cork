@@ -15,8 +15,7 @@ struct BinaryAlreadyExistsView: View, Sendable
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
-    
+    @Bindable var installationProgressTracker: InstallationProgressTracker
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
     var body: some View

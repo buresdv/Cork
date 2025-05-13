@@ -24,7 +24,7 @@ struct AddFormulaView: View
     @State private var foundPackageSelection: BrewPackage?
 
     @ObservedObject var searchResultTracker: SearchResultTracker = .init()
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker = .init()
+    @Bindable var installationProgressTracker: InstallationProgressTracker = .init()
 
     @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
 
@@ -121,7 +121,7 @@ struct AddFormulaView: View
                         InstallationFinishedSuccessfullyView()
 
                     case .fatalError: /// This shows up when the function for executing the install action throws an error
-                        InstallationFatalErrorView(installationProgressTracker: installationProgressTracker)
+                        InstallationFatalErrorView(packageBeingInstalled: installationProgressTracker.packageBeingInstalled.package)
 
                     case .requiresSudoPassword:
                         SudoRequiredView(installationProgressTracker: installationProgressTracker)

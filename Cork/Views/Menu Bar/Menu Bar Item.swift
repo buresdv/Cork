@@ -16,7 +16,7 @@ struct MenuBarItem: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
 
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {

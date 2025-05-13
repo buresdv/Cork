@@ -12,7 +12,7 @@ struct SidebarContextMenu: View
 {
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
     
@@ -20,7 +20,7 @@ struct SidebarContextMenu: View
     
     var isPackageOutdated: Bool
     {
-        if outdatedPackageTracker.displayableOutdatedPackages.contains(where: { $0.package.name == package.name })
+        if outdatedPackagesTracker.displayableOutdatedPackages.contains(where: { $0.package.name == package.name })
         {
             return true
         }

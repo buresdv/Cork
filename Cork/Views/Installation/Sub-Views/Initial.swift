@@ -31,7 +31,7 @@ struct InstallationInitialView: View
 
     @Binding var foundPackageSelection: BrewPackage?
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 

@@ -25,7 +25,7 @@ struct OutdatedPackageListBox: View
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
 
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @Binding var isDropdownExpanded: Bool
 
@@ -33,17 +33,17 @@ struct OutdatedPackageListBox: View
 
     private var packagesMarkedForUpdating: [OutdatedPackage]
     {
-        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
+        return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
     }
 
     private var packagesManagedByHomebrew: Set<OutdatedPackage>
     {
-        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .homebrew }
+        return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .homebrew }
     }
 
     private var packagesThatUpdateThemselves: Set<OutdatedPackage>
     {
-        return outdatedPackageTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
+        return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
     }
 
     private var outdatedPackageListBoxType: OutdatedPackageListBoxViewType
@@ -70,7 +70,7 @@ struct OutdatedPackageListBox: View
             {
                 VStack(alignment: .leading)
                 {
-                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackageTracker.displayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.displayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
@@ -80,18 +80,18 @@ struct OutdatedPackageListBox: View
                                 {
                                     if packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
                                     { /// If the only outdated packages are those that update themselves, show a special message
-                                        Text("start-page.updates.only-unmanaged.count-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                                        Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.displayableOutdatedPackages.count)")
                                     }
                                     else
                                     { /// Otherwise, show the standard message
-                                        Text("start-page.updates.count-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                                        Text("start-page.updates.count-\(outdatedPackagesTracker.displayableOutdatedPackages.count)")
                                     }
                                 }
                                 .font(.headline)
 
                                 Spacer()
 
-                                if packagesMarkedForUpdating.count == outdatedPackageTracker.displayableOutdatedPackages.count
+                                if packagesMarkedForUpdating.count == outdatedPackagesTracker.displayableOutdatedPackages.count
                                 {
                                     Button
                                     {
@@ -192,7 +192,7 @@ struct OutdatedPackageListBox: View
     {
         Button
         {
-            outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
+            outdatedPackagesTracker.outdatedPackages = Set(outdatedPackagesTracker.outdatedPackages.map
             { modifiedElement in
                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
@@ -224,7 +224,7 @@ struct OutdatedPackageListBox: View
     {
         Button
         {
-            outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
+            outdatedPackagesTracker.outdatedPackages = Set(outdatedPackagesTracker.outdatedPackages.map
             { modifiedElement in
                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
@@ -236,7 +236,7 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.select-all")
         }
-        .disabled(packagesMarkedForUpdating.count == outdatedPackageTracker.displayableOutdatedPackages.count)
+        .disabled(packagesMarkedForUpdating.count == outdatedPackagesTracker.displayableOutdatedPackages.count)
         .modify
         { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all
@@ -266,7 +266,7 @@ struct OutdatedPackageListBox: View
                         get: {
                             outdatedPackage.isMarkedForUpdating
                         }, set: { toggleState in
-                            outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
+                            outdatedPackagesTracker.outdatedPackages = Set(outdatedPackagesTracker.outdatedPackages.map
                             { modifiedElement in
                                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
@@ -313,9 +313,9 @@ struct OutdatedPackageListBox: View
                     Toggle(isOn: Binding<Bool>(
                         get: {
                             /// This was vibe-coded. It fixes the problem, but I have no idea why.
-                            outdatedPackageTracker.outdatedPackages.contains(where: { $0.id == outdatedPackage.id && $0.isMarkedForUpdating })
+                            outdatedPackagesTracker.outdatedPackages.contains(where: { $0.id == outdatedPackage.id && $0.isMarkedForUpdating })
                         }, set: { toggleState in
-                            outdatedPackageTracker.outdatedPackages = Set(outdatedPackageTracker.outdatedPackages.map
+                            outdatedPackagesTracker.outdatedPackages = Set(outdatedPackagesTracker.outdatedPackages.map
                             { modifiedElement in
                                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
