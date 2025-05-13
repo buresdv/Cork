@@ -24,7 +24,18 @@ struct AddFormulaView: View
             self.package = package
             self.version = version
             
-            self.id = package?.id ?? .init()
+            if let package
+            {
+                AppConstants.shared.logger.debug("Package is defined for selection - will use its ID to initialize package selection")
+                
+                self.id = package.id
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Package is not defined for selection - will initialize a new ID")
+                
+                self.id = .init()
+            }
         }
         
         /// Create a package with the relevant version selected, for previewing and installing
