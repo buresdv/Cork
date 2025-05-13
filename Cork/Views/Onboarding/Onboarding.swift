@@ -160,7 +160,7 @@ struct OnboardingView: View
                 Text("action.done")
             }
             .keyboardShortcut(.defaultAction)
-            .buttonStyle(LargeButtonStyle())
+            .controlSize(.large)
 
         })
         .fixedSize()
