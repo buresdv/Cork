@@ -12,13 +12,13 @@ struct UpdatePackageButton: View
 {
     
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     let packageToUpdate: BrewPackage
     
     var outdatedPackageFromTracker: [OutdatedPackage]
     {
-        return outdatedPackageTracker.outdatedPackages.filter({ $0.package.name == packageToUpdate.name })
+        return outdatedPackagesTracker.outdatedPackages.filter({ $0.package.name == packageToUpdate.name })
     }
     
     var body: some View

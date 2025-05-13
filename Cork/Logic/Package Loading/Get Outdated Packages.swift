@@ -27,7 +27,7 @@ enum OutdatedPackageRetrievalError: LocalizedError
     }
 }
 
-extension OutdatedPackageTracker
+extension OutdatedPackagesTracker
 {
     /// This struct alows us to parse the JSON output of the outdated package function. It is not used outside this function
     fileprivate struct OutdatedPackageCommandOutput: Codable
