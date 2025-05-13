@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ServicesStartPage: View
 {
-    @EnvironmentObject var servicesState: ServicesState
+    @Environment(ServicesState.self) var servicesState: ServicesState
     @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
 
     var activeServices: Set<HomebrewService>
