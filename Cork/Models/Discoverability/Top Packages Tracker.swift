@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-@MainActor
-class TopPackagesTracker: ObservableObject, Sendable
+@Observable @MainActor
+class TopPackagesTracker
 {
-    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+    @ObservationIgnored @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
 
-    @Published var topFormulae: [BrewPackage] = .init()
-    @Published var topCasks: [BrewPackage] = .init()
+    var topFormulae: [BrewPackage] = .init()
+    var topCasks: [BrewPackage] = .init()
 
     var sortedTopFormulae: [BrewPackage]
     {

@@ -34,7 +34,7 @@ struct ContentView: View, Sendable
     
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @EnvironmentObject var topPackagesTracker: TopPackagesTracker
+    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
 

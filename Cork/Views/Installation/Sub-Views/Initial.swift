@@ -20,7 +20,7 @@ struct InstallationInitialView: View
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @EnvironmentObject var topPackagesTracker: TopPackagesTracker
+    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
     @ObservedObject var searchResultTracker: SearchResultTracker
 

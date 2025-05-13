@@ -24,7 +24,7 @@ struct CorkApp: App
     
     @State var cachedDownloadsTracker: CachedDownloadsTracker = .init()
 
-    @StateObject var topPackagesTracker: TopPackagesTracker = .init()
+    @State var topPackagesTracker: TopPackagesTracker = .init()
 
     @StateObject var updateProgressTracker: UpdateProgressTracker = .init()
     @StateObject var outdatedPackageTracker: OutdatedPackageTracker = .init()
@@ -86,7 +86,7 @@ struct CorkApp: App
                 .environment(cachedDownloadsTracker)
                 .environmentObject(updateProgressTracker)
                 .environmentObject(outdatedPackageTracker)
-                .environmentObject(topPackagesTracker)
+                .environment(topPackagesTracker)
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
