@@ -15,7 +15,7 @@ struct Licensing_BoughtView: View
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {

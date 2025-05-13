@@ -17,7 +17,7 @@ struct MaintenanceView: View
     @Environment(\.dismiss) var dismiss: DismissAction
     
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @State var maintenanceSteps: MaintenanceSteps = .ready
 

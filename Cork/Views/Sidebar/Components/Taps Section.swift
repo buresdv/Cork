@@ -11,7 +11,7 @@ import ButtonKit
 
 struct TapsSection: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var availableTaps: TapTracker
 
     let searchText: String

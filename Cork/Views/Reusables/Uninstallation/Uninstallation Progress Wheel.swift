@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UninstallationProgressWheel: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {

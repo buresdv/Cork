@@ -13,7 +13,7 @@ struct SudoRequiredForRemovalSheet: View, Sendable
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
     var body: some View

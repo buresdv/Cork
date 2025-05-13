@@ -20,7 +20,7 @@ struct StartPage: View
 
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker

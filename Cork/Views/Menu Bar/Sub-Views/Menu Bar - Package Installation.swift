@@ -11,7 +11,7 @@ struct MenuBar_PackageInstallation: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
     
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {

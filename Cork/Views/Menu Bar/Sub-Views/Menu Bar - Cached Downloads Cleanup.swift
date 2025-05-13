@@ -11,7 +11,7 @@ import CorkNotifications
 
 struct MenuBar_CachedDownloadsCleanup: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
     

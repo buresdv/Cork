@@ -9,7 +9,13 @@ import SwiftUI
 
 struct OutdatedPackagesBox: View
 {
-    @EnvironmentObject var appState: AppState
+    /// The type of outdated package box that will show up
+    enum OutdatedPackageDisplayStage: Equatable
+    {
+        case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
+    }
+
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool

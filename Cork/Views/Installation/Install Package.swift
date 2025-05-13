@@ -17,7 +17,7 @@ struct AddFormulaView: View
     @State private var packageRequested: String = ""
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 

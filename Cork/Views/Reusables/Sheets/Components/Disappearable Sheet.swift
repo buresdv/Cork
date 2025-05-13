@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DisappearableSheet<Content: View>: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @ViewBuilder var sheetContent: Content

@@ -15,7 +15,7 @@ struct PackageModificationButtons: View
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
     @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 

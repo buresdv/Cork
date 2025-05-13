@@ -11,10 +11,11 @@ import Foundation
 import SwiftUI
 import CorkShared
 
-class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
+@Observable
+class AppDelegate: NSObject, NSApplicationDelegate
 {
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
-    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
+    @ObservationIgnored @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
+    @ObservationIgnored @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
 
     @MainActor let appState: AppState = .init()
 

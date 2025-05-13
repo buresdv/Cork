@@ -10,7 +10,7 @@ import CorkShared
 
 struct MaintenanceRunningView: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker

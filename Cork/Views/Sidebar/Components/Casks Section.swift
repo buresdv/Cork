@@ -11,7 +11,7 @@ struct CasksSection: View
 {
     @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     @EnvironmentObject var brewData: BrewDataStorage
 
     let searchText: String

@@ -6,69 +6,74 @@
 //
 
 import AppKit
-import Foundation
-@preconcurrency import UserNotifications
-import CorkShared
 import CorkNotifications
+import CorkShared
+import Foundation
+import Observation
+@preconcurrency import UserNotifications
 
 /// Class that holds the global state of the app, excluding services
-@MainActor
-class AppState: ObservableObject
+@Observable @MainActor
+final class AppState
 {
     // MARK: - Licensing
 
-    @Published var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
+    var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
 
     // MARK: - Navigation
 
-    @Published var navigationTargetId: UUID?
+    var navigationTargetId: UUID?
 
     // MARK: - Notifications
 
-    @Published var notificationEnabledInSystemSettings: Bool?
-    @Published var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
+    var notificationEnabledInSystemSettings: Bool?
+    var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
 
     // MARK: - Stuff for controlling the UI in general
 
-    @Published var isSearchFieldFocused: Bool = false
+    var isSearchFieldFocused: Bool = false
 
     // MARK: - Brewfile importing and exporting
-    
-    @Published var brewfileImportingStage: BrewfileImportStage = .importing
 
-    @Published var isShowingUninstallationProgressView: Bool = false
-    @Published var isShowingFatalError: Bool = false
-    @Published var fatalAlertType: DisplayableAlert? = nil
-    
-    @Published var isShowingConfirmationDialog: Bool = false
-    @Published var confirmationDialogType: ConfirmationDialog?
-    
-    @Published var sheetToShow: DisplayableSheet? = nil
+    var brewfileImportingStage: BrewfileImportStage = .importing
 
-    @Published var packageTryingToBeUninstalledWithSudo: BrewPackage?
+    var isShowingUninstallationProgressView: Bool = false
+    var isShowingFatalError: Bool = false
+    var fatalAlertType: DisplayableAlert?
 
-    @Published var isShowingRemoveTapFailedAlert: Bool = false
+    var isShowingConfirmationDialog: Bool = false
+    var confirmationDialogType: ConfirmationDialog?
+
+    var sheetToShow: DisplayableSheet?
+
+    var packageTryingToBeUninstalledWithSudo: BrewPackage?
+
+    var isShowingRemoveTapFailedAlert: Bool = false
 
     // MARK: - Loading of packages and taps
-    @Published var isLoadingFormulae: Bool = true
-    @Published var isLoadingCasks: Bool = true
-    @Published var isLoadingTaps: Bool = true
-    
-    @Published var isLoadingTopPackages: Bool = false
-    
+
+    var isLoadingFormulae: Bool = true
+    var isLoadingCasks: Bool = true
+    var isLoadingTaps: Bool = true
+
+    var isLoadingTopPackages: Bool = false
+
     // MARK: - Loading errors
-    @Published var failedWhileLoadingFormulae: Bool = false
-    @Published var failedWhileLoadingCasks: Bool = false
-    @Published var failedWhileLoadingTaps: Bool = false
-    
-    @Published var failedWhileLoadingTopPackages: Bool = false
+
+    var failedWhileLoadingFormulae: Bool = false
+    var failedWhileLoadingCasks: Bool = false
+    var failedWhileLoadingTaps: Bool = false
+
+    var failedWhileLoadingTopPackages: Bool = false
 
     // MARK: - Tagging
-    @Published var taggedPackageNames: Set<String> = .init()
 
-    @Published var corruptedPackage: String = ""
-    
+    var taggedPackageNames: Set<String> = .init()
+
+    var corruptedPackage: String = ""
+
     // MARK: - Other
+
     var enableExtraAnimations: Bool
     {
         return UserDefaults.standard.bool(forKey: "enableExtraAnimations")
@@ -89,33 +94,33 @@ class AppState: ObservableObject
 
         fatalAlertType = nil
     }
-    
+
     // MARK: - Showing sheets
-    
+
     func showSheet(ofType sheetType: DisplayableSheet)
     {
         self.sheetToShow = sheetType
     }
-    
+
     func dismissSheet()
     {
         self.sheetToShow = nil
     }
 
     // MARK: Showing confirmation dialogs
-    
+
     func showConfirmationDialog(ofType confirmationDialogType: ConfirmationDialog)
     {
         self.confirmationDialogType = confirmationDialogType
         self.isShowingConfirmationDialog = true
     }
-    
+
     func dismissConfirmationDialog()
     {
         self.isShowingConfirmationDialog = false
         self.confirmationDialogType = nil
     }
-    
+
     // MARK: - Notification setup
 
     func setupNotifications() async

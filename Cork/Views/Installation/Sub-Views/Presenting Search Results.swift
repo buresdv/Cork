@@ -13,7 +13,7 @@ struct PresentingSearchResultsView: View
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @ObservedObject var searchResultTracker: SearchResultTracker
 
