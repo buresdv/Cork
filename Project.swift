@@ -33,7 +33,8 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "DavidFoundation"),
             .external(name: "ButtonKit"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
-            .external(name: "Defaults")
+            .external(name: "Defaults"),
+            .external(name: "DefaultsMacros")
         ], settings: .settings(configurations: [
             .debug(
                 name: "Debug",
