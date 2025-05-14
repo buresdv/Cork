@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct UpdatingPackageTrackerStateView: View
 {
-    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
     
     @Environment(AppState.self) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker

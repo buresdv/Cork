@@ -11,7 +11,7 @@ import Defaults
 
 struct FormulaeSection: View
 {
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     @Default(.sortPackagesBy) var sortPackagesBy
 
     @Environment(AppState.self) var appState: AppState

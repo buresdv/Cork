@@ -7,10 +7,11 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct MaintenanceFinishedView: View
 {
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 

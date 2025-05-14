@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Defaults
 
 struct OutdatedPackageListBox: View
 {
@@ -21,7 +22,7 @@ struct OutdatedPackageListBox: View
         case unmanagedOnly
     }
     
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
 
     @Environment(AppState.self) var appState: AppState

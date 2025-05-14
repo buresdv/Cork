@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct PackageAndTapOverviewBox: View
 {
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker

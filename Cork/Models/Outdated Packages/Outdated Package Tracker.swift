@@ -7,13 +7,15 @@
 
 import Foundation
 import SwiftUI
+import Defaults
+import DefaultsMacros
 
 @Observable @MainActor
 class OutdatedPackagesTracker
 {
-    @ObservationIgnored @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @ObservableDefault(.displayOnlyIntentionallyInstalledPackagesByDefault) @ObservationIgnored var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     
-    @ObservationIgnored @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    @ObservableDefault(.includeGreedyOutdatedPackages) @ObservationIgnored var includeGreedyOutdatedPackages: Bool
 
     var outdatedPackages: Set<OutdatedPackage> = .init()
     enum OutdatedPackageDisplayStage: Equatable
