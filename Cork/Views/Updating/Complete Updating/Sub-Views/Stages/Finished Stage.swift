@@ -5,12 +5,13 @@
 //  Created by David Bureš on 17.10.2023.
 //
 
-import SwiftUI
 import CorkNotifications
+import Defaults
+import SwiftUI
 
 struct FinishedStageView: View
 {
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
 
     var body: some View
     {

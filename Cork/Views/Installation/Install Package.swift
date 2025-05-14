@@ -9,6 +9,7 @@ import CorkNotifications
 import CorkShared
 import SwiftUI
 import ButtonKit
+import Defaults
 
 struct AddFormulaView: View
 {
@@ -33,7 +34,7 @@ struct AddFormulaView: View
     @FocusState var isSearchFieldFocused: Bool
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
 
     var shouldShowSheetTitle: Bool
     {

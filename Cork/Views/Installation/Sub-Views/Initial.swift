@@ -7,13 +7,14 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct InstallationInitialView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @Default(.enableDiscoverability) var enableDiscoverability
     @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
 
     @Environment(AppState.self) var appState: AppState

@@ -5,13 +5,14 @@
 //  Created by David Bureš on 17.10.2023.
 //
 
-import SwiftUI
-import CorkShared
 import CorkNotifications
+import CorkShared
+import Defaults
+import SwiftUI
 
 struct ErroredOutStageView: View
 {
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
 
     @Environment(\.dismiss) var dismiss: DismissAction
 

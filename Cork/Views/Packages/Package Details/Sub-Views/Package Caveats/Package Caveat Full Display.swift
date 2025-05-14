@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct PackageCaveatFullDisplayView: View
 {
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions
 
     let caveats: String?
 
