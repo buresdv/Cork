@@ -15,7 +15,7 @@ struct GeneralPane: View
     @Default(.sortPackagesBy) var sortPackagesBy
     @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
 
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Default(.caveatDisplayOptions) var caveatDisplayOptions
     @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
@@ -29,7 +29,7 @@ struct GeneralPane: View
 
     @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
     @Default(.showInMenuBar) var showInMenuBar
-    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
+    @Default(.startWithoutWindow) var startWithoutWindow: Bool
 
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 

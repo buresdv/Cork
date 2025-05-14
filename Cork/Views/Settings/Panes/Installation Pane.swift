@@ -14,7 +14,7 @@ struct InstallationAndUninstallationPane: View
     @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
 
     @Default(.showCompatibilityWarning) var showCompatibilityWarning
-    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
 
     @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
 
