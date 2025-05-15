@@ -11,8 +11,8 @@ import Defaults
 struct Licensing_BoughtView: View
 {
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
-    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
-    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
+    @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
