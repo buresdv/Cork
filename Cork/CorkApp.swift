@@ -31,11 +31,11 @@ struct CorkApp: App
     @State var outdatedPackagesTracker: OutdatedPackagesTracker = .init()
 
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
-    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+    @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
     @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
 
-    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
     

@@ -11,7 +11,7 @@ import Defaults
 struct Licensing_SelfCompiledView: View
 {
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
-    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
