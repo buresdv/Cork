@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-enum DiscoverabilityDaySpans: Int, Hashable, Identifiable, CaseIterable
+public enum DiscoverabilityDaySpans: Int, Hashable, Identifiable, CaseIterable
 {
-    var id: Self 
+    public var id: Self
     {
         self
     }
@@ -19,7 +19,7 @@ enum DiscoverabilityDaySpans: Int, Hashable, Identifiable, CaseIterable
     case quarterYear = 90
     case year = 365
 
-    var key: LocalizedStringKey
+    public var key: LocalizedStringKey
     {
         switch self
         {

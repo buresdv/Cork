@@ -24,6 +24,9 @@ public extension Defaults.Keys
     /// Whether to show live Terminal outputs of varous operations
     static let showRealTimeTerminalOutputOfOperations: Key<Bool> = .init("showRealTimeTerminalOutputOfOperations", default: false)
     
+    /// Whether to expand live Terminal outputs by default
+    static let openRealTimeTerminalOutputByDefault: Key<Bool> = .init("openRealTimeTerminalOutputByDefault", default: false)
+    
     // MARK: - Developer
     /// Whether to allow purging
     static let allowMoreCompleteUninstallations: Key<Bool> = .init("allowMoreCompleteUninstallations", default: false)
