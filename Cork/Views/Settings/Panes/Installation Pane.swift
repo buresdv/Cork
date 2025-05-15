@@ -21,8 +21,8 @@ struct InstallationAndUninstallationPane: View
     @AppStorage("purgeCacheAfterEveryUninstallation") var purgeCacheAfterEveryUninstallation: Bool = false
     @AppStorage("removeOrphansAfterEveryUninstallation") var removeOrphansAfterEveryUninstallation: Bool = false
 
-    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations
-    @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
+    @Default(.openRealTimeTerminalOutputByDefault) var openRealTimeTerminalOutputByDefault: Bool
 
     @AppStorage("automaticallyAcceptEULA") var automaticallyAcceptEULA: Bool = false
 

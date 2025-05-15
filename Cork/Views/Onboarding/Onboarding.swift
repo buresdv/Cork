@@ -14,7 +14,7 @@ struct OnboardingView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
 
     @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
