@@ -12,7 +12,7 @@ import Defaults
 struct LicensingView: View
 {
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
-    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+    @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
     @Environment(AppState.self) var appState: AppState
 
