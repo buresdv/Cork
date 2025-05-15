@@ -30,7 +30,7 @@ struct CorkApp: App
     @StateObject var updateProgressTracker: UpdateProgressTracker = .init()
     @State var outdatedPackagesTracker: OutdatedPackagesTracker = .init()
 
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
 
     @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
