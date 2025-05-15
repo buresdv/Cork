@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Defaults
 
 struct Licensing_BoughtView: View
 {
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
     @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
     @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
 

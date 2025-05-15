@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct Licensing_DemoView: View
 {
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
