@@ -44409,6 +44409,7 @@
       }
     },
     "settings.discoverability.time-span.month" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -44497,6 +44498,7 @@
       }
     },
     "settings.discoverability.time-span.quarter-year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -44585,6 +44587,7 @@
       }
     },
     "settings.discoverability.time-span.year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
