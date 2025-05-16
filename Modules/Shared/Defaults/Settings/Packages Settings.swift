@@ -29,7 +29,15 @@ public extension Defaults.Keys
     /// Whether to expand live Terminal outputs by default
     static let openRealTimeTerminalOutputByDefault: Key<Bool> = .init("openRealTimeTerminalOutputByDefault", default: false)
     
+    /// Whether package EULAs should be accepted by default
+    ///
+    /// Fixes some hangup issues
+    static let automaticallyAcceptEULA: Key<Bool> = .init("automaticallyAcceptEULA", default: false)
+    
     // MARK: - Developer
     /// Whether to allow purging
     static let allowMoreCompleteUninstallations: Key<Bool> = .init("allowMoreCompleteUninstallations", default: false)
+    
+    /// Whether automatic cleanups after packages are enabled
+    static let isAutomaticCleanupEnabled: Key<Bool> = .init("isAutomaticCleanupEnabled", default: true)
 }
