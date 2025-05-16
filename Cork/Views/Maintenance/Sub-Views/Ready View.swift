@@ -7,13 +7,14 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct MaintenanceReadyView: View
 {
-    @AppStorage("default_shouldUninstallOrphans") var default_shouldUninstallOrphans: Bool = true
-    @AppStorage("default_shouldPurgeCache") var default_shouldPurgeCache: Bool = true
-    @AppStorage("default_shouldDeleteDownloads") var default_shouldDeleteDownloads: Bool = true
-    @AppStorage("default_shouldPerformHealthCheck") var default_shouldPerformHealthCheck: Bool = false
+    @Default(.default_shouldUninstallOrphans) var default_shouldUninstallOrphans: Bool
+    @Default(.default_shouldPurgeCache) var default_shouldPurgeCache: Bool
+    @Default(.default_shouldDeleteDownloads) var default_shouldDeleteDownloads: Bool
+    @Default(.default_shouldPerformHealthCheck) var default_shouldPerformHealthCheck: Bool
 
     @Binding var shouldUninstallOrphans: Bool
     @Binding var shouldPurgeCache: Bool

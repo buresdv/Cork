@@ -31,7 +31,6 @@ public extension Defaults.Keys
     static let showDescriptionsInSearchResults: Key<Bool> = .init("showDescriptionsInSearchResults", default: false)
     
     // MARK: - Package details
-
     /// Whether the info setion about a package's dependencies shows a search field, which allows the searching for dependencies
     static let showSearchFieldForDependenciesInPackageDetails: Key<Bool> = .init("showSearchFieldForDependenciesInPackageDetails", default: false)
     
