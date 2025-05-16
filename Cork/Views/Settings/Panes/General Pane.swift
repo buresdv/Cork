@@ -12,7 +12,7 @@ import Defaults
 
 struct GeneralPane: View
 {
-    @Default(.sortPackagesBy) var sortPackagesBy
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
     @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
 
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
