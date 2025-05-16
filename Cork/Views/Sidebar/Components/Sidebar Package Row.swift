@@ -7,12 +7,13 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct SidebarPackageRow: View
 {
     let package: BrewPackage
 
-    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
+    @Default(.enableSwipeActions) var enableSwipeActions: Bool
 
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker

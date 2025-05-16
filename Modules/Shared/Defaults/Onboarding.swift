@@ -10,5 +10,6 @@ import Defaults
 
 public extension Defaults.Keys
 {
-    
+    /// Whether the user finished the onboarding process
+    static let hasFinishedOnboarding: Key<Bool> = .init("hasFinishedOnboarding", default: false)
 }

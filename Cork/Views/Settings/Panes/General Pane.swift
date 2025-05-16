@@ -24,8 +24,8 @@ struct GeneralPane: View
     @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
 
     @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
-    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
-    @AppStorage("enableExtraAnimations") var enableExtraAnimations: Bool = true
+    @Default(.enableSwipeActions) var enableSwipeActions: Bool
+    @Default(.enableExtraAnimations) var enableExtraAnimations: Bool
 
     @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
     @Default(.showInMenuBar) var showInMenuBar

@@ -16,19 +16,16 @@ struct InstallationAndUninstallationPane: View
     @Default(.showCompatibilityWarning) var showCompatibilityWarning
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
 
-    @AppStorage("purgeCacheAfterEveryUninstallation") var purgeCacheAfterEveryUninstallation: Bool = false
-    @AppStorage("removeOrphansAfterEveryUninstallation") var removeOrphansAfterEveryUninstallation: Bool = false
-
     @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
     @Default(.openRealTimeTerminalOutputByDefault) var openRealTimeTerminalOutputByDefault: Bool
 
-    @AppStorage("automaticallyAcceptEULA") var automaticallyAcceptEULA: Bool = false
+    @Default(.automaticallyAcceptEULA) var automaticallyAcceptEULA: Bool
 
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
 
-    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
+    @Default(.isAutomaticCleanupEnabled) var isAutomaticCleanupEnabled: Bool
 
-    @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
+    @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
     @EnvironmentObject var settingsState: SettingsState
 

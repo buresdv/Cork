@@ -33,7 +33,7 @@ struct CorkApp: App
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
     @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
-    @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
+    @Default(.hasFinishedOnboarding) var hasFinishedOnboarding: Bool
 
     @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
 
@@ -53,7 +53,7 @@ struct CorkApp: App
 
     @State private var isShowingBrewfileImporter: Bool = false
 
-    @AppStorage("lastSubmittedCorkVersion") var lastSubmittedCorkVersion: String = ""
+    @Default(.lastSubmittedCorkVersion) var lastSubmittedCorkVersion: String
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler: NSBackgroundActivityScheduler = .init(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
