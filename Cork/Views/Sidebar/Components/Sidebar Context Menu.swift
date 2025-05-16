@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct SidebarContextMenu: View
 {
@@ -14,7 +15,7 @@ struct SidebarContextMenu: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
-    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
     
     let package: BrewPackage
     
