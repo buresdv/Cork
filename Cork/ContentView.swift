@@ -24,7 +24,7 @@ struct ContentView: View, Sendable
     @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
     @Default(.sortTopPackagesBy) var sortTopPackagesBy
 
-    @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
+    @Default(.customHomebrewPath) var customHomebrewPath: URL?
 
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
@@ -236,7 +236,7 @@ private extension View
             {
                 AppConstants.shared.logger.debug("Brew executable path: \(AppConstants.shared.brewExecutablePath, privacy: .public)")
 
-                if !view.customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
+                if view.customHomebrewPath != nil && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
                 {
                     view.appState.showAlert(errorToShow: .customBrewExcutableGotDeleted)
                 }
@@ -594,7 +594,7 @@ private extension View
                 case .customBrewExcutableGotDeleted:
                     Button
                     {
-                        view.customHomebrewPath = ""
+                        view.customHomebrewPath = nil
                     } label: {
                         Text("action.reset-custom-brew-executable")
                     }
