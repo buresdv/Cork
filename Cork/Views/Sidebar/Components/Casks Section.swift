@@ -11,7 +11,7 @@ import Defaults
 
 struct CasksSection: View
 {
-    @Default(.sortPackagesBy) var sortPackagesBy
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
 
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker

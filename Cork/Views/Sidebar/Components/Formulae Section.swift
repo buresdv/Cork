@@ -12,7 +12,7 @@ import Defaults
 struct FormulaeSection: View
 {
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
-    @Default(.sortPackagesBy) var sortPackagesBy
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
 
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
