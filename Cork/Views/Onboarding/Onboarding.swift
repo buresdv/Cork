@@ -36,12 +36,12 @@ struct OnboardingView: View
 
     @Default(.enableDiscoverability) var enableDiscoverability
 
-    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
 
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
-    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
-    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
+    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
 
     @State var onboardingSetupLevel: SetupLevels = .medium
 
