@@ -30,9 +30,19 @@ public extension Defaults.Keys
     /// Whether descriptions of packages will be shown in the installer sheet
     static let showDescriptionsInSearchResults: Key<Bool> = .init("showDescriptionsInSearchResults", default: false)
     
+    // MARK: - Outdated package info
+    /// How much information should be shown about outdated packages
+    static let outdatedPackageInfoDisplayAmount: Key<OutdatedPackageInfoAmount> = .init("outdatedPackageInfoDisplayAmount", default: .versionOnly)
+    
+    /// Whether old version numbers should be shown in the outdated package list
+    static let showOldVersionsInOutdatedPackageList: Key<Bool> = .init("showOldVersionsInOutdatedPackageList", default: true)
+    
     // MARK: - Package details
     /// Whether the info setion about a package's dependencies shows a search field, which allows the searching for dependencies
     static let showSearchFieldForDependenciesInPackageDetails: Key<Bool> = .init("showSearchFieldForDependenciesInPackageDetails", default: false)
+    
+    /// Whether "Reveal in Finder" is available for various packages
+    static let enableRevealInFinder: Key<Bool> = .init("enableRevealInFinder", default: false)
     
     // MARK: - Menu bar
     /// Whether Cork's menu bar item is shown

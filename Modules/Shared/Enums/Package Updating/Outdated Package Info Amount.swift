@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import Defaults
 
-enum OutdatedPackageInfoAmount: String, Identifiable, Codable, CaseIterable
+public enum OutdatedPackageInfoAmount: String, Identifiable, Codable, CaseIterable, Defaults.Serializable
 {
-    var id: Self 
+    public var id: Self
     {
         self
     }
 
     case none, versionOnly, all
 
-    var localizedName: String
+    public var localizedName: String
     {
         switch self
         {

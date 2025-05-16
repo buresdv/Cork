@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Defaults
+import CorkShared
 
 struct OutdatedPackageListBox: View
 {
@@ -23,7 +24,8 @@ struct OutdatedPackageListBox: View
     }
     
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
-    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
+    
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
 
     @Environment(AppState.self) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
@@ -380,8 +382,8 @@ struct OutdatedPackageListBox: View
 
 private struct OutdatedPackageListBoxRow: View
 {
-    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .versionOnly
-    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
+    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
 
     let outdatedPackage: OutdatedPackage
 

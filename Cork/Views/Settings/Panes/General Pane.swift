@@ -20,10 +20,10 @@ struct GeneralPane: View
     @Default(.caveatDisplayOptions) var caveatDisplayOptions
     @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
 
-    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
-    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
+    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
 
-    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
     @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
     @AppStorage("enableExtraAnimations") var enableExtraAnimations: Bool = true
 
