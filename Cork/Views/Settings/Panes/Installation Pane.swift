@@ -11,7 +11,7 @@ import CorkShared
 
 struct InstallationAndUninstallationPane: View
 {
-    @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
+    @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
     @Default(.showCompatibilityWarning) var showCompatibilityWarning
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool

@@ -13,6 +13,9 @@ public extension Defaults.Keys
     /// Whether to enable top packages
     static let enableDiscoverability: Key<Bool> = .init("enableDiscoverability", default: false)
     
-    /// Sorting type of top packages in the package installed
+    /// The time frame used for getting top packages
+    static let discoverabilityDaySpan: Key<DiscoverabilityDaySpans> = .init("discoverabilityDaySpan", default: .month)
+    
+    /// The time span the top packages should be sorted by
     static let sortTopPackagesBy: Key<TopPackageSorting> = .init("sortTopPackagesBy", default: .mostDownloads)
 }
