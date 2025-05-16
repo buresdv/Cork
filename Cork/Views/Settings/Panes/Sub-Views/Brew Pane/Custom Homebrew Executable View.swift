@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct CustomHomebrewExecutableView: View
 {
-    @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
+    @Default(.customHomebrewPath) var customHomebrewPath: URL?
     @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
 
     @EnvironmentObject var settingsState: SettingsState
@@ -45,11 +46,11 @@ struct CustomHomebrewExecutableView: View
                                 Text("settings.brew.custom-homebrew-path.select")
                             }
 
-                            if !customHomebrewPath.isEmpty
+                            if customHomebrewPath != nil
                             {
                                 Button
                                 {
-                                    customHomebrewPath = ""
+                                    customHomebrewPath = nil
                                 } label: {
                                     Text("settings.brew.custom-homebrew-path.reset")
                                 }
@@ -65,9 +66,9 @@ struct CustomHomebrewExecutableView: View
         .onChange(of: allowAdvancedHomebrewSettings, perform: { newValue in
             if newValue == false
             {
-                if !customHomebrewPath.isEmpty
+                if customHomebrewPath != nil
                 {
-                    customHomebrewPath = ""
+                    customHomebrewPath = nil
                 }
             }
         })
@@ -82,9 +83,15 @@ struct CustomHomebrewExecutableView: View
             case .success(let success):
                 if success.first!.lastPathComponent == "brew"
                 {
-                    AppConstants.shared.logger.info("Valid brew executable: \(success.first!.path)")
-
-                    customHomebrewPath = success.first!.path
+                    guard let selectedCustomHomebrewPath = success.first else
+                    {
+                        AppConstants.shared.logger.error("Failed while getting selected custom Homebrew executable")
+                        return
+                    }
+                    
+                    AppConstants.shared.logger.info("Valid brew executable: \(selectedCustomHomebrewPath.path)")
+                    
+                    customHomebrewPath = selectedCustomHomebrewPath
                 }
                 else
                 {
