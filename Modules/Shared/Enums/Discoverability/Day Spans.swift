@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+import Defaults
 
-public enum DiscoverabilityDaySpans: Int, Hashable, Identifiable, CaseIterable
+public enum DiscoverabilityDaySpans: Int, Hashable, Identifiable, CaseIterable, Defaults.Serializable
 {
     public var id: Self
     {

@@ -11,6 +11,8 @@ import Defaults
 public extension Defaults.Keys
 {
     // MARK: - Package removal
+    /// Whether uninstallation and purges should have to be confirmed
+    static let shouldRequestPackageRemovalConfirmation: Key<Bool> = .init("shouldRequestPackageRemovalConfirmation", default: false)
     
     // MARK: - Outdated packages
     /// Whether to show `--greedy` packages

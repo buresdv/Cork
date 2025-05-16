@@ -40,7 +40,7 @@ struct PurgePackageButton: View
 
 private struct RemovePackageButton: View
 {
-    @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
+    @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(AppState.self) var appState: AppState

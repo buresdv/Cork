@@ -21,7 +21,7 @@ struct ContentView: View, Sendable
     @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
 
     @Default(.enableDiscoverability) var enableDiscoverability
-    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
     @Default(.sortTopPackagesBy) var sortTopPackagesBy
 
     @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""

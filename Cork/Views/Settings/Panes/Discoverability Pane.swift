@@ -13,7 +13,7 @@ import Defaults
 struct DiscoverabilityPane: View
 {
     @Default(.enableDiscoverability) var enableDiscoverability
-    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
     @Default(.sortTopPackagesBy) var sortTopPackagesBy
 
     @Environment(AppState.self) var appState: AppState
