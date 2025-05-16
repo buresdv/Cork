@@ -15,7 +15,7 @@ struct InstallationInitialView: View
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @Default(.enableDiscoverability) var enableDiscoverability
-    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
 
     @Environment(AppState.self) var appState: AppState
 
