@@ -23,7 +23,7 @@ class SettingsState: ObservableObject
 struct SettingsView: View
 {
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
-    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
+    @Default(.isAutomaticCleanupEnabled) var isAutomaticCleanupEnabled: Bool
 
     @StateObject var settingsState: SettingsState = .init()
 

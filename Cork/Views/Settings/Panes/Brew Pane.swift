@@ -12,10 +12,10 @@ import Defaults
 
 struct BrewPane: View
 {
-    @AppStorage("strictlyCheckForHomebrewErrors") var strictlyCheckForHomebrewErrors: Bool = false
+    @Default(.strictlyCheckForHomebrewErrors) var strictlyCheckForHomebrewErrors: Bool
 
     @Default(.allowBrewAnalytics) var allowBrewAnalytics
-    @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
+    @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
     @EnvironmentObject var settingsState: SettingsState
 

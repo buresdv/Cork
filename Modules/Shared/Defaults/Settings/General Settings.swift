@@ -44,6 +44,12 @@ public extension Defaults.Keys
     /// Whether "Reveal in Finder" is available for various packages
     static let enableRevealInFinder: Key<Bool> = .init("enableRevealInFinder", default: false)
     
+    /// Whether swipe actions in the sidebar are enabled
+    static let enableSwipeActions: Key<Bool> = .init("enableSwipeActions", default: false)
+    
+    /// Whether extra UI animations are enabled
+    static let enableExtraAnimations: Key<Bool> = .init("enableExtraAnimations", default: true)
+ 
     // MARK: - Menu bar
     /// Whether Cork's menu bar item is shown
     static let showInMenuBar: Key<Bool> = .init("showInMenuBar", default: false)

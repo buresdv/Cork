@@ -12,7 +12,7 @@ import Defaults
 struct CustomHomebrewExecutableView: View
 {
     @Default(.customHomebrewPath) var customHomebrewPath: URL?
-    @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
+    @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
     @EnvironmentObject var settingsState: SettingsState
 
