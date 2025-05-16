@@ -14,7 +14,7 @@ import SwiftUI
 
 struct ContentView: View, Sendable
 {
-    @Default(.sortPackagesBy) var sortPackagesBy
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
     @Default(.allowBrewAnalytics) var allowBrewAnalytics
 
     @Default(.areNotificationsEnabled) var areNotificationsEnabled
