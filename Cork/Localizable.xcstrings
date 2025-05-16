@@ -6759,6 +6759,12 @@
             "state" : "translated",
             "value" : "Повторный поиск"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重新搜索"
+          }
         }
       }
     },
@@ -7103,6 +7109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновить %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新 %@"
           }
         }
       }
@@ -10751,6 +10763,12 @@
             "state" : "translated",
             "value" : "Приложения macOS не найдены"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到 Cask"
+          }
         }
       }
     },
@@ -10867,6 +10885,12 @@
             "state" : "translated",
             "value" : "Консольные приложения/библиотеки не найдены"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到 Formula"
+          }
         }
       }
     },
@@ -10894,6 +10918,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ничего не найдено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未找到结果"
           }
         }
       }
@@ -13295,6 +13325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Убедитесь, что вы ввели верное название пакета"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尝试搜索其他软件包"
           }
         }
       }
@@ -19714,6 +19750,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла ошибка"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发生错误"
           }
         }
       }
@@ -42746,6 +42788,12 @@
             "state" : "translated",
             "value" : "Формат даты для резервных копий:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份日期格式:"
+          }
         }
       }
     },
@@ -42773,6 +42821,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сокращенный"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缩写"
           }
         }
       }
@@ -42802,6 +42856,12 @@
             "state" : "translated",
             "value" : "Дата с месяцем прописью + день недели"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已完成"
+          }
         }
       }
     },
@@ -42829,6 +42889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата с месяцем прописью"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "长日期"
           }
         }
       }
@@ -42858,6 +42924,12 @@
             "state" : "translated",
             "value" : "Дата цифрами"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数字格式"
+          }
         }
       }
     },
@@ -42885,6 +42957,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата цифрами + время"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "短日期"
           }
         }
       }
