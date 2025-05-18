@@ -15,7 +15,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
         destinations: [.mac],
         product: .app,
         productName: "Cork",
-        bundleId: "com.davidbures.cork",
+        bundleId: "eu.davidbures.cork",
         deploymentTargets: .macOS("14.0.0"),
         infoPlist: .file(path: "Cork/Info.plist"),
         sources: [
@@ -83,7 +83,8 @@ let project = Project(
             name: "CorkShared",
             destinations: [.mac],
             product: .staticLibrary,
-            bundleId: "com.davidbures.cork-shared",
+            bundleId: "eu.davidbures.cork-shared",
+            deploymentTargets: .macOS("14.0.0"),
             sources: [
                 "Modules/Shared/**/*.swift"
             ],
@@ -105,7 +106,8 @@ let project = Project(
             name: "CorkNotifications",
             destinations: [.mac],
             product: .staticLibrary,
-            bundleId: "com.davidbures.cork-notifications",
+            bundleId: "eu.davidbures.cork-notifications",
+            deploymentTargets: .macOS("14.0.0"),
             sources: [
                 "Modules/Notifications/**/*.swift"
             ],
@@ -127,7 +129,7 @@ let project = Project(
             name: "CorkHelp",
             destinations: [.mac],
             product: .bundle,
-            bundleId: "com.davidbures.corkhelp",
+            bundleId: "eu.davidbures.corkhelp",
             settings: .settings(configurations: [
                 .debug(
                     name: "Debug",
@@ -143,7 +145,7 @@ let project = Project(
             name: "CorkTests",
             destinations: [.mac],
             product: .unitTests,
-            bundleId: "com.davidbures.cork-tests",
+            bundleId: "eu.davidbures.cork-tests",
             sources: [
                 "Tests/**",
                 "Cork/**/*.swift"

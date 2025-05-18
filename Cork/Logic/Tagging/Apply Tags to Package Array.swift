@@ -7,13 +7,39 @@
 
 import Foundation
 import CorkShared
+import SwiftData
 
 extension BrewPackagesTracker
 {
+    /// Load tagged package from storage, and apply them to the relevant packages
     @MainActor
-    func applyTags(appState: AppState) async throws
+    func applyTags() async throws
     {
-        for taggedName in appState.taggedPackageNames
+        let storageContext: ModelContext = AppConstants.shared.modelContainer.mainContext
+        
+        let taggedPackageFetcher: FetchDescriptor = FetchDescriptor<SavedTaggedPackage>(
+            predicate: #Predicate { _ in
+                return true
+            }
+        )
+        
+        /// Try to fetch the saved tagged packages, and stop execution if there are none
+        guard let loadedTaggedPackages = try? storageContext.fetch(taggedPackageFetcher) else
+        {
+            AppConstants.shared.logger.log("Failed to load tagged packages")
+            return
+        }
+        
+        guard !loadedTaggedPackages.isEmpty else
+        {
+            AppConstants.shared.logger.log("There are no tagged packages to apply the tagged status to")
+            return
+        }
+        
+        /// Change the custom saveable object into strings
+        let taggedPackagesFullNames: [String] = loadedTaggedPackages.map({ $0.fullName })
+        
+        for taggedName in taggedPackagesFullNames
         {
             AppConstants.shared.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
             self.installedFormulae = Set(self.installedFormulae.map
@@ -23,7 +49,7 @@ extension BrewPackagesTracker
                 case .success(var brewPackage):
                     if brewPackage.name == taggedName
                     {
-                        brewPackage.changeTaggedStatus()
+                        brewPackage.changeTaggedStatus(purpose: .justLoading)
                     }
                     return .success(brewPackage)
                 case .failure(let error):
@@ -38,7 +64,7 @@ extension BrewPackagesTracker
                 case .success(var brewPackage):
                     if brewPackage.name == taggedName
                     {
-                        brewPackage.changeTaggedStatus()
+                        brewPackage.changeTaggedStatus(purpose: .justLoading)
                     }
                     return .success(brewPackage)
                 case .failure(let error):
