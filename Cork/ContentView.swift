@@ -422,7 +422,7 @@ private extension View
     {
         self
             .onChange(of: view.cachedDownloadsTracker.cachedDownloadsSize)
-            { _ in
+            {
                 #warning("FIXME: This might fuck up the memory")
                 Task
                 {
@@ -430,7 +430,8 @@ private extension View
                     await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: view.brewPackagesTracker)
                 }
             }
-            .onChange(of: view.areNotificationsEnabled, perform: { newValue in
+            .onChange(of: view.areNotificationsEnabled)
+            { _, newValue in
                 if newValue == true
                 {
                     Task
@@ -438,8 +439,9 @@ private extension View
                         await view.appState.setupNotifications()
                     }
                 }
-            })
-            .onChange(of: view.enableDiscoverability, perform: { newValue in
+            }
+            .onChange(of: view.enableDiscoverability)
+            { _, newValue in
                 if newValue == true
                 {
                     Task
@@ -456,18 +458,20 @@ private extension View
 
                     AppConstants.shared.logger.info("Package tracker status: \(view.topPackagesTracker.topFormulae) \(view.topPackagesTracker.topCasks)")
                 }
-            })
-            .onChange(of: view.discoverabilityDaySpan, perform: { _ in
+            }
+            .onChange(of: view.discoverabilityDaySpan)
+            {
                 Task
                 {
                     await view.loadTopPackages()
                 }
-            })
-            .onChange(of: view.customHomebrewPath, perform: { _ in
+            }
+            .onChange(of: view.customHomebrewPath)
+            {
                 restartApp()
-            })
+            }
             .onChange(of: view.appState.taggedPackageNames)
-            { _ in
+            {
                 AppConstants.shared.logger.info("Will try to save tagged IDs to disk")
                 do
                 {
