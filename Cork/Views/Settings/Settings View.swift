@@ -22,7 +22,7 @@ class SettingsState: ObservableObject
 
 struct SettingsView: View
 {
-    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
     @Default(.isAutomaticCleanupEnabled) var isAutomaticCleanupEnabled: Bool
 
     @StateObject var settingsState: SettingsState = .init()

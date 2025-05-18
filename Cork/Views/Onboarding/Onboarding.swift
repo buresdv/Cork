@@ -15,26 +15,26 @@ struct OnboardingView: View
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
-    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
-    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
 
-    @Default(.caveatDisplayOptions) var caveatDisplayOptions
-    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
 
-    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
     
-    @Default(.showInMenuBar) var showInMenuBar
+    @Default(.showInMenuBar) var showInMenuBar: Bool
 
-    @Default(.areNotificationsEnabled) var areNotificationsEnabled
-    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
 
-    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
-    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
     
-    @Default(.showCompatibilityWarning) var showCompatibilityWarning
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
-    @Default(.enableDiscoverability) var enableDiscoverability
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
 
     @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
 

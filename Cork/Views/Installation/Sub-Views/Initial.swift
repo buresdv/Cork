@@ -14,7 +14,7 @@ struct InstallationInitialView: View
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @Default(.enableDiscoverability) var enableDiscoverability
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
     @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
 
     @Environment(AppState.self) var appState: AppState

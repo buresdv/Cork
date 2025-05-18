@@ -12,11 +12,11 @@ import Defaults
 
 struct NotificationsPane: View
 {
-    @Default(.areNotificationsEnabled) var areNotificationsEnabled
-    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
 
-    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
-    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
     @Environment(AppState.self) var appState: AppState
 

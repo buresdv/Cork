@@ -29,11 +29,12 @@ enum ConfirmationDialog: Identifiable, Equatable
             return "action.purge.confirm.title.\(packageToPurge.name)"
         }
     }
-    
+
     var message: LocalizedStringKey
     {
-        switch self {
-        case .uninstallPackage(_), .purgePackage(_):
+        switch self
+        {
+        case .uninstallPackage, .purgePackage:
             return "action.warning.cannot-be-undone"
         }
     }

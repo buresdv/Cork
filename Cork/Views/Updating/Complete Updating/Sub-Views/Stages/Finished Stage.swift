@@ -11,7 +11,7 @@ import SwiftUI
 
 struct FinishedStageView: View
 {
-    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
 
     var body: some View
     {
