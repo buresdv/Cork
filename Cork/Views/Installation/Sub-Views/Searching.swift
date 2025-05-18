@@ -11,7 +11,7 @@ struct InstallationSearchingView: View, Sendable
 {
     @Binding var packageRequested: String
 
-    @ObservedObject var searchResultTracker: SearchResultTracker
+    @Bindable var searchResultTracker: SearchResultTracker
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 

@@ -7,11 +7,12 @@
 
 import Foundation
 
-class SearchResultTracker: ObservableObject
+@Observable
+class SearchResultTracker
 {
     /// These two have to be arrays because the order matters
     /// When searching, Homebrew returns the best result at the top
-    @Published var foundFormulae: [BrewPackage] = .init()
-    @Published var foundCasks: [BrewPackage] = .init()
-    @Published var selectedPackagesForInstallation: [String] = .init()
+    var foundFormulae: [BrewPackage] = .init()
+    var foundCasks: [BrewPackage] = .init()
+    var selectedPackagesForInstallation: [String] = .init()
 }

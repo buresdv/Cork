@@ -34,7 +34,8 @@ enum UpdateProcessStages: LocalizedStringKey, CustomStringConvertible
     }
 }
 
-class UpdatingProcessDetails: ObservableObject
+@Observable
+class UpdatingProcessDetails
 {
-    @Published var currentStage: UpdateProcessStages = .backingUp
+    var currentStage: UpdateProcessStages = .backingUp
 }
