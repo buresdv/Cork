@@ -17,7 +17,7 @@ struct BrewPane: View
     @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
     @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
-    @EnvironmentObject var settingsState: SettingsState
+    @Environment(SettingsState.self) var settingsState: SettingsState
 
     @State private var isPerformingBrewAnalyticsChangeCommand: Bool = false
 
