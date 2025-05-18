@@ -122,7 +122,7 @@ struct GeneralPane: View
                         .disabled(outdatedPackageInfoDisplayAmount != .versionOnly)
                         .padding([.leading])
                         .onChange(of: outdatedPackageInfoDisplayAmount)
-                        { newValue in
+                        { _, newValue in
                             switch newValue
                             {
                             case .none:

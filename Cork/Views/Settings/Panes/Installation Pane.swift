@@ -95,13 +95,14 @@ struct InstallationAndUninstallationPane: View
                             {
                                 Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation")
                             }
-                            .onChange(of: allowMoreCompleteUninstallations, perform: { newValue in
+                            .onChange(of: allowMoreCompleteUninstallations)
+                            { _, newValue in
                                 if newValue == true
                                 {
                                     settingsState.alertType = .deepUninstall
                                     settingsState.isShowingAlert = true
                                 }
-                            })
+                            }
 
                             HStack(alignment: .top)
                             {
@@ -120,7 +121,7 @@ struct InstallationAndUninstallationPane: View
                                 Text("settings.install-uninstall.installation.enable-automatic-cleanup")
                             }
                             .onChange(of: isAutomaticCleanupEnabled)
-                            { newValue in
+                            { _, newValue in
                                 if newValue == false
                                 {
                                     settingsState.alertType = .cleanupDisabling
