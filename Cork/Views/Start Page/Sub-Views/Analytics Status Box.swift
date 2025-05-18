@@ -11,7 +11,7 @@ import SwiftUI
 
 struct AnalyticsStatusBox: View
 {
-    @Default(.allowBrewAnalytics) var allowBrewAnalytics
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
 
     var body: some View
     {

@@ -11,7 +11,7 @@ import Defaults
 
 struct PackageCaveatMinifiedDisplayView: View
 {
-    @Default(.caveatDisplayOptions) var caveatDisplayOptions
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
 
     let caveats: String?
 

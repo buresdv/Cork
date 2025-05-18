@@ -14,7 +14,7 @@ struct BrewPane: View
 {
     @Default(.strictlyCheckForHomebrewErrors) var strictlyCheckForHomebrewErrors: Bool
 
-    @Default(.allowBrewAnalytics) var allowBrewAnalytics
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
     @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
     @EnvironmentObject var settingsState: SettingsState

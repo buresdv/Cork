@@ -12,7 +12,7 @@ import SwiftUI
 
 struct ErroredOutStageView: View
 {
-    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
