@@ -224,7 +224,7 @@ struct CorkApp: App
                     }
                 }
                 .onChange(of: demoActivatedAt) // React to when the user activates the demo
-                { newValue in
+                { _, newValue in
                     if let newValue
                     { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
                         AppConstants.shared.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
@@ -232,7 +232,7 @@ struct CorkApp: App
                     }
                 }
                 .onChange(of: outdatedPackagesTracker.displayableOutdatedPackages.count)
-                { outdatedPackageCount in
+                { _, outdatedPackageCount in
                     AppConstants.shared.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
 
                     // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
@@ -270,11 +270,11 @@ struct CorkApp: App
                     }
                 }
                 .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
-                { newValue in
+                { _, newValue in
                     setAppBadge(outdatedPackageNotificationType: newValue)
                 }
                 .onChange(of: areNotificationsEnabled)
-                { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
+                { _, newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
                     Task
                     {
                         await appDelegate.appState.requestNotificationAuthorization()
