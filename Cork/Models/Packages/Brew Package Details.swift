@@ -22,8 +22,8 @@ enum PinningUnpinningError: LocalizedError
     }
 }
 
-@MainActor
-class BrewPackageDetails: ObservableObject
+@Observable @MainActor
+class BrewPackageDetails
 {
     // MARK: - Immutable properties
 
