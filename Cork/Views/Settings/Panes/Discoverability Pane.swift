@@ -12,9 +12,9 @@ import Defaults
 
 struct DiscoverabilityPane: View
 {
-    @Default(.enableDiscoverability) var enableDiscoverability
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
     @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
-    @Default(.sortTopPackagesBy) var sortTopPackagesBy
+    @Default(.sortTopPackagesBy) var sortTopPackagesBy: TopPackageSorting
 
     @Environment(AppState.self) var appState: AppState
 

@@ -8,7 +8,7 @@
 import SwiftUI
 import ButtonKit
 
-/// Style that doesn' change the text of the button, and disables it when the async operation is in progress
+/// Style that doesn't change the text of the button, and disables it when the async operation is in progress
 struct PlainAsyncButtonStyle: AsyncButtonStyle
 {
     init() {}

@@ -19,9 +19,6 @@ extension BrewPackagesTracker
         async let updatedFormulaeTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState())
         async let updatedCasksTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState())
         
-        print("Updated formulae: \(String(describing: await updatedFormulaeTracker))")
-        print("Updated casks: \(String(describing: await updatedCasksTracker))")
-        
         guard let safeUpdatedFormulaeTracker = await updatedFormulaeTracker, let safeUpdatedCasksTracker = await updatedCasksTracker else
         {
             throw .synchronizationReturnedNil

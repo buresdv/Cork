@@ -40,7 +40,7 @@ struct OutdatedPackage: Identifiable, Equatable, Hashable
 
     var updatingManagedBy: PackageUpdatingType
     
-    static func ==(lhs: OutdatedPackage, rhs: OutdatedPackage) -> Bool
+    static func == (lhs: OutdatedPackage, rhs: OutdatedPackage) -> Bool
     {
         return lhs.package.name == rhs.package.name
     }

@@ -25,7 +25,7 @@ struct UninstallPackageButton: View
 /// Will not display when purging is disabled
 struct PurgePackageButton: View
 {
-    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
     
     let package: BrewPackage
 

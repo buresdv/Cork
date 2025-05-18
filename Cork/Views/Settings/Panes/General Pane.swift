@@ -13,12 +13,12 @@ import Defaults
 struct GeneralPane: View
 {
     @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
-    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
 
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
-    @Default(.caveatDisplayOptions) var caveatDisplayOptions
-    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
 
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
     @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
@@ -27,8 +27,8 @@ struct GeneralPane: View
     @Default(.enableSwipeActions) var enableSwipeActions: Bool
     @Default(.enableExtraAnimations) var enableExtraAnimations: Bool
 
-    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
-    @Default(.showInMenuBar) var showInMenuBar
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
+    @Default(.showInMenuBar) var showInMenuBar: Bool
     @Default(.startWithoutWindow) var startWithoutWindow: Bool
 
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric

@@ -11,8 +11,8 @@ import Defaults
 
 struct SearchResultRow: View, Sendable
 {
-    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults
-    @Default(.showCompatibilityWarning) var showCompatibilityWarning
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 

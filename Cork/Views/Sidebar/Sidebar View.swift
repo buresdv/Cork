@@ -11,7 +11,7 @@ import Defaults
 
 struct SidebarView: View
 {
-    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
     @Environment(AppState.self) var appState: AppState
 
