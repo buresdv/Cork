@@ -7,13 +7,14 @@
 
 // swiftlint:disable file_length
 
+import ButtonKit
 import CorkNotifications
 import CorkShared
 import DavidFoundation
+import Defaults
+import SwiftData
 import SwiftUI
 import UserNotifications
-import ButtonKit
-import Defaults
 
 // swiftlint:disable type_body_length
 @main
@@ -23,7 +24,7 @@ struct CorkApp: App
 
     @State var brewPackagesTracker: BrewPackagesTracker = .init()
     @State var tapTracker: TapTracker = .init()
-    
+
     @State var cachedDownloadsTracker: CachedDownloadsTracker = .init()
 
     @State var topPackagesTracker: TopPackagesTracker = .init()
@@ -39,14 +40,14 @@ struct CorkApp: App
     @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
-    
+
     @Default(.showInMenuBar) var showInMenuBar: Bool
 
     @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
     @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
-    
+
     @Default(.lastSubmittedCorkVersion) var lastSubmittedCorkVersion: String
-    
+
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
     @State private var sendStandardUpdatesAvailableNotification: Bool = true
@@ -89,6 +90,9 @@ struct CorkApp: App
                 .environment(updateProgressTracker)
                 .environment(outdatedPackagesTracker)
                 .environment(topPackagesTracker)
+                .modelContainer(for: [
+                    SavedTaggedPackage.self
+                ])
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
@@ -420,7 +424,7 @@ struct CorkApp: App
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
-        
+
         WindowGroup(id: .errorInspectorWindowID, for: String.self)
         { $errorToInspect in
             if let errorToInspect
@@ -727,7 +731,7 @@ struct CorkApp: App
         } label: {
             Text("debug.action.licensing")
         }
-        
+
         Menu
         {
             Button
@@ -757,7 +761,7 @@ struct CorkApp: App
             NSApp.dockTile.badgeLabel = ""
         }
     }
-    
+
     private func setWhetherToSendStandardUpdatesAvailableNotification(to newValue: Bool)
     {
         self.sendStandardUpdatesAvailableNotification = newValue

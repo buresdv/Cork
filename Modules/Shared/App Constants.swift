@@ -7,6 +7,7 @@
 
 import Foundation
 import OSLog
+import SwiftData
 @preconcurrency import UserNotifications
 
 public struct AppConstants: Sendable
@@ -67,11 +68,23 @@ public struct AppConstants: Sendable
         self.homebrewVariablesPath = localHomebrewVariablesPath
         
         self.logger = internalLogger
+        
+        let modelConfiguration: ModelConfiguration = .init(isStoredInMemoryOnly: false)
+        
+        guard let initializedModelContainer = try? ModelContainer(for: SavedTaggedPackage.self, configurations: modelConfiguration) else
+        {
+            fatalError("Failed to initialize persistence container")
+        }
+        
+        self.modelContainer = initializedModelContainer
     }
     
     // MARK: - Shared Instance
     
     public static let shared: AppConstants = .init()
+    
+    // MARK: - Persistence
+    public let modelContainer: ModelContainer
     
     // MARK: - Logging
 

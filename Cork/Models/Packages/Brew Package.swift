@@ -74,9 +74,46 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     {
         return versions.formatted(.list(type: .and))
     }
-
-    mutating func changeTaggedStatus()
+    
+    /// The purpose of the tagged status change operation
+    enum TaggedStatusChangePurpose: String
     {
+        /// Only load and apply the tagged status to packages
+        ///
+        /// For when the tagged packages are just being loaded and applied to the packages
+        case justLoading = "loading"
+        
+        /// Change and persist the change.
+        ///
+        /// For when the user initiates the change.
+        case actuallyChangingTheTaggedState = "actually changing the tagged state"
+    }
+    
+    /// Change the tagged status of a package, and optionally persist that change in the database
+    ///
+    /// - Parameter purpose: The purpose of this operation
+    @MainActor
+    mutating func changeTaggedStatus(purpose: TaggedStatusChangePurpose)
+    {
+        
+        let packageName: String = self.name
+        
+        AppConstants.shared.logger.debug("Will change the tagged status of package \(packageName) for the purpose of \(purpose.rawValue)")
+        
+        if purpose == .actuallyChangingTheTaggedState
+        {            
+            let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
+            
+            if !isTagged
+            {
+                modelContext.insert(SavedTaggedPackage(fullName: self.name))
+            }
+            else
+            {
+                modelContext.delete(SavedTaggedPackage(fullName: self.name))
+            }
+        }
+        
         isTagged.toggle()
     }
 

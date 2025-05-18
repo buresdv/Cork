@@ -5,44 +5,26 @@
 //  Created by David Bureš - P on 22.04.2025.
 //
 
-import SwiftUI
 import CorkShared
+import SwiftUI
 
 struct TagUntagButton: View
 {
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    
+
     let package: BrewPackage
-    
-    var body: some View {
+
+    var body: some View
+    {
         Button
         {
-            changeTaggedStatus()
+            brewPackagesTracker.updatePackageInPlace(package)
+            { package in
+                package.changeTaggedStatus(purpose: .actuallyChangingTheTaggedState)
+            }
         } label: {
             Label(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)", systemImage: package.isTagged ? "tag.slash" : "tag")
         }
-    }
-    
-    func changeTaggedStatus()
-    {
-        AppConstants.shared.logger.info("Will change tagged status of \(package.name). Current state of the tagged package tracker: \(appState.taggedPackageNames)")
-        
-        brewPackagesTracker.updatePackageInPlace(package)
-        { package in
-            package.changeTaggedStatus()
-        }
-        
-        if package.isTagged
-        {
-            AppConstants.shared.logger.info("Tagged package tracker DOES contain \(package.name). Will remove")
-            appState.taggedPackageNames.remove(package.name)
-        }
-        else
-        {
-            AppConstants.shared.logger.info("Tagged package tracker does NOT contain \(package.name). Will insert")
-            appState.taggedPackageNames.insert(package.name)
-        }
-        
     }
 }

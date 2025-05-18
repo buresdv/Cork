@@ -68,8 +68,6 @@ final class AppState
 
     // MARK: - Tagging
 
-    var taggedPackageNames: Set<String> = .init()
-
     var corruptedPackage: String = ""
 
     // MARK: - Other

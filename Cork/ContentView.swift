@@ -309,23 +309,11 @@ private extension View
                 // MARK: - Getting tagged packages
                 do
                 {
-                    view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
-
-                    AppConstants.shared.logger.info("Tagged packages in appState: \(view.appState.taggedPackageNames)")
-
-                    do
-                    {
-                        try await view.brewPackagesTracker.applyTags(appState: view.appState)
-                    }
-                    catch let taggedStateApplicationError as NSError
-                    {
-                        AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
-                        view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
-                    }
+                    try await view.brewPackagesTracker.applyTags()
                 }
-                catch let uuidLoadingError as NSError
+                catch let taggedStateApplicationError as NSError
                 {
-                    AppConstants.shared.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
+                    AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
                     view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
                 
@@ -488,18 +476,6 @@ private extension View
             .onChange(of: view.customHomebrewPath)
             {
                 restartApp()
-            }
-            .onChange(of: view.appState.taggedPackageNames)
-            {
-                AppConstants.shared.logger.info("Will try to save tagged IDs to disk")
-                do
-                {
-                    try saveTaggedIDsToDisk(appState: view.appState)
-                }
-                catch let dataSavingError as NSError
-                {
-                    AppConstants.shared.logger.error("Failed while trying to save data to disk: \(dataSavingError, privacy: .public)")
-                }
             }
     }
 }
