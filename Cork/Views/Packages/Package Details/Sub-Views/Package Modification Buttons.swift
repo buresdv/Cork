@@ -21,7 +21,7 @@ struct PackageModificationButtons: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let package: BrewPackage
-    @ObservedObject var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
 
