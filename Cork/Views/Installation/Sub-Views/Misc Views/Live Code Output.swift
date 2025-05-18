@@ -41,7 +41,7 @@ struct LiveTerminalOutputView: View
                     .frame(minHeight: 200)
                     .listStyle(.bordered)
                     .onChange(of: lineArray)
-                    { _ in
+                    {
                         proxy.scrollTo(lineArray.last?.id, anchor: .bottom)
                     }
                     
