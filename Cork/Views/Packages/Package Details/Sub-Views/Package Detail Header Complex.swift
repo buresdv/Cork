@@ -22,7 +22,7 @@ struct PackageDetailHeaderComplex: View
     
     var isInPreviewWindow: Bool
     
-    @ObservedObject var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
     
