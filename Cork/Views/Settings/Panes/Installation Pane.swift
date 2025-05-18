@@ -27,7 +27,7 @@ struct InstallationAndUninstallationPane: View
 
     @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
-    @EnvironmentObject var settingsState: SettingsState
+    @Environment(SettingsState.self) var settingsState: SettingsState
 
     var body: some View
     {

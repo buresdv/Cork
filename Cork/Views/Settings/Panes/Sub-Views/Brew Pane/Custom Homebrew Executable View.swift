@@ -14,7 +14,7 @@ struct CustomHomebrewExecutableView: View
     @Default(.customHomebrewPath) var customHomebrewPath: URL?
     @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
-    @EnvironmentObject var settingsState: SettingsState
+    @Environment(SettingsState.self) var settingsState: SettingsState
 
     @State private var isShowingCustomLocationDialog: Bool = false
     @State private var isShowingCustomLocationConfirmation: Bool = false
