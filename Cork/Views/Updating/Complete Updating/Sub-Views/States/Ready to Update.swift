@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ReadyToUpdateStateView: View
 {
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
+    
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
 
     var body: some View

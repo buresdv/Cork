@@ -37,7 +37,7 @@ struct ContentView: View, Sendable
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
