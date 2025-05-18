@@ -17,7 +17,7 @@ struct ErroredOutStageView: View
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     let sudoRequiredForUpdate: Bool
 
