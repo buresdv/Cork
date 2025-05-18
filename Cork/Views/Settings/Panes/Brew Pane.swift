@@ -51,7 +51,7 @@ struct BrewPane: View
                     }
                 }
                 .onChange(of: allowBrewAnalytics)
-                { newValue in
+                { _, newValue in
                     if newValue == true
                     {
                         Task

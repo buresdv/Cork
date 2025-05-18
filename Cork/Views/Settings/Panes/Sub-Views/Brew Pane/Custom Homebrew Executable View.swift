@@ -63,7 +63,8 @@ struct CustomHomebrewExecutableView: View
             }
         }
         .disabled(!allowAdvancedHomebrewSettings)
-        .onChange(of: allowAdvancedHomebrewSettings, perform: { newValue in
+        .onChange(of: allowAdvancedHomebrewSettings)
+        { _, newValue in
             if newValue == false
             {
                 if customHomebrewPath != nil
@@ -71,7 +72,7 @@ struct CustomHomebrewExecutableView: View
                     customHomebrewPath = nil
                 }
             }
-        })
+        }
         .fileImporter(
             isPresented: $isShowingCustomLocationDialog,
             allowedContentTypes: [.unixExecutable],
