@@ -11,9 +11,9 @@ struct UpdatingPackagesStateView: View
 {
     @Environment(AppState.self) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
-    @ObservedObject var updateProcessDetailsStage: UpdatingProcessDetails
+    @Bindable var updateProcessDetailsStage: UpdatingProcessDetails
 
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
 
@@ -35,7 +35,7 @@ struct UpdatingPackagesStateView: View
             }
 
             LiveTerminalOutputView(
-                lineArray: $updateProgressTracker.realTimeOutput,
+                lineArray: Bindable(updateProgressTracker).realTimeOutput,
                 isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput
             )
         }

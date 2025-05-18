@@ -11,7 +11,7 @@ import CorkShared
 struct CheckingForUpdatesStateView: View
 {
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
     @Binding var packageUpdatingStage: PackageUpdatingStage
@@ -28,7 +28,7 @@ struct CheckingForUpdatesStateView: View
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
             LiveTerminalOutputView(
-                lineArray: $updateProgressTracker.realTimeOutput,
+                lineArray: Bindable(updateProgressTracker).realTimeOutput,
                 isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput,
                 forceKeepTerminalOutputInMemory: true
             )

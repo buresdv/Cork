@@ -15,7 +15,7 @@ struct PresentingSearchResultsView: View
 
     @Environment(AppState.self) var appState: AppState
 
-    @ObservedObject var searchResultTracker: SearchResultTracker
+    @Bindable var searchResultTracker: SearchResultTracker
 
     @Binding var packageRequested: String
     @Binding var foundPackageSelection: BrewPackage?

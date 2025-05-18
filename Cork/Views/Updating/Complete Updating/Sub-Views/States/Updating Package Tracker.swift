@@ -15,7 +15,7 @@ struct UpdatingPackageTrackerStateView: View
     
     @Environment(AppState.self) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Binding var packageUpdatingStage: PackageUpdatingStage

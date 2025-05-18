@@ -23,7 +23,7 @@ struct InstallationInitialView: View
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @ObservedObject var searchResultTracker: SearchResultTracker
+    @Bindable var searchResultTracker: SearchResultTracker
 
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false

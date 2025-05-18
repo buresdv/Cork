@@ -24,7 +24,7 @@ struct AddFormulaView: View
 
     @State private var foundPackageSelection: BrewPackage?
 
-    @ObservedObject var searchResultTracker: SearchResultTracker = .init()
+    @Bindable var searchResultTracker: SearchResultTracker = .init()
     @Bindable var installationProgressTracker: InstallationProgressTracker = .init()
 
     @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready

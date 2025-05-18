@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 
-class UpdateProgressTracker: ObservableObject
+@Observable
+class UpdateProgressTracker
 {
-    @Published var updateProgress: Float = 0
-    @Published var errors: [String] = .init()
+    var updateProgress: Float = 0
+    var errors: [String] = .init()
 
-    @Published var realTimeOutput: [RealTimeTerminalLine] = .init()
+    var realTimeOutput: [RealTimeTerminalLine] = .init()
 }

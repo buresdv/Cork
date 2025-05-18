@@ -22,7 +22,7 @@ struct StartPage: View
 
     @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
