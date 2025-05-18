@@ -15,6 +15,7 @@ import UserNotifications
 import ButtonKit
 import Defaults
 
+// swiftlint:disable type_body_length
 @main
 struct CorkApp: App
 {
@@ -39,10 +40,12 @@ struct CorkApp: App
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
     
-    @Default(.showInMenuBar) var showInMenuBar
+    @Default(.showInMenuBar) var showInMenuBar: Bool
 
-    @Default(.areNotificationsEnabled) var areNotificationsEnabled
-    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
+    
+    @Default(.lastSubmittedCorkVersion) var lastSubmittedCorkVersion: String
     
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
@@ -52,8 +55,6 @@ struct CorkApp: App
     @State private var isShowingBrewfileExporter: Bool = false
 
     @State private var isShowingBrewfileImporter: Bool = false
-
-    @Default(.lastSubmittedCorkVersion) var lastSubmittedCorkVersion: String
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler: NSBackgroundActivityScheduler = .init(identifier: "com.davidbures.Cork.backgroundAutoUpdate")

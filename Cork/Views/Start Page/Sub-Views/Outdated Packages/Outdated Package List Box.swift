@@ -25,7 +25,7 @@ struct OutdatedPackageListBox: View
     
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     
-    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
 
     @Environment(AppState.self) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker

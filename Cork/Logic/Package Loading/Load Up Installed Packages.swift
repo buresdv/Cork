@@ -124,8 +124,6 @@ private extension BrewPackagesTracker
                 var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
                 for await loadedPackage in taskGroup
                 {
-                    AppConstants.shared.logger.debug("Will insert package \(loadedPackages) to the package result array")
-
                     loadedPackages.insert(loadedPackage)
                 }
                 

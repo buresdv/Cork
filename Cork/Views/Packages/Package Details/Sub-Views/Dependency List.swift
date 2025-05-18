@@ -10,8 +10,8 @@ import Defaults
 
 struct DependencyList: View
 {
-    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies
-    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
     @State private var dependencySearchText: String = ""
 
     @State var dependencies: [BrewPackageDependency]
