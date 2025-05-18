@@ -13,7 +13,7 @@ struct InstallationAndUninstallationPane: View
 {
     @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
-    @Default(.showCompatibilityWarning) var showCompatibilityWarning
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
 
     @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
@@ -21,7 +21,7 @@ struct InstallationAndUninstallationPane: View
 
     @Default(.automaticallyAcceptEULA) var automaticallyAcceptEULA: Bool
 
-    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
     @Default(.isAutomaticCleanupEnabled) var isAutomaticCleanupEnabled: Bool
 

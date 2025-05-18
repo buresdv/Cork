@@ -14,6 +14,7 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - nesting
   - trailing_whitespace
   - cyclomatic_complexity # remove this later
+  - blanket_disable_command
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - empty_count # find all the available rules by running: `swiftlint rules`
   - explicit_init

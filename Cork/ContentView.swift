@@ -15,14 +15,14 @@ import SwiftUI
 struct ContentView: View, Sendable
 {
     @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
-    @Default(.allowBrewAnalytics) var allowBrewAnalytics
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
 
-    @Default(.areNotificationsEnabled) var areNotificationsEnabled
-    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
 
-    @Default(.enableDiscoverability) var enableDiscoverability
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
     @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
-    @Default(.sortTopPackagesBy) var sortTopPackagesBy
+    @Default(.sortTopPackagesBy) var sortTopPackagesBy: TopPackageSorting
 
     @Default(.customHomebrewPath) var customHomebrewPath: URL?
 
