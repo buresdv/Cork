@@ -50,6 +50,85 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     )
 }
 
+let corkSharedTarget: ProjectDescription.Target = .target(
+    name: "CorkShared",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-shared",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Shared/**/*.swift"
+    ],
+    dependencies: [
+        .external(name: "Defaults")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
+let corkNotificationsTarget: ProjectDescription.Target = .target(
+    name: "CorkNotifications",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-notifications",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Notifications/**/*.swift"
+    ],
+    dependencies: [
+        .target(name: "CorkShared")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
+let corkHelpTarget: ProjectDescription.Target = .target(
+    name: "CorkHelp",
+    destinations: [.mac],
+    product: .bundle,
+    bundleId: "eu.davidbures.corkhelp",
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/CorkHelp.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/CorkHelp.xcconfig")
+        ),
+    ])
+)
+
+let corkTestsTarget: ProjectDescription.Target = .target(
+    name: "CorkTests",
+    destinations: [.mac],
+    product: .unitTests,
+    bundleId: "eu.davidbures.cork-tests",
+    sources: [
+        "Tests/**",
+        "Cork/**/*.swift"
+    ],
+    dependencies: [
+        .target(name: "Cork")
+    ]
+)
+
 let project = Project(
     name: "Cork",
     options: .options(
@@ -79,81 +158,10 @@ let project = Project(
     targets: [
         corkTarget(configureWithSelfCompiled: false),
         corkTarget(configureWithSelfCompiled: true),
-        .target(
-            name: "CorkShared",
-            destinations: [.mac],
-            product: .staticLibrary,
-            bundleId: "eu.davidbures.cork-shared",
-            deploymentTargets: .macOS("14.0.0"),
-            sources: [
-                "Modules/Shared/**/*.swift"
-            ],
-            dependencies: [
-                .external(name: "Defaults")
-            ],
-            settings: .settings(configurations: [
-                .debug(
-                    name: "Debug",
-                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                ),
-                .release(
-                    name: "Release",
-                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                )
-            ])
-        ),
-        .target(
-            name: "CorkNotifications",
-            destinations: [.mac],
-            product: .staticLibrary,
-            bundleId: "eu.davidbures.cork-notifications",
-            deploymentTargets: .macOS("14.0.0"),
-            sources: [
-                "Modules/Notifications/**/*.swift"
-            ],
-            dependencies: [
-                .target(name: "CorkShared")
-            ],
-            settings: .settings(configurations: [
-                .debug(
-                    name: "Debug",
-                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                ),
-                .release(
-                    name: "Release",
-                    xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-                )
-            ])
-        ),
-        .target(
-            name: "CorkHelp",
-            destinations: [.mac],
-            product: .bundle,
-            bundleId: "eu.davidbures.corkhelp",
-            settings: .settings(configurations: [
-                .debug(
-                    name: "Debug",
-                    xcconfig: .relativeToRoot("xcconfigs/CorkHelp.xcconfig")
-                ),
-                .release(
-                    name: "Release",
-                    xcconfig: .relativeToRoot("xcconfigs/CorkHelp.xcconfig")
-                ),
-            ])
-        ),
-        .target(
-            name: "CorkTests",
-            destinations: [.mac],
-            product: .unitTests,
-            bundleId: "eu.davidbures.cork-tests",
-            sources: [
-                "Tests/**",
-                "Cork/**/*.swift"
-            ],
-            dependencies: [
-                .target(name: "Cork")
-            ]
-        )
+        corkSharedTarget,
+        corkNotificationsTarget,
+        corkHelpTarget,
+        corkTestsTarget
     ]
 
 )
