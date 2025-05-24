@@ -150,7 +150,7 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 #### Compiling Cork
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise use tuist@4.25.0 && tuist install && tuist generate --no-binary-cache`. Xcode will open the project.
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise use tuist@4.50.2 && tuist install && tuist generate --no-binary-cache`. Xcode will open the project.
 
 <div style= "margin-left: 1rem">
   <details>
