@@ -33,6 +33,8 @@ struct LiveTerminalOutputView: View
                         { line in
                             Text(line.line)
                                 .id(line.id)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                     }
                     .frame(minHeight: 200)

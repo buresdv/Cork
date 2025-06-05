@@ -22,6 +22,8 @@ struct UpdatingPackageTrackerStateView: View
     var body: some View
     {
         Text("update-packages.updating.updating-outdated-package")
+            .lineLimit(nil)
+            .fixedSize(horizontal: false, vertical: true)
             .task
             {
                 do
