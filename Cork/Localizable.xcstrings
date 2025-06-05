@@ -36718,6 +36718,16 @@
         }
       }
     },
+    "package-details.deprecation.notice" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This package is deprecated"
+          }
+        }
+      }
+    },
     "package-details.homepage" : {
       "localizations" : {
         "cs" : {
@@ -36978,6 +36988,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "安裝於"
+          }
+        }
+      }
+    },
+    "package-details.notes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notes"
           }
         }
       }

@@ -17,13 +17,60 @@ struct BasicPackageInfoView: View
     let isInPreviewWindow: Bool
 
     @Binding var isShowingExpandedCaveats: Bool
+    
+    var hasNotes: Bool {
+        if packageDetails.caveats != nil {
+            return true
+        }
+        
+        if packageDetails.deprecated {
+            return true
+        }
+        
+        return false
+    }
 
     var body: some View
     {
+        
         Section
         {
-            PackageCaveatFullDisplayView(caveats: packageDetails.caveats, isShowingExpandedCaveats: $isShowingExpandedCaveats)
-
+            EmptyView()
+        } header: {
+            PackageDetailHeaderComplex(
+                package: package,
+                isInPreviewWindow: isInPreviewWindow,
+                packageDetails: packageDetails,
+                isLoadingDetails: isLoadingDetails
+            )
+        }
+        
+        if hasNotes
+        {
+            Section
+            {
+                Section
+                {
+                    PackageCaveatFullDisplayView(
+                        caveats: packageDetails.caveats,
+                        isShowingExpandedCaveats: $isShowingExpandedCaveats
+                    )
+                }
+                
+                Section
+                {
+                    PackageDeprecationView(
+                        isDeprecated: packageDetails.deprecated,
+                        deprecationReason: packageDetails.deprecationReason
+                    )
+                }
+            } header: {
+                Text("package-details.notes")
+            }
+        }
+        
+        Section
+        {
             LabeledContent
             {
                 Text(packageDetails.tap.name)
@@ -48,18 +95,7 @@ struct BasicPackageInfoView: View
                 Text("package-details.homepage")
             }
         } header: {
-            VStack(alignment: .leading, spacing: 15)
-            {
-                PackageDetailHeaderComplex(
-                    package: package, 
-                    isInPreviewWindow: isInPreviewWindow,
-                    packageDetails: packageDetails,
-                    isLoadingDetails: isLoadingDetails
-                )
-
-                Text("package-details.info")
-                    .font(.title2)
-            }
+            Text("package-details.info")
         }
     }
 }
