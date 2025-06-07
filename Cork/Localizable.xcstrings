@@ -4396,7 +4396,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "试用演示版"
+            "value" : "试用"
           }
         },
         "zh-Hant" : {
@@ -19103,7 +19103,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "调试: 激活演示模式"
+            "value" : "调试: 启用试用版"
           }
         }
       }
