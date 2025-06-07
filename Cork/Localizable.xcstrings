@@ -880,7 +880,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "提供了宝贵的帮助，并解决了从 Swift 异步到软件包安装的各种问题，"
+            "value" : "在从 Swift 异步编程到软件包安装阻塞等各种问题上提供了宝贵帮助"
           }
         },
         "zh-Hant" : {
@@ -1232,7 +1232,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "修复了主页软件包数量无法更新的问题。"
+            "value" : "修复了主页软件包数量不更新的问题"
           }
         },
         "zh-Hant" : {
@@ -4396,7 +4396,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "试用 demo 版本"
+            "value" : "试用演示版"
           }
         },
         "zh-Hant" : {
@@ -4924,7 +4924,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "拷贝"
+            "value" : "复制"
           }
         },
         "zh-Hant" : {
@@ -5012,7 +5012,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "拷贝到剪贴板"
+            "value" : "复制到剪贴板"
           }
         },
         "zh-Hant" : {
@@ -5253,7 +5253,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "返回主页"
+            "value" : "状态页面"
           }
         },
         "zh-Hant" : {
@@ -5341,7 +5341,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "返回主页"
+            "value" : "前往状态页面"
           }
         },
         "zh-Hant" : {
@@ -5569,7 +5569,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "开启终端"
+            "value" : "打开终端"
           }
         },
         "zh-Hant" : {
@@ -5745,7 +5745,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你确认要移除 %@ 吗?"
+            "value" : "确定要彻底删除 %@ 吗？"
           }
         }
       }
@@ -7097,7 +7097,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你确定要卸载 %@?"
+            "value" : "确定要卸载 %@ 吗？"
           }
         }
       }
@@ -7254,7 +7254,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通过终端更新 Homebrew"
+            "value" : "在终端中更新 Homebrew"
           }
         }
       }
@@ -7482,7 +7482,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在坛反馈…"
+            "value" : "在论坛反馈…"
           }
         }
       }
@@ -7734,7 +7734,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在安装 %@ 时出现了错误"
+            "value" : "安装 %@ 时出现错误"
           }
         },
         "zh-Hant" : {
@@ -7822,7 +7822,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请尝试重新安装软件包或重启Cork\n如果问题没有解决，请重启你的 Mac"
+            "value" : "请尝试重新安装软件包或重启 Cork\n如果问题仍然存在，请重启您的 Mac"
           }
         },
         "zh-Hant" : {
@@ -8421,7 +8421,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 于 Homebrew 外部安装"
+            "value" : "%@ 未通过 Homebrew 安装"
           }
         }
       }
@@ -8485,7 +8485,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这个 Cask 已在应用程序文件夹中存在 ，请卸载它然后尝试重试安装"
+            "value" : "应用程序文件夹中已存在此 Cask\n请先卸载它，然后重试"
           }
         }
       }
@@ -8567,7 +8567,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下载 %@…"
+            "value" : "下载 %@ 中…"
           }
         },
         "zh-Hant" : {
@@ -8655,7 +8655,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "获取依赖…"
+            "value" : "获取依赖中…"
           }
         },
         "zh-Hant" : {
@@ -8947,7 +8947,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 在正式启动前终止了此软件包的安装。\n请查看下方安装命令的输出。"
+            "value" : "Homebrew 在正式开始前就终止了此软件包的安装。\n请查看下方安装命令的输出信息"
           }
         }
       }
@@ -9175,7 +9175,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在安装依赖，第 %lld/%lld"
+            "value" : "正在安装依赖 %lld/%lld"
           }
         },
         "zh-Hant" : {
@@ -9791,7 +9791,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你必须通过终端安装该软件包。\n请使用下方命令。"
+            "value" : "您需要通过终端安装此软件包。\n请使用下方的命令。"
           }
         },
         "zh-Hant" : {
@@ -11751,7 +11751,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你需要通过终端卸载该软件包\n请使用下方的命令"
+            "value" : "您需要通过终端卸载此软件包。\n请使用下方的命令。"
           }
         },
         "zh-Hant" : {
@@ -13250,7 +13250,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap 名称总是需要包含斜杠"
+            "value" : "Tap 名称必须包含斜杠"
           }
         },
         "zh-Hant" : {
@@ -13338,7 +13338,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "单击下方的“开启终端”\n使用 ⌘+V 插入命令，然后按 ↩（回车）执行命令\n按照提示安装 %@，然后返回 Cork 并关闭此对话框"
+            "value" : "点击下方的「打开终端」\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令\n按照提示安装 %@，完成后返回 Cork 并关闭此对话框"
           }
         },
         "zh-Hant" : {
@@ -13466,7 +13466,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "点击下方的“打开终端'”，使用 ⌘V 粘贴命令，然后按 ↩（回车）执行命令。按照卸载 %@ 的说明进行操作，完成后返回 Cork 并关闭此对话框。"
+            "value" : "点击下方的「打开终端」\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令\n按照提示卸载 %@，完成后返回 Cork 并关闭此对话框"
           }
         },
         "zh-Hant" : {
@@ -13606,7 +13606,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请尝试重启 Cork。 如果问题仍然存在，清除 Cork 的元数据"
+            "value" : "请尝试重启 Cork。如果问题仍然存在，请清除 Cork 的元数据"
           }
         },
         "zh-Hant" : {
@@ -13958,7 +13958,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请手动删除元数据文件夹，或尝试重启 Cork。"
+            "value" : "请手动删除元数据文件夹，或尝试重启 Cork"
           }
         },
         "zh-Hant" : {
@@ -14134,7 +14134,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请确保你已允许 Cork 访问文稿文件夹"
+            "value" : "请确保已授权 Cork 访问您的文稿文件夹"
           }
         },
         "zh-Hant" : {
@@ -17786,7 +17786,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请尝试重启 Cork。 如果问题仍然存在，请尝试重新安装"
+            "value" : "请尝试重启 Cork。如果问题仍然存在，请重新安装"
           }
         }
       }
@@ -21747,7 +21747,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所提供的路径指向 Cask 文件夹本身，并非指向软件包。 你的 Homebrew 程序损坏，这并非是 Cork 的问题"
+            "value" : "所提供的路径指向 Cask 文件夹本身，并非指向软件包。你的 Homebrew 程序损坏，这并非是 Cork 的问题"
           }
         }
       }
@@ -21805,7 +21805,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所提供的路径指向 Formula 文件夹本身，并非指向软件包。 你的 Homebrew 程序损坏，这并非是 Cork 的问题"
+            "value" : "所提供的路径指向 Formula 文件夹本身，并非指向软件包。你的 Homebrew 程序损坏，这并非是 Cork 的问题"
           }
         }
       }
@@ -24271,7 +24271,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "软件包刷新出现错误"
+            "value" : "软件包已刷新"
           }
         }
       }
@@ -24341,7 +24341,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "软件包刷新出现错误"
+            "value" : "软件包刷新时出现错误"
           }
         }
       }
@@ -24809,7 +24809,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在试用 demo 模式"
+            "value" : "试用模式"
           }
         },
         "zh-Hant" : {
@@ -24897,7 +24897,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "demo 版本将于 %@ 过期"
+            "value" : "试用版可使用至 %@"
           }
         },
         "zh-Hant" : {
@@ -25249,7 +25249,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你可以使用下面的按钮购买 Cork，或者访问[官网](https://corkmac.app)。\n不确定 Cork 是否适合你？试用 demo 版本，有效期为 7 天"
+            "value" : "您可以使用下方按钮购买 Cork，或访问[官网](https://corkmac.app)。\n不确定 Cork 是否适合您？可先试用 7 天。"
           }
         },
         "zh-Hant" : {
@@ -25507,7 +25507,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果你想支持我的应用，请考虑[购买 Cork](https://corkmac.app)"
+            "value" : "如果您想支持我的应用开发，请考虑[购买 Cork](https://corkmac.app)"
           }
         }
       }
@@ -25583,7 +25583,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你自行编译了 Cork"
+            "value" : "您已自行编译 Cork"
           }
         }
       }
@@ -27581,13 +27581,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "由于 %@ 和 %lld 未更新，某些缓存未被清除"
+                  "value" : "由于 %@ 和另 %lld 个软件包未更新，某些缓存未被清除"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "由于 %@ 和 %lld 未更新，某些缓存未被清除"
+                  "value" : "由于 %@ 和其他 %lld 个软件包未更新，某些缓存未被清除"
                 }
               }
             }
@@ -32031,7 +32031,7 @@
               "zero" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "没有软件包有可用更新"
+                  "value" : "无可用更新"
                 }
               }
             }
@@ -34680,7 +34680,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安装 Tap"
+            "value" : "软件包标记"
           }
         },
         "zh-Hant" : {
@@ -37148,7 +37148,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 已被锁定。它将不会更新"
+            "value" : "%@ 已锁定版本，不会被更新"
           }
         },
         "zh-Hant" : {
@@ -37324,7 +37324,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "为什么它这么小？"
+            "value" : "为什么显示的大小这么小？"
           }
         },
         "zh-Hant" : {
@@ -37412,7 +37412,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cask 安装路径和 Formula 不同。Cask 会被安装到“应用程序”文件夹中。"
+            "value" : "Cask 的安装目录与 Formula 不同。Cask 会被安装到应用程序文件夹中。"
           }
         },
         "zh-Hant" : {
@@ -37500,7 +37500,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "由于 Cork 没有权限访问你的应用程序文件夹，它无法获取应用程序的实际大小，只能获取与 Cask 相关联的元数据大小。"
+            "value" : "由于 Cork 无权访问您的应用程序文件夹，只能获取与 Cask 相关的元数据大小，而无法获取实际应用程序的大小。"
           }
         },
         "zh-Hant" : {
@@ -38916,7 +38916,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你有 %lld 个活跃服务"
+                  "value" : "您有 %lld 个运行中服务"
                 }
               }
             }
@@ -39248,7 +39248,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你有 %lld 个服务存在错误"
+                  "value" : "您有 %lld 个服务存在错误"
                 }
               }
             }
@@ -39580,7 +39580,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你有 %lld 个非活跃服务"
+                  "value" : "你有 %lld 个已停止服务"
                 }
               }
             }
@@ -40158,7 +40158,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你有 %lld 个服务处于未知状态"
+                  "value" : "你有 %lld 个状态未知服务"
                 }
               }
             }
@@ -40407,7 +40407,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出 Cork"
+            "value" : "退出代码"
           }
         }
       }
@@ -41456,7 +41456,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "已找到 %lld 个服务"
+                  "value" : "共发现 %lld 个服务"
                 }
               }
             }
@@ -43046,7 +43046,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 官方不支持自定义路径。\n如果你选择自定义 Homebrew 路径，Cork 和 Homebrew 官方将不提供任何支持。你将为维护你的 Homebrew 安装承担全部责任。"
+            "value" : "自定义 Homebrew 路径不被官方支持。\n如果您选择了自定义 Homebrew 路径，将无法获得 Cork 或 Homebrew 的任何技术支持。\n如果您选择自定义 Homebrew 路径，您将完全负责维护您的 Homebrew 安装。"
           }
         },
         "zh-Hant" : {
@@ -43134,7 +43134,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你确定要自定义 Homebrew 路径吗?"
+            "value" : "确定要设置自定义 Homebrew 路径吗？"
           }
         },
         "zh-Hant" : {
@@ -43574,7 +43574,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "如果启用开发者设置，Cork 将不会得到支持"
+            "value" : "启用开发者设置期间，Cork 将不提供技术支持"
           }
         },
         "zh-Hant" : {
@@ -45014,7 +45014,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已完成"
+            "value" : "完整"
           }
         }
       }
@@ -46101,7 +46101,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完成"
+            "value" : "完整"
           }
         }
       }
@@ -48443,7 +48443,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "关闭清除操作会加快软件包安装速度，但会降低 Homebrew 的总体性能。\n关闭该选项可能会破坏你的 Homebrew 安装。\n此选项还控制在你30 天未使用 Homebrew 后自动进行的清除操作。"
+            "value" : "禁用清理功能可加快软件包安装速度，\n但会降低 Homebrew 的整体性能。\n禁用此选项可能会损坏您的 Homebrew 安装。\n此选项还控制在您超过 30 天未使用 Homebrew 后的自动清理。"
           }
         },
         "zh-Hant" : {
@@ -49225,7 +49225,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "清除操作会删除与软件包相关的所有文件\n这可能会删除公共文件并破坏其他软件包"
+            "value" : "彻底删除会移除与软件包相关的所有文件。\n这可能会删除共享文件并损坏其他软件包。"
           }
         },
         "zh-Hant" : {
@@ -52493,13 +52493,13 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你已添加 %lld 个 Tap"
+                  "value" : "您已添加 %lld 个 Tap"
                 }
               },
               "zero" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你未添加任何 Tap"
+                  "value" : "您未添加任何 Tap"
                 }
               }
             }
@@ -53642,13 +53642,13 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你已安装 %lld 个 Cask"
+                  "value" : "您已安装 %lld 个 Cask"
                 }
               },
               "zero" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你未安装任何 Cask"
+                  "value" : "您未安装任何 Cask"
                 }
               }
             }
@@ -53999,13 +53999,13 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你已安装 %lld 个 Formula"
+                  "value" : "您已安装 %lld 个 Formula"
                 }
               },
               "zero" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "你未安装任何 Formula"
+                  "value" : "您未安装任何 Formula"
                 }
               }
             }
@@ -54606,7 +54606,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "有 %lld 个 Cask 无法加载"
+                  "value" : "%lld 个 Cask 无法加载"
                 }
               }
             }
@@ -54772,7 +54772,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "有 %lld 个 Formulae 未能加载"
+                  "value" : "%lld 个 Formula 无法加载"
                 }
               }
             }
@@ -55978,7 +55978,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "存在 %lld 个未受管理的有可用更新的软件包"
+                  "value" : "%lld 个未管理的软件包有可用更新"
                 }
               }
             }
@@ -56285,7 +56285,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在你点击“打开终端”后，通过快捷键 ⌘ + V 粘贴 Cork 已为你拷贝的命令，并按下回车（↩）。\n如果命令未复制，请手动输入 “brew update” 并按下回车（↩）。"
+            "value" : "点击「打开终端」后，使用 ⌘+V 粘贴 Cork 为您复制的命令，然后按回车键（↩）。\n如果没有复制命令，请手动输入「brew update」命令并按回车键（↩）。"
           }
         }
       }
@@ -56343,7 +56343,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在通过终端更新……"
+            "value" : "通过终端更新"
           }
         }
       }
@@ -58497,7 +58497,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "某些软件包只能通过终端更新\n单击下方“在终端中继续”\n使用 ⌘+V 插入命令，然后按 ↩ (回车) 键执行命令并按说明操作\n命令完成后，回到 Cork"
+            "value" : "某些软件包只能通过终端更新\n点击下方「在终端中继续」\n使用 ⌘+V 粘贴命令，然后按 ↩（回车）执行命令并按提示操作\n命令完成后，返回 Cork"
           }
         }
       }
