@@ -17,7 +17,7 @@ struct PackageDeprecationViewFullDisplay: View
 
     var body: some View
     {
-        if !isDeprecated
+        if isDeprecated
         {
             if caveatDisplayOptions == .full
             {

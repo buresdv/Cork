@@ -31,7 +31,7 @@ struct PackageDeprecationViewMinifiedDisplay: View
     
     var body: some View
     {
-        if !isDeprecated
+        if isDeprecated
         {
             if caveatDisplayOptions == .mini
             {

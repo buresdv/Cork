@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BasicPackageInfoView: View
 {
+    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    
     let package: BrewPackage
     let packageDetails: BrewPackageDetails
 
@@ -35,8 +37,6 @@ struct BasicPackageInfoView: View
         
         Section
         {
-            EmptyView()
-        } header: {
             PackageDetailHeaderComplex(
                 package: package,
                 isInPreviewWindow: isInPreviewWindow,
@@ -44,8 +44,10 @@ struct BasicPackageInfoView: View
                 isLoadingDetails: isLoadingDetails
             )
         }
+        .scrollContentBackground(.hidden)
+        .listRowBackground(Color.green)
         
-        if hasNotes
+        if hasNotes && caveatDisplayOptions == .full
         {
             Section
             {
