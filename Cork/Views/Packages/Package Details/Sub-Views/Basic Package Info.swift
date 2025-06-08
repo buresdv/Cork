@@ -51,17 +51,17 @@ struct BasicPackageInfoView: View
             {
                 Section
                 {
-                    PackageCaveatFullDisplayView(
-                        caveats: packageDetails.caveats,
-                        isShowingExpandedCaveats: $isShowingExpandedCaveats
+                    PackageDeprecationViewFullDisplay(
+                        isDeprecated: packageDetails.deprecated,
+                        deprecationReason: packageDetails.deprecationReason
                     )
                 }
                 
                 Section
                 {
-                    PackageDeprecationView(
-                        isDeprecated: packageDetails.deprecated,
-                        deprecationReason: packageDetails.deprecationReason
+                    PackageCaveatFullDisplayView(
+                        caveats: packageDetails.caveats,
+                        isShowingExpandedCaveats: $isShowingExpandedCaveats
                     )
                 }
 

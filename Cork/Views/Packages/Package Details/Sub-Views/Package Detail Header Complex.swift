@@ -25,7 +25,7 @@ struct PackageDetailHeaderComplex: View
 
     let isLoadingDetails: Bool
     
-    @Namespace var packageDependantsAnimationNamespace
+    @Namespace var packageDependantsAnimationNamespace: Namespace.ID
     
     /// Controls whether the pill for showing dependants is shown
     var packageDependantsDisplayStage: PackageDependantsDisplayStage
@@ -100,6 +100,11 @@ struct PackageDetailHeaderComplex: View
                         
                         packageDetailsPill
                     }
+                    
+                    PackageDeprecationViewMinifiedDisplay(
+                        isDeprecated: packageDetails.deprecated,
+                        deprecationReason: packageDetails.deprecationReason
+                    )
 
                     PackageCaveatMinifiedDisplayView(caveats: packageDetails.caveats)
                 }

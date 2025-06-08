@@ -35489,85 +35489,85 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Poznámky k balíčku  􀅴"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hat Vorbehalte 􀅴"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Has caveats 􀅴"
+            "value" : "􀓕 Has caveats…"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Has caveats 􀅴"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Tiene advertencias 􀅴"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Avertissements 􀅴"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Ha condizioni 􀅴"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "주의 사항 있음 􀅴"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Tem avisos"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Имеет предписания 􀅴"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Şerhler mevcut 􀅴"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Має застереження 􀅴"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "查看警告 􀅴"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "含警訊 􀅴"
           }
         }
@@ -36724,6 +36724,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This package is deprecated"
+          }
+        }
+      }
+    },
+    "package-details.deprecation.notice.minified.no-reason-for-deprecation-provided" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Deprecated"
+          }
+        }
+      }
+    },
+    "package-details.deprecation.notice.minified.reason-for-deprecation-provided" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Deprecated…"
           }
         }
       }

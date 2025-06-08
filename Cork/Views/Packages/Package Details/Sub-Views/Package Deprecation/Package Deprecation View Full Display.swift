@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct PackageDeprecationView: View
+struct PackageDeprecationViewFullDisplay: View
 {
+    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    
     let isDeprecated: Bool
 
     let deprecationReason: String?
@@ -17,20 +19,23 @@ struct PackageDeprecationView: View
     {
         if !isDeprecated
         {
-            HStack(alignment: .top, spacing: 10)
+            if caveatDisplayOptions == .full
             {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .resizable()
-                    .frame(width: 15, height: 15)
-                    .foregroundColor(.yellow)
+                HStack(alignment: .top, spacing: 10)
+                {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.orange)
 
-                if let deprecationReason
-                {
-                    PackageDeprecatedWithReason(deprecationReason: deprecationReason)
-                }
-                else
-                {
-                    PackageDeprecatedNoReasonProvided()
+                    if let deprecationReason
+                    {
+                        PackageDeprecatedWithReason(deprecationReason: deprecationReason)
+                    }
+                    else
+                    {
+                        PackageDeprecatedNoReasonProvided()
+                    }
                 }
             }
         }
