@@ -10,44 +10,46 @@ import SwiftUI
 struct BasicPackageInfoView: View
 {
     @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    
+
     let package: BrewPackage
     let packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
-    
+
     let isInPreviewWindow: Bool
 
     @Binding var isShowingExpandedCaveats: Bool
-    
-    var hasNotes: Bool {
-        if packageDetails.caveats != nil {
+
+    var hasNotes: Bool
+    {
+        if packageDetails.caveats != nil
+        {
             return true
         }
-        
-        if packageDetails.deprecated {
+
+        if packageDetails.deprecated
+        {
             return true
         }
-        
+
         return false
+    }
+
+    var shouldShowNotesSection: Bool
+    {
+        if self.hasNotes && caveatDisplayOptions == .full
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
 
     var body: some View
     {
-        
-        Section
-        {
-            PackageDetailHeaderComplex(
-                package: package,
-                isInPreviewWindow: isInPreviewWindow,
-                packageDetails: packageDetails,
-                isLoadingDetails: isLoadingDetails
-            )
-        }
-        .scrollContentBackground(.hidden)
-        .listRowBackground(Color.green)
-        
-        if hasNotes && caveatDisplayOptions == .full
+        if shouldShowNotesSection
         {
             Section
             {
@@ -58,7 +60,7 @@ struct BasicPackageInfoView: View
                         deprecationReason: packageDetails.deprecationReason
                     )
                 }
-                
+
                 Section
                 {
                     PackageCaveatFullDisplayView(
@@ -66,12 +68,21 @@ struct BasicPackageInfoView: View
                         isShowingExpandedCaveats: $isShowingExpandedCaveats
                     )
                 }
-
             } header: {
-                Text("package-details.notes")
+                VStack(alignment: .leading, spacing: 25)
+                {
+                    PackageDetailHeaderComplex(
+                        package: package,
+                        isInPreviewWindow: isInPreviewWindow,
+                        packageDetails: packageDetails,
+                        isLoadingDetails: isLoadingDetails
+                    )
+
+                    Text("package-details.notes")
+                }
             }
         }
-        
+
         Section
         {
             LabeledContent
@@ -98,7 +109,20 @@ struct BasicPackageInfoView: View
                 Text("package-details.homepage")
             }
         } header: {
-            Text("package-details.info")
+            VStack(alignment: .leading, spacing: 25)
+            {
+                if !shouldShowNotesSection
+                {
+                    PackageDetailHeaderComplex(
+                        package: package,
+                        isInPreviewWindow: isInPreviewWindow,
+                        packageDetails: packageDetails,
+                        isLoadingDetails: isLoadingDetails
+                    )
+                }
+
+                Text("package-details.info")
+            }
         }
     }
 }
