@@ -26,10 +26,10 @@ struct PackageCaveatFullDisplayView: View
                 {
                     HStack(alignment: .top, spacing: 10)
                     {
-                        Image(systemName: "exclamationmark.triangle.fill")
+                        Image(systemName: "note.text")
                             .resizable()
                             .frame(width: 15, height: 15)
-                            .foregroundColor(.yellow)
+                            .foregroundColor(.cyan)
 
                         /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
                         VStack(alignment: .leading, spacing: 5)

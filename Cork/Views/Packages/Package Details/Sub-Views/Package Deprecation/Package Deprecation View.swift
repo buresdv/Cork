@@ -10,22 +10,50 @@ import SwiftUI
 struct PackageDeprecationView: View
 {
     let isDeprecated: Bool
-    
+
     let deprecationReason: String?
-    
+
     var body: some View
     {
         if !isDeprecated
         {
-            VStack(alignment: .center)
+            HStack(alignment: .top, spacing: 10)
             {
-                Text("package-details.deprecation.notice")
-                
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .resizable()
+                    .frame(width: 15, height: 15)
+                    .foregroundColor(.yellow)
+
                 if let deprecationReason
                 {
-                    Text(deprecationReason)
+                    PackageDeprecatedWithReason(deprecationReason: deprecationReason)
+                }
+                else
+                {
+                    PackageDeprecatedNoReasonProvided()
                 }
             }
+        }
+    }
+}
+
+private struct PackageDeprecatedNoReasonProvided: View
+{
+    var body: some View
+    {
+        Text("package-details.deprecation.notice")
+    }
+}
+
+private struct PackageDeprecatedWithReason: View
+{
+    let deprecationReason: String
+
+    var body: some View
+    {
+        GroupBox("package-details.deprecation.notice")
+        {
+            Text(deprecationReason)
         }
     }
 }
