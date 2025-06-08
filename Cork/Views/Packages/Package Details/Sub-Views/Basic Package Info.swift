@@ -64,6 +64,7 @@ struct BasicPackageInfoView: View
                         deprecationReason: packageDetails.deprecationReason
                     )
                 }
+
             } header: {
                 Text("package-details.notes")
             }

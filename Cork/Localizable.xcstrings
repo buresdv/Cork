@@ -46301,6 +46301,7 @@
       }
     },
     "settings.general.package-caveats" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -46964,6 +46965,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "顯示依存關係搜尋欄"
+          }
+        }
+      }
+    },
+    "settings.general.package-notes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package notes:"
           }
         }
       }

@@ -51,8 +51,12 @@ private struct PackageDeprecatedWithReason: View
 
     var body: some View
     {
-        GroupBox("package-details.deprecation.notice")
+        VStack(alignment: .leading, spacing: 7)
         {
+            Text("package-details.deprecation.notice")
+            
+            Divider()
+            
             Text(deprecationReason)
         }
     }

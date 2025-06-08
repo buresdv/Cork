@@ -29,7 +29,7 @@ struct PackageCaveatFullDisplayView: View
                         Image(systemName: "note.text")
                             .resizable()
                             .frame(width: 15, height: 15)
-                            .foregroundColor(.cyan)
+                            .foregroundColor(.indigo)
 
                         /// Remove the last newline from the text if there is one, and replace all double newlines with a single newline
                         VStack(alignment: .leading, spacing: 5)
