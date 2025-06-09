@@ -49,6 +49,19 @@ struct BasicPackageInfoView: View
 
     var body: some View
     {
+        Section
+        {
+            Section {}
+        } header: {
+            PackageDetailHeaderComplex(
+                package: package,
+                isInPreviewWindow: isInPreviewWindow,
+                packageDetails: packageDetails,
+                isLoadingDetails: isLoadingDetails
+            )
+        }
+        .padding(.bottom, -20)
+        
         if shouldShowNotesSection
         {
             Section
@@ -69,17 +82,7 @@ struct BasicPackageInfoView: View
                     )
                 }
             } header: {
-                VStack(alignment: .leading, spacing: 25)
-                {
-                    PackageDetailHeaderComplex(
-                        package: package,
-                        isInPreviewWindow: isInPreviewWindow,
-                        packageDetails: packageDetails,
-                        isLoadingDetails: isLoadingDetails
-                    )
-
-                    Text("package-details.notes")
-                }
+                Text("package-details.notes")
             }
         }
 
@@ -109,20 +112,7 @@ struct BasicPackageInfoView: View
                 Text("package-details.homepage")
             }
         } header: {
-            VStack(alignment: .leading, spacing: 25)
-            {
-                if !shouldShowNotesSection
-                {
-                    PackageDetailHeaderComplex(
-                        package: package,
-                        isInPreviewWindow: isInPreviewWindow,
-                        packageDetails: packageDetails,
-                        isLoadingDetails: isLoadingDetails
-                    )
-                }
-
-                Text("package-details.info")
-            }
+            Text("package-details.info")
         }
     }
 }
