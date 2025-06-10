@@ -60,7 +60,7 @@ struct BasicPackageInfoView: View
                 isLoadingDetails: isLoadingDetails
             )
         }
-        .padding(.bottom, -20)
+        .padding(.bottom, -15)
         
         if shouldShowNotesSection
         {

@@ -159,7 +159,7 @@ struct PackageDetailHeaderComplex: View
     {
         if packageDetails.outdated
         {
-            OutlinedPillText(text: "package-details.outdated", color: .orange)
+            OutlinedPillText(text: "package-details.outdated", color: .teal)
         }
     }
 }
