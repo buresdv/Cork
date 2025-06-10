@@ -35489,8 +35489,8 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Poznámky k balíčku  􀅴"
+            "state" : "translated",
+            "value" : "􀓕 Poznámky…"
           }
         },
         "de" : {
@@ -36720,6 +36720,12 @@
     },
     "package-details.deprecation.notice" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček je zastaralý"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36730,6 +36736,12 @@
     },
     "package-details.deprecation.notice.minified.no-reason-for-deprecation-provided" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Zastaralý balíček"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36740,6 +36752,12 @@
     },
     "package-details.deprecation.notice.minified.reason-for-deprecation-provided" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Zastaralý balíček… "
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37014,6 +37032,12 @@
     },
     "package-details.notes" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poznámky"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46991,6 +47015,12 @@
     },
     "settings.general.package-notes" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poznámky k balíčkům:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
