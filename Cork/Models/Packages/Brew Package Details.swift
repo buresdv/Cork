@@ -38,6 +38,9 @@ class BrewPackageDetails: ObservableObject
     let dependencies: [BrewPackageDependency]?
     let outdated: Bool
     let caveats: String?
+    
+    let deprecated: Bool
+    let deprecationReason: String?
 
     let isCompatible: Bool?
 
@@ -48,7 +51,7 @@ class BrewPackageDetails: ObservableObject
 
     // MARK: - Init
 
-    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, pinned: Bool, isCompatible: Bool?)
+    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, deprecated: Bool, deprecationReason: String? = nil, pinned: Bool, isCompatible: Bool?)
     {
         self.name = name
         self.description = description
@@ -58,6 +61,8 @@ class BrewPackageDetails: ObservableObject
         self.dependents = dependents
         self.dependencies = dependencies
         self.outdated = outdated
+        self.deprecated = deprecated
+        self.deprecationReason = deprecationReason
         self.caveats = caveats
         self.pinned = pinned
         self.isCompatible = isCompatible

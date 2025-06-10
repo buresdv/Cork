@@ -19,7 +19,6 @@ struct FullSizeGroupedForm<Content: View>: View
         }
         .formStyle(.grouped)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        // .padding(-20)
         .scrollContentBackground(.hidden)
     }
 }

@@ -109,6 +109,12 @@ extension BrewPackage
 
             /// Whether the package is pinned
             let pinned: Bool
+            
+            /// Whether this package is considered deprecated
+            let deprecated: Bool
+            
+            /// If deprecated, the reason for the package's deprecation
+            let deprecationReason: String?
 
             // MARK: - Formuale functions
 
@@ -176,6 +182,12 @@ extension BrewPackage
 
             /// Caveats specified for the cask
             let caveats: String?
+            
+            /// Whether this package is considered deprecated
+            let deprecated: Bool
+            
+            /// If deprecated, the reason for the package's deprecation
+            let deprecationReason: String?
         }
 
         let formulae: [Formulae]?
@@ -294,6 +306,8 @@ extension BrewPackage
                     dependencies: formulaInfo.extractDependencies(),
                     outdated: formulaInfo.outdated,
                     caveats: formulaInfo.caveats,
+                    deprecated: formulaInfo.deprecated,
+                    deprecationReason: formulaInfo.deprecationReason,
                     pinned: formulaInfo.pinned,
                     isCompatible: formulaInfo.getCompatibility()
                 )
@@ -316,6 +330,8 @@ extension BrewPackage
                     dependencies: nil,
                     outdated: caskInfo.outdated,
                     caveats: caskInfo.caveats,
+                    deprecated: caskInfo.deprecated,
+                    deprecationReason: caskInfo.deprecationReason,
                     pinned: false,
                     isCompatible: true
                 )

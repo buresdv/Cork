@@ -31,22 +31,6 @@ struct PackageDetailView: View, Sendable
 
     @State private var erroredOut: (isShowingError: Bool, errorDescription: String?) = (false, nil)
 
-    private var isScrollingDisabled: Bool
-    {
-        if isShowingExpandedCaveats
-        {
-            return false
-        }
-        else if isShowingExpandedDependencies
-        {
-            return false
-        }
-        else
-        {
-            return true
-        }
-    }
-
     var body: some View
     {
         VStack(alignment: .leading, spacing: 0)
@@ -87,7 +71,6 @@ struct PackageDetailView: View, Sendable
 
                         PackageSystemInfo(package: package)
                     }
-                    .scrollDisabled(isScrollingDisabled)
                 }
             }
 
