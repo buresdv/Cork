@@ -22316,7 +22316,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 存在可用更新"
+            "value" : "Homebrew 可更新"
           }
         }
       }
@@ -32025,7 +32025,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld 个软件包有可用更新"
+                  "value" : "%lld 个软件包可更新"
                 }
               },
               "zero" : {
@@ -33894,7 +33894,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在有可用更新软件包的信息中显示版本"
+            "value" : "在软件包更新信息中显示版本"
           }
         }
       }
@@ -46073,7 +46073,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "可用更新的软件包信息："
+            "value" : "软件包更新信息："
           }
         }
       }
@@ -46363,7 +46363,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "可用更新的软件包："
+            "value" : "可更新的软件包："
           }
         }
       }
@@ -50572,7 +50572,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有可用软件包更新时的通知样式："
+            "value" : "有软件包可更新时通知样式："
           }
         },
         "zh-Hant" : {
@@ -54366,7 +54366,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法检查有可用更新软件包"
+            "value" : "无法检查软件包可用更新"
           }
         }
       }
@@ -55822,7 +55822,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "可用更新的软件包"
+            "value" : "可更新的软件包"
           }
         },
         "zh-Hant" : {
@@ -56250,7 +56250,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有可用更新的不受管理软件包"
+            "value" : "可更新的不受管理软件包"
           }
         }
       }
