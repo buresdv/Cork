@@ -301,7 +301,6 @@ struct AboutView: View
                 }
             }
             .frame(width: 350, alignment: .topLeading)
-            .transaction { $0.animation = nil }
         }
         .padding()
         // .fixedSize()
