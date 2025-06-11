@@ -5,12 +5,14 @@
 //  Created by David Bureš - P on 01.06.2025.
 //
 
+import CorkShared
+import Defaults
 import SwiftUI
 
 struct PackageDeprecationViewFullDisplay: View
 {
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
+
     let isDeprecated: Bool
 
     let deprecationReason: String?
@@ -59,9 +61,9 @@ private struct PackageDeprecatedWithReason: View
         VStack(alignment: .leading, spacing: 7)
         {
             Text("package-details.deprecation.notice")
-            
+
             Divider()
-            
+
             Text(deprecationReason)
         }
     }

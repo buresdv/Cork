@@ -5,11 +5,13 @@
 //  Created by David Bureš on 26.09.2023.
 //
 
+import CorkShared
+import Defaults
 import SwiftUI
 
 struct BasicPackageInfoView: View
 {
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
 
     let package: BrewPackage
     let packageDetails: BrewPackageDetails
@@ -61,7 +63,7 @@ struct BasicPackageInfoView: View
             )
         }
         .padding(.bottom, -15)
-        
+
         if shouldShowNotesSection
         {
             Section
