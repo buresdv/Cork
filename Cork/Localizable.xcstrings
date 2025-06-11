@@ -8281,6 +8281,7 @@
       }
     },
     "actiton.report-bugs.forum" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -31698,6 +31699,7 @@
       }
     },
     "navigation.add-tap" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -31786,6 +31788,7 @@
       }
     },
     "navigation.add-tap.help" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
