@@ -46305,7 +46305,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "版本限定"
+            "value" : "仅版本号"
           }
         }
       }
