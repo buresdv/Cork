@@ -5,11 +5,13 @@
 //  Created by David Bureš - P on 08.06.2025.
 //
 
+import CorkShared
+import Defaults
 import SwiftUI
 
 struct PackageDeprecationViewMinifiedDisplay: View
 {
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
 
     let isDeprecated: Bool
 
@@ -28,7 +30,7 @@ struct PackageDeprecationViewMinifiedDisplay: View
             return "package-details.deprecation.notice.minified.reason-for-deprecation-provided"
         }
     }
-    
+
     var body: some View
     {
         if isDeprecated
