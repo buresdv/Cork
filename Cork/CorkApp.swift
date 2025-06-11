@@ -438,6 +438,7 @@ struct CorkApp: App
             SettingsView()
                 .environment(appDelegate.appState)
         }
+        .windowResizability(.contentSize)
 
         // MARK: - Menu Bar Extra
 
@@ -461,7 +462,7 @@ struct CorkApp: App
         {
             openWindow(id: .aboutWindowID)
         } label: {
-            Text("navigation.about")
+            Label("navigation.about", systemImage: "info.circle")
         }
     }
 

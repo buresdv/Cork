@@ -36735,10 +36735,10 @@
             "value" : "This package is deprecated"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "此软件包已被弃用"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此软件包已被弃用"
           }
         }
       }
@@ -36757,10 +36757,10 @@
             "value" : "􀇿 Deprecated"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "􀇿 已弃用"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 已弃用"
           }
         }
       }
@@ -36779,10 +36779,10 @@
             "value" : "􀇿 Deprecated…"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "􀇿 已弃用…"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 已弃用…"
           }
         }
       }
@@ -37065,10 +37065,10 @@
             "value" : "Notes"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "说明"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "说明"
           }
         }
       }
@@ -47063,10 +47063,10 @@
             "value" : "Package notes:"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "软件包说明:"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包说明:"
           }
         }
       }
