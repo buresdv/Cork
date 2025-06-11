@@ -476,12 +476,14 @@ struct CorkApp: App
                 {
                     NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.yml")!)
                 } label: {
-                    Text("action.report-bugs.git-hub")
+                    Label("action.report-bugs.git-hub", systemImage: "exclamationmark.bubble")
                 }
 
+                /*
                 ButtonThatOpensWebsites(
                     websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
                 )
+                 */
 
                 /*
                  Button
@@ -514,7 +516,7 @@ struct CorkApp: App
         {
             hasFinishedOnboarding = false
         } label: {
-            Text("onboarding.start")
+            Label("onboarding.start", systemImage: "person.crop.circle.badge.checkmark")
         }
         .disabled(!hasFinishedOnboarding)
 
@@ -522,7 +524,7 @@ struct CorkApp: App
         {
             hasFinishedLicensingWorkflow = false
         } label: {
-            Text("licensing.title")
+            Label("licensing.title", systemImage: "checkmark.seal")
         }
 
         Divider()
@@ -535,7 +537,7 @@ struct CorkApp: App
         {
             appDelegate.appState.navigationTargetId = nil
         } label: {
-            Text("action.go-to-status-page.menu-bar")
+            Label("action.go-to-status-page.menu-bar", systemImage: "house")
         }
         .disabled(appDelegate.appState.navigationTargetId == nil)
         Divider()
@@ -569,7 +571,7 @@ struct CorkApp: App
                 }
             }
         } label: {
-            Text("navigation.menu.import-export.export-brewfile")
+            Label("navigation.menu.import-export.export-brewfile", systemImage: "square.and.arrow.up")
         }
         .asyncButtonStyle(.plainStyle)
 
@@ -618,7 +620,7 @@ struct CorkApp: App
                 }
             }
         } label: {
-            Text("navigation.menu.import-export.import-brewfile")
+            Label("navigation.menu.import-export.import-brewfile", systemImage: "square.and.arrow.down")
         }
         .asyncButtonStyle(.plainStyle)
     }
@@ -632,7 +634,7 @@ struct CorkApp: App
         {
             appDelegate.appState.isSearchFieldFocused = true
         } label: {
-            Text("navigation.menu.search")
+            Label("navigation.menu.search", systemImage: "magnifyingglass")
         }
         .keyboardShortcut("f", modifiers: .command)
     }
@@ -640,21 +642,11 @@ struct CorkApp: App
     @ViewBuilder
     var packagesMenuBarSection: some View
     {
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .packageInstallation)
-        } label: {
-            Text("navigation.menu.packages.install")
-        }
-        .keyboardShortcut("n")
+        InstallPackageButton(appState: appDelegate.appState)
+            .keyboardShortcut("n")
 
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .tapAddition)
-        } label: {
-            Text("navigation.menu.packages.add-tap")
-        }
-        .keyboardShortcut("n", modifiers: [.command, .option])
+        AddTapButton(appState: appDelegate.appState)
+            .keyboardShortcut("n", modifiers: [.command, .option])
 
         Divider()
 
