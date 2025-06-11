@@ -45142,7 +45142,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "长日期"
+            "value" : "长格式"
           }
         }
       }
@@ -45182,7 +45182,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "数字格式"
+            "value" : "数字"
           }
         }
       }
@@ -45222,7 +45222,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "短日期"
+            "value" : "无"
           }
         }
       }
