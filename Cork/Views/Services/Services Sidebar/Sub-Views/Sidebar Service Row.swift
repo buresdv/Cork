@@ -19,12 +19,7 @@ struct SidebarServiceRow: View
         }
         .contextMenu
         {
-            Button
-            {
-                service.revealInFinder()
-            } label: {
-                Text("action.reveal-in-finder")
-            }
+            RevealServiceInFinderButton(service: service)
         }
     }
 }
