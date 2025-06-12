@@ -150,7 +150,12 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 #### Compiling Cork
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise use tuist@4.25.0 && tuist install && tuist generate --no-binary-cache`. Xcode will open the project.
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise exec tuist@4.25.0 -- tuist install && mise exec tuist@4.25.0 -- tuist generate --no-binary-cache`.
+  - Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
+  - You can either:
+    - Say yes, to always use `tuist` version 4.25.0 in this directory.
+    - Say no, and the command will use `tuist` 4.25.0 anyway, but future invocations of `tuist` will not be version controlled.
+  - Xcode will open the project.
 
 <div style= "margin-left: 1rem">
   <details>
@@ -159,7 +164,7 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
     <ol>
       <li><code>git clone https://github.com/buresdv/Cork.git</code> downloads the source code</li>
       <li><code>cd Cork</code> opens the folder you downloaded Cork into</li>
-      <li><code>mise use</code> tells your system to use version <i>4.25.0</i> of Tuist to build Cork</li>
+      <li><code>mise exec [...]</code> runs a command using version <i>4.25.0</i> of Tuist, without polluting your local `mise.toml`, to build Cork</li>
       <li><code>tuist install</code> downloads all Cork pre-requisites</li>
       <li><code>tuist generate</code> creates the Xcode project and opens it</li>
     </ol>
