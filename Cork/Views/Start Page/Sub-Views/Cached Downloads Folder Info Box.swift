@@ -28,12 +28,8 @@ struct CachedDownloadsFolderInfoBox: View
 
                 Spacer()
 
-                Button
-                {
-                    appState.showSheet(ofType: .maintenance(fastCacheDeletion: true))
-                } label: {
-                    Text("start-page.cached-downloads.action")
-                }
+                DeleteCachedDownloadsButton(appState: appState)
+                    .labelStyle(.titleOnly)
             }
 
             if !cachedDownloadsTracker.cachedDownloads.isEmpty

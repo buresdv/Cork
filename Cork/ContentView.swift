@@ -126,7 +126,7 @@ struct ContentView: View, Sendable
 
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
-                self.upgradePackagesButton
+                UpgradePackagesButton(appState: appState)
             }
 
             ToolbarItem(id: "addTap", placement: .primaryAction)
