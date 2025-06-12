@@ -33068,6 +33068,7 @@
       }
     },
     "navigation.menu.maintenance.delete-cached-downloads" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -34012,6 +34013,7 @@
       }
     },
     "navigation.upgrade-packages.help" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
