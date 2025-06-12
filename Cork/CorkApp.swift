@@ -300,7 +300,7 @@ struct CorkApp: App
                     isPresented: $isShowingBrewfileExporter,
                     document: StringFile(initialText: brewfileContents),
                     contentType: .homebrewBackup,
-                    defaultFilename: String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: defaultBackupDateFormat, time: .omitted))")
+                    defaultFilename: defaultBackupDateFormat != .omitted ? String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: defaultBackupDateFormat, time: .omitted))") : String(localized: "brewfile.export.default-export-name.empty")
                 )
                 { result in
                     switch result

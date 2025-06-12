@@ -224,9 +224,12 @@ struct GeneralPane: View
                         
                         if let demoDate: Date = Calendar.current.date(from: .init(calendar: .current, timeZone: .gmt, year: 2022, month: 7, day: 3))
                         {
-                            Text(demoDate.formatted(date: defaultBackupDateFormat, time: .omitted))
-                                .font(.caption)
-                                .foregroundColor(Color(nsColor: NSColor.systemGray))
+                            if defaultBackupDateFormat != .omitted
+                            {
+                                Text(demoDate.formatted(date: defaultBackupDateFormat, time: .omitted))
+                                    .font(.caption)
+                                    .foregroundColor(Color(nsColor: NSColor.systemGray))
+                            }
                         }
                     }
                 } label: {
