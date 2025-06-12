@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Defaults
 
 @Observable @MainActor
 class BrewPackagesTracker
@@ -29,6 +30,21 @@ class BrewPackagesTracker
                 return nil
             }
         })
+    }
+    
+    /// Formulae than can be displayed, depending on whether the user set only to display intentionally installed packages
+    var displayableSuccessfullyLoadedFormulae: Set<BrewPackage>
+    {
+        let displayOnlyIntentionallyInstalledPackagesByDefault: Bool = Defaults[.displayOnlyIntentionallyInstalledPackagesByDefault]
+        
+        if displayOnlyIntentionallyInstalledPackagesByDefault
+        {
+            return self.successfullyLoadedFormulae.filter(\.installedIntentionally)
+        }
+        else
+        {
+            return self.successfullyLoadedFormulae
+        }
     }
     
     /// Collected errors from failed Formulae loading
@@ -62,6 +78,20 @@ class BrewPackagesTracker
         })
     }
     
+    var displayableSuccessfullyLoadedCasks: Set<BrewPackage>
+    {
+        let displayOnlyIntentionallyInstalledPackagesByDefault: Bool = Defaults[.displayOnlyIntentionallyInstalledPackagesByDefault]
+        
+        if displayOnlyIntentionallyInstalledPackagesByDefault
+        {
+            return self.successfullyLoadedCasks.filter(\.installedIntentionally)
+        }
+        else
+        {
+            return self.successfullyLoadedCasks
+        }
+    }
+    
     /// Collected errors from failed Casks loading
     var unsuccessfullyLoadedCasksErrors: [PackageLoadingError]
     {
@@ -93,23 +123,15 @@ class BrewPackagesTracker
 
 extension BrewPackagesTracker
 {
+    
     var numberOfInstalledFormulae: Int
     {
-        let displayOnlyIntentionallyInstalledPackagesByDefault: Bool = UserDefaults.standard.bool(forKey: "displayOnlyIntentionallyInstalledPackagesByDefault")
-        
-        if displayOnlyIntentionallyInstalledPackagesByDefault
-        {
-            return self.successfullyLoadedFormulae.filter(\.installedIntentionally).count
-        }
-        else
-        {
-            return self.successfullyLoadedFormulae.count
-        }
+        return self.displayableSuccessfullyLoadedFormulae.count
     }
     
     var numberOfInstalledCasks: Int
     {
-        return self.successfullyLoadedCasks.count
+        return self.displayableSuccessfullyLoadedCasks.count
     }
     
     var numberOfInstalledPackages: Int
