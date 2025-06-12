@@ -28,11 +28,9 @@ struct PackageAndTapOverviewBox: View
             )
             .contextMenu
             {
-                Button
+                RevealInFinderButtonWithArbitraryAction
                 {
                     AppConstants.shared.brewCellarPath.revealInFinder(.openTargetItself)
-                } label: {
-                    Text("action.reveal-in-finder")
                 }
             }
 
@@ -46,11 +44,9 @@ struct PackageAndTapOverviewBox: View
             )
             .contextMenu
             {
-                Button
+                RevealInFinderButtonWithArbitraryAction
                 {
                     AppConstants.shared.brewCaskPath.revealInFinder(.openTargetItself)
-                } label: {
-                    Text("action.reveal-in-finder")
                 }
             }
 
@@ -64,11 +60,9 @@ struct PackageAndTapOverviewBox: View
             )
             .contextMenu
             {
-                Button
+                RevealInFinderButtonWithArbitraryAction
                 {
                     AppConstants.shared.tapPath.revealInFinder(.openTargetItself)
-                } label: {
-                    Text("action.reveal-in-finder")
                 }
             }
         }

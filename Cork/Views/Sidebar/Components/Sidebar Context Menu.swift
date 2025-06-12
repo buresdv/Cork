@@ -15,8 +15,6 @@ struct SidebarContextMenu: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
-    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
-    
     let package: BrewPackage
     
     var isPackageOutdated: Bool
@@ -50,23 +48,8 @@ struct SidebarContextMenu: View
 
         PurgePackageButton(package: package)
 
-        if enableRevealInFinder
-        {
-            Divider()
-
-            Button
-            {
-                do
-                {
-                    try package.revealInFinder()
-                }
-                catch
-                {
-                    appState.showAlert(errorToShow: .couldNotFindPackageInParentDirectory)
-                }
-            } label: {
-                Text("action.reveal-in-finder")
-            }
-        }
+        Divider()
+        
+        RevealPackageInFinderButton(package: package)
     }
 }
