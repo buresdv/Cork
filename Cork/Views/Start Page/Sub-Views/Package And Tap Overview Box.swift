@@ -22,7 +22,7 @@ struct PackageAndTapOverviewBox: View
         {
             GroupBoxHeadlineGroup(
                 image: "terminal",
-                title: LocalizedStringKey("start-page.installed-formulae.count-\(displayOnlyIntentionallyInstalledPackagesByDefault ? brewPackagesTracker.successfullyLoadedFormulae.filter(\.installedIntentionally).count : brewPackagesTracker.installedFormulae.count)"),
+                title: LocalizedStringKey("start-page.installed-formulae.count-\(brewPackagesTracker.numberOfInstalledFormulae)"),
                 mainText: "start-page.installed-formulae.description",
                 animateNumberChanges: true
             )
@@ -38,7 +38,7 @@ struct PackageAndTapOverviewBox: View
 
             GroupBoxHeadlineGroup(
                 image: "macwindow",
-                title: LocalizedStringKey("start-page.installed-casks.count-\(brewPackagesTracker.installedCasks.count)"),
+                title: LocalizedStringKey("start-page.installed-casks.count-\(brewPackagesTracker.numberOfInstalledCasks)"),
                 mainText: "start-page.installed-casks.description",
                 animateNumberChanges: true
             )
