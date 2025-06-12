@@ -35525,8 +35525,8 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ha condizioni 􀅴"
+            "state" : "translated",
+            "value" : "􀓕 Ha condizioni…"
           }
         },
         "ko" : {
@@ -36732,10 +36732,16 @@
             "value" : "This package is deprecated"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "此软件包已被弃用"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo pacchetto è obsoleto"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此软件包已被弃用"
           }
         }
       }
@@ -36754,10 +36760,16 @@
             "value" : "􀇿 Deprecated"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "􀇿 已弃用"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Obsoleto"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 已弃用"
           }
         }
       }
@@ -36776,10 +36788,16 @@
             "value" : "􀇿 Deprecated…"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "􀇿 已弃用…"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Obsoleto…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 已弃用…"
           }
         }
       }
@@ -37062,10 +37080,16 @@
             "value" : "Notes"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "说明"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "说明"
           }
         }
       }
@@ -47051,10 +47075,16 @@
             "value" : "Package notes:"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "软件包说明:"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note pacchetto:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "软件包说明:"
           }
         }
       }
