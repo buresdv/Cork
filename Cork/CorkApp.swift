@@ -649,14 +649,9 @@ struct CorkApp: App
             .keyboardShortcut("n", modifiers: [.command, .option])
 
         Divider()
-
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .fullUpdate)
-        } label: {
-            Text("navigation.menu.packages.update")
-        }
-        .keyboardShortcut("r")
+        
+        UpgradePackagesButton(appState: appDelegate.appState)
+            .keyboardShortcut("r")
     }
 
     @ViewBuilder
@@ -666,7 +661,7 @@ struct CorkApp: App
         {
             openWindow(id: .servicesWindowID)
         } label: {
-            Text("navigation.menu.services.open-window")
+            Label("navigation.menu.services.open-window", systemImage: "square.stack.3d.down.right")
         }
         .keyboardShortcut("s", modifiers: .command)
     }
@@ -674,22 +669,12 @@ struct CorkApp: App
     @ViewBuilder
     var maintenanceMenuBarSection: some View
     {
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
-        } label: {
-            Text("navigation.menu.maintenance.perform")
-        }
-        .keyboardShortcut("m", modifiers: [.command, .shift])
+        OpenMaintenanceSheetButton(appState: appDelegate.appState, labelType: .performMaintenance)
+            .keyboardShortcut("m", modifiers: [.command, .shift])
 
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: true))
-        } label: {
-            Text("navigation.menu.maintenance.delete-cached-downloads")
-        }
-        .keyboardShortcut("m", modifiers: [.command, .option])
-        .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
+        DeleteCachedDownloadsButton(appState: appDelegate.appState)
+            .keyboardShortcut("m", modifiers: [.command, .option])
+            .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
     }
 
     @ViewBuilder

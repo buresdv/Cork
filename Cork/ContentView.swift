@@ -48,23 +48,6 @@ struct ContentView: View, Sendable
 
     // MARK: - ViewBuilders
 
-    @ViewBuilder private var upgradePackagesButton: some View
-    {
-        Button
-        {
-            appState.showSheet(ofType: .fullUpdate)
-        } label: {
-            Label
-            {
-                Text("navigation.upgrade-packages")
-            } icon: {
-                Image(systemName: "arrow.clockwise")
-            }
-        }
-        .help("navigation.upgrade-packages.help")
-        .disabled(self.appState.isCheckingForPackageUpdates)
-    }
-
     @ViewBuilder private var performMaintenanceButton: some View
     {
         Button
@@ -117,7 +100,7 @@ struct ContentView: View, Sendable
         {
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
-                self.upgradePackagesButton
+                UpgradePackagesButton(appState: appState)
             }
 
             ToolbarItem(id: "addTap", placement: .primaryAction)
