@@ -72,7 +72,7 @@ struct PackageDetailHeaderComplex: View
         {
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
-                SanitizedPackageName(packageName: package.name, shouldShowVersion: false)
+                SanitizedPackageName(package: package, shouldShowVersion: false)
                     .font(.title)
                 
                 if !package.versions.isEmpty
@@ -82,7 +82,7 @@ struct PackageDetailHeaderComplex: View
                         .foregroundColor(.secondary)
                 }
 
-                if packageDetails.pinned
+                if package.isPinned
                 {
                     Image(systemName: "pin.fill")
                         .help("package-details.pinned.help-\(package.name)")

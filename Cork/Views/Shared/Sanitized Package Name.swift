@@ -10,25 +10,25 @@ import SwiftUI
 /// Package name that contains only the name of the package, not its version in the `package@version` format
 struct SanitizedPackageName: View
 {
-    let packageName: String
+    let package: BrewPackage
     @State var shouldShowVersion: Bool
 
     var packageNameWithoutTapName: String
     {
-        if packageName.contains("/")
+        if package.name.contains("/")
         { /// Check if the package name contains slashes (this would mean it includes the tap name)
-            if let sanitizedName = try? packageName.regexMatch("[^\\/]*$")
+            if let sanitizedName = try? package.name.regexMatch("[^\\/]*$")
             {
                 return sanitizedName
             }
             else
             {
-                return packageName
+                return package.name
             }
         }
         else
         {
-            return packageName
+            return package.name
         }
     }
 

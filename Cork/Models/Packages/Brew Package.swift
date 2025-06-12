@@ -55,6 +55,8 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 
     let type: PackageType
     var isTagged: Bool = false
+    
+    var isPinned: Bool = false
 
     let installedOn: Date?
     let versions: [String]
@@ -78,6 +80,67 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         isTagged.toggle()
     }
 
+    enum PinnedStatus
+    {
+        case pinned
+        case unpinned
+    }
+    
+    /// Toggle pinned status of the package.
+    ///
+    /// Optionally specify which status to change the package to.
+    ///
+    /// This function only changes the pinned status in the UI. Use the function ``performPinnedStatusChangeAction(appState:brewData:)`` to trigger a pinned status change in Homebrew.
+    mutating func changePinnedStatus(to status: PinnedStatus? = nil)
+    {
+        if let status
+        {
+            switch status {
+            case .pinned:
+                isPinned = true
+            case .unpinned:
+                isPinned = false
+            }
+        }
+        else
+        {
+            isPinned.toggle()
+        }
+    }
+    
+    /// Perform a pinned status change in Homebrew.
+    ///
+    /// For changing the pinned status of the package in the UI, use the function ``changePinnedStatus(to:)``
+    func performPinnedStatusChangeAction(appState: AppState, brewData: BrewDataStorage) async
+    {
+        if self.isPinned
+        {
+            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", name])
+
+            if !pinResult.standardError.isEmpty
+            {
+                AppConstants.shared.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
+            }
+        }
+        else
+        {
+            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", name])
+            if !unpinResult.standardError.isEmpty
+            {
+                AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
+            }
+        }
+
+        guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath else
+        {
+            await appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
+            
+            return
+        }
+                
+        await brewData.applyPinnedStatus(namesOfPinnedPackages: brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath))
+    }
+    
     mutating func changeBeingModifiedStatus()
     {
         isBeingModified.toggle()

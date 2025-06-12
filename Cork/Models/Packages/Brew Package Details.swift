@@ -81,29 +81,4 @@ class BrewPackageDetails: ObservableObject
 
         dependents = finalDependents
     }
-
-    func changePinnedStatus() async throws
-    {
-        if pinned
-        {
-            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", name])
-
-            if !pinResult.standardError.isEmpty
-            {
-                AppConstants.shared.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
-                throw PinningUnpinningError.failedWhileChangingPinnedStatus
-            }
-        }
-        else
-        {
-            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", name])
-            if !unpinResult.standardError.isEmpty
-            {
-                AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
-                throw PinningUnpinningError.failedWhileChangingPinnedStatus
-            }
-        }
-
-        pinned.toggle()
-    }
 }

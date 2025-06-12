@@ -36,14 +36,7 @@ struct PackageModificationButtons: View
                     {
                         AsyncButton
                         {
-                            do
-                            {
-                                try await packageDetails.changePinnedStatus()
-                            }
-                            catch let pinningUnpinningError
-                            {
-                                AppConstants.shared.logger.error("Failed while pinning/unpinning package \(package.name): \(pinningUnpinningError)")
-                            }
+                            await package.performPinnedStatusChangeAction(appState: appState, brewData: brewData)
                         } label: {
                             Text(packageDetails.pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
                         }

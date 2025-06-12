@@ -41,12 +41,17 @@ struct PackageListItem: View
                             .transition(.scale)
                     }
 
-                    SanitizedPackageName(packageName: packageItem.name, shouldShowVersion: false)
+                    SanitizedPackageName(package: packageItem, shouldShowVersion: false)
                 }
 
                 HStack(alignment: .center, spacing: 4)
                 {
                     Text(packageItem.getFormattedVersions())
+                    
+                    if packageItem.isPinned
+                    {
+                        Text("􀎧")
+                    }
 
                     if isPackageOutdated
                     {
