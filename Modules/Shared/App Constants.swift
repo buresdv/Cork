@@ -53,6 +53,19 @@ public struct AppConstants: Sendable
         
         self.brewCachedDownloadsPath = brewCachePath.appending(component: "downloads", directoryHint: .isDirectory)
         
+        let localHomebrewVariablesPath: URL = {
+            if FileManager.default.fileExists(atPath: "/opt/homebrew/var/homebrew")
+            { // Apple Sillion
+                return URL(filePath: "/opt/homebrew/var/homebrew")
+            }
+            else
+            { // Intel
+                return URL(filePath: "/usr/local/var/homebrew")
+            }
+        }()
+        
+        self.homebrewVariablesPath = localHomebrewVariablesPath
+        
         self.logger = internalLogger
     }
     
@@ -73,7 +86,7 @@ public struct AppConstants: Sendable
     public let proxySettings: (host: String, port: Int)?
 
     // MARK: - Basic executables and file locations
-
+    
     public let brewExecutablePath: URL = {
         /// If a custom Homebrew path is defined, use it. Otherwise, use the default paths
         if let homebrewPath = UserDefaults.standard.string(forKey: "customHomebrewPath"), !homebrewPath.isEmpty
@@ -127,6 +140,26 @@ public struct AppConstants: Sendable
             return URL(filePath: "/usr/local/Homebrew/Library/Taps")
         }
     }()
+    
+    public let homebrewVariablesPath: URL
+    
+    /// Folder that contains symlinks pinned packages
+    ///
+    /// If no package is pinned, this folder doesn't exist. However, if this is not a computed property, we can only know whether this folder exists at app start. Therefore, we need this property to be re-computed every time to make sure that the folder exists when we want to read whether a particular package is pinned, and not just whether it existed when we started the app.
+    public var pinnedPackagesPath: URL? {
+        let expectedPathToPinnedPackagesFolder: URL = self.homebrewVariablesPath.appending(component: "pinned")
+        
+        if FileManager.default.fileExists(atPath: expectedPathToPinnedPackagesFolder.path)
+        {
+            self.logger.debug("Recomputed the presence of pinned packages database folder with result: EXISTS")
+            return expectedPathToPinnedPackagesFolder
+        }
+        else
+        {
+            self.logger.debug("Recomputed the presence of pinned packages database folder with result: DOES NOT EXIST")
+            return nil
+        }
+    }
 
     // MARK: - Storage for tagging
 
