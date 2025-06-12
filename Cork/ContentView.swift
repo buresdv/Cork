@@ -562,7 +562,7 @@ private extension View
                 case .couldNotClearMetadata:
                     VStack
                     {
-                        Button
+                        RevealInFinderButtonWithArbitraryAction
                         {
                             if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
                             {
@@ -572,9 +572,8 @@ private extension View
                             {
                                 view.appState.fatalAlertType = .metadataFolderDoesNotExist
                             }
-                        } label: {
-                            Text("action.reveal-in-finder")
                         }
+                        .labelStyle(.titleOnly)
 
                         QuitCorkButton()
                     }
