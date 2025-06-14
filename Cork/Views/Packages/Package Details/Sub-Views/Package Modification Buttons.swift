@@ -42,52 +42,73 @@ struct PackageModificationButtons: View
 
                     HStack(spacing: 15)
                     {
-                        UninstallationProgressWheel()
-
-                        if allowMoreCompleteUninstallations
-                        {
-                            Spacer()
-                        }
-
                         if !allowMoreCompleteUninstallations
                         {
                             UninstallPackageButton(package: package)
+                                .labelStyle(.titleOnly)
                         }
                         else
                         {
-                            Menu
+                            if #available(macOS 15, *)
                             {
-                                PurgePackageButton(package: package)
-                            } label: {
-                                Text("action.uninstall-\(package.name)")
-                            } primaryAction: {
-                                // TODO: This is a duplicate of the logic already present in RemovePackageButton. Find a way to merge them.
-                                if !shouldRequestPackageRemovalConfirmation
-                                {
-                                    Task
-                                    {
-                                        AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
-
-                                        try await brewPackagesTracker.uninstallSelectedPackage(
-                                            package: package,
-                                            cachedDownloadsTracker: cachedDownloadsTracker,
-                                            appState: appState,
-                                            outdatedPackagesTracker: outdatedPackagesTracker,
-                                            shouldRemoveAllAssociatedFiles: false
-                                        )
-                                    }
-                                }
-                                else
-                                {
-                                    AppConstants.shared.logger.debug("Confirmation of package removal needed")
-                                    appState.showConfirmationDialog(ofType: .uninstallPackage(package))
-                                }
+                                uninstallAndPurgeButtonsNew
                             }
-                            .fixedSize()
+                            else
+                            {
+                                uninstallAndPurgeButtonsLegacy
+                            }
+                            
                         }
                     }
                 }
             }
         }
+    }
+    
+    @available(macOS 15, *)
+    @ViewBuilder
+    private var uninstallAndPurgeButtonsNew: some View
+    {
+        UninstallPackageButton(package: package)
+            .modifierKeyAlternate(.option)
+            {
+                PurgePackageButton(package: package)
+            }
+            .labelStyle(.titleOnly)
+    }
+    
+    @ViewBuilder
+    private var uninstallAndPurgeButtonsLegacy: some View
+    {
+        Menu
+        {
+            PurgePackageButton(package: package)
+                .labelStyle(.titleOnly)
+        } label: {
+            Text("action.uninstall-\(package.name)")
+        } primaryAction: {
+            // TODO: This is a duplicate of the logic already present in RemovePackageButton. Find a way to merge them.
+            if !shouldRequestPackageRemovalConfirmation
+            {
+                Task
+                {
+                    AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
+
+                    try await brewPackagesTracker.uninstallSelectedPackage(
+                        package: package,
+                        cachedDownloadsTracker: cachedDownloadsTracker,
+                        appState: appState,
+                        outdatedPackagesTracker: outdatedPackagesTracker,
+                        shouldRemoveAllAssociatedFiles: false
+                    )
+                }
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Confirmation of package removal needed")
+                appState.showConfirmationDialog(ofType: .uninstallPackage(package))
+            }
+        }
+        .fixedSize()
     }
 }
