@@ -74,10 +74,14 @@ struct MaintenanceFinishedView: View
             {
                 Text("maintenance.finished")
                     .font(.headline)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 if shouldUninstallOrphans
                 {
                     Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
                 if shouldPurgeCache
@@ -85,6 +89,8 @@ struct MaintenanceFinishedView: View
                     VStack(alignment: .leading)
                     {
                         Text("maintenance.results.package-cache")
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
 
                         if !displayablePackagesHoldingBackCachePurge.isEmpty
                         {
@@ -97,12 +103,16 @@ struct MaintenanceFinishedView: View
                                 Text("maintenance.results.package-cache.skipped-\(packageNamesNotTruncated.formatted(.list(type: .and)))-and-\(numberOfTruncatedPackages)-others")
                                     .font(.caption)
                                     .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                    .lineLimit(nil)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                             else
                             {
                                 Text("maintenance.results.package-cache.skipped-\(displayablePackagesHoldingBackCachePurge.formatted(.list(type: .and)))")
                                     .font(.caption)
                                     .foregroundColor(Color(nsColor: NSColor.systemGray))
+                                    .lineLimit(nil)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
 
@@ -133,9 +143,13 @@ struct MaintenanceFinishedView: View
                     VStack(alignment: .leading)
                     {
                         Text("maintenance.results.cached-downloads")
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                         Text("maintenance.results.cached-downloads.summary-\(reclaimedSpaceAfterCachePurge.formatted(.byteCount(style: .file)))")
                             .font(.caption)
                             .foregroundColor(Color(nsColor: NSColor.systemGray))
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
 
@@ -144,6 +158,8 @@ struct MaintenanceFinishedView: View
                     if brewHealthCheckFoundNoProblems
                     {
                         Text("maintenance.results.health-check.problems-none")
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     else
                     {
@@ -152,10 +168,12 @@ struct MaintenanceFinishedView: View
                             {
                                 maintenanceFoundNoProblems = false
                             }
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
             }
-            .fixedSize()
+            .fixedSize(horizontal: false, vertical: true)
         }
         .task
         {
