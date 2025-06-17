@@ -25,6 +25,8 @@ struct CheckingForUpdatesStateView: View
         VStack(alignment: .leading)
         {
             Text("update-packages.updating.checking")
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
             LiveTerminalOutputView(
                 lineArray: $updateProgressTracker.realTimeOutput,
                 isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput,
