@@ -6778,6 +6778,12 @@
             "value" : "Повторный поиск"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шукати знову"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7133,6 +7139,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновить %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновити %@"
           }
         },
         "zh-Hans" : {
@@ -10794,6 +10806,12 @@
             "value" : "Приложения macOS не найдены"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не знайдено Casks"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10922,6 +10940,12 @@
             "value" : "Консольные приложения/библиотеки не найдены"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не знайдено Formulae"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10960,6 +10984,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ничего не найдено"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Результату не знайдено"
           }
         },
         "zh-Hans" : {
@@ -13379,6 +13409,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Убедитесь, что вы ввели верное название пакета"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте пошукати інший пакет"
           }
         },
         "zh-Hans" : {
@@ -20234,6 +20270,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла ошибка"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сталася помилка"
           }
         },
         "zh-Hans" : {
@@ -35643,8 +35685,8 @@
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Має застереження 􀅴"
+            "state" : "translated",
+            "value" : "􀓕 Має застереження "
           }
         },
         "zh-Hans" : {
@@ -36826,6 +36868,12 @@
             "value" : "Questo pacchetto è obsoleto"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей пакет є застарілим"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36854,6 +36902,12 @@
             "value" : "􀇿 Obsoleto"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Застаріло"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36880,6 +36934,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇿 Obsoleto…"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Застаріло…"
           }
         },
         "zh-Hans" : {
@@ -37172,6 +37232,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Note"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Примітки"
           }
         },
         "zh-Hans" : {
@@ -45131,6 +45197,12 @@
             "value" : "Формат даты для резервных копий:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Формат дати резервного копіювання:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45169,6 +45241,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сокращенный"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скорочений"
           }
         },
         "zh-Hans" : {
@@ -45211,6 +45289,12 @@
             "value" : "Дата с месяцем прописью + день недели"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повний"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45249,6 +45333,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата с месяцем прописью"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Довгий"
           }
         },
         "zh-Hans" : {
@@ -45291,6 +45381,12 @@
             "value" : "Дата цифрами"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Числовий"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45329,6 +45425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата цифрами + время"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропущений"
           }
         },
         "zh-Hans" : {
@@ -47169,6 +47271,12 @@
             "value" : "Note pacchetto:"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Примітки до пакету:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48090,6 +48198,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать самообновляющиеся пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати пакети, які не керуються Homebrew"
           }
         },
         "zh-Hans" : {
@@ -56201,6 +56315,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld некерованих застарілих пакетів"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld некерованих застарілих пакетів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld некерований застарілий пакет"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld некеровані застарілі пакети"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -56319,6 +56463,36 @@
             }
           }
         },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld додаткових пакетів, які не управляються Homebrew"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld додаткових пакетів, які не управляються Homebrew"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є 1 додатковий пакет, який не управляється Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Є %lld додаткові пакети, які не управляються Homebrew"
+                }
+              }
+            }
+          }
+        },
         "zh-Hans" : {
           "variations" : {
             "plural" : {
@@ -56363,6 +56537,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Устаревшие самообновляющиеся пакеты"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Некеровані застарілі пакети"
           }
         },
         "zh-Hans" : {
@@ -59201,6 +59381,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Все пакеты, требующие ручного обновления, имеют последние версии"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Усі пакети, що управляються Homebrew, оновлені до останньої версії"
           }
         },
         "zh-Hans" : {
