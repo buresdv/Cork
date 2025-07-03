@@ -27,6 +27,12 @@
             "value" : ""
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6778,6 +6784,12 @@
             "value" : "Повторный поиск"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tekrar Ara"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7139,6 +7151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновить %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ paketini güncelle"
           }
         },
         "uk" : {
@@ -10806,6 +10824,12 @@
             "value" : "Приложения macOS не найдены"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cask bulunamadı"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10940,6 +10964,12 @@
             "value" : "Консольные приложения/библиотеки не найдены"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formül bulunamadı"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10984,6 +11014,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ничего не найдено"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonuç bulunamadı"
           }
         },
         "uk" : {
@@ -13409,6 +13445,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Убедитесь, что вы ввели верное название пакета"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başka bir paket aramayı deneyin"
           }
         },
         "uk" : {
@@ -20270,6 +20312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Произошла ошибка"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir hata oluştu"
           }
         },
         "uk" : {
@@ -35679,8 +35727,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Şerhler mevcut 􀅴"
+            "state" : "translated",
+            "value" : "􀅴 Şerhler mevcut"
           }
         },
         "uk" : {
@@ -36868,6 +36916,12 @@
             "value" : "Questo pacchetto è obsoleto"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu paket kullanımdan kaldırılmıştır"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36902,6 +36956,12 @@
             "value" : "􀇿 Obsoleto"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Kullanımdan kaldırılmış"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36934,6 +36994,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇿 Obsoleto…"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Kullanımdan kaldırılmış…"
           }
         },
         "uk" : {
@@ -37232,6 +37298,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Note"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notlar"
           }
         },
         "uk" : {
@@ -45197,6 +45269,12 @@
             "value" : "Формат даты для резервных копий:"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yedekleme tarih formatı:"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45241,6 +45319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сокращенный"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kısaltılmış"
           }
         },
         "uk" : {
@@ -45289,6 +45373,12 @@
             "value" : "Дата с месяцем прописью + день недели"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tam"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45333,6 +45423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата с месяцем прописью"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzun"
           }
         },
         "uk" : {
@@ -45381,6 +45477,12 @@
             "value" : "Дата цифрами"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sayısal"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45425,6 +45527,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дата цифрами + время"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dahil Edilmemiş"
           }
         },
         "uk" : {
@@ -47271,6 +47379,12 @@
             "value" : "Note pacchetto:"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paket notları:"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48198,6 +48312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показывать самообновляющиеся пакеты"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew tarafından yönetilmeyen paketleri göster"
           }
         },
         "uk" : {
@@ -56315,6 +56435,24 @@
             }
           }
         },
+        "tr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : " %lld yönetilmeyen paket var"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : " %lld yönetilmeyen paket var"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -56463,6 +56601,24 @@
             }
           }
         },
+        "tr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Homebrew tarafından yönetilmeyen 1 fazladan paket var"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Homebrew tarafından yönetilmeyen %lld fazladan paket var"
+                }
+              }
+            }
+          }
+        },
         "uk" : {
           "variations" : {
             "plural" : {
@@ -56537,6 +56693,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Устаревшие самообновляющиеся пакеты"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yönetilmeyen güncel olmayan paketler"
           }
         },
         "uk" : {
@@ -59381,6 +59543,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Все пакеты, требующие ручного обновления, имеют последние версии"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew tarafından yönetilen paketlerin tamamı güncel"
           }
         },
         "uk" : {
