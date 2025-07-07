@@ -26,8 +26,12 @@ struct UpdatingPackagesStateView: View
             VStack(alignment: .leading, spacing: 3)
             {
                 Text("update-packages.updating.updating")
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 SubtitleText(text: updateProcessDetailsStage.currentStage.rawValue)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             LiveTerminalOutputView(
