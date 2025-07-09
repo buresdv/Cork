@@ -34,6 +34,8 @@ struct SidebarContextMenu: View
     {
         TagUntagButton(package: package)
         
+        PinUnpinButton(package: package)
+        
         Divider()
     
         if isPackageOutdated

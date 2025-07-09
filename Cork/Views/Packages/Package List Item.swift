@@ -58,11 +58,18 @@ struct PackageListItem: View
                         Text("􀐫")
                             .transition(.move(edge: .leading).combined(with: .opacity))
                     }
+                    
+                    if packageItem.isBeingModified
+                    {
+                        ProgressView()
+                            .controlSize(.mini)
+                    }
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .layoutPriority(-Double(2))
                 .animation(.easeInOut, value: isPackageOutdated)
+                .animation(.easeInOut, value: packageItem.isPinned)
 
                 if packageItem.isBeingModified
                 {

@@ -34,14 +34,7 @@ struct PackageModificationButtons: View
                 {
                     if package.type == .formula
                     {
-                        AsyncButton
-                        {
-                            await package.performPinnedStatusChangeAction(appState: appState, brewData: brewData)
-                        } label: {
-                            Text(packageDetails.pinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
-                        }
-                        .asyncButtonStyle(.leading)
-                        .disabledWhenLoading()
+                        PinUnpinButton(package: package)
                     }
 
                     Spacer()

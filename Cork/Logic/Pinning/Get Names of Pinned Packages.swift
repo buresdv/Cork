@@ -19,9 +19,9 @@ extension BrewDataStorage
         { /// Try to read the pinned packages directly from disk
             let contentOfFolder: [URL] = try FileManager.default.contentsOfDirectory(at: folderPath, includingPropertiesForKeys: [.isSymbolicLinkKey])
             
-            AppConstants.shared.logger.debug("Retrieved a list of pinned package names from disk")
-            
             let namesOfPinnedPackages: [String] = contentOfFolder.map({ $0.lastPathComponent })
+            
+            AppConstants.shared.logger.debug("Retrieved a list of pinned package names from disk: \(namesOfPinnedPackages)")
             
             return Set(namesOfPinnedPackages)
         }
