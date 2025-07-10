@@ -51,18 +51,13 @@ struct PackageListItem: View
                     if packageItem.isPinned
                     {
                         Text("􀎧")
+                            .transition(.push(from: .leading))
                     }
 
                     if isPackageOutdated
                     {
                         Text("􀐫")
-                            .transition(.move(edge: .leading).combined(with: .opacity))
-                    }
-                    
-                    if packageItem.isBeingModified
-                    {
-                        ProgressView()
-                            .controlSize(.mini)
+                            .transition(.push(from: .leading))
                     }
                 }
                 .font(.subheadline)
