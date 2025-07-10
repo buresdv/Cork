@@ -308,7 +308,6 @@ extension BrewPackage
                     caveats: formulaInfo.caveats,
                     deprecated: formulaInfo.deprecated,
                     deprecationReason: formulaInfo.deprecationReason,
-                    pinned: formulaInfo.pinned,
                     isCompatible: formulaInfo.getCompatibility()
                 )
 
@@ -332,7 +331,6 @@ extension BrewPackage
                     caveats: caskInfo.caveats,
                     deprecated: caskInfo.deprecated,
                     deprecationReason: caskInfo.deprecationReason,
-                    pinned: false,
                     isCompatible: true
                 )
             }

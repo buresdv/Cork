@@ -5,28 +5,35 @@
 //  Created by David Bureš - P on 12.06.2025.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 extension BrewDataStorage
 {
     @MainActor
     func applyPinnedStatus(namesOfPinnedPackages: Set<String>) async
     {
-        for pinnedPackageName in namesOfPinnedPackages
+        var newFormulae: BrewPackages = .init()
+
+        for formula in self.installedFormulae
         {
-            self.installedFormulae = Set(self.installedFormulae.map { formula in
-                switch formula
+            switch formula
+            {
+            case .success(var success):
+                if namesOfPinnedPackages.contains(success.name)
                 {
-                case .success(var success):
-                    if pinnedPackageName == success.name {
-                        success.changePinnedStatus(to: .pinned)
-                    }
-                    return .success(success)
-                case .failure(let failure):
-                    return .failure(failure)
+                    success.changePinnedStatus(to: .pinned)
                 }
-            })
+                else
+                {
+                    success.changePinnedStatus(to: .unpinned)
+                }
+                newFormulae.insert(.success(success))
+            case .failure(let failure):
+                newFormulae.insert(.failure(failure))
+            }
         }
+
+        self.installedFormulae = newFormulae
     }
 }

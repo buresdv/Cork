@@ -47,11 +47,10 @@ class BrewPackageDetails: ObservableObject
     // MARK: - Mutable properties
 
     @Published var dependents: [String]?
-    @Published var pinned: Bool
 
     // MARK: - Init
 
-    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, deprecated: Bool, deprecationReason: String? = nil, pinned: Bool, isCompatible: Bool?)
+    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, deprecated: Bool, deprecationReason: String? = nil, isCompatible: Bool?)
     {
         self.name = name
         self.description = description
@@ -64,7 +63,6 @@ class BrewPackageDetails: ObservableObject
         self.deprecated = deprecated
         self.deprecationReason = deprecationReason
         self.caveats = caveats
-        self.pinned = pinned
         self.isCompatible = isCompatible
     }
 
