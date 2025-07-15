@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoadingOfOutdatedPackagesFailedListBox: View
 {
+    @EnvironmentObject var appState: AppState
+    
     let errorOutReason: String
 
     var body: some View
@@ -28,7 +30,13 @@ struct LoadingOfOutdatedPackagesFailedListBox: View
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
+            
+            Spacer()
+            
+            CheckForOutdatedPackagesButton()
+                .labelStyle(.titleOnly)
         }
         .padding(2)
     }
 }
+

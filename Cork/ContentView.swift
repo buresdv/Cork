@@ -57,7 +57,7 @@ struct ContentView: View, Sendable
             {
                 Text("navigation.upgrade-packages")
             } icon: {
-                Image(systemName: "arrow.clockwise")
+                Image(systemName: "square.and.arrow.down")
             }
         }
         .help("navigation.upgrade-packages.help")
@@ -146,6 +146,12 @@ struct ContentView: View, Sendable
         .navigationSubtitle("navigation.installed-packages.count-\(self.brewData.numberOfInstalledPackages)")
         .toolbar(id: "PackageActions")
         {
+            ToolbarItem(id: "updatePackages", placement: .primaryAction)
+            {
+                CheckForOutdatedPackagesButton()
+            }
+            .defaultCustomization(.hidden)
+            
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
                 self.upgradePackagesButton
