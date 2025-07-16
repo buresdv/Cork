@@ -24,6 +24,30 @@ struct PackageListItem: View
             return false
         }
     }
+    
+    var badgeView: Text? {
+        
+        var badgeComponents: [String] = .init()
+        
+        // MARK: - Add the various components to the badge
+        
+        if isPackageOutdated {
+            badgeComponents.append("􀐫")
+        }
+        
+        if packageItem.isPinned {
+            badgeComponents.prepend("􀎧")
+        }
+        
+        // MARK: - Assemble the final view
+        
+        guard !badgeComponents.isEmpty else
+        {
+            return nil
+        }
+        
+        return Text(badgeComponents.joined(separator: " | "))
+    }
 
     var body: some View
     {
@@ -43,28 +67,11 @@ struct PackageListItem: View
 
                     SanitizedPackageName(package: packageItem, shouldShowVersion: false)
                 }
-
-                HStack(alignment: .center, spacing: 4)
-                {
-                    Text(packageItem.getFormattedVersions())
-                    
-                    if packageItem.isPinned
-                    {
-                        Text("􀎧")
-                            .transition(.push(from: .leading))
-                    }
-
-                    if isPackageOutdated
-                    {
-                        Text("􀐫")
-                            .transition(.push(from: .leading))
-                    }
-                }
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .layoutPriority(-Double(2))
-                .animation(.easeInOut, value: isPackageOutdated)
-                .animation(.easeInOut, value: packageItem.isPinned)
+                
+                Text(packageItem.getFormattedVersions())
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .layoutPriority(-Double(2))
 
                 if packageItem.isBeingModified
                 {
@@ -75,6 +82,8 @@ struct PackageListItem: View
                         .scaleEffect(0.5)
                 }
             }
+            .badge(badgeView)
+            .animation(.easeInOut, value: badgeView)
             #if hasAttribute(bouncy)
             .animation(.bouncy, value: packageItem.isTagged)
             #else

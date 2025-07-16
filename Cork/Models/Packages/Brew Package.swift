@@ -113,6 +113,9 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     /// For changing the pinned status of the package in the UI, use the function ``changePinnedStatus(to:)``
     func performPinnedStatusChangeAction(appState: AppState, brewData: BrewDataStorage) async
     {
+        /// We need to get the number of packages that were pinned before the action, because if there's only one and it gets unpinned, the whole folder with pinned packages is deleted - therefore, there would be a bug where unpinning the last package would make it seem like the whole process failed
+        async let numberOfPinnedPackagesBeforePinChangeAction: Int = await brewData.successfullyLoadedFormulae.filter { $0.isPinned }.count
+        
         if self.isPinned
         {
             let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", name])
@@ -133,9 +136,25 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
 
         guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath else
         {
-            await appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
+            /// If there was only pinned package left, it got correctly unpinned, but then the folder was deleted, so this `guard` got tripped and made it seem like the proces failed, because the whole folder gets deleted after the last package gets unpinned
+            /// Therefore, in this case, we just say that there are no packages left to be pinned
+            /// We also have to capture this variable
+            let numberOfPinnedPackagesBeforePinChangeAction: Int = await numberOfPinnedPackagesBeforePinChangeAction
             
-            return
+            AppConstants.shared.logger.debug("Tripped condition for the pinned packages missing. Number of pinned packages before the pin change action: \(numberOfPinnedPackagesBeforePinChangeAction)")
+            
+            if numberOfPinnedPackagesBeforePinChangeAction == 1
+            {
+                await brewData.applyPinnedStatus(namesOfPinnedPackages: .init())
+                
+                return
+            }
+            else
+            {
+                await appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
+                
+                return
+            }
         }
                 
         await brewData.applyPinnedStatus(namesOfPinnedPackages: brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath))
