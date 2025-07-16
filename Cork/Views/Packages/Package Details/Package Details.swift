@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PackageDetailView: View, Sendable
 {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss: DismissAction
     
     let package: BrewPackage
 
