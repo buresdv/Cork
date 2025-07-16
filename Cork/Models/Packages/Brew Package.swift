@@ -160,9 +160,20 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         await brewData.applyPinnedStatus(namesOfPinnedPackages: brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath))
     }
     
-    mutating func changeBeingModifiedStatus()
+    mutating func changeBeingModifiedStatus(to setState: Bool? = nil)
     {
-        isBeingModified.toggle()
+        let packageName: String = self.name
+        
+        AppConstants.shared.logger.debug("Will change the \"Being Modified\" status of package \(packageName)")
+        
+        if let setState
+        {
+            self.isBeingModified = setState
+        }
+        else
+        {
+            isBeingModified.toggle()
+        }
     }
 
     mutating func purgeSanitizedName()
