@@ -60,7 +60,7 @@ let project = Project(
         base: [
             "SWIFT_VERSION": "6.0",
             "MARKETING_VERSION": "1.5.5",
-            "CURRENT_PROJECT_VERSION": "93"
+            "CURRENT_PROJECT_VERSION": "94"
         ],
         configurations: [
             .debug(
