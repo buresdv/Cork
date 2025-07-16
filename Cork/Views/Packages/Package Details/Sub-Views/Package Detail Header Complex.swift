@@ -16,6 +16,7 @@ struct PackageDetailHeaderComplex: View
     }
     
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var brewData: BrewDataStorage
     
     let package: BrewPackage
     
@@ -82,10 +83,12 @@ struct PackageDetailHeaderComplex: View
                         .foregroundColor(.secondary)
                 }
 
-                if package.isPinned
-                {
-                    Image(systemName: "pin.fill")
-                        .help("package-details.pinned.help-\(package.name)")
+                if let dynamicPinnedStatus = brewData.successfullyLoadedFormulae.filter({ $0.id == package.id }).first {
+                    if dynamicPinnedStatus.isPinned
+                    {
+                        Image(systemName: "pin.fill")
+                            .help("package-details.pinned.help-\(package.name)")
+                    }
                 }
             }
 
