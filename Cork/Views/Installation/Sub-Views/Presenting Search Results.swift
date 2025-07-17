@@ -120,7 +120,11 @@ struct PresentingSearchResultsView: View
                 
                 return
             }
-            openWindow(value: selectedPackage)
+            openWindow(value: MinimalHomebrewPackage(
+                name: selectedPackage.name,
+                type: selectedPackage.type,
+                installedIntentionally: selectedPackage.installedIntentionally
+            ))
 
             AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
         }

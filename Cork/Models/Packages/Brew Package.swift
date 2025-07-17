@@ -6,9 +6,9 @@
 //
 
 import AppKit
+import CorkShared
 import DavidFoundation
 import Foundation
-import CorkShared
 
 /// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable, Codable
@@ -62,7 +62,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     var installedIntentionally: Bool = true
 
     let sizeInBytes: Int64?
-    
+
     /// Download count for top packages
     let downloadCount: Int?
 
@@ -117,18 +117,18 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         do
         {
             let contentsOfParentFolder: [URL] = try FileManager.default.contentsOfDirectory(at: packageLocationParent, includingPropertiesForKeys: [.isDirectoryKey])
-            
+
             packageURL = contentsOfParentFolder.filter
             {
                 $0.lastPathComponent.contains(name)
             }.first
-            
+
             guard let packageURL
             else
             {
                 throw FinderRevealError.couldNotFindPackageInParent
             }
-            
+
             packageURL.revealInFinder(.openParentDirectoryAndHighlightTarget)
         }
         catch let finderRevealError
@@ -137,6 +137,24 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
             /// Play the error sound
             NSSound(named: "ping")?.play()
         }
+    }
+}
+
+/// Convert between ``MinimalHomebrewPackage`` and ``BrewPackage``
+extension BrewPackage
+{
+    init?(from minimalPackage: MinimalHomebrewPackage?)
+    {
+        guard let minimalPackage = minimalPackage else { return nil }
+
+        self.init(
+            name: minimalPackage.name,
+            type: minimalPackage.type,
+            installedOn: minimalPackage.installDate,
+            versions: [],
+            sizeInBytes: nil,
+            downloadCount: nil
+        )
     }
 }
 

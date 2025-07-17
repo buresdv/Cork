@@ -9,6 +9,11 @@ import SwiftUI
 import CorkShared
 import ButtonKit
 
+extension EnvironmentValues
+{
+    @Entry var selectedTap: BrewTap?
+}
+
 struct TapDetailView: View, Sendable
 {
     let tap: BrewTap
@@ -60,7 +65,10 @@ struct TapDetailView: View, Sendable
                                     tapInfo: tapInfo
                                 )
                                 
-                                TapDetailsIncludedPackages(includedFormulae: tapInfo.formulaNames, includedCasks: tapInfo.caskTokens)
+                                TapDetailsIncludedPackages(
+                                    includedFormulae: tapInfo.includedFormulaeWithAdditionalMetadata,
+                                    includedCasks: tapInfo.includedCasksWithAdditionalMetadata
+                                )
                             }
                             .scrollDisabled(true)
                             
@@ -86,6 +94,7 @@ struct TapDetailView: View, Sendable
                 }
             }
         }
+        .environment(\.selectedTap, tap)
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(id: tap.id)
         {

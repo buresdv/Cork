@@ -50,9 +50,26 @@ struct TapInfo: Codable
 
     /// IDK
     let customRemote: Bool?
-    
+
     var numberOfPackages: Int
     {
         return self.formulaNames.count + self.caskTokens.count
+    }
+
+    /// Formulae that include the package type. Useful for rpeviewing packages.
+    var includedFormulaeWithAdditionalMetadata: [MinimalHomebrewPackage]
+    {
+        return formulaNames.map
+        { formulaName in
+            .init(name: formulaName, type: .formula, installedIntentionally: false)
+        }
+    }
+
+    var includedCasksWithAdditionalMetadata: [MinimalHomebrewPackage]
+    {
+        return caskTokens.map
+        { caskName in
+            .init(name: caskName, type: .cask, installedIntentionally: false)
+        }
     }
 }
