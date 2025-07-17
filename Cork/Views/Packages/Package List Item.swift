@@ -24,28 +24,31 @@ struct PackageListItem: View
             return false
         }
     }
-    
-    var badgeView: Text? {
-        
+
+    var badgeView: Text?
+    {
         var badgeComponents: [String] = .init()
-        
+
         // MARK: - Add the various components to the badge
-        
-        if isPackageOutdated {
+
+        if isPackageOutdated
+        {
             badgeComponents.append("􀐫")
         }
-        
-        if packageItem.isPinned {
+
+        if packageItem.isPinned
+        {
             badgeComponents.prepend("􀎧")
         }
-        
+
         // MARK: - Assemble the final view
-        
-        guard !badgeComponents.isEmpty else
+
+        guard !badgeComponents.isEmpty
+        else
         {
             return nil
         }
-        
+
         return Text(badgeComponents.joined(separator: " | "))
     }
 
@@ -67,7 +70,7 @@ struct PackageListItem: View
 
                     SanitizedPackageName(package: packageItem, shouldShowVersion: false)
                 }
-                
+
                 Text(packageItem.getFormattedVersions())
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -83,11 +86,12 @@ struct PackageListItem: View
                 }
             }
             .badge(badgeView)
+            .transition(.push(from: .trailing))
             .animation(.easeInOut, value: badgeView)
             #if hasAttribute(bouncy)
-            .animation(.bouncy, value: packageItem.isTagged)
+                .animation(.bouncy, value: packageItem.isTagged)
             #else
-            .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
+                .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
             #endif
         }
     }

@@ -33,7 +33,7 @@ enum ConfirmationDialog: Identifiable, Equatable
     var message: LocalizedStringKey
     {
         switch self {
-        case .uninstallPackage(_), .purgePackage(_):
+        case .uninstallPackage, .purgePackage:
             return "action.warning.cannot-be-undone"
         }
     }
