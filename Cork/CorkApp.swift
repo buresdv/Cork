@@ -407,9 +407,12 @@ struct CorkApp: App
         .windowResizability(.contentSize)
         .defaultPosition(.center)
         
-        WindowGroup(id: .previewWindowID, for: BrewPackage.self)
+        WindowGroup(id: .previewWindowID, for: MinimalHomebrewPackage.self)
         { $packageToPreview in
-            PackagePreview(packageToPreview: packageToPreview)
+            
+            let convertedMinimalPackage: BrewPackage? = .init(from: packageToPreview)
+            
+            PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name ?? "")
                 .environmentObject(appDelegate.appState)
         }

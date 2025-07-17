@@ -108,7 +108,11 @@ struct InstallationInitialView: View
                 return
             }
             
-            openWindow(value: packageToPreview)
+            openWindow(value: MinimalHomebrewPackage(
+                name: packageToPreview.name,
+                type: packageToPreview.type,
+                installedIntentionally: packageToPreview.installedIntentionally
+            ))
         }
         .disabled(foundPackageSelection == nil)
     }

@@ -8,7 +8,7 @@
 import AppIntents
 import Foundation
 
-struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
+struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
 {
     var id: UUID = .init()
 
@@ -31,6 +31,24 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity
     }
 
     static let defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
+}
+
+extension MinimalHomebrewPackage
+{
+    init?(from homebrewPackage: BrewPackage?)
+    {
+        guard let homebrewPackage = homebrewPackage
+        else
+        {
+            return nil
+        }
+
+        self.init(
+            name: homebrewPackage.name,
+            type: homebrewPackage.type,
+            installedIntentionally: homebrewPackage.installedIntentionally
+        )
+    }
 }
 
 struct MinimalHomebrewPackageIntentQuery: EntityQuery

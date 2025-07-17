@@ -9,12 +9,30 @@ import SwiftUI
 
 struct PackagesIncludedInTapList: View
 {
+    @Environment(\.selectedTap) var selectedTap: BrewTap?
+    
     @EnvironmentObject var brewData: BrewDataStorage
 
-    let packages: [String]
+    let packages: [MinimalHomebrewPackage]
 
     @State private var searchString: String = ""
 
+    var packagesToDisplay: [MinimalHomebrewPackage]
+    {
+        if searchString.isEmpty
+        {
+            return packages.sorted {
+                return $0.name < $1.name
+            }
+        }
+        else
+        {
+            return packages.filter({ $0.name.localizedCaseInsensitiveContains(searchString) }).sorted {
+                $0.name < $1.name
+            }
+        }
+    }
+    
     var body: some View
     {
         VStack(spacing: 5)
@@ -24,16 +42,19 @@ struct PackagesIncludedInTapList: View
             {
                 List
                 {
-                    ForEach(Array(searchString.isEmpty ? packages.sorted() : packages.filter { $0.localizedCaseInsensitiveContains(searchString) }.sorted()), id: \.self)
+                    ForEach(packagesToDisplay)
                     { package in
                         HStack(alignment: .center)
                         {
-                            SanitizedPackageName(packageName: package, shouldShowVersion: true)
+                            SanitizedPackageName(packageName: package.name, shouldShowVersion: true)
 
-                            if brewData.successfullyLoadedFormulae.contains(where: { $0.name == package }) || brewData.successfullyLoadedCasks.contains(where: { $0.name == package })
+                            if brewData.successfullyLoadedFormulae.contains(where: { $0.name == package.name }) || brewData.successfullyLoadedCasks.contains(where: { $0.name == package.name })
                             {
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }
+                        }
+                        .contextMenu {
+                            contextMenu(packageToPreview: package)
                         }
                     }
                 }
@@ -41,5 +62,11 @@ struct PackagesIncludedInTapList: View
                 .listStyle(.bordered(alternatesRowBackgrounds: true))
             }
         }
+    }
+    
+    @ViewBuilder
+    func contextMenu(packageToPreview: MinimalHomebrewPackage) -> some View
+    {
+        PreviewPackageButton(packageToPreview: packageToPreview)
     }
 }

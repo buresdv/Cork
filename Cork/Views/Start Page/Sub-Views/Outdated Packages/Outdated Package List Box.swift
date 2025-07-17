@@ -281,7 +281,11 @@ struct OutdatedPackageListBox: View
                         OutdatedPackageListBoxRow(outdatedPackage: outdatedPackage)
                             .contextMenu
                             {
-                                PreviewPackageButton(packageNameToPreview: outdatedPackage.package.name)
+                                PreviewPackageButton(packageToPreview: .init(
+                                    name: outdatedPackage.package.name,
+                                    type: outdatedPackage.package.type,
+                                    installedIntentionally: outdatedPackage.package.installedIntentionally
+                                ))
                             }
                     }
                 }
@@ -351,7 +355,11 @@ struct OutdatedPackageListBox: View
                     TableRow(outdatedPackage)
                         .contextMenu
                         {
-                            PreviewPackageButton(packageNameToPreview: outdatedPackage.package.name)
+                            PreviewPackageButton(packageToPreview: .init(
+                                name: outdatedPackage.package.name,
+                                type: outdatedPackage.package.type,
+                                installedIntentionally: outdatedPackage.package.installedIntentionally)
+                            )
                         }
                 }
             }

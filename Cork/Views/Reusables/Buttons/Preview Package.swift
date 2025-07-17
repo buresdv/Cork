@@ -13,15 +13,14 @@ import ButtonKit
 struct PreviewPackageButton: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
-    let packageNameToPreview: String
+    let packageToPreview: MinimalHomebrewPackage
     
     var body: some View
     {
         Button
         {
-            let constructedPackage: BrewPackage = .init(name: packageNameToPreview, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil)
             
-            openWindow(value: constructedPackage)
+            openWindow(value: packageToPreview)
         } label: {
             Text("preview-package.action")
         }
