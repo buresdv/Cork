@@ -10,8 +10,8 @@ import ButtonKit
 
 struct PinUnpinButton: View
 {
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
     
     var package: BrewPackage
     
@@ -21,7 +21,7 @@ struct PinUnpinButton: View
         {
             AsyncButton
             {
-                await package.performPinnedStatusChangeAction(appState: appState, brewData: brewData)
+                await package.performPinnedStatusChangeAction(appState: appState, brewPackagesTracker: brewPackagesTracker)
             } label: {
                 Text(package.isPinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
             }

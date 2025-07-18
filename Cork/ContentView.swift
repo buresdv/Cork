@@ -323,11 +323,11 @@ private extension View
                     return
                 }
                 
-                let namesOfPinnedPackages: Set<String> = await view.brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
+                let namesOfPinnedPackages: Set<String> = await view.brewPackagesTracker.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
                 
                 AppConstants.shared.logger.debug("Retrieved a list of pinned package names: \(namesOfPinnedPackages.formatted(.list(type: .and)))")
                 
-                await view.brewData.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
+                await view.brewPackagesTracker.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
             }
     }
     

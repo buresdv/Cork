@@ -184,7 +184,7 @@ struct AddFormulaView: View
             cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
             Task
             {
-                try? await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+                try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
             }
             
         }
