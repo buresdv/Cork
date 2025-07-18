@@ -14,15 +14,15 @@ struct PackageDetailView: View, Sendable
     
     let package: BrewPackage
 
-    /// We need to create a reference to this package in brewData so that the UI can observe changes in it
+    /// We need to create a reference to this package in brewPackagesTracker so that the UI can observe changes in it
     private var dynamicPackage: BrewPackage?
     {
-        if let possibleFormula: BrewPackage = brewData.successfullyLoadedFormulae.filter({ $0.id == package.id }).first
+        if let possibleFormula: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.filter({ $0.id == package.id }).first
         {
             return possibleFormula
         }
 
-        if let possibleCask: BrewPackage = brewData.successfullyLoadedCasks.filter({ $0.id == package.id }).first
+        if let possibleCask: BrewPackage = brewPackagesTracker.successfullyLoadedCasks.filter({ $0.id == package.id }).first
         {
             return possibleCask
         }

@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import CorkShared
 
 struct CheckForOutdatedPackagesButton: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {
         Button
         {
+            AppConstants.shared.logger.debug("Will manually check for package updates")
+            
             appState.isCheckingForPackageUpdates = true
         } label: {
             Label("action.check-for-updates", systemImage: "arrow.clockwise")

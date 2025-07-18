@@ -44,9 +44,7 @@ class BrewPackageDetails
 
     let isCompatible: Bool?
 
-    // MARK: - Mutable properties
-
-    @Published var dependents: [String]?
+    var dependents: [String]?
 
     // MARK: - Init
 

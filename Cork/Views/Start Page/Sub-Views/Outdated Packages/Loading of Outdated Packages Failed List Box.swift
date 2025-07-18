@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoadingOfOutdatedPackagesFailedListBox: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState
     
     let errorOutReason: String
 
@@ -39,4 +39,3 @@ struct LoadingOfOutdatedPackagesFailedListBox: View
         .padding(2)
     }
 }
-

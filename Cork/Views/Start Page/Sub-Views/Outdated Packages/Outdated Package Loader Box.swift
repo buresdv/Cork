@@ -10,11 +10,11 @@ import SwiftUI
 
 struct OutdatedPackageLoaderBox: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState
     
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
     
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker
     
     @Binding var errorOutReason: String?
     
@@ -46,7 +46,7 @@ struct OutdatedPackageLoaderBox: View
 
             do
             {
-                try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
             }
             catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
             {

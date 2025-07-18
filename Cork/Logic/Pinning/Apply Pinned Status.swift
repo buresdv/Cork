@@ -8,7 +8,7 @@
 import CorkShared
 import Foundation
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     @MainActor
     func applyPinnedStatus(namesOfPinnedPackages: Set<String>) async

@@ -11,7 +11,7 @@ struct PackagesIncludedInTapList: View
 {
     @Environment(\.selectedTap) var selectedTap: BrewTap?
     
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
 
     let packages: [MinimalHomebrewPackage]
 
@@ -48,7 +48,7 @@ struct PackagesIncludedInTapList: View
                         {
                             SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
 
-                            if brewData.successfullyLoadedFormulae.contains(where: { $0.name == package.name }) || brewData.successfullyLoadedCasks.contains(where: { $0.name == package.name })
+                            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package.name }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package.name })
                             {
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }

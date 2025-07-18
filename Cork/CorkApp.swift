@@ -416,8 +416,9 @@ struct CorkApp: App
         WindowGroup(id: .previewWindowID, for: MinimalHomebrewPackage.self)
         { $packageToPreview in
             
-            PackagePreview(packageToPreview: convertedMinimalPackage)
+            let convertedMinimalPackage: BrewPackage? = .init(from: packageToPreview)
             
+            PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name ?? "")
                 .environment(appDelegate.appState)
                 .environment(brewPackagesTracker)
@@ -661,7 +662,7 @@ struct CorkApp: App
 
         CheckForOutdatedPackagesButton()
             .keyboardShortcut("r")
-            .environmentObject(appDelegate.appState)
+            .environment(appDelegate.appState)
         
         Button
         {

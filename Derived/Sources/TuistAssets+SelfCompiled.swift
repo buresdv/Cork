@@ -1,4 +1,3 @@
-// swiftlint:disable:this file_name
 // swiftlint:disable all
 // swift-format-ignore-file
 // swiftformat:disable all
@@ -15,8 +14,11 @@
   import SwiftUI
 #endif
 
+// swiftlint:disable superfluous_disable_command file_length implicit_return
+
 // MARK: - Asset Catalogs
 
+// swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum CorkAsset: Sendable {
   public enum Assets {
   public static let accentColor = CorkColors(name: "AccentColor")
@@ -36,6 +38,7 @@ public enum CorkAsset: Sendable {
   public enum PreviewAssets {
   }
 }
+// swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
 // MARK: - Implementation Details
 
@@ -144,5 +147,5 @@ public extension SwiftUI.Image {
 }
 #endif
 
-// swiftformat:enable all
 // swiftlint:enable all
+// swiftformat:enable all
