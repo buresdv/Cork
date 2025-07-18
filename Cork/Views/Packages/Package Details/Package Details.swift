@@ -26,10 +26,27 @@ struct PackageDetailView: View, Sendable
         {
             return possibleCask
         }
-
-        dismiss()
         
         return nil
+    }
+    
+    private var packageStructureToUse: BrewPackage
+    {
+        if let dynamicPackage
+        {
+            return dynamicPackage
+        }
+        else
+        {
+            if !isInPreviewWindow
+            {
+                /// This gets tripped when the package that is currently open in the details window gets uninstalled.. In that case, dismiss the detail when the package gets uninstalled.
+                
+                dismiss()
+            }
+            
+            return package
+        }
     }
 
     var isInPreviewWindow: Bool = false
@@ -53,95 +70,92 @@ struct PackageDetailView: View, Sendable
 
     var body: some View
     {
-        if let dynamicPackage
+        VStack(alignment: .leading, spacing: 0)
         {
-            VStack(alignment: .leading, spacing: 0)
+            if isLoadingDetails
             {
-                if isLoadingDetails
+                HStack(alignment: .center)
                 {
-                    HStack(alignment: .center)
+                    VStack(alignment: .center)
                     {
-                        VStack(alignment: .center)
+                        ProgressView
                         {
-                            ProgressView
-                            {
-                                Text("package-details.contents.loading")
-                            }
+                            Text("package-details.contents.loading")
                         }
                     }
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            }
+            else
+            {
+                if erroredOut.isShowingError
+                {
+                    InlineFatalError(errorMessage: "error.generic.unexpected-homebrew-response", errorDescription: erroredOut.errorDescription)
                 }
                 else
                 {
-                    if erroredOut.isShowingError
+                    FullSizeGroupedForm
                     {
-                        InlineFatalError(errorMessage: "error.generic.unexpected-homebrew-response", errorDescription: erroredOut.errorDescription)
-                    }
-                    else
-                    {
-                        FullSizeGroupedForm
-                        {
-                            BasicPackageInfoView(
-                                package: dynamicPackage,
-                                packageDetails: packageDetails!,
-                                isLoadingDetails: isLoadingDetails,
-                                isInPreviewWindow: isInPreviewWindow,
-                                isShowingExpandedCaveats: $isShowingExpandedCaveats
-                            )
-
-                            PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
-
-                            PackageSystemInfo(package: dynamicPackage)
-                        }
-                    }
-                }
-
-                Spacer()
-
-                if !isInPreviewWindow
-                {
-                    if packageDetails != nil
-                    {
-                        PackageModificationButtons(
-                            package: dynamicPackage,
+                        BasicPackageInfoView(
+                            package: packageStructureToUse,
                             packageDetails: packageDetails!,
-                            isLoadingDetails: isLoadingDetails
+                            isLoadingDetails: isLoadingDetails,
+                            isInPreviewWindow: isInPreviewWindow,
+                            isShowingExpandedCaveats: $isShowingExpandedCaveats
                         )
+
+                        PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
+
+                        PackageSystemInfo(package: packageStructureToUse)
                     }
                 }
             }
-            .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
-            .task(id: package.id)
+
+            Spacer()
+
+            if !isInPreviewWindow
             {
-                isLoadingDetails = true
-                defer
+                if packageDetails != nil
                 {
-                    if isLoadingDetails
-                    {
-                        isLoadingDetails = false
-                    }
+                    PackageModificationButtons(
+                        package: packageStructureToUse,
+                        packageDetails: packageDetails!,
+                        isLoadingDetails: isLoadingDetails
+                    )
                 }
-
-                do
+            }
+        }
+        .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
+        .task(id: package.id)
+        {
+            isLoadingDetails = true
+            defer
+            {
+                if isLoadingDetails
                 {
-                    packageDetails = try await package.loadDetails()
-
                     isLoadingDetails = false
+                }
+            }
 
-                    if let packageDetails
+            do
+            {
+                packageDetails = try await package.loadDetails()
+
+                isLoadingDetails = false
+
+                if let packageDetails
+                {
+                    if packageDetails.installedAsDependency
                     {
-                        if packageDetails.installedAsDependency
-                        {
-                            await packageDetails.loadDependents()
-                        }
+                        await packageDetails.loadDependents()
                     }
                 }
-                catch let packageInfoDecodingError
-                {
-                    AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
+            }
+            catch let packageInfoDecodingError
+            {
+                AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
-                    erroredOut = (true, packageInfoDecodingError.localizedDescription)
-                }
+                erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }
         }
     }
