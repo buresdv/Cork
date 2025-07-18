@@ -48,7 +48,7 @@ struct BinaryAlreadyExistsView: View, Sendable
                     {
                         packageInstallationProcessStep = .adoptingAlreadyInstalledCask
                     } label: {
-                        Text("action.adopt")
+                        Text("action.adopt", comment: "Action for adopting a package into Homebrew - it will add the already-instaled package into Homerbew to start updating it through Homebrew")
                     }
                 }
             }

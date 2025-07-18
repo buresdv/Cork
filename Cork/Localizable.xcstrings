@@ -4414,7 +4414,14 @@
       }
     },
     "action.adopt" : {
+      "comment" : "Action for adopting a package into Homebrew - it will add the already-instaled package into Homerbew to start updating it through Homebrew",
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat do Homerbew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4612,6 +4619,12 @@
     },
     "action.check-for-updates" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledat aktualizace…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4622,6 +4635,12 @@
     },
     "action.check-for-updates.help" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledat nové aktualizace nainstalovaných balíčků"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13598,6 +13617,12 @@
     },
     "adopt-cask.fatal-error-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při přidávání %@ do Homebrew se vyskytla chyba"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13608,6 +13633,12 @@
     },
     "adopt-cask.finished-%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček %@ přidán do Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13618,6 +13649,12 @@
     },
     "adopt-cask.finished.description" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento balíček nyní můžete aktualizovat skrze Homebrew"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13628,6 +13665,12 @@
     },
     "adopt-cask.in-progress.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidávání %@ do Homebrew..."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -60592,7 +60635,14 @@
       }
     },
     "􀎧" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        }
+      }
     },
     "􀐫" : {
       "localizations" : {
