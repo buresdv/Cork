@@ -26,10 +26,27 @@ struct PackageDetailView: View, Sendable
         {
             return possibleCask
         }
-
-        dismiss()
         
         return nil
+    }
+    
+    private var packageStructureToUse: BrewPackage
+    {
+        if let dynamicPackage
+        {
+            return dynamicPackage
+        }
+        else
+        {
+            if !isInPreviewWindow
+            {
+                /// This gets tripped when the package gets uninstalled and the pacage is currently open in the details window. In that case, dismiss the detail when the package gets uninstalled.
+                
+                dismiss()
+            }
+            
+            return package
+        }
     }
 
     var isInPreviewWindow: Bool = false
@@ -53,8 +70,6 @@ struct PackageDetailView: View, Sendable
 
     var body: some View
     {
-        let packageToDisplay = dynamicPackage ?? package
-        
         VStack(alignment: .leading, spacing: 0)
         {
             if isLoadingDetails
@@ -82,7 +97,7 @@ struct PackageDetailView: View, Sendable
                     FullSizeGroupedForm
                     {
                         BasicPackageInfoView(
-                            package: packageToDisplay,
+                            package: packageStructureToUse,
                             packageDetails: packageDetails!,
                             isLoadingDetails: isLoadingDetails,
                             isInPreviewWindow: isInPreviewWindow,
@@ -91,7 +106,7 @@ struct PackageDetailView: View, Sendable
 
                         PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
 
-                        PackageSystemInfo(package: packageToDisplay)
+                        PackageSystemInfo(package: packageStructureToUse)
                     }
                 }
             }
@@ -103,7 +118,7 @@ struct PackageDetailView: View, Sendable
                 if packageDetails != nil
                 {
                     PackageModificationButtons(
-                        package: packageToDisplay,
+                        package: packageStructureToUse,
                         packageDetails: packageDetails!,
                         isLoadingDetails: isLoadingDetails
                     )
