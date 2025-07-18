@@ -4610,6 +4610,26 @@
         }
       }
     },
+    "action.check-for-updates" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check for Updates…"
+          }
+        }
+      }
+    },
+    "action.check-for-updates.help" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check for outdated packages"
+          }
+        }
+      }
+    },
     "action.check-license" : {
       "localizations" : {
         "cs" : {

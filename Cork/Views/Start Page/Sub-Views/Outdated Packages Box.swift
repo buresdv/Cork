@@ -20,7 +20,7 @@ struct OutdatedPackagesBox: View
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool
 
-    let errorOutReason: String?
+    @Binding var errorOutReason: String?
 
     var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
     {
@@ -52,7 +52,7 @@ struct OutdatedPackagesBox: View
             switch outdatedPackageDisplayStage
             {
             case .checkingForUpdates:
-                OutdatedPackageLoaderBox()
+                OutdatedPackageLoaderBox(errorOutReason: $errorOutReason)
             case .showingOutdatedPackages:
                 OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
             case .noUpdatesAvailable:

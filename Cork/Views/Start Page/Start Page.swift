@@ -71,7 +71,7 @@ struct StartPage: View
                     {
                         OutdatedPackagesBox(
                             isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded,
-                            errorOutReason: errorOutReason
+                            errorOutReason: $errorOutReason
                         )
                     } header: {
                         HStack(alignment: .center, spacing: 10)
@@ -120,41 +120,6 @@ struct StartPage: View
                         Section
                         {
                             CachedDownloadsFolderInfoBox()
-                        }
-                    }
-                }
-                .task
-                {
-                    if outdatedPackageTracker.outdatedPackages.isEmpty
-                    {
-                        appState.isCheckingForPackageUpdates = true
-
-                        defer
-                        {
-                            withAnimation
-                            {
-                                appState.isCheckingForPackageUpdates = false
-                            }
-                        }
-
-                        do
-                        {
-                            try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
-                        }
-                        catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                        {
-                            switch outdatedPackageRetrievalError
-                            {
-                            case .homeNotSet:
-                                appState.showAlert(errorToShow: .homePathNotSet)
-                            default:
-                                AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                                errorOutReason = outdatedPackageRetrievalError.localizedDescription
-                            }
-                        }
-                        catch
-                        {
-                            AppConstants.shared.logger.error("Unspecified error while pulling package updates")
                         }
                     }
                 }

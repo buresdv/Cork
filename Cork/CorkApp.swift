@@ -653,13 +653,17 @@ struct CorkApp: App
 
         Divider()
 
+        CheckForOutdatedPackagesButton()
+            .keyboardShortcut("r")
+            .environmentObject(appDelegate.appState)
+        
         Button
         {
             appDelegate.appState.showSheet(ofType: .fullUpdate)
         } label: {
             Text("navigation.menu.packages.update")
         }
-        .keyboardShortcut("r")
+        .keyboardShortcut("r", modifiers: [.control, .command])
     }
 
     @ViewBuilder
