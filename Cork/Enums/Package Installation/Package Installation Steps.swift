@@ -10,4 +10,6 @@ import Foundation
 enum PackageInstallationProcessSteps
 {
     case ready, searching, presentingSearchResults, installing, finished, fatalError, requiresSudoPassword, wrongArchitecture, binaryAlreadyExists, anotherProcessAlreadyRunning, installationTerminatedUnexpectedly
+    
+    case adoptingAlreadyInstalledCask
 }

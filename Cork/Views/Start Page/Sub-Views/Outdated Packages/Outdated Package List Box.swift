@@ -407,7 +407,7 @@ private struct OutdatedPackageListBoxRow: View
     @ViewBuilder
     var outdatedPackageDetails_none: some View
     {
-        SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+        SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: true)
     }
 
     @ViewBuilder
@@ -415,7 +415,7 @@ private struct OutdatedPackageListBoxRow: View
     {
         HStack(alignment: .center)
         {
-            SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: true)
+            SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: true)
 
             HStack(alignment: .center)
             {

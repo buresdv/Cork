@@ -16,6 +16,7 @@ struct PackageDetailHeaderComplex: View
     }
     
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var brewData: BrewDataStorage
     
     let package: BrewPackage
     
@@ -72,7 +73,7 @@ struct PackageDetailHeaderComplex: View
         {
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
-                SanitizedPackageName(packageName: package.name, shouldShowVersion: false)
+                SanitizedPackageName(package: package, shouldShowVersion: false)
                     .font(.title)
                 
                 if !package.versions.isEmpty
@@ -82,10 +83,12 @@ struct PackageDetailHeaderComplex: View
                         .foregroundColor(.secondary)
                 }
 
-                if packageDetails.pinned
-                {
-                    Image(systemName: "pin.fill")
-                        .help("package-details.pinned.help-\(package.name)")
+                if let dynamicPinnedStatus = brewData.successfullyLoadedFormulae.filter({ $0.id == package.id }).first {
+                    if dynamicPinnedStatus.isPinned
+                    {
+                        Image(systemName: "pin.fill")
+                            .help("package-details.pinned.help-\(package.name)")
+                    }
                 }
             }
 

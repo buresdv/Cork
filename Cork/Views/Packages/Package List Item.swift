@@ -25,6 +25,33 @@ struct PackageListItem: View
         }
     }
 
+    var badgeView: Text?
+    {
+        var badgeComponents: [String] = .init()
+
+        // MARK: - Add the various components to the badge
+
+        if isPackageOutdated
+        {
+            badgeComponents.append("􀐫")
+        }
+
+        if packageItem.isPinned
+        {
+            badgeComponents.prepend("􀎧")
+        }
+
+        // MARK: - Assemble the final view
+
+        guard !badgeComponents.isEmpty
+        else
+        {
+            return nil
+        }
+
+        return Text(badgeComponents.joined(separator: " | "))
+    }
+
     var body: some View
     {
         HStack
@@ -41,23 +68,13 @@ struct PackageListItem: View
                             .transition(.scale)
                     }
 
-                    SanitizedPackageName(packageName: packageItem.name, shouldShowVersion: false)
+                    SanitizedPackageName(package: packageItem, shouldShowVersion: false)
                 }
 
-                HStack(alignment: .center, spacing: 4)
-                {
-                    Text(packageItem.getFormattedVersions())
-
-                    if isPackageOutdated
-                    {
-                        Text("􀐫")
-                            .transition(.move(edge: .leading).combined(with: .opacity))
-                    }
-                }
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .layoutPriority(-Double(2))
-                .animation(.easeInOut, value: isPackageOutdated)
+                Text(packageItem.getFormattedVersions())
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .layoutPriority(-Double(2))
 
                 if packageItem.isBeingModified
                 {
@@ -68,10 +85,13 @@ struct PackageListItem: View
                         .scaleEffect(0.5)
                 }
             }
+            .badge(badgeView)
+            .transition(.push(from: .trailing))
+            .animation(.easeInOut, value: badgeView)
             #if hasAttribute(bouncy)
-            .animation(.bouncy, value: packageItem.isTagged)
+                .animation(.bouncy, value: packageItem.isTagged)
             #else
-            .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
+                .animation(.interpolatingSpring(stiffness: 80, damping: 10), value: packageItem.isTagged)
             #endif
         }
     }

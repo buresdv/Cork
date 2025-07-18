@@ -299,6 +299,7 @@ private extension View
 
                 view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
 
+                // MARK: - Getting tagged packages
                 do
                 {
                     view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
@@ -320,9 +321,21 @@ private extension View
                     AppConstants.shared.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
                     view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
+                
+                // MARK: - Getting pinned packages
+                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath else
+                {
+                    return
+                }
+                
+                let namesOfPinnedPackages: Set<String> = await view.brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
+                
+                AppConstants.shared.logger.debug("Retrieved a list of pinned package names: \(namesOfPinnedPackages.formatted(.list(type: .and)))")
+                
+                await view.brewData.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
             }
     }
-
+    
     func tapLoadingTask(of view: ContentView) -> some View
     {
         self

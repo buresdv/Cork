@@ -4413,6 +4413,27 @@
         }
       }
     },
+    "action.adopt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopt"
+          }
+        }
+      }
+    },
+    "action.adopt-%@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopt %@"
+          }
+        }
+      }
+    },
     "action.buy" : {
       "localizations" : {
         "cs" : {
@@ -13551,6 +13572,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在下方點選「開啟終端機」\n用 ⌘+V 貼上指令，然後按 ↩（輸入鍵）來執行指令\n遵照指示卸載 %@，回到 Cork 關閉本對話"
+          }
+        }
+      }
+    },
+    "adopt-cask.fatal-error-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t adopt %@"
+          }
+        }
+      }
+    },
+    "adopt-cask.finished-%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finished adopting %@"
+          }
+        }
+      }
+    },
+    "adopt-cask.finished.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This package can now be updated through Homebrew"
+          }
+        }
+      }
+    },
+    "adopt-cask.in-progress.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopting %@…"
           }
         }
       }
@@ -60509,6 +60570,9 @@
           }
         }
       }
+    },
+    "􀎧" : {
+
     },
     "􀐫" : {
       "localizations" : {

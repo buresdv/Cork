@@ -71,6 +71,8 @@ struct AddFormulaView: View
             return ""
         case .installationTerminatedUnexpectedly:
             return ""
+        case .adoptingAlreadyInstalledCask:
+            return ""
         }
     }
 
@@ -128,13 +130,23 @@ struct AddFormulaView: View
                         WrongArchitectureView(installationProgressTracker: installationProgressTracker)
 
                     case .binaryAlreadyExists:
-                        BinaryAlreadyExistsView(installationProgressTracker: installationProgressTracker)
+                        BinaryAlreadyExistsView(
+                            installationProgressTracker: installationProgressTracker,
+                            packageInstallationProcessStep: $packageInstallationProcessStep
+                        )
 
                     case .anotherProcessAlreadyRunning:
                         AnotherProcessAlreadyRunningView()
 
                     case .installationTerminatedUnexpectedly:
-                        InstallationTerminatedUnexpectedlyView(terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput)
+                        InstallationTerminatedUnexpectedlyView(
+                            terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput
+                        )
+                        
+                    case .adoptingAlreadyInstalledCask:
+                        AdoptingAlreadyInstalledCaskView(
+                            installationProgressTracker: installationProgressTracker
+                        )
                     }
                 }
                 .navigationTitle(sheetTitle)
@@ -170,6 +182,11 @@ struct AddFormulaView: View
         .onDisappear
         {
             cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)
+            
+            Task
+            {
+                try? await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+            }
         }
     }
 }

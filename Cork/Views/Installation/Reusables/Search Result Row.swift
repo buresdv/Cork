@@ -30,7 +30,7 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                SanitizedPackageName(packageName: searchedForPackage.name, shouldShowVersion: true)
+                SanitizedPackageName(package: searchedForPackage, shouldShowVersion: true)
                 
                 switch context
                 {

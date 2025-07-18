@@ -16,6 +16,8 @@ struct BinaryAlreadyExistsView: View, Sendable
     @EnvironmentObject var brewData: BrewDataStorage
 
     @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    
+    @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
     var body: some View
     {
@@ -31,13 +33,22 @@ struct BinaryAlreadyExistsView: View, Sendable
             }
             .toolbar
             {
-                ToolbarItem(placement: .primaryAction)
+                ToolbarItemGroup(placement: .primaryAction)
                 {
                     Button
                     {
                         URL.applicationDirectory.revealInFinder(.openTargetItself)
                     } label: {
                         Text("action.reveal-applications-folder-in-finder")
+                    }
+                }
+                
+                ToolbarItem(placement: .automatic) {
+                    Button
+                    {
+                        packageInstallationProcessStep = .adoptingAlreadyInstalledCask
+                    } label: {
+                        Text("action.adopt")
                     }
                 }
             }

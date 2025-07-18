@@ -31,7 +31,7 @@ struct MenuBar_PackageUpdating: View
                         {
                             ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                             { outdatedPackage in
-                                SanitizedPackageName(packageName: outdatedPackage.package.name, shouldShowVersion: false)
+                                SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: false)
                             }
                         } label: {
                             Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
