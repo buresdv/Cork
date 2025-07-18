@@ -415,6 +415,7 @@ struct CorkApp: App
             PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name ?? "")
                 .environmentObject(appDelegate.appState)
+                .environmentObject(brewData)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
