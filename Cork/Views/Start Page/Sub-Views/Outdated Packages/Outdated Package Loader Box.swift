@@ -34,13 +34,13 @@ struct OutdatedPackageLoaderBox: View
         }
         .task
         {
-            appState.isCheckingForPackageUpdates = true
+            outdatedPackageTracker.isCheckingForPackageUpdates = true
 
             defer
             {
                 withAnimation
                 {
-                    appState.isCheckingForPackageUpdates = false
+                    outdatedPackageTracker.isCheckingForPackageUpdates = false
                 }
             }
 

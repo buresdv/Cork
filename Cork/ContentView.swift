@@ -61,7 +61,7 @@ struct ContentView: View, Sendable
             }
         }
         .help("navigation.upgrade-packages.help")
-        .disabled(self.appState.isCheckingForPackageUpdates)
+        .disabled(self.outdatedPackageTracker.isCheckingForPackageUpdates)
     }
 
     @ViewBuilder private var addTapButton: some View

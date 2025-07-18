@@ -36,8 +36,6 @@ class AppState: ObservableObject
     
     @Published var brewfileImportingStage: BrewfileImportStage = .importing
 
-    @Published var isCheckingForPackageUpdates: Bool = true
-
     @Published var isShowingUninstallationProgressView: Bool = false
     @Published var isShowingFatalError: Bool = false
     @Published var fatalAlertType: DisplayableAlert? = nil
