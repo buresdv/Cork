@@ -77,6 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
         }
     }
 
+    /*
     func applicationDockMenu(_: NSApplication) -> NSMenu?
     {
         let menu: NSMenu = .init()
@@ -86,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
         updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
         updatePackagesMenuItem.target = appState
 
-        if appState.isCheckingForPackageUpdates
+        if outdatedPackageTracker.isCheckingForPackageUpdates
         {
             updatePackagesMenuItem.title = String(localized: "start-page.updates.loading")
             updatePackagesMenuItem.isEnabled = false
@@ -106,4 +107,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 
         return menu
     }
+     */
 }

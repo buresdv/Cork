@@ -9,50 +9,19 @@ import SwiftUI
 
 struct OutdatedPackagesBox: View
 {
-    /// The type of outdated package box that will show up
-    enum OutdatedPackageDisplayStage: Equatable
-    {
-        case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
-    }
-
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool
 
-    @Binding var errorOutReason: String?
-
-    var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
-    {
-        if let errorOutReason
-        {
-            return .erroredOut(reason: errorOutReason)
-        }
-        else
-        {
-            if appState.isCheckingForPackageUpdates
-            {
-                return .checkingForUpdates
-            }
-            else if outdatedPackageTracker.displayableOutdatedPackages.isEmpty
-            {
-                return .noUpdatesAvailable
-            }
-            else
-            {
-                return .showingOutdatedPackages
-            }
-        }
-    }
-
     var body: some View
     {
         Group
         {
-            switch outdatedPackageDisplayStage
+            switch outdatedPackageTracker.outdatedPackageDisplayStage
             {
             case .checkingForUpdates:
-                OutdatedPackageLoaderBox(errorOutReason: $errorOutReason)
+                OutdatedPackageLoaderBox(errorOutReason: $outdatedPackageTracker.errorOutReason)
             case .showingOutdatedPackages:
                 OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
             case .noUpdatesAvailable:
@@ -61,6 +30,6 @@ struct OutdatedPackagesBox: View
                 LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
             }
         }
-        .animation(.snappy, value: outdatedPackageDisplayStage)
+        .animation(.snappy, value: outdatedPackageTracker.outdatedPackageDisplayStage)
     }
 }

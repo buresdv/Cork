@@ -27,8 +27,6 @@ struct StartPage: View
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
 
-    @State private var errorOutReason: String?
-
     @State private var dragOver: Bool = false
 
     var startPageStage: StartPageStage
@@ -70,8 +68,7 @@ struct StartPage: View
                     Section
                     {
                         OutdatedPackagesBox(
-                            isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded,
-                            errorOutReason: $errorOutReason
+                            isOutdatedPackageDropdownExpanded: $isOutdatedPackageDropdownExpanded
                         )
                     } header: {
                         HStack(alignment: .center, spacing: 10)

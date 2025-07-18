@@ -9,17 +9,17 @@ import SwiftUI
 
 struct CheckForOutdatedPackagesButton: View
 {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var outdatedPackagesTracker: OutdatedPackageTracker
 
     var body: some View
     {
         Button
         {
-            appState.isCheckingForPackageUpdates = true
+            outdatedPackagesTracker.checkForUpdates()
         } label: {
             Label("action.check-for-updates", systemImage: "arrow.clockwise")
         }
-        .disabled(appState.isCheckingForPackageUpdates)
+        .disabled(outdatedPackagesTracker.isCheckingForPackageUpdates)
         .help("action.check-for-updates.help")
     }
 }

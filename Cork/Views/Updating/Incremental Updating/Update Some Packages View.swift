@@ -117,11 +117,11 @@ struct UpdateSomePackagesView: View
             {
                 do
                 {
-                    appState.isCheckingForPackageUpdates = true
+                    outdatedPackageTracker.isCheckingForPackageUpdates = true
                     
                     defer
                     {
-                        appState.isCheckingForPackageUpdates = false
+                        outdatedPackageTracker.isCheckingForPackageUpdates = false
                     }
                     
                     AppConstants.shared.logger.debug("Will synchronize outdated packages")

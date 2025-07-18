@@ -14,8 +14,18 @@ class OutdatedPackageTracker: ObservableObject, Sendable
     @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
     
     @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    
+    /// The type of outdated package box that will show up
+    enum OutdatedPackageDisplayStage: Equatable
+    {
+        case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
+    }
+    
+    @Published var isCheckingForPackageUpdates: Bool = true
 
     @Published var outdatedPackages: Set<OutdatedPackage> = .init()
+    
+    @Published var errorOutReason: String?
 
     var displayableOutdatedPackages: Set<OutdatedPackage>
     {
@@ -42,6 +52,29 @@ class OutdatedPackageTracker: ObservableObject, Sendable
             return relevantOutdatedPackages
         }
     }
+    
+    var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
+    {
+        if let errorOutReason
+        {
+            return .erroredOut(reason: errorOutReason)
+        }
+        else
+        {
+            if isCheckingForPackageUpdates
+            {
+                return .checkingForUpdates
+            }
+            else if self.displayableOutdatedPackages.isEmpty
+            {
+                return .noUpdatesAvailable
+            }
+            else
+            {
+                return .showingOutdatedPackages
+            }
+        }
+    }
 }
 
 extension OutdatedPackageTracker
@@ -49,5 +82,14 @@ extension OutdatedPackageTracker
     func setOutdatedPackages(to packages: Set<OutdatedPackage>)
     {
         self.outdatedPackages = packages
+    }
+}
+
+extension OutdatedPackageTracker
+{
+    func checkForUpdates()
+    {
+        self.errorOutReason = nil
+        self.isCheckingForPackageUpdates = true
     }
 }
