@@ -4427,6 +4427,12 @@
             "state" : "translated",
             "value" : "Adopt"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopt"
+          }
         }
       }
     },
@@ -4434,6 +4440,12 @@
       "extractionState" : "stale",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopt %@"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adopt %@"
@@ -4630,6 +4642,12 @@
             "state" : "translated",
             "value" : "Check for Updates…"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check for Updates…"
+          }
         }
       }
     },
@@ -4642,6 +4660,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check for outdated packages"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check for outdated packages"
@@ -13628,6 +13652,12 @@
             "state" : "translated",
             "value" : "Couldn’t adopt %@"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t adopt %@"
+          }
         }
       }
     },
@@ -13640,6 +13670,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finished adopting %@"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Finished adopting %@"
@@ -13660,6 +13696,12 @@
             "state" : "translated",
             "value" : "This package can now be updated through Homebrew"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This package can now be updated through Homebrew"
+          }
         }
       }
     },
@@ -13672,6 +13714,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopting %@…"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adopting %@…"
@@ -35809,8 +35857,8 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Has caveats 􀅴"
+            "state" : "translated",
+            "value" : "􀓕 Has caveats…"
           }
         },
         "es-419" : {
@@ -37034,6 +37082,12 @@
             "value" : "This package is deprecated"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This package is depreciated"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37074,6 +37128,12 @@
             "value" : "􀇿 Deprecated"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Depreciated"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37112,6 +37172,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇿 Deprecated…"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Depreciated…"
           }
         },
         "it" : {
@@ -37413,6 +37479,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notes"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notes"
@@ -47492,6 +47564,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package notes:"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package notes:"
@@ -60637,6 +60715,12 @@
     "􀎧" : {
       "localizations" : {
         "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀎧"
