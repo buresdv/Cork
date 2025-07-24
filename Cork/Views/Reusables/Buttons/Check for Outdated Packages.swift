@@ -19,7 +19,7 @@ struct CheckForOutdatedPackagesButton: View
         } label: {
             Label("action.check-for-updates", systemImage: "arrow.clockwise")
         }
-        .disabled(outdatedPackagesTracker.isCheckingForPackageUpdates)
+        .disabled(outdatedPackagesTracker.outdatedPackageDisplayStage == .checkingForUpdates)
         .help("action.check-for-updates.help")
     }
 }
