@@ -74,7 +74,8 @@ struct UpdatePackagesView: View
             }
         }
         .padding()
-        .fixedSize()
+        .frame(minWidth: 350, maxWidth: 500)
+        .fixedSize(horizontal: false, vertical: true)
         .allAnimationsDisabled()
     }
 }
