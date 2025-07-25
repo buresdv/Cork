@@ -90,7 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
         updatePackagesMenuItem.target = appState
 
-        if outdatedPackageTracker.isCheckingForPackageUpdates
+        if outdatedPackagesTracker.isCheckingForPackageUpdates
         {
             updatePackagesMenuItem.title = String(localized: "start-page.updates.loading")
             updatePackagesMenuItem.isEnabled = false

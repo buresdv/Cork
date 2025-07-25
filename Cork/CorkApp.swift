@@ -242,7 +242,7 @@ struct CorkApp: App
                     // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
                     withAnimation
                     {
-                        outdatedPackageTracker.isCheckingForPackageUpdates = false
+                        outdatedPackagesTracker.isCheckingForPackageUpdates = false
                     }
 
                     if outdatedPackageCount == 0
@@ -663,7 +663,7 @@ struct CorkApp: App
         CheckForOutdatedPackagesButton()
             .keyboardShortcut("r")
             .environment(appDelegate.appState)
-            .environment(outdatedPackageTracker)
+            .environment(outdatedPackagesTracker)
         
         Button
         {

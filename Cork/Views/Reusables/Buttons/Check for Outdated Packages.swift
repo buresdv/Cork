@@ -11,7 +11,7 @@ import CorkShared
 struct CheckForOutdatedPackagesButton: View
 {
     @Environment(AppState.self) var appState: AppState
-    @EnvironmentObject var outdatedPackagesTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {

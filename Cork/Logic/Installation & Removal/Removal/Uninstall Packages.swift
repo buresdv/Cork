@@ -20,8 +20,6 @@ extension BrewPackagesTracker
         shouldRemoveAllAssociatedFiles: Bool
     ) async throws
     {
-        /// Store the old navigation selection to see if it got updated in the middle of switching
-        let oldNavigationSelectionId: UUID? = appState.navigationTargetId
 
         self.updatePackageInPlace(package)
         { package in
@@ -94,15 +92,6 @@ extension BrewPackagesTracker
                 else
                 {
                     AppConstants.shared.logger.info("Uninstalling can proceed")
-                    
-                    if appState.navigationTargetId != nil
-                    {
-                        /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
-                        if oldNavigationSelectionId == appState.navigationTargetId
-                        {
-                            appState.navigationTargetId = nil
-                        }
-                    }
                 }
             }
             catch let synchronizationError

@@ -17,7 +17,6 @@ class OutdatedPackagesTracker
     
     @ObservableDefault(.includeGreedyOutdatedPackages) @ObservationIgnored var includeGreedyOutdatedPackages: Bool
 
-    var outdatedPackages: Set<OutdatedPackage> = .init()
     enum OutdatedPackageDisplayStage: Equatable
     {
         case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
@@ -87,7 +86,7 @@ extension OutdatedPackagesTracker
     }
 }
 
-extension OutdatedPackageTracker
+extension OutdatedPackagesTracker
 {
     func checkForUpdates()
     {

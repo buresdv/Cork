@@ -120,41 +120,6 @@ struct StartPage: View
                         }
                     }
                 }
-                .task
-                {
-                    if outdatedPackagesTracker.outdatedPackages.isEmpty
-                    {
-                        appState.isCheckingForPackageUpdates = true
-
-                        defer
-                        {
-                            withAnimation
-                            {
-                                appState.isCheckingForPackageUpdates = false
-                            }
-                        }
-
-                        do
-                        {
-                            try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
-                        }
-                        catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
-                        {
-                            switch outdatedPackageRetrievalError
-                            {
-                            case .homeNotSet:
-                                appState.showAlert(errorToShow: .homePathNotSet)
-                            default:
-                                AppConstants.shared.logger.error("Could not decode outdated package command output: \(outdatedPackageRetrievalError.localizedDescription)")
-                                errorOutReason = outdatedPackageRetrievalError.localizedDescription
-                            }
-                        }
-                        catch
-                        {
-                            AppConstants.shared.logger.error("Unspecified error while pulling package updates")
-                        }
-                    }
-                }
                 .transition(.push(from: .top))
 
                 ButtonBottomRow

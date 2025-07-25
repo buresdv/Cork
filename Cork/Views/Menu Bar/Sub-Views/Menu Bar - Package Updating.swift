@@ -14,7 +14,7 @@ struct MenuBar_PackageUpdating: View
 
     var body: some View
     {
-        if outdatedPackageTracker.isCheckingForPackageUpdates
+        if outdatedPackagesTracker.isCheckingForPackageUpdates
         {
             Text("start-page.updates.loading")
                 .disabled(true)

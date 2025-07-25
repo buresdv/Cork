@@ -24,10 +24,10 @@ struct OutdatedPackagesBox: View
     {
         Group
         {
-            switch outdatedPackageTracker.outdatedPackageDisplayStage
+            switch outdatedPackagesTracker.outdatedPackageDisplayStage
             {
             case .checkingForUpdates:
-                OutdatedPackageLoaderBox(errorOutReason: $outdatedPackageTracker.errorOutReason)
+                OutdatedPackageLoaderBox(errorOutReason: Bindable(outdatedPackagesTracker).errorOutReason)
             case .showingOutdatedPackages:
                 OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
             case .noUpdatesAvailable:
@@ -36,6 +36,6 @@ struct OutdatedPackagesBox: View
                 LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
             }
         }
-        .animation(.snappy, value: outdatedPackageTracker.outdatedPackageDisplayStage)
+        .animation(.snappy, value: outdatedPackagesTracker.outdatedPackageDisplayStage)
     }
 }
