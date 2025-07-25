@@ -122,6 +122,15 @@ struct PackageDetailView: View, Sendable
                         packageDetails: packageDetails!,
                         isLoadingDetails: isLoadingDetails
                     )
+                    
+                    #if DEBUG
+                    Button
+                    {
+                        dismiss()
+                    } label: {
+                        Label("DEBUG: Dismiss yourself", systemImage: "xmark")
+                    }
+                    #endif
                 }
             }
         }
