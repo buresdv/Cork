@@ -21,7 +21,7 @@ struct SidebarPackageRow: View
 
     var body: some View
     {
-        NavigationLink(value: package)
+        NavigationLink(value: AppState.NavigationManager.DetailDestination.package(package: package))
         {
             PackageListItem(packageItem: package)
         }

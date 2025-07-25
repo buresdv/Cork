@@ -40,7 +40,7 @@ struct SidebarView: View
     {
         @Bindable var appState: AppState = appState
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $localNavigationTragetId)
+        List(selection: $appState.navigationManager.openedScreen)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -55,18 +55,6 @@ struct SidebarView: View
             if currentTokens.isEmpty || currentTokens.contains(.tap)
             {
                 TapsSection(searchText: searchText)
-            }
-        }
-        .onChange(of: localNavigationTragetId)
-        { _, newValue in
-            if appState.navigationTargetId != newValue {
-                appState.navigationTargetId = newValue
-            }
-        }
-        .onReceive(appState.navigationTargetId.publisher.receive(on: DispatchQueue.main))
-        { newValue in
-            if localNavigationTragetId != newValue {
-                localNavigationTragetId = newValue
             }
         }
         .listStyle(.sidebar)
@@ -108,13 +96,13 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationTargetId = nil
+                    appState.navigationManager.dismissScreen()
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
                 .disabled(
-                    appState.navigationTargetId == nil || !searchText.isEmpty || !currentTokens.isEmpty
+                    !appState.navigationManager.isAnyScreenOpened || !searchText.isEmpty || !currentTokens.isEmpty
                 )
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)

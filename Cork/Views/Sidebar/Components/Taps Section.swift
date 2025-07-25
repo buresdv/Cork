@@ -38,7 +38,7 @@ struct TapsSection: View
                 {
                     ForEach(displayedTaps)
                     { tap in
-                        NavigationLink(value: tap)
+                        NavigationLink(value: AppState.NavigationManager.DetailDestination.tap(tap: tap))
                         {
                             Text(tap.name)
 

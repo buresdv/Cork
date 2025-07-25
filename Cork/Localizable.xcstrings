@@ -19721,6 +19721,9 @@
         }
       }
     },
+    "DEBUG: Dismiss yourself" : {
+
+    },
     "debug.action.activate-demo" : {
       "localizations" : {
         "cs" : {

@@ -535,11 +535,11 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.navigationTargetId = nil
+            appDelegate.appState.navigationManager.dismissScreen()
         } label: {
             Text("action.go-to-status-page.menu-bar")
         }
-        .disabled(appDelegate.appState.navigationTargetId == nil)
+        .disabled(!appDelegate.appState.navigationManager.isAnyScreenOpened)
         Divider()
     }
 
