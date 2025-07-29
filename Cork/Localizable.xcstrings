@@ -4433,6 +4433,12 @@
             "state" : "translated",
             "value" : "Adopt"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adotta"
+          }
         }
       }
     },
@@ -4449,6 +4455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adopt %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adotta %@"
           }
         }
       }
@@ -4648,6 +4660,12 @@
             "state" : "translated",
             "value" : "Check for Updates…"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifica aggiornamenti…"
+          }
         }
       }
     },
@@ -4669,6 +4687,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check for outdated packages"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifica pacchetti da aggiornare"
           }
         }
       }
@@ -13658,6 +13682,12 @@
             "state" : "translated",
             "value" : "Couldn’t adopt %@"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile adottare %@"
+          }
         }
       }
     },
@@ -13679,6 +13709,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Finished adopting %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adozione di %@ terminata"
           }
         }
       }
@@ -13702,6 +13738,12 @@
             "state" : "translated",
             "value" : "This package can now be updated through Homebrew"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "È ora possibile aggiornare questo pacchetto via Homebrew"
+          }
         }
       }
     },
@@ -13723,6 +13765,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adopting %@…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adotto %@…"
           }
         }
       }
@@ -60721,6 +60769,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀎧"
