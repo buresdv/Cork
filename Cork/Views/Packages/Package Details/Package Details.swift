@@ -8,10 +8,8 @@
 import CorkShared
 import SwiftUI
 
-struct PackageDetailView: View, Sendable
+struct PackageDetailView: View, Sendable, DismissablePane
 {
-    @Environment(\.dismiss) var dismiss: DismissAction
-    
     let package: BrewPackage
 
     /// We need to create a reference to this package in brewPackagesTracker so that the UI can observe changes in it
@@ -42,7 +40,7 @@ struct PackageDetailView: View, Sendable
             {
                 /// This gets tripped when the package that is currently open in the details window gets uninstalled.. In that case, dismiss the detail when the package gets uninstalled.
                 
-                dismiss()
+                appState.navigationManager.dismissScreen()
             }
             
             return package
@@ -122,6 +120,15 @@ struct PackageDetailView: View, Sendable
                         packageDetails: packageDetails!,
                         isLoadingDetails: isLoadingDetails
                     )
+                    
+                    #if DEBUG
+                    Button
+                    {
+                        dismissPane()
+                    } label: {
+                        Label("DEBUG: Dismiss yourself", systemImage: "xmark")
+                    }
+                    #endif
                 }
             }
         }

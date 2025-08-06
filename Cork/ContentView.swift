@@ -32,7 +32,7 @@ struct ContentView: View, Sendable
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
-    
+
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
@@ -126,21 +126,24 @@ struct ContentView: View, Sendable
         NavigationSplitView(columnVisibility: self.$columnVisibility)
         {
             SidebarView()
-                .navigationDestination(for: BrewPackage.self)
-                { brewPackage in
-                    PackageDetailView(package: brewPackage)
-                        .id(brewPackage.id)
-                }
-                .navigationDestination(for: BrewTap.self)
-                { brewTap in
-                    TapDetailView(tap: brewTap)
-                        .id(brewTap.id)
-                }
         } detail: {
-            NavigationStack
+            if let openedScreen = appState.navigationManager.openedScreen
             {
-                StartPage()
-                    .frame(minWidth: 600, minHeight: 500)
+                switch openedScreen
+                {
+                case .package(let package):
+                    PackageDetailView(package: package)
+                case .tap(let tap):
+                    TapDetailView(tap: tap)
+                }
+            }
+            else
+            {
+                NavigationStack
+                {
+                    StartPage()
+                        .frame(minWidth: 600, minHeight: 500)
+                }
             }
         }
         .navigationTitle("app-name")
@@ -152,7 +155,7 @@ struct ContentView: View, Sendable
                 CheckForOutdatedPackagesButton()
             }
             .defaultCustomization(.hidden)
-            
+
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
                 self.upgradePackagesButton
@@ -307,6 +310,7 @@ private extension View
                 view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: view.brewPackagesTracker)
 
                 // MARK: - Getting tagged packages
+
                 do
                 {
                     try await view.brewPackagesTracker.applyTags()
@@ -316,21 +320,23 @@ private extension View
                     AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
                     view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
-                
+
                 // MARK: - Getting pinned packages
-                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath else
+
+                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath
+                else
                 {
                     return
                 }
-                
+
                 let namesOfPinnedPackages: Set<String> = await view.brewPackagesTracker.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
-                
+
                 AppConstants.shared.logger.debug("Retrieved a list of pinned package names: \(namesOfPinnedPackages.formatted(.list(type: .and)))")
-                
+
                 await view.brewPackagesTracker.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
             }
     }
-    
+
     func tapLoadingTask(of view: ContentView) -> some View
     {
         self
@@ -773,7 +779,7 @@ private extension View
                     }
                     .keyboardShortcut(.defaultAction)
                     .asyncButtonStyle(.plainStyle)
-                    
+
                 case .purgePackage(let packageToPurge):
                     AsyncButton
                     {
