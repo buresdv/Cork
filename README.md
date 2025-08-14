@@ -6,8 +6,6 @@ A fast GUI for Homebrew written in SwiftUI
 [![Discord Link](https://img.shields.io/discord/1083475351260377119?label=Talk%20to%20me%20on%20Discord&style=flat)](https://discord.gg/kUHg8uGHpG)
 [![Mastodon Link](https://img.shields.io/mastodon/follow/108939255808776594?domain=https%3A%2F%2Fmstdn.social&label=Follow%20me%20for%20updates&style=flat)](https://mstdn.social/@davidbures)
 
-# My whole life is falling apart right now, so the development of Cork will be impacted
-
 ## Special Thanks
 
 I'd like to personally thank [Dmitri Bouniol](https://github.com/dimitribouniol) and [Ben Carlsson](https://twos.dev) for coming up with a way for self-compiled builds to bypass the license check.
@@ -150,11 +148,11 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 #### Compiling Cork
 
 0. I recommend you pick a version marked by one of the version tags. Those are released versions. If you decide to compile the current state of any of the branches, you might encounter experience-breaking bugs and unfinished features
-1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise exec tuist@4.25.0 -- tuist install && mise exec tuist@4.25.0 -- tuist generate --no-binary-cache`.
+1. Use the command `git clone https://github.com/buresdv/Cork.git && cd Cork && mise exec tuist@4.50.2 -- tuist install && mise exec tuist@4.50.2 -- tuist generate --no-binary-cache`.
   - Mise will ask you to trust the local [`.mise.toml`](.mise.toml).
   - You can either:
-    - Say yes, to always use `tuist` version 4.25.0 in this directory.
-    - Say no, and the command will use `tuist` 4.25.0 anyway, but future invocations of `tuist` will not be version controlled.
+    - Say yes, to always use `tuist` version 4.50.2 in this directory.
+    - Say no, and the command will use `tuist` 4.50.2 anyway, but future invocations of `tuist` will not be version controlled.
   - Xcode will open the project.
 
 <div style= "margin-left: 1rem">
@@ -164,7 +162,7 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
     <ol>
       <li><code>git clone https://github.com/buresdv/Cork.git</code> downloads the source code</li>
       <li><code>cd Cork</code> opens the folder you downloaded Cork into</li>
-      <li><code>mise exec [...]</code> runs a command using version <i>4.25.0</i> of Tuist, without polluting your local `mise.toml`, to build Cork</li>
+      <li><code>mise exec [...]</code> runs a command using version <i>4.50.2</i> of Tuist, without polluting your local `mise.toml`, to build Cork</li>
       <li><code>tuist install</code> downloads all Cork pre-requisites</li>
       <li><code>tuist generate</code> creates the Xcode project and opens it</li>
     </ol>
