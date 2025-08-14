@@ -19388,6 +19388,9 @@
         }
       }
     },
+    "Copy and Open Terminal" : {
+
+    },
     "debug.action.activate-demo" : {
       "localizations" : {
         "cs" : {
@@ -38308,6 +38311,9 @@
           }
         }
       }
+    },
+    "pkill -x Cork && brew uninstall cork && brew update && brew install --cask cork@1.5.6" : {
+
     },
     "preview-package.action" : {
       "localizations" : {
@@ -60472,6 +60478,9 @@
         }
       }
     },
+    "Version 1.5.6 is the last actively supported version of Cork for macOS 13.\nYou are running macOS 13 and have to switch to a versioned cask of Cork for your macOS version.\nThe correct cask for macOS 13 is cork@1.5.6" : {
+
+    },
     "window.about" : {
       "localizations" : {
         "cs" : {
@@ -60623,6 +60632,12 @@
           }
         }
       }
+    },
+    "You are using the wrong Cork cask" : {
+
+    },
+    "You can use the following command in Terminal to migrate to the correct cask:" : {
+
     },
     "􀇾" : {
       "localizations" : {

@@ -7,9 +7,9 @@
 
 // swiftlint:disable file_length
 
+import ButtonKit
 import CorkShared
 import SwiftUI
-import ButtonKit
 
 struct ContentView: View, Sendable
 {
@@ -31,7 +31,7 @@ struct ContentView: View, Sendable
 
     @EnvironmentObject var brewData: BrewDataStorage
     @EnvironmentObject var tapData: TapTracker
-    
+
     @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
 
     @EnvironmentObject var topPackagesTracker: TopPackagesTracker
@@ -44,6 +44,22 @@ struct ContentView: View, Sendable
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
     @State fileprivate var corruptedPackage: CorruptedPackage?
+
+    @State private var hasDismissedVersionWarning: Bool = false
+
+    var isShowingVersionWarning: Bool
+    {
+        
+        // If the current OS is Ventura, the cask "cork" is installed, and the warning has not been dismissed
+        if AppConstants.shared.osVersionString == ("sequoia", "Sequoia") && !hasDismissedVersionWarning
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 
     // MARK: - ViewBuilders
 
@@ -122,105 +138,157 @@ struct ContentView: View, Sendable
 
     var body: some View
     {
-        NavigationSplitView(columnVisibility: self.$columnVisibility)
+        if isShowingVersionWarning
         {
-            SidebarView()
-                .navigationDestination(for: BrewPackage.self)
-                { brewPackage in
-                    PackageDetailView(package: brewPackage)
-                        .id(brewPackage.id)
-                }
-                .navigationDestination(for: BrewTap.self)
-                { brewTap in
-                    TapDetailView(tap: brewTap)
-                        .id(brewTap.id)
-                }
-        } detail: {
-            NavigationStack
+            VStack(alignment: .center, spacing: 15)
             {
-                StartPage()
-                    .frame(minWidth: 600, minHeight: 500)
+                Image(systemName: "exclamationmark.triangle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 100)
+                    .foregroundStyle(.secondary)
+                
+                Text("You are using the wrong Cork cask")
+                    .font(.largeTitle)
+
+                Text("""
+Version 1.5.6 is the last actively supported version of Cork for macOS 13.
+You are running macOS 13 and have to switch to a versioned cask of Cork for your macOS version.
+The correct cask for macOS 13 is cork@1.5.6
+""")
+                .multilineTextAlignment(.center)
+                
+                VStack(alignment: .center, spacing: 5)
+                {
+                    Text("""
+    You can use the following command in Terminal to migrate to the correct cask:
+    """)
+                    
+                        HStack(alignment: .center, spacing: 5)
+                        {
+                            let commandToMigrate: String = "pkill -x Cork && brew uninstall cork && brew update && brew install --cask cork@1.5.6"
+                            
+                            GroupBox
+                            {
+                                Text("pkill -x Cork && brew uninstall cork && brew update && brew install --cask cork@1.5.6")
+                                    .textSelection(.enabled)
+                            }
+                            
+                            Button
+                            {
+                                commandToMigrate.copyToClipboard()
+                                openTerminal()
+                            } label: {
+                                Text("Copy and Open Terminal")
+                            }
+
+                    }
+                }
             }
+            .navigationTitle("app-name")
         }
-        .navigationTitle("app-name")
-        .navigationSubtitle("navigation.installed-packages.count-\(self.brewData.numberOfInstalledPackages)")
-        .toolbar(id: "PackageActions")
+        else
         {
-            ToolbarItem(id: "updatePackages", placement: .primaryAction)
+            NavigationSplitView(columnVisibility: self.$columnVisibility)
             {
-                CheckForOutdatedPackagesButton()
+                SidebarView()
+                    .navigationDestination(for: BrewPackage.self)
+                    { brewPackage in
+                        PackageDetailView(package: brewPackage)
+                            .id(brewPackage.id)
+                    }
+                    .navigationDestination(for: BrewTap.self)
+                    { brewTap in
+                        TapDetailView(tap: brewTap)
+                            .id(brewTap.id)
+                    }
+            } detail: {
+                NavigationStack
+                {
+                    StartPage()
+                        .frame(minWidth: 600, minHeight: 500)
+                }
             }
-            .defaultCustomization(.hidden)
-            
-            ToolbarItem(id: "upgradePackages", placement: .primaryAction)
+            .navigationTitle("app-name")
+            .navigationSubtitle("navigation.installed-packages.count-\(self.brewData.numberOfInstalledPackages)")
+            .toolbar(id: "PackageActions")
             {
-                self.upgradePackagesButton
-            }
+                ToolbarItem(id: "updatePackages", placement: .primaryAction)
+                {
+                    CheckForOutdatedPackagesButton()
+                }
+                .defaultCustomization(.hidden)
 
-            ToolbarItem(id: "addTap", placement: .primaryAction)
-            {
-                self.addTapButton
-            }
+                ToolbarItem(id: "upgradePackages", placement: .primaryAction)
+                {
+                    self.upgradePackagesButton
+                }
 
-            ToolbarItem(id: "installPackage", placement: .primaryAction)
-            {
-                self.installPackageButton
-            }
+                ToolbarItem(id: "addTap", placement: .primaryAction)
+                {
+                    self.addTapButton
+                }
 
-            ToolbarItem(id: "maintenance", placement: .primaryAction)
-            {
-                self.performMaintenanceButton
-            }
-            .defaultCustomization(.hidden)
+                ToolbarItem(id: "installPackage", placement: .primaryAction)
+                {
+                    self.installPackageButton
+                }
 
-            ToolbarItem(id: "manageServices", placement: .primaryAction)
-            {
-                self.manageServicesButton
-            }
-            .defaultCustomization(.hidden)
+                ToolbarItem(id: "maintenance", placement: .primaryAction)
+                {
+                    self.performMaintenanceButton
+                }
+                .defaultCustomization(.hidden)
 
-            ToolbarItem(id: "spacer", placement: .automatic)
-            {
-                Spacer()
-            }
-            .defaultCustomization(.hidden)
+                ToolbarItem(id: "manageServices", placement: .primaryAction)
+                {
+                    self.manageServicesButton
+                }
+                .defaultCustomization(.hidden)
 
-            ToolbarItem(id: "divider", placement: .automatic)
-            {
-                Divider()
-            }
-            .defaultCustomization(.hidden)
+                ToolbarItem(id: "spacer", placement: .automatic)
+                {
+                    Spacer()
+                }
+                .defaultCustomization(.hidden)
 
-            // TODO: Implement this button
-            /*
-             ToolbarItem(id: "installPackageDirectly", placement: .automatic)
-             {
-                 Button
+                ToolbarItem(id: "divider", placement: .automatic)
+                {
+                    Divider()
+                }
+                .defaultCustomization(.hidden)
+
+                // TODO: Implement this button
+                /*
+                 ToolbarItem(id: "installPackageDirectly", placement: .automatic)
                  {
-                     AppConstants.shared.logger.info("Ahoj")
-                 } label: {
-                     Label
+                     Button
                      {
-                         Text("navigation.install-package.direct")
-                     } icon: {
-                         Image(systemName: "plus.viewfinder")
+                         AppConstants.shared.logger.info("Ahoj")
+                     } label: {
+                         Label
+                         {
+                             Text("navigation.install-package.direct")
+                         } icon: {
+                             Image(systemName: "plus.viewfinder")
+                         }
                      }
+                     .help("navigation.install-package.direct.help")
                  }
-                 .help("navigation.install-package.direct.help")
-             }
-             .defaultCustomization(.hidden)
-              */
+                 .defaultCustomization(.hidden)
+                  */
+            }
+            .basicsSetup(of: self)
+            .packageLoadingTask(of: self)
+            .tapLoadingTask(of: self)
+            .analyticsSetupTask(of: self)
+            .cachedDownloadsCalculationTask(of: self)
+            .onChanges(boundToView: self)
+            .sheets(of: self)
+            .alerts(of: self)
+            .confirmationDialogs(of: self)
+            .topPackagesLoadingTask(of: self)
         }
-        .basicsSetup(of: self)
-        .packageLoadingTask(of: self)
-        .tapLoadingTask(of: self)
-        .analyticsSetupTask(of: self)
-        .cachedDownloadsCalculationTask(of: self)
-        .onChanges(boundToView: self)
-        .sheets(of: self)
-        .alerts(of: self)
-        .confirmationDialogs(of: self)
-        .topPackagesLoadingTask(of: self)
     }
 }
 
@@ -306,12 +374,13 @@ private extension View
                 view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
 
                 // MARK: - Getting tagged packages
+
                 do
                 {
                     view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
 
                     AppConstants.shared.logger.info("Tagged packages in appState: \(view.appState.taggedPackageNames)")
-                    
+
                     do
                     {
                         try await view.brewData.applyTags(appState: view.appState)
@@ -327,21 +396,23 @@ private extension View
                     AppConstants.shared.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
                     view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
-                
+
                 // MARK: - Getting pinned packages
-                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath else
+
+                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath
+                else
                 {
                     return
                 }
-                
+
                 let namesOfPinnedPackages: Set<String> = await view.brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
-                
+
                 AppConstants.shared.logger.debug("Retrieved a list of pinned package names: \(namesOfPinnedPackages.formatted(.list(type: .and)))")
-                
+
                 await view.brewData.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
             }
     }
-    
+
     func tapLoadingTask(of view: ContentView) -> some View
     {
         self
@@ -484,7 +555,8 @@ private extension View
             .onChange(of: view.customHomebrewPath, perform: { _ in
                 restartApp()
             })
-            .onChange(of: view.appState.taggedPackageNames) { _ in
+            .onChange(of: view.appState.taggedPackageNames)
+            { _ in
                 AppConstants.shared.logger.info("Will try to save tagged IDs to disk")
                 do
                 {
@@ -530,7 +602,7 @@ private extension View
 
                 case .brewfileImport:
                     BrewfileImportProgressView()
-                    
+
                 case .maintenance(let fastCacheDeletion):
                     switch fastCacheDeletion
                     {
@@ -791,7 +863,7 @@ private extension View
                     }
                     .keyboardShortcut(.defaultAction)
                     .asyncButtonStyle(.plainStyle)
-                    
+
                 case .purgePackage(let packageToPurge):
                     AsyncButton
                     {
