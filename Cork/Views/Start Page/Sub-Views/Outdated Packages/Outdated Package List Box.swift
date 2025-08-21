@@ -104,7 +104,7 @@ struct OutdatedPackageListBox: View
                                     }
                                     
                                     #if DEBUG
-                                    Text(String(packagesMarkedForUpdating.count))
+                                    //Text(String(packagesMarkedForUpdating.count))
                                     #endif
                                 }
                                 else
