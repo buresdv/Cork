@@ -15,6 +15,12 @@
             "value" : ""
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1797,6 +1803,12 @@
             "value" : "Mike Simons"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1853,6 +1865,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Created the Tuist configuration for compiling self-hosted versions"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creada la configuración de Tuist para complicar versiones autoalojadas"
           }
         },
         "it" : {
@@ -4434,6 +4452,12 @@
             "value" : "Adopt"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoptar"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4455,6 +4479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adopt %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoptar %@"
           }
         },
         "it" : {
@@ -4661,6 +4691,12 @@
             "value" : "Check for Updates…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar actualizaciones…"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4687,6 +4723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check for outdated packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar paquetes desactualizados"
           }
         },
         "it" : {
@@ -5245,6 +5287,12 @@
             "value" : "Finish in Terminal"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finalizar en el Terminal"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5572,6 +5620,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inspect error…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspeccionar error…"
           }
         },
         "it" : {
@@ -5972,6 +6026,12 @@
             "value" : "Reinstall Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstalar Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6024,6 +6084,12 @@
             "value" : "Reinstall"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reinstalar"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6074,6 +6140,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reload Services"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recargar servicios"
           }
         },
         "it" : {
@@ -6664,6 +6736,12 @@
             "value" : "Reveal Applications in Finder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar aplicaciones en Finder"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6726,6 +6804,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reveal %@ in Finder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar %@ en Finder"
           }
         },
         "fr" : {
@@ -6880,6 +6964,12 @@
             "value" : "Search Again"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar de nuevo"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7018,6 +7108,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show Terminal output"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar salidas en el terminal"
           }
         },
         "it" : {
@@ -7249,6 +7345,12 @@
             "value" : "Update %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7299,6 +7401,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Homebrew and all packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar Homebrew y todos sus packetes"
           }
         },
         "it" : {
@@ -7357,6 +7465,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update Homebrew through Terminal"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar Homebrew en el Terminal"
           }
         },
         "it" : {
@@ -7585,6 +7699,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Report on the forums…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reportar en los foros…"
           }
         },
         "it" : {
@@ -8520,6 +8640,12 @@
             "value" : "%@ was installed outside of Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ fue instalado fuera de Homebrew"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8582,6 +8708,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este cask ya está presente en la carpeta de Aplicaciones, desinstala, y prueba nuevamente"
           }
         },
         "fr" : {
@@ -9000,6 +9132,12 @@
             "value" : "Homebrew did not provide any output"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew no produjo ninguna salida"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9050,6 +9188,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrow terminó la instalación de este paquete antes de que se iniciara. Revisa la salida del comando de instalación abajo"
           }
         },
         "it" : {
@@ -9108,6 +9252,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package installation terminated unexpectedly"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La instalación del paquete terminó de manera inesperada"
           }
         },
         "it" : {
@@ -10920,6 +11070,12 @@
             "value" : "No Casks found"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontraron Casks"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11060,6 +11216,12 @@
             "value" : "No Formulae found"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontraron Fórmulas"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11110,6 +11272,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No results found"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se encontraron resultados"
           }
         },
         "it" : {
@@ -13543,6 +13711,12 @@
             "value" : "Try searching for another package"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta buscar otro paquete"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13683,6 +13857,12 @@
             "value" : "Couldn’t adopt %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo adoptar %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13709,6 +13889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Finished adopting %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopción de %@ completada"
           }
         },
         "it" : {
@@ -13739,6 +13925,12 @@
             "value" : "This package can now be updated through Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este paquete no se puede actualizar a través de Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13767,6 +13959,12 @@
             "value" : "Adopting %@…"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoptando %@…"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13793,6 +13991,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not delete cache"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo borrar el cache"
           }
         },
         "it" : {
@@ -13944,7 +14148,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No se pudo aplicar el estado etiquetado a los paquetes"
+            "value" : "No se pudieron aplicar el estado etiquetado a los paquetes"
           }
         },
         "fr" : {
@@ -14815,6 +15019,12 @@
             "value" : "Could not find the selected package in the list of available packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar el paquete seleccionado en la lista de paquetes disponibles"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15143,6 +15353,12 @@
             "value" : "%@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15193,6 +15409,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not read package info"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo leer la información del paquete"
           }
         },
         "it" : {
@@ -16281,6 +16503,12 @@
             "value" : "Your Mac is not connected to the internet. Check your internet settings."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu Mac no esta conectada a internet. Comprueba tu configuración de internet"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16337,6 +16565,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not connect to the internet"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo conectar a internet"
           }
         },
         "it" : {
@@ -16397,6 +16631,12 @@
             "value" : "Check your internet connection and try again\nAlternatively, the authorisation server may be offline at the moment"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprueba tu confección a internet e intentadle de nuevo. También es posible que el servidor de autorización este desconectado en este momento"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16455,6 +16695,12 @@
             "value" : "License checking timed out"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se agotó el tiempo de espera para verificación de la licencia"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16511,6 +16757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "An unknown error occured"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió un error desconocido"
           }
         },
         "it" : {
@@ -16580,8 +16832,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No se pudo descifrar la respuesta de Homebrew"
+            "state" : "translated",
+            "value" : "Homebrow no devolvió datos válidos"
           }
         },
         "fr" : {
@@ -16834,6 +17086,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew installation broken"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La instalación de Homebrow esta dañada"
           }
         },
         "it" : {
@@ -17777,8 +18035,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No se pudieron descifrar los paquetes principales"
+            "state" : "translated",
+            "value" : "Homebrow no regreso datos válidos"
           }
         },
         "fr" : {
@@ -18109,6 +18367,12 @@
             "value" : "Could not read tap info"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo leer la información del tap"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18159,6 +18423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not access folder containing Taps"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo acceder a la carpeta que contiene los taps"
           }
         },
         "it" : {
@@ -18389,6 +18659,12 @@
             "value" : "File %@ is not a valid Homebrew package and needs to be removed"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El archivo %@ no es un paquete Homebrew valido y debe ser removido"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18451,6 +18727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid file %@ in a package folder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivo invalido %@ en la carpeta del paquete"
           }
         },
         "fr" : {
@@ -18525,8 +18807,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No se pudo desinstalar %@"
+            "state" : "translated",
+            "value" : "No fue posible desinstalar %@"
           }
         },
         "fr" : {
@@ -19456,6 +19738,12 @@
             "value" : "DEBUG: Activate demo"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEPURAR: Activar demo"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19512,6 +19800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: Licensing"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEPURAR: Licencia"
           }
         },
         "it" : {
@@ -19572,6 +19866,12 @@
             "value" : "DEBUG: Reset licensing state"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEPURAR: Reiniciar estado de licencia"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19630,6 +19930,12 @@
             "value" : "Show error inspector"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar inspector de errores"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19682,6 +19988,12 @@
             "value" : "DEBUG: UI"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEPURAR: UI"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19732,6 +20044,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DEBUG: UI"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEPURAR"
           }
         },
         "it" : {
@@ -19792,6 +20110,12 @@
             "value" : "Error Inspector"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspector de errores"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19842,6 +20166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not determine which folder the brewfile export process was initiated from"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo determinar desde que carpeta se inicio el proceso de exportación del archivo brewfile"
           }
         },
         "it" : {
@@ -19902,6 +20232,12 @@
             "value" : "Could not dump the brewfile into the provided location with error: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo volcar el archivo brewfile a la ubicación proporcionada, con el error: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19958,6 +20294,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not get the location of the selected brewfile"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo obtener la ubicación del archivo brewfile seleccionado"
           }
         },
         "it" : {
@@ -20018,6 +20360,12 @@
             "value" : "Could not import brewfile: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo importar el archivo brewfile: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20076,6 +20424,12 @@
             "value" : "Could not read contents of cached Cask downloads folder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron leer los contenidos de la carpeta de cache de los Cask"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20126,6 +20480,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not read contents of cached downloads folder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron leer los contenido de la carpeta de cache"
           }
         },
         "it" : {
@@ -20180,6 +20540,12 @@
             "value" : "Could not read contents of cached Formulae downloads folder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron leer los contenidos de la carpeta de cache de las Formulas"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20230,6 +20596,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew server returned the wrong response code: %lld"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto:  %lld"
           }
         },
         "it" : {
@@ -20290,6 +20662,12 @@
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto, dicho código de respuesta no pudo ser leeido"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20346,6 +20724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The provided URL is not a valid Homebrew server URL"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El URL proporcionado no es un URL valido en el servidor de Homebrew"
           }
         },
         "it" : {
@@ -20406,6 +20790,12 @@
             "value" : "No data received while fetching top packages from the Homebrew server"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se recibieron datos al recuperar los paquetes principales del servidor Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20462,6 +20852,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not find the requested package in the parent folder"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar el paquete solicitado en el folder raiz"
           }
         },
         "it" : {
@@ -20522,6 +20918,12 @@
             "value" : "An error occurred"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se produjo un error"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20572,6 +20974,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not decode JSON response from Homebrew:\n%@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron decodificar la respuesta JSON del servidor Homebrew: %@"
           }
         },
         "it" : {
@@ -20632,6 +21040,12 @@
             "value" : "Could not convert JSON response from Homebrew to Data"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo convertir la respuesta JSON de Homebrew a datos"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20688,6 +21102,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid Homebrew response"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respuesta de Homebrew invalida"
           }
         },
         "it" : {
@@ -20748,6 +21168,12 @@
             "value" : "Could not execute intent"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo ejecutar el intent"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20798,6 +21224,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not convert the provided String to Data with error: %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo convertir el String proporcionado a datos, con el error: %@"
           }
         },
         "it" : {
@@ -20858,6 +21290,12 @@
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron decodificar los datos proporcionados usando el decodificado integrado JSON: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -20914,6 +21352,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Authorisation complex for license retrieval could not be encoded"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo codificar el complejo de autorización para recuperar la licencia"
           }
         },
         "it" : {
@@ -20974,6 +21418,12 @@
             "value" : "Could not connect to the internet. Cork will not be able to complete the licensing check"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo conectar a internet. No es posible completar la verificación de la licensia"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21030,6 +21480,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unimplemented error occured while getting license status: %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió un error no implementado al obtener el estatus de la licencia %@"
           }
         },
         "it" : {
@@ -21090,6 +21546,12 @@
             "value" : "Checking for license status timed out"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se agotó el tiempo de espera para verificar el estado de la licencia"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21146,6 +21608,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cache purging failed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El purgado del cache fallo"
           }
         },
         "it" : {
@@ -21206,6 +21674,12 @@
             "value" : "Standard error not empty"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error estándar no vacio"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21262,6 +21736,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not get the number of orphans uninstalled as a result of this operation"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo obtener el numero de huérfanos desinstalamos como resultado de esta operación"
           }
         },
         "it" : {
@@ -21322,6 +21802,12 @@
             "value" : "Could not uninstall orphans: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo desinstalar los huérfanos %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21378,6 +21864,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unexpected terminal output of the orphan uninstallation function"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salida inesperada del terminal de la función de desinstalar huérfano"
           }
         },
         "it" : {
@@ -21438,6 +21930,12 @@
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron decodificar los datos proporcionados usando el decodificado integrado JSON: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21496,6 +21994,12 @@
             "value" : "HOME is not properly set in the Homebrew command"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La carpeta HOME no se configuro correctamente en el comando de Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21549,6 +22053,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -21612,6 +22122,12 @@
             "value" : "An error occurred during the pinning process"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió un error durante el proceso de anclaje"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21670,6 +22186,12 @@
             "value" : "Could not load package from JSON response from Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo cargar el paquete desde la respuesta JSON de Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21726,6 +22248,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package %@ does not have any versions installed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El paquete %@ no contiene ninguna version instalada"
           }
         },
         "it" : {
@@ -21787,6 +22315,12 @@
             "value" : "%@ is not a package folder"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ no es una carpeta del paquete"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21844,6 +22378,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not load package %1$@ (%2$@):\n%3$@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo cargar el paquete %1$@(%2$@):%3$@"
           }
         },
         "it" : {
@@ -21904,6 +22444,12 @@
             "value" : "Could not load Casks"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron cargar los casks"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21954,6 +22500,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not load Formulae"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron cargar las formulas"
           }
         },
         "it" : {
@@ -22008,6 +22560,12 @@
             "value" : "Could not load Taps"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron cargar los taps"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22055,6 +22613,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -22110,6 +22674,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La ruta especificada señala a la carpeta de Casks en si misma, no a un paquete. Tu instalación de Homebrew esta rota, este no es un problema de Cork"
           }
         },
         "it" : {
@@ -22170,6 +22740,12 @@
             "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La ruta especificada señala a la carpeta de Formulas en si misma, no a un paquete. Tu instalación de Homebrew esta rota, este no es un problema de Cork"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22226,6 +22802,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew did not respond"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew no responde"
           }
         },
         "it" : {
@@ -22287,6 +22869,12 @@
             "value" : "Some packages were not loaded due to an internal error"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algunos paquetes no se cargaron por un error interno"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22337,6 +22925,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew returned JSON with the following error:\n%@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew devolvió el siguiente error JSON: %@"
           }
         },
         "it" : {
@@ -22397,6 +22991,12 @@
             "value" : "Could not find any package with the provided UUID in the package tracker"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo encontrar ningún paquete con el UUID proporcionado en el rastreador de paquetes"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22455,6 +23055,12 @@
             "value" : "Package synchronisation failed"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La sincronización de paquetes fallo"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22505,6 +23111,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not obtain access permissions to the specified folder: %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron obtener los  permisos de acceso a la carpeta especificada: %@"
           }
         },
         "it" : {
@@ -22565,6 +23177,12 @@
             "value" : "REGEX matched nothing"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REGEX no encontro coincidencias"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22621,6 +23239,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Could not encode data: %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo codificar los datos: %@"
           }
         },
         "it" : {
@@ -22681,6 +23305,12 @@
             "value" : "Homebrew outdated"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew desactualizado"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22737,6 +23367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew did not return any data"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew no regreso ningun dato"
           }
         },
         "it" : {
@@ -22797,6 +23433,12 @@
             "value" : "Unimplemented error: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error no implementado: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22855,6 +23497,12 @@
             "value" : "Parsing of services failed"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Análisis de servicios fallo"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22908,6 +23556,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -22971,6 +23625,12 @@
             "value" : "Could not stop the service: %@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo detener el servicio: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23029,6 +23689,12 @@
             "value" : "Could not remove tap %1$@ with output: %2$@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo remover el tap %1$@,  la salida es: %2$@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23082,6 +23748,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -23145,6 +23817,12 @@
             "value" : "%@"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23203,6 +23881,12 @@
             "value" : "Could not download top packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudieron descargar los paquetes principales"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23259,6 +23943,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The requested package was not found in the array, even though it should have been found"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El paquete solicitado no se encontró en la matriz, a pesar de que debería ser encontrado"
           }
         },
         "it" : {
@@ -30506,6 +31196,12 @@
             "value" : "Perform Homebrew cleanup tasks"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Realizar tareas de limpieza de Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34143,6 +34839,12 @@
             "value" : "Show detailed info about outdated packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar información detallada de paquetes desactualizados"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34201,6 +34903,12 @@
             "value" : "Show basic info about outdated packages"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar información básica de paquetes desactualizados"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34257,6 +34965,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show version info about outdated packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar versiones en la información de paquetes desactualizados"
           }
         },
         "it" : {
@@ -35911,8 +36625,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Tiene advertencias 􀅴"
+            "state" : "translated",
+            "value" : "􀓕 Tiene consideraciones…"
           }
         },
         "fr" : {
@@ -37136,6 +37850,12 @@
             "value" : "This package is depreciated"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este paquete esta obsoleto"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37182,6 +37902,12 @@
             "value" : "􀇿 Depreciated"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Obsoleto"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37226,6 +37952,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇿 Depreciated…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Obsoleto…"
           }
         },
         "it" : {
@@ -37536,6 +38268,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notes"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas"
           }
         },
         "it" : {
@@ -38377,6 +39115,12 @@
             "value" : "Preview"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vista previa"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38433,6 +39177,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This might take a long time…"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto puede tardar un largo tiempo..."
           }
         },
         "it" : {
@@ -42370,6 +43120,12 @@
             "value" : "Homebrew is out of date"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrow esta desactualizado"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -42426,6 +43182,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that does not work, update through the Terminal."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para usar los servicios, actualiza tu instalación de Homebrew dando click al botón de abajo. Si eso no funciona, actualiza Homebrew desde el Terminal."
           }
         },
         "it" : {
@@ -44275,6 +45037,12 @@
             "value" : "Error checking:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprobar errores:"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44331,6 +45099,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Strictly check for Homebrew errors"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprobación estricta de errores de Homebrew"
           }
         },
         "it" : {
@@ -45360,6 +46134,12 @@
             "value" : "Enable extra animations"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar animaciones extra"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45501,6 +46281,12 @@
             "value" : "Backup date format:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formato de fecha de copia de seguridad"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45551,6 +46337,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbreviated"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abreviado"
           }
         },
         "it" : {
@@ -45605,6 +46397,12 @@
             "value" : "Complete"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completo"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45655,6 +46453,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Long"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Largo"
           }
         },
         "it" : {
@@ -45709,6 +46513,12 @@
             "value" : "Numeric"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numerico"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45759,6 +46569,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Omitted"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omitido"
           }
         },
         "it" : {
@@ -46606,6 +47422,12 @@
             "value" : "Outdated package info:"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información del paquete desactualizado:"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46662,6 +47484,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show old versions"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar versiones antiguas"
           }
         },
         "it" : {
@@ -46722,6 +47550,12 @@
             "value" : "Complete"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completo"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46778,6 +47612,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minimal"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimo"
           }
         },
         "it" : {
@@ -46838,6 +47678,12 @@
             "value" : "Versions only"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo versiones"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46894,6 +47740,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Outdated packages:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes desactualizados:"
           }
         },
         "it" : {
@@ -47395,6 +48247,12 @@
             "value" : "Enable swipe actions"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar gestos de deslizamiento"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -47621,6 +48479,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package notes:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notas del paquete:"
           }
         },
         "it" : {
@@ -48552,6 +49416,12 @@
             "value" : "Show packages not managed by Homebrew"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar paquetes no manejados por Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48693,6 +49563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Automatically accept package EULAs"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar automáticamente los EULAs del paquete"
           }
         },
         "it" : {
@@ -52879,6 +53755,12 @@
             "value" : "No Casks installed"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se instalaron casks"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -52929,6 +53811,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Formulae installed"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se instalaron formulas"
           }
         },
         "it" : {
@@ -54935,6 +55823,12 @@
             "value" : "Could not check for outdated packges"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo comprobar los paquetes desactualizados"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -55217,6 +56111,24 @@
             }
           }
         },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay un cask %lld que no pudo ser cargado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay unos casks %lld que no pudieron ser cargados"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "variations" : {
             "plural" : {
@@ -55390,6 +56302,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "There are %lld Formulae that could not be loaded"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay una Formula de %lld que no pudo ser cargado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay formulas de %lld que no pudieron ser cargadoas"
                 }
               }
             }
@@ -55961,7 +56891,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actualización"
+            "value" : "Actualizar"
           }
         },
         "fr" : {
@@ -56309,6 +57239,12 @@
             "value" : "Installed Version"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión instalada"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56543,6 +57479,12 @@
             "value" : "Newest Version"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión más reciente"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56644,6 +57586,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "There are %lld outdated unmanaged packages"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay un %lld paquete desactualizado no gestionado"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay %lld paquetes desactualizados no gestionados"
                 }
               }
             }
@@ -56815,6 +57775,24 @@
             }
           }
         },
+        "es-419" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay un paquete adicional que no es manejado por Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Hay paquetes adicionales %lld que no son manejados por Homebrew"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56931,6 +57909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unmanaged outdated packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes desactualizados sin administrar"
           }
         },
         "it" : {
@@ -57073,6 +58057,12 @@
             "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Después de dar click en “Abrir Terminal”, usa ⌘+V para pegar el comando que Cork copio por ti, luego presiona Enter (↩)."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -57129,6 +58119,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Updating through the Terminal"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar a tráves de la terminal"
           }
         },
         "it" : {
@@ -59215,6 +60211,12 @@
             "value" : "Action is needed to finish updating"
           }
         },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se necesita una acción para terminar de actualizar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -59277,6 +60279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Algunos de tus paq"
           }
         },
         "fr" : {
@@ -59781,6 +60789,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All packages managed by Homebrew are up to date"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos los paquetes manejados por Homebrew están actualizados"
           }
         },
         "it" : {
@@ -60769,6 +61783,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        },
+        "es-419" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀎧"
