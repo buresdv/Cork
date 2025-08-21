@@ -112,12 +112,14 @@ struct PackageDetailView: View, Sendable, DismissablePane
                     )
                     
                     #if DEBUG
+                    /*
                     Button
                     {
                         dismissPane()
                     } label: {
                         Label("DEBUG: Dismiss yourself", systemImage: "xmark")
                     }
+                     */
                     #endif
                 }
             }
