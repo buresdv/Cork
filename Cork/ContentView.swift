@@ -320,20 +320,6 @@ private extension View
                     AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
                     view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
                 }
-
-                // MARK: - Getting pinned packages
-
-                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath
-                else
-                {
-                    return
-                }
-
-                let namesOfPinnedPackages: Set<String> = await view.brewPackagesTracker.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
-
-                AppConstants.shared.logger.debug("Retrieved a list of pinned package names: \(namesOfPinnedPackages.formatted(.list(type: .and)))")
-
-                await view.brewPackagesTracker.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
             }
     }
 

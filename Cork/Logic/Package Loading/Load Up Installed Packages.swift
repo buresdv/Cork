@@ -97,6 +97,8 @@ private extension BrewPackagesTracker
             let urlsInParentFolder: [URL] = try getContentsOfFolder(targetFolder: packageTypeToLoad.parentFolder, options: [.skipsHiddenFiles])
 
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
+            
+            let namesOfPinnedPackages: Set<String>? = await getNamesOfPinnedPackagesDuringLoading()
 
             let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, PackageLoadingError>.self)
             { taskGroup in
@@ -106,7 +108,7 @@ private extension BrewPackagesTracker
 
                     taskGroup.addTask
                     {
-                        await self.loadInstalledPackage(packageURL: packageURL)
+                        await self.loadInstalledPackage(packageURL: packageURL, namesOfPinnedPackages: namesOfPinnedPackages)
                     }
 
                     /*
@@ -166,7 +168,7 @@ private extension BrewPackagesTracker
     /// For a given `URL` to a package folder containing the various versions of the package, parse the package contained within
     /// - Parameter packageURL: `URL` to the package parent folder
     /// - Returns: A parsed package of the ``BrewPackage`` type
-    func loadInstalledPackage(packageURL: URL) async -> Result<BrewPackage, PackageLoadingError>
+    func loadInstalledPackage(packageURL: URL, namesOfPinnedPackages: Set<String>?) async -> Result<BrewPackage, PackageLoadingError>
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.packageNameFromURL()
@@ -214,10 +216,29 @@ private extension BrewPackagesTracker
 
                 AppConstants.shared.logger.debug("Package \(packageName) \(wasPackageInstalledIntentionally ? "was" : "was not") installed intentionally")
 
+                /// Check whether the package is among the pinned packages
+                /// If there was a failure during the loading of pinned packages, returns `false`
+                let isPackagePinned: Bool = {
+                    guard let namesOfPinnedPackages else
+                    {
+                        return false
+                    }
+                    
+                    if namesOfPinnedPackages.contains(packageName)
+                    {
+                        return true
+                    }
+                    else
+                    {
+                        return false
+                    }
+                }()
+                
                 let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
                     .init(
                         name: packageName,
                         type: packageURL.packageType,
+                        isPinned: isPackagePinned,
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,
                         installedIntentionally: wasPackageInstalledIntentionally,
@@ -239,5 +260,18 @@ private extension BrewPackagesTracker
 
             return .failure(.failedWhileReadingContentsOfPackageFolder(folderURL: packageURL, reportedError: loadingError.localizedDescription))
         }
+    }
+    
+    private func getNamesOfPinnedPackagesDuringLoading() async -> Set<String>?
+    {
+        // MARK: - Getting pinned packages
+
+        guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath
+        else
+        {
+            return nil
+        }
+
+        return await self.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
     }
 }
