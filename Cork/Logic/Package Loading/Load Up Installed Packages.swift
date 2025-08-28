@@ -99,6 +99,8 @@ private extension BrewPackagesTracker
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
             
             let namesOfPinnedPackages: Set<String>? = await getNamesOfPinnedPackagesDuringLoading()
+            
+            let namesOfTaggedPackages: Set<String>? = try? await getNamesOfTaggedPackages()
 
             let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, PackageLoadingError>.self)
             { taskGroup in
@@ -108,7 +110,11 @@ private extension BrewPackagesTracker
 
                     taskGroup.addTask
                     {
-                        await self.loadInstalledPackage(packageURL: packageURL, namesOfPinnedPackages: namesOfPinnedPackages)
+                        await self.loadInstalledPackage(
+                            packageURL: packageURL,
+                            namesOfPinnedPackages: namesOfPinnedPackages,
+                            namesOfTaggedPackages: namesOfTaggedPackages
+                        )
                     }
 
                     /*
@@ -168,7 +174,11 @@ private extension BrewPackagesTracker
     /// For a given `URL` to a package folder containing the various versions of the package, parse the package contained within
     /// - Parameter packageURL: `URL` to the package parent folder
     /// - Returns: A parsed package of the ``BrewPackage`` type
-    func loadInstalledPackage(packageURL: URL, namesOfPinnedPackages: Set<String>?) async -> Result<BrewPackage, PackageLoadingError>
+    func loadInstalledPackage(
+        packageURL: URL,
+        namesOfPinnedPackages: Set<String>?,
+        namesOfTaggedPackages: Set<String>?
+    ) async -> Result<BrewPackage, PackageLoadingError>
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.packageNameFromURL()
@@ -234,10 +244,29 @@ private extension BrewPackagesTracker
                     }
                 }()
                 
+                /// Check whether the package is among the tagged packages
+                /// If there is a failure during the loading of tagged package, returns `false`
+                let isPackageTagged: Bool = {
+                    guard let namesOfTaggedPackages else
+                    {
+                        return false
+                    }
+                    
+                    if namesOfTaggedPackages.contains(packageName)
+                    {
+                        return true
+                    }
+                    else
+                    {
+                        return false
+                    }
+                }()
+                
                 let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
                     .init(
                         name: packageName,
                         type: packageURL.packageType,
+                        isTagged: isPackageTagged,
                         isPinned: isPackagePinned,
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,

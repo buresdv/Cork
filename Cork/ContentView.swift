@@ -308,18 +308,6 @@ private extension View
                 view.brewPackagesTracker.installedCasks = await availableCasks ?? .init()
 
                 view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: view.brewPackagesTracker)
-
-                // MARK: - Getting tagged packages
-
-                do
-                {
-                    try await view.brewPackagesTracker.applyTags()
-                }
-                catch let taggedStateApplicationError as NSError
-                {
-                    AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
-                    view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
-                }
             }
     }
 

@@ -105,13 +105,19 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         {            
             let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
             
+            let saveablePackageRepresentation: SavedTaggedPackage = .init(fullName: packageName)
+            
             if !isTagged
             {
-                modelContext.insert(SavedTaggedPackage(fullName: self.name))
+                AppConstants.shared.logger.debug("Will add package representation \(saveablePackageRepresentation.fullName) to the persistence container")
+                
+                saveablePackageRepresentation.saveSelfToDatabase()
             }
             else
             {
-                modelContext.delete(SavedTaggedPackage(fullName: self.name))
+                AppConstants.shared.logger.debug("Will remove package \(saveablePackageRepresentation.fullName) from the persistence container")
+                
+                saveablePackageRepresentation.deleteSelfFromDatabase()
             }
         }
         

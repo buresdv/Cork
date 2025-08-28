@@ -71,12 +71,16 @@ public struct AppConstants: Sendable
         
         let modelConfiguration: ModelConfiguration = .init(isStoredInMemoryOnly: false)
         
-        guard let initializedModelContainer = try? ModelContainer(for: SavedTaggedPackage.self, configurations: modelConfiguration) else
+        do
         {
-            fatalError("Failed to initialize persistence container")
+            let initializedModelContainer = try ModelContainer(for: SavedTaggedPackage.self, configurations: modelConfiguration)
+            
+            self.modelContainer = initializedModelContainer
         }
-        
-        self.modelContainer = initializedModelContainer
+        catch let modelContainerInitializationError
+        {
+            fatalError("Failed to initialize persistence container: \(modelContainerInitializationError.localizedDescription)")
+        }
     }
     
     // MARK: - Shared Instance

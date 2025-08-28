@@ -15,7 +15,36 @@ public final class SavedTaggedPackage
     @Attribute(.unique) @Attribute(.spotlight)
     public var fullName: String
 
-    public init(fullName: String) {
+    public init(fullName: String)
+    {
         self.fullName = fullName
+    }
+
+    @MainActor
+    public func saveSelfToDatabase()
+    {
+        AppConstants.shared.modelContainer.mainContext.insert(self)
+    }
+
+    @MainActor
+    public func deleteSelfFromDatabase()
+    {
+        let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
+
+        do
+        {
+            let descriptor = FetchDescriptor<SavedTaggedPackage>(
+                predicate: #Predicate { $0.fullName == fullName }
+            )
+
+            if let existingPackage = try modelContext.fetch(descriptor).first
+            {
+                modelContext.delete(existingPackage)
+            }
+        }
+        catch
+        {
+            AppConstants.shared.logger.error("Failed to fetch package for deletion: \(error.localizedDescription)")
+        }
     }
 }

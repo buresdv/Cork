@@ -11,9 +11,21 @@ import SwiftData
 
 extension BrewPackagesTracker
 {
-    /// Load tagged package from storage, and apply them to the relevant packages
-    @MainActor
-    func applyTags() async throws
+    enum TaggedPackageNameRetrievalError: LocalizedError
+    {
+        case couldNotFetchPackageNamesFromDatabase
+        
+        var errorDescription: String
+        {
+            switch self {
+            case .couldNotFetchPackageNamesFromDatabase:
+                return "error.tagged-package-loading.coult-not-fetch-package-names-from-database.description"
+            }
+        }
+    }
+    
+    /// Get the names of the tagged packages from the SwiftData database
+    func getNamesOfTaggedPackages() async throws(TaggedPackageNameRetrievalError) -> Set<String>
     {
         let storageContext: ModelContext = AppConstants.shared.modelContainer.mainContext
         
@@ -27,50 +39,69 @@ extension BrewPackagesTracker
         guard let loadedTaggedPackages = try? storageContext.fetch(taggedPackageFetcher) else
         {
             AppConstants.shared.logger.log("Failed to load tagged packages")
-            return
+            throw .couldNotFetchPackageNamesFromDatabase
         }
         
         guard !loadedTaggedPackages.isEmpty else
         {
             AppConstants.shared.logger.log("There are no tagged packages to apply the tagged status to")
-            return
+ 
+            return .init()
         }
         
-        /// Change the custom saveable object into strings
-        let taggedPackagesFullNames: [String] = loadedTaggedPackages.map({ $0.fullName })
+        let namesOfTaggedPackages: [String] = loadedTaggedPackages.map({ $0.fullName })
         
-        for taggedName in taggedPackagesFullNames
+        AppConstants.shared.logger.debug("Loaded tagged packages: \(namesOfTaggedPackages)")
+        
+        /// Change the custom saveable object into strings
+        return Set(namesOfTaggedPackages)
+    }
+    
+    /// Load tagged package from storage, and apply them to the relevant packages
+    @MainActor
+    func applyTags() async throws(TaggedPackageNameRetrievalError)
+    {
+        do
         {
-            AppConstants.shared.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
-            self.installedFormulae = Set(self.installedFormulae.map
-            { formula in
-                switch formula
-                {
-                case .success(var brewPackage):
-                    if brewPackage.name == taggedName
+            let taggedPackagesFullNames: Set<String> = try await getNamesOfTaggedPackages()
+            
+            for taggedName in taggedPackagesFullNames
+            {
+                AppConstants.shared.logger.log("Will attempt to place package name \(taggedName, privacy: .public)")
+                self.installedFormulae = Set(self.installedFormulae.map
+                { formula in
+                    switch formula
                     {
-                        brewPackage.changeTaggedStatus(purpose: .justLoading)
+                    case .success(var brewPackage):
+                        if brewPackage.name == taggedName
+                        {
+                            brewPackage.changeTaggedStatus(purpose: .justLoading)
+                        }
+                        return .success(brewPackage)
+                    case .failure(let error):
+                        return .failure(error)
                     }
-                    return .success(brewPackage)
-                case .failure(let error):
-                    return .failure(error)
-                }
-            })
+                })
 
-            self.installedCasks = Set(self.installedCasks.map
-            { cask in
-                switch cask
-                {
-                case .success(var brewPackage):
-                    if brewPackage.name == taggedName
+                self.installedCasks = Set(self.installedCasks.map
+                { cask in
+                    switch cask
                     {
-                        brewPackage.changeTaggedStatus(purpose: .justLoading)
+                    case .success(var brewPackage):
+                        if brewPackage.name == taggedName
+                        {
+                            brewPackage.changeTaggedStatus(purpose: .justLoading)
+                        }
+                        return .success(brewPackage)
+                    case .failure(let error):
+                        return .failure(error)
                     }
-                    return .success(brewPackage)
-                case .failure(let error):
-                    return .failure(error)
-                }
-            })
+                })
+            }
+        }
+        catch let taggedPackageLoadingError
+        {
+            throw taggedPackageLoadingError
         }
     }
 }
