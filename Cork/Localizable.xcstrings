@@ -5661,7 +5661,20 @@
       }
     },
     "action.intents.get-installed-packages.short-title" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalované balíčky"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installed packages"
+          }
+        }
+      }
     },
     "action.open-terminal" : {
       "localizations" : {
