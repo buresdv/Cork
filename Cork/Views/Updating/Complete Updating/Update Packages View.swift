@@ -14,9 +14,9 @@ struct UpdatePackagesView: View
 
     @State var updateAvailability: PackageUpdateAvailability = .updatesAvailable
 
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
-    @StateObject var updateProcessDetailsStage: UpdatingProcessDetails = .init()
+    @Bindable var updateProcessDetailsStage: UpdatingProcessDetails = .init()
 
     @State private var isRealTimeTerminalOutputExpanded: Bool = false
 

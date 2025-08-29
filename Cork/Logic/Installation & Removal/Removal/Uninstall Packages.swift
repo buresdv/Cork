@@ -9,19 +9,17 @@ import CorkShared
 import Foundation
 import SwiftUI
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     @MainActor
     func uninstallSelectedPackage(
         package: BrewPackage,
-        cachedPackagesTracker: CachedPackagesTracker,
+        cachedDownloadsTracker: CachedDownloadsTracker,
         appState: AppState,
-        outdatedPackageTracker: OutdatedPackageTracker,
+        outdatedPackagesTracker: OutdatedPackagesTracker,
         shouldRemoveAllAssociatedFiles: Bool
     ) async throws
     {
-        /// Store the old navigation selection to see if it got updated in the middle of switching
-        let oldNavigationSelectionId: UUID? = appState.navigationTargetId
 
         self.updatePackageInPlace(package)
         { package in
@@ -83,7 +81,7 @@ extension BrewDataStorage
         {
             do
             {
-                try await self.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                try await self.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                 
                 if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
                 {
@@ -94,15 +92,6 @@ extension BrewDataStorage
                 else
                 {
                     AppConstants.shared.logger.info("Uninstalling can proceed")
-                    
-                    if appState.navigationTargetId != nil
-                    {
-                        /// Switch to the status page only if the user didn't open another details window in the middle of the uninstall process
-                        if oldNavigationSelectionId == appState.navigationTargetId
-                        {
-                            appState.navigationTargetId = nil
-                        }
-                    }
                 }
             }
             catch let synchronizationError
@@ -116,9 +105,9 @@ extension BrewDataStorage
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        if let index = outdatedPackageTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        if let index = outdatedPackagesTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
         {
-            outdatedPackageTracker.outdatedPackages.remove(at: index)
+            outdatedPackagesTracker.outdatedPackages.remove(at: index)
         }
     }
 }

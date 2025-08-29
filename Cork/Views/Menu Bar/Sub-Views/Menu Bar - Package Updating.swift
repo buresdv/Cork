@@ -9,19 +9,19 @@ import SwiftUI
 
 struct MenuBar_PackageUpdating: View
 {
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {
-        if outdatedPackageTracker.isCheckingForPackageUpdates
+        if outdatedPackagesTracker.isCheckingForPackageUpdates
         {
             Text("start-page.updates.loading")
                 .disabled(true)
         }
         else
         {
-            if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
+            if !outdatedPackagesTracker.displayableOutdatedPackages.isEmpty
             {
                 if let sanitizedSheetState = appState.sheetToShow
                 {
@@ -29,12 +29,12 @@ struct MenuBar_PackageUpdating: View
                     {
                         Menu
                         {
-                            ForEach(outdatedPackageTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                            ForEach(outdatedPackagesTracker.displayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                             { outdatedPackage in
                                 SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: false)
                             }
                         } label: {
-                            Text("notification.outdated-packages-found.body-\(outdatedPackageTracker.displayableOutdatedPackages.count)")
+                            Text("notification.outdated-packages-found.body-\(outdatedPackagesTracker.displayableOutdatedPackages.count)")
                         }
                         
                         Button("navigation.upgrade-packages")

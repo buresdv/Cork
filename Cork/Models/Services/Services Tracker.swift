@@ -7,10 +7,10 @@
 
 import Foundation
 
-@MainActor
-class ServicesTracker: ObservableObject
+@Observable @MainActor
+class ServicesTracker
 {
-    @Published var services: Set<HomebrewService> = .init()
+    var services: Set<HomebrewService> = .init()
 
     /// Replace a service in the tracker.
     /// Use `performInPlaceReplacement` to preserve the UUID of the original service so the UI doesn't completely reset

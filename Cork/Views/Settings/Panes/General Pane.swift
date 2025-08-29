@@ -7,28 +7,29 @@
 
 import LaunchAtLogin
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct GeneralPane: View
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
-    @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
 
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
 
-    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
-    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
+    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
 
-    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
-    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
-    @AppStorage("enableExtraAnimations") var enableExtraAnimations: Bool = true
+    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
+    @Default(.enableSwipeActions) var enableSwipeActions: Bool
+    @Default(.enableExtraAnimations) var enableExtraAnimations: Bool
 
-    @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
-
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
-    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
+    @Default(.showInMenuBar) var showInMenuBar: Bool
+    @Default(.startWithoutWindow) var startWithoutWindow: Bool
 
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
@@ -38,14 +39,11 @@ struct GeneralPane: View
         {
             Form
             {
-                Picker(selection: $sortPackagesBy)
-                {
-                    Text("settings.general.sort-packages.alphabetically")
-                        .tag(PackageSortingOptions.alphabetically)
-                    Text("settings.general.sort-packages.install-date")
-                        .tag(PackageSortingOptions.byInstallDate)
-                    Text("settings.general.sort-packages.size")
-                        .tag(PackageSortingOptions.bySize)
+                Picker(selection: $sortPackagesBy) {
+                    ForEach(PackageSortingOptions.allCases)
+                    { packageSortingOption in
+                        Text(packageSortingOption.description)
+                    }
                 } label: {
                     Text("settings.general.sort-packages")
                 }
@@ -124,7 +122,7 @@ struct GeneralPane: View
                         .disabled(outdatedPackageInfoDisplayAmount != .versionOnly)
                         .padding([.leading])
                         .onChange(of: outdatedPackageInfoDisplayAmount)
-                        { newValue in
+                        { _, newValue in
                             switch newValue
                             {
                             case .none:

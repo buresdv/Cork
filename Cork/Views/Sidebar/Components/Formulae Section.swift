@@ -6,21 +6,23 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct FormulaeSection: View
 {
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let currentTokens: [PackageSearchToken]
     let searchText: String
     
     private var areNoFormulaeInstalled: Bool
     {
-        if !appState.isLoadingFormulae && brewData.numberOfInstalledFormulae == 0
+        if !appState.isLoadingFormulae && brewPackagesTracker.numberOfInstalledFormulae == 0
         {
             return true
         }
@@ -97,6 +99,6 @@ struct FormulaeSection: View
             }
         }
 
-        return brewData.successfullyLoadedFormulae.filter(filter)
+        return brewPackagesTracker.successfullyLoadedFormulae.filter(filter)
     }
 }

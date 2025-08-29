@@ -8,39 +8,40 @@
 import SwiftUI
 import CorkShared
 import CorkNotifications
+import Defaults
 
 struct OnboardingView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
-    @AppStorage("displayAdvancedDependencies") var displayAdvancedDependencies: Bool = false
+    @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
 
-    @AppStorage("caveatDisplayOptions") var caveatDisplayOptions: PackageCaveatDisplay = .full
-    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
+    @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
 
-    @AppStorage("showSearchFieldForDependenciesInPackageDetails") var showSearchFieldForDependenciesInPackageDetails: Bool = false
+    @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
+    
+    @Default(.showInMenuBar) var showInMenuBar: Bool
 
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
 
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
+    
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
 
-    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
+    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
 
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
-    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
-
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
-
-    @AppStorage("outdatedPackageInfoDisplayAmount") var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount = .all
-    @AppStorage("showOldVersionsInOutdatedPackageList") var showOldVersionsInOutdatedPackageList: Bool = true
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
+    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList: Bool
 
     @State var onboardingSetupLevel: SetupLevels = .medium
 
@@ -160,7 +161,7 @@ struct OnboardingView: View
                 Text("action.done")
             }
             .keyboardShortcut(.defaultAction)
-            .buttonStyle(LargeButtonStyle())
+            .controlSize(.large)
 
         })
         .fixedSize()

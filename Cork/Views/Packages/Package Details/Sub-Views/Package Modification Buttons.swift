@@ -8,19 +8,20 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import Defaults
 
 struct PackageModificationButtons: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-    @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
+    @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let package: BrewPackage
-    @ObservedObject var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
 
@@ -67,11 +68,11 @@ struct PackageModificationButtons: View
                                     {
                                         AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
-                                        try await brewData.uninstallSelectedPackage(
+                                        try await brewPackagesTracker.uninstallSelectedPackage(
                                             package: package,
-                                            cachedPackagesTracker: cachedPackagesTracker,
+                                            cachedDownloadsTracker: cachedDownloadsTracker,
                                             appState: appState,
-                                            outdatedPackageTracker: outdatedPackageTracker,
+                                            outdatedPackagesTracker: outdatedPackagesTracker,
                                             shouldRemoveAllAssociatedFiles: false
                                         )
                                     }

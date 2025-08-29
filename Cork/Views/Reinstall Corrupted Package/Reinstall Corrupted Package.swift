@@ -13,9 +13,9 @@ struct ReinstallCorruptedPackageView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
     
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     let corruptedPackageToReinstall: CorruptedPackage
 
@@ -75,7 +75,7 @@ struct ReinstallCorruptedPackageView: View
                     {
                         do
                         {
-                            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+                            try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                         }
                         catch let synchronizationError
                         {

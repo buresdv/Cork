@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct TopPackagesSection: View
 {
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let packageTracker: TopPackagesTracker
 
@@ -22,12 +24,12 @@ struct TopPackagesSection: View
         case .formula:
             packageTracker.sortedTopFormulae.filter
             {
-                !brewData.successfullyLoadedFormulae.map(\.name).contains($0.name)
+                !brewPackagesTracker.successfullyLoadedFormulae.map(\.name).contains($0.name)
             }
         case .cask:
             packageTracker.sortedTopCasks.filter
             {
-                !brewData.successfullyLoadedCasks.map(\.name).contains($0.name)
+                !brewPackagesTracker.successfullyLoadedCasks.map(\.name).contains($0.name)
             }
         }
     }

@@ -23,7 +23,7 @@ struct GetInstalledCasksIntent: AppIntent
 
         if allowAccessToFile
         {
-            let dummyBrewData: BrewDataStorage = await .init()
+            let dummyBrewData: BrewPackagesTracker = await .init()
             
             guard let installedCasks: BrewPackages = await dummyBrewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState()) else
             {

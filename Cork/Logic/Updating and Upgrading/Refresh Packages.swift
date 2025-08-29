@@ -10,7 +10,7 @@ import SwiftUI
 import CorkShared
 
 @MainActor
-func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackageTracker: OutdatedPackageTracker) async -> PackageUpdateAvailability
+func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackagesTracker: OutdatedPackagesTracker) async -> PackageUpdateAvailability
 {
     let showRealTimeTerminalOutputs: Bool = UserDefaults.standard.bool(forKey: "showRealTimeTerminalOutputOfOperations")
 
@@ -28,7 +28,7 @@ func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPac
 
             updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
-            if outdatedPackageTracker.displayableOutdatedPackages.isEmpty
+            if outdatedPackagesTracker.displayableOutdatedPackages.isEmpty
             {
                 if outputLine.starts(with: "Already up-to-date")
                 {

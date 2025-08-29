@@ -10,9 +10,9 @@ import SwiftUI
 
 struct CachedDownloadsFolderInfoBox: View
 {
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
     
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var body: some View
     {

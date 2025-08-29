@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import Defaults
 
 /// Button for uninstalling packages
 struct UninstallPackageButton: View
@@ -24,7 +25,7 @@ struct UninstallPackageButton: View
 /// Will not display when purging is disabled
 struct PurgePackageButton: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
     
     let package: BrewPackage
 
@@ -39,12 +40,12 @@ struct PurgePackageButton: View
 
 private struct RemovePackageButton: View
 {
-    @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
+    @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var package: BrewPackage
 
@@ -58,11 +59,11 @@ private struct RemovePackageButton: View
             {
                 AppConstants.shared.logger.debug("Confirmation of package removal NOT needed")
 
-                try await brewData.uninstallSelectedPackage(
+                try await brewPackagesTracker.uninstallSelectedPackage(
                     package: package,
-                    cachedPackagesTracker: cachedPackagesTracker,
+                    cachedDownloadsTracker: cachedDownloadsTracker,
                     appState: appState,
-                    outdatedPackageTracker: outdatedPackageTracker,
+                    outdatedPackagesTracker: outdatedPackagesTracker,
                     shouldRemoveAllAssociatedFiles: shouldPurge
                 )
             }

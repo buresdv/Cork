@@ -5660,6 +5660,22 @@
         }
       }
     },
+    "action.intents.get-installed-packages.short-title" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalované balíčky"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installed packages"
+          }
+        }
+      }
+    },
     "action.open-terminal" : {
       "localizations" : {
         "cs" : {
@@ -45410,6 +45426,7 @@
       }
     },
     "settings.discoverability.sorting.by-fewest-downloads" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45498,6 +45515,7 @@
       }
     },
     "settings.discoverability.sorting.by-most-downloads" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45586,6 +45604,7 @@
       }
     },
     "settings.discoverability.sorting.random" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45762,6 +45781,7 @@
       }
     },
     "settings.discoverability.time-span.month" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45850,6 +45870,7 @@
       }
     },
     "settings.discoverability.time-span.quarter-year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -45938,6 +45959,7 @@
       }
     },
     "settings.discoverability.time-span.year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -47531,6 +47553,7 @@
       }
     },
     "settings.general.outdated-packages.display-amount.all" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -47595,6 +47618,7 @@
       }
     },
     "settings.general.outdated-packages.display-amount.none" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -47659,6 +47683,7 @@
       }
     },
     "settings.general.outdated-packages.display-amount.version-only" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -48779,6 +48804,7 @@
       }
     },
     "settings.general.sort-packages.alphabetically" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -48867,6 +48893,7 @@
       }
     },
     "settings.general.sort-packages.install-date" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -48955,6 +48982,7 @@
       }
     },
     "settings.general.sort-packages.size" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

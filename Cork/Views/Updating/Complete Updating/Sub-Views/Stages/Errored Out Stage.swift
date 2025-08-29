@@ -5,18 +5,19 @@
 //  Created by David Bureš on 17.10.2023.
 //
 
-import SwiftUI
-import CorkShared
 import CorkNotifications
+import CorkShared
+import Defaults
+import SwiftUI
 
 struct ErroredOutStageView: View
 {
-    @AppStorage("notifyAboutPackageUpgradeResults") var notifyAboutPackageUpgradeResults: Bool = false
+    @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     let sudoRequiredForUpdate: Bool
 

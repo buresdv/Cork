@@ -7,38 +7,39 @@
 
 // swiftlint:disable file_length
 
-import CorkShared
-import SwiftUI
 import ButtonKit
+import CorkShared
+import Defaults
+import SwiftUI
 
 struct ContentView: View, Sendable
 {
-    @AppStorage("sortPackagesBy") var sortPackagesBy: PackageSortingOptions = .byInstallDate
-    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
+    @Default(.sortPackagesBy) var sortPackagesBy: PackageSortingOptions
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
 
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
 
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
-    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
-    @AppStorage("sortTopPackagesBy") var sortTopPackagesBy: TopPackageSorting = .mostDownloads
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
+    @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
+    @Default(.sortTopPackagesBy) var sortTopPackagesBy: TopPackageSorting
 
-    @AppStorage("customHomebrewPath") var customHomebrewPath: String = ""
+    @Default(.customHomebrewPath) var customHomebrewPath: URL?
 
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var tapData: TapTracker
-    
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
-    @EnvironmentObject var topPackagesTracker: TopPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
+
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
@@ -61,7 +62,7 @@ struct ContentView: View, Sendable
             }
         }
         .help("navigation.upgrade-packages.help")
-        .disabled(self.outdatedPackageTracker.isCheckingForPackageUpdates)
+        .disabled(self.outdatedPackagesTracker.isCheckingForPackageUpdates)
     }
 
     @ViewBuilder private var addTapButton: some View
@@ -125,25 +126,28 @@ struct ContentView: View, Sendable
         NavigationSplitView(columnVisibility: self.$columnVisibility)
         {
             SidebarView()
-                .navigationDestination(for: BrewPackage.self)
-                { brewPackage in
-                    PackageDetailView(package: brewPackage)
-                        .id(brewPackage.id)
-                }
-                .navigationDestination(for: BrewTap.self)
-                { brewTap in
-                    TapDetailView(tap: brewTap)
-                        .id(brewTap.id)
-                }
         } detail: {
-            NavigationStack
+            if let openedScreen = appState.navigationManager.openedScreen
             {
-                StartPage()
-                    .frame(minWidth: 600, minHeight: 500)
+                switch openedScreen
+                {
+                case .package(let package):
+                    PackageDetailView(package: package)
+                case .tap(let tap):
+                    TapDetailView(tap: tap)
+                }
+            }
+            else
+            {
+                NavigationStack
+                {
+                    StartPage()
+                        .frame(minWidth: 600, minHeight: 500)
+                }
             }
         }
         .navigationTitle("app-name")
-        .navigationSubtitle("navigation.installed-packages.count-\(self.brewData.numberOfInstalledPackages)")
+        .navigationSubtitle("navigation.installed-packages.count-\(self.brewPackagesTracker.numberOfInstalledPackages)")
         .toolbar(id: "PackageActions")
         {
             ToolbarItem(id: "updatePackages", placement: .primaryAction)
@@ -151,7 +155,7 @@ struct ContentView: View, Sendable
                 CheckForOutdatedPackagesButton()
             }
             .defaultCustomization(.hidden)
-            
+
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
                 self.upgradePackagesButton
@@ -235,7 +239,7 @@ private extension View
             {
                 AppConstants.shared.logger.debug("Brew executable path: \(AppConstants.shared.brewExecutablePath, privacy: .public)")
 
-                if !view.customHomebrewPath.isEmpty && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
+                if view.customHomebrewPath != nil && !FileManager.default.fileExists(atPath: AppConstants.shared.brewExecutablePath.path)
                 {
                     view.appState.showAlert(errorToShow: .customBrewExcutableGotDeleted)
                 }
@@ -297,51 +301,16 @@ private extension View
                     view.appState.isLoadingCasks = false
                 }
 
-                async let availableFormulae: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
-                async let availableCasks: BrewPackages? = await view.brewData.loadInstalledPackages(packageTypeToLoad: .cask, appState: view.appState)
+                async let availableFormulae: BrewPackages? = await view.brewPackagesTracker.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
+                async let availableCasks: BrewPackages? = await view.brewPackagesTracker.loadInstalledPackages(packageTypeToLoad: .cask, appState: view.appState)
 
-                view.brewData.installedFormulae = await availableFormulae ?? .init()
-                view.brewData.installedCasks = await availableCasks ?? .init()
+                view.brewPackagesTracker.installedFormulae = await availableFormulae ?? .init()
+                view.brewPackagesTracker.installedCasks = await availableCasks ?? .init()
 
-                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: view.brewData)
-
-                // MARK: - Getting tagged packages
-                do
-                {
-                    view.appState.taggedPackageNames = try loadTaggedIDsFromDisk()
-
-                    AppConstants.shared.logger.info("Tagged packages in appState: \(view.appState.taggedPackageNames)")
-                    
-                    do
-                    {
-                        try await view.brewData.applyTags(appState: view.appState)
-                    }
-                    catch let taggedStateApplicationError as NSError
-                    {
-                        AppConstants.shared.logger.error("Error while applying tagged state to packages: \(taggedStateApplicationError, privacy: .public)")
-                        view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
-                    }
-                }
-                catch let uuidLoadingError as NSError
-                {
-                    AppConstants.shared.logger.error("Failed while loading UUIDs from file: \(uuidLoadingError, privacy: .public)")
-                    view.appState.showAlert(errorToShow: .couldNotApplyTaggedStateToPackages)
-                }
-                
-                // MARK: - Getting pinned packages
-                guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath else
-                {
-                    return
-                }
-                
-                let namesOfPinnedPackages: Set<String> = await view.brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
-                
-                AppConstants.shared.logger.debug("Retrieved a list of pinned package names: \(namesOfPinnedPackages.formatted(.list(type: .and)))")
-                
-                await view.brewData.applyPinnedStatus(namesOfPinnedPackages: namesOfPinnedPackages)
+                view.cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: view.brewPackagesTracker)
             }
     }
-    
+
     func tapLoadingTask(of view: ContentView) -> some View
     {
         self
@@ -352,11 +321,11 @@ private extension View
                     view.appState.isLoadingTaps = false
                 }
 
-                async let availableTaps: [BrewTap] = await view.tapData.loadUpTappedTaps()
+                async let tapTracker: [BrewTap] = await view.tapTracker.loadUpTappedTaps()
 
                 do
                 {
-                    view.tapData.addedTaps = try await availableTaps
+                    view.tapTracker.addedTaps = try await tapTracker
                 }
                 catch let tapLoadingError as TapLoadingError
                 {
@@ -412,7 +381,7 @@ private extension View
 
                 if view.enableDiscoverability
                 {
-                    if view.appState.isLoadingFormulae && view.appState.isLoadingCasks || view.tapData.addedTaps.isEmpty
+                    if view.appState.isLoadingFormulae && view.appState.isLoadingCasks || view.tapTracker.addedTaps.isEmpty
                     {
                         await view.loadTopPackages()
                     }
@@ -428,7 +397,7 @@ private extension View
                 if view.cachedDownloadsTracker.cachedDownloads.isEmpty
                 {
                     AppConstants.shared.logger.info("Will calculate cached downloads")
-                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: view.brewPackagesTracker)
                 }
             }
     }
@@ -440,15 +409,16 @@ private extension View
     {
         self
             .onChange(of: view.cachedDownloadsTracker.cachedDownloadsSize)
-            { _ in
+            {
                 #warning("FIXME: This might fuck up the memory")
                 Task
                 {
                     AppConstants.shared.logger.info("Will recalculate cached downloads")
-                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewData: view.brewData)
+                    await view.cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: view.brewPackagesTracker)
                 }
             }
-            .onChange(of: view.areNotificationsEnabled, perform: { newValue in
+            .onChange(of: view.areNotificationsEnabled)
+            { _, newValue in
                 if newValue == true
                 {
                     Task
@@ -456,8 +426,9 @@ private extension View
                         await view.appState.setupNotifications()
                     }
                 }
-            })
-            .onChange(of: view.enableDiscoverability, perform: { newValue in
+            }
+            .onChange(of: view.enableDiscoverability)
+            { _, newValue in
                 if newValue == true
                 {
                     Task
@@ -474,26 +445,17 @@ private extension View
 
                     AppConstants.shared.logger.info("Package tracker status: \(view.topPackagesTracker.topFormulae) \(view.topPackagesTracker.topCasks)")
                 }
-            })
-            .onChange(of: view.discoverabilityDaySpan, perform: { _ in
+            }
+            .onChange(of: view.discoverabilityDaySpan)
+            {
                 Task
                 {
                     await view.loadTopPackages()
                 }
-            })
-            .onChange(of: view.customHomebrewPath, perform: { _ in
+            }
+            .onChange(of: view.customHomebrewPath)
+            {
                 restartApp()
-            })
-            .onChange(of: view.appState.taggedPackageNames) { _ in
-                AppConstants.shared.logger.info("Will try to save tagged IDs to disk")
-                do
-                {
-                    try saveTaggedIDsToDisk(appState: view.appState)
-                }
-                catch let dataSavingError as NSError
-                {
-                    AppConstants.shared.logger.error("Failed while trying to save data to disk: \(dataSavingError, privacy: .public)")
-                }
             }
     }
 }
@@ -504,7 +466,7 @@ private extension View
     func sheets(of view: ContentView) -> some View
     {
         self
-            .sheet(item: view.$appState.sheetToShow)
+            .sheet(item: Bindable(view.appState).sheetToShow)
             { sheetType in
                 switch sheetType
                 {
@@ -530,7 +492,7 @@ private extension View
 
                 case .brewfileImport:
                     BrewfileImportProgressView()
-                    
+
                 case .maintenance(let fastCacheDeletion):
                     switch fastCacheDeletion
                     {
@@ -549,7 +511,7 @@ private extension View
     func alerts(of view: ContentView) -> some View
     {
         self
-            .alert(isPresented: view.$appState.isShowingFatalError, error: view.appState.fatalAlertType)
+            .alert(isPresented: Bindable(view.appState).isShowingFatalError, error: view.appState.fatalAlertType)
             { error in
                 switch error
                 {
@@ -592,7 +554,7 @@ private extension View
                 case .customBrewExcutableGotDeleted:
                     Button
                     {
-                        view.customHomebrewPath = ""
+                        view.customHomebrewPath = nil
                     } label: {
                         Text("action.reset-custom-brew-executable")
                     }
@@ -773,17 +735,17 @@ private extension View
     func confirmationDialogs(of view: ContentView) -> some View
     {
         self
-            .confirmationDialog(view.appState.confirmationDialogType?.title ?? "error.generic", isPresented: view.$appState.isShowingConfirmationDialog, presenting: view.appState.confirmationDialogType, actions: { dialogType in
+            .confirmationDialog(view.appState.confirmationDialogType?.title ?? "error.generic", isPresented: Bindable(view.appState).isShowingConfirmationDialog, presenting: view.appState.confirmationDialogType, actions: { dialogType in
                 switch dialogType
                 {
                 case .uninstallPackage(let packageToUninstall):
                     AsyncButton
                     {
-                        try await view.brewData.uninstallSelectedPackage(
+                        try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToUninstall,
-                            cachedPackagesTracker: view.cachedDownloadsTracker,
+                            cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
-                            outdatedPackageTracker: view.outdatedPackageTracker,
+                            outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: false
                         )
                     } label: {
@@ -791,15 +753,15 @@ private extension View
                     }
                     .keyboardShortcut(.defaultAction)
                     .asyncButtonStyle(.plainStyle)
-                    
+
                 case .purgePackage(let packageToPurge):
                     AsyncButton
                     {
-                        try await view.brewData.uninstallSelectedPackage(
+                        try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToPurge,
-                            cachedPackagesTracker: view.cachedDownloadsTracker,
+                            cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
-                            outdatedPackageTracker: view.outdatedPackageTracker,
+                            outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: true
                         )
                     } label: {

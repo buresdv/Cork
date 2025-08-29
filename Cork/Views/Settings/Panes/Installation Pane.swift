@@ -6,32 +6,28 @@
 //
 
 import SwiftUI
+import Defaults
+import CorkShared
 
 struct InstallationAndUninstallationPane: View
 {
-    @AppStorage("shouldRequestPackageRemovalConfirmation") var shouldRequestPackageRemovalConfirmation: Bool = false
+    @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
-    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
+    @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
 
-    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
+    @Default(.openRealTimeTerminalOutputByDefault) var openRealTimeTerminalOutputByDefault: Bool
 
-    @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
+    @Default(.automaticallyAcceptEULA) var automaticallyAcceptEULA: Bool
 
-    @AppStorage("purgeCacheAfterEveryUninstallation") var purgeCacheAfterEveryUninstallation: Bool = false
-    @AppStorage("removeOrphansAfterEveryUninstallation") var removeOrphansAfterEveryUninstallation: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
-    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
-    @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
+    @Default(.isAutomaticCleanupEnabled) var isAutomaticCleanupEnabled: Bool
 
-    @AppStorage("automaticallyAcceptEULA") var automaticallyAcceptEULA: Bool = false
+    @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-
-    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
-
-    @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
-
-    @EnvironmentObject var settingsState: SettingsState
+    @Environment(SettingsState.self) var settingsState: SettingsState
 
     var body: some View
     {
@@ -39,35 +35,6 @@ struct InstallationAndUninstallationPane: View
         {
             Form
             {
-                /*
-                 LabeledContent
-                 {
-                 Toggle(isOn: $showPackagesStillLeftToInstall)
-                 {
-                 Text("settings.install-uninstall.installation.toggle")
-                 }
-                 } label: {
-                 Text("settings.install-uninstall.installation")
-                 }
-
-                 LabeledContent
-                 {
-                 VStack(alignment: .leading)
-                 {
-                 Toggle(isOn: $purgeCacheAfterEveryUninstallation)
-                 {
-                 Text("settings.install-uninstall.uninstallation.purge-cache")
-                 }
-                 Toggle(isOn: $removeOrphansAfterEveryUninstallation)
-                 {
-                 Text("settings.install-uninstall.uninstallation.remove-orphans")
-                 }
-                 }
-                 } label: {
-                 Text("settings.install-uninstall.uninstallation")
-                 }
-                 */
-
                 LabeledContent
                 {
                     Toggle(isOn: $shouldRequestPackageRemovalConfirmation)
@@ -128,13 +95,14 @@ struct InstallationAndUninstallationPane: View
                             {
                                 Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation")
                             }
-                            .onChange(of: allowMoreCompleteUninstallations, perform: { newValue in
+                            .onChange(of: allowMoreCompleteUninstallations)
+                            { _, newValue in
                                 if newValue == true
                                 {
                                     settingsState.alertType = .deepUninstall
                                     settingsState.isShowingAlert = true
                                 }
-                            })
+                            }
 
                             HStack(alignment: .top)
                             {
@@ -153,7 +121,7 @@ struct InstallationAndUninstallationPane: View
                                 Text("settings.install-uninstall.installation.enable-automatic-cleanup")
                             }
                             .onChange(of: isAutomaticCleanupEnabled)
-                            { newValue in
+                            { _, newValue in
                                 if newValue == false
                                 {
                                     settingsState.alertType = .cleanupDisabling

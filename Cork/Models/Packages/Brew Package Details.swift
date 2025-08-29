@@ -22,8 +22,8 @@ enum PinningUnpinningError: LocalizedError
     }
 }
 
-@MainActor
-class BrewPackageDetails: ObservableObject
+@Observable @MainActor
+class BrewPackageDetails
 {
     // MARK: - Immutable properties
 
@@ -44,9 +44,7 @@ class BrewPackageDetails: ObservableObject
 
     let isCompatible: Bool?
 
-    // MARK: - Mutable properties
-
-    @Published var dependents: [String]?
+    var dependents: [String]?
 
     // MARK: - Init
 

@@ -8,12 +8,13 @@
 import CorkNotifications
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct InstallationFinishedSuccessfullyView: View
 {
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
     var body: some View
     {

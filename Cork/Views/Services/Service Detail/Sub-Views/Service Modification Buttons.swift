@@ -8,19 +8,20 @@
 import SwiftUI
 import ButtonKit
 
-class ServiceModificationProgress: ObservableObject
+@Observable
+class ServiceModificationProgress
 {
-    @Published var progress: Double = 0.1
+    var progress: Double = 0.1
 }
 
 struct ServiceModificationButtons: View
 {
-    @EnvironmentObject var servicesTracker: ServicesTracker
-    @EnvironmentObject var servicesState: ServicesState
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
+    @Environment(ServicesState.self) var servicesState: ServicesState
 
     let service: HomebrewService
 
-    @ObservedObject private var serviceModificationProgress: ServiceModificationProgress = .init()
+    @State private var serviceModificationProgress: ServiceModificationProgress = .init()
 
     @State private var isModifyingService: Bool = false
 
@@ -103,7 +104,7 @@ struct ServiceModificationButtons: View
 
 struct ServiceModificationProgressView: View
 {
-    @ObservedObject var serviceModificationProgress: ServiceModificationProgress
+    @Bindable var serviceModificationProgress: ServiceModificationProgress
 
     let isModifyingDestructively: Bool
 

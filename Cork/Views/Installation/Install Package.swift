@@ -9,6 +9,7 @@ import CorkNotifications
 import CorkShared
 import SwiftUI
 import ButtonKit
+import Defaults
 
 struct AddFormulaView: View
 {
@@ -16,15 +17,15 @@ struct AddFormulaView: View
 
     @State private var packageRequested: String = ""
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     @State private var foundPackageSelection: BrewPackage?
 
-    @ObservedObject var searchResultTracker: SearchResultTracker = .init()
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker = .init()
+    @Bindable var searchResultTracker: SearchResultTracker = .init()
+    @Bindable var installationProgressTracker: InstallationProgressTracker = .init()
 
     @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
 
@@ -32,8 +33,7 @@ struct AddFormulaView: View
 
     @FocusState var isSearchFieldFocused: Bool
 
-    @AppStorage("showPackagesStillLeftToInstall") var showPackagesStillLeftToInstall: Bool = false
-    @AppStorage("notifyAboutPackageInstallationResults") var notifyAboutPackageInstallationResults: Bool = false
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
     var shouldShowSheetTitle: Bool
     {
@@ -121,7 +121,7 @@ struct AddFormulaView: View
                         InstallationFinishedSuccessfullyView()
 
                     case .fatalError: /// This shows up when the function for executing the install action throws an error
-                        InstallationFatalErrorView(installationProgressTracker: installationProgressTracker)
+                        InstallationFatalErrorView(packageBeingInstalled: installationProgressTracker.packageBeingInstalled.package)
 
                     case .requiresSudoPassword:
                         SudoRequiredView(installationProgressTracker: installationProgressTracker)
@@ -163,7 +163,7 @@ struct AddFormulaView: View
                                 
                                 do
                                 {
-                                    try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+                                    try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                                 }
                                 catch let synchronizationError
                                 {
@@ -181,12 +181,12 @@ struct AddFormulaView: View
         }
         .onDisappear
         {
-            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewData: brewData)
-            
+            cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
             Task
             {
-                try? await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+                try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
             }
+            
         }
     }
 }

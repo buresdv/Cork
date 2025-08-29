@@ -11,10 +11,10 @@ struct SudoRequiredView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     var body: some View
     {

@@ -11,10 +11,10 @@ struct HomebrewServicesView: View
 {
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
 
-    @EnvironmentObject private var appDelegate: AppDelegate
+    @Environment(AppDelegate.self) var appDelegate: AppDelegate
 
-    @StateObject var servicesTracker: ServicesTracker = .init()
-    @StateObject var servicesState: ServicesState = .init()
+    @State var servicesTracker: ServicesTracker = .init()
+    @State var servicesState: ServicesState = .init()
 
     @State private var hasTriedToUpdateHomebrewThroughCork: Bool = false
     @State private var isShowingHomebrewUpdateInstructions: Bool = false
@@ -106,8 +106,8 @@ struct HomebrewServicesView: View
         } message: {
             Text("state.update-homebrew.terminal.message")
         }
-        .environmentObject(servicesTracker)
-        .environmentObject(servicesState)
+        .environment(servicesTracker)
+        .environment(servicesState)
     }
 
     @ViewBuilder

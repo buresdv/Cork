@@ -10,8 +10,8 @@ import CorkShared
 
 struct CheckingForUpdatesStateView: View
 {
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
     @Binding var packageUpdatingStage: PackageUpdatingStage
@@ -28,14 +28,14 @@ struct CheckingForUpdatesStateView: View
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
             LiveTerminalOutputView(
-                lineArray: $updateProgressTracker.realTimeOutput,
+                lineArray: Bindable(updateProgressTracker).realTimeOutput,
                 isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput,
                 forceKeepTerminalOutputInMemory: true
             )
         }
         .task
         {
-            updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackageTracker: outdatedPackageTracker)
+            updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackagesTracker: outdatedPackagesTracker)
 
             AppConstants.shared.logger.debug("Update availability result: \(updateAvailability.description, privacy: .public)")
 

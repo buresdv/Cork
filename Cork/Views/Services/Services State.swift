@@ -7,21 +7,21 @@
 
 import Foundation
 
-@MainActor
-class ServicesState: ObservableObject
+@Observable @MainActor
+class ServicesState
 {
     // MARK: - Navigation
 
-    @Published var navigationTargetId: UUID?
+    var navigationTargetId: UUID?
 
     // MARK: - State
 
-    @Published var isLoadingServices: Bool = true
+    var isLoadingServices: Bool = true
 
     // MARK: - Errors
 
-    @Published var isShowingError: Bool = false
-    @Published var errorToShow: ServicesFatalError = .couldNotStartService(offendingService: "", errorThrown: "")
+    var isShowingError: Bool = false
+    var errorToShow: ServicesFatalError?
 
     func showError(_ errorToShow: ServicesFatalError)
     {
@@ -32,5 +32,6 @@ class ServicesState: ObservableObject
     func dismissError()
     {
         isShowingError = false
+        self.errorToShow = nil
     }
 }

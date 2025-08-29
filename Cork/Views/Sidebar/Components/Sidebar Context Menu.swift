@@ -7,20 +7,21 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct SidebarContextMenu: View
 {
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
-    @AppStorage("enableRevealInFinder") var enableRevealInFinder: Bool = false
+    @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
     
     let package: BrewPackage
     
     var isPackageOutdated: Bool
     {
-        if outdatedPackageTracker.displayableOutdatedPackages.contains(where: { $0.package.name == package.name })
+        if outdatedPackagesTracker.displayableOutdatedPackages.contains(where: { $0.package.name == package.name })
         {
             return true
         }

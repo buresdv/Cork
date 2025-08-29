@@ -18,8 +18,8 @@ struct TapDetailView: View, Sendable
 {
     let tap: BrewTap
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
     @State private var isLoadingTapInfo: Bool = true
     
@@ -78,7 +78,7 @@ struct TapDetailView: View, Sendable
                                 
                                 AsyncButton
                                 {
-                                    try await removeTap(name: tap.name, availableTaps: availableTaps, appState: appState)
+                                    try await removeTap(name: tap.name, tapTracker: tapTracker, appState: appState)
                                 } label: {
                                     Text("tap-details.remove-\(tap.name)")
                                 }

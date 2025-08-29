@@ -12,11 +12,13 @@ struct CorkShortcuts: AppShortcutsProvider
 {
     static var appShortcuts: [AppShortcut]
     {
-        AppShortcut(
+        .init(
             intent: GetInstalledPackagesIntent(),
             phrases: [
                 "Show me my installed Homebrew packages in ${applicationName}"
-            ]
+            ],
+            shortTitle: "action.intents.get-installed-packages.short-title",
+            systemImageName: "shippingbox"
         )
     }
 }

@@ -13,16 +13,16 @@ struct PresentingSearchResultsView: View
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
-    @ObservedObject var searchResultTracker: SearchResultTracker
+    @Bindable var searchResultTracker: SearchResultTracker
 
     @Binding var packageRequested: String
     @Binding var foundPackageSelection: BrewPackage?
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     @State private var isFormulaeSectionCollapsed: Bool = false
     @State private var isCasksSectionCollapsed: Bool = false

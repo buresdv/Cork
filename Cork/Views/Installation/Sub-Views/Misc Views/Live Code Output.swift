@@ -7,11 +7,12 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct LiveTerminalOutputView: View
 {
-    @AppStorage("showRealTimeTerminalOutputOfOperations") var showRealTimeTerminalOutputOfOperations: Bool = false
-    @AppStorage("openRealTimeTerminalOutputByDefault") var openRealTimeTerminalOutputByDefault: Bool = false
+    @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
+    @Default(.openRealTimeTerminalOutputByDefault) var openRealTimeTerminalOutputByDefault: Bool
 
     @Binding var lineArray: [RealTimeTerminalLine]
 
@@ -40,7 +41,7 @@ struct LiveTerminalOutputView: View
                     .frame(minHeight: 200)
                     .listStyle(.bordered)
                     .onChange(of: lineArray)
-                    { _ in
+                    {
                         proxy.scrollTo(lineArray.last?.id, anchor: .bottom)
                     }
                     

@@ -7,25 +7,26 @@
 
 import Foundation
 import SwiftUI
+import Defaults
+import DefaultsMacros
 
-@MainActor
-class OutdatedPackageTracker: ObservableObject, Sendable
+@Observable @MainActor
+class OutdatedPackagesTracker
 {
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @ObservableDefault(.displayOnlyIntentionallyInstalledPackagesByDefault) @ObservationIgnored var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     
-    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
-    
-    /// The type of outdated package box that will show up
+    @ObservableDefault(.includeGreedyOutdatedPackages) @ObservationIgnored var includeGreedyOutdatedPackages: Bool
+
     enum OutdatedPackageDisplayStage: Equatable
     {
         case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
     }
     
-    @Published var isCheckingForPackageUpdates: Bool = true
+    var isCheckingForPackageUpdates: Bool = true
 
-    @Published var outdatedPackages: Set<OutdatedPackage> = .init()
+    var outdatedPackages: Set<OutdatedPackage> = .init()
     
-    @Published var errorOutReason: String?
+    var errorOutReason: String?
 
     var displayableOutdatedPackages: Set<OutdatedPackage>
     {
@@ -77,7 +78,7 @@ class OutdatedPackageTracker: ObservableObject, Sendable
     }
 }
 
-extension OutdatedPackageTracker
+extension OutdatedPackagesTracker
 {
     func setOutdatedPackages(to packages: Set<OutdatedPackage>)
     {
@@ -85,7 +86,7 @@ extension OutdatedPackageTracker
     }
 }
 
-extension OutdatedPackageTracker
+extension OutdatedPackagesTracker
 {
     func checkForUpdates()
     {

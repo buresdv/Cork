@@ -8,14 +8,15 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import Defaults
 
 struct Licensing_NotBoughtOrActivatedView: View
 {
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @State private var emailFieldContents: String = ""
 

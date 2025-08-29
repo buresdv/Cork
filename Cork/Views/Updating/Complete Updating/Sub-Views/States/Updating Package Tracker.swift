@@ -7,15 +7,16 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct UpdatingPackageTrackerStateView: View
 {
-    @AppStorage("includeGreedyOutdatedPackages") var includeGreedyOutdatedPackages: Bool = false
+    @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
     
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Binding var packageUpdatingStage: PackageUpdatingStage
 
@@ -28,7 +29,7 @@ struct UpdatingPackageTrackerStateView: View
             {
                 do
                 {
-                    try await outdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                    try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                     
                     updateProgressTracker.updateProgress = 10
 

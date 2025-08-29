@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
 struct SidebarView: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
@@ -36,8 +38,9 @@ struct SidebarView: View
 
     var body: some View
     {
+        @Bindable var appState: AppState = appState
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $localNavigationTragetId)
+        List(selection: $appState.navigationManager.openedScreen)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -54,18 +57,6 @@ struct SidebarView: View
                 TapsSection(searchText: searchText)
             }
         }
-        .onChange(of: localNavigationTragetId)
-        { newValue in
-            if appState.navigationTargetId != newValue {
-                appState.navigationTargetId = newValue
-            }
-        }
-        .onReceive(appState.$navigationTargetId.receive(on: DispatchQueue.main))
-        { newValue in
-            if localNavigationTragetId != newValue {
-                localNavigationTragetId = newValue
-            }
-        }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
         .modify
@@ -73,7 +64,7 @@ struct SidebarView: View
             if #available(macOS 14.0, *)
             {
                 viewProxy
-                    .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), isPresented: $appState.isSearchFieldFocused, placement: .sidebar, prompt: Text("sidebar.search.prompt"))
+                    .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), isPresented: Bindable(appState).isSearchFieldFocused, placement: .sidebar, prompt: Text("sidebar.search.prompt"))
                     { token in
                         Label
                         {
@@ -105,13 +96,13 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationTargetId = nil
+                    appState.navigationManager.dismissScreen()
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
                 .disabled(
-                    appState.navigationTargetId == nil || !searchText.isEmpty || !currentTokens.isEmpty
+                    !appState.navigationManager.isAnyScreenOpened || !searchText.isEmpty || !currentTokens.isEmpty
                 )
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)

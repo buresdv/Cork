@@ -7,22 +7,23 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct InstallationInitialView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @AppStorage("enableDiscoverability") var enableDiscoverability: Bool = false
-    @AppStorage("discoverabilityDaySpan") var discoverabilityDaySpan: DiscoverabilityDaySpans = .month
+    @Default(.enableDiscoverability) var enableDiscoverability: Bool
+    @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @EnvironmentObject var topPackagesTracker: TopPackagesTracker
+    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @ObservedObject var searchResultTracker: SearchResultTracker
+    @Bindable var searchResultTracker: SearchResultTracker
 
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
@@ -31,7 +32,7 @@ struct InstallationInitialView: View
 
     @Binding var foundPackageSelection: BrewPackage?
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 

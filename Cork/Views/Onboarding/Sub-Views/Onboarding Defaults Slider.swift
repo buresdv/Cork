@@ -61,7 +61,7 @@ struct OnboardingDefaultsSlider: View
                 Text("setup.level.advanced.title")
             }
             .onChange(of: sliderValue)
-            { _ in
+            {
                 AppConstants.shared.logger.debug("New slider value: \(sliderValue, privacy: .public)")
                 if sliderValue == 0
                 {

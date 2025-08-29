@@ -12,7 +12,7 @@ import Foundation
 /// Includes packages that were loaded properly, along those whose loading failed
 typealias BrewPackages = Set<Result<BrewPackage, PackageLoadingError>>
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     /// Parent function for loading installed packages from disk
     /// Abstracts away the function ``loadInstalledPackagesFromFolder(packageTypeToLoad:)``, transforming errors thrown by ``loadInstalledPackagesFromFolder(packageTypeToLoad:)`` into displayable errors
@@ -83,7 +83,7 @@ extension BrewDataStorage
     }
 }
 
-private extension BrewDataStorage
+private extension BrewPackagesTracker
 {
     /// Load packages from disk, and convert them into ``BrewPackage``s
     func loadInstalledPackagesFromFolder(
@@ -97,6 +97,10 @@ private extension BrewDataStorage
             let urlsInParentFolder: [URL] = try getContentsOfFolder(targetFolder: packageTypeToLoad.parentFolder, options: [.skipsHiddenFiles])
 
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
+            
+            let namesOfPinnedPackages: Set<String>? = await getNamesOfPinnedPackagesDuringLoading()
+            
+            let namesOfTaggedPackages: Set<String>? = try? await getNamesOfTaggedPackages()
 
             let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, PackageLoadingError>.self)
             { taskGroup in
@@ -106,7 +110,11 @@ private extension BrewDataStorage
 
                     taskGroup.addTask
                     {
-                        await self.loadInstalledPackage(packageURL: packageURL)
+                        await self.loadInstalledPackage(
+                            packageURL: packageURL,
+                            namesOfPinnedPackages: namesOfPinnedPackages,
+                            namesOfTaggedPackages: namesOfTaggedPackages
+                        )
                     }
 
                     /*
@@ -124,8 +132,6 @@ private extension BrewDataStorage
                 var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
                 for await loadedPackage in taskGroup
                 {
-                    AppConstants.shared.logger.debug("Will insert package \(loadedPackages) to the package result array")
-
                     loadedPackages.insert(loadedPackage)
                 }
                 
@@ -168,7 +174,11 @@ private extension BrewDataStorage
     /// For a given `URL` to a package folder containing the various versions of the package, parse the package contained within
     /// - Parameter packageURL: `URL` to the package parent folder
     /// - Returns: A parsed package of the ``BrewPackage`` type
-    func loadInstalledPackage(packageURL: URL) async -> Result<BrewPackage, PackageLoadingError>
+    func loadInstalledPackage(
+        packageURL: URL,
+        namesOfPinnedPackages: Set<String>?,
+        namesOfTaggedPackages: Set<String>?
+    ) async -> Result<BrewPackage, PackageLoadingError>
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.packageNameFromURL()
@@ -216,10 +226,48 @@ private extension BrewDataStorage
 
                 AppConstants.shared.logger.debug("Package \(packageName) \(wasPackageInstalledIntentionally ? "was" : "was not") installed intentionally")
 
+                /// Check whether the package is among the pinned packages
+                /// If there was a failure during the loading of pinned packages, returns `false`
+                let isPackagePinned: Bool = {
+                    guard let namesOfPinnedPackages else
+                    {
+                        return false
+                    }
+                    
+                    if namesOfPinnedPackages.contains(packageName)
+                    {
+                        return true
+                    }
+                    else
+                    {
+                        return false
+                    }
+                }()
+                
+                /// Check whether the package is among the tagged packages
+                /// If there is a failure during the loading of tagged package, returns `false`
+                let isPackageTagged: Bool = {
+                    guard let namesOfTaggedPackages else
+                    {
+                        return false
+                    }
+                    
+                    if namesOfTaggedPackages.contains(packageName)
+                    {
+                        return true
+                    }
+                    else
+                    {
+                        return false
+                    }
+                }()
+                
                 let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
                     .init(
                         name: packageName,
                         type: packageURL.packageType,
+                        isTagged: isPackageTagged,
+                        isPinned: isPackagePinned,
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,
                         installedIntentionally: wasPackageInstalledIntentionally,
@@ -241,5 +289,18 @@ private extension BrewDataStorage
 
             return .failure(.failedWhileReadingContentsOfPackageFolder(folderURL: packageURL, reportedError: loadingError.localizedDescription))
         }
+    }
+    
+    private func getNamesOfPinnedPackagesDuringLoading() async -> Set<String>?
+    {
+        // MARK: - Getting pinned packages
+
+        guard let pinnedPackagesPath: URL = AppConstants.shared.pinnedPackagesPath
+        else
+        {
+            return nil
+        }
+
+        return await self.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
     }
 }

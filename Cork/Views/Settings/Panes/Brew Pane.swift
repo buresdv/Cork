@@ -8,15 +8,16 @@
 import Foundation
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct BrewPane: View
 {
-    @AppStorage("strictlyCheckForHomebrewErrors") var strictlyCheckForHomebrewErrors: Bool = false
+    @Default(.strictlyCheckForHomebrewErrors) var strictlyCheckForHomebrewErrors: Bool
 
-    @AppStorage("allowBrewAnalytics") var allowBrewAnalytics: Bool = true
-    @AppStorage("allowAdvancedHomebrewSettings") var allowAdvancedHomebrewSettings: Bool = false
+    @Default(.allowBrewAnalytics) var allowBrewAnalytics: Bool
+    @Default(.allowAdvancedHomebrewSettings) var allowAdvancedHomebrewSettings: Bool
 
-    @EnvironmentObject var settingsState: SettingsState
+    @Environment(SettingsState.self) var settingsState: SettingsState
 
     @State private var isPerformingBrewAnalyticsChangeCommand: Bool = false
 
@@ -50,7 +51,7 @@ struct BrewPane: View
                     }
                 }
                 .onChange(of: allowBrewAnalytics)
-                { newValue in
+                { _, newValue in
                     if newValue == true
                     {
                         Task

@@ -7,13 +7,14 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct LicensingView: View
 {
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
-    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
+    @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {

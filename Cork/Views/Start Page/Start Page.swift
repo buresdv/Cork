@@ -15,15 +15,15 @@ struct StartPage: View
         case loading, showingBrewOverview
     }
 
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var availableTaps: TapTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(TapTracker.self) var tapTracker: TapTracker
 
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
-    @EnvironmentObject var updateProgressTracker: UpdateProgressTracker
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var isOutdatedPackageDropdownExpanded: Bool = false
 
@@ -43,7 +43,7 @@ struct StartPage: View
 
     var shouldShowCachedDownloadsGraph: Bool
     {
-        if cachedPackagesTracker.cachedDownloadsSize == 0
+        if cachedDownloadsTracker.cachedDownloadsSize == 0
         {
             return false
         }
@@ -94,7 +94,7 @@ struct StartPage: View
                         }
                     }
 
-                    if !brewData.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewData.unsuccessfullyLoadedCasksErrors.isEmpty
+                    if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
                     {
                         Section
                         {
@@ -152,7 +152,7 @@ struct StartPage: View
 
                         Task
                         { @MainActor in
-                            try await importBrewfile(from: url, appState: appState, brewData: brewData, cachedPackagesTracker: cachedPackagesTracker)
+                            try await importBrewfile(from: url, appState: appState, brewPackagesTracker: brewPackagesTracker, cachedDownloadsTracker: cachedDownloadsTracker)
                         }
                     }
                     else

@@ -11,14 +11,14 @@ import CorkShared
 struct UpdatePackageButton: View
 {
     
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     let packageToUpdate: BrewPackage
     
     var outdatedPackageFromTracker: [OutdatedPackage]
     {
-        return outdatedPackageTracker.outdatedPackages.filter({ $0.package.name == packageToUpdate.name })
+        return outdatedPackagesTracker.outdatedPackages.filter({ $0.package.name == packageToUpdate.name })
     }
     
     var body: some View

@@ -8,26 +8,14 @@
 import CorkShared
 import SwiftUI
 
-struct PackageDetailView: View, Sendable
+struct PackageDetailView: View, Sendable, DismissablePane
 {
-    @Environment(\.dismiss) var dismiss: DismissAction
-    
     let package: BrewPackage
 
-    /// We need to create a reference to this package in brewData so that the UI can observe changes in it
+    /// We need to create a reference to this package in brewPackagesTracker so that the UI can observe changes in it
     private var dynamicPackage: BrewPackage?
     {
-        if let possibleFormula: BrewPackage = brewData.successfullyLoadedFormulae.filter({ $0.id == package.id }).first
-        {
-            return possibleFormula
-        }
-
-        if let possibleCask: BrewPackage = brewData.successfullyLoadedCasks.filter({ $0.id == package.id }).first
-        {
-            return possibleCask
-        }
-        
-        return nil
+        return brewPackagesTracker.checkForDynamicPackage(passedInPackage: package)
     }
     
     private var packageStructureToUse: BrewPackage
@@ -42,7 +30,7 @@ struct PackageDetailView: View, Sendable
             {
                 /// This gets tripped when the package that is currently open in the details window gets uninstalled.. In that case, dismiss the detail when the package gets uninstalled.
                 
-                dismiss()
+                dismissPane()
             }
             
             return package
@@ -53,10 +41,10 @@ struct PackageDetailView: View, Sendable
 
     @State private var packageDetails: BrewPackageDetails? = nil
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var isShowingExpandedDependencies: Bool = false
     @State private var isShowingExpandedCaveats: Bool = false
@@ -122,6 +110,17 @@ struct PackageDetailView: View, Sendable
                         packageDetails: packageDetails!,
                         isLoadingDetails: isLoadingDetails
                     )
+                    
+                    #if DEBUG
+                    /*
+                    Button
+                    {
+                        dismissPane()
+                    } label: {
+                        Label("DEBUG: Dismiss yourself", systemImage: "xmark")
+                    }
+                     */
+                    #endif
                 }
             }
         }
@@ -158,6 +157,99 @@ struct PackageDetailView: View, Sendable
                 erroredOut = (true, packageInfoDecodingError.localizedDescription)
             }
         }
+    }
+}
+
+private extension BrewPackagesTracker
+{
+    func checkForDynamicPackage(passedInPackage package: BrewPackage) -> BrewPackage?
+    {
+        // MARK: - Finding the package using IDs
+        if let packageFoundByID = self.checkForDynamicPackageByID(passedInPackage: package)
+        {
+            AppConstants.shared.logger.debug("Will try to find package in tracker by ID")
+            
+            return packageFoundByID
+        }
+        else
+        {
+            AppConstants.shared.logger.debug("First round of checking using IDs did not return any packages. Will try again using select package properties a hash.")
+            
+            if let packageFoundByHashableRepresentation = self.checkForDynamicPackageByMinimalHashableRepresentation(passedInPackage: package)
+            {
+                return packageFoundByHashableRepresentation
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("""
+        Did not find any packages in tracker with the matching ID. Expected ID: \(package.id).
+        List of IDs of installed Formulae: \(self.successfullyLoadedFormulae.map{ $0.id })
+        List of IDs of installed Casks: \(self.successfullyLoadedCasks.map{ $0.id })
+        """)
+                
+                return nil
+            }
+        }
+    }
+    
+    func checkForDynamicPackageByID(passedInPackage package: BrewPackage) -> BrewPackage?
+    {
+        if let possibleFormula: BrewPackage = self.successfullyLoadedFormulae.filter({ $0.id == package.id }).first
+        {
+            AppConstants.shared.logger.debug("Found the correct formula: \(possibleFormula.name), ID: \(possibleFormula.id)")
+            
+            return possibleFormula
+        }
+
+        if let possibleCask: BrewPackage = self.successfullyLoadedCasks.filter({ $0.id == package.id }).first
+        {
+            AppConstants.shared.logger.debug("Found the correct cask: \(possibleCask.name), ID: \(possibleCask.id)")
+            
+            return possibleCask
+        }
+        
+        return nil
+    }
+    
+    func checkForDynamicPackageByMinimalHashableRepresentation(passedInPackage package: BrewPackage) -> BrewPackage?
+    {
+        /// Representation of selected package parameters for comparing equality, based on something other than the package ID
+        struct FastPackageComparableRepresentation: Hashable
+        {
+            let name: String
+            let type: PackageType
+            let versions: [String]
+            
+            init(name: String, type: PackageType, versions: [String])
+            {
+                self.name = name
+                self.type = type
+                self.versions = versions
+            }
+            
+            /// Initialize the fast comparable representation from a ``BrewPackage``
+            init(from brewPackage: BrewPackage)
+            {
+                self.init(name: brewPackage.name, type: brewPackage.type, versions: brewPackage.versions)
+            }
+        }
+        
+        let hashOfSearchedForPackage: FastPackageComparableRepresentation = .init(from: package)
+        
+        if let possibleFormula: BrewPackage = self.successfullyLoadedFormulae.filter({ FastPackageComparableRepresentation(from: $0) == hashOfSearchedForPackage }).first
+        {
+            AppConstants.shared.logger.debug("Found the correct Formula using hashing: \(possibleFormula.name), ID: \(possibleFormula.id)")
+            return possibleFormula
+        }
+        
+        if let possibleCask: BrewPackage = self.successfullyLoadedCasks.filter({ FastPackageComparableRepresentation(from: $0) == hashOfSearchedForPackage }).first
+        {
+            AppConstants.shared.logger.debug("Found the correct Cask using hashing: \(possibleCask.name), ID: \(possibleCask.id)")
+            
+            return possibleCask
+        }
+        
+        return nil
     }
 }
 

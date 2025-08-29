@@ -12,8 +12,8 @@ struct LoadServicesButton: View
 {
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
 
-    @EnvironmentObject var servicesState: ServicesState
-    @EnvironmentObject var servicesTracker: ServicesTracker
+    @Environment(ServicesState.self) var servicesState: ServicesState
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
 
     var body: some View
     {

@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import Defaults
 
 struct Licensing_SelfCompiledView: View
 {
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
-    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
+    @Environment(AppState.self) var appState: AppState
 
     var body: some View
     {

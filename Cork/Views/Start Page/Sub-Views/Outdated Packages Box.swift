@@ -9,8 +9,14 @@ import SwiftUI
 
 struct OutdatedPackagesBox: View
 {
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    /// The type of outdated package box that will show up
+    enum OutdatedPackageDisplayStage: Equatable
+    {
+        case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
+    }
+
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool
 
@@ -18,10 +24,10 @@ struct OutdatedPackagesBox: View
     {
         Group
         {
-            switch outdatedPackageTracker.outdatedPackageDisplayStage
+            switch outdatedPackagesTracker.outdatedPackageDisplayStage
             {
             case .checkingForUpdates:
-                OutdatedPackageLoaderBox(errorOutReason: $outdatedPackageTracker.errorOutReason)
+                OutdatedPackageLoaderBox(errorOutReason: Bindable(outdatedPackagesTracker).errorOutReason)
             case .showingOutdatedPackages:
                 OutdatedPackageListBox(isDropdownExpanded: $isOutdatedPackageDropdownExpanded)
             case .noUpdatesAvailable:
@@ -30,6 +36,6 @@ struct OutdatedPackagesBox: View
                 LoadingOfOutdatedPackagesFailedListBox(errorOutReason: reason)
             }
         }
-        .animation(.snappy, value: outdatedPackageTracker.outdatedPackageDisplayStage)
+        .animation(.snappy, value: outdatedPackagesTracker.outdatedPackageDisplayStage)
     }
 }

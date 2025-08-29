@@ -7,20 +7,21 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct SidebarPackageRow: View
 {
     let package: BrewPackage
 
-    @AppStorage("enableSwipeActions") var enableSwipeActions: Bool = false
+    @Default(.enableSwipeActions) var enableSwipeActions: Bool
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {
-        NavigationLink(value: package)
+        NavigationLink(value: AppState.NavigationManager.DetailDestination.package(package: package))
         {
             PackageListItem(packageItem: package)
         }

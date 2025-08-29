@@ -7,42 +7,47 @@
 
 // swiftlint:disable file_length
 
+import ButtonKit
 import CorkNotifications
 import CorkShared
 import DavidFoundation
+import Defaults
+import SwiftData
 import SwiftUI
 import UserNotifications
-import ButtonKit
 
+// swiftlint:disable type_body_length
 @main
 struct CorkApp: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
-    @StateObject var brewData: BrewDataStorage = .init()
-    @StateObject var availableTaps: TapTracker = .init()
-    
-    @StateObject var cachedDownloadsTracker: CachedPackagesTracker = .init()
+    @State var brewPackagesTracker: BrewPackagesTracker = .init()
+    @State var tapTracker: TapTracker = .init()
 
-    @StateObject var topPackagesTracker: TopPackagesTracker = .init()
+    @State var cachedDownloadsTracker: CachedDownloadsTracker = .init()
 
-    @StateObject var updateProgressTracker: UpdateProgressTracker = .init()
-    @StateObject var outdatedPackageTracker: OutdatedPackageTracker = .init()
+    @State var topPackagesTracker: TopPackagesTracker = .init()
 
-    @AppStorage("demoActivatedAt") var demoActivatedAt: Date?
-    @AppStorage("hasValidatedEmail") var hasValidatedEmail: Bool = false
+    @State var updateProgressTracker: UpdateProgressTracker = .init()
+    @State var outdatedPackagesTracker: OutdatedPackagesTracker = .init()
 
-    @AppStorage("hasFinishedOnboarding") var hasFinishedOnboarding: Bool = false
+    @Default(.demoActivatedAt) var demoActivatedAt: Date?
+    @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
-    @AppStorage("hasFinishedLicensingWorkflow") var hasFinishedLicensingWorkflow: Bool = false
+    @Default(.hasFinishedOnboarding) var hasFinishedOnboarding: Bool
+
+    @Default(.hasFinishedLicensingWorkflow) var hasFinishedLicensingWorkflow: Bool
 
     @Environment(\.openWindow) private var openWindow: OpenWindowAction
-    
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
 
-    @AppStorage("areNotificationsEnabled") var areNotificationsEnabled: Bool = false
-    @AppStorage("outdatedPackageNotificationType") var outdatedPackageNotificationType: OutdatedPackageNotificationType = .badge
-    
+    @Default(.showInMenuBar) var showInMenuBar: Bool
+
+    @Default(.areNotificationsEnabled) var areNotificationsEnabled: Bool
+    @Default(.outdatedPackageNotificationType) var outdatedPackageNotificationType: OutdatedPackageNotificationType
+
+    @Default(.lastSubmittedCorkVersion) var lastSubmittedCorkVersion: String
+
     @AppStorage("defaultBackupDateFormat") var defaultBackupDateFormat: Date.FormatStyle.DateStyle = .numeric
 
     @State private var sendStandardUpdatesAvailableNotification: Bool = true
@@ -51,8 +56,6 @@ struct CorkApp: App
     @State private var isShowingBrewfileExporter: Bool = false
 
     @State private var isShowingBrewfileImporter: Bool = false
-
-    @AppStorage("lastSubmittedCorkVersion") var lastSubmittedCorkVersion: String = ""
 
     let backgroundUpdateTimer: NSBackgroundActivityScheduler = {
         let scheduler: NSBackgroundActivityScheduler = .init(identifier: "com.davidbures.Cork.backgroundAutoUpdate")
@@ -80,13 +83,16 @@ struct CorkApp: App
                     LicensingView()
                         .interactiveDismissDisabled()
                 })
-                .environmentObject(appDelegate.appState)
-                .environmentObject(brewData)
-                .environmentObject(cachedDownloadsTracker)
-                .environmentObject(availableTaps)
-                .environmentObject(updateProgressTracker)
-                .environmentObject(outdatedPackageTracker)
-                .environmentObject(topPackagesTracker)
+                .environment(appDelegate.appState)
+                .environment(brewPackagesTracker)
+                .environment(tapTracker)
+                .environment(cachedDownloadsTracker)
+                .environment(updateProgressTracker)
+                .environment(outdatedPackagesTracker)
+                .environment(topPackagesTracker)
+                .modelContainer(for: [
+                    SavedTaggedPackage.self
+                ])
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
@@ -172,9 +178,9 @@ struct CorkApp: App
 
                             do
                             {
-                                let temporaryOutdatedPackageTracker: OutdatedPackageTracker = await .init()
+                                let temporaryOutdatedPackageTracker: OutdatedPackagesTracker = await .init()
 
-                                try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewData: brewData)
+                                try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
 
                                 var newOutdatedPackages: Set<OutdatedPackage> = await temporaryOutdatedPackageTracker.outdatedPackages
 
@@ -188,19 +194,19 @@ struct CorkApp: App
                                     newOutdatedPackages = .init()
                                 }
 
-                                if await newOutdatedPackages.count > outdatedPackageTracker.outdatedPackages.count
+                                if await newOutdatedPackages.count > outdatedPackagesTracker.outdatedPackages.count
                                 {
                                     AppConstants.shared.logger.log("New updates found")
 
                                     /// Set this to `true` so the normal notification doesn't get sent
                                     await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
 
-                                    let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackageTracker.displayableOutdatedPackages)
+                                    let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.displayableOutdatedPackages)
                                     AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                                     sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
 
-                                    await outdatedPackageTracker.setOutdatedPackages(to: newOutdatedPackages)
+                                    await outdatedPackagesTracker.setOutdatedPackages(to: newOutdatedPackages)
 
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1)
                                     {
@@ -222,21 +228,21 @@ struct CorkApp: App
                     }
                 }
                 .onChange(of: demoActivatedAt) // React to when the user activates the demo
-                { newValue in
+                { _, newValue in
                     if let newValue
                     { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
                         AppConstants.shared.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
                         hasFinishedLicensingWorkflow = true
                     }
                 }
-                .onChange(of: outdatedPackageTracker.displayableOutdatedPackages.count)
-                { outdatedPackageCount in
+                .onChange(of: outdatedPackagesTracker.displayableOutdatedPackages.count)
+                { _, outdatedPackageCount in
                     AppConstants.shared.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
 
                     // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
                     withAnimation
                     {
-                        outdatedPackageTracker.isCheckingForPackageUpdates = false
+                        outdatedPackagesTracker.isCheckingForPackageUpdates = false
                     }
 
                     if outdatedPackageCount == 0
@@ -268,11 +274,11 @@ struct CorkApp: App
                     }
                 }
                 .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
-                { newValue in
+                { _, newValue in
                     setAppBadge(outdatedPackageNotificationType: newValue)
                 }
                 .onChange(of: areNotificationsEnabled)
-                { newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
+                { _, newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
                     Task
                     {
                         await appDelegate.appState.requestNotificationAuthorization()
@@ -414,12 +420,13 @@ struct CorkApp: App
             
             PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name ?? "")
-                .environmentObject(appDelegate.appState)
-                .environmentObject(brewData)
+                .environment(appDelegate.appState)
+                .environment(brewPackagesTracker)
+                .environment(outdatedPackagesTracker)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
-        
+
         WindowGroup(id: .errorInspectorWindowID, for: String.self)
         { $errorToInspect in
             if let errorToInspect
@@ -432,19 +439,19 @@ struct CorkApp: App
         Settings
         {
             SettingsView()
-                .environmentObject(appDelegate.appState)
+                .environment(appDelegate.appState)
         }
 
         // MARK: - Menu Bar Extra
 
-        MenuBarExtra("app-name", systemImage: outdatedPackageTracker.displayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        MenuBarExtra("app-name", systemImage: outdatedPackagesTracker.displayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
-                .environmentObject(appDelegate.appState)
-                .environmentObject(brewData)
-                .environmentObject(availableTaps)
-                .environmentObject(cachedDownloadsTracker)
-                .environmentObject(outdatedPackageTracker)
+                .environment(appDelegate.appState)
+                .environment(brewPackagesTracker)
+                .environment(tapTracker)
+                .environment(cachedDownloadsTracker)
+                .environment(outdatedPackagesTracker)
         }
     }
 
@@ -528,11 +535,11 @@ struct CorkApp: App
     {
         Button
         {
-            appDelegate.appState.navigationTargetId = nil
+            appDelegate.appState.navigationManager.dismissScreen()
         } label: {
             Text("action.go-to-status-page.menu-bar")
         }
-        .disabled(appDelegate.appState.navigationTargetId == nil)
+        .disabled(!appDelegate.appState.navigationManager.isAnyScreenOpened)
         Divider()
     }
 
@@ -589,7 +596,7 @@ struct CorkApp: App
 
                     do
                     {
-                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewData: brewData, cachedPackagesTracker: cachedDownloadsTracker)
+                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewPackagesTracker: brewPackagesTracker, cachedDownloadsTracker: cachedDownloadsTracker)
                     }
                     catch let brewfileImportingError
                     {
@@ -655,7 +662,8 @@ struct CorkApp: App
 
         CheckForOutdatedPackagesButton()
             .keyboardShortcut("r")
-            .environmentObject(outdatedPackageTracker)
+            .environment(appDelegate.appState)
+            .environment(outdatedPackagesTracker)
         
         Button
         {
@@ -726,7 +734,7 @@ struct CorkApp: App
         } label: {
             Text("debug.action.licensing")
         }
-        
+
         Menu
         {
             Button
@@ -746,9 +754,9 @@ struct CorkApp: App
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
         {
-            if !outdatedPackageTracker.displayableOutdatedPackages.isEmpty
+            if !outdatedPackagesTracker.displayableOutdatedPackages.isEmpty
             {
-                NSApp.dockTile.badgeLabel = String(outdatedPackageTracker.displayableOutdatedPackages.count)
+                NSApp.dockTile.badgeLabel = String(outdatedPackagesTracker.displayableOutdatedPackages.count)
             }
         }
         else if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .none
@@ -756,7 +764,7 @@ struct CorkApp: App
             NSApp.dockTile.badgeLabel = ""
         }
     }
-    
+
     private func setWhetherToSendStandardUpdatesAvailableNotification(to newValue: Bool)
     {
         self.sendStandardUpdatesAvailableNotification = newValue

@@ -24,18 +24,15 @@ enum UntapError: LocalizedError
 }
 
 @MainActor
-func removeTap(name: String, availableTaps: TapTracker, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+func removeTap(name: String, tapTracker: TapTracker, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
     var indexToReplaceGlobal: Int?
 
-    /// Store the old navigation selection to see if it got updated in the middle of switching
-    let oldNavigationTargetId: UUID? = appState.navigationTargetId
-
     if shouldApplyUninstallSpinnerToRelevantItemInSidebar
     {
-        if let indexToReplace = availableTaps.addedTaps.firstIndex(where: { $0.name == name })
+        if let indexToReplace = tapTracker.addedTaps.firstIndex(where: { $0.name == name })
         {
-            availableTaps.addedTaps[indexToReplace].changeBeingModifiedStatus()
+            tapTracker.addedTaps[indexToReplace].changeBeingModifiedStatus()
 
             indexToReplaceGlobal = indexToReplace
         }
@@ -60,16 +57,7 @@ func removeTap(name: String, availableTaps: TapTracker, appState: AppState, shou
         {
             withAnimation
             {
-                availableTaps.addedTaps.removeAll(where: { $0.name == name })
-            }
-        }
-
-        if appState.navigationTargetId != nil
-        {
-            /// Switch to the status page only if the user didn't open another details window in the middle of the tap removal process
-            if oldNavigationTargetId == appState.navigationTargetId
-            {
-                appState.navigationTargetId = nil
+                tapTracker.addedTaps.removeAll(where: { $0.name == name })
             }
         }
     }
@@ -84,17 +72,17 @@ func removeTap(name: String, availableTaps: TapTracker, appState: AppState, shou
 
         if let indexToReplaceGlobal
         {
-            availableTaps.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
+            tapTracker.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
         }
         else
         {
             AppConstants.shared.logger.warning("Could not get index for that tap. Will loop over all of them")
             
-            for index in availableTaps.addedTaps.indices
+            for index in tapTracker.addedTaps.indices
             {
-                if availableTaps.addedTaps[index].isBeingModified
+                if tapTracker.addedTaps[index].isBeingModified
                 {
-                    availableTaps.addedTaps[index].isBeingModified = false
+                    tapTracker.addedTaps[index].isBeingModified = false
                 }
             }
         }

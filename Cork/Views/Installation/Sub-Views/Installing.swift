@@ -12,12 +12,12 @@ struct InstallingPackageView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
-    @EnvironmentObject var cachedPackagesTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @ObservedObject var installationProgressTracker: InstallationProgressTracker
+    @Bindable var installationProgressTracker: InstallationProgressTracker
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
@@ -117,8 +117,8 @@ struct InstallingPackageView: View
             do
             {
                 let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(
-                    using: brewData,
-                    cachedPackagesTracker: cachedPackagesTracker
+                    using: brewPackagesTracker,
+                    cachedDownloadsTracker: cachedDownloadsTracker
                 )
                 
                 AppConstants.shared.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")

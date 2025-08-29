@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CorkShared
 
 struct CheckForOutdatedPackagesButton: View
 {
-    @EnvironmentObject var outdatedPackagesTracker: OutdatedPackageTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {

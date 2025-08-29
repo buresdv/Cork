@@ -7,19 +7,20 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
 
 struct MaintenanceFinishedView: View
 {
-    @AppStorage("displayOnlyIntentionallyInstalledPackagesByDefault") var displayOnlyIntentionallyInstalledPackagesByDefault: Bool = true
+    @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @EnvironmentObject var cachedDownloadsTracker: CachedPackagesTracker
+    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @EnvironmentObject var outdatedPackageTacker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let shouldUninstallOrphans: Bool
     let shouldPurgeCache: Bool
@@ -47,7 +48,7 @@ struct MaintenanceFinishedView: View
             /// 2. Get the names of the packages that were installed intentionally
             /// 3. Get only the names of packages that were installed intentionally, and are also holding back cache purge
             /// **Motivation**: When the user only wants to see packages they have installed intentionally, they will be confused if a dependency suddenly shows up here
-            // let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewData.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
+            // let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = brewPackagesTracker.installedFormulae.filter({ $0.installedIntentionally }).map({ $0.name }).filter{packagesHoldingBackCachePurge.contains($0)}
 
             /// **Motivation**: Same as above, but more performant
             /// Instead of looking through all packages, it only looks through packages that are outdated. Since only outdated packages can hold back purging, it kills two birds with one stone
@@ -58,7 +59,7 @@ struct MaintenanceFinishedView: View
 
             /// **Motivation**: Same as above, but even more performant
             /// Only formulae can hold back cache purging. Therefore, we just filter out the outdated formulae, and those must be holding back the purging
-            return outdatedPackageTacker.displayableOutdatedPackages.filter { $0.package.type == .formula }.map(\.package.name)
+            return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.package.type == .formula }.map(\.package.name)
         }
         else
         {
@@ -179,7 +180,7 @@ struct MaintenanceFinishedView: View
         {
             do
             {
-                try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedDownloadsTracker)
+                try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
             }
             catch let synchronizationError
             {

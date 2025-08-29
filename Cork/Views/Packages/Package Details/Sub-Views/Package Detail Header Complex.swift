@@ -15,14 +15,14 @@ struct PackageDetailHeaderComplex: View
         case loadingDependants, showingDependants(dependantsToShow: [String]), noDependantsToShow
     }
     
-    @EnvironmentObject var appState: AppState
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
     
     let package: BrewPackage
     
     var isInPreviewWindow: Bool
     
-    @ObservedObject var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackageDetails
 
     let isLoadingDetails: Bool
     
@@ -83,7 +83,7 @@ struct PackageDetailHeaderComplex: View
                         .foregroundColor(.secondary)
                 }
 
-                if let dynamicPinnedStatus = brewData.successfullyLoadedFormulae.filter({ $0.id == package.id }).first {
+                if let dynamicPinnedStatus = brewPackagesTracker.successfullyLoadedFormulae.filter({ $0.id == package.id }).first {
                     if dynamicPinnedStatus.isPinned
                     {
                         Image(systemName: "pin.fill")

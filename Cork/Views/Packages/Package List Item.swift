@@ -11,11 +11,11 @@ struct PackageListItem: View
 {
     var packageItem: BrewPackage
 
-    @EnvironmentObject var outdatedPackageTracker: OutdatedPackageTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var isPackageOutdated: Bool
     {
-        if outdatedPackageTracker.displayableOutdatedPackages.contains(where: { $0.package.name == packageItem.name })
+        if outdatedPackagesTracker.displayableOutdatedPackages.contains(where: { $0.package.name == packageItem.name })
         {
             return true
         }

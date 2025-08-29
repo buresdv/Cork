@@ -10,11 +10,14 @@ import DavidFoundation
 import Foundation
 import SwiftUI
 import CorkShared
+import Defaults
+import DefaultsMacros
 
-class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
+@Observable
+class AppDelegate: NSObject, NSApplicationDelegate
 {
-    @AppStorage("showInMenuBar") var showInMenuBar: Bool = false
-    @AppStorage("startWithoutWindow") var startWithoutWindow: Bool = false
+    @ObservableDefault(.showInMenuBar) @ObservationIgnored var showInMenuBar: Bool
+    @ObservableDefault(.startWithoutWindow) @ObservationIgnored var startWithoutWindow: Bool
 
     @MainActor let appState: AppState = .init()
 
@@ -87,7 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
         updatePackagesMenuItem.action = #selector(appState.startUpdateProcessForLegacySelectors(_:))
         updatePackagesMenuItem.target = appState
 
-        if outdatedPackageTracker.isCheckingForPackageUpdates
+        if outdatedPackagesTracker.isCheckingForPackageUpdates
         {
             updatePackagesMenuItem.title = String(localized: "start-page.updates.loading")
             updatePackagesMenuItem.isEnabled = false

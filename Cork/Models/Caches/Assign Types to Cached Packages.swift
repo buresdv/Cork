@@ -8,25 +8,25 @@
 import Foundation
 import CorkShared
 
-extension CachedPackagesTracker
+extension CachedDownloadsTracker
 {
     @MainActor
-    func assignPackageTypeToCachedDownloads(brewData: BrewDataStorage)
+    func assignPackageTypeToCachedDownloads(brewPackagesTracker: BrewPackagesTracker)
     {
         var cachedDownloadsTracker: [CachedDownload] = .init()
 
-        AppConstants.shared.logger.debug("Package tracker in cached download assignment function has \(brewData.installedFormulae.count + brewData.installedCasks.count) packages")
+        AppConstants.shared.logger.debug("Package tracker in cached download assignment function has \(brewPackagesTracker.installedFormulae.count + brewPackagesTracker.installedCasks.count) packages")
 
         for cachedDownload in cachedDownloads
         {
             let normalizedCachedPackageName: String = cachedDownload.packageName.onlyLetters
 
-            if brewData.successfullyLoadedFormulae.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
+            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
             { /// The cached package is a formula
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a formula")
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula))
             }
-            else if brewData.successfullyLoadedCasks.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
+            else if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
             { /// The cached package is a cask
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a cask")
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask))

@@ -8,7 +8,7 @@
 import Foundation
 import CorkShared
 
-extension BrewDataStorage
+extension BrewPackagesTracker
 {
     /// Get the names of tagged packages as set, for fas comparing
     ///

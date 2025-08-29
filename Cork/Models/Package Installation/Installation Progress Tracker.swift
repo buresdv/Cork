@@ -8,13 +8,14 @@
 import Foundation
 import CorkShared
 
-class InstallationProgressTracker: ObservableObject
+@Observable
+class InstallationProgressTracker
 {
-    @Published var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
+    var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
 
-    @Published var numberOfPackageDependencies: Int = 0
-    @Published var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
-    @Published var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
+    var numberOfPackageDependencies: Int = 0
+    var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
+    var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
     
     private var installationProcess: Process?
 
@@ -38,7 +39,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installPackage(using brewData: BrewDataStorage, cachedPackagesTracker: CachedPackagesTracker) async throws -> TerminalOutput
+    func installPackage(using brewPackagesTracker: BrewPackagesTracker, cachedDownloadsTracker: CachedDownloadsTracker) async throws -> TerminalOutput
     {
         let package: BrewPackage = packageBeingInstalled.package
 
@@ -50,7 +51,7 @@ class InstallationProgressTracker: ObservableObject
         {
             AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
 
-            let output: String = try await installFormula(using: brewData).joined(separator: "")
+            let output: String = try await installFormula(using: brewPackagesTracker).joined(separator: "")
 
             installationResult.standardOutput.append(output)
 
@@ -61,12 +62,12 @@ class InstallationProgressTracker: ObservableObject
         else
         {
             AppConstants.shared.logger.info("Package is Cask")
-            try await installCask(using: brewData)
+            try await installCask(using: brewPackagesTracker)
         }
 
         do
         {
-            try await brewData.synchronizeInstalledPackages(cachedPackagesTracker: cachedPackagesTracker)
+            try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
         }
         catch let synchronizationError
         {
@@ -77,7 +78,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    private func installFormula(using _: BrewDataStorage) async throws -> [String]
+    private func installFormula(using _: BrewPackagesTracker) async throws -> [String]
     {
         let package: BrewPackage = packageBeingInstalled.package
         var packageDependencies: [String] = .init()
@@ -197,7 +198,7 @@ class InstallationProgressTracker: ObservableObject
     }
 
     @MainActor
-    func installCask(using _: BrewDataStorage) async throws
+    func installCask(using _: BrewPackagesTracker) async throws
     {
         let package: BrewPackage = packageBeingInstalled.package
 

@@ -7,17 +7,18 @@
 
 import Foundation
 import SwiftUI
+import Defaults
 
-enum TopPackageSorting: Int, Hashable, Identifiable, CaseIterable
+public enum TopPackageSorting: Int, Hashable, Identifiable, CaseIterable, Defaults.Serializable
 {
-    var id: Self
+    public var id: Self
     {
         self
     }
 
     case mostDownloads, fewestDownloads, random
 
-    var key: LocalizedStringKey
+    public var key: LocalizedStringKey
     {
         switch self
         {

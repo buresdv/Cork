@@ -9,6 +9,7 @@ import AppKit
 import CorkShared
 import DavidFoundation
 import Foundation
+import SwiftData
 
 /// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable, Codable
@@ -74,9 +75,52 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     {
         return versions.formatted(.list(type: .and))
     }
-
-    mutating func changeTaggedStatus()
+    
+    /// The purpose of the tagged status change operation
+    enum TaggedStatusChangePurpose: String
     {
+        /// Only load and apply the tagged status to packages
+        ///
+        /// For when the tagged packages are just being loaded and applied to the packages
+        case justLoading = "loading"
+        
+        /// Change and persist the change.
+        ///
+        /// For when the user initiates the change.
+        case actuallyChangingTheTaggedState = "actually changing the tagged state"
+    }
+    
+    /// Change the tagged status of a package, and optionally persist that change in the database
+    ///
+    /// - Parameter purpose: The purpose of this operation
+    @MainActor
+    mutating func changeTaggedStatus(purpose: TaggedStatusChangePurpose)
+    {
+        
+        let packageName: String = self.name
+        
+        AppConstants.shared.logger.debug("Will change the tagged status of package \(packageName) for the purpose of \(purpose.rawValue)")
+        
+        if purpose == .actuallyChangingTheTaggedState
+        {            
+            let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
+            
+            let saveablePackageRepresentation: SavedTaggedPackage = .init(fullName: packageName)
+            
+            if !isTagged
+            {
+                AppConstants.shared.logger.debug("Will add package representation \(saveablePackageRepresentation.fullName) to the persistence container")
+                
+                saveablePackageRepresentation.saveSelfToDatabase()
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Will remove package \(saveablePackageRepresentation.fullName) from the persistence container")
+                
+                saveablePackageRepresentation.deleteSelfFromDatabase()
+            }
+        }
+        
         isTagged.toggle()
     }
 
@@ -90,7 +134,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     ///
     /// Optionally specify which status to change the package to.
     ///
-    /// This function only changes the pinned status in the UI. Use the function ``performPinnedStatusChangeAction(appState:brewData:)`` to trigger a pinned status change in Homebrew.
+    /// This function only changes the pinned status in the UI. Use the function ``performPinnedStatusChangeAction(appState:brewPackagesTracker:)`` to trigger a pinned status change in Homebrew.
     mutating func changePinnedStatus(to status: PinnedStatus? = nil)
     {
         if let status
@@ -111,10 +155,10 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     /// Perform a pinned status change in Homebrew.
     ///
     /// For changing the pinned status of the package in the UI, use the function ``changePinnedStatus(to:)``
-    func performPinnedStatusChangeAction(appState: AppState, brewData: BrewDataStorage) async
+    func performPinnedStatusChangeAction(appState: AppState, brewPackagesTracker: BrewPackagesTracker) async
     {
         /// We need to get the number of packages that were pinned before the action, because if there's only one and it gets unpinned, the whole folder with pinned packages is deleted - therefore, there would be a bug where unpinning the last package would make it seem like the whole process failed
-        async let numberOfPinnedPackagesBeforePinChangeAction: Int = await brewData.successfullyLoadedFormulae.filter { $0.isPinned }.count
+        async let numberOfPinnedPackagesBeforePinChangeAction: Int = await brewPackagesTracker.successfullyLoadedFormulae.filter { $0.isPinned }.count
         
         if self.isPinned
         {
@@ -145,7 +189,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
             
             if numberOfPinnedPackagesBeforePinChangeAction == 1
             {
-                await brewData.applyPinnedStatus(namesOfPinnedPackages: .init())
+                await brewPackagesTracker.applyPinnedStatus(namesOfPinnedPackages: .init())
                 
                 return
             }
@@ -157,7 +201,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
             }
         }
                 
-        await brewData.applyPinnedStatus(namesOfPinnedPackages: brewData.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath))
+        await brewPackagesTracker.applyPinnedStatus(namesOfPinnedPackages: brewPackagesTracker.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath))
     }
     
     mutating func changeBeingModifiedStatus(to setState: Bool? = nil)

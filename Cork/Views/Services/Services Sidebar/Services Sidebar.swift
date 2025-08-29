@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ServicesSidebarView: View
 {
-    @EnvironmentObject var servicesState: ServicesState
-    @EnvironmentObject var servicesTracker: ServicesTracker
+    @Environment(ServicesState.self) var servicesState: ServicesState
+    @Environment(ServicesTracker.self) var servicesTracker: ServicesTracker
 
     @State private var searchText: String = ""
     
@@ -42,7 +42,7 @@ struct ServicesSidebarView: View
         }
         .searchable(text: $searchText, placement: .sidebar, prompt: Text("services-sidebar.search.prompt"))
         .onChange(of: localNavigationTargetId)
-        { newValue in
+        { oldValue, newValue in
             if servicesState.navigationTargetId != newValue {
                 servicesState.navigationTargetId = newValue
             }

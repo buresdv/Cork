@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 import CorkShared
 
-class CachedPackagesTracker: ObservableObject
+@Observable @MainActor
+class CachedDownloadsTracker
 {
-    @Published var cachedDownloads: [CachedDownload] = .init()
+    var cachedDownloads: [CachedDownload] = .init()
 
     private var cachedDownloadsTemp: [CachedDownload] = .init()
     

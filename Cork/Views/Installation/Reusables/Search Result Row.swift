@@ -7,13 +7,14 @@
 
 import SwiftUI
 import CorkShared
+import Defaults
 
 struct SearchResultRow: View, Sendable
 {
-    @AppStorage("showDescriptionsInSearchResults") var showDescriptionsInSearchResults: Bool = false
-    @AppStorage("showCompatibilityWarning") var showCompatibilityWarning: Bool = true
+    @Default(.showDescriptionsInSearchResults) var showDescriptionsInSearchResults: Bool
+    @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
-    @EnvironmentObject var brewData: BrewDataStorage
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let searchedForPackage: BrewPackage
     let context: Self.Context
@@ -47,14 +48,14 @@ struct SearchResultRow: View, Sendable
                 case .searchResults:
                     if searchedForPackage.type == .formula
                     {
-                        if brewData.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
+                        if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
                         {
                             PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }
                     }
                     else
                     {
-                        if brewData.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
+                        if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
                         {
                             PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }

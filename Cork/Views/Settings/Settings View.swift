@@ -6,24 +6,27 @@
 //
 
 import SwiftUI
+import CorkShared
+import Defaults
 
-class SettingsState: ObservableObject
+@Observable
+class SettingsState
 {
     enum AlertType
     {
         case deepUninstall, cleanupDisabling, customHomebrewLocationNotAnExecutableAtAll, customHomebrewLocationNotABrewExecutable(executablePath: String)
     }
 
-    @Published var alertType: AlertType = .cleanupDisabling
-    @Published var isShowingAlert: Bool = false
+    var alertType: AlertType = .cleanupDisabling
+    var isShowingAlert: Bool = false
 }
 
 struct SettingsView: View
 {
-    @AppStorage("allowMoreCompleteUninstallations") var allowMoreCompleteUninstallations: Bool = false
-    @AppStorage("isAutomaticCleanupEnabled") var isAutomaticCleanupEnabled: Bool = true
+    @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
+    @Default(.isAutomaticCleanupEnabled) var isAutomaticCleanupEnabled: Bool
 
-    @StateObject var settingsState: SettingsState = .init()
+    @State var settingsState: SettingsState = .init()
 
     var body: some View
     {
@@ -72,7 +75,7 @@ struct SettingsView: View
                  }
               */
         }
-        .environmentObject(settingsState)
+        .environment(settingsState)
         .alert(isPresented: $settingsState.isShowingAlert)
         {
             switch settingsState.alertType
