@@ -5673,6 +5673,12 @@
             "state" : "translated",
             "value" : "Installed packages"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes instalados"
+          }
         }
       }
     },
