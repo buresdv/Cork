@@ -4463,6 +4463,12 @@
             "state" : "translated",
             "value" : "Adotta"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прийняти"
+          }
         }
       }
     },
@@ -4491,6 +4497,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adotta %@"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прийняти %@"
           }
         }
       }
@@ -4702,6 +4714,12 @@
             "state" : "translated",
             "value" : "Verifica aggiornamenti…"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірити оновлення…"
+          }
         }
       }
     },
@@ -4735,6 +4753,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verifica pacchetti da aggiornare"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірити застарілі пакети"
           }
         }
       }
@@ -5672,6 +5696,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installed packages"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлені пакети"
           }
         }
       }
@@ -13884,6 +13914,12 @@
             "state" : "translated",
             "value" : "Impossibile adottare %@"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося прийняти %@"
+          }
         }
       }
     },
@@ -13917,6 +13953,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adozione di %@ terminata"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прийняти %@"
           }
         }
       }
@@ -13952,6 +13994,12 @@
             "state" : "translated",
             "value" : "È ora possibile aggiornare questo pacchetto via Homebrew"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей пакет тепер можна оновити за допомогою Homebrew"
+          }
         }
       }
     },
@@ -13985,6 +14033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adotto %@…"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прийняття %@…"
           }
         }
       }
@@ -61823,6 +61877,12 @@
           }
         },
         "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀎧"
