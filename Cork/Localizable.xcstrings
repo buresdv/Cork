@@ -4343,6 +4343,127 @@
         }
       }
     },
+    "accessibility.label.outdated-packages-box" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status of outdated packaes"
+          }
+        }
+      }
+    },
+    "accessibility.label.outdated-packages-box.listing-outdated-packages" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List of outdated packages"
+          }
+        }
+      }
+    },
+    "accessibility.label.outdated-packages-box.loading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading outdated packages"
+          }
+        }
+      }
+    },
+    "accessibility.label.package-type.cask" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package of Cask type"
+          }
+        }
+      }
+    },
+    "accessibility.label.package-type.formula" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package of Formula type"
+          }
+        }
+      }
+    },
+    "accessibility.label.package-type.unimplemented" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package of an unimplemented type"
+          }
+        }
+      }
+    },
+    "accessibility.label.package-type.unknown" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Package of an unknown type"
+          }
+        }
+      }
+    },
+    "accessibility.label.return-to-status-page" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Return to status page"
+          }
+        }
+      }
+    },
+    "accessibility.label.sidebar" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List of installed packages"
+          }
+        }
+      }
+    },
+    "accessibility.label.sidebar.casks-section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List of installed Casks"
+          }
+        }
+      }
+    },
+    "accessibility.label.sidebar.formulae-section" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List of installed Formulae"
+          }
+        }
+      }
+    },
+    "accessibility.value.listing-outdated-packages.%lld-managed.%lld-unmanaged" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
+          }
+        }
+      }
+    },
     "action.activate-demo" : {
       "localizations" : {
         "cs" : {

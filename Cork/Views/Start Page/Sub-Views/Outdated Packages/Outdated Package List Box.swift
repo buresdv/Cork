@@ -162,6 +162,8 @@ struct OutdatedPackageListBox: View
                 }
             }
         }
+        .accessibilityLabel("accessibility.label.outdated-packages-box.listing-outdated-packages")
+        .accessibilityValue("accessibility.value.listing-outdated-packages.\(packagesManagedByHomebrew.count)-managed.\(packagesThatUpdateThemselves.count)-unmanaged")
     }
 
     // MARK: - Outdated package list complex

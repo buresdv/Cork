@@ -5,9 +5,9 @@
 //  Created by David Bureš on 14.02.2023.
 //
 
-import SwiftUI
 import CorkShared
 import Defaults
+import SwiftUI
 
 struct SidebarView: View
 {
@@ -21,7 +21,7 @@ struct SidebarView: View
         .formula, .cask, .tap, .intentionallyInstalledPackage
     ]
     @State private var currentTokens: [PackageSearchToken] = .init()
-    
+
     @State private var localNavigationTragetId: UUID?
 
     var suggestedTokens: [PackageSearchToken]
@@ -59,36 +59,22 @@ struct SidebarView: View
         }
         .listStyle(.sidebar)
         .frame(minWidth: 200)
-        .modify
-        { viewProxy in
-            if #available(macOS 14.0, *)
+        .searchable(
+            text: $searchText,
+            tokens: $currentTokens,
+            suggestedTokens: .constant(suggestedTokens),
+            isPresented: Bindable(appState).isSearchFieldFocused,
+            placement: .sidebar,
+            prompt: Text("sidebar.search.prompt")
+        ){ token in
+            Label
             {
-                viewProxy
-                    .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), isPresented: Bindable(appState).isSearchFieldFocused, placement: .sidebar, prompt: Text("sidebar.search.prompt"))
-                    { token in
-                        Label
-                        {
-                            Text(token.name)
-                        } icon: {
-                            Image(systemName: token.icon)
-                                .foregroundColor(Color.blue)
-                        }
-                    }
+                Text(token.name)
+            } icon: {
+                Image(systemName: token.icon)
+                    .foregroundColor(Color.blue)
             }
-            else
-            {
-                viewProxy
-                    .searchable(text: $searchText, tokens: $currentTokens, suggestedTokens: .constant(suggestedTokens), placement: .sidebar, prompt: Text("sidebar.search.prompt"))
-                    { token in
-                        Label
-                        {
-                            Text(token.name)
-                        } icon: {
-                            Image(systemName: token.icon)
-                                .foregroundColor(Color.blue)
-                        }
-                    }
-            }
+            .accessibilityAddTraits(.allowsDirectInteraction)
         }
         .toolbar(id: "SidebarToolbar")
         {
@@ -104,6 +90,7 @@ struct SidebarView: View
                 .disabled(
                     !appState.navigationManager.isAnyScreenOpened || !searchText.isEmpty || !currentTokens.isEmpty
                 )
+                .accessibilityLabel("accessibility.label.return-to-status-page")
             }
             .defaultCustomization(.visible, options: .alwaysAvailable)
         }

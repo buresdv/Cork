@@ -11,7 +11,7 @@ import SwiftUI
 struct CachedDownloadsFolderInfoBox: View
 {
     @Environment(AppState.self) var appState: AppState
-    
+
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var body: some View
@@ -44,6 +44,28 @@ struct CachedDownloadsFolderInfoBox: View
                     {
                         ForEach(cachedDownloadsTracker.cachedDownloads)
                         { cachedPackage in
+
+                            let markAccessibilityLabel: LocalizedStringKey =
+                            {
+                                switch cachedPackage.packageType
+                                {
+                                case .none:
+                                    return "accessibility.label.package-type.unknown"
+                                case .some(let packageType):
+                                    switch packageType
+                                    {
+                                    case .formula:
+                                        return PackageType.formula.accessibilityLabel
+                                    case .cask:
+                                        return PackageType.cask.accessibilityLabel
+                                    case .other:
+                                        return "accessibility.label.package-type.unimplemented"
+                                    case .unknown:
+                                        return "accessibility.label.package-type.unknown"
+                                    }
+                                }
+                            }()
+
                             BarMark(
                                 x: .value("start-page.cached-downloads.graph.size", cachedPackage.sizeInBytes)
                             )
@@ -53,7 +75,10 @@ struct CachedDownloadsFolderInfoBox: View
                                 Text(cachedPackage.packageName)
                                     .foregroundColor(.white)
                                     .font(.caption)
+                                    .accessibilityHidden(true)
                             }
+                            .accessibilityLabel(markAccessibilityLabel)
+                            .accessibilityValue(cachedPackage.sizeInBytes.formatted(.byteCount(style: .file)))
 
                             /// Insert the separators between the bars, unless it's the last one. Then don't insert the divider
                             if cachedPackage.packageName != cachedDownloadsTracker.cachedDownloads.last?.packageName
@@ -62,6 +87,7 @@ struct CachedDownloadsFolderInfoBox: View
                                     x: .value("start-page.cached-downloads.graph.size", cachedDownloadsTracker.cachedDownloadsSize / 350)
                                 )
                                 .foregroundStyle(Color.white)
+                                .accessibilityHidden(true)
                             }
                         }
                     }
@@ -74,6 +100,7 @@ struct CachedDownloadsFolderInfoBox: View
                     .cornerRadius(2)
                     .frame(height: 20)
                     .chartLegend(.hidden)
+                    .accessibilityElement(children: .contain)
 
                     HStack(alignment: .center, spacing: 10)
                     {
@@ -84,7 +111,7 @@ struct CachedDownloadsFolderInfoBox: View
             }
         }
     }
-    
+
     @ViewBuilder
     func chartLegendItem(item: CachedDownloadType) -> some View
     {
