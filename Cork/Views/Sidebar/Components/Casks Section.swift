@@ -68,6 +68,7 @@ struct CasksSection: View
             }
         }
         .collapsible(areNoCasksInstalled ? false : true)
+        .accessibilityLabel("accessibility.label.sidebar.casks-section")
     }
 
     private var displayedCasks: Set<BrewPackage>

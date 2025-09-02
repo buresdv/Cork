@@ -70,6 +70,7 @@ struct FormulaeSection: View
             }
         }
         .collapsible(areNoFormulaeInstalled ? false : true)
+        .accessibilityLabel("accessibility.label.sidebar.formulae-section")
     }
 
     private var displayedFormulae: Set<BrewPackage>

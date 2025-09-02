@@ -37,5 +37,6 @@ struct OutdatedPackagesBox: View
             }
         }
         .animation(.snappy, value: outdatedPackagesTracker.outdatedPackageDisplayStage)
+        .accessibilityLabel("accessibility.label.outdated-packages-box")
     }
 }

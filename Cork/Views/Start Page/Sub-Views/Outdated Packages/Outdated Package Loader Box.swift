@@ -65,5 +65,6 @@ struct OutdatedPackageLoaderBox: View
             }
         }
         .transition(.push(from: .top))
+        .accessibilityLabel("accessibility.label.outdated-packages-box.loading")
     }
 }

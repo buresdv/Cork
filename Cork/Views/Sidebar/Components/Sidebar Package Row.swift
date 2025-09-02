@@ -52,5 +52,9 @@ struct SidebarPackageRow: View
                 viewProxy
             }
         }
+        .accessibilityAddTraits(.allowsDirectInteraction)
+        .accessibilityAddTraits(.isButton)
+        .accessibilityLabel("Link to package")
+        .accessibilityValue(package.name)
     }
 }
