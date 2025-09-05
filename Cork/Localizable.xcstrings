@@ -4386,6 +4386,12 @@
             "state" : "translated",
             "value" : "Status of outdated packages"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado de paquetes desactualizados"
+          }
         }
       }
     },
@@ -4407,6 +4413,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "List of outdated packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de paquetes desactualizados"
           }
         }
       }
@@ -4430,6 +4442,12 @@
             "state" : "translated",
             "value" : "Loading outdated packages"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando paquetes desactualizados"
+          }
         }
       }
     },
@@ -4451,6 +4469,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package of Cask type"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquete del tipo Cask"
           }
         }
       }
@@ -4474,6 +4498,12 @@
             "state" : "translated",
             "value" : "Package of Formula type"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquete del tipo Fórmula"
+          }
         }
       }
     },
@@ -4495,6 +4525,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Package of an unimplemented type"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquete de un tipo no-implementado"
           }
         }
       }
@@ -4518,6 +4554,12 @@
             "state" : "translated",
             "value" : "Package of an unknown type"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquete de tipo desconocido"
+          }
         }
       }
     },
@@ -4539,6 +4581,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Return to status page"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regresar a pagina de estado"
           }
         }
       }
@@ -4579,6 +4627,12 @@
             "state" : "translated",
             "value" : "List of installed Casks"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de Casks instalados"
+          }
         }
       }
     },
@@ -4601,6 +4655,12 @@
             "state" : "translated",
             "value" : "List of installed Formulae"
           }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de Fórmulas instaladas"
+          }
         }
       }
     },
@@ -4622,6 +4682,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld paquetes desactualizados manejados por Homebrew y%2$lld paquetes desactualizados que no son manejados por Homebrew"
           }
         }
       }
@@ -6027,6 +6093,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installed packages"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquetes instalados"
           }
         },
         "uk" : {
