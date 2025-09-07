@@ -4392,6 +4392,12 @@
             "state" : "translated",
             "value" : "Estado de paquetes desactualizados"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Информация об устаревших пакетах"
+          }
         }
       }
     },
@@ -4419,6 +4425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lista de paquetes desactualizados"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Список устаревших пакетов"
           }
         }
       }
@@ -4448,6 +4460,12 @@
             "state" : "translated",
             "value" : "Cargando paquetes desactualizados"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка устаревших пакетов"
+          }
         }
       }
     },
@@ -4475,6 +4493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete del tipo Cask"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакеты типа “приложение macOS”"
           }
         }
       }
@@ -4504,6 +4528,12 @@
             "state" : "translated",
             "value" : "Paquete del tipo Fórmula"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакеты типа “консольное приложение/библиотека”"
+          }
         }
       }
     },
@@ -4531,6 +4561,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete de un tipo no-implementado"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакеты типа, не известного Cork"
           }
         }
       }
@@ -4560,6 +4596,12 @@
             "state" : "translated",
             "value" : "Paquete de tipo desconocido"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакеты неизвестного типа"
+          }
         }
       }
     },
@@ -4587,6 +4629,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Regresar a pagina de estado"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вернуться на страницу “Обзор”"
           }
         }
       }
@@ -4633,6 +4681,12 @@
             "state" : "translated",
             "value" : "Lista de Casks instalados"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Список установленных приложений macOS"
+          }
         }
       }
     },
@@ -4661,6 +4715,12 @@
             "state" : "translated",
             "value" : "Lista de Fórmulas instaladas"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Список установленных консольных приложений/библиотек"
+          }
         }
       }
     },
@@ -4688,6 +4748,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld paquetes desactualizados manejados por Homebrew y%2$lld paquetes desactualizados que no son manejados por Homebrew"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld устаревших пакетов, управляемых Homebrew, и %2$lld устаревших пакетов, не управляемых Homebrew"
           }
         }
       }
@@ -4817,6 +4883,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adotta"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Взять под управление Homebrew"
           }
         },
         "uk" : {
@@ -5082,6 +5154,12 @@
             "value" : "Verifica aggiornamenti…"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверить обновления…"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5126,6 +5204,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verifica pacchetti da aggiornare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверить устаревшие пакеты"
           }
         },
         "uk" : {
@@ -6099,6 +6183,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquetes instalados"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Установленные пакеты"
           }
         },
         "uk" : {
@@ -14444,6 +14534,12 @@
             "value" : "Impossibile adottare %@"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось перевести %@ под управление Homebrew"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14488,6 +14584,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adozione di %@ terminata"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевод %@ под управление Homebrew завершен"
           }
         },
         "uk" : {
@@ -14536,6 +14638,12 @@
             "value" : "È ora possibile aggiornare questo pacchetto via Homebrew"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Теперь этот пакет может быть обновлен с помощью Homebrew"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14580,6 +14688,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adotto %@…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевод %@ под управление Homebrew…"
           }
         },
         "uk" : {
@@ -37884,8 +37998,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Имеет предписания 􀅴"
+            "state" : "translated",
+            "value" : "􀓕 Имеет предписания…"
           }
         },
         "tr" : {
@@ -39097,6 +39211,12 @@
             "value" : "Questo pacchetto è obsoleto"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот пакет рекомендуется заменить или удалить"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39155,6 +39275,12 @@
             "value" : "􀇿 Obsoleto"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Не рекомендован"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39211,6 +39337,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇿 Obsoleto…"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Не рекомендован…"
           }
         },
         "tr" : {
@@ -39533,6 +39665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Note"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Комментарии"
           }
         },
         "tr" : {
@@ -49861,6 +49999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Note pacchetto:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Комментарии пакетов:"
           }
         },
         "tr" : {
@@ -63324,6 +63468,12 @@
           }
         },
         "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀎧"
