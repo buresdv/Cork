@@ -59,7 +59,7 @@ struct TapsSection: View
 
                                 try await removeTap(name: tap.name, tapTracker: tapTracker, appState: appState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
                             } label: {
-                                Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name)")
+                                Label("sidebar.section.added-taps.contextmenu.remove-\(tap.name)", systemImage: "trash")
                             }
                             .asyncButtonStyle(.plainStyle)
                         }

@@ -36,6 +36,7 @@ struct PackageModificationButtons: View
                     if package.type == .formula
                     {
                         PinUnpinButton(package: package)
+                            .labelStyle(.titleOnly)
                     }
 
                     Spacer()

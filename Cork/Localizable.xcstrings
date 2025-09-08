@@ -33942,7 +33942,6 @@
       }
     },
     "navigation.upgrade-packages.help" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

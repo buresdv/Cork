@@ -27,7 +27,7 @@ struct UpdatePackageButton: View
         {
             appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackageFromTracker))
         } label: {
-            Text("action.update-\(packageToUpdate.name)")
+            Label("action.update-\(packageToUpdate.name)", systemImage: "arrow.clockwise")
         }
 
     }
