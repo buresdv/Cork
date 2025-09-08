@@ -4369,6 +4369,12 @@
     },
     "accessibility.label.outdated-packages-box" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stav zastaralých balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4403,6 +4409,12 @@
     },
     "accessibility.label.outdated-packages-box.listing-outdated-packages" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seznam zastaralých balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4437,6 +4449,12 @@
     },
     "accessibility.label.outdated-packages-box.loading" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítání zastaralých balíčků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4471,6 +4489,12 @@
     },
     "accessibility.label.package-type.cask" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček typu Soudek"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4505,6 +4529,12 @@
     },
     "accessibility.label.package-type.formula" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček typu Vzorec"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4539,6 +4569,12 @@
     },
     "accessibility.label.package-type.unimplemented" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček neznámého typu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4573,6 +4609,12 @@
     },
     "accessibility.label.package-type.unknown" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balíček neznámého typu"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4607,6 +4649,12 @@
     },
     "accessibility.label.return-to-status-page" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Návrat na stavovou stránku"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4658,6 +4706,12 @@
     },
     "accessibility.label.sidebar.casks-section" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seznam nainstalovaných Soudků"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4692,6 +4746,12 @@
     },
     "accessibility.label.sidebar.formulae-section" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seznam nainstalovaných Vzorců"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4726,6 +4786,12 @@
     },
     "accessibility.value.listing-outdated-packages.%lld-managed.%lld-unmanaged" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld zastaralých balíčků, které spravuje Homebrew, a %2$lld balíčků které nespravuje Homebrew"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
