@@ -662,7 +662,7 @@ struct CorkApp: App
         {
             appDelegate.appState.showSheet(ofType: .fullUpdate)
         } label: {
-            Label("navigation.menu.packages.update", systemImage: "arrow.clockwise")
+            Label("navigation.menu.packages.update", systemImage: "square.and.arrow.down")
         }
         .keyboardShortcut("r", modifiers: [.control, .command])
     }
