@@ -2,6 +2,9 @@ import ProjectDescription
 
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
+let version: Version = .init(1, 6, 1, buildMetadataIdentifiers: ["Tahoe"])
+let build: String = "101_T"
+
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
     if configureWithSelfCompiled {
@@ -141,8 +144,8 @@ let project = Project(
     settings: .settings(
         base: [
             "SWIFT_VERSION": "6.0",
-            "MARKETING_VERSION": "1.6.0",
-            "CURRENT_PROJECT_VERSION": "100"
+            "MARKETING_VERSION": .init(stringLiteral: version.description),
+            "CURRENT_PROJECT_VERSION": .init(stringLiteral: build)
         ],
         configurations: [
             .debug(
