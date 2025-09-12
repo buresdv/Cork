@@ -4399,6 +4399,12 @@
             "value" : "Estado de paquetes desactualizados"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stato dei pacchetti obsoleti"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4437,6 +4443,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lista de paquetes desactualizados"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista dei pacchetti obsoleti"
           }
         },
         "ru" : {
@@ -4479,6 +4491,12 @@
             "value" : "Cargando paquetes desactualizados"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caricamento pacchetti obsoleti"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4517,6 +4535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete del tipo Cask"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pacchetto di tipo Cask"
           }
         },
         "ru" : {
@@ -4559,6 +4583,12 @@
             "value" : "Paquete del tipo Fórmula"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paccketto di tipo Formula"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4597,6 +4627,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete de un tipo no-implementado"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pacchetto di tipo non implementato"
           }
         },
         "ru" : {
@@ -4639,6 +4675,12 @@
             "value" : "Paquete de tipo desconocido"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pacchetto di tipo sconosciuto"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4679,6 +4721,12 @@
             "value" : "Regresar a pagina de estado"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Torna alla pagina di stato"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4700,6 +4748,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "List of installed packages"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista dei pacchetti installati"
           }
         }
       }
@@ -4734,6 +4788,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lista de Casks instalados"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista dei Cask installati"
           }
         },
         "ru" : {
@@ -4776,6 +4836,12 @@
             "value" : "Lista de Fórmulas instaladas"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista di Formulae installate"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4814,6 +4880,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld paquetes desactualizados manejados por Homebrew y%2$lld paquetes desactualizados que no son manejados por Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld pacchetti obsoleti gestiti da Homebrew e %2$lld pacchetti obsoleti non gestiti da Homebrew"
           }
         },
         "ru" : {
@@ -6250,6 +6322,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquetes instalados"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pacchetti installati"
           }
         },
         "ru" : {
