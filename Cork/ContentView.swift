@@ -248,12 +248,13 @@ private extension View
 
                 AppConstants.shared.logger.debug("System version: \(String(describing: AppConstants.shared.osVersionString), privacy: .public)")
 
-                if !FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
+                if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
                 {
-                    AppConstants.shared.logger.info("Documents directory does not exist, creating it...")
+                    AppConstants.shared.logger.info("Documents directory exists - will try to delete it...")
+                    
                     do
                     {
-                        try FileManager.default.createDirectory(at: AppConstants.shared.documentsDirectoryPath, withIntermediateDirectories: true)
+                        try FileManager.default.removeItem(at: AppConstants.shared.documentsDirectoryPath)
                     }
                     catch let documentDirectoryCreationError
                     {
@@ -262,25 +263,7 @@ private extension View
                 }
                 else
                 {
-                    AppConstants.shared.logger.info("Documents directory exists")
-                }
-
-                if !FileManager.default.fileExists(atPath: AppConstants.shared.metadataFilePath.path)
-                {
-                    AppConstants.shared.logger.info("Metadata file does not exist, creating it...")
-
-                    do
-                    {
-                        try Data().write(to: AppConstants.shared.metadataFilePath, options: .atomic)
-                    }
-                    catch let metadataDirectoryCreationError
-                    {
-                        AppConstants.shared.logger.error("Failed while creating metadata directory: \(metadataDirectoryCreationError.localizedDescription)")
-                    }
-                }
-                else
-                {
-                    AppConstants.shared.logger.info("Metadata file exists")
+                    AppConstants.shared.logger.info("Documents directory does not exist - Won't do anything")
                 }
             }
     }
