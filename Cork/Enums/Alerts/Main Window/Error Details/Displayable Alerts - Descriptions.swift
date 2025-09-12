@@ -34,10 +34,6 @@ extension DisplayableAlert
             return String(localized: "alert.could-not-find-package-uuid-in-list")
         case .uninstallationNotPossibleDueToDependency(let packageThatTheUserIsTryingToUninstall, _):
             return String(localized: "alert.unable-to-uninstall-\(packageThatTheUserIsTryingToUninstall.name).title")
-        case .couldNotApplyTaggedStateToPackages:
-            return String(localized: "alert.could-not-apply-tags.title")
-        case .couldNotClearMetadata:
-            return String(localized: "alert.could-not-clear-metadata.title")
         case .metadataFolderDoesNotExist:
             return String(localized: "alert.metadata-folder-does-not-exist.title")
         case .couldNotCreateCorkMetadataDirectory:

@@ -44,8 +44,6 @@ public struct AppConstants: Sendable
         // MARK: -
         self.documentsDirectoryPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(component: "Cork", directoryHint: .isDirectory)
         
-        self.metadataFilePath = self.documentsDirectoryPath.appending(component: "Metadata", directoryHint: .notDirectory).appendingPathExtension("brewmeta")
-        
         self.brewCachePath = URL.libraryDirectory.appending(component: "Caches", directoryHint: .isDirectory).appending(component: "Homebrew", directoryHint: .isDirectory)
         
         self.brewCachedFormulaeDownloadsPath = brewCachePath
@@ -180,8 +178,8 @@ public struct AppConstants: Sendable
 
     // MARK: - Storage for tagging
 
+    // TODO: Remove in the next version after users stopped using the old metadata file
     public let documentsDirectoryPath: URL
-    public let metadataFilePath: URL
 
     // MARK: - Brew Cache
 

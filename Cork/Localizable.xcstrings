@@ -5375,6 +5375,7 @@
       }
     },
     "action.clear-metadata" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -14835,6 +14836,7 @@
       }
     },
     "alert.could-not-apply-tags.message" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -14923,6 +14925,7 @@
       }
     },
     "alert.could-not-apply-tags.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -15187,6 +15190,7 @@
       }
     },
     "alert.could-not-clear-metadata.message" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -15275,6 +15279,7 @@
       }
     },
     "alert.could-not-clear-metadata.title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

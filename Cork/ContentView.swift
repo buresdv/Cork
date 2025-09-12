@@ -545,54 +545,6 @@ private extension View
                 case .couldNotFindPackageUUIDInList:
                     EmptyView()
 
-                case .couldNotApplyTaggedStateToPackages:
-                    VStack
-                    {
-                        Button(role: .destructive)
-                        {
-                            if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
-                            {
-                                do
-                                {
-                                    try FileManager.default.removeItem(atPath: AppConstants.shared.documentsDirectoryPath.path)
-                                    restartApp()
-                                }
-                                catch
-                                {
-                                    view.appState.fatalAlertType = .couldNotClearMetadata
-                                }
-                            }
-                            else
-                            {
-                                view.appState.fatalAlertType = .metadataFolderDoesNotExist
-                            }
-                        } label: {
-                            Text("action.clear-metadata")
-                        }
-
-                        QuitCorkButton()
-                    }
-
-                case .couldNotClearMetadata:
-                    VStack
-                    {
-                        Button
-                        {
-                            if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
-                            {
-                                AppConstants.shared.documentsDirectoryPath.revealInFinder(.openParentDirectoryAndHighlightTarget)
-                            }
-                            else
-                            {
-                                view.appState.fatalAlertType = .metadataFolderDoesNotExist
-                            }
-                        } label: {
-                            Text("action.reveal-in-finder")
-                        }
-
-                        QuitCorkButton()
-                    }
-
                 case .metadataFolderDoesNotExist:
                     QuitCorkButton()
 
