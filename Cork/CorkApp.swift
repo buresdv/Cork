@@ -14,6 +14,7 @@ import DavidFoundation
 import Defaults
 import SwiftData
 import SwiftUI
+import UniformTypeIdentifiers
 import UserNotifications
 
 // swiftlint:disable type_body_length
@@ -585,7 +586,10 @@ struct CorkApp: App
                 let picker: NSOpenPanel = .init()
                 picker.allowsMultipleSelection = false
                 picker.canChooseDirectories = false
-                picker.allowedFileTypes = ["brewbak", ""]
+                picker.allowedContentTypes = [
+                    UTType(filenameExtension: "brewbak")!,
+                    UTType.folder
+                ]
 
                 if picker.runModal() == .OK
                 {
