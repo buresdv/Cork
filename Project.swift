@@ -106,6 +106,7 @@ let corkHelpTarget: ProjectDescription.Target = .target(
     destinations: [.mac],
     product: .bundle,
     bundleId: "eu.davidbures.corkhelp",
+    deploymentTargets: .macOS("14.0.0"),
     settings: .settings(configurations: [
         .debug(
             name: "Debug",
@@ -123,6 +124,7 @@ let corkTestsTarget: ProjectDescription.Target = .target(
     destinations: [.mac],
     product: .unitTests,
     bundleId: "eu.davidbures.cork-tests",
+    deploymentTargets: .macOS("14.0.0"),
     sources: [
         "Tests/**",
         "Cork/**/*.swift"
