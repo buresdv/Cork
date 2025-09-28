@@ -9,5 +9,6 @@ let config: Config = .init(
         swiftVersion: .init(6, 0, 0),
         plugins: .init(),
         generationOptions: .options(),
-        installOptions: .options())
+        installOptions: .options()
+    )
 )

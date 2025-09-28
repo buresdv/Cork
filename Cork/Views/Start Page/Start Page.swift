@@ -126,13 +126,8 @@ struct StartPage: View
                 {
                     Spacer()
 
-                    Button
-                    {
-                        AppConstants.shared.logger.info("Would perform maintenance")
-                        appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
-                    } label: {
-                        Text("start-page.open-maintenance")
-                    }
+                    OpenMaintenanceSheetButton(appState: appState, labelType: .openMaintenanceSheet)
+                        .labelStyle(.titleOnly)
                 }
                 .transition(.push(from: .top))
             }

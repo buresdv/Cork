@@ -65,38 +65,6 @@ struct ContentView: View, Sendable
         .disabled(self.outdatedPackagesTracker.isCheckingForPackageUpdates)
     }
 
-    @ViewBuilder private var addTapButton: some View
-    {
-        Button
-        {
-            appState.showSheet(ofType: .tapAddition)
-        } label: {
-            Label
-            {
-                Text("navigation.add-tap")
-            } icon: {
-                Image(systemName: "spigot")
-            }
-        }
-        .help("navigation.add-tap.help")
-    }
-
-    @ViewBuilder private var installPackageButton: some View
-    {
-        Button
-        {
-            appState.showSheet(ofType: .packageInstallation)
-        } label: {
-            Label
-            {
-                Text("navigation.install-package")
-            } icon: {
-                Image(systemName: "plus")
-            }
-        }
-        .help("navigation.install-package.help")
-    }
-
     @ViewBuilder private var performMaintenanceButton: some View
     {
         Button
@@ -158,17 +126,17 @@ struct ContentView: View, Sendable
 
             ToolbarItem(id: "upgradePackages", placement: .primaryAction)
             {
-                self.upgradePackagesButton
+                UpgradePackagesButton(appState: appState)
             }
 
             ToolbarItem(id: "addTap", placement: .primaryAction)
             {
-                self.addTapButton
+                AddTapButton(appState: appState)
             }
 
             ToolbarItem(id: "installPackage", placement: .primaryAction)
             {
-                self.installPackageButton
+                InstallPackageButton(appState: appState)
             }
 
             ToolbarItem(id: "maintenance", placement: .primaryAction)

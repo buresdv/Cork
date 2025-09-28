@@ -138,7 +138,6 @@ struct AboutView: View
             Image(nsImage: NSImage(named: "AppIcon") ?? NSImage())
                 .resizable()
                 .frame(width: 150, height: 150)
-                .transaction { $0.animation = nil }
 
             VStack(alignment: .leading, spacing: 20)
             {
@@ -184,7 +183,6 @@ struct AboutView: View
                     } label: {
                         Text("about.packages")
                     }
-                    .animation(.none, value: isPackageGroupExpanded)
 
                     DisclosureGroup
                     {
@@ -241,7 +239,6 @@ struct AboutView: View
                     } label: {
                         Text("about.contributors")
                     }
-                    .animation(.none, value: isContributorGroupExpanded)
 
                     DisclosureGroup
                     {
@@ -274,7 +271,6 @@ struct AboutView: View
                     } label: {
                         Text("about.translators")
                     }
-                    .animation(.none, value: isTranslatorGroupExpanded)
 
                     Text("about.privacy-policy")
                         .font(.subheadline)
@@ -301,9 +297,7 @@ struct AboutView: View
                 }
             }
             .frame(width: 350, alignment: .topLeading)
-            .transaction { $0.animation = nil }
         }
         .padding()
-        // .fixedSize()
     }
 }

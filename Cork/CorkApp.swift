@@ -441,6 +441,7 @@ struct CorkApp: App
             SettingsView()
                 .environment(appDelegate.appState)
         }
+        .windowResizability(.contentSize)
 
         // MARK: - Menu Bar Extra
 
@@ -464,7 +465,7 @@ struct CorkApp: App
         {
             openWindow(id: .aboutWindowID)
         } label: {
-            Text("navigation.about")
+            Label("navigation.about", systemImage: "info.circle")
         }
     }
 
@@ -478,12 +479,14 @@ struct CorkApp: App
                 {
                     NSWorkspace.shared.open(URL(string: "https://github.com/buresdv/Cork/issues/new?assignees=&labels=Bug&projects=&template=bug_report.yml")!)
                 } label: {
-                    Text("action.report-bugs.git-hub")
+                    Label("action.report-bugs.git-hub", systemImage: "exclamationmark.bubble")
                 }
 
+                /*
                 ButtonThatOpensWebsites(
                     websiteURL: URL(string: "https://forum.rikidar.eu/forumdisplay.php?fid=8")!, buttonText: "actiton.report-bugs.forum"
                 )
+                 */
 
                 /*
                  Button
@@ -516,7 +519,7 @@ struct CorkApp: App
         {
             hasFinishedOnboarding = false
         } label: {
-            Text("onboarding.start")
+            Label("onboarding.start", systemImage: "person.crop.circle.badge.checkmark")
         }
         .disabled(!hasFinishedOnboarding)
 
@@ -524,7 +527,7 @@ struct CorkApp: App
         {
             hasFinishedLicensingWorkflow = false
         } label: {
-            Text("licensing.title")
+            Label("licensing.title", systemImage: "checkmark.seal")
         }
 
         Divider()
@@ -537,7 +540,7 @@ struct CorkApp: App
         {
             appDelegate.appState.navigationManager.dismissScreen()
         } label: {
-            Text("action.go-to-status-page.menu-bar")
+            Label("action.go-to-status-page.menu-bar", systemImage: "house")
         }
         .disabled(!appDelegate.appState.navigationManager.isAnyScreenOpened)
         Divider()
@@ -571,7 +574,7 @@ struct CorkApp: App
                 }
             }
         } label: {
-            Text("navigation.menu.import-export.export-brewfile")
+            Label("navigation.menu.import-export.export-brewfile", systemImage: "square.and.arrow.up")
         }
         .asyncButtonStyle(.plainStyle)
 
@@ -620,7 +623,7 @@ struct CorkApp: App
                 }
             }
         } label: {
-            Text("navigation.menu.import-export.import-brewfile")
+            Label("navigation.menu.import-export.import-brewfile", systemImage: "square.and.arrow.down")
         }
         .asyncButtonStyle(.plainStyle)
     }
@@ -634,7 +637,7 @@ struct CorkApp: App
         {
             appDelegate.appState.isSearchFieldFocused = true
         } label: {
-            Text("navigation.menu.search")
+            Label("navigation.menu.search", systemImage: "magnifyingglass")
         }
         .keyboardShortcut("f", modifiers: .command)
     }
@@ -642,21 +645,11 @@ struct CorkApp: App
     @ViewBuilder
     var packagesMenuBarSection: some View
     {
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .packageInstallation)
-        } label: {
-            Text("navigation.menu.packages.install")
-        }
-        .keyboardShortcut("n")
+        InstallPackageButton(appState: appDelegate.appState)
+            .keyboardShortcut("n")
 
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .tapAddition)
-        } label: {
-            Text("navigation.menu.packages.add-tap")
-        }
-        .keyboardShortcut("n", modifiers: [.command, .option])
+        AddTapButton(appState: appDelegate.appState)
+            .keyboardShortcut("n", modifiers: [.command, .option])
 
         Divider()
 
@@ -681,7 +674,7 @@ struct CorkApp: App
         {
             openWindow(id: .servicesWindowID)
         } label: {
-            Text("navigation.menu.services.open-window")
+            Label("navigation.menu.services.open-window", systemImage: "square.stack.3d.down.right")
         }
         .keyboardShortcut("s", modifiers: .command)
     }
@@ -689,22 +682,12 @@ struct CorkApp: App
     @ViewBuilder
     var maintenanceMenuBarSection: some View
     {
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: false))
-        } label: {
-            Text("navigation.menu.maintenance.perform")
-        }
-        .keyboardShortcut("m", modifiers: [.command, .shift])
+        OpenMaintenanceSheetButton(appState: appDelegate.appState, labelType: .performMaintenance)
+            .keyboardShortcut("m", modifiers: [.command, .shift])
 
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .maintenance(fastCacheDeletion: true))
-        } label: {
-            Text("navigation.menu.maintenance.delete-cached-downloads")
-        }
-        .keyboardShortcut("m", modifiers: [.command, .option])
-        .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
+        DeleteCachedDownloadsButton(appState: appDelegate.appState)
+            .keyboardShortcut("m", modifiers: [.command, .option])
+            .disabled(cachedDownloadsTracker.cachedDownloadsSize == 0)
     }
 
     @ViewBuilder

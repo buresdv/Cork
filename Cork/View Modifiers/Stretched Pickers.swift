@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// Returns the width of pickers to pre-Tahoe styling (fullwidth)
 struct StretchedPickersModifier: ViewModifier
 {
     
