@@ -61,12 +61,9 @@ struct GeneralPane: View
 
                 LabeledContent
                 {
-                    VStack(alignment: .leading)
+                    Defaults.Toggle(key: .displayAdvancedDependencies)
                     {
-                        Toggle(isOn: $displayAdvancedDependencies)
-                        {
-                            Text("settings.general.dependencies.toggle")
-                        }
+                        Text("settings.general.dependencies.toggle")
                     }
                 } label: {
                     Text("settings.general.dependencies")
@@ -91,7 +88,7 @@ struct GeneralPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $showDescriptionsInSearchResults)
+                    Defaults.Toggle(key: .showDescriptionsInSearchResults)
                     {
                         Text("settings.general.search-results.toggle")
                     }
@@ -115,7 +112,7 @@ struct GeneralPane: View
                         }
                         .labelsHidden()
 
-                        Toggle(isOn: $showOldVersionsInOutdatedPackageList)
+                        Defaults.Toggle(key: .showOldVersionsInOutdatedPackageList)
                         {
                             Text("settings.general.outdated-packages.also-show-old-versions")
                         }
@@ -142,22 +139,19 @@ struct GeneralPane: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Toggle(isOn: $showSearchFieldForDependenciesInPackageDetails)
-                        {
+                        Defaults.Toggle(key: .showSearchFieldForDependenciesInPackageDetails) {
                             Text("settings.general.package-details.toggle")
                         }
-
-                        Toggle(isOn: $enableRevealInFinder)
-                        {
+                        
+                        Defaults.Toggle(key: .enableRevealInFinder) {
                             Text("settings.general.package-details.reveal-in-finder.toggle")
                         }
 
-                        Toggle(isOn: $enableSwipeActions)
-                        {
+                        Defaults.Toggle(key: .enableSwipeActions) {
                             Text("settings.general.package-details.enable-swipe-actions.toggle")
                         }
 
-                        Toggle(isOn: $enableExtraAnimations)
+                        Defaults.Toggle(key: .enableExtraAnimations)
                         {
                             Text("settings.geeral.package-details.enable-extra-animations.toggle")
                         }
@@ -170,7 +164,7 @@ struct GeneralPane: View
                 {
                     VStack(alignment: .leading, spacing: 4)
                     {
-                        Toggle(isOn: $showInMenuBar)
+                        Defaults.Toggle(key: .showInMenuBar)
                         {
                             Text("settings.general.menubar.toggle")
                         }
@@ -206,7 +200,8 @@ struct GeneralPane: View
                     Text("settings.general.launch-at-login")
                 }
 
-                LabeledContent {
+                LabeledContent
+                {
                     VStack(alignment: .leading, spacing: 6)
                     {
                         Picker(selection: $defaultBackupDateFormat)

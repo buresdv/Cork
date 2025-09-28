@@ -24,7 +24,7 @@ struct DiscoverabilityPane: View
         {
             VStack(alignment: .center, spacing: 10)
             {
-                Toggle(isOn: $enableDiscoverability)
+                Defaults.Toggle(key: .enableDiscoverability)
                 {
                     Text("settings.discoverability.toggle")
                 }

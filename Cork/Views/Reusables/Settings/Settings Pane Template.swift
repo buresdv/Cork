@@ -14,8 +14,22 @@ struct SettingsPaneTemplate<Content: View>: View
     var body: some View
     {
         paneContent
-            .padding()
+            .strechedPickers()
+            .labeledContentStyle(.automatic)
             .frame(minWidth: 470, minHeight: 50)
             .fixedSize()
+            .modify
+            { viewProxy in
+                if #available(macOS 26, *)
+                {
+                    viewProxy
+                        .scenePadding()
+                }
+                else
+                {
+                    viewProxy
+                        .padding()
+                }
+            }
     }
 }

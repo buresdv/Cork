@@ -37,7 +37,7 @@ struct InstallationAndUninstallationPane: View
             {
                 LabeledContent
                 {
-                    Toggle(isOn: $shouldRequestPackageRemovalConfirmation)
+                    Defaults.Toggle(key: .shouldRequestPackageRemovalConfirmation)
                     {
                         Text("settings.install-uninstall.request-removal-confirmation.toggle")
                     }
@@ -47,7 +47,7 @@ struct InstallationAndUninstallationPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $includeGreedyOutdatedPackages)
+                    Defaults.Toggle(key: .includeGreedyOutdatedPackages)
                     {
                         Text("settings.install-uninstall.include-greedy-packages.toggle")
                     }
@@ -57,7 +57,7 @@ struct InstallationAndUninstallationPane: View
 
                 LabeledContent
                 {
-                    Toggle(isOn: $showCompatibilityWarning)
+                    Defaults.Toggle(key: .showCompatibilityWarning)
                     {
                         Text("settings.install-uninstall.compatibility-checking.toggle")
                     }
@@ -71,12 +71,12 @@ struct InstallationAndUninstallationPane: View
                     {
                         VStack(alignment: .leading)
                         {
-                            Toggle(isOn: $showRealTimeTerminalOutputOfOperations)
+                            Defaults.Toggle(key: .showRealTimeTerminalOutputOfOperations)
                             {
                                 Text("settings.install-uninstall.uninstallation.show-real-time-terminal-outputs")
                             }
 
-                            Toggle(isOn: $openRealTimeTerminalOutputByDefault)
+                            Defaults.Toggle(key: .openRealTimeTerminalOutputByDefault)
                             {
                                 Text("settings.install-uninstall.uninstallation.show-real-time-terminal-outputs.open-by-default")
                             }
@@ -84,14 +84,14 @@ struct InstallationAndUninstallationPane: View
                             .padding(.leading)
                         }
 
-                        Toggle(isOn: $automaticallyAcceptEULA)
+                        Defaults.Toggle(key: .automaticallyAcceptEULA)
                         {
                             Text("settings.install-uninstall.installation.automatically-accept-eulas")
                         }
 
                         VStack(alignment: .leading)
                         {
-                            Toggle(isOn: $allowMoreCompleteUninstallations)
+                            Defaults.Toggle(key: .allowMoreCompleteUninstallations)
                             {
                                 Text("settings.install-uninstall.uninstallation.allow-more-complete-uninstallation")
                             }
@@ -116,7 +116,7 @@ struct InstallationAndUninstallationPane: View
 
                         VStack(alignment: .leading)
                         {
-                            Toggle(isOn: $isAutomaticCleanupEnabled)
+                            Defaults.Toggle(key: .isAutomaticCleanupEnabled)
                             {
                                 Text("settings.install-uninstall.installation.enable-automatic-cleanup")
                             }

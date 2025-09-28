@@ -31,7 +31,7 @@ struct BrewPane: View
                 {
                     LabeledContent
                     {
-                        Toggle(isOn: $strictlyCheckForHomebrewErrors)
+                        Defaults.Toggle(key: .strictlyCheckForHomebrewErrors)
                         {
                             Text("settings.brew.strictly-check-for-errors")
                         }
@@ -41,7 +41,7 @@ struct BrewPane: View
 
                     LabeledContent
                     {
-                        Toggle(isOn: $allowBrewAnalytics)
+                        Defaults.Toggle(key: .allowBrewAnalytics)
                         {
                             Text("settings.brew.collect-analytics")
                         }
@@ -82,9 +82,10 @@ struct BrewPane: View
 
                 VStack(alignment: .center)
                 {
-                    Toggle(isOn: $allowAdvancedHomebrewSettings, label: {
+                    Defaults.Toggle(key: .allowAdvancedHomebrewSettings)
+                    {
                         Text("settings.brew.enable-advanced-settings")
-                    })
+                    }
                     .toggleStyle(.switch)
 
                     Text("settings.brew.custom-homebrew-path.will-not-bother-me-with-support")

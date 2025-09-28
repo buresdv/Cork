@@ -5,10 +5,10 @@
 //  Created by David Bureš on 13.08.2023.
 //
 
-import SwiftUI
-import UserNotifications
 import CorkShared
 import Defaults
+import SwiftUI
+import UserNotifications
 
 struct NotificationsPane: View
 {
@@ -30,9 +30,10 @@ struct NotificationsPane: View
             {
                 VStack(alignment: .center, spacing: 5)
                 {
-                    Toggle(isOn: $areNotificationsEnabled, label: {
+                    Defaults.Toggle(key: .areNotificationsEnabled)
+                    {
                         Text("settings.notifications.enable-notifications")
-                    })
+                    }
                     .toggleStyle(.switch)
                     .task
                     {
@@ -97,12 +98,14 @@ struct NotificationsPane: View
                     {
                         VStack(alignment: .leading)
                         {
-                            Toggle(isOn: $notifyAboutPackageUpgradeResults, label: {
+                            Defaults.Toggle(key: .notifyAboutPackageUpgradeResults)
+                            {
                                 Text("settings.notifications.notify-about-upgrade-result")
-                            })
-                            Toggle(isOn: $notifyAboutPackageInstallationResults, label: {
+                            }
+                            Defaults.Toggle(key: .notifyAboutPackageInstallationResults)
+                            {
                                 Text("settings.notifications.notify-about-installation-result")
-                            })
+                            }
                         }
                     } label: {
                         Text("settings.notifications.notify-about-various-actions")
