@@ -10,9 +10,7 @@ import ButtonKit
 
 /// Style that doesn't change the text of the button, and disables it when the async operation is in progress
 struct PlainAsyncButtonStyle: AsyncButtonStyle
-{
-    init() {}
-    
+{    
     func makeLabel(configuration: LabelConfiguration) -> some View {
         configuration.label
             .disabledWhenLoading()

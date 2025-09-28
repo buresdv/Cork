@@ -174,24 +174,11 @@ struct PresentingSearchResultsView: View
     {
         if let foundPackageSelection
         {
-            do
-            {
-                installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: foundPackageSelection, installationStage: .ready, packageInstallationProgress: 0)
+            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: foundPackageSelection, installationStage: .ready, packageInstallationProgress: 0)
 
-                #if DEBUG
-                    AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
-                #endif
-            }
-            catch let packageByUUIDRetrievalError
-            {
-                #if DEBUG
-                    AppConstants.shared.logger.error("Failed while associating package with its ID: \(packageByUUIDRetrievalError, privacy: .public)")
-                #endif
-
-                dismiss()
-
-                appState.showAlert(errorToShow: .couldNotAssociateAnyPackageWithProvidedPackageUUID)
-            }
+            #if DEBUG
+                AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+            #endif
         }
     }
 }

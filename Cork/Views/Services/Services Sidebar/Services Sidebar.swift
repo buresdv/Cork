@@ -42,7 +42,7 @@ struct ServicesSidebarView: View
         }
         .searchable(text: $searchText, placement: .sidebar, prompt: Text("services-sidebar.search.prompt"))
         .onChange(of: localNavigationTargetId)
-        { oldValue, newValue in
+        { _, newValue in
             if servicesState.navigationTargetId != newValue {
                 servicesState.navigationTargetId = newValue
             }

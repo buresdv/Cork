@@ -16,7 +16,7 @@ struct PackageDetailHeaderComplex: View
     }
     
     @Environment(AppState.self) var appState: AppState
-    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     let package: BrewPackage
     

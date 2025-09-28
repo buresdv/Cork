@@ -65,7 +65,7 @@ struct RevealInFinderButtonWithArbitraryAction: View
     
     let customLabel: LocalizedStringKey? = nil
     
-    let action: () -> ()
+    let action: () -> Void
     
     var body: some View
     {

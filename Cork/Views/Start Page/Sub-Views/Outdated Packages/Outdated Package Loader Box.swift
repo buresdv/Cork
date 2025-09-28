@@ -10,11 +10,11 @@ import SwiftUI
 
 struct OutdatedPackageLoaderBox: View
 {
-    @Environment(AppState.self) var appState
+    @Environment(AppState.self) var appState: AppState
     
-    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     @Binding var errorOutReason: String?
     

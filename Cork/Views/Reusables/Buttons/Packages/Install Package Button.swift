@@ -22,4 +22,3 @@ struct InstallPackageButton: View
         .help("navigation.install-package.help")
     }
 }
-

@@ -10,8 +10,8 @@ import ButtonKit
 
 struct PinUnpinButton: View
 {
-    @Environment(AppState.self) var appState
-    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
+    @Environment(AppState.self) var appState: AppState
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     var package: BrewPackage
     

@@ -103,8 +103,6 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         
         if purpose == .actuallyChangingTheTaggedState
         {            
-            let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
-            
             let saveablePackageRepresentation: SavedTaggedPackage = .init(fullName: packageName)
             
             if !isTagged

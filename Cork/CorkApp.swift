@@ -16,7 +16,6 @@ import SwiftData
 import SwiftUI
 import UserNotifications
 
-// swiftlint:disable type_body_length
 @main
 struct CorkApp: App
 {

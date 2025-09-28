@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AdoptingAlreadyInstalledCaskView: View
 {
-    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     @Bindable var installationProgressTracker: InstallationProgressTracker
 
