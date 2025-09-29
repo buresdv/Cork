@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: jdx/mise-action@v2
       - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_16.1.app
+        run: sudo xcode-select -switch /Applications/Xcode_26.0.app
       - name: Fix plugins
         run: defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
       - run: tuist install
