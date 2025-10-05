@@ -5,12 +5,12 @@
 //  Created by David Bureš on 19.08.2023.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 enum DataDownloadingError: LocalizedError
 {
-    case invalidResponseCode(responseCode: Int?), noDataReceived, invalidURL
+    case invalidResponseCode(responseCode: Int?), noDataReceived, invalidURL, couldntExecuteRequest(error: String)
 
     var errorDescription: String?
     {
@@ -29,13 +29,15 @@ enum DataDownloadingError: LocalizedError
             return String(localized: "error.data-downloading.no-data-received")
         case .invalidURL:
             return String(localized: "error.data-downloading.invalid-url")
+        case .couldntExecuteRequest(let error):
+            return String(localized: "error.data-downloading.couldnt-execute-request.\(error)")
         }
     }
 }
 
-func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async throws -> Data
+func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async throws(DataDownloadingError) -> Data
 {
-    let sessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default
+    let sessionConfiguration: URLSessionConfiguration = .default
     if AppConstants.shared.proxySettings != nil
     {
         sessionConfiguration.connectionProxyDictionary = [
@@ -59,21 +61,28 @@ func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async th
 
     request.httpMethod = "GET"
 
-    let (data, response): (Data, URLResponse) = try await session.data(for: request)
-
-    guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
-    else
+    do
     {
-        AppConstants.shared.logger.error("Received invalid networking response: \(response)")
+        let (data, response): (Data, URLResponse) = try await session.data(for: request)
 
-        let responseCast: HTTPURLResponse? = response as? HTTPURLResponse
-        throw DataDownloadingError.invalidResponseCode(responseCode: responseCast?.statusCode)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200
+        else
+        {
+            AppConstants.shared.logger.error("Received invalid networking response: \(response)")
+
+            let responseCast: HTTPURLResponse? = response as? HTTPURLResponse
+            throw DataDownloadingError.invalidResponseCode(responseCode: responseCast?.statusCode)
+        }
+
+        if data.isEmpty
+        {
+            throw DataDownloadingError.noDataReceived
+        }
+
+        return data
     }
-
-    if data.isEmpty
+    catch let requestExecutionError
     {
-        throw DataDownloadingError.noDataReceived
+        throw .couldntExecuteRequest(error: requestExecutionError.localizedDescription)
     }
-
-    return data
 }

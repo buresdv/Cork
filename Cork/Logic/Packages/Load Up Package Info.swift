@@ -5,8 +5,8 @@
 //  Created by David Bureš on 19.07.2024.
 //
 
-import Foundation
 import CorkShared
+import Foundation
 
 enum BrewPackageInfoLoadingError: LocalizedError
 {
@@ -32,7 +32,7 @@ enum BrewPackageInfoLoadingError: LocalizedError
 
 extension BrewPackage
 {
-    private struct PackageCommandOutput: Codable
+    struct PackageCommandOutput: Codable
     {
         // MARK: - Formulae
 
@@ -109,10 +109,10 @@ extension BrewPackage
 
             /// Whether the package is pinned
             let pinned: Bool
-            
+
             /// Whether this package is considered deprecated
             let deprecated: Bool
-            
+
             /// If deprecated, the reason for the package's deprecation
             let deprecationReason: String?
 
@@ -138,7 +138,8 @@ extension BrewPackage
 
             func getCompatibility() -> Bool?
             {
-                guard let stable = bottle.stable else
+                guard let stable = bottle.stable
+                else
                 {
                     AppConstants.shared.logger.debug("Package \(name) has unknown compatibility")
                     return nil
@@ -182,12 +183,43 @@ extension BrewPackage
 
             /// Caveats specified for the cask
             let caveats: String?
-            
+
             /// Whether this package is considered deprecated
             let deprecated: Bool
-            
+
             /// If deprecated, the reason for the package's deprecation
             let deprecationReason: String?
+
+            /// Names of the artifacts - which include the `.app` file name
+            let artifacts: [Artifact]
+
+            var executableName: String?
+            {
+                // Prefer app over pkg
+                if let appName = artifacts.compactMap({ $0.app }).flatMap({ $0 }).first
+                {
+                    return appName
+                }
+                return artifacts.compactMap { $0.pkg }.flatMap { $0 }.first
+            }
+
+            struct Artifact: Codable
+            {
+                let app: [String]?
+                let pkg: [String]?
+
+                init(from decoder: Decoder) throws
+                {
+                    let container = try decoder.container(keyedBy: CodingKeys.self)
+                    app = try? container.decodeIfPresent([String].self, forKey: .app)
+                    pkg = try? container.decodeIfPresent([String].self, forKey: .pkg)
+                }
+
+                enum CodingKeys: String, CodingKey
+                {
+                    case app, pkg
+                }
+            }
         }
 
         let formulae: [Formulae]?
