@@ -14,6 +14,11 @@ struct StartPage: View
     {
         case loading, showingBrewOverview
     }
+    
+    enum AdoptablePackagesStage
+    {
+        case loading, showingAdoptablePackages, erroredOut(error: String)
+    }
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
@@ -104,9 +109,14 @@ struct StartPage: View
 
                     Section
                     {
+                        AdoptablePackagesBox()
+                    }
+                    
+                    Section
+                    {
                         PackageAndTapOverviewBox()
                     }
-
+                    
                     Section
                     {
                         AnalyticsStatusBox()
@@ -121,6 +131,17 @@ struct StartPage: View
                     }
                 }
                 .transition(.push(from: .top))
+                .task
+                {
+                    do
+                    {
+                        try await brewPackagesTracker.getAdoptableCasks()
+                    }
+                    catch let adoptablePackagesLoadingError
+                    {
+                        AppConstants.shared.logger.error("Failed to load adoptable casks: \(adoptablePackagesLoadingError)")
+                    }
+                }
 
                 ButtonBottomRow
                 {

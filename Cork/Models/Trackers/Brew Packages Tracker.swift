@@ -119,6 +119,8 @@ class BrewPackagesTracker
             installedCasks.insert(.success(package))
         }
     }
+    
+    var adoptableCasks: [MinimalHomebrewPackage] = .init()
 }
 
 extension BrewPackagesTracker
