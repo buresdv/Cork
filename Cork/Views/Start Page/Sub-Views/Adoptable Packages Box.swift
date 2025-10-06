@@ -34,12 +34,24 @@ struct AdoptablePackagesBox: View
                         {
                             List(brewPackagesTracker.adoptableCasks.sorted(by: { $0.caskName < $1.caskName }))
                             { adoptableCask in
-                                Text(adoptableCask.caskName)
-                                    .contextMenu
+                                HStack(alignment: .firstTextBaseline, spacing: 5)
+                                {
+                                    Text(adoptableCask.caskExecutable)
+
+                                    Text("(\(adoptableCask.caskName))")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                                .contextMenu
+                                {
+                                    
+                                    PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(adoptableCask.caskName)", packageToPreview: .init(name: adoptableCask.caskName, type: .cask, installedIntentionally: true))
+                                    
+                                    RevealInFinderButtonWithArbitraryAction
                                     {
-                                        RevealInFinderButtonWithArbitraryAction
-                                        {}
+                                        URL.applicationDirectory.appendingPathComponent(adoptableCask.caskExecutable, conformingTo: .executable).revealInFinder(.openParentDirectoryAndHighlightTarget)
                                     }
+                                }
                             }
                             .listStyle(.bordered(alternatesRowBackgrounds: true))
                         }
@@ -65,14 +77,14 @@ struct AdoptablePackagesBox: View
                     Text("action.adopt-packages.longer")
                 }
                 .keyboardShortcut(.defaultAction)
-                
+
                 Button(role: .cancel)
                 {
                     isShowingAdoptionWarning = false
                 } label: {
                     Text("action.cancel")
                 }
-                
+
                 Button(role: .cancel)
                 {
                     isShowingAdoptionWarning = false
