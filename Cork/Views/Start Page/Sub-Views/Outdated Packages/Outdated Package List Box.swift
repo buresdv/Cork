@@ -154,7 +154,6 @@ struct OutdatedPackageListBox: View
                                         Text("start-page.updates.list")
                                     }
                                 }
-                                .font(.subheadline)
                             }
                             
                         }

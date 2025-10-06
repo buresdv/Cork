@@ -99,17 +99,17 @@ struct StartPage: View
                         }
                     }
 
+                    Section
+                    {
+                        AdoptablePackagesBox()
+                    }
+                    
                     if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
                     {
                         Section
                         {
                             LoadingErrorsBox()
                         }
-                    }
-
-                    Section
-                    {
-                        AdoptablePackagesBox()
                     }
                     
                     Section
@@ -135,7 +135,7 @@ struct StartPage: View
                 {
                     do
                     {
-                        try await brewPackagesTracker.getAdoptableCasks()
+                        brewPackagesTracker.adoptableCasks = try await brewPackagesTracker.getAdoptableCasks()
                     }
                     catch let adoptablePackagesLoadingError
                     {
