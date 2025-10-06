@@ -62,3 +62,23 @@ struct PreviewPackageButtonWithCustomLabel: View
         .keyboardShortcut("p", modifiers: [.command, .option])
     }
 }
+
+struct PreviewPackageButtonWithCustomLabel: View
+{
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
+    
+    let label: LocalizedStringKey
+    
+    let packageToPreview: MinimalHomebrewPackage
+    
+    var body: some View
+    {
+        Button
+        {
+            openWindow(value: packageToPreview)
+        } label: {
+            Text(label)
+        }
+        .keyboardShortcut("p", modifiers: [.command, .option])
+    }
+}
