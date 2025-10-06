@@ -10,29 +10,59 @@ import CorkShared
 
 extension BrewPackagesTracker
 {
-    /// Get a list of casks that can be adopted into the Homebrew updating mechanism
-    func getAdoptableCasks() async throws -> Set<AdoptableCaskComparable>
+    enum AdoptableCasksLoadingError: LocalizedError
     {
-        let allCasksJson: Data = try await self.loadAllCasksJson()
-        
-        AppConstants.shared.logger.debug("Successfully loaded all Casks JSON")
-        
-        let parsedCasksJson: [BrewPackage.PackageCommandOutput.Casks] = try self.parseCasksJson(jsonAsData: allCasksJson)
-        
-        AppConstants.shared.logger.debug("Successfully parsed all Casks")
-        
-        let processedAvailableCasks: Set<AdoptableCaskComparable> = processParsedAvailableCasks(from: parsedCasksJson)
-        
-        AppConstants.shared.logger.debug("Successfully processed available Casks")
-        
-        let installedApps: Set<String> = try self.getInstalledApps()
-        
-        let processedAdoptableCasks: Set<AdoptableCaskComparable> = getAdoptableAppsFromAvailableCasks(
-            installedApps: installedApps,
-            allAvailableCasks: processedAvailableCasks
-        )
-        
-        return processedAdoptableCasks
+        case couldNotGetAllCasksData(error: String)
+        case couldNotParseAllCasksData(error: String)
+        case couldNotProcessCasksData(error: String)
+        case couldNotGetContentsOfApplicationsFolder(error: String)
+    }
+    
+    /// Get a list of casks that can be adopted into the Homebrew updating mechanism
+    func getAdoptableCasks() async throws(AdoptableCasksLoadingError) -> Set<AdoptableCaskComparable>
+    {
+        do
+        {
+            let allCasksJson: Data = try await self.loadAllCasksJson()
+            
+            AppConstants.shared.logger.debug("Successfully loaded all Casks JSON")
+            
+            do
+            {
+                let parsedCasksJson: [BrewPackage.PackageCommandOutput.Casks] = try self.parseCasksJson(jsonAsData: allCasksJson)
+                
+                AppConstants.shared.logger.debug("Successfully parsed all Casks")
+                
+                let processedAvailableCasks: Set<AdoptableCaskComparable> = processParsedAvailableCasks(from: parsedCasksJson)
+                
+                AppConstants.shared.logger.debug("Successfully processed available Casks")
+                
+                do
+                {
+                    let installedApps: Set<String> = try self.getInstalledApps()
+                    
+                    let processedAdoptableCasks: Set<AdoptableCaskComparable> = getAdoptableAppsFromAvailableCasks(
+                        installedApps: installedApps,
+                        allAvailableCasks: processedAvailableCasks
+                    )
+                    
+                    return processedAdoptableCasks
+                }
+                catch let applicationDirectoryAccessingError
+                {
+                    throw AdoptableCasksLoadingError.couldNotGetContentsOfApplicationsFolder(error: applicationDirectoryAccessingError.localizedDescription)
+                }
+                
+            }
+            catch let allCasksParsingError
+            {
+                throw AdoptableCasksLoadingError.couldNotParseAllCasksData(error: allCasksParsingError.localizedDescription)
+            }
+        }
+        catch let allCasksDataLoadingError
+        {
+            throw .couldNotGetAllCasksData(error: allCasksDataLoadingError.localizedDescription)
+        }
     }
 
     /// Download a JSON list of all available casks
@@ -68,8 +98,10 @@ extension BrewPackagesTracker
     }
     
     /// A struct for holding a Cask's name and its executable
-    struct AdoptableCaskComparable: Hashable
+    struct AdoptableCaskComparable: Identifiable, Hashable
     {
+        let id: UUID = .init()
+        
         let caskName: String
         let caskExecutable: String
     }
@@ -139,7 +171,8 @@ extension BrewPackagesTracker
         /// Only get the names of installed packages to make the comparing faster
         let installedCaskNames: Set<String> = .init(successfullyLoadedCasks.map({ $0.name }))
         
-        let caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker: Set<AdoptableCaskComparable> = caskNamesOfAppsNotInstalledThroughHomebrew.filter { !installedCaskNames.contains($0.caskName) }
+        /// Filter out packages that are already included in the Cask tracker (which means they are already installed) and those that contain the charactzer `@` (betas, etc.)
+        let caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker: Set<AdoptableCaskComparable> = caskNamesOfAppsNotInstalledThroughHomebrew.filter { !installedCaskNames.contains($0.caskName) }.filter({ !$0.caskName.contains("@") })
         
         print("Finally processed casks: \(caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker)")
         

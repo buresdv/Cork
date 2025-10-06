@@ -40,4 +40,7 @@ public extension Defaults.Keys
     
     /// Whether automatic cleanups after packages are enabled
     static let isAutomaticCleanupEnabled: Key<Bool> = .init("isAutomaticCleanupEnabled", default: true)
+    
+    /// Whether the list of adoptable packages, along with the mass package adoption feature, are enabled
+    static let allowMassPackageAdoption: Key<Bool> = .init("allowMassPackageAdoption", default: true)
 }
