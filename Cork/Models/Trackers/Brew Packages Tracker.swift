@@ -120,7 +120,7 @@ class BrewPackagesTracker
         }
     }
     
-    var adoptableCasks: [MinimalHomebrewPackage] = .init()
+    var adoptableCasks: Set<AdoptableCaskComparable> = .init()
 }
 
 extension BrewPackagesTracker
