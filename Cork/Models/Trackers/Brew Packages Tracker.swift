@@ -120,7 +120,7 @@ class BrewPackagesTracker
         }
     }
     
-    var adoptableCasks: Set<AdoptableCaskComparable> = .init()
+    var adoptableCasks: [AdoptableCaskComparable] = .init()
 }
 
 extension BrewPackagesTracker
