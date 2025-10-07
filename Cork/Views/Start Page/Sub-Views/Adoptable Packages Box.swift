@@ -78,6 +78,8 @@ struct AdoptablePackagesBox: View
         }
     }
 
+    @State private var numberOfMaxShownAdoptableApps: Int = 5
+
     @ViewBuilder
     var adoptablePackagesList: some View
     {
@@ -85,17 +87,19 @@ struct AdoptablePackagesBox: View
         {
             Section
             {
-                ForEach(brewPackagesTracker.adoptableApps.sorted(by: { $0.caskName < $1.caskName }))
+                ForEach(brewPackagesTracker.adoptableApps.sorted(by: { $0.caskName < $1.caskName }).prefix(numberOfMaxShownAdoptableApps))
                 { adoptableCask in
                     Toggle(isOn: Binding<Bool>(
                         get: {
                             adoptableCask.isMarkedForAdoption
-                        }, set: { toggleState in
-                            if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id }) {
+                        }, set: { _ in
+                            if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
+                            {
                                 brewPackagesTracker.adoptableApps[index].changeMarkedState()
                             }
                         }
-                    )) {
+                    ))
+                    {
                         AdoptablePackageListItem(adoptableCask: adoptableCask)
                     }
                 }
@@ -105,6 +109,35 @@ struct AdoptablePackagesBox: View
                     deselectAllButton
 
                     selectAllButton
+                }
+            } footer: {
+                HStack(alignment: .center)
+                {
+                    Button
+                    {
+                        withAnimation
+                        {
+                            numberOfMaxShownAdoptableApps += 10
+                        }
+                    } label: {
+                        Label("action.show-more", systemImage: "chevron.down")
+                    }
+                    .buttonStyle(.accessoryBar)
+                    .disabled(numberOfMaxShownAdoptableApps >= brewPackagesTracker.adoptableApps.count)
+
+                    Spacer()
+
+                    Button
+                    {
+                        withAnimation
+                        {
+                            numberOfMaxShownAdoptableApps -= 10
+                        }
+                    } label: {
+                        Label("action.show-less", systemImage: "chevron.up")
+                    }
+                    .buttonStyle(.accessoryBar)
+                    .disabled(numberOfMaxShownAdoptableApps < 7)
                 }
             }
         }
@@ -132,7 +165,7 @@ struct AdoptablePackagesBox: View
         } label: {
             Text("start-page.updated.action.select-all")
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.accessoryBar)
     }
 }
 
