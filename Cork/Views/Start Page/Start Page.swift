@@ -133,11 +133,11 @@ struct StartPage: View
                 .transition(.push(from: .top))
                 .task
                 {
-                    if brewPackagesTracker.adoptableCasks.isEmpty
+                    if brewPackagesTracker.adoptableApps.isEmpty
                     {
                         do
                         {
-                            brewPackagesTracker.adoptableCasks = try await brewPackagesTracker.getAdoptableCasks(cacheUsePolicy: .useCachedData)
+                            brewPackagesTracker.adoptableApps = try await brewPackagesTracker.getAdoptableCasks(cacheUsePolicy: .useCachedData)
                         }
                         catch let adoptablePackagesLoadingError
                         {

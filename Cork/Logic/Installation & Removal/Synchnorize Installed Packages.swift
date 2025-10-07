@@ -34,7 +34,7 @@ extension BrewPackagesTracker
         
         do
         {
-            self.adoptableCasks = try await self.getAdoptableCasks(cacheUsePolicy: .useCachedData)
+            self.adoptableApps = try await self.getAdoptableCasks(cacheUsePolicy: .useCachedData)
         } catch let adoptableCasksSynchronizationError {
             AppConstants.shared.logger.error("Failed while synchronizing adoptable casks: \(adoptableCasksSynchronizationError)")
         }

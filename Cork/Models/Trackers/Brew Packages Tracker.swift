@@ -120,7 +120,12 @@ class BrewPackagesTracker
         }
     }
     
-    var adoptableCasks: [AdoptableCaskComparable] = .init()
+    var adoptableApps: [AdoptableApp] = .init()
+    
+    var adoptableAppsSelectedToBeAdopted: [AdoptableApp]
+    {
+        return self.adoptableApps.filter(\.isMarkedForAdoption)
+    }
 }
 
 extension BrewPackagesTracker
