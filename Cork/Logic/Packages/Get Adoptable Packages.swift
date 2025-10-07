@@ -207,7 +207,7 @@ extension BrewPackagesTracker
     private func getAdoptableAppsFromAvailableCasks(
         installedApps: Set<String>,
         allAvailableCasks: Set<AdoptableApp>
-    ) async-> [AdoptableApp]
+    ) async -> [AdoptableApp]
     {
         /// Filter out those available Casks whose executables match those in the Applications folder
         let caskNamesOfAppsNotInstalledThroughHomebrew: Set<AdoptableApp> = allAvailableCasks.filter
