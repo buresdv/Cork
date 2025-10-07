@@ -426,6 +426,9 @@ private extension View
                 case .tapAddition:
                     AddTapView()
 
+                case .massAppAdoption:
+                    MassAppAdoptionView()
+                    
                 case .fullUpdate:
                     UpdatePackagesView()
 
