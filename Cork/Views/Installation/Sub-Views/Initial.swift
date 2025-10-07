@@ -116,6 +116,7 @@ struct InstallationInitialView: View
             ))
         }
         .disabled(foundPackageSelection == nil)
+        .labelStyle(.titleOnly)
     }
     
     @ViewBuilder

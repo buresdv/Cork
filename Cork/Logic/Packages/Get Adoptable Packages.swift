@@ -18,12 +18,30 @@ extension BrewPackagesTracker
         case couldNotGetContentsOfApplicationsFolder(error: String)
     }
     
+    enum HomebrewDataCacheUsePolicy
+    {
+        case useCachedData
+        case forceDataFetch
+        
+        var cachePolicy: URLRequest.CachePolicy
+        {
+            switch self {
+            case .useCachedData:
+                return .returnCacheDataElseLoad
+            case .forceDataFetch:
+                return .reloadIgnoringLocalCacheData
+            }
+        }
+    }
+    
     /// Get a list of casks that can be adopted into the Homebrew updating mechanism
-    func getAdoptableCasks() async throws(AdoptableCasksLoadingError) -> Set<AdoptableCaskComparable>
+    func getAdoptableCasks(
+        cacheUsePolicy: HomebrewDataCacheUsePolicy
+    ) async throws(AdoptableCasksLoadingError) -> Set<AdoptableCaskComparable>
     {
         do
         {
-            let allCasksJson: Data = try await self.loadAllCasksJson()
+            let allCasksJson: Data = try await self.loadAllCasksJson(cachingPolicy: cacheUsePolicy)
             
             AppConstants.shared.logger.debug("Successfully loaded all Casks JSON")
             
@@ -66,9 +84,11 @@ extension BrewPackagesTracker
     }
 
     /// Download a JSON list of all available casks
-    private func loadAllCasksJson() async throws(DataDownloadingError) -> Data
+    private func loadAllCasksJson(
+        cachingPolicy: HomebrewDataCacheUsePolicy
+    ) async throws(DataDownloadingError) -> Data
     {
-        return try await downloadDataFromURL(.init(string: "https://formulae.brew.sh/api/cask.json")!)
+        return try await downloadDataFromURL(.init(string: "https://formulae.brew.sh/api/cask.json")!, cachingPolicy: cachingPolicy.cachePolicy)
     }
 
     enum CasksJsonParsingError: Error

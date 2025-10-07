@@ -133,13 +133,20 @@ struct StartPage: View
                 .transition(.push(from: .top))
                 .task
                 {
-                    do
+                    if brewPackagesTracker.adoptableCasks.isEmpty
                     {
-                        brewPackagesTracker.adoptableCasks = try await brewPackagesTracker.getAdoptableCasks()
+                        do
+                        {
+                            brewPackagesTracker.adoptableCasks = try await brewPackagesTracker.getAdoptableCasks(cacheUsePolicy: .useCachedData)
+                        }
+                        catch let adoptablePackagesLoadingError
+                        {
+                            AppConstants.shared.logger.error("Failed to load adoptable casks: \(adoptablePackagesLoadingError)")
+                        }
                     }
-                    catch let adoptablePackagesLoadingError
+                    else
                     {
-                        AppConstants.shared.logger.error("Failed to load adoptable casks: \(adoptablePackagesLoadingError)")
+                        AppConstants.shared.logger.debug("Adoptable casks are already loaded, will not reload")
                     }
                 }
 
