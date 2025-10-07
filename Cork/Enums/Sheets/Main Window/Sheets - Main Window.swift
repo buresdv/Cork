@@ -16,6 +16,8 @@ enum DisplayableSheet: Identifiable, Equatable
     
     case fullUpdate, partialUpdate(packagesToUpdate: [OutdatedPackage])
     
+    case massAppAdoption
+    
     case corruptedPackageFix(corruptedPackage: CorruptedPackage)
     
     case sudoRequiredForPackageRemoval 
