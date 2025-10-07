@@ -19,7 +19,7 @@ struct AdoptablePackagesBox: View
 
     var body: some View
     {
-        if !brewPackagesTracker.adoptableCasks.isEmpty
+        if !brewPackagesTracker.adoptableApps.isEmpty
         {
             GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.shippingbox.2.badge.arrow.down")
             {
@@ -27,7 +27,7 @@ struct AdoptablePackagesBox: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableCasks.count)")
+                        Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableApps.count)")
                             .font(.headline)
 
                         DisclosureGroup("adoptable-packages.label")
@@ -40,14 +40,14 @@ struct AdoptablePackagesBox: View
                     {
                         isShowingAdoptionWarning = true
 
-                        AppConstants.shared.logger.info("Will adopt \(brewPackagesTracker.adoptableCasks.count, privacy: .public) apps")
+                        AppConstants.shared.logger.info("Will adopt \(brewPackagesTracker.adoptableApps.count, privacy: .public) apps")
                     } label: {
                         Text("action.adopt-packages")
                     }
                 }
             }
-            .animation(.bouncy, value: brewPackagesTracker.adoptableCasks.isEmpty)
-            .confirmationDialog("package-adoption.confirmation.title.\(brewPackagesTracker.adoptableCasks.count)", isPresented: $isShowingAdoptionWarning)
+            .animation(.bouncy, value: brewPackagesTracker.adoptableApps.isEmpty)
+            .confirmationDialog("package-adoption.confirmation.title.\(brewPackagesTracker.adoptableApps.count)", isPresented: $isShowingAdoptionWarning)
             {
                 Button
                 {
@@ -85,14 +85,14 @@ struct AdoptablePackagesBox: View
         {
             Section
             {
-                ForEach(brewPackagesTracker.adoptableCasks.sorted(by: { $0.caskName < $1.caskName }))
+                ForEach(brewPackagesTracker.adoptableApps.sorted(by: { $0.caskName < $1.caskName }))
                 { adoptableCask in
                     Toggle(isOn: Binding<Bool>(
                         get: {
                             adoptableCask.isMarkedForAdoption
                         }, set: { toggleState in
-                            if let index = brewPackagesTracker.adoptableCasks.firstIndex(where: { $0.id == adoptableCask.id }) {
-                                brewPackagesTracker.adoptableCasks[index].changeMarkedState()
+                            if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id }) {
+                                brewPackagesTracker.adoptableApps[index].changeMarkedState()
                             }
                         }
                     )) {
@@ -138,7 +138,7 @@ struct AdoptablePackagesBox: View
 
 struct AdoptablePackageListItem: View
 {
-    let adoptableCask: BrewPackagesTracker.AdoptableCaskComparable
+    let adoptableCask: BrewPackagesTracker.AdoptableApp
 
     var body: some View
     {
@@ -157,7 +157,7 @@ struct AdoptablePackageListItem: View
 
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
-                Text(adoptableCask.caskExecutable)
+                Text(adoptableCask.appExecutable)
 
                 Text("(\(adoptableCask.caskName))")
                     .font(.subheadline)
@@ -172,7 +172,7 @@ struct AdoptablePackageListItem: View
             {
                 adoptableCask.fullAppUrl.revealInFinder(.openParentDirectoryAndHighlightTarget)
             } label: {
-                Label("action.reveal-\(adoptableCask.caskExecutable)-in-finder", systemImage: "finder")
+                Label("action.reveal-\(adoptableCask.appExecutable)-in-finder", systemImage: "finder")
             }
         }
     }
