@@ -22,7 +22,7 @@ struct PreviewPackageButton: View
             
             openWindow(value: packageToPreview)
         } label: {
-            Text("preview-package.action")
+            Label("preview-package.action", systemImage: "scope")
         }
         .keyboardShortcut("p", modifiers: [.command, .option])
     }
@@ -37,7 +37,7 @@ struct PreviewPackageButtonWithCustomAction: View
         {
             action()
         } label: {
-            Text("preview-package.action")
+            Label("preview-package.action", systemImage: "scope")
         }
         .keyboardShortcut("p", modifiers: [.command, .option])
     }
@@ -57,7 +57,7 @@ struct PreviewPackageButtonWithCustomLabel: View
         {
             openWindow(value: packageToPreview)
         } label: {
-            Text(label)
+            Label(label, systemImage: "scope")
         }
         .keyboardShortcut("p", modifiers: [.command, .option])
     }

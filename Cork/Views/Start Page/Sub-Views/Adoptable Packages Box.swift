@@ -34,24 +34,7 @@ struct AdoptablePackagesBox: View
                         {
                             List(brewPackagesTracker.adoptableCasks.sorted(by: { $0.caskName < $1.caskName }))
                             { adoptableCask in
-                                HStack(alignment: .firstTextBaseline, spacing: 5)
-                                {
-                                    Text(adoptableCask.caskExecutable)
-
-                                    Text("(\(adoptableCask.caskName))")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                }
-                                .contextMenu
-                                {
-                                    
-                                    PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(adoptableCask.caskName)", packageToPreview: .init(name: adoptableCask.caskName, type: .cask, installedIntentionally: true))
-                                    
-                                    RevealInFinderButtonWithArbitraryAction
-                                    {
-                                        URL.applicationDirectory.appendingPathComponent(adoptableCask.caskExecutable, conformingTo: .executable).revealInFinder(.openParentDirectoryAndHighlightTarget)
-                                    }
-                                }
+                                AdoptablePackageListItem(adoptableCask: adoptableCask)
                             }
                             .listStyle(.bordered(alternatesRowBackgrounds: true))
                         }
@@ -96,6 +79,57 @@ struct AdoptablePackagesBox: View
                 Text("package-adoption.confirmation.message")
             }
             .dialogSeverity(.standard)
+        }
+    }
+}
+
+struct AdoptablePackageListItem: View
+{
+    let adoptableCask: BrewPackagesTracker.AdoptableCaskComparable
+    
+    var adoptableCaskAppLocation: URL
+    {
+        return URL.applicationDirectory.appendingPathComponent(adoptableCask.caskExecutable, conformingTo: .application)
+    }
+    
+    var adoptableCaskApp: Application?
+    {
+        return try? .init(from: adoptableCaskAppLocation)
+    }
+    
+    var body: some View
+    {
+        HStack(alignment: .center, spacing: 5)
+        {
+            if let adoptableCaskApp
+            {
+                if let adoptableCaskIcon = adoptableCaskApp.iconImage
+                {
+                    adoptableCaskIcon
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 35)
+                }
+            }
+            
+            HStack(alignment: .firstTextBaseline, spacing: 5)
+            {
+                Text(adoptableCask.caskExecutable)
+
+                Text("(\(adoptableCask.caskName))")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .contextMenu
+        {
+            PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(adoptableCask.caskName)", packageToPreview: .init(name: adoptableCask.caskName, type: .cask, installedIntentionally: true))
+
+            Button {
+                adoptableCaskAppLocation.revealInFinder(.openParentDirectoryAndHighlightTarget)
+            } label: {
+                Label("action.reveal-\(adoptableCask.caskExecutable)-in-finder", systemImage: "finder")
+            }
         }
     }
 }

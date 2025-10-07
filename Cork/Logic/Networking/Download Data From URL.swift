@@ -35,7 +35,11 @@ enum DataDownloadingError: LocalizedError
     }
 }
 
-func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async throws(DataDownloadingError) -> Data
+func downloadDataFromURL(
+    _ url: URL,
+    parameters: [URLQueryItem]? = nil,
+    cachingPolicy: URLRequest.CachePolicy = .useProtocolCachePolicy
+) async throws(DataDownloadingError) -> Data
 {
     let sessionConfiguration: URLSessionConfiguration = .default
     if AppConstants.shared.proxySettings != nil
@@ -57,7 +61,7 @@ func downloadDataFromURL(_ url: URL, parameters: [URLQueryItem]? = nil) async th
         throw DataDownloadingError.invalidURL
     }
 
-    var request: URLRequest = .init(url: modifiedURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+    var request: URLRequest = .init(url: modifiedURL, cachePolicy: cachingPolicy, timeoutInterval: 10)
 
     request.httpMethod = "GET"
 
