@@ -38,7 +38,7 @@ extension BrewPackagesTracker
     /// Get a list of casks that can be adopted into the Homebrew updating mechanism
     func getAdoptableCasks(
         cacheUsePolicy: HomebrewDataCacheUsePolicy
-    ) async throws(AdoptableCasksLoadingError) -> [AdoptableCaskComparable]
+    ) async throws(AdoptableCasksLoadingError) -> [AdoptableApp]
     {
         do
         {
@@ -52,7 +52,7 @@ extension BrewPackagesTracker
 
                 AppConstants.shared.logger.debug("Successfully parsed all Casks")
 
-                let processedAvailableCasks: Set<AdoptableCaskComparable> = processParsedAvailableCasks(from: parsedCasksJson)
+                let processedAvailableCasks: Set<AdoptableApp> = processParsedAvailableCasks(from: parsedCasksJson)
 
                 AppConstants.shared.logger.debug("Successfully processed available Casks")
 
@@ -60,7 +60,7 @@ extension BrewPackagesTracker
                 {
                     let installedApps: Set<String> = try self.getInstalledApps()
 
-                    let processedAdoptableCasks: [AdoptableCaskComparable] = await getAdoptableAppsFromAvailableCasks(
+                    let processedAdoptableCasks: [AdoptableApp] = await getAdoptableAppsFromAvailableCasks(
                         installedApps: installedApps,
                         allAvailableCasks: processedAvailableCasks
                     )
@@ -118,12 +118,12 @@ extension BrewPackagesTracker
     }
 
     /// A struct for holding a Cask's name and its executable
-    struct AdoptableCaskComparable: Identifiable, Hashable, Sendable
+    struct AdoptableApp: Identifiable, Hashable, Sendable
     {
         let id: UUID = .init()
 
         let caskName: String
-        let caskExecutable: String
+        let appExecutable: String
         
         let fullAppUrl: URL
 
@@ -131,12 +131,12 @@ extension BrewPackagesTracker
         
         var app: Application?
 
-        init(caskName: String, caskExecutable: String)
+        init(caskName: String, appExecutable: String)
         {
             self.caskName = caskName
-            self.caskExecutable = caskExecutable
+            self.appExecutable = appExecutable
             
-            self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(caskExecutable, conformingTo: .application)
+            self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(appExecutable, conformingTo: .application)
             
             self.isMarkedForAdoption = true
         }
@@ -155,9 +155,9 @@ extension BrewPackagesTracker
     /// Take the array that contains all Casks, and transform them into a list of Cask names, associated with their executable names for comparing with the contents of the Applications folder
     private func processParsedAvailableCasks(
         from parsedCasks: [BrewPackage.PackageCommandOutput.Casks]
-    ) -> Set<AdoptableCaskComparable>
+    ) -> Set<AdoptableApp>
     {
-        var resultArray: Set<AdoptableCaskComparable> = .init()
+        var resultArray: Set<AdoptableApp> = .init()
 
         for parsedCask in parsedCasks
         {
@@ -168,7 +168,7 @@ extension BrewPackagesTracker
                 resultArray.insert(
                     .init(
                         caskName: parsedCask.token,
-                        caskExecutable: executableName
+                        appExecutable: executableName
                     )
                 )
             }
@@ -206,31 +206,31 @@ extension BrewPackagesTracker
     /// Compare the contents of the Applications folder with the available casks, and also remove installed casks using the Cask tracker
     private func getAdoptableAppsFromAvailableCasks(
         installedApps: Set<String>,
-        allAvailableCasks: Set<AdoptableCaskComparable>
-    ) async-> [AdoptableCaskComparable]
+        allAvailableCasks: Set<AdoptableApp>
+    ) async-> [AdoptableApp]
     {
         /// Filter out those available Casks whose executables match those in the Applications folder
-        let caskNamesOfAppsNotInstalledThroughHomebrew: Set<AdoptableCaskComparable> = allAvailableCasks.filter
+        let caskNamesOfAppsNotInstalledThroughHomebrew: Set<AdoptableApp> = allAvailableCasks.filter
         { adoptableCask in
-            installedApps.contains(adoptableCask.caskExecutable)
+            installedApps.contains(adoptableCask.appExecutable)
         }
 
         /// Only get the names of installed packages to make the comparing faster
         let installedCaskNames: Set<String> = .init(successfullyLoadedCasks.map { $0.name })
 
         /// Filter out packages that are already included in the Cask tracker (which means they are already installed) and those that contain the charactzer `@` (betas, etc.)
-        let caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker: Set<AdoptableCaskComparable> = caskNamesOfAppsNotInstalledThroughHomebrew.filter { !installedCaskNames.contains($0.caskName) }.filter { !$0.caskName.contains("@") }
+        let caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker: Set<AdoptableApp> = caskNamesOfAppsNotInstalledThroughHomebrew.filter { !installedCaskNames.contains($0.caskName) }.filter { !$0.caskName.contains("@") }
 
         print("Finally processed casks: \(caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker)")
         
-        var adoptableAppsWithConstructedBundles: [BrewPackagesTracker.AdoptableCaskComparable] = .init()
+        var adoptableAppsWithConstructedBundles: [BrewPackagesTracker.AdoptableApp] = .init()
         
-        await withTaskGroup(of: AdoptableCaskComparable.self)
+        await withTaskGroup(of: AdoptableApp.self)
         { taskGroup in
             for adoptableApp in caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker
             {
                 taskGroup.addTask {
-                    var mutableAdoptableApp: BrewPackagesTracker.AdoptableCaskComparable = adoptableApp
+                    var mutableAdoptableApp: BrewPackagesTracker.AdoptableApp = adoptableApp
                     
                     mutableAdoptableApp.app = await mutableAdoptableApp.constructAppBundle()
                     
