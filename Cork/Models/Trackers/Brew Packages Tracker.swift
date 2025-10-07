@@ -126,6 +126,18 @@ class BrewPackagesTracker
     {
         return self.adoptableApps.filter(\.isMarkedForAdoption)
     }
+    
+    var hasSelectedOnlySomeAppsToAdopt: Bool
+    {
+        if adoptableApps.count != adoptableAppsSelectedToBeAdopted.count
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
 }
 
 extension BrewPackagesTracker

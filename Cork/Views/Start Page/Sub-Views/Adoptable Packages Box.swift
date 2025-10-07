@@ -13,6 +13,7 @@ struct AdoptablePackagesBox: View
 {
     @Default(.allowMassPackageAdoption) var allowMassPackageAdoption: Bool
 
+    @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @State private var isShowingAdoptionWarning: Bool = false
@@ -23,35 +24,47 @@ struct AdoptablePackagesBox: View
         {
             GroupBoxHeadlineGroupWithArbitraryImageAndContent(imageName: "custom.shippingbox.2.badge.arrow.down")
             {
-                HStack(alignment: .firstTextBaseline)
+                VStack(alignment: .leading)
                 {
-                    VStack(alignment: .leading)
+                    HStack(alignment: .firstTextBaseline)
                     {
                         Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableApps.count)")
                             .font(.headline)
 
-                        DisclosureGroup("adoptable-packages.label")
+                        Spacer()
+                        
+                        Button
                         {
-                            adoptablePackagesList
+                            isShowingAdoptionWarning = true
+
+                            AppConstants.shared.logger.info("Will adopt \(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count, privacy: .public) apps")
+                        } label: {
+                            if brewPackagesTracker.hasSelectedOnlySomeAppsToAdopt
+                            {
+                                Text("action.adopt-some-packages.\(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count)")
+                            }
+                            else
+                            {
+                                Text("action.adopt-packages")
+                            }
                         }
+                        .disabled(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.isEmpty)
                     }
 
-                    Button
+                    DisclosureGroup("adoptable-packages.label")
                     {
-                        isShowingAdoptionWarning = true
-
-                        AppConstants.shared.logger.info("Will adopt \(brewPackagesTracker.adoptableApps.count, privacy: .public) apps")
-                    } label: {
-                        Text("action.adopt-packages")
+                        adoptablePackagesList
                     }
                 }
             }
             .animation(.bouncy, value: brewPackagesTracker.adoptableApps.isEmpty)
-            .confirmationDialog("package-adoption.confirmation.title.\(brewPackagesTracker.adoptableApps.count)", isPresented: $isShowingAdoptionWarning)
+            .confirmationDialog("package-adoption.confirmation.title.\(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count)", isPresented: $isShowingAdoptionWarning)
             {
                 Button
                 {
                     isShowingAdoptionWarning = false
+
+                    appState.showSheet(ofType: .massAppAdoption)
                 } label: {
                     Text("action.adopt-packages.longer")
                 }
@@ -150,10 +163,16 @@ struct AdoptablePackagesBox: View
         Button
         {
             AppConstants.shared.logger.debug("Will deselect all adoptable casks")
+            
+            for (index, _) in brewPackagesTracker.adoptableApps.enumerated()
+            {
+                brewPackagesTracker.adoptableApps[index].isMarkedForAdoption = false
+            }
+            
         } label: {
             Text("start-page.updated.action.deselect-all")
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.accessoryBar)
     }
 
     @ViewBuilder
@@ -162,6 +181,12 @@ struct AdoptablePackagesBox: View
         Button
         {
             AppConstants.shared.logger.debug("Will select all adoptable casks")
+            
+            for (index, _) in brewPackagesTracker.adoptableApps.enumerated()
+            {
+                brewPackagesTracker.adoptableApps[index].isMarkedForAdoption = true
+            }
+            
         } label: {
             Text("start-page.updated.action.select-all")
         }

@@ -214,7 +214,7 @@ struct OutdatedPackageListBox: View
             if outdatedPackageInfoDisplayAmount != .all
             {
                 viewProxy
-                    .buttonStyle(.plain)
+                    .buttonStyle(.accessoryBar)
             }
             else
             {
@@ -246,7 +246,7 @@ struct OutdatedPackageListBox: View
             if outdatedPackageInfoDisplayAmount != .all
             {
                 viewProxy
-                    .buttonStyle(.plain)
+                    .buttonStyle(.accessoryBar)
             }
             else
             {
