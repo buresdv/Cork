@@ -92,7 +92,7 @@ struct AdoptablePackagesBox: View
                             adoptableCask.isMarkedForAdoption
                         }, set: { toggleState in
                             if let index = brewPackagesTracker.adoptableCasks.firstIndex(where: { $0.id == adoptableCask.id }) {
-                                brewPackagesTracker.adoptableCasks[index].changeMarkedState()  // This WOULD trigger onChange
+                                brewPackagesTracker.adoptableCasks[index].changeMarkedState()
                             }
                         }
                     )) {
@@ -106,9 +106,6 @@ struct AdoptablePackagesBox: View
 
                     selectAllButton
                 }
-            }
-            .onChange(of: brewPackagesTracker.adoptableCasks) { oldValue, newValue in
-                print("CHANGE!")
             }
         }
         .listStyle(.bordered(alternatesRowBackgrounds: true))
@@ -143,24 +140,13 @@ struct AdoptablePackageListItem: View
 {
     let adoptableCask: BrewPackagesTracker.AdoptableCaskComparable
 
-    let adoptableCaskAppLocation: URL
-
-    let adoptableCaskApp: Application?
-
-    init(adoptableCask: BrewPackagesTracker.AdoptableCaskComparable)
-    {
-        self.adoptableCask = adoptableCask
-        self.adoptableCaskAppLocation = URL.applicationDirectory.appendingPathComponent(adoptableCask.caskExecutable, conformingTo: .application)
-        self.adoptableCaskApp = try? .init(from: self.adoptableCaskAppLocation)
-    }
-
     var body: some View
     {
         HStack(alignment: .center, spacing: 5)
         {
-            if let adoptableCaskApp
+            if let app = adoptableCask.app
             {
-                if let adoptableCaskIcon = adoptableCaskApp.iconImage
+                if let adoptableCaskIcon = app.iconImage
                 {
                     adoptableCaskIcon
                         .resizable()
@@ -184,7 +170,7 @@ struct AdoptablePackageListItem: View
 
             Button
             {
-                adoptableCaskAppLocation.revealInFinder(.openParentDirectoryAndHighlightTarget)
+                adoptableCask.fullAppUrl.revealInFinder(.openParentDirectoryAndHighlightTarget)
             } label: {
                 Label("action.reveal-\(adoptableCask.caskExecutable)-in-finder", systemImage: "finder")
             }

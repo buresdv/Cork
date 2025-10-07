@@ -11,13 +11,26 @@ import CorkShared
 
 // TODO: Move this over to the `ApplicationInspector` external library once we figure out how to use Tuist projects as external dependencies
 
-public struct Application
+public struct Application: Identifiable, Hashable, Sendable
 {
+    public let id: UUID = .init()
+    
     public let name: String
     
     public let iconPath: URL?
     
     public let iconImage: Image?
+    
+    public static func == (lhs: Application, rhs: Application) -> Bool
+    {
+        lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher)
+    {
+        hasher.combine(name)
+        hasher.combine(id)
+    }
 
     public enum ApplicationInitializationError: LocalizedError
     {

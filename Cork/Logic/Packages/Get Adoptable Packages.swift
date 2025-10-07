@@ -38,7 +38,7 @@ extension BrewPackagesTracker
     /// Get a list of casks that can be adopted into the Homebrew updating mechanism
     func getAdoptableCasks(
         cacheUsePolicy: HomebrewDataCacheUsePolicy
-    ) async throws(AdoptableCasksLoadingError) -> Set<AdoptableCaskComparable>
+    ) async throws(AdoptableCasksLoadingError) -> [AdoptableCaskComparable]
     {
         do
         {
@@ -60,7 +60,7 @@ extension BrewPackagesTracker
                 {
                     let installedApps: Set<String> = try self.getInstalledApps()
 
-                    let processedAdoptableCasks: Set<AdoptableCaskComparable> = getAdoptableAppsFromAvailableCasks(
+                    let processedAdoptableCasks: [AdoptableCaskComparable] = await getAdoptableAppsFromAvailableCasks(
                         installedApps: installedApps,
                         allAvailableCasks: processedAvailableCasks
                     )
@@ -118,25 +118,37 @@ extension BrewPackagesTracker
     }
 
     /// A struct for holding a Cask's name and its executable
-    struct AdoptableCaskComparable: Identifiable, Hashable
+    struct AdoptableCaskComparable: Identifiable, Hashable, Sendable
     {
         let id: UUID = .init()
 
         let caskName: String
         let caskExecutable: String
+        
+        let fullAppUrl: URL
 
         var isMarkedForAdoption: Bool
+        
+        var app: Application?
 
         init(caskName: String, caskExecutable: String)
         {
             self.caskName = caskName
             self.caskExecutable = caskExecutable
+            
+            self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(caskExecutable, conformingTo: .application)
+            
             self.isMarkedForAdoption = true
         }
 
         mutating func changeMarkedState()
         {
             self.isMarkedForAdoption.toggle()
+        }
+        
+        func constructAppBundle() async -> Application?
+        {
+            return try? .init(from: self.fullAppUrl)
         }
     }
 
@@ -195,7 +207,7 @@ extension BrewPackagesTracker
     private func getAdoptableAppsFromAvailableCasks(
         installedApps: Set<String>,
         allAvailableCasks: Set<AdoptableCaskComparable>
-    ) -> Set<AdoptableCaskComparable>
+    ) async-> [AdoptableCaskComparable]
     {
         /// Filter out those available Casks whose executables match those in the Applications folder
         let caskNamesOfAppsNotInstalledThroughHomebrew: Set<AdoptableCaskComparable> = allAvailableCasks.filter
@@ -210,7 +222,30 @@ extension BrewPackagesTracker
         let caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker: Set<AdoptableCaskComparable> = caskNamesOfAppsNotInstalledThroughHomebrew.filter { !installedCaskNames.contains($0.caskName) }.filter { !$0.caskName.contains("@") }
 
         print("Finally processed casks: \(caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker)")
+        
+        var adoptableAppsWithConstructedBundles: [BrewPackagesTracker.AdoptableCaskComparable] = .init()
+        
+        await withTaskGroup(of: AdoptableCaskComparable.self)
+        { taskGroup in
+            for adoptableApp in caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker
+            {
+                taskGroup.addTask {
+                    var mutableAdoptableApp: BrewPackagesTracker.AdoptableCaskComparable = adoptableApp
+                    
+                    mutableAdoptableApp.app = await mutableAdoptableApp.constructAppBundle()
+                    
+                    return mutableAdoptableApp
+                }
+                
+                for await constructedAdoptableApp in taskGroup
+                {
+                    adoptableAppsWithConstructedBundles.append(
+                        constructedAdoptableApp
+                    )
+                }
+            }
+        }
 
-        return caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker
+        return adoptableAppsWithConstructedBundles
     }
 }
