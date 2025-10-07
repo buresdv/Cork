@@ -32,11 +32,7 @@ struct AdoptablePackagesBox: View
 
                         DisclosureGroup("adoptable-packages.label")
                         {
-                            List(brewPackagesTracker.adoptableCasks.sorted(by: { $0.caskName < $1.caskName }))
-                            { adoptableCask in
-                                AdoptablePackageListItem(adoptableCask: adoptableCask)
-                            }
-                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                            adoptablePackagesList
                         }
                     }
 
@@ -81,22 +77,83 @@ struct AdoptablePackagesBox: View
             .dialogSeverity(.standard)
         }
     }
+
+    @ViewBuilder
+    var adoptablePackagesList: some View
+    {
+        List
+        {
+            Section
+            {
+                ForEach(brewPackagesTracker.adoptableCasks.sorted(by: { $0.caskName < $1.caskName }))
+                { adoptableCask in
+                    Toggle(isOn: Binding<Bool>(
+                        get: {
+                            adoptableCask.isMarkedForAdoption
+                        }, set: { toggleState in
+                            if let index = brewPackagesTracker.adoptableCasks.firstIndex(where: { $0.id == adoptableCask.id }) {
+                                brewPackagesTracker.adoptableCasks[index].changeMarkedState()  // This WOULD trigger onChange
+                            }
+                        }
+                    )) {
+                        AdoptablePackageListItem(adoptableCask: adoptableCask)
+                    }
+                }
+            } header: {
+                HStack(alignment: .center, spacing: 10)
+                {
+                    deselectAllButton
+
+                    selectAllButton
+                }
+            }
+            .onChange(of: brewPackagesTracker.adoptableCasks) { oldValue, newValue in
+                print("CHANGE!")
+            }
+        }
+        .listStyle(.bordered(alternatesRowBackgrounds: true))
+    }
+
+    @ViewBuilder
+    var deselectAllButton: some View
+    {
+        Button
+        {
+            AppConstants.shared.logger.debug("Will deselect all adoptable casks")
+        } label: {
+            Text("start-page.updated.action.deselect-all")
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    var selectAllButton: some View
+    {
+        Button
+        {
+            AppConstants.shared.logger.debug("Will select all adoptable casks")
+        } label: {
+            Text("start-page.updated.action.select-all")
+        }
+        .buttonStyle(.plain)
+    }
 }
 
 struct AdoptablePackageListItem: View
 {
     let adoptableCask: BrewPackagesTracker.AdoptableCaskComparable
-    
-    var adoptableCaskAppLocation: URL
+
+    let adoptableCaskAppLocation: URL
+
+    let adoptableCaskApp: Application?
+
+    init(adoptableCask: BrewPackagesTracker.AdoptableCaskComparable)
     {
-        return URL.applicationDirectory.appendingPathComponent(adoptableCask.caskExecutable, conformingTo: .application)
+        self.adoptableCask = adoptableCask
+        self.adoptableCaskAppLocation = URL.applicationDirectory.appendingPathComponent(adoptableCask.caskExecutable, conformingTo: .application)
+        self.adoptableCaskApp = try? .init(from: self.adoptableCaskAppLocation)
     }
-    
-    var adoptableCaskApp: Application?
-    {
-        return try? .init(from: adoptableCaskAppLocation)
-    }
-    
+
     var body: some View
     {
         HStack(alignment: .center, spacing: 5)
@@ -111,7 +168,7 @@ struct AdoptablePackageListItem: View
                         .frame(width: 35)
                 }
             }
-            
+
             HStack(alignment: .firstTextBaseline, spacing: 5)
             {
                 Text(adoptableCask.caskExecutable)
@@ -125,7 +182,8 @@ struct AdoptablePackageListItem: View
         {
             PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(adoptableCask.caskName)", packageToPreview: .init(name: adoptableCask.caskName, type: .cask, installedIntentionally: true))
 
-            Button {
+            Button
+            {
                 adoptableCaskAppLocation.revealInFinder(.openParentDirectoryAndHighlightTarget)
             } label: {
                 Label("action.reveal-\(adoptableCask.caskExecutable)-in-finder", systemImage: "finder")

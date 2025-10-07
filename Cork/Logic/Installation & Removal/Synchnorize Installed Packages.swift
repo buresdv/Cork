@@ -31,5 +31,12 @@ extension BrewPackagesTracker
         }
         
         await cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: self)
+        
+        do
+        {
+            self.adoptableCasks = try await self.getAdoptableCasks(cacheUsePolicy: .useCachedData)
+        } catch let adoptableCasksSynchronizationError {
+            AppConstants.shared.logger.error("Failed while synchronizing adoptable casks: \(adoptableCasksSynchronizationError)")
+        }
     }
 }
