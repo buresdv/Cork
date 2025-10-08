@@ -99,10 +99,7 @@ struct StartPage: View
                         }
                     }
 
-                    Section
-                    {
-                        AdoptablePackagesBox()
-                    }
+                    AdoptablePackagesSection()
                     
                     if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
                     {

@@ -16,7 +16,7 @@ enum DisplayableSheet: Identifiable, Equatable
     
     case fullUpdate, partialUpdate(packagesToUpdate: [OutdatedPackage])
     
-    case massAppAdoption
+    case massAppAdoption(appsToAdopt: [BrewPackagesTracker.AdoptableApp])
     
     case corruptedPackageFix(corruptedPackage: CorruptedPackage)
     
