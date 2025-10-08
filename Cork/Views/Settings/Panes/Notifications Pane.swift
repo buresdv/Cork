@@ -106,6 +106,11 @@ struct NotificationsPane: View
                             {
                                 Text("settings.notifications.notify-about-installation-result")
                             }
+                            
+                            Defaults.Toggle(key: .notifyAboutMassAdoptionResults)
+                            {
+                                Text("settings.notifications.notify-about-mass-adoption-result")
+                            }
                         }
                     } label: {
                         Text("settings.notifications.notify-about-various-actions")
