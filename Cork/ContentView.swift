@@ -426,8 +426,8 @@ private extension View
                 case .tapAddition:
                     AddTapView()
 
-                case .massAppAdoption:
-                    MassAppAdoptionView()
+                case .massAppAdoption(let appsToAdopt):
+                    MassAppAdoptionView(appsToAdopt: appsToAdopt)
                     
                 case .fullUpdate:
                     UpdatePackagesView()
