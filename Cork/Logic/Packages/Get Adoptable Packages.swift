@@ -48,17 +48,17 @@ extension BrewPackagesTracker
 
             do
             {
-                let parsedCasksJson: [BrewPackage.PackageCommandOutput.Casks] = try self.parseCasksJson(jsonAsData: allCasksJson)
+                let parsedCasksJson: [BrewPackage.PackageCommandOutput.Casks] = try await self.parseCasksJson(jsonAsData: allCasksJson)
 
                 AppConstants.shared.logger.debug("Successfully parsed all Casks")
 
-                let processedAvailableCasks: Set<AdoptableApp> = processParsedAvailableCasks(from: parsedCasksJson)
+                let processedAvailableCasks: Set<AdoptableApp> = await processParsedAvailableCasks(from: parsedCasksJson)
 
                 AppConstants.shared.logger.debug("Successfully processed available Casks")
 
                 do
                 {
-                    let installedApps: Set<String> = try self.getInstalledApps()
+                    let installedApps: Set<String> = try await self.getInstalledApps()
 
                     let processedAdoptableCasks: [AdoptableApp] = await getAdoptableAppsFromAvailableCasks(
                         installedApps: installedApps,
@@ -84,7 +84,8 @@ extension BrewPackagesTracker
     }
 
     /// Download a JSON list of all available casks
-    private func loadAllCasksJson(
+    private nonisolated
+    func loadAllCasksJson(
         cachingPolicy: HomebrewDataCacheUsePolicy
     ) async throws(DataDownloadingError) -> Data
     {
@@ -97,9 +98,10 @@ extension BrewPackagesTracker
     }
 
     /// Parse the downloaded Casks JSON into usable objects
-    private func parseCasksJson(
+    private nonisolated
+    func parseCasksJson(
         jsonAsData: Data
-    ) throws(CasksJsonParsingError) -> [BrewPackage.PackageCommandOutput.Casks]
+    ) async throws(CasksJsonParsingError) -> [BrewPackage.PackageCommandOutput.Casks]
     {
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
@@ -124,20 +126,20 @@ extension BrewPackagesTracker
 
         let caskName: String
         let appExecutable: String
-        
+
         let fullAppUrl: URL
 
         var isMarkedForAdoption: Bool
-        
+
         var app: Application?
 
         init(caskName: String, appExecutable: String)
         {
             self.caskName = caskName
             self.appExecutable = appExecutable
-            
+
             self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(appExecutable, conformingTo: .application)
-            
+
             self.isMarkedForAdoption = true
         }
 
@@ -145,7 +147,7 @@ extension BrewPackagesTracker
         {
             self.isMarkedForAdoption.toggle()
         }
-        
+
         func constructAppBundle() async -> Application?
         {
             return try? .init(from: self.fullAppUrl)
@@ -153,9 +155,10 @@ extension BrewPackagesTracker
     }
 
     /// Take the array that contains all Casks, and transform them into a list of Cask names, associated with their executable names for comparing with the contents of the Applications folder
-    private func processParsedAvailableCasks(
+    private nonisolated
+    func processParsedAvailableCasks(
         from parsedCasks: [BrewPackage.PackageCommandOutput.Casks]
-    ) -> Set<AdoptableApp>
+    ) async -> Set<AdoptableApp>
     {
         var resultArray: Set<AdoptableApp> = .init()
 
@@ -187,7 +190,8 @@ extension BrewPackagesTracker
     }
 
     /// Get the names for executables in the Applications directory
-    private func getInstalledApps() throws(AppDirectoryReadingError) -> Set<String>
+    private nonisolated
+    func getInstalledApps() async throws(AppDirectoryReadingError) -> Set<String>
     {
         do
         {
@@ -204,7 +208,8 @@ extension BrewPackagesTracker
     }
 
     /// Compare the contents of the Applications folder with the available casks, and also remove installed casks using the Cask tracker
-    private func getAdoptableAppsFromAvailableCasks(
+    private nonisolated
+    func getAdoptableAppsFromAvailableCasks(
         installedApps: Set<String>,
         allAvailableCasks: Set<AdoptableApp>
     ) async -> [AdoptableApp]
@@ -216,27 +221,28 @@ extension BrewPackagesTracker
         }
 
         /// Only get the names of installed packages to make the comparing faster
-        let installedCaskNames: Set<String> = .init(successfullyLoadedCasks.map { $0.name })
+        let installedCaskNames: Set<String> = await .init(successfullyLoadedCasks.map { $0.name })
 
         /// Filter out packages that are already included in the Cask tracker (which means they are already installed) and those that contain the charactzer `@` (betas, etc.)
         let caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker: Set<AdoptableApp> = caskNamesOfAppsNotInstalledThroughHomebrew.filter { !installedCaskNames.contains($0.caskName) }.filter { !$0.caskName.contains("@") }
 
         print("Finally processed casks: \(caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker)")
-        
+
         var adoptableAppsWithConstructedBundles: [BrewPackagesTracker.AdoptableApp] = .init()
-        
+
         await withTaskGroup(of: AdoptableApp.self)
         { taskGroup in
             for adoptableApp in caskNamesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCaskTracker
             {
-                taskGroup.addTask {
+                taskGroup.addTask
+                {
                     var mutableAdoptableApp: BrewPackagesTracker.AdoptableApp = adoptableApp
-                    
+
                     mutableAdoptableApp.app = await mutableAdoptableApp.constructAppBundle()
-                    
+
                     return mutableAdoptableApp
                 }
-                
+
                 for await constructedAdoptableApp in taskGroup
                 {
                     adoptableAppsWithConstructedBundles.append(
