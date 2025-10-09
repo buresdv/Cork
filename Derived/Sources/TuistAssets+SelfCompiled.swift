@@ -25,6 +25,7 @@ public enum CorkAsset: Sendable {
     public static let customMacwindowBadgeMagnifyingglass = CorkImages(name: "custom.macwindow.badge.magnifyingglass")
     public static let customMacwindowBadgeXmark = CorkImages(name: "custom.macwindow.badge.xmark")
     public static let customPinFillQuestionmark = CorkImages(name: "custom.pin.fill.questionmark")
+    public static let customShippingbox2BadgeArrowDown = CorkImages(name: "custom.shippingbox.2.badge.arrow.down")
     public static let customShippingboxBadgeMagnifyingglass = CorkImages(name: "custom.shippingbox.badge.magnifyingglass")
     public static let customShippingboxBadgePlus = CorkImages(name: "custom.shippingbox.badge.plus")
     public static let customSparklesSlash = CorkImages(name: "custom.sparkles.slash")
