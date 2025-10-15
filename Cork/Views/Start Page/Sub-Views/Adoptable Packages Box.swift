@@ -34,7 +34,7 @@ struct AdoptablePackagesSection: View
                                 .font(.headline)
 
                             Spacer()
-                            
+
                             Button
                             {
                                 isShowingAdoptionWarning = true
@@ -105,18 +105,31 @@ struct AdoptablePackagesSection: View
             {
                 ForEach(brewPackagesTracker.adoptableApps.sorted(by: { $0.caskName < $1.caskName }).prefix(numberOfMaxShownAdoptableApps))
                 { adoptableCask in
-                    Toggle(isOn: Binding<Bool>(
-                        get: {
-                            adoptableCask.isMarkedForAdoption
-                        }, set: { _ in
-                            if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
-                            {
-                                brewPackagesTracker.adoptableApps[index].changeMarkedState()
-                            }
-                        }
-                    ))
+                    HStack(alignment: .center)
                     {
+                        Toggle(isOn: Binding<Bool>(
+                            get: {
+                                adoptableCask.isMarkedForAdoption
+                            }, set: { _ in
+                                if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
+                                {
+                                    brewPackagesTracker.adoptableApps[index].changeMarkedState()
+                                }
+                            }
+                        ))
+                        {
+                            EmptyView()
+                        }
+                        .labelsHidden()
+
                         AdoptablePackageListItem(adoptableCask: adoptableCask)
+                            .onTapGesture
+                            {
+                                if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
+                                {
+                                    brewPackagesTracker.adoptableApps[index].changeMarkedState()
+                                }
+                            }
                     }
                 }
             } header: {
@@ -166,12 +179,12 @@ struct AdoptablePackagesSection: View
         Button
         {
             AppConstants.shared.logger.debug("Will deselect all adoptable casks")
-            
+
             for (index, _) in brewPackagesTracker.adoptableApps.enumerated()
             {
                 brewPackagesTracker.adoptableApps[index].isMarkedForAdoption = false
             }
-            
+
         } label: {
             Text("start-page.updated.action.deselect-all")
         }
@@ -184,12 +197,12 @@ struct AdoptablePackagesSection: View
         Button
         {
             AppConstants.shared.logger.debug("Will select all adoptable casks")
-            
+
             for (index, _) in brewPackagesTracker.adoptableApps.enumerated()
             {
                 brewPackagesTracker.adoptableApps[index].isMarkedForAdoption = true
             }
-            
+
         } label: {
             Text("start-page.updated.action.select-all")
         }
@@ -226,7 +239,7 @@ struct AdoptablePackageListItem: View
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
-                
+
                 if let caskDescription = adoptableCask.description
                 {
                     Text(caskDescription)
