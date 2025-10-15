@@ -27,23 +27,11 @@ struct InstallationTerminatedUnexpectedlyView: View
                 
                 if usableLiveTerminalOutput.isEmpty
                 {
-                    OutlinedPillText(text: "add-package.install.installation-terminated.no-terminal-output-provided", color: .secondary)                        
+                    noOutputProvided
                 }
                 else
                 {
-                    DisclosureGroup
-                    {
-                        List
-                        {
-                            ForEach(usableLiveTerminalOutput)
-                            { outputLine in
-                                Text(outputLine.line)
-                            }
-                        }
-                        .frame(height: 100, alignment: .leading)
-                    } label: {
-                        Text("action.show-terminal-output")
-                    }
+                    someOutputProvided
                 }
             }
         }
@@ -53,5 +41,35 @@ struct InstallationTerminatedUnexpectedlyView: View
             /// We have to assign `terminaloutputOfTheInstallation` to this private var so it doesn't get purged with the passed original
             usableLiveTerminalOutput = terminalOutputOfTheInstallation
         }
+    }
+    
+    @ViewBuilder
+    var noOutputProvided: some View
+    {
+        Text("add-package.install.installation-terminated.no-terminal-output-provided")
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+            .frame(alignment: .leading)
+        
+        Spacer()
+    }
+    
+    @ViewBuilder
+    var someOutputProvided: some View
+    {
+        DisclosureGroup
+        {
+            List
+            {
+                ForEach(usableLiveTerminalOutput)
+                { outputLine in
+                    Text(outputLine.line)
+                }
+            }
+            .frame(maxHeight: 100, alignment: .leading)
+        } label: {
+            Text("action.show-terminal-output")
+        }
+        
     }
 }
