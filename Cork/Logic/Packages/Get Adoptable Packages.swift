@@ -126,6 +126,8 @@ extension BrewPackagesTracker
 
         let caskName: String
         let appExecutable: String
+        
+        let description: String?
 
         let fullAppUrl: URL
 
@@ -133,10 +135,12 @@ extension BrewPackagesTracker
 
         var app: Application?
 
-        init(caskName: String, appExecutable: String)
+        init(caskName: String, description: String?, appExecutable: String)
         {
             self.caskName = caskName
             self.appExecutable = appExecutable
+            
+            self.description = description
 
             self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(appExecutable, conformingTo: .application)
 
@@ -171,6 +175,7 @@ extension BrewPackagesTracker
                 resultArray.insert(
                     .init(
                         caskName: parsedCask.token,
+                        description: parsedCask.desc,
                         appExecutable: executableName
                     )
                 )
