@@ -48,8 +48,20 @@ class BrewPackageDetails
 
     // MARK: - Init
 
-    init(name: String, description: String?, homepage: URL, tap: BrewTap, installedAsDependency: Bool, dependents: [String]? = nil, dependencies: [BrewPackageDependency]? = nil, outdated: Bool, caveats: String? = nil, deprecated: Bool, deprecationReason: String? = nil, isCompatible: Bool?)
-    {
+    init(
+        name: String,
+        description: String?,
+        homepage: URL,
+        tap: BrewTap,
+        installedAsDependency: Bool,
+        dependents: [String]? = nil,
+        dependencies: [BrewPackageDependency]? = nil,
+        outdated: Bool,
+        caveats: String? = nil,
+        deprecated: Bool,
+        deprecationReason: String? = nil,
+        isCompatible: Bool?
+    ){
         self.name = name
         self.description = description
         self.homepage = homepage
