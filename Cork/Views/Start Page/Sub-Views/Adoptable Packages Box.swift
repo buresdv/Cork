@@ -216,13 +216,23 @@ struct AdoptablePackageListItem: View
                 }
             }
 
-            HStack(alignment: .firstTextBaseline, spacing: 5)
+            VStack(alignment: .leading, spacing: 2)
             {
-                Text(adoptableCask.appExecutable)
+                HStack(alignment: .firstTextBaseline, spacing: 5)
+                {
+                    Text(adoptableCask.appExecutable)
 
-                Text("(\(adoptableCask.caskName))")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    Text("(\(adoptableCask.caskName))")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                
+                if let caskDescription = adoptableCask.description
+                {
+                    Text(caskDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
             }
         }
         .contextMenu
