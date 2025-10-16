@@ -97,9 +97,9 @@ private extension BrewPackagesTracker
             let urlsInParentFolder: [URL] = try getContentsOfFolder(targetFolder: packageTypeToLoad.parentFolder, options: [.skipsHiddenFiles])
 
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
-            
+
             let namesOfPinnedPackages: Set<String>? = await getNamesOfPinnedPackagesDuringLoading()
-            
+
             let namesOfTaggedPackages: Set<String>? = try? await getNamesOfTaggedPackages()
 
             let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, PackageLoadingError>.self)
@@ -134,9 +134,11 @@ private extension BrewPackagesTracker
                 {
                     loadedPackages.insert(loadedPackage)
                 }
-                
-                let loggableLoadedPackages: String = loadedPackages.compactMap { rawResult in
-                    switch rawResult {
+
+                let loggableLoadedPackages: String = loadedPackages.compactMap
+                { rawResult in
+                    switch rawResult
+                    {
                     case .success(let success):
                         return success.name
                     case .failure(let failure):
@@ -182,7 +184,7 @@ private extension BrewPackagesTracker
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.packageNameFromURL()
-        
+
         AppConstants.shared.logger.debug("Package name to load: \(packageName). Will check if this is a legit package")
 
         /// Check if we're not trying to read versions in the Cellar or Caskroom folder itself - this usually means Homebrew is broken
@@ -202,11 +204,12 @@ private extension BrewPackagesTracker
             /// Gets URL to installed versions of a package provided as ``packageURL``
             /// `/opt/homebrew/Cellar/cmake/3.30.5`, `/opt/homebrew/Cellar/cmake/3.30.4`
             let versionURLs: [URL] = try getContentsOfFolder(targetFolder: packageURL, options: [.skipsHiddenFiles])
-            
-            guard !versionURLs.isEmpty else
+
+            guard !versionURLs.isEmpty
+            else
             {
                 AppConstants.shared.logger.error("Failed while loading package \(packageURL.packageNameFromURL()) because it has no versions installed")
-                
+
                 return .failure(.packageDoesNotHaveAnyVersionsInstalled(packageURL: packageURL))
             }
 
@@ -229,11 +232,12 @@ private extension BrewPackagesTracker
                 /// Check whether the package is among the pinned packages
                 /// If there was a failure during the loading of pinned packages, returns `false`
                 let isPackagePinned: Bool = {
-                    guard let namesOfPinnedPackages else
+                    guard let namesOfPinnedPackages
+                    else
                     {
                         return false
                     }
-                    
+
                     if namesOfPinnedPackages.contains(packageName)
                     {
                         return true
@@ -243,15 +247,16 @@ private extension BrewPackagesTracker
                         return false
                     }
                 }()
-                
+
                 /// Check whether the package is among the tagged packages
                 /// If there is a failure during the loading of tagged package, returns `false`
                 let isPackageTagged: Bool = {
-                    guard let namesOfTaggedPackages else
+                    guard let namesOfTaggedPackages
+                    else
                     {
                         return false
                     }
-                    
+
                     if namesOfTaggedPackages.contains(packageName)
                     {
                         return true
@@ -259,6 +264,26 @@ private extension BrewPackagesTracker
                     else
                     {
                         return false
+                    }
+                }()
+
+                let packageSize: Int64 = await {
+                    switch packageURL.packageType
+                    {
+                    case .formula:
+                        return packageURL.directorySize
+                    case .cask:
+                        guard let lastVersionInList: URL = versionURLs.last else
+                        {
+                            return packageURL.directorySize
+                        }
+                        
+                        guard let sizeOfActualApp: Int64 = await lastVersionInList.getActualAppSize() else
+                        {
+                            return packageURL.directorySize
+                        }
+                        
+                        return sizeOfActualApp
                     }
                 }()
                 
@@ -271,7 +296,7 @@ private extension BrewPackagesTracker
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,
                         installedIntentionally: wasPackageInstalledIntentionally,
-                        sizeInBytes: packageURL.directorySize,
+                        sizeInBytes: packageSize,
                         downloadCount: nil
                     )
                 )
@@ -290,7 +315,7 @@ private extension BrewPackagesTracker
             return .failure(.failedWhileReadingContentsOfPackageFolder(folderURL: packageURL, reportedError: loadingError.localizedDescription))
         }
     }
-    
+
     private func getNamesOfPinnedPackagesDuringLoading() async -> Set<String>?
     {
         // MARK: - Getting pinned packages
@@ -302,5 +327,69 @@ private extension BrewPackagesTracker
         }
 
         return await self.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath)
+    }
+}
+
+private extension URL
+{
+    /// Get the actual size of the installed app by resolving a symlink inside a version's folder and loading the size of the app from the `Applications` directory
+    func getActualAppSize() async -> Int64?
+    {
+        do
+        {
+            /// Get the contents of the version's folder
+            let contentsOfVersionFolder: [URL] = try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: [.isSymbolicLinkKey])
+            
+            AppConstants.shared.logger.info("Discovered these versions for determining actual app size: \(contentsOfVersionFolder)")
+
+            /// Filter out the symlinks, and do your best to approximate which symlink is valid (there should be only one, anyway). If something breaks, be conservative and say there are no symlinks
+            guard let symlinkUrl: URL = contentsOfVersionFolder.filter({ $0.isSymlink() ?? false }).first
+            else
+            {
+                AppConstants.shared.logger.error("Could read the contents of the version's folder at \(self), but there was nothing")
+
+                return self.directorySize
+            }
+
+            AppConstants.shared.logger.info("Will use this symlink URL for determining app size: \(symlinkUrl)")
+            
+            /// Resolve the symlink to the location of the actual app
+            let resolvedSymlinkUrl: URL = symlinkUrl.resolvingSymlinksInPath()
+            
+            AppConstants.shared.logger.info("Symlink for determining app size resolved to \(resolvedSymlinkUrl)")
+
+            /// Make sure the resolved symlink is not the original URL itself
+            guard resolvedSymlinkUrl != self
+            else
+            {
+                AppConstants.shared.logger.info("The resolved symlink for URL \(self) was the same as the original URL")
+
+                return self.directorySize
+            }
+
+            /// Return the size of the app bundle
+            return resolvedSymlinkUrl.directorySize
+            
+        }
+        catch let directoryContentsDiscoveryError
+        {
+            AppConstants.shared.logger.error("Couldn't read the contents of Cask's version folder at \(self): \(directoryContentsDiscoveryError.localizedDescription). Will use the size of the symlink folder")
+
+            return self.directorySize
+        }
+    }
+}
+
+private extension FileManager
+{
+    func sizeOfFile(at url: URL) -> Int64?
+    {
+        guard let attrs = try? attributesOfItem(atPath: url.path)
+        else
+        {
+            return nil
+        }
+
+        return attrs[.size] as? Int64
     }
 }
