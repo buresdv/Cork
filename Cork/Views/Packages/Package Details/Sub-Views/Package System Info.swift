@@ -30,32 +30,7 @@ struct PackageSystemInfo: View
                 {
                     LabeledContent
                     {
-                        HStack
-                        {
-                            Text(packageSize.formatted(.byteCount(style: .file)))
-
-                            if package.type == .cask
-                            {
-                                HelpButton
-                                {
-                                    isShowingCaskSizeHelpPopover.toggle()
-                                }
-                                .help("package-details.size.help")
-                                .popover(isPresented: $isShowingCaskSizeHelpPopover)
-                                {
-                                    VStack(alignment: .leading, spacing: 10)
-                                    {
-                                        Text("package-details.size.help")
-                                            .font(.headline)
-                                        Text("package-details.size.help.body-1")
-                                        Text("package-details.size.help.body-2")
-                                    }
-                                    .multilineTextAlignment(.leading)
-                                    .padding()
-                                    .frame(width: 300)
-                                }
-                            }
-                        }
+                        Text(packageSize.formatted(.byteCount(style: .file)))
                     } label: {
                         Text("package-details.size")
                     }
