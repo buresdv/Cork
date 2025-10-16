@@ -40376,6 +40376,7 @@
       }
     },
     "package-details.size.help" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -40464,6 +40465,7 @@
       }
     },
     "package-details.size.help.body-1" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -40552,88 +40554,89 @@
       }
     },
     "package-details.size.help.body-2" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Cork nemá z bezpečnostních důvodů přístup do složky Aplikace, tak nemůže zjistit, jakou má soudek ve skutečnosti velikost. Může zjistit jenom velikost metadat."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Da Cork keinen Zugriff auf dein Anwendungsverzeichnis hat, kann es nicht die Größe der eigentlichen App ermitteln, sondern nur die mit dem Cask verknüpften Metadaten."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask."
+            "value" : "Sometimes, Cork might not have access to the actual app. In that case, the size of the folder containing a link to the app is calculated."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Since Cork does not have access to your Applications directory, it cannot get the size of the actual app, only of the metadata associated with the Cask."
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Dado que Cork no tiene acceso a tu directorio de Aplicaciones, no puede obtener el tamaño de la aplicación real, solo de los metadatos asociados con el Cask."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Comme Cork n'a pas accès à votre répertoire Applications, il ne peut pas obtenir la taille réelle de l'application, mais seulement celle des métadonnées associées au Cask."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Dato che Cork non ha accesso alla tua cartella Applicazioni, non può ottenere la dimensione dell’app in sé, ma solo dei metadati associati al cask."
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Cork는 애플리케이션 디렉토리에 액세스할 수 없으므로 실제 앱의 크기는 알 수 없고 캐스크와 관련된 메타데이터의 크기만 알 수 있습니다."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Como o Cork não tem acesso ao seu diretório de Aplicações, ele não pode obter o tamanho da aplicação real, apenas dos metadados associados ao Cask."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Так как Cork не имеет доступа к папке \"Приложения\", определить размер самого приложения невозможно. Вместо этого отображается размер метаданных для него."
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Cork, Uygulamalar dizininize erişemediğinden, gerçek uygulamanın boyutunu değil, yalnızca Cask ile ilişkili meta verilerin boyutunu alabilir."
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Оскільки Cork не має доступу до папки Програми, він не може отримати фактичний розмір Cask, тільки метадані повʼязані з ним."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "由于 Cork 无权访问您的应用程序文件夹，只能获取与 Cask 相关的元数据大小，而无法获取实际应用程序的大小。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "由於 Cork 並不能檢視您的應用程式檔案夾，所以它無法獲取程式的真正大小，只能依靠 Cask 裡的元資料。"
           }
         }
