@@ -62,6 +62,8 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     let installedOn: Date?
     let versions: [String]
 
+    let url: URL?
+    
     var installedIntentionally: Bool = true
 
     let sizeInBytes: Int64?
@@ -287,6 +289,7 @@ extension BrewPackage
             type: minimalPackage.type,
             installedOn: minimalPackage.installDate,
             versions: [],
+            url: nil,
             sizeInBytes: nil,
             downloadCount: nil
         )

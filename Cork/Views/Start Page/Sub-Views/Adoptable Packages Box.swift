@@ -220,13 +220,10 @@ struct AdoptablePackageListItem: View
         {
             if let app = adoptableCask.app
             {
-                if let adoptableCaskIcon = app.iconImage
-                {
-                    adoptableCaskIcon
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 35)
-                }
+                AppIconDisplay(
+                    displayType: .asIcon(usingApp: app),
+                    allowRevealingInFinderFromIcon: false
+                )
             }
 
             VStack(alignment: .leading, spacing: 2)
