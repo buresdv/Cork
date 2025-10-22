@@ -43,7 +43,7 @@ struct DependencyList: View
                 {
                     TableColumn("package-details.dependencies.results.name")
                     { dependency in
-                        SanitizedPackageName(package: .init(name: dependency.name, type: .formula, installedOn: nil, versions: [dependency.version], sizeInBytes: nil, downloadCount: nil), shouldShowVersion: false)
+                        SanitizedPackageName(package: .init(name: dependency.name, type: .formula, installedOn: nil, versions: [dependency.version], url: nil, sizeInBytes: nil, downloadCount: nil), shouldShowVersion: false)
                     }
                     TableColumn("package-details.dependencies.results.version")
                     { dependency in

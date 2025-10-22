@@ -17,6 +17,8 @@ public struct Application: Identifiable, Hashable, Sendable
     
     public let name: String
     
+    public let url: URL
+    
     public let iconPath: URL?
     
     public let iconImage: Image?
@@ -99,6 +101,8 @@ public struct Application: Identifiable, Hashable, Sendable
             }
             
             self.name = appName
+            
+            self.url = appURL
 
             self.iconPath = Application.getAppIconPath(fromInfoDictionary: appBundleInfoDictionary, appBundle: appBundle)
             
