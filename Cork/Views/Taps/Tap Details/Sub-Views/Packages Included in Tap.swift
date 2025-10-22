@@ -46,7 +46,7 @@ struct PackagesIncludedInTapList: View
                     { package in
                         HStack(alignment: .center)
                         {
-                            SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
+                            SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
 
                             if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package.name }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package.name })
                             {

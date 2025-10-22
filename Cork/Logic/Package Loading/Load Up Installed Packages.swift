@@ -266,6 +266,43 @@ private extension BrewPackagesTracker
                         return false
                     }
                 }()
+                
+                /// Find the latest installed version URL for Casks, and return the URL to the linked Formula directory for Formulae
+                let urlToVersionUsedForDeterminingActualExecutableLocation: URL = {
+                    switch packageURL.packageType
+                    {
+                    case .formula:
+                        return packageURL
+                    case .cask:
+                        if let newestInstalledVersion = versionURLs.last
+                        {
+                            return newestInstalledVersion
+                        }
+                        else
+                        {
+                            return packageURL
+                        }
+                    }
+                }()
+                
+                /// Resolve path to the actual executable for casks, and the path to the currently linked folder for formulae
+                let finalExecutableURL: URL = await {
+                    switch packageURL.packageType
+                    {
+                    case .formula:
+                        AppConstants.shared.logger.debug("Package is formula, will use the Cellar URL (\(packageURL))")
+                        return packageURL
+                    case .cask:
+                        
+                        AppConstants.shared.logger.debug("Package is Cask, will try to discover the actual URL")
+                        
+                        let urlToActualExecutable: URL = await urlToVersionUsedForDeterminingActualExecutableLocation.getUrlToActualCaskExecutable()
+                        
+                        AppConstants.shared.logger.debug("Actual URL discovered: \(urlToActualExecutable)")
+                        
+                        return urlToActualExecutable
+                    }
+                }()
 
                 let packageSize: Int64 = await {
                     switch packageURL.packageType
@@ -273,12 +310,7 @@ private extension BrewPackagesTracker
                     case .formula:
                         return packageURL.directorySize
                     case .cask:
-                        guard let lastVersionInList: URL = versionURLs.last else
-                        {
-                            return packageURL.directorySize
-                        }
-                        
-                        guard let sizeOfActualApp: Int64 = await lastVersionInList.getActualAppSize() else
+                        guard let sizeOfActualApp: Int64 = await urlToVersionUsedForDeterminingActualExecutableLocation.getActualAppSize() else
                         {
                             return packageURL.directorySize
                         }
@@ -295,6 +327,7 @@ private extension BrewPackagesTracker
                         isPinned: isPackagePinned,
                         installedOn: packageURL.creationDate,
                         versions: versionNamesForPackage,
+                        url: finalExecutableURL,
                         installedIntentionally: wasPackageInstalledIntentionally,
                         sizeInBytes: packageSize,
                         downloadCount: nil
@@ -332,8 +365,8 @@ private extension BrewPackagesTracker
 
 private extension URL
 {
-    /// Get the actual size of the installed app by resolving a symlink inside a version's folder and loading the size of the app from the `Applications` directory
-    func getActualAppSize() async -> Int64?
+    /// Resolve the app's symlink and get the URL of the actual `.app` in the `Applications` folder
+    func getUrlToActualCaskExecutable() async -> URL
     {
         do
         {
@@ -348,7 +381,7 @@ private extension URL
             {
                 AppConstants.shared.logger.error("Could read the contents of the version's folder at \(self), but there was nothing")
 
-                return self.directorySize
+                return self
             }
 
             AppConstants.shared.logger.info("Will use this symlink URL for determining app size: \(symlinkUrl)")
@@ -364,19 +397,25 @@ private extension URL
             {
                 AppConstants.shared.logger.info("The resolved symlink for URL \(self) was the same as the original URL")
 
-                return self.directorySize
+                return self
             }
 
             /// Return the size of the app bundle
-            return resolvedSymlinkUrl.directorySize
+            return resolvedSymlinkUrl
             
         }
         catch let directoryContentsDiscoveryError
         {
             AppConstants.shared.logger.error("Couldn't read the contents of Cask's version folder at \(self): \(directoryContentsDiscoveryError.localizedDescription). Will use the size of the symlink folder")
 
-            return self.directorySize
+            return self
         }
+    }
+    
+    /// Get the actual size of the installed app by resolving a symlink inside a version's folder and loading the size of the app from the `Applications` directory
+    func getActualAppSize() async -> Int64?
+    {
+        return await getUrlToActualCaskExecutable().directorySize
     }
 }
 

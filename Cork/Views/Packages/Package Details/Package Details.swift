@@ -40,6 +40,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
     var isInPreviewWindow: Bool = false
 
     @State private var packageDetails: BrewPackageDetails? = nil
+    
+    @State private var caskExecutable: Application? = nil
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
@@ -92,9 +94,15 @@ struct PackageDetailView: View, Sendable, DismissablePane
                             isShowingExpandedCaveats: $isShowingExpandedCaveats
                         )
 
-                        PackageDependencies(dependencies: packageDetails?.dependencies, isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies)
+                        PackageDependencies(
+                            dependencies: packageDetails?.dependencies,
+                            isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies
+                        )
 
-                        PackageSystemInfo(package: packageStructureToUse)
+                        PackageSystemInfo(
+                            package: packageStructureToUse,
+                            caskExecutable: caskExecutable
+                        )
                     }
                 }
             }
@@ -155,6 +163,19 @@ struct PackageDetailView: View, Sendable, DismissablePane
                 AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
                 erroredOut = (true, packageInfoDecodingError.localizedDescription)
+            }
+        }
+        .task(id: package.id)
+        { // For casks, try to load the application executable
+            if package.type == .cask
+            {
+                AppConstants.shared.logger.info("Package is cask, will see what the app's location is for url \(package.url as NSObject?)")
+                
+                if let packageURL = package.url
+                {
+                    AppConstants.shared.logger.info("Will try to load app icon for URL \(packageURL)")
+                    caskExecutable = try? .init(from: packageURL)
+                }
             }
         }
     }

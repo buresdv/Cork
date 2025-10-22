@@ -10,6 +10,8 @@ import SwiftUI
 struct PackageSystemInfo: View
 {
     let package: BrewPackage
+    
+    let caskExecutable: Application?
 
     @State private var isShowingCaskSizeHelpPopover: Bool = false
 
@@ -19,22 +21,57 @@ struct PackageSystemInfo: View
         {
             Section
             {
-                LabeledContent
-                {
-                    Text(installedOnDate.formatted(.packageInstallationStyle))
-                } label: {
-                    Text("package-details.install-date")
-                }
+                caskInstalledAsLine
+                
+                installedOnDateLine(installedOnDate)
 
-                if let packageSize = package.sizeInBytes
-                {
-                    LabeledContent
-                    {
-                        Text(packageSize.formatted(.byteCount(style: .file)))
-                    } label: {
-                        Text("package-details.size")
-                    }
-                }
+                packageSizeLine(package.sizeInBytes)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var caskInstalledAsLine: some View
+    {
+        
+        if let caskExecutable
+        {
+            LabeledContent
+            {
+                AppIconDisplay(
+                    displayType: .asIconWithAppNameDisplayed(
+                        usingApp: caskExecutable,
+                        namePosition: .besideAppIcon
+                    ),
+                    allowRevealingInFinderFromIcon: true
+                )
+            } label: {
+                Text("package-details.installed-as")
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func installedOnDateLine(_ installedOnDate: Date) -> some View
+    {
+        LabeledContent
+        {
+            Text(installedOnDate.formatted(.packageInstallationStyle))
+        } label: {
+            Text("package-details.install-date")
+        }
+    }
+    
+    @ViewBuilder
+    func packageSizeLine(_ packageSize: Int64?) -> some View
+    {
+        if let packageSize = package.sizeInBytes
+        {
+            LabeledContent
+            {
+                Text(packageSize.formatted(.byteCount(style: .file)))
+            } label: {
+                Text("package-details.size")
             }
         }
     }
