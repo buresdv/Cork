@@ -310,7 +310,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zu Cork Beitragen"
+            "value" : "Zu Cork beitragen"
           }
         },
         "en" : {
@@ -1190,7 +1190,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat die Paketanzahlt auf der Hauptseite gefixt"
+            "value" : "Hat die Paketanzahl auf der Hauptseite gefixt"
           }
         },
         "en" : {
@@ -3230,7 +3230,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat Cork ins vereinfachte Chinesisch übersetzt"
+            "value" : "Hat Cork in vereinfachtes Chinesisch übersetzt"
           }
         },
         "en" : {
@@ -3406,7 +3406,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat Cork ins traditionelle Chinesisch übersetzt"
+            "value" : "Hat Cork in traditionelles Chinesisch übersetzt"
           }
         },
         "en" : {
@@ -3758,7 +3758,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat Cork ins Französisch übersetzt"
+            "value" : "Hat Cork ins Französische übersetzt"
           }
         },
         "en" : {
@@ -5265,7 +5265,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "nach Aktualisierungen suchen"
+            "value" : "Nach Aktualisierungen suchen"
           }
         },
         "en" : {
@@ -7076,7 +7076,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Auf GitHub…"
+            "value" : "Auf GitHub melden…"
           }
         },
         "en" : {
@@ -7821,7 +7821,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terminal Ausgang Zeigen"
+            "value" : "Terminal-Ausgabe zeigen"
           }
         },
         "en" : {
@@ -8437,7 +8437,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bericht in den Foren"
+            "value" : "Im Forum melden…"
           }
         },
         "en" : {
@@ -9382,7 +9382,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "wurde außerhalb von Homebrew installiert"
+            "value" : "%@ wurde außerhalb von Homebrew installiert"
           }
         },
         "en" : {
@@ -27740,7 +27740,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du kannst Cork über die Schaltfläche unten kaufen oder die Webseite [website](https://corkmac.app) besuchen.\nBist du nicht sicher ob Cork das richtige für dich ist? Probiere die Demo, welche auf 7 Tage begrenzt ist."
+            "value" : "Du kannst Cork über die Schaltfläche unten kaufen oder die [Webseite](https://corkmac.app) besuchen.\nBist du nicht sicher ob Cork das richtige für dich ist? Teste die Demo für 7 Tage."
           }
         },
         "en" : {
@@ -47001,7 +47001,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Schnellste Downloads"
+            "value" : "Wenigsten Downloads"
           }
         },
         "en" : {
@@ -47090,7 +47090,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Meinste Downloads"
+            "value" : "Meiste Downloads"
           }
         },
         "en" : {
@@ -49179,6 +49179,12 @@
             "value" : "Úplné"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vollständig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -49244,6 +49250,12 @@
             "value" : "minimální"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimal"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -49307,6 +49319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pouze verze"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur Versionsnummern"
           }
         },
         "en" : {
@@ -59124,7 +59142,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach Paketaktualisierungen wird gesucht…"
+            "value" : "Suche nach Paketaktualisierungen …"
           }
         },
         "en" : {
