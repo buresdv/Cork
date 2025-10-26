@@ -108,6 +108,13 @@ private extension BrewPackagesTracker
                 {
                     AppConstants.shared.logger.debug("Will add package at URL \(packageURL) to the package loading task group")
 
+                    /// Check if the package folder is just a symlink - If so, it is just a renamed package and we don't have to parse it
+                    // TODO: Create a more robust system for showing what the package was renamed to - see stash "Skeleton for more complete renamed package support"
+                    guard packageURL.isSymlink() == false else
+                    {
+                        continue
+                    }
+                    
                     taskGroup.addTask
                     {
                         await self.loadInstalledPackage(
