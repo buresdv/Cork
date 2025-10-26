@@ -7,6 +7,7 @@
 
 import CorkShared
 import Foundation
+import SwiftData
 
 extension BrewPackagesTracker
 {
@@ -156,8 +157,67 @@ extension BrewPackagesTracker
         {
             return try? .init(from: self.fullAppUrl)
         }
+        
+        func excludeSelf() async
+        {
+            let excludedAppRepresentation: BrewPackagesTracker.ExcludedAdoptableApp = .init(fromAdoptableApp: self)
+            
+            await excludedAppRepresentation.saveSelfToDatabase()
+        }
+        
+        func includeSelf() async
+        {
+            let excludedAppRepresentation: BrewPackagesTracker.ExcludedAdoptableApp = .init(fromAdoptableApp: self)
+            
+            await excludedAppRepresentation.deleteSelfFromDatabase()
+        }
     }
 
+    @Model
+    final class ExcludedAdoptableApp
+    {
+        @Attribute(.unique) @Attribute(.spotlight)
+        var appExecutable: String
+        
+        init(appExecutable: String)
+        {
+            self.appExecutable = appExecutable
+        }
+        
+        init(fromAdoptableApp app: BrewPackagesTracker.AdoptableApp)
+        {
+            self.appExecutable = app.appExecutable
+        }
+        
+        @MainActor
+        public func saveSelfToDatabase()
+        {
+            AppConstants.shared.modelContainer.mainContext.insert(self)
+        }
+
+        @MainActor
+        public func deleteSelfFromDatabase()
+        {
+            let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
+
+            do
+            {
+                let descriptor = FetchDescriptor<ExcludedAdoptableApp>(
+                    predicate: #Predicate { $0.appExecutable == appExecutable }
+                )
+
+                if let existingPackage = try modelContext.fetch(descriptor).first
+                {
+                    modelContext.delete(existingPackage)
+                }
+            }
+            catch
+            {
+                AppConstants.shared.logger.error("Failed to fetch excluded adoptable app for deletion: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     /// Take the array that contains all Casks, and transform them into a list of Cask names, associated with their executable names for comparing with the contents of the Applications folder
     private nonisolated
     func processParsedAvailableCasks(
