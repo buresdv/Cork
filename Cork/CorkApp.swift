@@ -92,6 +92,9 @@ struct CorkApp: App
                 .modelContainer(for: [
                     SavedTaggedPackage.self
                 ])
+                .modelContainer(for: [
+                    BrewPackagesTracker.ExcludedAdoptableApp.self
+                ])
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
