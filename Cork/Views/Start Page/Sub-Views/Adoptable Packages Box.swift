@@ -8,6 +8,8 @@
 import CorkShared
 import Defaults
 import SwiftUI
+import ButtonKit
+import SwiftData
 
 struct AdoptablePackagesSection: View
 {
@@ -17,6 +19,8 @@ struct AdoptablePackagesSection: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @State private var isShowingAdoptionWarning: Bool = false
+    
+    @Query private var excludedApps: [BrewPackagesTracker.ExcludedAdoptableApp]
 
     var body: some View
     {
@@ -66,7 +70,11 @@ struct AdoptablePackagesSection: View
                     {
                         isShowingAdoptionWarning = false
 
-                        appState.showSheet(ofType: .massAppAdoption(appsToAdopt: brewPackagesTracker.adoptableAppsSelectedToBeAdopted))
+                        appState.showSheet(ofType:
+                                .massAppAdoption(
+                                    appsToAdopt: brewPackagesTracker.adoptableAppsSelectedToBeAdopted
+                                )
+                        )
                     } label: {
                         Text("action.adopt-packages.longer")
                     }
@@ -255,6 +263,23 @@ struct AdoptablePackageListItem: View
             } label: {
                 Label("action.reveal-\(adoptableCask.appExecutable)-in-finder", systemImage: "finder")
             }
+            
+            Divider()
+            
+            ignoreAdoptableAppButton(appToIgnore: adoptableCask)
+        }
+    }
+    
+    @ViewBuilder
+    func ignoreAdoptableAppButton(appToIgnore: BrewPackagesTracker.AdoptableApp) -> some View
+    {
+        AsyncButton
+        {
+            AppConstants.shared.logger.info("Adding app \(appToIgnore.appExecutable) to the excluded apps")
+            
+            await appToIgnore.excludeSelf()
+        } label: {
+            Label("action.package-adoption.ignore.\(appToIgnore.appExecutable)", systemImage: "xmark.circle")
         }
     }
 }
