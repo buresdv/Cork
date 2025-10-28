@@ -2,7 +2,7 @@
 //  Brew Package.swift
 //  Cork
 //
-//  Created by David Bureš on 03.07.2022.
+//  Created by David Bureš - P on 28.10.2025.
 //
 
 import AppKit
@@ -10,6 +10,9 @@ import CorkShared
 import DavidFoundation
 import Foundation
 import SwiftData
+import Charts
+import AppIntents
+import SwiftUI
 
 /// A representation of a Homebrew package
 struct BrewPackage: Identifiable, Equatable, Hashable, Codable
@@ -41,6 +44,73 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         return versions.formatted(.list(type: .and))
     }
     
+    enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
+    {
+        case formula
+        case cask
+
+        /// User-readable description of the package type
+        var description: String
+        {
+            switch self
+            {
+            case .formula:
+                return String(localized: "package-details.type.formula")
+            case .cask:
+                return String(localized: "package-details.type.cask")
+            }
+        }
+
+        /// Localization keys for description of the package type
+        var localizableDescription: LocalizedStringKey
+        {
+            switch self
+            {
+            case .formula:
+                return "package-details.type.formula"
+            case .cask:
+                return "package-details.type.cask"
+            }
+        }
+
+        /// Parent folder for this package type
+        var parentFolder: URL
+        {
+            switch self
+            {
+            case .formula:
+                return AppConstants.shared.brewCellarPath
+            case .cask:
+                return AppConstants.shared.brewCaskPath
+            }
+        }
+
+        /// Accessibility representation
+        var accessibilityLabel: LocalizedStringKey
+        {
+            switch self
+            {
+            case .formula:
+                return "accessibility.label.package-type.formula"
+            case .cask:
+                return "accessibility.label.package-type.cask"
+            }
+        }
+
+        static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
+
+        var displayRepresentation: DisplayRepresentation
+        {
+            switch self
+            {
+            case .formula:
+                DisplayRepresentation(title: "package-details.type.formula")
+            case .cask:
+                DisplayRepresentation(title: "package-details.type.cask")
+            }
+        }
+    }
+    
     /// The purpose of the tagged status change operation
     enum TaggedStatusChangePurpose: String
     {
@@ -67,7 +137,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         AppConstants.shared.logger.debug("Will change the tagged status of package \(packageName) for the purpose of \(purpose.rawValue)")
         
         if purpose == .actuallyChangingTheTaggedState
-        {            
+        {
             let saveablePackageRepresentation: SavedTaggedPackage = .init(fullName: packageName)
             
             if !isTagged

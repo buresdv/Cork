@@ -89,8 +89,10 @@ struct AdoptablePackagesSection: View
                             Text("action.cancel")
                         }
 
+                        DisclosureGroup("adoptable-packages.label")
                         Button(role: .cancel)
                         {
+                            adoptablePackagesList
                             isShowingAdoptionWarning = false
                         } label: {
                             Text("action.cancel-and-disable-mass-adoption")
@@ -182,6 +184,20 @@ struct AdoptablePackagesSection: View
             }
         }
         .listStyle(.bordered(alternatesRowBackgrounds: true))
+    }
+    
+    @ViewBuilder
+    var excludedAdoptablePackagesList: some View
+    {
+        List
+        {
+            ForEach(excludedApps)
+            { excludedApp in
+                Text(excludedApp.appExecutable)
+            }
+        }
+        
+        Text(String(excludedApps.count))
     }
 
     @ViewBuilder

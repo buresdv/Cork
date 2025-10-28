@@ -11,7 +11,7 @@ import Foundation
 enum PackageLoadingError: LocalizedError, Hashable, Identifiable
 {
     /// Tried to treat the folder `Cellar` or `Caskroom` itself as a package - means Homebrew itself is broken
-    case triedToThreatFolderContainingPackagesAsPackage(packageType: PackageType)
+    case triedToThreatFolderContainingPackagesAsPackage(packageType: BrewPackage.PackageType)
     
     /// The `Cellar` and `Caskroom` folder itself couldn't be loaded
     case couldNotReadContentsOfParentFolder(failureReason: String, folderURL: URL)

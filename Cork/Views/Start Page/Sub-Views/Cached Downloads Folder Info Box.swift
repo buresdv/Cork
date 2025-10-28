@@ -51,9 +51,9 @@ struct CachedDownloadsFolderInfoBox: View
                                     switch packageType
                                     {
                                     case .formula:
-                                        return PackageType.formula.accessibilityLabel
+                                        return BrewPackage.PackageType.formula.accessibilityLabel
                                     case .cask:
-                                        return PackageType.cask.accessibilityLabel
+                                        return BrewPackage.PackageType.cask.accessibilityLabel
                                     case .other:
                                         return "accessibility.label.package-type.unimplemented"
                                     case .unknown:
@@ -90,8 +90,8 @@ struct CachedDownloadsFolderInfoBox: View
                     .chartXAxis(.hidden)
                     .chartXScale(type: .linear)
                     .chartForegroundStyleScale([
-                        PackageType.formula: .purple,
-                        PackageType.cask: .orange
+                        BrewPackage.PackageType.formula: .purple,
+                        BrewPackage.PackageType.cask: .orange
                     ])
                     .cornerRadius(2)
                     .frame(height: 20)
@@ -109,7 +109,7 @@ struct CachedDownloadsFolderInfoBox: View
     }
 
     @ViewBuilder
-    func chartLegendItem(item: CachedDownloadType) -> some View
+    func chartLegendItem(item: CachedDownload.CachedDownloadType) -> some View
     {
         HStack(alignment: .center, spacing: 4)
         {

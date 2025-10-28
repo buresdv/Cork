@@ -14,7 +14,7 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
 
     var name: String
 
-    var type: PackageType
+    var type: BrewPackage.PackageType
 
     var installDate: Date?
 

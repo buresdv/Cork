@@ -238,10 +238,10 @@ private extension BrewPackagesTracker
         struct FastPackageComparableRepresentation: Hashable
         {
             let name: String
-            let type: PackageType
+            let type: BrewPackage.PackageType
             let versions: [String]
             
-            init(name: String, type: PackageType, versions: [String])
+            init(name: String, type: BrewPackage.PackageType, versions: [String])
             {
                 self.name = name
                 self.type = type

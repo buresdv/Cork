@@ -186,7 +186,7 @@ struct PresentingSearchResultsView: View
 
 private struct SearchResultsSection: View
 {
-    let sectionType: PackageType
+    let sectionType: BrewPackage.PackageType
 
     let packageList: [BrewPackage]
 
