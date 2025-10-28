@@ -2,12 +2,11 @@
 //  Brew Packages Tracker.swift
 //  Cork
 //
-//  Created by David Bureš on 03.07.2022.
+//  Created by David Bureš - P on 28.10.2025.
 //
 
 import Foundation
 import SwiftUI
-import Defaults
 
 @Observable @MainActor
 class BrewPackagesTracker

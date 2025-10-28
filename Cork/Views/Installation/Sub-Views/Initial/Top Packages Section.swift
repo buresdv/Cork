@@ -15,7 +15,7 @@ struct TopPackagesSection: View
 
     let packageTracker: TopPackagesTracker
 
-    let trackerType: PackageType
+    let trackerType: BrewPackage.PackageType
     
     private var packages: [BrewPackage]
     {

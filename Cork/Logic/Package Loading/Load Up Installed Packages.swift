@@ -21,7 +21,7 @@ extension BrewPackagesTracker
     ///   - appState: ``AppState`` used to display loading errors
     /// - Returns: A set of loaded ``BrewPackage``s for the specified ``PackageType``
     func loadInstalledPackages(
-        packageTypeToLoad: PackageType, appState: AppState
+        packageTypeToLoad: BrewPackage.PackageType, appState: AppState
     ) async -> BrewPackages?
     {
         /// Start tracking when loading started
@@ -87,7 +87,7 @@ private extension BrewPackagesTracker
 {
     /// Load packages from disk, and convert them into ``BrewPackage``s
     func loadInstalledPackagesFromFolder(
-        packageTypeToLoad: PackageType
+        packageTypeToLoad: BrewPackage.PackageType
     ) async throws(PackageLoadingError) -> BrewPackages
     {
         do

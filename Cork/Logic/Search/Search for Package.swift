@@ -8,7 +8,7 @@
 import Foundation
 import CorkShared
 
-func searchForPackage(packageName: String, packageType: PackageType) async -> [String]
+func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]
 {
     var finalPackageArray: [String]
 

@@ -10,7 +10,7 @@ import Foundation
 extension URL
 {
     /// Determine a package's type type from its URL
-    var packageType: PackageType
+    var packageType: BrewPackage.PackageType
     {
         if self.pathComponents.contains("Cellar")
         {

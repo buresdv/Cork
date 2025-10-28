@@ -30,8 +30,9 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             "Cork/Logic/Helpers/Programs/Sudo Helper",
         ], dependencies: [
             // .target(name: "CorkHelp"),
-            .target(name: "CorkShared"),
-            .target(name: "CorkNotifications"),
+            .target(corkSharedTarget),
+            .target(corkNotificationsTarget),
+            .target(corkPackages_modelsTarget),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
             .external(name: "ButtonKit"),
@@ -88,6 +89,27 @@ let corkNotificationsTarget: ProjectDescription.Target = .target(
     ],
     dependencies: [
         .target(name: "CorkShared")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
+let corkPackages_modelsTarget: ProjectDescription.Target = .target(
+    name: "CorkPackagesModels",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-packages-models",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Packages/PackagesModels/**/*.swift"
     ],
     settings: .settings(configurations: [
         .debug(
@@ -164,6 +186,7 @@ let project = Project(
         corkTarget(configureWithSelfCompiled: false),
         corkTarget(configureWithSelfCompiled: true),
         corkSharedTarget,
+        corkPackages_modelsTarget,
         corkNotificationsTarget,
         corkHelpTarget,
         corkTestsTarget
