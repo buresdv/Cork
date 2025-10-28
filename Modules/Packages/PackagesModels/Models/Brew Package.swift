@@ -13,11 +13,17 @@ import SwiftData
 import Charts
 import AppIntents
 import SwiftUI
+import CorkTerminalFunctions
+import CorkPackagesLogic
+
+/// A representation of the loaded ``BrewPackage``s
+/// Includes packages that were loaded properly, along those whose loading failed
+typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadingError>>
 
 /// A representation of a Homebrew package
-struct BrewPackage: Identifiable, Equatable, Hashable, Codable
+public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
 {
-    var id: UUID = .init()
+    public var id: UUID = .init()
     let name: String
 
     let type: PackageType
@@ -44,13 +50,13 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         return versions.formatted(.list(type: .and))
     }
     
-    enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
+    public enum PackageType: String, CustomStringConvertible, Plottable, AppEntity, Codable
     {
         case formula
         case cask
 
         /// User-readable description of the package type
-        var description: String
+        public var description: String
         {
             switch self
             {
@@ -62,7 +68,7 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
         }
 
         /// Localization keys for description of the package type
-        var localizableDescription: LocalizedStringKey
+        public var localizableDescription: LocalizedStringKey
         {
             switch self
             {
@@ -97,9 +103,9 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
             }
         }
 
-        static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
+        public static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "package-details.type")
 
-        var displayRepresentation: DisplayRepresentation
+        public var displayRepresentation: DisplayRepresentation
         {
             switch self
             {

@@ -8,10 +8,6 @@
 import CorkShared
 import Foundation
 
-/// A representation of the loaded ``BrewPackage``s
-/// Includes packages that were loaded properly, along those whose loading failed
-typealias BrewPackages = Set<Result<BrewPackage, PackageLoadingError>>
-
 extension BrewPackagesTracker
 {
     /// Parent function for loading installed packages from disk

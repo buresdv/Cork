@@ -7,9 +7,10 @@
 
 import Foundation
 import SwiftUI
+import Defaults
 
 @Observable @MainActor
-class BrewPackagesTracker
+public class BrewPackagesTracker
 {
     var installedFormulae: BrewPackages = .init()
     var installedCasks: BrewPackages = .init()
@@ -47,7 +48,7 @@ class BrewPackagesTracker
     }
     
     /// Collected errors from failed Formulae loading
-    var unsuccessfullyLoadedFormulaeErrors: [PackageLoadingError]
+    var unsuccessfullyLoadedFormulaeErrors: [BrewPackage.PackageLoadingError]
     {
         return installedFormulae.compactMap
        { rawResult in
@@ -92,7 +93,7 @@ class BrewPackagesTracker
     }
     
     /// Collected errors from failed Casks loading
-    var unsuccessfullyLoadedCasksErrors: [PackageLoadingError]
+    var unsuccessfullyLoadedCasksErrors: [BrewPackage.PackageLoadingError]
     {
         return installedCasks.compactMap
         { rawResult in
