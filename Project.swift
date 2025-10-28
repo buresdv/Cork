@@ -33,9 +33,14 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(corkSharedTarget),
             .target(corkNotificationsTarget),
             .target(corkPackages_modelsTarget),
+            .target(corkPackages_logicTarget),
+            .target(corkTerminalFunctionsTarget),
+            .target(corkIntentsTarget),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
+            .external(name: "ApplicationInspector"),
             .external(name: "ButtonKit"),
+            .external(name: "FactoryKit"),
             .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
             .external(name: "Defaults"),
             .external(name: "DefaultsMacros")
@@ -63,8 +68,15 @@ let corkSharedTarget: ProjectDescription.Target = .target(
     sources: [
         "Modules/Shared/**/*.swift"
     ],
+    resources: [
+        "Cork/**/*.xcassets",
+        "Cork/**/*.xcstrings",
+        "PrivacyInfo.xcprivacy",
+        "Cork/Logic/Helpers/Programs/Sudo Helper",
+    ],
     dependencies: [
-        .external(name: "Defaults")
+        .external(name: "Defaults"),
+        .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
         .debug(
@@ -102,6 +114,30 @@ let corkNotificationsTarget: ProjectDescription.Target = .target(
     ])
 )
 
+let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
+    name: "CorkTerminalFunctions",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-terminal-functions",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/TerminalSupport/**/*.swift"
+    ],
+    dependencies: [
+        .external(name: "FactoryKit")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
 let corkPackages_modelsTarget: ProjectDescription.Target = .target(
     name: "CorkPackagesModels",
     destinations: [.mac],
@@ -110,6 +146,69 @@ let corkPackages_modelsTarget: ProjectDescription.Target = .target(
     deploymentTargets: .macOS("14.0.0"),
     sources: [
         "Modules/Packages/PackagesModels/**/*.swift"
+    ],
+    resources: [
+        "Cork/**/*.xcassets",
+        "Cork/**/*.xcstrings",
+        "PrivacyInfo.xcprivacy",
+        "Cork/Logic/Helpers/Programs/Sudo Helper",
+    ],
+    dependencies: [
+        .external(name: "FactoryKit")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
+let corkPackages_logicTarget: ProjectDescription.Target = .target(
+    name: "CorkPackagesLogic",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-packages-logic",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Packages/PackagesLogic/**/*.swift"
+    ],
+    resources: [
+        "Cork/**/*.xcassets",
+        "Cork/**/*.xcstrings",
+        "PrivacyInfo.xcprivacy",
+        "Cork/Logic/Helpers/Programs/Sudo Helper",
+    ],
+    dependencies: [
+        .external(name: "FactoryKit")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
+let corkIntentsTarget: ProjectDescription.Target = .target(
+    name: "CorkIntents",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-intents",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Intents/**/*.swift"
+    ],
+    dependencies: [
+        .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
         .debug(
@@ -186,7 +285,10 @@ let project = Project(
         corkTarget(configureWithSelfCompiled: false),
         corkTarget(configureWithSelfCompiled: true),
         corkSharedTarget,
+        corkTerminalFunctionsTarget,
         corkPackages_modelsTarget,
+        corkPackages_logicTarget,
+        corkIntentsTarget,
         corkNotificationsTarget,
         corkHelpTarget,
         corkTestsTarget
