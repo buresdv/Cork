@@ -23242,7 +23242,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@"
+            "value" : "Es ist ein Fehler beim Aktualisieren aufgetreten: %@"
           }
         },
         "en" : {
@@ -57526,7 +57526,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Es konnten keine veralteten Pakete überprüft werden."
+            "value" : "Es konnte nicht nach veralteten Paketen gesucht werden"
           }
         },
         "en" : {
