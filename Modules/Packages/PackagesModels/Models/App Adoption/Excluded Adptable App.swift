@@ -9,50 +9,47 @@ import Foundation
 import SwiftData
 import CorkShared
 
-public extension BrewPackagesTracker
+@Model
+public final class ExcludedAdoptableApp
 {
-    @Model
-    final class ExcludedAdoptableApp
+    @Attribute(.unique) @Attribute(.spotlight)
+    public var appExecutable: String
+    
+    public init(appExecutable: String)
     {
-        @Attribute(.unique) @Attribute(.spotlight)
-        var appExecutable: String
-        
-        init(appExecutable: String)
-        {
-            self.appExecutable = appExecutable
-        }
-        
-        init(fromAdoptableApp app: BrewPackagesTracker.AdoptableApp)
-        {
-            self.appExecutable = app.appExecutable
-        }
-        
-        @MainActor
-        public func saveSelfToDatabase()
-        {
-            AppConstants.shared.modelContainer.mainContext.insert(self)
-        }
+        self.appExecutable = appExecutable
+    }
+    
+    public init(fromAdoptableApp app: BrewPackagesTracker.AdoptableApp)
+    {
+        self.appExecutable = app.appExecutable
+    }
+    
+    @MainActor
+    public func saveSelfToDatabase()
+    {
+        AppConstants.shared.modelContainer.mainContext.insert(self)
+    }
 
-        @MainActor
-        public func deleteSelfFromDatabase()
-        {
-            let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
+    @MainActor
+    public func deleteSelfFromDatabase()
+    {
+        let modelContext: ModelContext = AppConstants.shared.modelContainer.mainContext
 
-            do
+        do
+        {
+            let descriptor = FetchDescriptor<ExcludedAdoptableApp>(
+                predicate: #Predicate { $0.appExecutable == appExecutable }
+            )
+
+            if let existingPackage = try modelContext.fetch(descriptor).first
             {
-                let descriptor = FetchDescriptor<ExcludedAdoptableApp>(
-                    predicate: #Predicate { $0.appExecutable == appExecutable }
-                )
-
-                if let existingPackage = try modelContext.fetch(descriptor).first
-                {
-                    modelContext.delete(existingPackage)
-                }
+                modelContext.delete(existingPackage)
             }
-            catch
-            {
-                AppConstants.shared.logger.error("Failed to fetch excluded adoptable app for deletion: \(error.localizedDescription)")
-            }
+        }
+        catch
+        {
+            AppConstants.shared.logger.error("Failed to fetch excluded adoptable app for deletion: \(error.localizedDescription)")
         }
     }
 }

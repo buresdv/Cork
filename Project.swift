@@ -33,7 +33,6 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(corkSharedTarget),
             .target(corkNotificationsTarget),
             .target(corkPackages_modelsTarget),
-            .target(corkPackages_logicTarget),
             .target(corkTerminalFunctionsTarget),
             .target(corkIntentsTarget),
             .external(name: "LaunchAtLogin"),
@@ -41,9 +40,9 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .external(name: "ApplicationInspector"),
             .external(name: "ButtonKit"),
             .external(name: "FactoryKit"),
-            .package(product: "SwiftLintBuildToolPlugin", type: .plugin),
             .external(name: "Defaults"),
-            .external(name: "DefaultsMacros")
+            .external(name: "DefaultsMacros"),
+            .package(product: "SwiftLintBuildToolPlugin", type: .plugin)
         ], settings: .settings(configurations: [
             .debug(
                 name: "Debug",
@@ -100,7 +99,7 @@ let corkNotificationsTarget: ProjectDescription.Target = .target(
         "Modules/Notifications/**/*.swift"
     ],
     dependencies: [
-        .target(name: "CorkShared")
+        .target(corkSharedTarget)
     ],
     settings: .settings(configurations: [
         .debug(
@@ -124,6 +123,7 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
         "Modules/TerminalSupport/**/*.swift"
     ],
     dependencies: [
+        .target(corkSharedTarget),
         .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
@@ -154,36 +154,8 @@ let corkPackages_modelsTarget: ProjectDescription.Target = .target(
         "Cork/Logic/Helpers/Programs/Sudo Helper",
     ],
     dependencies: [
-        .external(name: "FactoryKit")
-    ],
-    settings: .settings(configurations: [
-        .debug(
-            name: "Debug",
-            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-        ),
-        .release(
-            name: "Release",
-            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
-        )
-    ])
-)
-
-let corkPackages_logicTarget: ProjectDescription.Target = .target(
-    name: "CorkPackagesLogic",
-    destinations: [.mac],
-    product: .staticLibrary,
-    bundleId: "eu.davidbures.cork-packages-logic",
-    deploymentTargets: .macOS("14.0.0"),
-    sources: [
-        "Modules/Packages/PackagesLogic/**/*.swift"
-    ],
-    resources: [
-        "Cork/**/*.xcassets",
-        "Cork/**/*.xcstrings",
-        "PrivacyInfo.xcprivacy",
-        "Cork/Logic/Helpers/Programs/Sudo Helper",
-    ],
-    dependencies: [
+        .target(corkSharedTarget),
+        .target(corkNotificationsTarget),
         .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
@@ -208,6 +180,7 @@ let corkIntentsTarget: ProjectDescription.Target = .target(
         "Modules/Intents/**/*.swift"
     ],
     dependencies: [
+        .target(corkSharedTarget),
         .external(name: "FactoryKit")
     ],
     settings: .settings(configurations: [
@@ -287,7 +260,6 @@ let project = Project(
         corkSharedTarget,
         corkTerminalFunctionsTarget,
         corkPackages_modelsTarget,
-        corkPackages_logicTarget,
         corkIntentsTarget,
         corkNotificationsTarget,
         corkHelpTarget,

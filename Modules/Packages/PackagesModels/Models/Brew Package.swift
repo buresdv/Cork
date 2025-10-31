@@ -14,34 +14,33 @@ import Charts
 import AppIntents
 import SwiftUI
 import CorkTerminalFunctions
-import CorkPackagesLogic
 
 /// A representation of the loaded ``BrewPackage``s
 /// Includes packages that were loaded properly, along those whose loading failed
-typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadingError>>
+public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadingError>>
 
 /// A representation of a Homebrew package
 public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
 {
     public var id: UUID = .init()
-    let name: String
+    public let name: String
 
     let type: PackageType
     var isTagged: Bool = false
     
     var isPinned: Bool = false
 
-    let installedOn: Date?
-    let versions: [String]
+    public let installedOn: Date?
+    public let versions: [String]
 
-    let url: URL?
+    public let url: URL?
     
     var installedIntentionally: Bool = true
 
-    let sizeInBytes: Int64?
+    public let sizeInBytes: Int64?
 
     /// Download count for top packages
-    let downloadCount: Int?
+    public let downloadCount: Int?
 
     var isBeingModified: Bool = false
 
@@ -298,7 +297,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     }
 
     /// Open the location of this package in Finder
-    func revealInFinder() throws
+    public func revealInFinder() throws
     {
         enum FinderRevealError: LocalizedError
         {

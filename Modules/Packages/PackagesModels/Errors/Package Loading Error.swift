@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CorkPackagesLogic
 
 public extension BrewPackage
 {

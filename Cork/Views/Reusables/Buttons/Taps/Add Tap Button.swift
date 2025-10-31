@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkPackagesModels
 
 struct AddTapButton: View
 {

@@ -6,7 +6,6 @@
 //
 
 import AppKit
-import CorkNotifications
 import CorkShared
 import Foundation
 import Observation
@@ -28,31 +27,31 @@ public final class AppState
         case selfCompiled
     }
 
-    var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
+    public var licensingState: LicensingState = .notBoughtOrHasNotActivatedDemo
 
     /// Class for controlling the opened panes, and providing information about the status of the currently opened pane
     @Observable @MainActor
-    final class NavigationManager
+    public final class NavigationManager
     {
         /// Possible things to show in the detail pane
         /// Can be either a ``BrewPackage`` for a Formula or Cask, or ``BrewTap`` for a Tap
-        enum DetailDestination: Hashable
+        public enum DetailDestination: Hashable
         {
             case package(package: BrewPackage)
             case tap(tap: BrewTap)
         }
 
         /// Which pane is opened in the detail
-        var openedScreen: DetailDestination?
+        public var openedScreen: DetailDestination?
 
         /// Dismiss the currently opened screen and return to the status page
-        func dismissScreen()
+        public func dismissScreen()
         {
             self.openedScreen = nil
         }
 
         /// Check whether any panes are currently opened
-        var isAnyScreenOpened: Bool
+        public var isAnyScreenOpened: Bool
         {
             if self.openedScreen == nil
             {
@@ -65,71 +64,71 @@ public final class AppState
         }
     }
 
-    var navigationManager: NavigationManager = .init()
+    public var navigationManager: NavigationManager = .init()
 
     // MARK: - Notifications
 
-    var notificationEnabledInSystemSettings: Bool?
-    var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
+    public var notificationEnabledInSystemSettings: Bool?
+    public var notificationAuthStatus: UNAuthorizationStatus = .notDetermined
 
     // MARK: - Stuff for controlling the UI in general
 
-    var isSearchFieldFocused: Bool = false
+    public var isSearchFieldFocused: Bool = false
 
     // MARK: - Brewfile importing and exporting
 
-    var brewfileImportingStage: BrewfileImportStage = .importing
+    public var brewfileImportingStage: BrewfileImportStage = .importing
 
-    var isShowingUninstallationProgressView: Bool = false
-    var isShowingFatalError: Bool = false
-    var fatalAlertType: DisplayableAlert?
+    public var isShowingUninstallationProgressView: Bool = false
+    public var isShowingFatalError: Bool = false
+    public var fatalAlertType: DisplayableAlert?
 
-    var isShowingConfirmationDialog: Bool = false
-    var confirmationDialogType: ConfirmationDialog?
+    public var isShowingConfirmationDialog: Bool = false
+    public var confirmationDialogType: ConfirmationDialog?
 
-    var sheetToShow: DisplayableSheet?
+    public var sheetToShow: DisplayableSheet?
 
-    var packageTryingToBeUninstalledWithSudo: BrewPackage?
+    public var packageTryingToBeUninstalledWithSudo: BrewPackage?
 
-    var isShowingRemoveTapFailedAlert: Bool = false
+    public var isShowingRemoveTapFailedAlert: Bool = false
 
     // MARK: - Loading of packages and taps
 
-    var isLoadingFormulae: Bool = true
-    var isLoadingCasks: Bool = true
-    var isLoadingTaps: Bool = true
+    public var isLoadingFormulae: Bool = true
+    public var isLoadingCasks: Bool = true
+    public var isLoadingTaps: Bool = true
 
-    var isLoadingTopPackages: Bool = false
+    public var isLoadingTopPackages: Bool = false
 
     // MARK: - Loading errors
 
-    var failedWhileLoadingFormulae: Bool = false
-    var failedWhileLoadingCasks: Bool = false
-    var failedWhileLoadingTaps: Bool = false
+    public var failedWhileLoadingFormulae: Bool = false
+    public var failedWhileLoadingCasks: Bool = false
+    public var failedWhileLoadingTaps: Bool = false
 
-    var failedWhileLoadingTopPackages: Bool = false
+    public var failedWhileLoadingTopPackages: Bool = false
 
     // MARK: - Tagging
 
-    var corruptedPackage: String = ""
+    public var corruptedPackage: String = ""
 
     // MARK: - Other
 
-    var enableExtraAnimations: Bool
+    public var enableExtraAnimations: Bool
     {
         return UserDefaults.standard.bool(forKey: "enableExtraAnimations")
     }
 
     // MARK: - Showing errors
 
-    func showAlert(errorToShow: DisplayableAlert)
+    public func showAlert(errorToShow: DisplayableAlert)
     {
         fatalAlertType = errorToShow
 
         isShowingFatalError = true
     }
 
-    func dismissAlert()
+    public func dismissAlert()
     {
         isShowingFatalError = false
 
@@ -138,25 +137,25 @@ public final class AppState
 
     // MARK: - Showing sheets
 
-    func showSheet(ofType sheetType: DisplayableSheet)
+    public func showSheet(ofType sheetType: DisplayableSheet)
     {
         self.sheetToShow = sheetType
     }
 
-    func dismissSheet()
+    public func dismissSheet()
     {
         self.sheetToShow = nil
     }
 
     // MARK: Showing confirmation dialogs
 
-    func showConfirmationDialog(ofType confirmationDialogType: ConfirmationDialog)
+    public func showConfirmationDialog(ofType confirmationDialogType: ConfirmationDialog)
     {
         self.confirmationDialogType = confirmationDialogType
         self.isShowingConfirmationDialog = true
     }
 
-    func dismissConfirmationDialog()
+    public func dismissConfirmationDialog()
     {
         self.isShowingConfirmationDialog = false
         self.confirmationDialogType = nil
@@ -164,7 +163,7 @@ public final class AppState
 
     // MARK: - Notification setup
 
-    func setupNotifications() async
+    public func setupNotifications() async
     {
         let notificationCenter: UNUserNotificationCenter = AppConstants.shared.notificationCenter
 
@@ -196,7 +195,7 @@ public final class AppState
         notificationAuthStatus = authStatus
     }
 
-    func requestNotificationAuthorization() async
+    public func requestNotificationAuthorization() async
     {
         let notificationCenter: UNUserNotificationCenter = AppConstants.shared.notificationCenter
 
@@ -216,11 +215,11 @@ public final class AppState
 
     // MARK: - Initiating the update process from legacy contexts
 
-    @objc func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
+    @objc public func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
     {
         self.showSheet(ofType: .fullUpdate)
 
-        sendNotification(title: String(localized: "notification.upgrade-process-started"))
+        //sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }
 }
 

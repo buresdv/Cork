@@ -85,7 +85,7 @@ public extension DisplayableAlert
         case .tapLoadingFailedDueToTapItself(let localizedDescription):
             return localizedDescription
         case .triedToThreatFolderContainingPackagesAsPackage(let packageType):
-            return PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
+            return BrewPackage.PackageLoadingError.triedToThreatFolderContainingPackagesAsPackage(packageType: packageType).localizedDescription
         case .couldNotDeleteCachedDownloads(let associatedError):
             return associatedError
         }
