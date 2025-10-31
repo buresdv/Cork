@@ -8,6 +8,8 @@
 import CorkShared
 import Foundation
 import SwiftUI
+import CorkPackagesModels
+import CorkTerminalFunctions
 
 enum OutdatedPackageRetrievalError: LocalizedError
 {

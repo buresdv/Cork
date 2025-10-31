@@ -47,7 +47,7 @@ public extension DisplayableAlert
         case .homePathNotSet:
             return String(localized: "alert.home-not-set.title")
         case .numberOfLoadedPackagesDoesNotMatchNumberOfPackageFolders:
-            return PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders.localizedDescription
+            return BrewPackage.PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders.localizedDescription
         case .couldNotObtainNotificationPermissions:
             return String(localized: "alert.notifications-error-while-obtaining-permissions.title")
         case .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(let offendingTapProhibitingRemovalOfTap):

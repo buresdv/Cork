@@ -12,12 +12,14 @@ import Defaults
 @Observable @MainActor
 public class BrewPackagesTracker
 {
-    var installedFormulae: BrewPackages = .init()
-    var installedCasks: BrewPackages = .init()
+    public init() {}
+    
+    public var installedFormulae: BrewPackages = .init()
+    public var installedCasks: BrewPackages = .init()
 
     // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk
-    var successfullyLoadedFormulae: Set<BrewPackage>
+    public var successfullyLoadedFormulae: Set<BrewPackage>
     {
         return Set(installedFormulae.compactMap
         { rawResult in
@@ -33,7 +35,7 @@ public class BrewPackagesTracker
     }
     
     /// Formulae than can be displayed, depending on whether the user set only to display intentionally installed packages
-    var displayableSuccessfullyLoadedFormulae: Set<BrewPackage>
+    public var displayableSuccessfullyLoadedFormulae: Set<BrewPackage>
     {
         let displayOnlyIntentionallyInstalledPackagesByDefault: Bool = Defaults[.displayOnlyIntentionallyInstalledPackagesByDefault]
         
@@ -48,7 +50,7 @@ public class BrewPackagesTracker
     }
     
     /// Collected errors from failed Formulae loading
-    var unsuccessfullyLoadedFormulaeErrors: [BrewPackage.PackageLoadingError]
+    public var unsuccessfullyLoadedFormulaeErrors: [BrewPackage.PackageLoadingError]
     {
         return installedFormulae.compactMap
        { rawResult in
@@ -63,7 +65,7 @@ public class BrewPackagesTracker
     }
 
     /// Casks that were successfuly loaded from disk
-    var successfullyLoadedCasks: Set<BrewPackage>
+    public var successfullyLoadedCasks: Set<BrewPackage>
     {
         return Set(installedCasks.compactMap
         { rawResult in
@@ -78,7 +80,7 @@ public class BrewPackagesTracker
         })
     }
     
-    var displayableSuccessfullyLoadedCasks: Set<BrewPackage>
+    public var displayableSuccessfullyLoadedCasks: Set<BrewPackage>
     {
         let displayOnlyIntentionallyInstalledPackagesByDefault: Bool = Defaults[.displayOnlyIntentionallyInstalledPackagesByDefault]
         
@@ -93,7 +95,7 @@ public class BrewPackagesTracker
     }
     
     /// Collected errors from failed Casks loading
-    var unsuccessfullyLoadedCasksErrors: [BrewPackage.PackageLoadingError]
+    public var unsuccessfullyLoadedCasksErrors: [BrewPackage.PackageLoadingError]
     {
         return installedCasks.compactMap
         { rawResult in
@@ -108,7 +110,7 @@ public class BrewPackagesTracker
     }
     
     // MARK: - Functions
-    func insertPackageIntoTracker(_ package: BrewPackage)
+    public func insertPackageIntoTracker(_ package: BrewPackage)
     {
         if package.type == .formula
         {
@@ -120,14 +122,14 @@ public class BrewPackagesTracker
         }
     }
     
-    var adoptableApps: [AdoptableApp] = .init()
+    public var adoptableApps: [AdoptableApp] = .init()
     
-    var adoptableAppsSelectedToBeAdopted: [AdoptableApp]
+    public var adoptableAppsSelectedToBeAdopted: [AdoptableApp]
     {
         return self.adoptableApps.filter(\.isMarkedForAdoption)
     }
     
-    var hasSelectedOnlySomeAppsToAdopt: Bool
+    public var hasSelectedOnlySomeAppsToAdopt: Bool
     {
         if adoptableApps.count != adoptableAppsSelectedToBeAdopted.count
         {

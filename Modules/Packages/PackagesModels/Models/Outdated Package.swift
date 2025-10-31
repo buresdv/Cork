@@ -9,7 +9,7 @@ import Foundation
 
 public struct OutdatedPackage: Identifiable, Equatable, Hashable
 {
-    enum PackageUpdatingType
+    public enum PackageUpdatingType
     {
         /// The package is updating through Homebrew
         case homebrew
@@ -31,14 +31,14 @@ public struct OutdatedPackage: Identifiable, Equatable, Hashable
 
     public let id: UUID = .init()
 
-    let package: BrewPackage
+    public let package: BrewPackage
 
-    let installedVersions: [String]
-    let newerVersion: String
+    public let installedVersions: [String]
+    public let newerVersion: String
 
-    var isMarkedForUpdating: Bool = true
+    public var isMarkedForUpdating: Bool = true
 
-    var updatingManagedBy: PackageUpdatingType
+    public var updatingManagedBy: PackageUpdatingType
 
     public static func == (lhs: OutdatedPackage, rhs: OutdatedPackage) -> Bool
     {

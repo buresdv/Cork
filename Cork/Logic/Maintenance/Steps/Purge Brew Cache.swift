@@ -7,6 +7,7 @@
 
 import Foundation
 import CorkShared
+import CorkTerminalFunctions
 
 /* enum CachePurgeError: Error
  {

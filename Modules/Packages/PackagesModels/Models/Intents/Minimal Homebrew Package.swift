@@ -8,21 +8,21 @@
 import AppIntents
 import Foundation
 
-struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
+public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
 {
-    var id: UUID = .init()
+    public var id: UUID = .init()
 
-    var name: String
+    public var name: String
 
-    var type: BrewPackage.PackageType
+    public var type: BrewPackage.PackageType
 
-    var installDate: Date?
+    public var installDate: Date?
 
-    var installedIntentionally: Bool
+    public var installedIntentionally: Bool
 
-    static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
+    public static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
 
-    var displayRepresentation: DisplayRepresentation
+    public var displayRepresentation: DisplayRepresentation
     {
         DisplayRepresentation(
             title: "\(name)",
@@ -30,10 +30,10 @@ struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
         )
     }
 
-    static let defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
+    public static let defaultQuery: MinimalHomebrewPackageIntentQuery = .init()
 }
 
-extension MinimalHomebrewPackage
+public extension MinimalHomebrewPackage
 {
     init?(from homebrewPackage: BrewPackage?)
     {
@@ -51,10 +51,12 @@ extension MinimalHomebrewPackage
     }
 }
 
-struct MinimalHomebrewPackageIntentQuery: EntityQuery
+public struct MinimalHomebrewPackageIntentQuery: EntityQuery
 {
-    func entities(for _: [UUID]) async throws -> [MinimalHomebrewPackage]
+    public func entities(for _: [UUID]) async throws -> [MinimalHomebrewPackage]
     {
         return .init()
     }
+    
+    public init() {}
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Defaults
+import CorkPackagesModels
 
 struct RevealPackageInFinderButton: View
 {

@@ -15,18 +15,18 @@ public extension BrewPackagesTracker
     {
         public let id: UUID = .init()
 
-        let caskName: String
-        let appExecutable: String
+        public let caskName: String
+        public let appExecutable: String
         
-        let description: String?
+        public let description: String?
 
-        let fullAppUrl: URL
+        public let fullAppUrl: URL
 
-        var isMarkedForAdoption: Bool
+        public var isMarkedForAdoption: Bool
 
-        var app: Application?
+        public var app: Application?
 
-        init(caskName: String, description: String?, appExecutable: String)
+        public init(caskName: String, description: String?, appExecutable: String)
         {
             self.caskName = caskName
             self.appExecutable = appExecutable
@@ -38,26 +38,26 @@ public extension BrewPackagesTracker
             self.isMarkedForAdoption = true
         }
 
-        mutating func changeMarkedState()
+        public mutating func changeMarkedState()
         {
             self.isMarkedForAdoption.toggle()
         }
 
-        func constructAppBundle() async -> Application?
+        public func constructAppBundle() async -> Application?
         {
             return try? .init(from: self.fullAppUrl)
         }
         
-        func excludeSelf() async
+        public func excludeSelf() async
         {
-            let excludedAppRepresentation: BrewPackagesTracker.ExcludedAdoptableApp = .init(fromAdoptableApp: self)
+            let excludedAppRepresentation: ExcludedAdoptableApp = .init(fromAdoptableApp: self)
             
             await excludedAppRepresentation.saveSelfToDatabase()
         }
         
-        func includeSelf() async
+        public func includeSelf() async
         {
-            let excludedAppRepresentation: BrewPackagesTracker.ExcludedAdoptableApp = .init(fromAdoptableApp: self)
+            let excludedAppRepresentation: ExcludedAdoptableApp = .init(fromAdoptableApp: self)
             
             await excludedAppRepresentation.deleteSelfFromDatabase()
         }

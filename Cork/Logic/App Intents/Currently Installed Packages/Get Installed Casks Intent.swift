@@ -8,16 +8,19 @@
 import AppIntents
 import Foundation
 import CorkShared
+import CorkPackagesModels
 
-struct GetInstalledCasksIntent: AppIntent
+public struct GetInstalledCasksIntent: AppIntent
 {
-    static let title: LocalizedStringResource = "intent.get-installed-casks.title"
-    static let description: LocalizedStringResource = "intent.get-installed-casks.description"
+    public init() {}
+    
+    public static let title: LocalizedStringResource = "intent.get-installed-casks.title"
+    public static let description: LocalizedStringResource = "intent.get-installed-casks.description"
 
-    static let isDiscoverable: Bool = true
-    static let openAppWhenRun: Bool = false
+    public static let isDiscoverable: Bool = true
+    public static let openAppWhenRun: Bool = false
 
-    func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
+    public func perform() async throws -> some ReturnsValue<[MinimalHomebrewPackage]>
     {
         let allowAccessToFile: Bool = AppConstants.shared.brewCaskPath.startAccessingSecurityScopedResource()
 
