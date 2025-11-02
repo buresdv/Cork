@@ -11,9 +11,9 @@ import Foundation
 // MARK: - Swift Bundle Accessor - for SPM
 private class BundleFinder {}
 extension Foundation.Bundle {
-/// Since CorkPackagesModels is a static library, the bundle containing the resources is copied into the final product.
+/// Since CorkModels is a static library, the bundle containing the resources is copied into the final product.
     static let module: Bundle = {
-        let bundleName = "Cork_CorkPackagesModels"
+        let bundleName = "Cork_CorkModels"
         let bundleFinderResourceURL = Bundle(for: BundleFinder.self).resourceURL
         var candidates = [
             Bundle.main.resourceURL,
@@ -50,12 +50,12 @@ extension Foundation.Bundle {
                 return bundle
             }
         }
-        fatalError("unable to find bundle named Cork_CorkPackagesModels")
+        fatalError("unable to find bundle named Cork_CorkModels")
     }()
 }
 // MARK: - Objective-C Bundle Accessor
 @objc
-public class CorkPackagesModelsResources: NSObject {
+public class CorkModelsResources: NSObject {
 @objc public class var bundle: Bundle {
     return .module
 }

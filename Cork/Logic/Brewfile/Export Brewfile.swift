@@ -7,6 +7,8 @@
 
 import Foundation
 import CorkShared
+import CorkModels
+import CorkTerminalFunctions
 
 enum BrewfileDumpingError: LocalizedError
 {

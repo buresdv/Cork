@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BrewTap: Identifiable, Hashable
+public struct BrewTap: Identifiable, Hashable, Sendable
 {
     public let id: UUID = .init()
     let name: String

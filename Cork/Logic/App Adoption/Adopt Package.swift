@@ -7,7 +7,7 @@
 
 import Foundation
 import CorkShared
-import CorkPackagesModels
+import CorkModels
 import CorkTerminalFunctions
 
 extension MassAppAdoptionView.MassAppAdoptionTacker

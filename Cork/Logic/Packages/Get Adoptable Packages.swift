@@ -8,6 +8,7 @@
 import CorkShared
 import Foundation
 import SwiftData
+import CorkModels
 
 extension BrewPackagesTracker
 {

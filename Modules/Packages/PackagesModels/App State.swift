@@ -15,6 +15,8 @@ import Observation
 @Observable @MainActor
 public final class AppState
 {
+    public init () {}
+    
     // MARK: - Licensing
     
     public enum LicensingState

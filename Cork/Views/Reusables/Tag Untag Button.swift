@@ -7,7 +7,7 @@
 
 import CorkShared
 import SwiftUI
-import CorkPackagesModels
+import CorkModels
 
 struct TagUntagButton: View
 {

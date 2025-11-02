@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 import CorkShared
+import CorkTerminalFunctions
 
-enum UntapError: LocalizedError
+public enum UntapError: LocalizedError
 {
     case couldNotUntap(tapName: String, failureReason: String)
 
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self
         {
@@ -24,7 +25,7 @@ enum UntapError: LocalizedError
 }
 
 @MainActor
-func removeTap(name: String, tapTracker: TapTracker, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+public func removeTap(name: String, tapTracker: TapTracker, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
 {
     var indexToReplaceGlobal: Int?
 

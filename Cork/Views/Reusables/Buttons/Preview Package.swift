@@ -8,7 +8,7 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
-import CorkPackagesModels
+import CorkModels
 
 /// Preview a package according to its name
 struct PreviewPackageButton: View

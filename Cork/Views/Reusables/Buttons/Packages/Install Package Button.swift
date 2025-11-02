@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CorkPackagesModels
+import CorkModels
 
 struct InstallPackageButton: View
 {
