@@ -9,12 +9,12 @@ import Foundation
 import Observation
 
 @Observable @MainActor
-class TapTracker
+public class TapTracker
 {
     var addedTaps: [BrewTap] = .init()
 }
 
-extension TapTracker
+public extension TapTracker
 {
     var numberOfAddedTaps: Int
     {

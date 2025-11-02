@@ -7,6 +7,8 @@
 
 import CorkShared
 import Foundation
+import CorkModels
+import CorkTerminalFunctions
 
 enum BrewPackageInfoLoadingError: LocalizedError
 {

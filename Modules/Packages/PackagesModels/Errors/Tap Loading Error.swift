@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TapLoadingError: LocalizedError, Hashable
+public enum TapLoadingError: LocalizedError, Hashable
 {
     /// Could not read the folder that includes the taps
     case couldNotAccessParentTapFolder(errorDetails: String)
@@ -15,7 +15,7 @@ enum TapLoadingError: LocalizedError, Hashable
     /// Could not read a tap itself
     case couldNotReadTapFolderContents(errorDetails: String)
     
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self {
         case .couldNotAccessParentTapFolder(let errorDetails):

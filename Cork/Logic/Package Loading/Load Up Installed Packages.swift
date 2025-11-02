@@ -7,6 +7,7 @@
 
 import CorkShared
 import Foundation
+import CorkModels
 
 extension BrewPackagesTracker
 {
@@ -16,7 +17,7 @@ extension BrewPackagesTracker
     ///   - packageTypeToLoad: Which ``PackageType`` to load
     ///   - appState: ``AppState`` used to display loading errors
     /// - Returns: A set of loaded ``BrewPackage``s for the specified ``PackageType``
-    func loadInstalledPackages(
+    public func loadInstalledPackages(
         packageTypeToLoad: BrewPackage.PackageType, appState: AppState
     ) async -> BrewPackages?
     {
@@ -84,7 +85,7 @@ private extension BrewPackagesTracker
     /// Load packages from disk, and convert them into ``BrewPackage``s
     func loadInstalledPackagesFromFolder(
         packageTypeToLoad: BrewPackage.PackageType
-    ) async throws(PackageLoadingError) -> BrewPackages
+    ) async throws(BrewPackage.PackageLoadingError) -> BrewPackages
     {
         do
         {
@@ -98,7 +99,7 @@ private extension BrewPackagesTracker
 
             let namesOfTaggedPackages: Set<String>? = try? await getNamesOfTaggedPackages()
 
-            let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, PackageLoadingError>.self)
+            let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, BrewPackage.PackageLoadingError>.self)
             { taskGroup in
                 for packageURL in urlsInParentFolder
                 {
@@ -162,7 +163,7 @@ private extension BrewPackagesTracker
                 guard packageLoader.count == urlsInParentFolder.count
                 else
                 {
-                    throw PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders
+                    throw BrewPackage.PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders
                 }
             }
 
@@ -183,7 +184,7 @@ private extension BrewPackagesTracker
         packageURL: URL,
         namesOfPinnedPackages: Set<String>?,
         namesOfTaggedPackages: Set<String>?
-    ) async -> Result<BrewPackage, PackageLoadingError>
+    ) async -> Result<BrewPackage, BrewPackage.PackageLoadingError>
     {
         /// Get the name of the package - at this stage, it is the last path component
         let packageName: String = packageURL.packageNameFromURL()
@@ -322,7 +323,7 @@ private extension BrewPackagesTracker
                     }
                 }()
                 
-                let loadedPackage: Result<BrewPackage, PackageLoadingError> = .success(
+                let loadedPackage: Result<BrewPackage, BrewPackage.PackageLoadingError> = .success(
                     .init(
                         name: packageName,
                         type: packageURL.packageType,
@@ -341,7 +342,7 @@ private extension BrewPackagesTracker
             }
             catch let intentionalInstallationDiscoveryError
             {
-                throw PackageLoadingError.failedWhileTryingToDetermineIntentionalInstallation(folderURL: packageURL, associatedIntentionalDiscoveryError: intentionalInstallationDiscoveryError)
+                throw BrewPackage.PackageLoadingError.failedWhileTryingToDetermineIntentionalInstallation(folderURL: packageURL, associatedIntentionalDiscoveryError: intentionalInstallationDiscoveryError)
             }
         }
         catch let loadingError

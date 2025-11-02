@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CorkPackagesModels
+import CorkModels
 
 extension BrewPackagesTracker
 {

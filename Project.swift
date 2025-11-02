@@ -32,7 +32,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             // .target(name: "CorkHelp"),
             .target(corkSharedTarget),
             .target(corkNotificationsTarget),
-            .target(corkPackages_modelsTarget),
+            .target(corkModelsTarget),
             .target(corkTerminalFunctionsTarget),
             .target(corkIntentsTarget),
             .external(name: "LaunchAtLogin"),
@@ -138,11 +138,11 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
     ])
 )
 
-let corkPackages_modelsTarget: ProjectDescription.Target = .target(
-    name: "CorkPackagesModels",
+let corkModelsTarget: ProjectDescription.Target = .target(
+    name: "CorkModels",
     destinations: [.mac],
     product: .staticLibrary,
-    bundleId: "eu.davidbures.cork-packages-models",
+    bundleId: "eu.davidbures.cork-models",
     deploymentTargets: .macOS("14.0.0"),
     sources: [
         "Modules/Packages/PackagesModels/**/*.swift"
@@ -259,7 +259,7 @@ let project = Project(
         corkTarget(configureWithSelfCompiled: true),
         corkSharedTarget,
         corkTerminalFunctionsTarget,
-        corkPackages_modelsTarget,
+        corkModelsTarget,
         corkIntentsTarget,
         corkNotificationsTarget,
         corkHelpTarget,

@@ -22,20 +22,35 @@ public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadi
 /// A representation of a Homebrew package
 public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
 {
-    public var id: UUID = .init()
+    public init(name: String, type: BrewPackage.PackageType, installedOn: Date?, versions: [String], url: URL?, sizeInBytes: Int64?, downloadCount: Int?) {
+        self.id = .init()
+        self.name = name
+        self.type = type
+        self.isTagged = false
+        self.isPinned = false
+        self.installedOn = installedOn
+        self.versions = versions
+        self.url = url
+        self.installedIntentionally = true
+        self.sizeInBytes = sizeInBytes
+        self.downloadCount = downloadCount
+        self.isBeingModified = false
+    }
+    
+    public var id: UUID
     public let name: String
 
     let type: PackageType
     var isTagged: Bool = false
     
-    var isPinned: Bool = false
+    public var isPinned: Bool = false
 
     public let installedOn: Date?
     public let versions: [String]
 
     public let url: URL?
     
-    var installedIntentionally: Bool = true
+    public var installedIntentionally: Bool = true
 
     public let sizeInBytes: Int64?
 
@@ -79,7 +94,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
         }
 
         /// Parent folder for this package type
-        var parentFolder: URL
+        public var parentFolder: URL
         {
             switch self
             {
@@ -91,7 +106,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
         }
 
         /// Accessibility representation
-        var accessibilityLabel: LocalizedStringKey
+        public var accessibilityLabel: LocalizedStringKey
         {
             switch self
             {
@@ -117,7 +132,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     }
     
     /// The purpose of the tagged status change operation
-    enum TaggedStatusChangePurpose: String
+    public enum TaggedStatusChangePurpose: String
     {
         /// Only load and apply the tagged status to packages
         ///
@@ -134,7 +149,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     ///
     /// - Parameter purpose: The purpose of this operation
     @MainActor
-    mutating func changeTaggedStatus(purpose: TaggedStatusChangePurpose)
+    public mutating func changeTaggedStatus(purpose: TaggedStatusChangePurpose)
     {
         
         let packageName: String = self.name

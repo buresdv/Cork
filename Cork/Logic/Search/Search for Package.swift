@@ -7,6 +7,8 @@
 
 import Foundation
 import CorkShared
+import CorkTerminalFunctions
+import CorkModels
 
 func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]
 {

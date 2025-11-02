@@ -10,7 +10,15 @@ import Foundation
 
 public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
 {
-    public var id: UUID = .init()
+    public init(name: String, type: BrewPackage.PackageType, installDate: Date? = nil, installedIntentionally: Bool) {
+        self.id = .init()
+        self.name = name
+        self.type = type
+        self.installDate = installDate
+        self.installedIntentionally = installedIntentionally
+    }
+    
+    public var id: UUID
 
     public var name: String
 

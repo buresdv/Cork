@@ -8,7 +8,7 @@
 import Foundation
 import CorkShared
 
-extension TapTracker
+public extension TapTracker
 {
     @MainActor
     func loadUpTappedTaps() async throws(TapLoadingError) -> [BrewTap]

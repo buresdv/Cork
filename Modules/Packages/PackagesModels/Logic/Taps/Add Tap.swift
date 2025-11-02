@@ -7,8 +7,9 @@
 
 import Foundation
 import CorkShared
+import CorkTerminalFunctions
 
-func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
+public func addTap(name: String, forcedRepoAddress: String? = nil) async -> String
 {
     var tapResult: String
 

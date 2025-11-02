@@ -8,7 +8,7 @@
 import AppIntents
 import Foundation
 import CorkShared
-import CorkPackagesModels
+import CorkModels
 
 public struct GetInstalledCasksIntent: AppIntent
 {
