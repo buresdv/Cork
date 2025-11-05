@@ -15,6 +15,7 @@ struct DiscoverabilityPane: View
     @Default(.enableDiscoverability) var enableDiscoverability: Bool
     @Default(.discoverabilityDaySpan) var discoverabilityDaySpan: DiscoverabilityDaySpans
     @Default(.sortTopPackagesBy) var sortTopPackagesBy: TopPackageSorting
+    @Default(.allowMassPackageAdoption) var allowMassPackageAdoption: Bool
 
     @Environment(AppState.self) var appState: AppState
 
@@ -28,9 +29,22 @@ struct DiscoverabilityPane: View
                 {
                     Text("settings.discoverability.toggle")
                 }
+                .onChange
+                {
+                    if $0 == false
+                    {
+                        allowMassPackageAdoption = false
+                    }
+                }
                 .toggleStyle(.switch)
                 .disabled(appState.isLoadingTopPackages)
 
+                Defaults.Toggle(key: .allowMassPackageAdoption)
+                {
+                    Text("settings.discoverability.mass-adoption.toggle")
+                }
+                .disabled(!enableDiscoverability)
+                
                 Divider()
 
                 Form
