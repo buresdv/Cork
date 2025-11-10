@@ -142,7 +142,7 @@ public class BrewPackagesTracker
     }
 }
 
-extension BrewPackagesTracker
+public extension BrewPackagesTracker
 {
     
     var numberOfInstalledFormulae: Int

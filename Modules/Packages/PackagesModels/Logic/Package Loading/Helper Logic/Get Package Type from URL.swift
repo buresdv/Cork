@@ -8,7 +8,7 @@
 import Foundation
 import CorkModels
 
-extension URL
+public extension URL
 {
     /// Determine a package's type type from its URL
     var packageType: BrewPackage.PackageType

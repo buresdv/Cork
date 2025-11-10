@@ -11,11 +11,11 @@ import SwiftUI
 import CorkModels
 import CorkTerminalFunctions
 
-enum OutdatedPackageRetrievalError: LocalizedError
+public enum OutdatedPackageRetrievalError: LocalizedError
 {
     case homeNotSet, couldNotDecodeCommandOutput(String), otherError(String)
 
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self
         {
@@ -29,7 +29,7 @@ enum OutdatedPackageRetrievalError: LocalizedError
     }
 }
 
-extension OutdatedPackagesTracker
+public extension OutdatedPackagesTracker
 {
     /// This struct alows us to parse the JSON output of the outdated package function. It is not used outside this function
     fileprivate struct OutdatedPackageCommandOutput: Codable
@@ -78,7 +78,10 @@ extension OutdatedPackagesTracker
     }
 
     /// Load outdated packages into the outdated package tracker
-    private func getOutdatedPackagesInternal(brewPackagesTracker: BrewPackagesTracker, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async throws -> Set<OutdatedPackage>
+    private nonisolated func getOutdatedPackagesInternal(
+        brewPackagesTracker: BrewPackagesTracker,
+        forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
+    ) async throws -> Set<OutdatedPackage>
     {
         // First, we have to pull the newest updates
         await shell(AppConstants.shared.brewExecutablePath, ["update"])
@@ -137,13 +140,17 @@ extension OutdatedPackagesTracker
 
     // MARK: - Helper functions
 
-    private func getOutdatedFormulae(from intermediaryArray: [OutdatedPackageCommandOutput.Formulae], brewPackagesTracker: BrewPackagesTracker, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
+    private nonisolated func getOutdatedFormulae(
+        from intermediaryArray: [OutdatedPackageCommandOutput.Formulae],
+        brewPackagesTracker: BrewPackagesTracker,
+        forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
+    ) async -> Set<OutdatedPackage>
     {
         var finalOutdatedFormulaTracker: Set<OutdatedPackage> = .init()
 
         for outdatedFormula in intermediaryArray
         {
-            if let foundOutdatedFormula = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
+            if let foundOutdatedFormula = await brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
             {
                 finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CorkShared
+import CorkTerminalFunctions
 
 @MainActor
 func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: UpdatingProcessDetails) async

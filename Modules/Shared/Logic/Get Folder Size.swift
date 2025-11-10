@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension URL
+public extension URL
 {
     var directorySize: Int64
     {

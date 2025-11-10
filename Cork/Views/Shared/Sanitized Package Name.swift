@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkModels
 
 /// Package name that contains only the name of the package, not its version in the `package@version` format
 struct SanitizedPackageName: View

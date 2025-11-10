@@ -7,11 +7,9 @@
 
 import Foundation
 import CorkShared
-import CorkModels
 
 extension CachedDownloadsTracker
 {
-    @MainActor
     func assignPackageTypeToCachedDownloads(brewPackagesTracker: BrewPackagesTracker)
     {
         var cachedDownloadsTracker: [CachedDownload] = .init()

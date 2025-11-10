@@ -7,9 +7,8 @@
 
 import CorkShared
 import Foundation
-import CorkModels
 
-extension BrewPackagesTracker
+public extension BrewPackagesTracker
 {
     /// Parent function for loading installed packages from disk
     /// Abstracts away the function ``loadInstalledPackagesFromFolder(packageTypeToLoad:)``, transforming errors thrown by ``loadInstalledPackagesFromFolder(packageTypeToLoad:)`` into displayable errors
@@ -17,7 +16,7 @@ extension BrewPackagesTracker
     ///   - packageTypeToLoad: Which ``PackageType`` to load
     ///   - appState: ``AppState`` used to display loading errors
     /// - Returns: A set of loaded ``BrewPackage``s for the specified ``PackageType``
-    public func loadInstalledPackages(
+    func loadInstalledPackages(
         packageTypeToLoad: BrewPackage.PackageType, appState: AppState
     ) async -> BrewPackages?
     {
@@ -91,7 +90,7 @@ private extension BrewPackagesTracker
         {
             /// This gets URLs to all package folders in a folder.
             /// `/opt/homebrew/Caskroom/microsoft-edge/`
-            let urlsInParentFolder: [URL] = try getContentsOfFolder(targetFolder: packageTypeToLoad.parentFolder, options: [.skipsHiddenFiles])
+            let urlsInParentFolder: [URL] = try packageTypeToLoad.parentFolder.getContents(options: [.skipsHiddenFiles])
 
             AppConstants.shared.logger.debug("Loaded contents of folder: \(urlsInParentFolder)")
 
@@ -207,7 +206,7 @@ private extension BrewPackagesTracker
         {
             /// Gets URL to installed versions of a package provided as ``packageURL``
             /// `/opt/homebrew/Cellar/cmake/3.30.5`, `/opt/homebrew/Cellar/cmake/3.30.4`
-            let versionURLs: [URL] = try getContentsOfFolder(targetFolder: packageURL, options: [.skipsHiddenFiles])
+            let versionURLs: [URL] = try packageURL.getContents(options: [.skipsHiddenFiles])
 
             guard !versionURLs.isEmpty
             else

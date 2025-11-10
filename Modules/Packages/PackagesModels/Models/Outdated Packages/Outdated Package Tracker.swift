@@ -11,24 +11,24 @@ import Defaults
 import DefaultsMacros
 
 @Observable @MainActor
-class OutdatedPackagesTracker
+public class OutdatedPackagesTracker
 {
     @ObservableDefault(.displayOnlyIntentionallyInstalledPackagesByDefault) @ObservationIgnored var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     
     @ObservableDefault(.includeGreedyOutdatedPackages) @ObservationIgnored var includeGreedyOutdatedPackages: Bool
 
-    enum OutdatedPackageDisplayStage: Equatable
+    public enum OutdatedPackageDisplayStage: Equatable
     {
         case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
     }
     
-    var isCheckingForPackageUpdates: Bool = true
+    public var isCheckingForPackageUpdates: Bool = true
 
-    var outdatedPackages: Set<OutdatedPackage> = .init()
+    public var outdatedPackages: Set<OutdatedPackage> = .init()
     
-    var errorOutReason: String?
+    public var errorOutReason: String?
 
-    var displayableOutdatedPackages: Set<OutdatedPackage>
+    public var displayableOutdatedPackages: Set<OutdatedPackage>
     {
         /// Depending on whether greedy updating is enabled:
         /// - If enabled, include packages that are also self-updating
@@ -54,7 +54,7 @@ class OutdatedPackagesTracker
         }
     }
     
-    var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
+    public var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
     {
         if let errorOutReason
         {
@@ -78,16 +78,13 @@ class OutdatedPackagesTracker
     }
 }
 
-extension OutdatedPackagesTracker
+public extension OutdatedPackagesTracker
 {
     func setOutdatedPackages(to packages: Set<OutdatedPackage>)
     {
         self.outdatedPackages = packages
     }
-}
-
-extension OutdatedPackagesTracker
-{
+    
     func checkForUpdates()
     {
         self.errorOutReason = nil

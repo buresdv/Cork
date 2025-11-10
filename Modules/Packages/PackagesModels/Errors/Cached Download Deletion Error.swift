@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CachedDownloadDeletionError: LocalizedError
+public enum CachedDownloadDeletionError: LocalizedError
 {
     case couldNotReadContentsOfCachedFormulaeDownloadsFolder(associatedError: String)
 
@@ -15,7 +15,7 @@ enum CachedDownloadDeletionError: LocalizedError
 
     case couldNotReadContentsOfCachedDownloadsFolder(associatedError: String)
 
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self
         {

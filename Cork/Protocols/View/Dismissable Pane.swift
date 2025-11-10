@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CorkModels
 
 protocol DismissablePane: View
 {

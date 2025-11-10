@@ -8,12 +8,13 @@
 import CorkShared
 import Foundation
 import SwiftUI
-import CorkModels
 
-extension BrewPackagesTracker
+public extension BrewPackagesTracker
 {
     /// Synchronizes installed packages and cached downloads
-    func synchronizeInstalledPackages(cachedDownloadsTracker: CachedDownloadsTracker) async throws(PackageSynchronizationError)
+    func synchronizeInstalledPackages(
+        cachedDownloadsTracker: CachedDownloadsTracker
+    ) async throws(PackageSynchronizationError)
     {
         AppConstants.shared.logger.debug("Will start synchronization process")
         

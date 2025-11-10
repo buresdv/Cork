@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct OutdatedPackage: Identifiable, Equatable, Hashable
+public struct OutdatedPackage: Identifiable, Equatable, Hashable, Sendable
 {
     public init(package: BrewPackage, installedVersions: [String], newerVersion: String, updatingManagedBy: PackageUpdatingType) {
         self.package = package
@@ -17,7 +17,7 @@ public struct OutdatedPackage: Identifiable, Equatable, Hashable
         self.updatingManagedBy = updatingManagedBy
     }
     
-    public enum PackageUpdatingType
+    public enum PackageUpdatingType: Sendable
     {
         /// The package is updating through Homebrew
         case homebrew
@@ -46,7 +46,7 @@ public struct OutdatedPackage: Identifiable, Equatable, Hashable
 
     public var isMarkedForUpdating: Bool
 
-    public var updatingManagedBy: PackageUpdatingType
+    public let updatingManagedBy: PackageUpdatingType
 
     public static func == (lhs: OutdatedPackage, rhs: OutdatedPackage) -> Bool
     {

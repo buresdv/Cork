@@ -10,14 +10,14 @@ import SwiftUI
 import CorkShared
 
 @Observable @MainActor
-class CachedDownloadsTracker
+public class CachedDownloadsTracker
 {
-    var cachedDownloads: [CachedDownload] = .init()
+    public var cachedDownloads: [CachedDownload] = .init()
 
     private var cachedDownloadsTemp: [CachedDownload] = .init()
     
     /// Calculate the size of the cached downloads dynamically without accessing the file system for the operation
-    var cachedDownloadsSize: Int
+    public var cachedDownloadsSize: Int
     {
         return cachedDownloads.reduce(0) { $0 + $1.sizeInBytes }
     }

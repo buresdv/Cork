@@ -8,9 +8,8 @@
 import CorkShared
 import Foundation
 import SwiftData
-import CorkModels
 
-extension BrewPackagesTracker
+public extension BrewPackagesTracker
 {
     enum AdoptableCasksLoadingError: LocalizedError
     {
@@ -38,6 +37,7 @@ extension BrewPackagesTracker
     }
 
     /// Get a list of casks that can be adopted into the Homebrew updating mechanism
+    nonisolated
     func getAdoptableCasks(
         cacheUsePolicy: HomebrewDataCacheUsePolicy
     ) async throws(AdoptableCasksLoadingError) -> [AdoptableApp]

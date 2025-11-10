@@ -22,16 +22,27 @@ public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadi
 /// A representation of a Homebrew package
 public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
 {
-    public init(name: String, type: BrewPackage.PackageType, installedOn: Date?, versions: [String], url: URL?, sizeInBytes: Int64?, downloadCount: Int?) {
+    public init(
+        name: String,
+        type: BrewPackage.PackageType,
+        isTagged: Bool? = nil,
+        isPinned: Bool? = nil,
+        installedOn: Date?,
+        versions: [String],
+        url: URL?,
+        installedIntentionally: Bool? = nil,
+        sizeInBytes: Int64?,
+        downloadCount: Int?
+    ) {
         self.id = .init()
         self.name = name
         self.type = type
-        self.isTagged = false
-        self.isPinned = false
+        self.isTagged = isTagged ?? false
+        self.isPinned = isPinned ?? false
         self.installedOn = installedOn
         self.versions = versions
         self.url = url
-        self.installedIntentionally = true
+        self.installedIntentionally = self.type == .cask ? true : installedIntentionally ?? false // If the package is cask, it was installed intentionally. If it's a formula, check if an override was provided, and if not, set it to false
         self.sizeInBytes = sizeInBytes
         self.downloadCount = downloadCount
         self.isBeingModified = false
@@ -43,14 +54,14 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     let type: PackageType
     var isTagged: Bool = false
     
-    public var isPinned: Bool = false
+    public var isPinned: Bool
 
     public let installedOn: Date?
     public let versions: [String]
 
     public let url: URL?
     
-    public var installedIntentionally: Bool = true
+    public var installedIntentionally: Bool
 
     public let sizeInBytes: Int64?
 
@@ -177,7 +188,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
         isTagged.toggle()
     }
 
-    enum PinnedStatus
+    public enum PinnedStatus
     {
         case pinned
         case unpinned
@@ -188,7 +199,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     /// Optionally specify which status to change the package to.
     ///
     /// This function only changes the pinned status in the UI. Use the function ``performPinnedStatusChangeAction(appState:brewPackagesTracker:)`` to trigger a pinned status change in Homebrew.
-    mutating func changePinnedStatus(to status: PinnedStatus? = nil)
+    public mutating func changePinnedStatus(to status: PinnedStatus? = nil)
     {
         if let status
         {
@@ -208,7 +219,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     /// Perform a pinned status change in Homebrew.
     ///
     /// For changing the pinned status of the package in the UI, use the function ``changePinnedStatus(to:)``
-    func performPinnedStatusChangeAction(appState: AppState, brewPackagesTracker: BrewPackagesTracker) async
+    public func performPinnedStatusChangeAction(appState: AppState, brewPackagesTracker: BrewPackagesTracker) async
     {
         /// We need to get the number of packages that were pinned before the action, because if there's only one and it gets unpinned, the whole folder with pinned packages is deleted - therefore, there would be a bug where unpinning the last package would make it seem like the whole process failed
         async let numberOfPinnedPackagesBeforePinChangeAction: Int = await brewPackagesTracker.successfullyLoadedFormulae.filter { $0.isPinned }.count
@@ -257,7 +268,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
         await brewPackagesTracker.applyPinnedStatus(namesOfPinnedPackages: brewPackagesTracker.getNamesOfPinnedPackages(atPinnedPackagesPath: pinnedPackagesPath))
     }
     
-    mutating func changeBeingModifiedStatus(to setState: Bool? = nil)
+    public mutating func changeBeingModifiedStatus(to setState: Bool? = nil)
     {
         let packageName: String = self.name
         

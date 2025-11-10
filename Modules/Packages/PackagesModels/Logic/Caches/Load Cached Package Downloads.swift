@@ -7,9 +7,8 @@
 
 import Foundation
 import CorkShared
-import CorkModels
 
-extension CachedDownloadsTracker
+public extension CachedDownloadsTracker
 {
     /// Load cached downloads and assign their types
     @MainActor

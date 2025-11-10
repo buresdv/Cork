@@ -9,23 +9,23 @@ import Charts
 import Foundation
 import SwiftUI
 
-struct CachedDownload: Identifiable, Hashable
+public struct CachedDownload: Identifiable, Hashable
 {
-    var id: UUID = .init()
+    public var id: UUID = .init()
 
-    let packageName: String
-    let sizeInBytes: Int
+    public let packageName: String
+    public let sizeInBytes: Int
 
-    var packageType: CachedDownload.CachedDownloadType?
+    public var packageType: CachedDownload.CachedDownloadType?
     
-    enum CachedDownloadType: String, CustomStringConvertible, Plottable
+    public enum CachedDownloadType: String, CustomStringConvertible, Plottable
     {
         case formula
         case cask
         case other
         case unknown
 
-        var description: String
+        public var description: String
         {
             switch self
             {
@@ -40,7 +40,7 @@ struct CachedDownload: Identifiable, Hashable
             }
         }
 
-        var color: Color
+        public var color: Color
         {
             switch self
             {
