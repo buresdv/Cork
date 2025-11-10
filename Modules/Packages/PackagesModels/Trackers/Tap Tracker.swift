@@ -11,7 +11,12 @@ import Observation
 @Observable @MainActor
 public class TapTracker
 {
-    var addedTaps: [BrewTap] = .init()
+    public init()
+    {
+        self.addedTaps = .init()
+    }
+    
+    public var addedTaps: [BrewTap]
 }
 
 public extension TapTracker

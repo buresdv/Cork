@@ -15,6 +15,8 @@ import Defaults
 import SwiftData
 import SwiftUI
 import UserNotifications
+import CorkModels
+import CorkTerminalFunctions
 
 @main
 struct CorkApp: App
@@ -716,7 +718,7 @@ struct CorkApp: App
         {
             Button
             {
-                openWindow(id: .errorInspectorWindowID, value: PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
+                openWindow(id: .errorInspectorWindowID, value: BrewPackage.PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
             } label: {
                 Text("debug.action.show-error-inspector")
             }

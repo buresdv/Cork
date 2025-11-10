@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CorkModels
 
 /// Decodable tap info
 public struct TapInfo: Codable

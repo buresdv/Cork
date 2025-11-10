@@ -12,6 +12,12 @@ import CorkShared
 @Observable @MainActor
 public class CachedDownloadsTracker
 {
+    public init()
+    {
+        self.cachedDownloads = .init()
+        self.cachedDownloadsTemp = .init()
+    }
+    
     public var cachedDownloads: [CachedDownload] = .init()
 
     private var cachedDownloadsTemp: [CachedDownload] = .init()

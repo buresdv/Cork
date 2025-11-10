@@ -9,12 +9,21 @@ import Foundation
 
 public struct BrewTap: Identifiable, Hashable, Sendable
 {
-    public let id: UUID = .init()
-    let name: String
+    public init(
+        name: String,
+        isBeingModified: Bool? = nil
+    ) {
+        self.id = .init()
+        self.name = name
+        self.isBeingModified = isBeingModified ?? false
+    }
+    
+    public let id: UUID
+    public let name: String
 
-    var isBeingModified: Bool = false
+    public var isBeingModified: Bool
 
-    mutating func changeBeingModifiedStatus()
+    public mutating func changeBeingModifiedStatus()
     {
         isBeingModified.toggle()
     }

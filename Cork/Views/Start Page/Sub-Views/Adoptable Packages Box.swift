@@ -10,6 +10,7 @@ import Defaults
 import SwiftUI
 import ButtonKit
 import SwiftData
+import CorkModels
 
 struct AdoptablePackagesSection: View
 {
@@ -20,7 +21,7 @@ struct AdoptablePackagesSection: View
 
     @State private var isShowingAdoptionWarning: Bool = false
     
-    @Query private var excludedApps: [BrewPackagesTracker.ExcludedAdoptableApp]
+    @Query private var excludedApps: [ExcludedAdoptableApp]
 
     var body: some View
     {

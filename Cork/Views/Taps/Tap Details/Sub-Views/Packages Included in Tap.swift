@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct PackagesIncludedInTapList: View
 {
     @Environment(\.selectedTap) var selectedTap: BrewTap?
     
-    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let packages: [MinimalHomebrewPackage]
 

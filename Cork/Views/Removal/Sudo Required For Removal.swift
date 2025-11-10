@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ButtonKit
+import CorkModels
 
 struct SudoRequiredForRemovalSheet: View, Sendable
 {

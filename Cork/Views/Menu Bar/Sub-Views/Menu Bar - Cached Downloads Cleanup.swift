@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import CorkNotifications
+import CorkModels
 
 struct MenuBar_CachedDownloadsCleanup: View
 {

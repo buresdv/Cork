@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkModels
 
 typealias AdoptionProcessResult = Result<BrewPackagesTracker.AdoptableApp, MassAppAdoptionView.AdoptionAttemptFailure>
 

@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import Defaults
+import CorkModels
 
 struct SearchResultRow: View, Sendable
 {
@@ -130,7 +131,7 @@ struct SearchResultRow: View, Sendable
 
                         do
                         {
-                            let parsedPackageInfo: BrewPackageDetails = try await searchedForPackage.loadDetails()
+                            let parsedPackageInfo: BrewPackage.BrewPackageDetails = try await searchedForPackage.loadDetails()
 
                             description = parsedPackageInfo.description
 

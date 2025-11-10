@@ -8,7 +8,7 @@
 import Foundation
 import CorkShared
 
-extension CachedDownloadsTracker
+public extension CachedDownloadsTracker
 {
     func assignPackageTypeToCachedDownloads(brewPackagesTracker: BrewPackagesTracker)
     {

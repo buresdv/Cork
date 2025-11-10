@@ -11,6 +11,8 @@ import ButtonKit
 import CorkShared
 import Defaults
 import SwiftUI
+import CorkModels
+import CorkTerminalFunctions
 
 struct ContentView: View, Sendable
 {

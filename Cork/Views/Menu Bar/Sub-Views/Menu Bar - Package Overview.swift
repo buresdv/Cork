@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct MenuBar_PackageOverview: View
 {

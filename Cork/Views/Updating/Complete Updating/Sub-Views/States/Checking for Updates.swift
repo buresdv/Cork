@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import CorkModels
 
 struct CheckingForUpdatesStateView: View
 {

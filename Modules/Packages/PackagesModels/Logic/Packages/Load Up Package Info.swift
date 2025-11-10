@@ -257,7 +257,7 @@ extension BrewPackage
 
     /// Load package details
     @MainActor
-    func loadDetails() async throws -> BrewPackage.BrewPackageDetails
+    public func loadDetails() async throws -> BrewPackage.BrewPackageDetails
     {
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
