@@ -11,6 +11,14 @@ public struct TerminalOutput
 {
     public var standardOutput: String
     public var standardError: String
+    
+    public init(
+        standardOutput: String,
+        standardError: String
+    ) {
+        self.standardOutput = standardOutput
+        self.standardError = standardError
+    }
 }
 
 public enum StreamedTerminalOutput

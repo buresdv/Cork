@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import CorkShared
+import CorkModels
+import CorkTerminalFunctions
 
 struct ReinstallCorruptedPackageView: View
 {

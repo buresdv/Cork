@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkModels
 
 struct RealTimeTerminalLine: Identifiable, Hashable, Equatable
 {

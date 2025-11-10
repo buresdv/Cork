@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import CorkModels
 
-extension BrewPackagesTracker
+public extension BrewPackagesTracker
 {
     /// Update a ``BrewPackage``'s property in-place
     /// Used to update the UI when a property on ``BrewPackage`` changes

@@ -5,14 +5,13 @@
 //  Created by David Bureš on 19.08.2023.
 //
 
-import CorkShared
 import Foundation
 
-enum DataDownloadingError: LocalizedError
+public enum DataDownloadingError: LocalizedError
 {
     case invalidResponseCode(responseCode: Int?), noDataReceived, invalidURL, couldntExecuteRequest(error: String)
 
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self
         {
@@ -35,7 +34,7 @@ enum DataDownloadingError: LocalizedError
     }
 }
 
-func downloadDataFromURL(
+public func downloadDataFromURL(
     _ url: URL,
     parameters: [URLQueryItem]? = nil,
     cachingPolicy: URLRequest.CachePolicy = .useProtocolCachePolicy

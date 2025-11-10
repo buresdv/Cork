@@ -18,7 +18,7 @@ public extension TapTracker
 
         do
         {
-            let contentsOfTapFolder: [URL] = try getContentsOfFolder(targetFolder: AppConstants.shared.tapPath, options: .skipsHiddenFiles)
+            let contentsOfTapFolder: [URL] = try AppConstants.shared.tapPath.getContents(options: .skipsHiddenFiles)
 
             AppConstants.shared.logger.debug("Contents of tap folder: \(contentsOfTapFolder)")
 
@@ -28,7 +28,7 @@ public extension TapTracker
 
                 do
                 {
-                    let contentsOfTapRepoParent: [URL] = try getContentsOfFolder(targetFolder: tapRepoParentURL, options: .skipsHiddenFiles)
+                    let contentsOfTapRepoParent: [URL] = try tapRepoParentURL.getContents(options: .skipsHiddenFiles)
 
                     for repoURL in contentsOfTapRepoParent
                     {

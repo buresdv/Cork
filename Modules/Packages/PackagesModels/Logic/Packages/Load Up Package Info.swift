@@ -7,7 +7,6 @@
 
 import CorkShared
 import Foundation
-import CorkModels
 import CorkTerminalFunctions
 
 enum BrewPackageInfoLoadingError: LocalizedError
@@ -258,7 +257,7 @@ extension BrewPackage
 
     /// Load package details
     @MainActor
-    func loadDetails() async throws -> BrewPackageDetails
+    func loadDetails() async throws -> BrewPackage.BrewPackageDetails
     {
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()

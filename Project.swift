@@ -156,7 +156,9 @@ let corkModelsTarget: ProjectDescription.Target = .target(
     dependencies: [
         .target(corkSharedTarget),
         .target(corkNotificationsTarget),
-        .external(name: "FactoryKit")
+        .external(name: "FactoryKit"),
+        .external(name: "Defaults"),
+        .external(name: "DefaultsMacros"),
     ],
     settings: .settings(configurations: [
         .debug(

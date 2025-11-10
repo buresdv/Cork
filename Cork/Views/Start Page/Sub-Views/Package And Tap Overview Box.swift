@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import Defaults
+import CorkModels
 
 struct PackageAndTapOverviewBox: View
 {

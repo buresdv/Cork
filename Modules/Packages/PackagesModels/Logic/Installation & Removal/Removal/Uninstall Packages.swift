@@ -8,8 +8,9 @@
 import CorkShared
 import Foundation
 import SwiftUI
+import CorkTerminalFunctions
 
-extension BrewPackagesTracker
+public extension BrewPackagesTracker
 {
     @MainActor
     func uninstallSelectedPackage(

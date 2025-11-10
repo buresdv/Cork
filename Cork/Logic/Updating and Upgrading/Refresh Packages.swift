@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import CorkShared
+import CorkTerminalFunctions
+import CorkModels
 
 @MainActor
 func refreshPackages(_ updateProgressTracker: UpdateProgressTracker, outdatedPackagesTracker: OutdatedPackagesTracker) async -> PackageUpdateAvailability

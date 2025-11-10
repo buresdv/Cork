@@ -9,6 +9,7 @@ import ButtonKit
 import CorkNotifications
 import CorkShared
 import SwiftUI
+import CorkModels
 
 struct MenuBar_OrphanCleanup: View
 {

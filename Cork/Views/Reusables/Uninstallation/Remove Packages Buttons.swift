@@ -9,6 +9,7 @@ import SwiftUI
 import CorkShared
 import ButtonKit
 import Defaults
+import CorkModels
 
 /// Button for uninstalling packages
 struct UninstallPackageButton: View

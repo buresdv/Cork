@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum PackageSynchronizationError: LocalizedError
+public enum PackageSynchronizationError: LocalizedError
 {
     case synchronizationReturnedNil
     
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self
         {
