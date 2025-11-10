@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import CorkModels
 
 struct BrokenPackageListRow: View
 {
@@ -14,7 +15,7 @@ struct BrokenPackageListRow: View
     
     @Environment(AppState.self) var appState: AppState
     
-    let error: PackageLoadingError
+    let error: BrewPackage.PackageLoadingError
     
     var body: some View
     {

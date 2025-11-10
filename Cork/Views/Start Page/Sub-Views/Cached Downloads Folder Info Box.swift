@@ -7,6 +7,7 @@
 
 import Charts
 import SwiftUI
+import CorkModels
 
 struct CachedDownloadsFolderInfoBox: View
 {

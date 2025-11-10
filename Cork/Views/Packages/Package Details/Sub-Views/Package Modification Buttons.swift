@@ -9,6 +9,7 @@ import SwiftUI
 import CorkShared
 import ButtonKit
 import Defaults
+import CorkModels
 
 struct PackageModificationButtons: View
 {
@@ -21,7 +22,7 @@ struct PackageModificationButtons: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let package: BrewPackage
-    @Bindable var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackage.BrewPackageDetails
 
     let isLoadingDetails: Bool
 

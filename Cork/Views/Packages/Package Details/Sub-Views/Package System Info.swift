@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import ApplicationInspector
+import CorkModels
 
 struct PackageSystemInfo: View
 {

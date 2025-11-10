@@ -7,6 +7,8 @@
 
 import CorkShared
 import SwiftUI
+import CorkModels
+import ApplicationInspector
 
 struct PackageDetailView: View, Sendable, DismissablePane
 {
@@ -39,7 +41,7 @@ struct PackageDetailView: View, Sendable, DismissablePane
 
     var isInPreviewWindow: Bool = false
 
-    @State private var packageDetails: BrewPackageDetails? = nil
+    @State private var packageDetails: BrewPackage.BrewPackageDetails? = nil
     
     @State private var caskExecutable: Application? = nil
 

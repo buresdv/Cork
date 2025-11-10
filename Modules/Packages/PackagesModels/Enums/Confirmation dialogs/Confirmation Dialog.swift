@@ -30,7 +30,7 @@ public enum ConfirmationDialog: Identifiable, Equatable
         }
     }
 
-    var message: LocalizedStringKey
+    public var message: LocalizedStringKey
     {
         switch self
         {

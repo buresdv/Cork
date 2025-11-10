@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum IntentError: LocalizedError
+public enum IntentError: LocalizedError
 {
     case failedWhilePerformingIntent
 
-    var errorDescription: String?
+    public var errorDescription: String?
     {
         switch self
         {

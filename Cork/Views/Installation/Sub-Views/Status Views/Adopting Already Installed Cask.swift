@@ -7,6 +7,8 @@
 
 import CorkShared
 import SwiftUI
+import CorkModels
+import CorkTerminalFunctions
 
 struct AdoptingAlreadyInstalledCaskView: View
 {

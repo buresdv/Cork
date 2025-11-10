@@ -8,6 +8,7 @@
 import SwiftUI
 import Defaults
 import CorkShared
+import CorkModels
 
 struct OutdatedPackageListBox: View
 {

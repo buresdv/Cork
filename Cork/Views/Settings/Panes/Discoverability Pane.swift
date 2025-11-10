@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CorkShared
 import Defaults
+import CorkModels
 
 struct DiscoverabilityPane: View
 {

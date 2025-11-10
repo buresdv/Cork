@@ -8,6 +8,7 @@
 import CorkShared
 import Defaults
 import SwiftUI
+import CorkModels
 
 struct SidebarView: View
 {

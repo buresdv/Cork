@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkShared
+import CorkModels
 
 struct PackageDetailHeaderComplex: View
 {
@@ -22,7 +23,7 @@ struct PackageDetailHeaderComplex: View
     
     var isInPreviewWindow: Bool
     
-    @Bindable var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackage.BrewPackageDetails
 
     let isLoadingDetails: Bool
     

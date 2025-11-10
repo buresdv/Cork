@@ -22,9 +22,14 @@ public class OutdatedPackagesTracker
         case checkingForUpdates, showingOutdatedPackages, noUpdatesAvailable, erroredOut(reason: String)
     }
     
-    public var isCheckingForPackageUpdates: Bool = true
+    public init() {
+        self.isCheckingForPackageUpdates = true
+        self.outdatedPackages = .init()
+    }
+    
+    public var isCheckingForPackageUpdates: Bool
 
-    public var outdatedPackages: Set<OutdatedPackage> = .init()
+    public var outdatedPackages: Set<OutdatedPackage>
     
     public var errorOutReason: String?
 

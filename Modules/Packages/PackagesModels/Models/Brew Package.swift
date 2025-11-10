@@ -20,7 +20,7 @@ import CorkTerminalFunctions
 public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadingError>>
 
 /// A representation of a Homebrew package
-public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
+public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable
 {
     public init(
         name: String,
@@ -68,9 +68,9 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable
     /// Download count for top packages
     public let downloadCount: Int?
 
-    var isBeingModified: Bool = false
+    public var isBeingModified: Bool = false
 
-    func getFormattedVersions() -> String
+    public func getFormattedVersions() -> String
     {
         return versions.formatted(.list(type: .and))
     }
@@ -393,7 +393,7 @@ extension BrewPackage
     }
 }
 
-extension FormatStyle where Self == Date.FormatStyle
+public extension FormatStyle where Self == Date.FormatStyle
 {
     static var packageInstallationStyle: Self
     {

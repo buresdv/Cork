@@ -8,6 +8,7 @@
 import CorkShared
 import SwiftUI
 import ButtonKit
+import CorkModels
 
 struct TapsSection: View
 {
