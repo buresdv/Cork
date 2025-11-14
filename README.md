@@ -104,6 +104,9 @@ Prerequisites:
 
 ### Instructions:
 
+> [!WARNING]
+> Follow these steps exactly, and do not deviate from any step unless you are a developer. **This includes changing any settings in Xcode, or accepting any recommended Xcode "fixes."** If you do, the app might not work.
+
 #### Before you begin
 
 *Skip if you already have an Apple Developer account*
