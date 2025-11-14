@@ -129,6 +129,7 @@ struct PresentingSearchResultsView: View
             AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
         }
         .disabled(foundPackageSelection == nil)
+        .labelStyle(.titleOnly)
     }
 
     @ViewBuilder
