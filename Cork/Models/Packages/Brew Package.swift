@@ -17,43 +17,6 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
     var id: UUID = .init()
     let name: String
 
-    lazy var sanitizedName: String? = {
-        var packageNameWithoutTap: String
-        { /// First, remove the tap name from the package name if it has it
-            if self.name.contains("/")
-            { /// Check if the package name contains slashes (this would mean it includes the tap name)
-                if let sanitizedName = try? self.name.regexMatch("[^\\/]*$")
-                {
-                    return sanitizedName
-                }
-                else
-                {
-                    return self.name
-                }
-            }
-            else
-            {
-                return self.name
-            }
-        }
-
-        if packageNameWithoutTap.contains("@")
-        { /// Only do the matching if the name contains @
-            if let sanitizedName = try? packageNameWithoutTap.regexMatch(".+?(?=@)")
-            { /// Try to REGEX-match the name out of the raw name
-                return sanitizedName
-            }
-            else
-            { /// If the REGEX matching fails, just show the entire name
-                return packageNameWithoutTap
-            }
-        }
-        else
-        { /// If the name doesn't contain the @, don't do anything
-            return packageNameWithoutTap
-        }
-    }()
-
     let type: PackageType
     var isTagged: Bool = false
     
@@ -219,10 +182,43 @@ struct BrewPackage: Identifiable, Equatable, Hashable, Codable
             isBeingModified.toggle()
         }
     }
-
-    mutating func purgeSanitizedName()
+    
+    func getSanitizedName() -> String
     {
-        sanitizedName = nil
+        var packageNameWithoutTap: String
+        { /// First, remove the tap name from the package name if it has it
+            if self.name.contains("/")
+            { /// Check if the package name contains slashes (this would mean it includes the tap name)
+                if let sanitizedName = try? self.name.regexMatch("[^\\/]*$")
+                {
+                    return sanitizedName
+                }
+                else
+                {
+                    return self.name
+                }
+            }
+            else
+            {
+                return self.name
+            }
+        }
+
+        if packageNameWithoutTap.contains("@")
+        { /// Only do the matching if the name contains @
+            if let sanitizedName = try? packageNameWithoutTap.regexMatch(".+?(?=@)")
+            { /// Try to REGEX-match the name out of the raw name
+                return sanitizedName
+            }
+            else
+            { /// If the REGEX matching fails, just show the entire name
+                return packageNameWithoutTap
+            }
+        }
+        else
+        { /// If the name doesn't contain the @, don't do anything
+            return packageNameWithoutTap
+        }
     }
 
     /// Open the location of this package in Finder

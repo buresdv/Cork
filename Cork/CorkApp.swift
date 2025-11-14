@@ -92,9 +92,6 @@ struct CorkApp: App
                 .modelContainer(for: [
                     SavedTaggedPackage.self
                 ])
-                .modelContainer(for: [
-                    BrewPackagesTracker.ExcludedAdoptableApp.self
-                ])
                 .task
                 {
                     NSWindow.allowsAutomaticWindowTabbing = false
@@ -660,13 +657,8 @@ struct CorkApp: App
             .environment(appDelegate.appState)
             .environment(outdatedPackagesTracker)
         
-        Button
-        {
-            appDelegate.appState.showSheet(ofType: .fullUpdate)
-        } label: {
-            Text("navigation.menu.packages.update")
-        }
-        .keyboardShortcut("r", modifiers: [.control, .command])
+        UpgradePackagesButton(appState: appDelegate.appState)
+            .keyboardShortcut("r", modifiers: [.control, .command])        
     }
 
     @ViewBuilder

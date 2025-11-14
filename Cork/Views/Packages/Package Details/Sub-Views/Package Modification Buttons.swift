@@ -36,6 +36,7 @@ struct PackageModificationButtons: View
                     if package.type == .formula
                     {
                         PinUnpinButton(package: package)
+                            .labelStyle(.titleOnly)
                     }
 
                     Spacer()
@@ -52,12 +53,14 @@ struct PackageModificationButtons: View
                         if !allowMoreCompleteUninstallations
                         {
                             UninstallPackageButton(package: package)
+                                .labelStyle(.titleOnly)
                         }
                         else
                         {
                             Menu
                             {
                                 PurgePackageButton(package: package)
+                                    .labelStyle(.titleOnly)
                             } label: {
                                 Text("action.uninstall-\(package.name)")
                             } primaryAction: {
