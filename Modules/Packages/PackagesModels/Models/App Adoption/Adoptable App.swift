@@ -7,6 +7,7 @@
 
 import Foundation
 import ApplicationInspector
+import CorkShared
 
 public extension BrewPackagesTracker
 {
