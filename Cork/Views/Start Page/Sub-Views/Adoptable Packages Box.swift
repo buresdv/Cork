@@ -269,7 +269,7 @@ struct AdoptablePackageListItem: View
             
             Divider()
             
-            ignoreAdoptableAppButton(appToIgnore: adoptableCask)
+            // ignoreAdoptableAppButton(appToIgnore: adoptableCask)
         }
     }
     
