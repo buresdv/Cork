@@ -2,6 +2,8 @@
 
 A fast GUI for Homebrew written in SwiftUI
 
+![Start Page](https://github.com/user-attachments/assets/7daafde7-b479-4f30-ad53-fb4eab628345)
+
 [![Follow me on Bluesky](https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff&label=Follow%20me%20on&color=0285FF)](https://bsky.app/profile/buresdv.eu)
 [![Discord Link](https://img.shields.io/discord/1083475351260377119?label=Talk%20to%20me%20on%20Discord&style=flat)](https://discord.gg/kUHg8uGHpG)
 [![Mastodon Link](https://img.shields.io/mastodon/follow/108939255808776594?domain=https%3A%2F%2Fmstdn.social&label=Follow%20me%20for%20updates&style=flat)](https://mstdn.social/@davidbures)
@@ -49,42 +51,25 @@ However, if you don't want to do any of the above, you can always compile Cork y
 
 ## Screenshots
 ### Main Window
-![Start Page](https://i.imgur.com/DNCsucp.png)
+![Start Page](https://github.com/user-attachments/assets/68a0995e-b350-414b-909c-3755975b00a1)
+![Outdated Packages](https://github.com/user-attachments/assets/c8ce56ad-954e-4a00-80e2-14035fa809d3)
+![Adoptable Packages](https://github.com/user-attachments/assets/044b9a61-191d-4bc0-984f-ea91b5004d49)
 
 ### Package Info
-<p align="center">
-  <img alt="Package Info" src="https://i.imgur.com/U8nCdlc.png" width="28%">
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Package Info - Full-size Caveats" src="https://i.imgur.com/lm2AhnX.png" width="28%">
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Package Info - Minimized Caveats" src="https://i.imgur.com/KFonAHx.png" width="28%">
-</p>
+![Package Info](https://github.com/user-attachments/assets/f45b4e67-b44f-4e9d-9887-2ad361a14f15)
+![Package Info](https://github.com/user-attachments/assets/2557214a-9551-4dd3-9b64-a82d93c20d42)
 
 ### Tap Info
-<p align="center">
-  <img alt="Tap Info - Formulae Only" src="https://i.imgur.com/VZi6jKK.png" width="47%">
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Tap Info - Formulae and Casks" src="https://i.imgur.com/ZCDlel6.png" width="47%">
-</p>
+![Tap Info](https://github.com/user-attachments/assets/2888524c-0e65-4f56-8cc6-0ad7ba811581)
 
 ### Install Package
-<p align="center">
-  <img alt="Install Package" src="https://i.imgur.com/c5BNkl3.png" width="28%">
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Install Package - Fetching Dependencies" src="https://i.imgur.com/x8qWBMO.png" width="28%">
-  &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Install Package - Installing Dependencies" src="https://i.imgur.com/dIgYKoj.png" width="28%">
-</p>
+![Install Package](https://github.com/user-attachments/assets/ca2e13a8-3c35-467e-ace1-5e705776f294)
 
 ### Add Taps
-![Tap Taps](https://i.imgur.com/RKMUgM8.png)
+![Add Taps](https://github.com/user-attachments/assets/173b54e1-2da1-49f4-b459-3982f0c18b9a)
 
 ### Brew Maintenance
-<p align="center">
-  <img alt="Brew Maintenance" src="https://i.imgur.com/Ky9kjPo.png" width="47%">
-&nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Brew Maintenance Results" src="https://i.imgur.com/sxjbRg2.png" width="47%">
-</p>
+![Brew Maintenance](https://github.com/user-attachments/assets/a441ea2f-8822-450c-bf90-c9e961016d0d)
 
 ## Media
 Do you run a blog, a magazine, make videos, or just make content about apps for fun? Get in touch at dev@corkmac.app!
