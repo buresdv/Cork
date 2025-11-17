@@ -4833,6 +4833,12 @@
             "value" : "List of installed packages"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List of installed packages"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22419,6 +22425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fehler beim Herunterladen: %@"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.data-downloading.couldnt-execute-request.%@"
           }
         }
       }
