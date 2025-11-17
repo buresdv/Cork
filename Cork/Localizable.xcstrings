@@ -85,6 +85,12 @@
             "state" : "translated",
             "value" : "(%@)"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%@)"
+          }
         }
       }
     },
@@ -5242,6 +5248,12 @@
             "state" : "translated",
             "value" : "Ajouter"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi"
+          }
         }
       }
     },
@@ -5275,6 +5287,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajouter des applications à Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi app a Homebrew"
           }
         }
       }
@@ -5593,6 +5611,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annuler et désactiver l’adoption de masse des applications"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annulla e disattiva adozione di massa delle app"
           }
         }
       }
@@ -6832,6 +6856,12 @@
             "state" : "translated",
             "value" : "Ignorer %@"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignora %@"
+          }
         }
       }
     },
@@ -6867,6 +6897,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prévisualiser %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anteprima di %@"
           }
         }
       }
@@ -7908,6 +7944,12 @@
             "state" : "translated",
             "value" : "Révéler %@dans le Finder"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra %@ nel Finder"
+          }
         }
       }
     },
@@ -8342,6 +8384,12 @@
             "state" : "translated",
             "value" : "Afficher moins"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra meno"
+          }
         }
       }
     },
@@ -8377,6 +8425,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher plus"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra più"
           }
         }
       }
@@ -15550,6 +15604,12 @@
             "state" : "translated",
             "value" : "Applications adoptables"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App adottabili"
+          }
         }
       }
     },
@@ -20707,6 +20767,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajout de %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungendo %@"
           }
         }
       }
@@ -32647,6 +32713,12 @@
             "state" : "translated",
             "value" : "Ajout des applications échoué"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiunta app fallita"
+          }
         }
       }
     },
@@ -32682,6 +32754,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Détails"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dettagli"
           }
         }
       }
@@ -32719,6 +32797,12 @@
             "state" : "translated",
             "value" : "Il y a eu des erreurs durant l’ajout à Homebrew des applications sélectionnées"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ci sono stati errori nell’aggiunta delle app selezionate a Homebrew"
+          }
         }
       }
     },
@@ -32754,6 +32838,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toutes les applications sélectionnées ont été ajouté à Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutte le app selezionate sono state aggiunte a Homebrew"
           }
         }
       }
@@ -32791,6 +32881,12 @@
             "state" : "translated",
             "value" : "Vous pouvez maintenant mettre à jour les applications ajoutées via Homebrew"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ora puoi aggiornare le app aggiunte attraverso Homebrew"
+          }
         }
       }
     },
@@ -32826,6 +32922,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L’ajout de certaines applications a échoué"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiunta di alcune app fallita"
           }
         }
       }
@@ -32863,6 +32965,12 @@
             "state" : "translated",
             "value" : "Certaines applications ont été correctement ajoutées à Homebrew, mais d’autres ont rencontré une erreurs.\nVoyez ci dessous pour plus d’information."
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alcune app sono state aggiunte correttamente, ma altre hanno riscontrato degli errori.\nVedi giù per altre informazioni."
+          }
         }
       }
     },
@@ -32898,6 +33006,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adoption d’application"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adozione app"
           }
         }
       }
@@ -39455,6 +39569,18 @@
             "state" : "translated",
             "value" : "Disable adoption"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable adoption"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disattiva adozione"
+          }
         }
       }
     },
@@ -39488,6 +39614,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cette action ne peut pas être annulée"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa azione non può essere annullata"
           }
         }
       }
@@ -39524,6 +39656,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Êtes vous sûr de vouloir ajouter à Homebrew %lld de vos applications installées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei sicuro di voler aggiungere %lld delle tue app installate a Homebrew?"
           }
         }
       }
@@ -41443,6 +41581,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installé en tant que"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installato come"
           }
         }
       }
@@ -48644,6 +48788,12 @@
             "state" : "translated",
             "value" : "Rechercher les applications externes qui peuvent être ajouter à Homebrew"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova app esterne che possono essere aggiunte a Homebrew"
+          }
         }
       }
     },
@@ -55359,6 +55509,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Résultats de l’adoption des applications"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risultati adozione app"
           }
         }
       }
