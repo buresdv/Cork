@@ -81,7 +81,8 @@
             "value" : ""
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%@" : {
       "localizations" : {
@@ -1959,8 +1960,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Created the Tuist configuration for compiling self-hosted versions"
+            "state" : "translated",
+            "value" : "Création de la configuration Tuist pour compiler des versions auto-hébergées"
           }
         },
         "it" : {
@@ -4515,8 +4516,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Status of outdated packaes"
+            "state" : "translated",
+            "value" : "Statut des paquets obsolètes"
           }
         },
         "it" : {
@@ -4603,8 +4604,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of outdated packages"
+            "state" : "translated",
+            "value" : "Liste des paquets obsolètes"
           }
         },
         "it" : {
@@ -4691,8 +4692,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loading outdated packages"
+            "state" : "translated",
+            "value" : "Chargement des paquets obsolètes"
           }
         },
         "it" : {
@@ -4779,8 +4780,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of Cask type"
+            "state" : "translated",
+            "value" : "Paquet de type Cask"
           }
         },
         "it" : {
@@ -4867,8 +4868,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of Formula type"
+            "state" : "translated",
+            "value" : "Paquet de type Formula"
           }
         },
         "it" : {
@@ -4955,8 +4956,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of an unimplemented type"
+            "state" : "translated",
+            "value" : "Paquet d’un type non implémenté"
           }
         },
         "it" : {
@@ -5043,8 +5044,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of an unknown type"
+            "state" : "translated",
+            "value" : "Paquet de type inconnu"
           }
         },
         "it" : {
@@ -5131,8 +5132,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Return to status page"
+            "state" : "translated",
+            "value" : "Retourner à la page de statut"
           }
         },
         "it" : {
@@ -5220,8 +5221,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed packages"
+            "state" : "translated",
+            "value" : "Liste des paquets installés"
           }
         },
         "it" : {
@@ -5308,8 +5309,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed Casks"
+            "state" : "translated",
+            "value" : "Liste des Casks installés"
           }
         },
         "it" : {
@@ -5396,8 +5397,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed Formulae"
+            "state" : "translated",
+            "value" : "Liste des Formules installées"
           }
         },
         "it" : {
@@ -5484,8 +5485,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
+            "state" : "translated",
+            "value" : "%1$lld paquets obsolètes gérés par Homebrew et %2$lld paquets obsolètes non gérés par Homebrew"
           }
         },
         "it" : {
@@ -5661,8 +5662,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopt"
+            "state" : "translated",
+            "value" : "Adopter"
           }
         },
         "it" : {
@@ -5750,8 +5751,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopt %@"
+            "state" : "translated",
+            "value" : "Adopter %@"
           }
         },
         "it" : {
@@ -6014,8 +6015,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check for Updates…"
+            "state" : "translated",
+            "value" : "Vérification des mises à jour…"
           }
         },
         "it" : {
@@ -6102,8 +6103,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check for outdated packages"
+            "state" : "translated",
+            "value" : "Vérification des paquets obsolètes"
           }
         },
         "it" : {
@@ -7072,8 +7073,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Inspect error…"
+            "state" : "translated",
+            "value" : "Inspecter l’erreur…"
           }
         },
         "it" : {
@@ -7160,8 +7161,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed packages"
+            "state" : "translated",
+            "value" : "Paquets installés"
           }
         },
         "it" : {
@@ -7600,8 +7601,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reinstall Homebrew"
+            "state" : "translated",
+            "value" : "Réinstaller Homebrew"
           }
         },
         "it" : {
@@ -7688,8 +7689,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reinstall"
+            "state" : "translated",
+            "value" : "Réinstaller"
           }
         },
         "it" : {
@@ -7776,8 +7777,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reload Services"
+            "state" : "translated",
+            "value" : "Recharger les services"
           }
         },
         "it" : {
@@ -8658,8 +8659,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Search Again"
+            "state" : "translated",
+            "value" : "Chercher à nouveau"
           }
         },
         "it" : {
@@ -8834,8 +8835,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show Terminal output"
+            "state" : "translated",
+            "value" : "Afficher la sortie du terminal"
           }
         },
         "it" : {
@@ -9099,8 +9100,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Update %@"
+            "state" : "translated",
+            "value" : "Mettre à jour %@"
           }
         },
         "it" : {
@@ -9187,8 +9188,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Update Homebrew and all packages"
+            "state" : "translated",
+            "value" : "Mettre à jour Homebrew et tous les paquets"
           }
         },
         "it" : {
@@ -9275,8 +9276,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Update Homebrew through Terminal"
+            "state" : "translated",
+            "value" : "Mettre à jour Homebrew via le terminal"
           }
         },
         "it" : {
@@ -9540,8 +9541,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Report on the forums…"
+            "state" : "translated",
+            "value" : "Signaler sur les forums…"
           }
         },
         "it" : {
@@ -9717,7 +9718,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le chargement des paquets les plus importants a été interrompu"
+            "value" : "Le chargement des paquets les plus populaires a été interrompu"
           }
         },
         "it" : {
@@ -11037,8 +11038,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew didn’t provide any output"
+            "state" : "translated",
+            "value" : "Homebrew n’a retourné aucune sortie"
           }
         },
         "it" : {
@@ -11125,8 +11126,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
+            "state" : "translated",
+            "value" : "Homebrew a terminé l’installation de ce paquet avant qu’elle ait vraiment démarré. Vérifiez ci dessous la sortie de la commande d’installation"
           }
         },
         "it" : {
@@ -11213,8 +11214,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package installation terminated unexpectedly"
+            "state" : "translated",
+            "value" : "L’installation du paquet s’est terminée de manière inattendue"
           }
         },
         "it" : {
@@ -13065,8 +13066,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Casks found"
+            "state" : "translated",
+            "value" : "Aucun Casks trouvés"
           }
         },
         "it" : {
@@ -13241,8 +13242,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Formulae found"
+            "state" : "translated",
+            "value" : "Aucunes Formules trouvées"
           }
         },
         "it" : {
@@ -13329,8 +13330,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No results found"
+            "state" : "translated",
+            "value" : "Aucun résultats trouvés"
           }
         },
         "it" : {
@@ -15808,8 +15809,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Try searching for another package"
+            "state" : "translated",
+            "value" : "Essayez de chercher un autre paquet"
           }
         },
         "it" : {
@@ -15984,8 +15985,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t adopt %@"
+            "state" : "translated",
+            "value" : "Impossible d’adopter %@"
           }
         },
         "it" : {
@@ -16072,8 +16073,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Finished adopting %@"
+            "state" : "translated",
+            "value" : "Adoption de %@ terminée"
           }
         },
         "it" : {
@@ -16160,8 +16161,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This package can now be updated through Homebrew"
+            "state" : "translated",
+            "value" : "Ce paquet peut maintenant être mis à jour via Homebrew"
           }
         },
         "it" : {
@@ -16248,8 +16249,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopting %@…"
+            "state" : "translated",
+            "value" : "Adoption de %@…"
           }
         },
         "it" : {
@@ -16336,8 +16337,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t delete cache"
+            "state" : "translated",
+            "value" : "Impossible de supprimer le cache"
           }
         },
         "it" : {
@@ -17836,8 +17837,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read package info"
+            "state" : "translated",
+            "value" : "Impossible de lire les informations du paquet"
           }
         },
         "it" : {
@@ -18982,8 +18983,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Your Mac is not connected to the internet. Check your internet settings."
+            "state" : "translated",
+            "value" : "Votre Mac n’est pas connecté à Internet. Vérifiez vos paramètres de connexion."
           }
         },
         "it" : {
@@ -19070,8 +19071,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not connect to the internet"
+            "state" : "translated",
+            "value" : "Impossible de se connecter à Internet"
           }
         },
         "it" : {
@@ -19158,8 +19159,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check your internet connection and try again\nAlternatively, the authorization server may be offline at the moment"
+            "state" : "translated",
+            "value" : "Vérifiez votre connexion Internet et essayez à nouveau.\nSinon, il se peut que le serveur d’autorisation soit indisponible pour le moment"
           }
         },
         "it" : {
@@ -19246,8 +19247,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "License checking timed out"
+            "state" : "translated",
+            "value" : "La vérification de la licence a été interrompu"
           }
         },
         "it" : {
@@ -19334,8 +19335,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "An unknown error occured"
+            "state" : "translated",
+            "value" : "Une erreur inconnue s’est produite"
           }
         },
         "it" : {
@@ -19424,7 +19425,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de déchiffrer la response de Homebrew"
+            "value" : "Homebrew n’a pas retourné de données valides"
           }
         },
         "it" : {
@@ -19687,8 +19688,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew installation broken"
+            "state" : "translated",
+            "value" : "L’installation de Homebrew est cassée"
           }
         },
         "it" : {
@@ -20657,7 +20658,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de déchiffrer les paquets les plus populaires"
+            "value" : "Homebrew n’a pas retourné des données valides"
           }
         },
         "it" : {
@@ -21008,8 +21009,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read tap info"
+            "state" : "translated",
+            "value" : "Impossible de lire les informations du Tap"
           }
         },
         "it" : {
@@ -21096,8 +21097,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t access folder containing Taps"
+            "state" : "translated",
+            "value" : "Impossible d’accéder au dossier contenant les Taps"
           }
         },
         "it" : {
@@ -22557,7 +22558,8 @@
             "value" : "DEBUG: Activate demo"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.action.licensing" : {
       "localizations" : {
@@ -22645,7 +22647,8 @@
             "value" : "DEBUG: Licensing"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.action.reset-license-state" : {
       "localizations" : {
@@ -22733,7 +22736,8 @@
             "value" : "DEBUG: Reset licensing state"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.action.show-error-inspector" : {
       "localizations" : {
@@ -22769,8 +22773,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show error inspector"
+            "state" : "translated",
+            "value" : "Afficher l’inspecteur d’erreur"
           }
         },
         "it" : {
@@ -22909,7 +22913,8 @@
             "value" : "DEBUG: UI"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.navigation" : {
       "localizations" : {
@@ -22997,7 +23002,8 @@
             "value" : "DEBUG"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "error-inspector.title" : {
       "localizations" : {
@@ -23033,8 +23039,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error Inspector"
+            "state" : "translated",
+            "value" : "Inspecteur d’Erreur"
           }
         },
         "it" : {
@@ -23121,8 +23127,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not determine which folder the brewfile export process was initiated from"
+            "state" : "translated",
+            "value" : "Impossible de déterminer depuis quel dossier l’export du Brewfile a été initié"
           }
         },
         "it" : {
@@ -23209,8 +23215,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not dump the brewfile into the provided location with error: %@"
+            "state" : "translated",
+            "value" : "Impossible d’écrire le Brewfile dans l’emplacement indiqué, erreur : %@"
           }
         },
         "it" : {
@@ -23297,8 +23303,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not get the location of the selected brewfile"
+            "state" : "translated",
+            "value" : "Impossible d’obtenir l’emplacement du Brewfile sélectionné"
           }
         },
         "it" : {
@@ -23385,8 +23391,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not import brewfile: %@"
+            "state" : "translated",
+            "value" : "Impossible d’importer le Brewfile: %@"
           }
         },
         "it" : {
@@ -23473,8 +23479,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read contents of cached Cask downloads folder"
+            "state" : "translated",
+            "value" : "Impossible de lire le contenu du dossier des téléchargements Casks mis en cache"
           }
         },
         "it" : {
@@ -23561,8 +23567,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read contents of cached downloads folder"
+            "state" : "translated",
+            "value" : "Impossible de lire le contenu du dossier des téléchargements mis en cache"
           }
         },
         "it" : {
@@ -23649,8 +23655,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read contents of cached Formulae downloads folder"
+            "state" : "translated",
+            "value" : "Impossible de lire le contenu du dossier des téléchargements Formules mis en cache"
           }
         },
         "it" : {
@@ -23737,8 +23743,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew server returned the wrong response code: %lld"
+            "state" : "translated",
+            "value" : "Le serveur Homebrew a retourné le mauvais code de retour: %lld"
           }
         },
         "it" : {
@@ -23825,8 +23831,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
+            "state" : "translated",
+            "value" : "Le serveur Homebrew a retourné le mauvais code de réponse, et le code de réponse fourni ne peut pas être correctement lu"
           }
         },
         "it" : {
@@ -23913,8 +23919,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The provided URL is not a valid Homebrew server URL"
+            "state" : "translated",
+            "value" : "L’URL fournie n’est pas un serveur Homebrew valide"
           }
         },
         "it" : {
@@ -24001,8 +24007,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No data received while fetching top packages from the Homebrew server"
+            "state" : "translated",
+            "value" : "Aucune donnée reçue depuis le serveur Homebrew lors de la récupération des paquets populaires"
           }
         },
         "it" : {
@@ -24089,8 +24095,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not find the requested package in the parent folder"
+            "state" : "translated",
+            "value" : "Impossible de trouver le paquet demandé dans le dossier parent"
           }
         },
         "it" : {
@@ -24177,8 +24183,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "An error occurred"
+            "state" : "translated",
+            "value" : "Une erreur est survenue"
           }
         },
         "it" : {
@@ -24265,8 +24271,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't decode JSON response from Homebrew:\n%@"
+            "state" : "translated",
+            "value" : "Impossible de décoder la réponse JSON de Homebrew :\n%@"
           }
         },
         "it" : {
@@ -24353,8 +24359,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't convert JSON response from Homebrew to Data"
+            "state" : "translated",
+            "value" : "Impossible de convertir la réponse JSON de Homebrew en Data"
           }
         },
         "it" : {
@@ -24441,8 +24447,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Invalid Homebrew response"
+            "state" : "translated",
+            "value" : "Réponse de Homebrew invalide"
           }
         },
         "it" : {
@@ -24529,8 +24535,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t execute intent"
+            "state" : "translated",
+            "value" : "Impossible d'exécuter l'intention"
           }
         },
         "it" : {
@@ -24617,8 +24623,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not convert the provided String to Data with error: %@"
+            "state" : "translated",
+            "value" : "Impossible de convertir la String fournie en Data, erreur : %@"
           }
         },
         "it" : {
@@ -24705,8 +24711,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+            "state" : "translated",
+            "value" : "Impossible de décoder les données fournies avec le décodeur JSON intégré : %@"
           }
         },
         "it" : {
@@ -24793,8 +24799,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Authorization complex for license retrieval could not be encoded"
+            "state" : "translated",
+            "value" : "Impossible d'encoder le complexe d'autorisation pour la récupération de la licence"
           }
         },
         "it" : {
@@ -24881,8 +24887,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not connect to the internet. Will not be able to complete the licensing check"
+            "state" : "translated",
+            "value" : "Impossible de se connecter à Internet. La vérification de la licence ne sera pas effectuée"
           }
         },
         "it" : {
@@ -24969,8 +24975,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unimplemented error occured while getting license status: %@"
+            "state" : "translated",
+            "value" : "Une erreur non implémentée s'est produite lors de la récupération du statut de la licence : %@"
           }
         },
         "it" : {
@@ -25057,8 +25063,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Checking for license status timed out"
+            "state" : "translated",
+            "value" : "La vérification du statut de la licence a expiré"
           }
         },
         "it" : {
@@ -25145,8 +25151,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cache purging failed"
+            "state" : "translated",
+            "value" : "La purge du cache a échoué"
           }
         },
         "it" : {
@@ -25233,8 +25239,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Standard error not empty"
+            "state" : "translated",
+            "value" : "Erreur standard non vide"
           }
         },
         "it" : {
@@ -25321,8 +25327,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not get the number of orphans uninstalled as a result of this operation"
+            "state" : "translated",
+            "value" : "Impossible d’obtenir le nombre de paquet orphelins désinstallés durant cette opération"
           }
         },
         "it" : {
@@ -25409,8 +25415,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not uninstall orphans: %@"
+            "state" : "translated",
+            "value" : "Impossible de désinstallé les paquets orphelins : %@"
           }
         },
         "it" : {
@@ -25497,8 +25503,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected terminal output of the orphan uninstallation function"
+            "state" : "translated",
+            "value" : "Sortie de Terminal inattendue durant l’exécution de la fonction de désinstallation des paquets orphelins"
           }
         },
         "it" : {
@@ -25585,8 +25591,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+            "state" : "translated",
+            "value" : "Impossible de décoder les données fournies avec le décodeur JSON intégré : %@"
           }
         },
         "it" : {
@@ -25673,8 +25679,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "HOME is not properly set in the Homebrew command"
+            "state" : "translated",
+            "value" : "HOME n’est pas correctement défini dans la commande Homebrew"
           }
         },
         "it" : {
@@ -25849,8 +25855,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "An error occured during the pinning process"
+            "state" : "translated",
+            "value" : "Une erreur est survenue durant le  processus de « pinning »"
           }
         },
         "it" : {
@@ -25937,8 +25943,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't load package from JSON response from Homebrew"
+            "state" : "translated",
+            "value" : "Impossible de charger le paquet depuis la réponse JSON retournée par Homebrew"
           }
         },
         "it" : {
@@ -26025,8 +26031,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package %@ does not have any versions installed"
+            "state" : "translated",
+            "value" : "Le paquet %@ n’a aucune versions installées"
           }
         },
         "it" : {
@@ -26114,8 +26120,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ is not a package folder"
+            "state" : "translated",
+            "value" : "%@ n’est pas le dossier d’un paquet"
           }
         },
         "it" : {
@@ -26203,8 +26209,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't load package %1$@ (%2$@):\n%3$@"
+            "state" : "translated",
+            "value" : "Impossible de charger le paquet %1$@ (%2$@) : %3$@"
           }
         },
         "it" : {
@@ -26291,8 +26297,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t load Casks"
+            "state" : "translated",
+            "value" : "Impossible de charger les Casks"
           }
         },
         "it" : {
@@ -26379,8 +26385,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t load Formulae"
+            "state" : "translated",
+            "value" : "Impossible de charger les Formules"
           }
         },
         "it" : {
@@ -26467,8 +26473,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t load Taps"
+            "state" : "translated",
+            "value" : "Impossible de charger les Taps"
           }
         },
         "it" : {
@@ -26643,8 +26649,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+            "state" : "translated",
+            "value" : "Le chemin indiqué désigne le dossier Cask lui même, pas un paquet. Votre installation de Homebrew est cassée, ce n’est pas un problème de Cork"
           }
         },
         "it" : {
@@ -26731,8 +26737,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+            "state" : "translated",
+            "value" : "Le chemin indiqué désigne le dossier Formules lui même, pas un paquet. Votre installation de Homebrew est cassée, ce n’est pas un problème de Cork"
           }
         },
         "it" : {
@@ -26819,8 +26825,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew didn't respond"
+            "state" : "translated",
+            "value" : "Homebrew n’a pas répondu"
           }
         },
         "it" : {
@@ -26908,8 +26914,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Some packages were not loaded due to an internal error"
+            "state" : "translated",
+            "value" : "Quelques paquets n’ont pas été chargés à cause d’une erreur interne"
           }
         },
         "it" : {
@@ -26996,8 +27002,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew returned JSON with the following error:\n%@"
+            "state" : "translated",
+            "value" : "Homebrew a retourné du JSON avec l’erreur suivante :\n%@"
           }
         },
         "it" : {
@@ -27084,8 +27090,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not find any package with the provided UUID in the package tracker"
+            "state" : "translated",
+            "value" : "Impossible de trouver un paquet avec l’UUID fourni dans le gestionnaire de paquet"
           }
         },
         "it" : {
@@ -27172,8 +27178,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package synchronization failed"
+            "state" : "translated",
+            "value" : "La synchronisation des paquets a échoué"
           }
         },
         "it" : {
@@ -27260,8 +27266,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not obtain access permissions to the specified folder: %@"
+            "state" : "translated",
+            "value" : "Impossible d’obtenir la permission d’accéder au dossier spécifié : %@"
           }
         },
         "it" : {
@@ -27348,8 +27354,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "REGEX matched nothing"
+            "state" : "translated",
+            "value" : "L'expression régulière n'a rien trouvé"
           }
         },
         "it" : {
@@ -27436,8 +27442,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not encode data: %@"
+            "state" : "translated",
+            "value" : "Impossible d’encoder la data : %@"
           }
         },
         "it" : {
@@ -27524,8 +27530,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew outdated"
+            "state" : "translated",
+            "value" : "Homebrew n’est pas à jour"
           }
         },
         "it" : {
@@ -27612,8 +27618,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew didn't return any data"
+            "state" : "translated",
+            "value" : "Homebrew n’a retourné aucune données"
           }
         },
         "it" : {
@@ -27700,8 +27706,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unimplemented error: %@"
+            "state" : "translated",
+            "value" : "Erreur non implémentée : %@"
           }
         },
         "it" : {
@@ -27788,8 +27794,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Parsing of services failed"
+            "state" : "translated",
+            "value" : "L'analyse des services a échoué"
           }
         },
         "it" : {
@@ -27964,8 +27970,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not stop the service: %@"
+            "state" : "translated",
+            "value" : "Impossible de stopper le service : %@"
           }
         },
         "it" : {
@@ -28052,8 +28058,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not remove tap%1$@ with output: %2$@"
+            "state" : "translated",
+            "value" : "Impossible de supprimer le Tap %1$@ pour la raison suivante : %2$@"
           }
         },
         "it" : {
@@ -28316,8 +28322,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't download top packages"
+            "state" : "translated",
+            "value" : "Impossible de télécharger la liste des paquets populaire"
           }
         },
         "it" : {
@@ -28404,8 +28410,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The requested package was not found in the array, even though it should have been found"
+            "state" : "translated",
+            "value" : "Le paquet demandé n’a pas été trouvé dans le tableau, même s’il aurait dû s’y trouver"
           }
         },
         "it" : {
@@ -30078,7 +30084,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actualiser les paquets avec des erreurs"
+            "value" : "Paquets actualisés avec des erreurs"
           }
         },
         "it" : {
@@ -31486,7 +31492,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Licence..."
+            "value" : "Licence…"
           }
         },
         "it" : {
@@ -31574,7 +31580,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des informations..."
+            "value" : "Chargement des informations…"
           }
         },
         "it" : {
@@ -36011,8 +36017,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Perform Homebrew cleanup tasks"
+            "state" : "translated",
+            "value" : "Exécution des tâches de nettoyage Homebrew"
           }
         },
         "it" : {
@@ -36100,7 +36106,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gestion des services..."
+            "value" : "Gestion des services…"
           }
         },
         "it" : {
@@ -37333,7 +37339,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ouvrir le Gestionnaire de Services..."
+            "value" : "Ouvrir le Gestionnaire de Services…"
           }
         },
         "it" : {
@@ -39721,8 +39727,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show detailed info about outdated packages"
+            "state" : "translated",
+            "value" : "Afficher les informations détaillées des paquets obsolètes"
           }
         },
         "it" : {
@@ -39809,8 +39815,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show basic info about outdated packages"
+            "state" : "translated",
+            "value" : "Afficher les informations simplifiées des paquets obsolètes"
           }
         },
         "it" : {
@@ -39897,8 +39903,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show versions in info about outdated packages"
+            "state" : "translated",
+            "value" : "Afficher les versions dans les informations des paquets obsolètes"
           }
         },
         "it" : {
@@ -41132,7 +41138,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fenêtre de premier démarrage..."
+            "value" : "Fenêtre de premier démarrage…"
           }
         },
         "it" : {
@@ -41572,7 +41578,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avertissements 􀅴"
+            "value" : "􀅴 Avertissements"
           }
         },
         "it" : {
@@ -42804,8 +42810,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This package is deprecated"
+            "state" : "translated",
+            "value" : "Ce paquet est obsolète"
           }
         },
         "it" : {
@@ -42892,8 +42898,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "􀇿 Deprecated"
+            "state" : "translated",
+            "value" : "􀇿 Obsolète"
           }
         },
         "it" : {
@@ -42980,8 +42986,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "􀇿 Deprecated…"
+            "state" : "translated",
+            "value" : "􀇿 Obsolète…"
           }
         },
         "it" : {
@@ -44213,8 +44219,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Preview"
+            "state" : "translated",
+            "value" : "Aperçu"
           }
         },
         "it" : {
@@ -44301,8 +44307,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This might take a long time…"
+            "state" : "translated",
+            "value" : "Cela pourrait prendre beaucoup de temps…"
           }
         },
         "it" : {
@@ -45097,7 +45103,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des informations du service..."
+            "value" : "Chargement des informations du service…"
           }
         },
         "it" : {
@@ -46271,7 +46277,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des services..."
+            "value" : "Chargement des services…"
           }
         },
         "it" : {
@@ -46359,7 +46365,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Service introuvable..."
+            "value" : "Service introuvable…"
           }
         },
         "it" : {
@@ -48578,8 +48584,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew is out of date"
+            "state" : "translated",
+            "value" : "Homebrew n'est pas à jour"
           }
         },
         "it" : {
@@ -48666,8 +48672,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that doesn't work, update through the Terminal."
+            "state" : "translated",
+            "value" : "Pour utiliser les services, mettez à jour votre installation de Homebrew en cliquant le bouton ci dessous. Si ça ne fonctionne pas, mettez à jour via le Terminal."
           }
         },
         "it" : {
@@ -50603,8 +50609,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error checking:"
+            "state" : "translated",
+            "value" : "Vérification d’erreur :"
           }
         },
         "it" : {
@@ -50691,8 +50697,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Strictly check for Homebrew errors"
+            "state" : "translated",
+            "value" : "Vérifier strictement les erreurs Homebrew"
           }
         },
         "it" : {
@@ -51754,8 +51760,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Enable extra animations"
+            "state" : "translated",
+            "value" : "Activer des animations supplémentaires"
           }
         },
         "it" : {
@@ -51931,8 +51937,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Backup date format:"
+            "state" : "translated",
+            "value" : "Format de date de la sauvegarde :"
           }
         },
         "it" : {
@@ -52019,8 +52025,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Abbreviated"
+            "state" : "translated",
+            "value" : "Abrégé"
           }
         },
         "it" : {
@@ -52107,8 +52113,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Complete"
+            "state" : "translated",
+            "value" : "Complet"
           }
         },
         "it" : {
@@ -52195,8 +52201,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Long"
+            "state" : "translated",
+            "value" : "Entier"
           }
         },
         "it" : {
@@ -52283,8 +52289,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Numeric"
+            "state" : "translated",
+            "value" : "Numérique"
           }
         },
         "it" : {
@@ -52371,8 +52377,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Omitted"
+            "state" : "translated",
+            "value" : "Omettre"
           }
         },
         "it" : {
@@ -53252,8 +53258,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Outdated package info:"
+            "state" : "translated",
+            "value" : "Information du paquet obsolète :"
           }
         },
         "it" : {
@@ -53340,8 +53346,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show old versions"
+            "state" : "translated",
+            "value" : "Afficher les anciennes versions"
           }
         },
         "it" : {
@@ -53695,8 +53701,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Outdated packages:"
+            "state" : "translated",
+            "value" : "Paquets obsolètes :"
           }
         },
         "it" : {
@@ -54224,8 +54230,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Enable swipe actions"
+            "state" : "translated",
+            "value" : "Activer les actions de balayage"
           }
         },
         "it" : {
@@ -54488,8 +54494,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package notes:"
+            "state" : "translated",
+            "value" : "Notes du paquet :"
           }
         },
         "it" : {
@@ -55462,8 +55468,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show packages not managed by Homebrew"
+            "state" : "translated",
+            "value" : "Afficher les paquets non gérés par Homebrew"
           }
         },
         "it" : {
@@ -55641,8 +55647,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Automatically accept package EULAs"
+            "state" : "translated",
+            "value" : "Accepter automatiquement les contrats de licence des paquets"
           }
         },
         "it" : {
@@ -59873,8 +59879,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Casks installed"
+            "state" : "translated",
+            "value" : "Aucun Casks installé"
           }
         },
         "it" : {
@@ -59961,8 +59967,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Formulae installed"
+            "state" : "translated",
+            "value" : "Aucune Formule installée"
           }
         },
         "it" : {
@@ -62019,8 +62025,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't check for outdated packges"
+            "state" : "translated",
+            "value" : "Impossible de vérifier les paquets obsolètes"
           }
         },
         "it" : {
@@ -62358,14 +62364,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There’s %lld Cask that couldn't be loaded"
+                  "state" : "translated",
+                  "value" : "Il y a %lld Cask qui n’a pas pu être chargée"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld Casks that couldn't be loaded"
+                  "state" : "translated",
+                  "value" : "Il y a %lld Casks qui n’ont pas pu être chargées"
                 }
               }
             }
@@ -62632,14 +62638,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There’s %lld Formula that couldn’t be loaded"
+                  "state" : "translated",
+                  "value" : "Il y a %lld Formule qui n’a pas pu être chargée"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld Formulae that couldn't be loaded"
+                  "state" : "translated",
+                  "value" : "Il y a %lld Formules qui n’ont pas pu être chargées"
                 }
               }
             }
@@ -63645,8 +63651,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed Version"
+            "state" : "translated",
+            "value" : "Version installée"
           }
         },
         "it" : {
@@ -63909,8 +63915,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Newest Version"
+            "state" : "translated",
+            "value" : "Nouvelle version"
           }
         },
         "it" : {
@@ -64072,14 +64078,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld unmanaged outdated package"
+                  "state" : "translated",
+                  "value" : "Il y a %lld paquet obsolète non géré"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld unmanaged outdated packages"
+                  "state" : "translated",
+                  "value" : "Il y a %lld paquets obsolètes non gérés"
                 }
               }
             }
@@ -64346,14 +64352,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is 1 additional package not managed by Homebrew"
+                  "state" : "translated",
+                  "value" : "Il y a 1 paquet supplémentaire non géré par Homebrew"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld additional packages not managed by Homebrew"
+                  "state" : "translated",
+                  "value" : "Il y a %lld paquets supplémentaires non gérés par Homebrew"
                 }
               }
             }
@@ -64545,8 +64551,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unmanaged outdated packages"
+            "state" : "translated",
+            "value" : "Paquets obsolètes non gérés"
           }
         },
         "it" : {
@@ -64721,8 +64727,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
+            "state" : "translated",
+            "value" : "Après avoir cliqué \"Ouvrir le Terminal », utilisez ⌘+V pour coller la commande que Cork a copié pour vous, puis appuyez sur Entrée (↩).\nSi aucune commande n’a été copiée, tapez la commande \"brew update\" puis appuyez sur Entrée (↩)."
           }
         },
         "it" : {
@@ -64809,8 +64815,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating through the Terminal"
+            "state" : "translated",
+            "value" : "Mise à jour via le Terminal"
           }
         },
         "it" : {
@@ -66308,7 +66314,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegarde de l'ancienne version..."
+            "value" : "Sauvegarde de l'ancienne version…"
           }
         },
         "it" : {
@@ -67539,8 +67545,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "All packages managed by Homebrew are up to date"
+            "state" : "translated",
+            "value" : "Tous les paquets gérés par Homebrew sont à jour"
           }
         },
         "it" : {
