@@ -5402,6 +5402,24 @@
               }
             }
           }
+        },
+        "it" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aggiungi %lld app"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aggiungi %lld app"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -22578,6 +22596,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.data-downloading.couldnt-execute-request.%@"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "error.data-downloading.couldnt-execute-request.%@"
@@ -58055,6 +58079,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Il y a %lld applications installées qui peuvent être ajoutées à Homebrew"
+                }
+              }
+            }
+          }
+        },
+        "it" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "C'è %lld app installata che può essere aggiunta a Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ci sono %lld app installate che possono essere aggiunte a Homebrew"
                 }
               }
             }
