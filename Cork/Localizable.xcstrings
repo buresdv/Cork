@@ -39685,7 +39685,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sei sicuro di voler aggiungere %lld delle tue app installate a Homebrew?"
+            "value" : "Vuoi aggiungere %lld delle tue app installate a Homebrew?"
           }
         }
       }
