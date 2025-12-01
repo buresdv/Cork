@@ -51,8 +51,8 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public var id: UUID
     public let name: String
 
-    let type: PackageType
-    var isTagged: Bool = false
+    public let type: PackageType
+    public var isTagged: Bool = false
     
     public var isPinned: Bool
 
@@ -284,7 +284,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         }
     }
     
-    func getSanitizedName() -> String
+    public func getSanitizedName() -> String
     {
         var packageNameWithoutTap: String
         { /// First, remove the tap name from the package name if it has it

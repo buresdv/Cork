@@ -92,7 +92,8 @@ struct CorkApp: App
                 .environment(outdatedPackagesTracker)
                 .environment(topPackagesTracker)
                 .modelContainer(for: [
-                    SavedTaggedPackage.self
+                    SavedTaggedPackage.self,
+                    ExcludedAdoptableApp.self
                 ])
                 .task
                 {

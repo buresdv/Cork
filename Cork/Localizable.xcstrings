@@ -94,9 +94,6 @@
         }
       }
     },
-    "(%@)" : {
-
-    },
     "%@" : {
       "localizations" : {
         "cs" : {
@@ -15591,6 +15588,9 @@
           }
         }
       }
+    },
+    "adoptable-packages.excluded-label" : {
+
     },
     "adoptable-packages.excluded.label" : {
       "comment" : "A label for the section that lists apps that are excluded from being adopted.",

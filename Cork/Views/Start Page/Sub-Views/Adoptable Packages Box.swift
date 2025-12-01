@@ -64,6 +64,11 @@ struct AdoptablePackagesSection: View
                             {
                                 adoptablePackagesList
                             }
+                            
+                            DisclosureGroup("adoptable-packages.excluded-label")
+                            {
+                                excludedAdoptablePackagesList
+                            }
                         }
                     }
                     .animation(.bouncy, value: brewPackagesTracker.adoptableApps.isEmpty)
@@ -91,9 +96,11 @@ struct AdoptablePackagesSection: View
                         }
 
                         DisclosureGroup("adoptable-packages.label")
-                        Button(role: .cancel)
                         {
                             adoptablePackagesList
+                        }
+                        Button(role: .cancel)
+                        {
                             isShowingAdoptionWarning = false
                         } label: {
                             Text("action.cancel-and-disable-mass-adoption")
@@ -286,7 +293,7 @@ struct AdoptablePackageListItem: View
             
             Divider()
             
-            // ignoreAdoptableAppButton(appToIgnore: adoptableCask)
+            ignoreAdoptableAppButton(appToIgnore: adoptableCask)
         }
     }
     
