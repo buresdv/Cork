@@ -24,6 +24,8 @@ public final class ExcludedAdoptableApp
     {
         AppConstants.shared.logger.debug("Will try to insert \(self.appExecutable) to excluded app database")
         AppConstants.shared.modelContainer.mainContext.insert(self)
+        
+        try? AppConstants.shared.modelContainer.mainContext.save()
     }
 
     @MainActor
@@ -39,8 +41,15 @@ public final class ExcludedAdoptableApp
 
             if let existingPackage = try modelContext.fetch(descriptor).first
             {
+                AppConstants.shared.logger.info("Found this package in database")
+                
                 modelContext.delete(existingPackage)
+                
+                try? AppConstants.shared.modelContainer.mainContext.save()
+            } else {
+                AppConstants.shared.logger.error("Couldn't find this package in database")
             }
+            
         }
         catch
         {

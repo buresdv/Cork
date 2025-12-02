@@ -22,6 +22,22 @@ struct AdoptablePackagesSection: View
     @State private var isShowingAdoptionWarning: Bool = false
     
     @Query private var excludedApps: [ExcludedAdoptableApp]
+    
+    private var adoptableAppsExcludingThoseIgnored: [BrewPackagesTracker.AdoptableApp]
+    {
+        return brewPackagesTracker.adoptableApps.filter { adoptableApp in
+            !excludedApps.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
+        }
+        .sorted(by: { $0.caskName < $1.caskName })
+    }
+    
+    private var ignoredAdoptableApps: [BrewPackagesTracker.AdoptableApp]
+    {
+        return brewPackagesTracker.adoptableApps.filter { adoptableApp in
+            excludedApps.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
+        }
+        .sorted(by: { $0.caskName < $1.caskName })
+    }
 
     var body: some View
     {
@@ -65,9 +81,12 @@ struct AdoptablePackagesSection: View
                                 adoptablePackagesList
                             }
                             
-                            DisclosureGroup("adoptable-packages.excluded-label")
+                            if !ignoredAdoptableApps.isEmpty
                             {
-                                excludedAdoptablePackagesList
+                                DisclosureGroup("adoptable-packages.excluded-label")
+                                {
+                                    excludedAdoptablePackagesList
+                                }
                             }
                         }
                     }
@@ -116,6 +135,8 @@ struct AdoptablePackagesSection: View
     }
 
     @State private var numberOfMaxShownAdoptableApps: Int = 5
+    
+    @State private var numberOfMaxShownIgnoredAdoptableApps: Int = 5
 
     @ViewBuilder
     var adoptablePackagesList: some View
@@ -124,7 +145,7 @@ struct AdoptablePackagesSection: View
         {
             Section
             {
-                ForEach(brewPackagesTracker.adoptableApps.sorted(by: { $0.caskName < $1.caskName }).prefix(numberOfMaxShownAdoptableApps))
+                ForEach(adoptableAppsExcludingThoseIgnored.prefix(numberOfMaxShownAdoptableApps))
                 { adoptableCask in
                     HStack(alignment: .center)
                     {
@@ -143,7 +164,7 @@ struct AdoptablePackagesSection: View
                         }
                         .labelsHidden()
 
-                        AdoptablePackageListItem(adoptableCask: adoptableCask)
+                        AdoptablePackageListItem(adoptableCask: adoptableCask, exclusionButtonType: .excludeOnly)
                             .onTapGesture
                             {
                                 if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
@@ -173,7 +194,7 @@ struct AdoptablePackagesSection: View
                         Label("action.show-more", systemImage: "chevron.down")
                     }
                     .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownAdoptableApps >= brewPackagesTracker.adoptableApps.count)
+                    .disabled(numberOfMaxShownAdoptableApps >= adoptableAppsExcludingThoseIgnored.count)
 
                     Spacer()
 
@@ -199,13 +220,45 @@ struct AdoptablePackagesSection: View
     {
         List
         {
-            ForEach(excludedApps)
-            { excludedApp in
-                Text(excludedApp.appExecutable)
+            Section
+            {
+                ForEach(ignoredAdoptableApps.prefix(numberOfMaxShownIgnoredAdoptableApps))
+                { ignoredApp in
+                    AdoptablePackageListItem(adoptableCask: ignoredApp, exclusionButtonType: .includeOnly)
+                        .saturation(0.3)
+                }
+            } footer: {
+                HStack(alignment: .center)
+                {
+                    Button
+                    {
+                        withAnimation
+                        {
+                            numberOfMaxShownIgnoredAdoptableApps += 10
+                        }
+                    } label: {
+                        Label("action.show-more", systemImage: "chevron.down")
+                    }
+                    .buttonStyle(.accessoryBar)
+                    .disabled(numberOfMaxShownIgnoredAdoptableApps >= ignoredAdoptableApps.count)
+
+                    Spacer()
+
+                    Button
+                    {
+                        withAnimation
+                        {
+                            numberOfMaxShownIgnoredAdoptableApps -= 10
+                        }
+                    } label: {
+                        Label("action.show-less", systemImage: "chevron.up")
+                    }
+                    .buttonStyle(.accessoryBar)
+                    .disabled(numberOfMaxShownIgnoredAdoptableApps < 7)
+                }
             }
         }
-        
-        Text(String(excludedApps.count))
+        .listStyle(.bordered(alternatesRowBackgrounds: true))
     }
 
     @ViewBuilder
@@ -247,7 +300,14 @@ struct AdoptablePackagesSection: View
 
 struct AdoptablePackageListItem: View
 {
+    enum ExclusionButtonType
+    {
+        case excludeOnly, includeOnly, none
+    }
+    
     let adoptableCask: BrewPackagesTracker.AdoptableApp
+    
+    let exclusionButtonType: ExclusionButtonType
 
     var body: some View
     {
@@ -293,7 +353,14 @@ struct AdoptablePackageListItem: View
             
             Divider()
             
-            ignoreAdoptableAppButton(appToIgnore: adoptableCask)
+            switch exclusionButtonType {
+            case .excludeOnly:
+                ignoreAdoptableAppButton(appToIgnore: adoptableCask)
+            case .includeOnly:
+                includeAdoptableAppButton(appToInclude: adoptableCask)
+            case .none:
+                EmptyView()
+            }
         }
     }
     
@@ -307,6 +374,19 @@ struct AdoptablePackageListItem: View
             await appToIgnore.excludeSelf()
         } label: {
             Label("action.package-adoption.ignore.\(appToIgnore.appExecutable)", systemImage: "xmark.circle")
+        }
+    }
+    
+    @ViewBuilder
+    func includeAdoptableAppButton(appToInclude: BrewPackagesTracker.AdoptableApp) -> some View
+    {
+        AsyncButton
+        {
+            AppConstants.shared.logger.info("Removing app \(appToInclude.appExecutable) from the excluded apps")
+            
+            await appToInclude.includeSelf()
+        } label: {
+            Label("action.package-adoption.include.\(appToInclude.appExecutable)", systemImage: "plus.circle")
         }
     }
 }
