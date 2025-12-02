@@ -8,6 +8,7 @@
 import Foundation
 import ApplicationInspector
 import CorkShared
+import SwiftData
 
 public extension BrewPackagesTracker
 {
@@ -27,8 +28,11 @@ public extension BrewPackagesTracker
 
         public var app: Application?
 
-        public init(caskName: String, description: String?, appExecutable: String)
-        {
+        public init(
+            caskName: String,
+            description: String?,
+            appExecutable: String
+        ) {
             self.caskName = caskName
             self.appExecutable = appExecutable
             

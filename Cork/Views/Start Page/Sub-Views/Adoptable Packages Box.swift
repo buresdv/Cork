@@ -15,6 +15,7 @@ import CorkModels
 struct AdoptablePackagesSection: View
 {
     @Default(.allowMassPackageAdoption) var allowMassPackageAdoption: Bool
+    @Default(.enableExtraAnimations) var enableExtraAnimations: Bool
 
     @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
@@ -23,12 +24,19 @@ struct AdoptablePackagesSection: View
     
     @Query private var excludedApps: [ExcludedAdoptableApp]
     
+    /// Includes only apps that are **not ignored**, but still includes apps that are **not marked for adoption**
     private var adoptableAppsExcludingThoseIgnored: [BrewPackagesTracker.AdoptableApp]
     {
         return brewPackagesTracker.adoptableApps.filter { adoptableApp in
             !excludedApps.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
         }
         .sorted(by: { $0.caskName < $1.caskName })
+    }
+    
+    /// Includes only apps that are **not ignored**, and only includes those that are **marked for adoption**
+    private var adoptableAppsThatWillBeAdopted: [BrewPackagesTracker.AdoptableApp]
+    {
+        return adoptableAppsExcludingThoseIgnored.filter(\.isMarkedForAdoption)
     }
     
     private var ignoredAdoptableApps: [BrewPackagesTracker.AdoptableApp]
@@ -53,20 +61,40 @@ struct AdoptablePackagesSection: View
                         {
                             HStack(alignment: .firstTextBaseline)
                             {
-                                Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableApps.count)")
-                                    .font(.headline)
-
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("start-page.adoptable-packages.available.\(adoptableAppsExcludingThoseIgnored.count)")
+                                        .font(.headline)
+                                    
+                                    Text("start-page.adoptable-packages.excluded.\(excludedApps.count)")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                                .modify
+                                { viewProxy in
+                                    if enableExtraAnimations
+                                    {
+                                        viewProxy
+                                            .animation(.bouncy, value: adoptableAppsExcludingThoseIgnored.count)
+                                            .animation(.bouncy, value: excludedApps.count)
+                                            .contentTransition(.numericText())
+                                    }
+                                    else
+                                    {
+                                        viewProxy
+                                    }
+                                }
+                                
                                 Spacer()
 
                                 Button
                                 {
                                     isShowingAdoptionWarning = true
 
-                                    AppConstants.shared.logger.info("Will adopt \(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count, privacy: .public) apps")
+                                    AppConstants.shared.logger.info("Will adopt \(adoptableAppsThatWillBeAdopted.count, privacy: .public) apps")
                                 } label: {
                                     if brewPackagesTracker.hasSelectedOnlySomeAppsToAdopt
                                     {
-                                        Text("action.adopt-some-packages.\(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count)")
+                                        Text("action.adopt-some-packages.\(adoptableAppsThatWillBeAdopted.count)")
                                     }
                                     else
                                     {
