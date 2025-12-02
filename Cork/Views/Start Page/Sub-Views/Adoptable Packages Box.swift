@@ -23,6 +23,9 @@ struct AdoptablePackagesSection: View
     @State private var isShowingAdoptionWarning: Bool = false
     
     @Query private var excludedApps: [ExcludedAdoptableApp]
+    
+    @State private var isAdoptablePackagesDisclosureGroupOpened: Bool = false
+    @State private var isExcludedAdoptablePackagesDisclosureGroupOpened: Bool = false
 
     var body: some View
     {
@@ -42,9 +45,16 @@ struct AdoptablePackagesSection: View
                                     Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableAppsNonExcluded.count)")
                                         .font(.headline)
                                     
-                                    Text("start-page.adoptable-packages.excluded.\(excludedApps.count)")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
+                                    if !brewPackagesTracker.excludedAdoptableApps.isEmpty
+                                    {
+                                        Text("start-page.adoptable-packages.excluded.\(excludedApps.count)")
+                                            .font(.subheadline)
+                                            .foregroundStyle(.secondary)
+                                            .transition(.asymmetric(
+                                                insertion: .push(from: .top).combined(with: .opacity),
+                                                removal: .push(from: .bottom).combined(with: .opacity))
+                                            )
+                                    }
                                 }
                                 .modify
                                 { viewProxy in
@@ -81,17 +91,22 @@ struct AdoptablePackagesSection: View
                                 .disabled(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.isEmpty)
                             }
 
-                            DisclosureGroup("adoptable-packages.label")
-                            {
+                            DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation()) {
                                 adoptablePackagesList
+                            } label: {
+                                Text("adoptable-packages.label")
                             }
+                            .animation(.smooth, value: excludedApps)
                             
                             if !brewPackagesTracker.excludedAdoptableApps.isEmpty
                             {
-                                DisclosureGroup("adoptable-packages.excluded-label")
-                                {
+                                DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation()) {
                                     excludedAdoptablePackagesList
+                                } label: {
+                                    Text("adoptable-packages.excluded-label")
                                 }
+                                .animation(.smooth, value: excludedApps)
+                                
                             }
                         }
                     }
