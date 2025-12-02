@@ -23,29 +23,6 @@ struct AdoptablePackagesSection: View
     @State private var isShowingAdoptionWarning: Bool = false
     
     @Query private var excludedApps: [ExcludedAdoptableApp]
-    
-    /// Includes only apps that are **not ignored**, but still includes apps that are **not marked for adoption**
-    private var adoptableAppsExcludingThoseIgnored: [BrewPackagesTracker.AdoptableApp]
-    {
-        return brewPackagesTracker.adoptableApps.filter { adoptableApp in
-            !excludedApps.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
-        }
-        .sorted(by: { $0.caskName < $1.caskName })
-    }
-    
-    /// Includes only apps that are **not ignored**, and only includes those that are **marked for adoption**
-    private var adoptableAppsThatWillBeAdopted: [BrewPackagesTracker.AdoptableApp]
-    {
-        return adoptableAppsExcludingThoseIgnored.filter(\.isMarkedForAdoption)
-    }
-    
-    private var ignoredAdoptableApps: [BrewPackagesTracker.AdoptableApp]
-    {
-        return brewPackagesTracker.adoptableApps.filter { adoptableApp in
-            excludedApps.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
-        }
-        .sorted(by: { $0.caskName < $1.caskName })
-    }
 
     var body: some View
     {
@@ -62,7 +39,7 @@ struct AdoptablePackagesSection: View
                             HStack(alignment: .firstTextBaseline)
                             {
                                 VStack(alignment: .leading, spacing: 5) {
-                                    Text("start-page.adoptable-packages.available.\(adoptableAppsExcludingThoseIgnored.count)")
+                                    Text("start-page.adoptable-packages.available.\(brewPackagesTracker.adoptableAppsNonExcluded.count)")
                                         .font(.headline)
                                     
                                     Text("start-page.adoptable-packages.excluded.\(excludedApps.count)")
@@ -74,7 +51,7 @@ struct AdoptablePackagesSection: View
                                     if enableExtraAnimations
                                     {
                                         viewProxy
-                                            .animation(.bouncy, value: adoptableAppsExcludingThoseIgnored.count)
+                                            .animation(.bouncy, value: brewPackagesTracker.adoptableAppsNonExcluded.count)
                                             .animation(.bouncy, value: excludedApps.count)
                                             .contentTransition(.numericText())
                                     }
@@ -90,11 +67,11 @@ struct AdoptablePackagesSection: View
                                 {
                                     isShowingAdoptionWarning = true
 
-                                    AppConstants.shared.logger.info("Will adopt \(adoptableAppsThatWillBeAdopted.count, privacy: .public) apps")
+                                    AppConstants.shared.logger.info("Will adopt \(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count, privacy: .public) apps")
                                 } label: {
                                     if brewPackagesTracker.hasSelectedOnlySomeAppsToAdopt
                                     {
-                                        Text("action.adopt-some-packages.\(adoptableAppsThatWillBeAdopted.count)")
+                                        Text("action.adopt-some-packages.\(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.count)")
                                     }
                                     else
                                     {
@@ -109,7 +86,7 @@ struct AdoptablePackagesSection: View
                                 adoptablePackagesList
                             }
                             
-                            if !ignoredAdoptableApps.isEmpty
+                            if !brewPackagesTracker.excludedAdoptableApps.isEmpty
                             {
                                 DisclosureGroup("adoptable-packages.excluded-label")
                                 {
@@ -142,10 +119,6 @@ struct AdoptablePackagesSection: View
                             Text("action.cancel")
                         }
 
-                        DisclosureGroup("adoptable-packages.label")
-                        {
-                            adoptablePackagesList
-                        }
                         Button(role: .cancel)
                         {
                             isShowingAdoptionWarning = false
@@ -155,6 +128,12 @@ struct AdoptablePackagesSection: View
 
                     } message: {
                         Text("package-adoption.confirmation.message")
+                        
+                        List
+                        {
+                            Text("package-adoption.confirmation.message")
+                            Text("package-adoption.confirmation.message")
+                        }
                     }
                     .dialogSeverity(.standard)
                 }
@@ -173,7 +152,7 @@ struct AdoptablePackagesSection: View
         {
             Section
             {
-                ForEach(adoptableAppsExcludingThoseIgnored.prefix(numberOfMaxShownAdoptableApps))
+                ForEach(brewPackagesTracker.adoptableAppsNonExcluded.prefix(numberOfMaxShownAdoptableApps))
                 { adoptableCask in
                     HStack(alignment: .center)
                     {
@@ -222,7 +201,7 @@ struct AdoptablePackagesSection: View
                         Label("action.show-more", systemImage: "chevron.down")
                     }
                     .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownAdoptableApps >= adoptableAppsExcludingThoseIgnored.count)
+                    .disabled(numberOfMaxShownAdoptableApps >= brewPackagesTracker.adoptableAppsNonExcluded.count)
 
                     Spacer()
 
@@ -250,7 +229,7 @@ struct AdoptablePackagesSection: View
         {
             Section
             {
-                ForEach(ignoredAdoptableApps.prefix(numberOfMaxShownIgnoredAdoptableApps))
+                ForEach(brewPackagesTracker.excludedAdoptableApps.prefix(numberOfMaxShownIgnoredAdoptableApps))
                 { ignoredApp in
                     AdoptablePackageListItem(adoptableCask: ignoredApp, exclusionButtonType: .includeOnly)
                         .saturation(0.3)
@@ -268,7 +247,7 @@ struct AdoptablePackagesSection: View
                         Label("action.show-more", systemImage: "chevron.down")
                     }
                     .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownIgnoredAdoptableApps >= ignoredAdoptableApps.count)
+                    .disabled(numberOfMaxShownIgnoredAdoptableApps >= brewPackagesTracker.excludedAdoptableApps.count)
 
                     Spacer()
 
