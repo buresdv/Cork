@@ -85,11 +85,7 @@ struct AdoptablePackagesSection: View
         {
             if allowMassPackageAdoption
             {
-                if !brewPackagesTracker.adoptableAppsNonExcluded.isEmpty
-                {
-                    adoptablePackagesSectionContent
-                }
-                else if !hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable
+                if !(hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable && brewPackagesTracker.adoptableAppsNonExcluded.isEmpty)
                 {
                     adoptablePackagesSectionContent
                 }
@@ -154,18 +150,22 @@ struct AdoptablePackagesSection: View
                         
                         Spacer()
                         
-                        startAdoptionProcessButton
-                        
-                        if adoptablePackagesHeadlineState == .showsExcludedPackagesOnly
+                        HStack
                         {
-                            hideAdoptablePackagesSectionIfThereAreOnlyIgnoredAppsButton
-                                .transition(.asymmetric(
-                                    insertion: .push(from: .trailing),
-                                    removal: .push(from: .leading)
-                                ))
+                            startAdoptionProcessButton
+                            
+                            if adoptablePackagesHeadlineState == .showsExcludedPackagesOnly
+                            {
+                                hideAdoptablePackagesSectionIfThereAreOnlyIgnoredAppsButton
+                                    .transition(.asymmetric(
+                                        insertion: .push(from: .trailing),
+                                        removal: .push(from: .leading)
+                                    ))
+                            }
                         }
                     }
-
+                    .animation(.smooth, value: adoptablePackagesHeadlineState)
+                    
                     if !brewPackagesTracker.adoptableAppsNonExcluded.isEmpty
                     {
                         DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation()) {
@@ -237,7 +237,7 @@ struct AdoptablePackagesSection: View
                     {
                         hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable = true
                     } label: {
-                        Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available")
+                        Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm")
                     }
                     .keyboardShortcut(.defaultAction)
                 }
@@ -247,7 +247,7 @@ struct AdoptablePackagesSection: View
                     {
                         hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable = true
                     } label: {
-                        Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available")
+                        Text("action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm")
                     }
                     .keyboardShortcut(.defaultAction)
                 }
@@ -565,3 +565,4 @@ struct AdoptablePackageListItem: View
         }
     }
 }
+
