@@ -184,6 +184,9 @@ struct AdoptablePackagesSection: View
                         }
                     }
                     
+                    #if DEBUG
+                    debug_listPackagesThatWouldGetAdopted
+                    #endif
                 }
                 .animation(.smooth, value: excludedApps)
                 .transition(.push(from: .top).combined(with: .blurReplace))
@@ -471,6 +474,22 @@ struct AdoptablePackagesSection: View
         .buttonStyle(.accessoryBar)
         .disabled(!brewPackagesTracker.hasSelectedOnlySomeAppsToAdopt && brewPackagesTracker.adoptableAppsSelectedToBeAdopted == brewPackagesTracker.adoptableAppsNonExcluded)
     }
+    
+    #if DEBUG
+    // MARK: - Debug stuff
+    @ViewBuilder
+    var debug_listPackagesThatWouldGetAdopted: some View
+    {
+        Button
+        {
+            let namesOfAdoptedPackages: [String] = brewPackagesTracker.adoptableAppsSelectedToBeAdopted.map{ $0.caskName }
+            
+            AppConstants.shared.logger.debug("\(namesOfAdoptedPackages.count), \(namesOfAdoptedPackages.formatted(.list(type: .and)))")
+        } label: {
+            Text("DEBUG: Log packages to be adopted")
+        }
+    }
+    #endif
 }
 
 struct AdoptablePackageListItem: View
