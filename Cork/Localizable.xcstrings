@@ -6625,6 +6625,19 @@
         }
       }
     },
+    "action.hide-adoptable-packages-section-if-only-excluded-apps-available" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide section…"
+          }
+        }
+      }
+    },
+    "action.hide-adoptable-packages-section-if-only-excluded-apps-available.action" : {
+
+    },
     "action.inspect-error" : {
       "localizations" : {
         "cs" : {
@@ -27030,6 +27043,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
+          }
+        }
+      }
+    },
+    "hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to hide the Adoptable Packages section?"
           }
         }
       }
@@ -58159,6 +58192,28 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "There are %lld additional apps that are ignored"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.adoptable-packages.only-%lld-excluded-available" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld ignored adoptable apps"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld ignored adoptable apps"
                 }
               }
             }

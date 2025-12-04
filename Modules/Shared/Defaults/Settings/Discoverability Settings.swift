@@ -18,4 +18,7 @@ public extension Defaults.Keys
     
     /// The time span the top packages should be sorted by
     static let sortTopPackagesBy: Key<TopPackageSorting> = .init("sortTopPackagesBy", default: .mostDownloads)
+    
+    /// If the user exclude all available adoptable packages, conditionally hide that section so it's not taking up space
+    static let hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable: Key<Bool> = .init("hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable", default: false)
 }
