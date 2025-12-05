@@ -6632,6 +6632,12 @@
             "state" : "translated",
             "value" : "Hide section…"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer la section…"
+          }
         }
       }
     },
@@ -6641,6 +6647,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hide section"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer la section"
           }
         }
       }
@@ -6911,6 +6923,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stop ignoring %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne plus ignorer %@"
           }
         }
       }
@@ -15627,6 +15645,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ignored adoptable apps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applications adoptables ignorées"
           }
         }
       }
@@ -27068,6 +27092,12 @@
             "state" : "translated",
             "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lorsqu’une nouvelle application devient disponible, cette section re-apparaitra automatiquement.\n\nVous pouvez afficher la section à tout moment dans l’onglet « Découvrabilité » des paramètres de Cork"
+          }
         }
       }
     },
@@ -27077,6 +27107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to hide the Adoptable Packages section?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes vous sûr de vouloir masquer la section des Paquets Adoptable ?"
           }
         }
       }
@@ -48861,6 +48897,12 @@
             "state" : "translated",
             "value" : "Hide when all adoptable apps are excluded"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer lorsque toutes les applications adoptables sont exclues"
+          }
         }
       }
     },
@@ -48870,6 +48912,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "App adoption:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoption d’application :"
           }
         }
       }
@@ -58208,6 +58256,12 @@
             "state" : "translated",
             "value" : "There are %1$lld installed apps -excluded.%2$lld"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il y a %1$lld applications installées (exclues : %2$lld)."
+          }
         }
       }
     },
@@ -58232,6 +58286,24 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld application additionnelle qui est ignorée"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld applications additionnelles qui sont ignorées"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -58250,6 +58322,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "There are %lld ignored adoptable apps"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld application adoptable qui est ignorée"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld applications adoptables qui sont ignorées"
                 }
               }
             }
