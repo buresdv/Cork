@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct PackagesIncludedInTapList: View
 {
     @Environment(\.selectedTap) var selectedTap: BrewTap?
     
-    @Environment(BrewPackagesTracker.self) var brewPackagesTracker
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let packages: [MinimalHomebrewPackage]
 
@@ -46,7 +47,7 @@ struct PackagesIncludedInTapList: View
                     { package in
                         HStack(alignment: .center)
                         {
-                            SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
+                            SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
 
                             if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package.name }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package.name })
                             {

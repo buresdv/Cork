@@ -24,4 +24,7 @@ public extension Defaults.Keys
     
     /// Whether no send a notification about the results of a package installation action
     static let notifyAboutPackageInstallationResults: Key<Bool> = .init("notifyAboutPackageInstallationResults", default: false)
+    
+    /// Whether to send a notificaiton about results of mass package adoption
+    static let notifyAboutMassAdoptionResults: Key<Bool> = .init("notifyAboutMassAdoptionResults", default: false)
 }

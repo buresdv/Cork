@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import Defaults
+import CorkModels
 
 struct InstallationInitialView: View
 {
@@ -116,6 +117,7 @@ struct InstallationInitialView: View
             ))
         }
         .disabled(foundPackageSelection == nil)
+        .labelStyle(.titleOnly)
     }
     
     @ViewBuilder

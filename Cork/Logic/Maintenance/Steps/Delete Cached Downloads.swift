@@ -7,6 +7,7 @@
 
 import Foundation
 import CorkShared
+import CorkModels
 
 func deleteCachedDownloads() throws(CachedDownloadDeletionError)
 {
@@ -15,7 +16,7 @@ func deleteCachedDownloads() throws(CachedDownloadDeletionError)
     /// This folder has the symlinks, so we have do **delete ONLY THE SYMLINKS**
     do
     {
-        for url in try getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedFormulaeDownloadsPath)
+        for url in try AppConstants.shared.brewCachedFormulaeDownloadsPath.getContents()
         {
             if let isSymlink = url.isSymlink()
             {
@@ -47,7 +48,7 @@ func deleteCachedDownloads() throws(CachedDownloadDeletionError)
     /// This folder has the symlinks, so we have to **delete ONLY THE SYMLINKS**
     do
     {
-        for url in try getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedCasksDownloadsPath)
+        for url in try AppConstants.shared.brewCachedCasksDownloadsPath.getContents()
         {
             if let isSymlink = url.isSymlink()
             {
@@ -79,7 +80,7 @@ func deleteCachedDownloads() throws(CachedDownloadDeletionError)
     /// This folder has the downloads themselves, so we have do **DELETE EVERYTHING THAT IS NOT A SYMLINK**
     do
     {
-        for url in try getContentsOfFolder(targetFolder: AppConstants.shared.brewCachedDownloadsPath)
+        for url in try AppConstants.shared.brewCachedDownloadsPath.getContents()
         {
             if let isSymlink = url.isSymlink()
             {

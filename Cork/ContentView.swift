@@ -11,6 +11,8 @@ import ButtonKit
 import CorkShared
 import Defaults
 import SwiftUI
+import CorkModels
+import CorkTerminalFunctions
 
 struct ContentView: View, Sendable
 {
@@ -426,6 +428,9 @@ private extension View
                 case .tapAddition:
                     AddTapView()
 
+                case .massAppAdoption(let appsToAdopt):
+                    MassAppAdoptionView(appsToAdopt: appsToAdopt)
+                    
                 case .fullUpdate:
                     UpdatePackagesView()
 

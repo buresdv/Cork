@@ -31,7 +31,7 @@ struct CollapsibleSectionHeader: View
             } label: {
                 Text(isCollapsed ? "action.show" : "action.hide")
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.accessoryBar)
             .foregroundStyle(Color(nsColor: .controlAccentColor))
         }
     }

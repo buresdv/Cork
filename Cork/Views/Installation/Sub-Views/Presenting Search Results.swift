@@ -7,6 +7,7 @@
 
 import CorkShared
 import SwiftUI
+import CorkModels
 
 struct PresentingSearchResultsView: View
 {
@@ -129,6 +130,7 @@ struct PresentingSearchResultsView: View
             AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
         }
         .disabled(foundPackageSelection == nil)
+        .labelStyle(.titleOnly)
     }
 
     @ViewBuilder
@@ -185,7 +187,7 @@ struct PresentingSearchResultsView: View
 
 private struct SearchResultsSection: View
 {
-    let sectionType: PackageType
+    let sectionType: BrewPackage.PackageType
 
     let packageList: [BrewPackage]
 

@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import ApplicationInspector
+import CorkModels
 
 struct PackageSystemInfo: View
 {
     let package: BrewPackage
+    
+    let caskExecutable: Application?
 
     @State private var isShowingCaskSizeHelpPopover: Bool = false
 
@@ -19,47 +23,57 @@ struct PackageSystemInfo: View
         {
             Section
             {
-                LabeledContent
-                {
-                    Text(installedOnDate.formatted(.packageInstallationStyle))
-                } label: {
-                    Text("package-details.install-date")
-                }
+                caskInstalledAsLine
+                
+                installedOnDateLine(installedOnDate)
 
-                if let packageSize = package.sizeInBytes
-                {
-                    LabeledContent
-                    {
-                        HStack
-                        {
-                            Text(packageSize.formatted(.byteCount(style: .file)))
-
-                            if package.type == .cask
-                            {
-                                HelpButton
-                                {
-                                    isShowingCaskSizeHelpPopover.toggle()
-                                }
-                                .help("package-details.size.help")
-                                .popover(isPresented: $isShowingCaskSizeHelpPopover)
-                                {
-                                    VStack(alignment: .leading, spacing: 10)
-                                    {
-                                        Text("package-details.size.help")
-                                            .font(.headline)
-                                        Text("package-details.size.help.body-1")
-                                        Text("package-details.size.help.body-2")
-                                    }
-                                    .multilineTextAlignment(.leading)
-                                    .padding()
-                                    .frame(width: 300)
-                                }
-                            }
-                        }
-                    } label: {
-                        Text("package-details.size")
-                    }
-                }
+                packageSizeLine(package.sizeInBytes)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var caskInstalledAsLine: some View
+    {
+        
+        if let caskExecutable
+        {
+            LabeledContent
+            {
+                AppIconDisplay(
+                    displayType: .asIconWithAppNameDisplayed(
+                        usingApp: caskExecutable,
+                        namePosition: .besideAppIcon
+                    ),
+                    allowRevealingInFinderFromIcon: true
+                )
+            } label: {
+                Text("package-details.installed-as")
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func installedOnDateLine(_ installedOnDate: Date) -> some View
+    {
+        LabeledContent
+        {
+            Text(installedOnDate.formatted(.packageInstallationStyle))
+        } label: {
+            Text("package-details.install-date")
+        }
+    }
+    
+    @ViewBuilder
+    func packageSizeLine(_ packageSize: Int64?) -> some View
+    {
+        if let packageSize = package.sizeInBytes
+        {
+            LabeledContent
+            {
+                Text(packageSize.formatted(.byteCount(style: .file)))
+            } label: {
+                Text("package-details.size")
             }
         }
     }

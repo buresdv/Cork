@@ -7,6 +7,8 @@
 
 import CorkShared
 import SwiftUI
+import Defaults
+import CorkModels
 
 struct StartPage: View
 {
@@ -14,7 +16,14 @@ struct StartPage: View
     {
         case loading, showingBrewOverview
     }
+    
+    enum AdoptablePackagesStage
+    {
+        case loading, showingAdoptablePackages, erroredOut(error: String)
+    }
 
+    @Default(.allowMassPackageAdoption) var allowMassPackageAdoption: Bool
+    
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
 
@@ -94,6 +103,8 @@ struct StartPage: View
                         }
                     }
 
+                    AdoptablePackagesSection()
+                    
                     if !brewPackagesTracker.unsuccessfullyLoadedFormulaeErrors.isEmpty || !brewPackagesTracker.unsuccessfullyLoadedCasksErrors.isEmpty
                     {
                         Section
@@ -101,12 +112,12 @@ struct StartPage: View
                             LoadingErrorsBox()
                         }
                     }
-
+                    
                     Section
                     {
                         PackageAndTapOverviewBox()
                     }
-
+                    
                     Section
                     {
                         AnalyticsStatusBox()
@@ -121,6 +132,20 @@ struct StartPage: View
                     }
                 }
                 .transition(.push(from: .top))
+                .task
+                {
+                    await getAdoptablePackages()
+                }
+                .onChange(of: allowMassPackageAdoption)
+                { _, newValue in
+                    if newValue == true
+                    {
+                        Task
+                        {
+                            await getAdoptablePackages()
+                        }
+                    }
+                }
 
                 ButtonBottomRow
                 {
@@ -184,5 +209,30 @@ struct StartPage: View
         }
         .animation(.easeInOut, value: dragOver)
         .animation(appState.enableExtraAnimations ? .interpolatingSpring : .none, value: startPageStage)
+    }
+    
+    /// Wrapper for function that gets adoptable packages, including necessary condition checking
+    private func getAdoptablePackages() async
+    {
+        if allowMassPackageAdoption
+        {
+            if brewPackagesTracker.adoptableApps.isEmpty
+            {
+                do
+                {
+                    AppConstants.shared.logger.debug("Will try to load adoptable packages")
+                    
+                    brewPackagesTracker.adoptableApps = try await brewPackagesTracker.getAdoptableCasks(cacheUsePolicy: .useCachedData)
+                }
+                catch let adoptablePackagesLoadingError
+                {
+                    AppConstants.shared.logger.error("Failed to load adoptable casks: \(adoptablePackagesLoadingError)")
+                }
+            }
+            else
+            {
+                AppConstants.shared.logger.debug("Adoptable casks are already loaded, will not reload")
+            }
+        }
     }
 }

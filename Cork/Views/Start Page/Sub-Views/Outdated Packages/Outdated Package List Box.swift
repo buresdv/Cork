@@ -8,6 +8,7 @@
 import SwiftUI
 import Defaults
 import CorkShared
+import CorkModels
 
 struct OutdatedPackageListBox: View
 {
@@ -154,7 +155,6 @@ struct OutdatedPackageListBox: View
                                         Text("start-page.updates.list")
                                     }
                                 }
-                                .font(.subheadline)
                             }
                             
                         }
@@ -215,7 +215,7 @@ struct OutdatedPackageListBox: View
             if outdatedPackageInfoDisplayAmount != .all
             {
                 viewProxy
-                    .buttonStyle(.plain)
+                    .buttonStyle(.accessoryBar)
             }
             else
             {
@@ -247,7 +247,7 @@ struct OutdatedPackageListBox: View
             if outdatedPackageInfoDisplayAmount != .all
             {
                 viewProxy
-                    .buttonStyle(.plain)
+                    .buttonStyle(.accessoryBar)
             }
             else
             {

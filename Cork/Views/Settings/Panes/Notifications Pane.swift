@@ -9,6 +9,7 @@ import CorkShared
 import Defaults
 import SwiftUI
 import UserNotifications
+import CorkModels
 
 struct NotificationsPane: View
 {
@@ -105,6 +106,11 @@ struct NotificationsPane: View
                             Defaults.Toggle(key: .notifyAboutPackageInstallationResults)
                             {
                                 Text("settings.notifications.notify-about-installation-result")
+                            }
+                            
+                            Defaults.Toggle(key: .notifyAboutMassAdoptionResults)
+                            {
+                                Text("settings.notifications.notify-about-mass-adoption-result")
                             }
                         }
                     } label: {

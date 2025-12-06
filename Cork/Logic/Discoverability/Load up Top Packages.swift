@@ -7,6 +7,7 @@
 
 import Foundation
 import CorkShared
+import CorkModels
 
 enum TopPackageLoadingError: LocalizedError
 {
@@ -99,7 +100,15 @@ extension TopPackagesTracker
 
                     if normalizedDownloadNumber > downloadsCutoff
                     {
-                        return .init(name: rawTopFormula.formula, type: .formula, installedOn: nil, versions: .init(), sizeInBytes: nil, downloadCount: normalizedDownloadNumber)
+                        return .init(
+                            name: rawTopFormula.formula,
+                            type: .formula,
+                            installedOn: nil,
+                            versions: .init(),
+                            url: nil,
+                            sizeInBytes: nil,
+                            downloadCount: normalizedDownloadNumber
+                        )
                     }
                     else
                     {
@@ -155,7 +164,15 @@ extension TopPackagesTracker
 
                     if normalizedDownloadNumber > downloadsCutoff
                     {
-                        return .init(name: rawTopCask.cask, type: .cask, installedOn: nil, versions: .init(), sizeInBytes: nil, downloadCount: normalizedDownloadNumber)
+                        return .init(
+                            name: rawTopCask.cask,
+                            type: .cask,
+                            installedOn: nil,
+                            versions: .init(),
+                            url: nil,
+                            sizeInBytes: nil,
+                            downloadCount: normalizedDownloadNumber
+                        )
                     }
                     else
                     {

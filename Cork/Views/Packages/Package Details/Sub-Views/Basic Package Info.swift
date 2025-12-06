@@ -8,13 +8,14 @@
 import CorkShared
 import Defaults
 import SwiftUI
+import CorkModels
 
 struct BasicPackageInfoView: View
 {
     @Default(.caveatDisplayOptions) var caveatDisplayOptions: PackageCaveatDisplay
 
     let package: BrewPackage
-    let packageDetails: BrewPackageDetails
+    let packageDetails: BrewPackage.BrewPackageDetails
 
     let isLoadingDetails: Bool
 

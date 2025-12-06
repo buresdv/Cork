@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import CorkModels
 
 /// Preview a package according to its name
 struct PreviewPackageButton: View
@@ -22,7 +23,7 @@ struct PreviewPackageButton: View
             
             openWindow(value: packageToPreview)
         } label: {
-            Text("preview-package.action")
+            Label("preview-package.action", systemImage: "scope")
         }
         .keyboardShortcut("p", modifiers: [.command, .option])
     }
@@ -37,7 +38,27 @@ struct PreviewPackageButtonWithCustomAction: View
         {
             action()
         } label: {
-            Text("preview-package.action")
+            Label("preview-package.action", systemImage: "scope")
+        }
+        .keyboardShortcut("p", modifiers: [.command, .option])
+    }
+}
+
+struct PreviewPackageButtonWithCustomLabel: View
+{
+    @Environment(\.openWindow) var openWindow: OpenWindowAction
+    
+    let label: LocalizedStringKey
+    
+    let packageToPreview: MinimalHomebrewPackage
+    
+    var body: some View
+    {
+        Button
+        {
+            openWindow(value: packageToPreview)
+        } label: {
+            Label(label, systemImage: "scope")
         }
         .keyboardShortcut("p", modifiers: [.command, .option])
     }
