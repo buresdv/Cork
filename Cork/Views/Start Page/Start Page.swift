@@ -220,6 +220,8 @@ struct StartPage: View
             {
                 do
                 {
+                    AppConstants.shared.logger.debug("Will try to load adoptable packages")
+                    
                     brewPackagesTracker.adoptableApps = try await brewPackagesTracker.getAdoptableCasks(cacheUsePolicy: .useCachedData)
                 }
                 catch let adoptablePackagesLoadingError

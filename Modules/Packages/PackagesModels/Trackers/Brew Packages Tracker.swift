@@ -8,10 +8,15 @@
 import Foundation
 import SwiftUI
 import Defaults
+import SwiftData
+import FactoryKit
+import CorkShared
 
 @Observable @MainActor
 public class BrewPackagesTracker
 {
+    @ObservationIgnored @Injected(\.appConstants) private var appConstants: AppConstants
+    
     public init() {}
     
     public var installedFormulae: BrewPackages = .init()
@@ -122,11 +127,52 @@ public class BrewPackagesTracker
         }
     }
     
+    // MARK: - App adoption
+    /// All adoptable apps, including those that are excluded
     public var adoptableApps: [AdoptableApp] = .init()
     
+    public var excludedAdoptableApps: [AdoptableApp]
+    {
+        return adoptableApps.filter { adoptableApp in
+            excludedAdoptableAppsInSavedFormat.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
+        }
+        .sorted(by: { $0.caskName < $1.caskName })
+    }
+    
+    private static var excludedAdoptableAppsFetchDescriptor: FetchDescriptor<ExcludedAdoptableApp> = .init(predicate: #Predicate { _ in
+        return true
+    })
+    
+    /// Saved excluded adoptable apps
+    private var excludedAdoptableAppsInSavedFormat: [ExcludedAdoptableApp]
+    {
+        do
+        {
+            let fetchedExcludedPackages = try appConstants.modelContainer.mainContext.fetch(BrewPackagesTracker.excludedAdoptableAppsFetchDescriptor)
+            
+            return fetchedExcludedPackages
+        }
+        catch let excludedPackagesFetchingError
+        {
+            appConstants.logger.error("Failed to fetch adoptable apps from database inside BrewPackagesTracker!: \(excludedPackagesFetchingError)")
+            
+            return .init()
+        }
+    }
+    
+    /// Adoptable apps, minus those that are excluded
+    public var adoptableAppsNonExcluded: [AdoptableApp]
+    {
+        return adoptableApps.filter { adoptableApp in
+            return !excludedAdoptableAppsInSavedFormat.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
+        }
+        .sorted(by: { $0.caskName < $1.caskName })
+    }
+    
+    /// Adoptable apps that will get installed when clicking the `Adopt` button
     public var adoptableAppsSelectedToBeAdopted: [AdoptableApp]
     {
-        return self.adoptableApps.filter(\.isMarkedForAdoption)
+        return self.adoptableAppsNonExcluded.filter(\.isMarkedForAdoption)
     }
     
     public var hasSelectedOnlySomeAppsToAdopt: Bool
