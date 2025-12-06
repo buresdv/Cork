@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct BrewfileImportProgressView: View
 {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ButtonKit
+import CorkModels
 
 struct PinUnpinButton: View
 {
@@ -23,7 +24,9 @@ struct PinUnpinButton: View
             {
                 await package.performPinnedStatusChangeAction(appState: appState, brewPackagesTracker: brewPackagesTracker)
             } label: {
-                Text(package.isPinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))")
+                let labelText: LocalizedStringKey = package.isPinned ? "package-details.action.unpin-version-\(package.versions.formatted(.list(type: .and)))" : "package-details.action.pin-version-\(package.versions.formatted(.list(type: .and)))"
+                
+                Label(labelText, systemImage: "pin.fill")
             }
             .asyncButtonStyle(.leading)
             .disabledWhenLoading()

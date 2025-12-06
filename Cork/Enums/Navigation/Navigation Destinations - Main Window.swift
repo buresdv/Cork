@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkModels
 
 enum NavigationTargetMainWindow: Hashable
 {

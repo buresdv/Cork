@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CorkShared
+import CorkModels
+import CorkTerminalFunctions
 
 struct UpdateSomePackagesView: View
 {
@@ -15,7 +17,7 @@ struct UpdateSomePackagesView: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
-    @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil)
+    @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(name: "", type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil)
     @State private var updateProgress: Double = 0.0
 
     @State private var packageUpdatingErrors: [String] = .init()

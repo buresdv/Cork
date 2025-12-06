@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CorkShared
+import CorkModels
+import CorkTerminalFunctions
 
 struct MaintenanceRunningView: View
 {

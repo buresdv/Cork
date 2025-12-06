@@ -7,6 +7,7 @@
 
 import AppIntents
 import Foundation
+import CorkModels
 
 struct GetInstalledPackagesIntent: AppIntent
 {

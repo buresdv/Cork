@@ -9,6 +9,7 @@ import SwiftUI
 import CorkShared
 import ButtonKit
 import Defaults
+import CorkModels
 
 struct PackageModificationButtons: View
 {
@@ -21,7 +22,7 @@ struct PackageModificationButtons: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let package: BrewPackage
-    @Bindable var packageDetails: BrewPackageDetails
+    @Bindable var packageDetails: BrewPackage.BrewPackageDetails
 
     let isLoadingDetails: Bool
 
@@ -36,6 +37,7 @@ struct PackageModificationButtons: View
                     if package.type == .formula
                     {
                         PinUnpinButton(package: package)
+                            .labelStyle(.titleOnly)
                     }
 
                     Spacer()
@@ -52,12 +54,14 @@ struct PackageModificationButtons: View
                         if !allowMoreCompleteUninstallations
                         {
                             UninstallPackageButton(package: package)
+                                .labelStyle(.titleOnly)
                         }
                         else
                         {
                             Menu
                             {
                                 PurgePackageButton(package: package)
+                                    .labelStyle(.titleOnly)
                             } label: {
                                 Text("action.uninstall-\(package.name)")
                             } primaryAction: {

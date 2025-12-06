@@ -8,6 +8,7 @@
 import CorkShared
 import SwiftUI
 import Defaults
+import CorkModels
 
 struct LicensingView: View
 {

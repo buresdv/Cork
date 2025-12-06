@@ -8,6 +8,7 @@
 import AppIntents
 import Foundation
 import CorkShared
+import CorkTerminalFunctions
 
 enum RefreshIntentResult: String, AppEnum
 {

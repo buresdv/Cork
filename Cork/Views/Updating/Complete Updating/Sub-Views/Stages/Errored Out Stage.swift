@@ -9,6 +9,7 @@ import CorkNotifications
 import CorkShared
 import Defaults
 import SwiftUI
+import CorkModels
 
 struct ErroredOutStageView: View
 {

@@ -7,11 +7,13 @@
 
 import Foundation
 import CorkShared
+import CorkModels
+import CorkTerminalFunctions
 
 @Observable
 class InstallationProgressTracker
 {
-    var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
+    var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(name: "", type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
 
     var numberOfPackageDependencies: Int = 0
     var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
@@ -205,7 +207,7 @@ class InstallationProgressTracker
         AppConstants.shared.logger.info("Package is Cask")
         AppConstants.shared.logger.debug("Installing package \(package.name, privacy: .public)")
 
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--no-quarantine", package.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
         installationProcess = process
         for await output in stream
         {

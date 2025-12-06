@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct InstallationSearchingView: View, Sendable
 {
@@ -28,11 +29,11 @@ struct InstallationSearchingView: View, Sendable
 
                 for formula in await foundFormulae
                 {
-                    searchResultTracker.foundFormulae.append(BrewPackage(name: formula, type: .formula, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil))
+                    searchResultTracker.foundFormulae.append(BrewPackage(name: formula, type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil))
                 }
                 for cask in await foundCasks
                 {
-                    searchResultTracker.foundCasks.append(BrewPackage(name: cask, type: .cask, installedOn: nil, versions: [], sizeInBytes: nil, downloadCount: nil))
+                    searchResultTracker.foundCasks.append(BrewPackage(name: cask, type: .cask, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil))
                 }
 
                 packageInstallationProcessStep = .presentingSearchResults

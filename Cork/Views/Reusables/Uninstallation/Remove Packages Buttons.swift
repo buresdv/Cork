@@ -9,6 +9,7 @@ import SwiftUI
 import CorkShared
 import ButtonKit
 import Defaults
+import CorkModels
 
 /// Button for uninstalling packages
 struct UninstallPackageButton: View
@@ -89,7 +90,7 @@ private struct RemovePackageButton: View
             }
             else
             {
-                Label("action.uninstall-\(package.name)", systemImage: "trash")
+                Label("action.uninstall-\(package.getSanitizedName())", systemImage: "trash")
             }
         }
     }

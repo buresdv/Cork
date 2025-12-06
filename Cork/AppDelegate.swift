@@ -12,6 +12,7 @@ import SwiftUI
 import CorkShared
 import Defaults
 import DefaultsMacros
+import CorkModels
 
 @Observable
 class AppDelegate: NSObject, NSApplicationDelegate

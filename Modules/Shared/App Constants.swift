@@ -71,7 +71,7 @@ public struct AppConstants: Sendable
         
         do
         {
-            let initializedModelContainer = try ModelContainer(for: SavedTaggedPackage.self, configurations: modelConfiguration)
+            let initializedModelContainer = try ModelContainer(for: SavedTaggedPackage.self, ExcludedAdoptableApp.self, configurations: modelConfiguration)
             
             self.modelContainer = initializedModelContainer
         }

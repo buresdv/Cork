@@ -57,10 +57,42 @@
             "value" : ""
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "(%@)" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%@)"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%@)"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%@)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%@)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%@)"
+          }
+        }
+      }
     },
     "%@" : {
       "localizations" : {
@@ -313,7 +345,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zu Cork Beitragen"
+            "value" : "Zu Cork beitragen"
           }
         },
         "en" : {
@@ -1193,7 +1225,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat die Paketanzahlt auf der Hauptseite gefixt"
+            "value" : "Hat die Paketanzahl auf der Hauptseite gefixt"
           }
         },
         "en" : {
@@ -1830,6 +1862,12 @@
             "value" : "Mike Simons"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mike Simons"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1898,6 +1936,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Creada la configuración de Tuist para complicar versiones autoalojadas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Création de la configuration Tuist pour compiler des versions auto-hébergées"
           }
         },
         "it" : {
@@ -3233,7 +3277,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat Cork ins vereinfachte Chinesisch übersetzt"
+            "value" : "Hat Cork in vereinfachtes Chinesisch übersetzt"
           }
         },
         "en" : {
@@ -3409,7 +3453,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat Cork ins traditionelle Chinesisch übersetzt"
+            "value" : "Hat Cork in traditionelles Chinesisch übersetzt"
           }
         },
         "en" : {
@@ -3761,7 +3805,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hat Cork ins Französisch übersetzt"
+            "value" : "Hat Cork ins Französische übersetzt"
           }
         },
         "en" : {
@@ -4402,6 +4446,12 @@
             "value" : "Estado de paquetes desactualizados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statut des paquets obsolètes"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4446,6 +4496,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lista de paquetes desactualizados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste des paquets obsolètes"
           }
         },
         "it" : {
@@ -4494,6 +4550,12 @@
             "value" : "Cargando paquetes desactualizados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des paquets obsolètes"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4538,6 +4600,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete del tipo Cask"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquet de type Cask"
           }
         },
         "it" : {
@@ -4586,6 +4654,12 @@
             "value" : "Paquete del tipo Fórmula"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquet de type Formula"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4630,6 +4704,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquete de un tipo no-implementado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquet d’un type non implémenté"
           }
         },
         "it" : {
@@ -4678,6 +4758,12 @@
             "value" : "Paquete de tipo desconocido"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquet de type inconnu"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4724,6 +4810,12 @@
             "value" : "Regresar a pagina de estado"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retourner à la page de statut"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4751,6 +4843,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "List of installed packages"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "List of installed packages"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste des paquets installés"
           }
         },
         "it" : {
@@ -4791,6 +4895,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lista de Casks instalados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste des Casks installés"
           }
         },
         "it" : {
@@ -4839,6 +4949,12 @@
             "value" : "Lista de Fórmulas instaladas"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste des Formules installées"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4883,6 +4999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld paquetes desactualizados manejados por Homebrew y%2$lld paquetes desactualizados que no son manejados por Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld paquets obsolètes gérés par Homebrew et %2$lld paquets obsolètes non gérés par Homebrew"
           }
         },
         "it" : {
@@ -5020,6 +5142,12 @@
             "value" : "Adoptar"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopter"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5046,7 +5174,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Übernehmen %@"
+            "value" : "Verwalte %@"
           }
         },
         "en" : {
@@ -5067,6 +5195,12 @@
             "value" : "Adoptar %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adopter %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5085,20 +5219,80 @@
       "comment" : "A button label that translates to \"Adopt packages\" in English.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi"
           }
         }
       }
     },
     "action.adopt-packages.longer" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidat aplikace do Homebrew"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge Apps zur Verwaltung hinzu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add apps to Homebrew"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add apps to Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter des applications à Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi app a Homebrew"
           }
         }
       }
@@ -5107,6 +5301,54 @@
       "comment" : "A button label that says \"Adopt\" followed by the number of apps that will be adopted.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Přidat %lld aplikace"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Přidat %lld aplikací"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Přidat 1 aplikaci"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Přidat %lld aplikací"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Füge %lld App hinzu"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Füge %lld Apps hinzu"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -5120,6 +5362,60 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Add %lld apps"
+                }
+              }
+            }
+          }
+        },
+        "en-GB" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Add %lld app"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Add %lld apps"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ajouter %lld application"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ajouter %lld applications"
+                }
+              }
+            }
+          }
+        },
+        "it" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aggiungi %lld app"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aggiungi %lld app"
                 }
               }
             }
@@ -5305,10 +5601,40 @@
     },
     "action.cancel-and-disable-mass-adoption" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zrušit a vypnout přidávání aplikací do Homebrew"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen und Massenverwaltung deaktivieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel and disable mass app adoption"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel and disable mass app adoption"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler et désactiver l’adoption de masse des applications"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annulla e disattiva adozione di massa delle app"
           }
         }
       }
@@ -5324,7 +5650,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "nach Aktualisierungen suchen"
+            "value" : "Nach Aktualisierungen suchen"
           }
         },
         "en" : {
@@ -5343,6 +5669,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscar actualizaciones…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérification des mises à jour…"
           }
         },
         "it" : {
@@ -5395,6 +5727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buscar paquetes desactualizados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérification des paquets obsolètes"
           }
         },
         "it" : {
@@ -6287,6 +6625,38 @@
         }
       }
     },
+    "action.hide-adoptable-packages-section-if-only-excluded-apps-available" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide section…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer la section…"
+          }
+        }
+      }
+    },
+    "action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide section"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer la section"
+          }
+        }
+      }
+    },
     "action.inspect-error" : {
       "localizations" : {
         "cs" : {
@@ -6317,6 +6687,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inspeccionar error…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspecter l’erreur…"
           }
         },
         "it" : {
@@ -6381,6 +6757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquetes instalados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquets installés"
           }
         },
         "it" : {
@@ -6491,14 +6873,104 @@
         }
       }
     },
-    "action.preview-package-app-would-be-adopted-as.%@" : {
-      "comment" : "A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.",
+    "action.package-adoption.ignore.%@" : {
+      "comment" : "A button that allows a user to ignore a particular app that is being recommended for adoption. The argument is the name of the app.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorovat %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignoriere %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore %@"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignora %@"
+          }
+        }
+      }
+    },
+    "action.package-adoption.include.%@" : {
+      "comment" : "A menu item that allows the user to include a package in the app store. The argument is the name of the package, and the second argument is the system image for the plus sign.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Stop ignoring %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne plus ignorer %@"
+          }
+        }
+      }
+    },
+    "action.preview-package-app-would-be-adopted-as.%@" : {
+      "comment" : "A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahlédnout do %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorschau für %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Preview %@"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prévisualiser %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anteprima di %@"
           }
         }
       }
@@ -6793,6 +7265,12 @@
             "value" : "Reinstalar Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinstaller Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6857,6 +7335,12 @@
             "value" : "Reinstalar"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinstaller"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6919,6 +7403,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recargar servicios"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recharger les services"
           }
         },
         "it" : {
@@ -7147,7 +7637,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Auf GitHub…"
+            "value" : "Auf GitHub melden…"
           }
         },
         "en" : {
@@ -7493,10 +7983,40 @@
       "comment" : "A button that reveals the location of a specific adoptable package in the Finder. The argument is the name of the adoptable package.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit %@ ve Finderu"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige %@ im Finder"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reveal %@ in Finder"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reveal %@ in Finder"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Révéler %@dans le Finder"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra %@ nel Finder"
           }
         }
       }
@@ -7773,6 +8293,12 @@
             "value" : "Buscar de nuevo"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chercher à nouveau"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7897,10 +8423,40 @@
       "comment" : "A label for a button that shows fewer items.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit méně"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weniger anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show less"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show less"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher moins"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra meno"
           }
         }
       }
@@ -7909,10 +8465,40 @@
       "comment" : "A button label that translates to \"Show more\" in English.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit více"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr anzeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show more"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show more"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher plus"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra più"
           }
         }
       }
@@ -7928,7 +8514,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Terminal Ausgang Zeigen"
+            "value" : "Terminal-Ausgabe zeigen"
           }
         },
         "en" : {
@@ -7947,6 +8533,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar salidas en el terminal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la sortie du terminal"
           }
         },
         "it" : {
@@ -8190,6 +8782,12 @@
             "value" : "Actualizar %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8252,6 +8850,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualizar Homebrew y todos sus packetes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour Homebrew et tous les paquets"
           }
         },
         "it" : {
@@ -8322,6 +8926,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualizar Homebrew en el Terminal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre à jour Homebrew via le terminal"
           }
         },
         "it" : {
@@ -8544,7 +9154,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bericht in den Foren"
+            "value" : "Im Forum melden…"
           }
         },
         "en" : {
@@ -8563,6 +9173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reportar en los foros…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signaler sur les forums…"
           }
         },
         "it" : {
@@ -8726,7 +9342,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le chargement des paquets les plus importants a été interrompu"
+            "value" : "Le chargement des paquets les plus populaires a été interrompu"
           }
         },
         "it" : {
@@ -9489,7 +10105,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "wurde außerhalb von Homebrew installiert"
+            "value" : "%@ wurde außerhalb von Homebrew installiert"
           }
         },
         "en" : {
@@ -10014,6 +10630,12 @@
             "value" : "Homebrew no produjo ninguna salida"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew n’a retourné aucune sortie"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10076,6 +10698,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrow terminó la instalación de este paquete antes de que se iniciara. Revisa la salida del comando de instalación abajo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew a terminé l’installation de ce paquet avant qu’elle ait vraiment démarré. Vérifiez ci dessous la sortie de la commande d’installation"
           }
         },
         "it" : {
@@ -10146,6 +10774,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La instalación del paquete terminó de manera inesperada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’installation du paquet s’est terminée de manière inattendue"
           }
         },
         "it" : {
@@ -11970,6 +12604,12 @@
             "value" : "No se encontraron Casks"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun Casks trouvés"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12122,6 +12762,12 @@
             "value" : "No se encontraron Fórmulas"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucunes Formules trouvées"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12184,6 +12830,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se encontraron resultados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun résultats trouvés"
           }
         },
         "it" : {
@@ -14629,6 +15281,12 @@
             "value" : "Intenta buscar otro paquete"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Essayez de chercher un autre paquet"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14781,6 +15439,12 @@
             "value" : "No se pudo adoptar %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’adopter %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14831,6 +15495,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adopción de %@ completada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoption de %@ terminée"
           }
         },
         "it" : {
@@ -14885,6 +15555,12 @@
             "value" : "Este paquete no se puede actualizar a través de Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce paquet peut maintenant être mis à jour via Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14937,6 +15613,12 @@
             "value" : "Adoptando %@…"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoption de %@…"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14957,14 +15639,65 @@
         }
       }
     },
-    "adoptable-packages.label" : {
-      "comment" : "The label for the disclosure group that lists adoptable packages.",
-      "isCommentAutoGenerated" : true,
+    "adoptable-packages.excluded-label" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Ignored adoptable apps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applications adoptables ignorées"
+          }
+        }
+      }
+    },
+    "adoptable-packages.excluded.label" : {
+      "comment" : "A label for the section that lists apps that are excluded from being adopted.",
+      "isCommentAutoGenerated" : true,
+      "shouldTranslate" : false
+    },
+    "adoptable-packages.label" : {
+      "comment" : "The label for the disclosure group that lists adoptable packages.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidatelné aplikace"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwaltbare Apps"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Adoptable apps"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoptable apps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applications adoptables"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App adottabili"
           }
         }
       }
@@ -14999,6 +15732,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo borrar el cache"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de supprimer le cache"
           }
         },
         "it" : {
@@ -16377,6 +17116,12 @@
             "value" : "%@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -16439,6 +17184,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo leer la información del paquete"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire les informations du paquet"
           }
         },
         "it" : {
@@ -17539,6 +18290,12 @@
             "value" : "Tu Mac no esta conectada a internet. Comprueba tu configuración de internet"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre Mac n’est pas connecté à Internet. Vérifiez vos paramètres de connexion."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17607,6 +18364,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo conectar a internet"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de se connecter à Internet"
           }
         },
         "it" : {
@@ -17679,6 +18442,12 @@
             "value" : "Comprueba tu confección a internet e intentadle de nuevo. También es posible que el servidor de autorización este desconectado en este momento"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez votre connexion Internet et essayez à nouveau.\nSinon, il se peut que le serveur d’autorisation soit indisponible pour le moment"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17749,6 +18518,12 @@
             "value" : "Se agotó el tiempo de espera para verificación de la licencia"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La vérification de la licence a été interrompu"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -17817,6 +18592,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ocurrió un error desconocido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur inconnue s’est produite"
           }
         },
         "it" : {
@@ -17892,8 +18673,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Impossible de déchiffrer la response de Homebrew"
+            "state" : "translated",
+            "value" : "Homebrew n’a pas retourné de données valides"
           }
         },
         "it" : {
@@ -18152,6 +18933,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La instalación de Homebrow esta dañada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’installation de Homebrew est cassée"
           }
         },
         "it" : {
@@ -19101,8 +19888,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Impossible de déchiffrer les paquets les plus populaires"
+            "state" : "translated",
+            "value" : "Homebrew n’a pas retourné des données valides"
           }
         },
         "it" : {
@@ -19439,6 +20226,12 @@
             "value" : "No se pudo leer la información del tap"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire les informations du Tap"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -19501,6 +20294,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo acceder a la carpeta que contiene los taps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’accéder au dossier contenant les Taps"
           }
         },
         "it" : {
@@ -19897,7 +20696,7 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Impossible de désinstaller %@"
           }
         },
@@ -20029,10 +20828,40 @@
     },
     "app-adoption.currently-being-adopted.%@" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidávám %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge %@ hinzu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adding %@"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adding %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajout de %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungendo %@"
           }
         }
       }
@@ -20818,6 +21647,11 @@
         }
       }
     },
+    "DEBUG: Log packages to be adopted" : {
+      "comment" : "A button that logs to the debug log all the packages that would be adopted.",
+      "isCommentAutoGenerated" : true,
+      "shouldTranslate" : false
+    },
     "debug.action.activate-demo" : {
       "localizations" : {
         "cs" : {
@@ -20886,7 +21720,8 @@
             "value" : "调试: 启用试用版"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.action.licensing" : {
       "localizations" : {
@@ -20956,7 +21791,8 @@
             "value" : "调试: 正在激活许可证"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.action.reset-license-state" : {
       "localizations" : {
@@ -21026,7 +21862,8 @@
             "value" : "调试: 重置许可状态"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.action.show-error-inspector" : {
       "localizations" : {
@@ -21058,6 +21895,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar inspector de errores"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher l’inspecteur d’erreur"
           }
         },
         "it" : {
@@ -21154,7 +21997,8 @@
             "value" : "DEBUG: UI"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "debug.navigation" : {
       "localizations" : {
@@ -21224,7 +22068,8 @@
             "value" : "调试"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "error-inspector.title" : {
       "localizations" : {
@@ -21256,6 +22101,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inspector de errores"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inspecteur d’Erreur"
           }
         },
         "it" : {
@@ -21320,6 +22171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo determinar desde que carpeta se inicio el proceso de exportación del archivo brewfile"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de déterminer depuis quel dossier l’export du Brewfile a été initié"
           }
         },
         "it" : {
@@ -21392,6 +22249,12 @@
             "value" : "No se pudo volcar el archivo brewfile a la ubicación proporcionada, con el error: %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’écrire le Brewfile dans l’emplacement indiqué, erreur : %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21460,6 +22323,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo obtener la ubicación del archivo brewfile seleccionado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’obtenir l’emplacement du Brewfile sélectionné"
           }
         },
         "it" : {
@@ -21532,6 +22401,12 @@
             "value" : "No se pudo importar el archivo brewfile: %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’importer le Brewfile: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21602,6 +22477,12 @@
             "value" : "No se pudieron leer los contenidos de la carpeta de cache de los Cask"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le contenu du dossier des téléchargements Casks mis en cache"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21664,6 +22545,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudieron leer los contenido de la carpeta de cache"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le contenu du dossier des téléchargements mis en cache"
           }
         },
         "it" : {
@@ -21730,6 +22617,12 @@
             "value" : "No se pudieron leer los contenidos de la carpeta de cache de las Formulas"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le contenu du dossier des téléchargements Formules mis en cache"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21764,7 +22657,34 @@
     },
     "error.data-downloading.couldnt-execute-request.%@" : {
       "comment" : "A description of an error that might occur when downloading data. The argument is text describing the underlying error.",
-      "isCommentAutoGenerated" : true
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.data-downloading.couldnt-execute-request.%@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler beim Herunterladen: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.data-downloading.couldnt-execute-request.%@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "error.data-downloading.couldnt-execute-request.%@"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "error.data-downloading.invalid-response.%lld" : {
       "localizations" : {
@@ -21796,6 +22716,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto:  %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le serveur Homebrew a retourné le mauvais code de retour: %lld"
           }
         },
         "it" : {
@@ -21868,6 +22794,12 @@
             "value" : "El servidor de Homebrew devolvió el código de respuesta incorrecto, dicho código de respuesta no pudo ser leeido"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le serveur Homebrew a retourné le mauvais code de réponse, et le code de réponse fourni ne peut pas être correctement lu"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -21936,6 +22868,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El URL proporcionado no es un URL valido en el servidor de Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’URL fournie n’est pas un serveur Homebrew valide"
           }
         },
         "it" : {
@@ -22008,6 +22946,12 @@
             "value" : "No se recibieron datos al recuperar los paquetes principales del servidor Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune donnée reçue depuis le serveur Homebrew lors de la récupération des paquets populaires"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22076,6 +23020,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo encontrar el paquete solicitado en el folder raiz"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver le paquet demandé dans le dossier parent"
           }
         },
         "it" : {
@@ -22148,6 +23098,12 @@
             "value" : "Se produjo un error"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur est survenue"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22210,6 +23166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudieron decodificar la respuesta JSON del servidor Homebrew: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de décoder la réponse JSON de Homebrew :\n%@"
           }
         },
         "it" : {
@@ -22282,6 +23244,12 @@
             "value" : "No se pudo convertir la respuesta JSON de Homebrew a datos"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de convertir la réponse JSON de Homebrew en Data"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22350,6 +23318,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Respuesta de Homebrew invalida"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réponse de Homebrew invalide"
           }
         },
         "it" : {
@@ -22422,6 +23396,12 @@
             "value" : "No se pudo ejecutar el intent"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'exécuter l'intention"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22484,6 +23464,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo convertir el String proporcionado a datos, con el error: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de convertir la String fournie en Data, erreur : %@"
           }
         },
         "it" : {
@@ -22556,6 +23542,12 @@
             "value" : "No se pudieron decodificar los datos proporcionados usando el decodificado integrado JSON: %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de décoder les données fournies avec le décodeur JSON intégré : %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22624,6 +23616,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo codificar el complejo de autorización para recuperar la licencia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'encoder le complexe d'autorisation pour la récupération de la licence"
           }
         },
         "it" : {
@@ -22696,6 +23694,12 @@
             "value" : "No se pudo conectar a internet. No es posible completar la verificación de la licensia"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de se connecter à Internet. La vérification de la licence ne sera pas effectuée"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22764,6 +23768,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ocurrió un error no implementado al obtener el estatus de la licencia %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur non implémentée s'est produite lors de la récupération du statut de la licence : %@"
           }
         },
         "it" : {
@@ -22836,6 +23846,12 @@
             "value" : "Se agotó el tiempo de espera para verificar el estado de la licencia"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La vérification du statut de la licence a expiré"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22904,6 +23920,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El purgado del cache fallo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La purge du cache a échoué"
           }
         },
         "it" : {
@@ -22976,6 +23998,12 @@
             "value" : "Error estándar no vacio"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur standard non vide"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23044,6 +24072,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo obtener el numero de huérfanos desinstalamos como resultado de esta operación"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’obtenir le nombre de paquet orphelins désinstallés durant cette opération"
           }
         },
         "it" : {
@@ -23116,6 +24150,12 @@
             "value" : "No se pudo desinstalar los huérfanos %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de désinstallé les paquets orphelins : %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23184,6 +24224,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salida inesperada del terminal de la función de desinstalar huérfano"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sortie de Terminal inattendue durant l’exécution de la fonction de désinstallation des paquets orphelins"
           }
         },
         "it" : {
@@ -23256,6 +24302,12 @@
             "value" : "No se pudieron decodificar los datos proporcionados usando el decodificado integrado JSON: %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de décoder les données fournies avec le décodeur JSON intégré : %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23326,6 +24378,12 @@
             "value" : "La carpeta HOME no se configuro correctamente en el comando de Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HOME n’est pas correctement défini dans la commande Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23375,7 +24433,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@"
+            "value" : "Es ist ein Fehler beim Aktualisieren aufgetreten: %@"
           }
         },
         "en" : {
@@ -23391,6 +24449,12 @@
           }
         },
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -23466,6 +24530,12 @@
             "value" : "Ocurrió un error durante el proceso de anclaje"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur est survenue durant le  processus de « pinning »"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23536,6 +24606,12 @@
             "value" : "No se pudo cargar el paquete desde la respuesta JSON de Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger le paquet depuis la réponse JSON retournée par Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23604,6 +24680,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El paquete %@ no contiene ninguna version instalada"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le paquet %@ n’a aucune versions installées"
           }
         },
         "it" : {
@@ -23677,6 +24759,12 @@
             "value" : "%@ no es una carpeta del paquete"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ n’est pas le dossier d’un paquet"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23746,6 +24834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo cargar el paquete %1$@(%2$@):%3$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger le paquet %1$@ (%2$@) : %3$@"
           }
         },
         "it" : {
@@ -23818,6 +24912,12 @@
             "value" : "No se pudieron cargar los casks"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger les Casks"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23880,6 +24980,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudieron cargar las formulas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger les Formules"
           }
         },
         "it" : {
@@ -23946,6 +25052,12 @@
             "value" : "No se pudieron cargar los taps"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de charger les Taps"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24005,6 +25117,12 @@
           }
         },
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -24072,6 +25190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La ruta especificada señala a la carpeta de Casks en si misma, no a un paquete. Tu instalación de Homebrew esta rota, este no es un problema de Cork"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le chemin indiqué désigne le dossier Cask lui même, pas un paquet. Votre installation de Homebrew est cassée, ce n’est pas un problème de Cork"
           }
         },
         "it" : {
@@ -24144,6 +25268,12 @@
             "value" : "La ruta especificada señala a la carpeta de Formulas en si misma, no a un paquete. Tu instalación de Homebrew esta rota, este no es un problema de Cork"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le chemin indiqué désigne le dossier Formules lui même, pas un paquet. Votre installation de Homebrew est cassée, ce n’est pas un problème de Cork"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24212,6 +25342,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew no responde"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew n’a pas répondu"
           }
         },
         "it" : {
@@ -24285,6 +25421,12 @@
             "value" : "Algunos paquetes no se cargaron por un error interno"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quelques paquets n’ont pas été chargés à cause d’une erreur interne"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24347,6 +25489,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew devolvió el siguiente error JSON: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew a retourné du JSON avec l’erreur suivante :\n%@"
           }
         },
         "it" : {
@@ -24419,6 +25567,12 @@
             "value" : "No se pudo encontrar ningún paquete con el UUID proporcionado en el rastreador de paquetes"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de trouver un paquet avec l’UUID fourni dans le gestionnaire de paquet"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24489,6 +25643,12 @@
             "value" : "La sincronización de paquetes fallo"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La synchronisation des paquets a échoué"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24551,6 +25711,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudieron obtener los  permisos de acceso a la carpeta especificada: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’obtenir la permission d’accéder au dossier spécifié : %@"
           }
         },
         "it" : {
@@ -24623,6 +25789,12 @@
             "value" : "REGEX no encontro coincidencias"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'expression régulière n'a rien trouvé"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24691,6 +25863,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo codificar los datos: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’encoder la data : %@"
           }
         },
         "it" : {
@@ -24763,6 +25941,12 @@
             "value" : "Homebrew desactualizado"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew n’est pas à jour"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24831,6 +26015,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Homebrew no regreso ningun dato"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew n’a retourné aucune données"
           }
         },
         "it" : {
@@ -24903,6 +26093,12 @@
             "value" : "Error no implementado: %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur non implémentée : %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -24973,6 +26169,12 @@
             "value" : "Análisis de servicios fallo"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'analyse des services a échoué"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25038,6 +26240,12 @@
           }
         },
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -25113,6 +26321,12 @@
             "value" : "No se pudo detener el servicio: %@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de stopper le service : %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25183,6 +26397,12 @@
             "value" : "No se pudo remover el tap %1$@,  la salida es: %2$@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de supprimer le Tap %1$@ pour la raison suivante : %2$@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25248,6 +26468,12 @@
           }
         },
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -25323,6 +26549,12 @@
             "value" : "%@"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25393,6 +26625,12 @@
             "value" : "No se pudieron descargar los paquetes principales"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de télécharger la liste des paquets populaire"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25461,6 +26699,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El paquete solicitado no se encontró en la matriz, a pesar de que debería ser encontrado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le paquet demandé n’a pas été trouvé dans le tableau, même s’il aurait dû s’y trouver"
           }
         },
         "it" : {
@@ -25837,6 +27081,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lorsqu’une nouvelle application devient disponible, cette section re-apparaitra automatiquement.\n\nVous pouvez afficher la section à tout moment dans l’onglet « Découvrabilité » des paramètres de Cork"
+          }
+        }
+      }
+    },
+    "hide-adoptable-packages-section-if-only-excluded-apps-available.confirmation.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to hide the Adoptable Packages section?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes vous sûr de vouloir masquer la section des Paquets Adoptable ?"
           }
         }
       }
@@ -26977,7 +28253,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Actualiser les paquets avec des erreurs"
+            "value" : "Paquets actualisés avec des erreurs"
           }
         },
         "it" : {
@@ -27873,7 +29149,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du kannst Cork über die Schaltfläche unten kaufen oder die Webseite [website](https://corkmac.app) besuchen.\nBist du nicht sicher ob Cork das richtige für dich ist? Probiere die Demo, welche auf 7 Tage begrenzt ist."
+            "value" : "Du kannst Cork über die Schaltfläche unten kaufen oder die [Webseite](https://corkmac.app) besuchen.\nBist du nicht sicher ob Cork das richtige für dich ist? Teste die Demo für 7 Tage."
           }
         },
         "en" : {
@@ -28313,7 +29589,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Licence..."
+            "value" : "Licence…"
           }
         },
         "it" : {
@@ -28401,7 +29677,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des informations..."
+            "value" : "Chargement des informations…"
           }
         },
         "it" : {
@@ -31541,10 +32817,40 @@
       "comment" : "Title for the view that is displayed when the mass adoption process fails.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidávání aplikací selhalo"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen der Apps fehlgeschlagen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adding apps failed"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adding apps failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajout des applications échoué"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiunta app fallita"
           }
         }
       }
@@ -31553,10 +32859,40 @@
       "comment" : "The label for the dropdown that lists apps that failed to be mass-adopted.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Více informací"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Details"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détails"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dettagli"
           }
         }
       }
@@ -31565,10 +32901,40 @@
       "comment" : "Message displayed in the body of the view when the mass adoption process fails.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při přidávání aplikací do Homebrew se vyskytla chyba"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es gab einen Fehler beim Hinzufügen der Apps zur Homebrew-Verwaltung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "There were errors when adding the selected apps to Homebrew."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There were errors when adding the selected apps to Homebrew."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il y a eu des erreurs durant l’ajout à Homebrew des applications sélectionnées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ci sono stati errori nell’aggiunta delle app selezionate a Homebrew"
           }
         }
       }
@@ -31577,10 +32943,40 @@
       "comment" : "Headline and subtitle of the view.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny vybrané aplikace byly přidány do Homebrew"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle ausgewählten Apps wurden der Homebrew-Verwaltung hinzugefügt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "All selected apps were added to Homebrew"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All selected apps were added to Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les applications sélectionnées ont été ajouté à Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutte le app selezionate sono state aggiunte a Homebrew"
           }
         }
       }
@@ -31589,10 +32985,40 @@
       "comment" : "Subtitle for the notification displayed when a mass adoption process finishes successfully.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyto aplikace nyní můžete aktualizovat skrze Homebrew"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst diese Apps nun über Homebrew aktualisieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "You can now update the added apps through Homebrew"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can now update the added apps through Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez maintenant mettre à jour les applications ajoutées via Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ora puoi aggiornare le app aggiunte attraverso Homebrew"
           }
         }
       }
@@ -31601,10 +33027,40 @@
       "comment" : "Title for the view when some of the mass adoption requests have failed.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidávání některých aplikací selhalo"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen einiger Apps fehgeschlagen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adding some apps failed"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adding some apps failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’ajout de certaines applications a échoué"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiunta di alcune app fallita"
           }
         }
       }
@@ -31613,10 +33069,40 @@
       "comment" : "Message displayed in the body of the view when some of the mass adoption requests have failed.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Některé aplikace byly úspěšně přidány do Homebrew, ale vyskytly se chyby."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einige Apps wurden erfolgreich der Homebrew-Verwaltung hinzugefügt, allerdings sind Fehler aufgetreten. Schaue unten für weitere Informationen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certaines applications ont été correctement ajoutées à Homebrew, mais d’autres ont rencontré une erreurs.\nVoyez ci dessous pour plus d’information."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alcune app sono state aggiunte correttamente, ma altre hanno riscontrato degli errori.\nVedi giù per altre informazioni."
           }
         }
       }
@@ -31625,10 +33111,40 @@
       "comment" : "The title of the view.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přidávání aplikací"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew-Verwaltung hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "App adoption"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App adoption"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoption d’application"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adozione app"
           }
         }
       }
@@ -32908,6 +34424,12 @@
             "value" : "Realizar tareas de limpieza de Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exécution des tâches de nettoyage Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -32981,7 +34503,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gestion des services..."
+            "value" : "Gestion des services…"
           }
         },
         "it" : {
@@ -34190,7 +35712,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ouvrir le Gestionnaire de Services..."
+            "value" : "Ouvrir le Gestionnaire de Services…"
           }
         },
         "it" : {
@@ -36558,6 +38080,12 @@
             "value" : "Mostrar información detallada de paquetes desactualizados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les informations détaillées des paquets obsolètes"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36628,6 +38156,12 @@
             "value" : "Mostrar información básica de paquetes desactualizados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les informations simplifiées des paquets obsolètes"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -36696,6 +38230,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar versiones en la información de paquetes desactualizados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les versions dans les informations des paquets obsolètes"
           }
         },
         "it" : {
@@ -37917,7 +39457,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fenêtre de premier démarrage..."
+            "value" : "Fenêtre de premier démarrage…"
           }
         },
         "it" : {
@@ -38151,20 +39691,68 @@
       "extractionState" : "stale",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew-Verwaltung deaktivieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Disable adoption"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable adoption"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disattiva adozione"
           }
         }
       }
     },
     "package-adoption.confirmation.message" : {
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuto akci nelze odvolat"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Aktion kann nicht rückgängig gemacht werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "This action cannot be undone"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This action cannot be undone"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette action ne peut pas être annulée"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa azione non può essere annullata"
           }
         }
       }
@@ -38173,10 +39761,40 @@
       "comment" : "A confirmation dialog that appears when the user taps the \"Adopt\" button in the \"Adoptable packages\" section.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravdu chcete přidat %lld aplikací do Homebrew?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bist Du sicher, dass Du %lld Deiner Apps in die Homebrew-Verwaltung übernehmen möchtest?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Êtes vous sûr de vouloir ajouter à Homebrew %lld de vos applications installées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuoi aggiungere %lld delle tue app installate a Homebrew?"
           }
         }
       }
@@ -38391,8 +40009,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Avertissements 􀅴"
+            "state" : "translated",
+            "value" : "􀅴 Avertissements"
           }
         },
         "it" : {
@@ -39622,6 +41240,12 @@
             "value" : "Este paquete esta obsoleto"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce paquet est obsolète"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39686,6 +41310,12 @@
             "value" : "􀇿 Obsoleto"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Obsolète"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39748,6 +41378,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀇿 Obsoleto…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀇿 Obsolète…"
           }
         },
         "it" : {
@@ -40046,6 +41682,48 @@
         }
       }
     },
+    "package-details.installed-as" : {
+      "comment" : "A label describing the installation source of a package.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nainstalován jako"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installiert als"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installed As"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installed As"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installé en tant que"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installato come"
+          }
+        }
+      }
+    },
     "package-details.notes" : {
       "localizations" : {
         "cs" : {
@@ -40076,6 +41754,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notes"
           }
         },
         "it" : {
@@ -40938,6 +42622,12 @@
             "value" : "Vista previa"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aperçu"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -41006,6 +42696,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esto puede tardar un largo tiempo..."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cela pourrait prendre beaucoup de temps…"
           }
         },
         "it" : {
@@ -41782,7 +43478,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des informations du service..."
+            "value" : "Chargement des informations du service…"
           }
         },
         "it" : {
@@ -42860,7 +44556,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chargement des services..."
+            "value" : "Chargement des services…"
           }
         },
         "it" : {
@@ -42942,7 +44638,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Service introuvable..."
+            "value" : "Service introuvable…"
           }
         },
         "it" : {
@@ -44955,6 +46651,12 @@
             "value" : "Homebrow esta desactualizado"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Homebrew n'est pas à jour"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45023,6 +46725,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Para usar los servicios, actualiza tu instalación de Homebrew dando click al botón de abajo. Si eso no funciona, actualiza Homebrew desde el Terminal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour utiliser les services, mettez à jour votre installation de Homebrew en cliquant le bouton ci dessous. Si ça ne fonctionne pas, mettez à jour via le Terminal."
           }
         },
         "it" : {
@@ -46884,6 +48592,12 @@
             "value" : "Comprobar errores:"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérification d’erreur :"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46952,6 +48666,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Comprobación estricta de errores de Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifier strictement les erreurs Homebrew"
           }
         },
         "it" : {
@@ -47168,6 +48888,82 @@
         }
       }
     },
+    "settings.discoverability.mass-adoption.hide-adoptable-packages-section-if-there-are-only-excluded-apps-available.label" : {
+      "comment" : "A label describing a toggle that controls whether the \"Adoptable Packages\" section is hidden when there are only excluded apps available.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide when all adoptable apps are excluded"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer lorsque toutes les applications adoptables sont exclues"
+          }
+        }
+      }
+    },
+    "settings.discoverability.mass-adoption.label" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App adoption:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoption d’application :"
+          }
+        }
+      }
+    },
+    "settings.discoverability.mass-adoption.toggle" : {
+      "comment" : "A toggle that allows or disallows mass adoption of packages.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hledat externě nainstalované aplikace, které lze přidat do Homebrew"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suche externe Apps, die der Homebrew-Verwaltung hinzugefügt werden können"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find external apps that can be added to Homebrew"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find external apps that can be added to Homebrew"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher les applications externes qui peuvent être ajouter à Homebrew"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova app esterne che possono essere aggiunte a Homebrew"
+          }
+        }
+      }
+    },
     "settings.discoverability.sorting" : {
       "localizations" : {
         "cs" : {
@@ -47268,7 +49064,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Schnellste Downloads"
+            "value" : "Wenigsten Downloads"
           }
         },
         "en" : {
@@ -47357,7 +49153,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Meinste Downloads"
+            "value" : "Meiste Downloads"
           }
         },
         "en" : {
@@ -47999,6 +49795,12 @@
             "value" : "Habilitar animaciones extra"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer des animations supplémentaires"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48152,6 +49954,12 @@
             "value" : "Formato de fecha de copia de seguridad"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format de date de la sauvegarde :"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48214,6 +50022,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abreviado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrégé"
           }
         },
         "it" : {
@@ -48280,6 +50094,12 @@
             "value" : "Completo"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complet"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48342,6 +50162,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Largo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entier"
           }
         },
         "it" : {
@@ -48408,6 +50234,12 @@
             "value" : "Numerico"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numérique"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48470,6 +50302,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Omitido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omettre"
           }
         },
         "it" : {
@@ -49329,6 +51167,12 @@
             "value" : "Información del paquete desactualizado:"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information du paquet obsolète :"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -49399,6 +51243,12 @@
             "value" : "Mostrar versiones antiguas"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les anciennes versions"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -49444,6 +51294,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Úplné"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vollständig"
           }
         },
         "en" : {
@@ -49511,6 +51367,12 @@
             "value" : "minimální"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minimal"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -49574,6 +51436,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pouze verze"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur Versionen"
           }
         },
         "en" : {
@@ -49662,6 +51530,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquetes desactualizados:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquets obsolètes :"
           }
         },
         "it" : {
@@ -50175,6 +52049,12 @@
             "value" : "Habilitar gestos de deslizamiento"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer les actions de balayage"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -50413,6 +52293,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notas del paquete:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notes du paquet :"
           }
         },
         "it" : {
@@ -51365,6 +53251,12 @@
             "value" : "Mostrar paquetes no manejados por Homebrew"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les paquets non gérés par Homebrew"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -51518,6 +53410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aceptar automáticamente los EULAs del paquete"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepter automatiquement les contrats de licence des paquets"
           }
         },
         "it" : {
@@ -53750,10 +55648,40 @@
       "comment" : "A toggle that allows users to opt-in to receiving notifications about mass adoption events.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výsledky přidávání aplikací"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ergebnisse der App-Verwaltung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "App adoption results"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App adoption results"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résultats de l’adoption des applications"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risultati adozione app"
           }
         }
       }
@@ -55728,6 +57656,12 @@
             "value" : "No se instalaron casks"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun Casks installé"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -55790,6 +57724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se instalaron formulas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune Formule installée"
           }
         },
         "it" : {
@@ -56185,6 +58125,54 @@
       "comment" : "A label that reads \"Available\" followed by the number of available packages.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
+        "cs" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld nainstalované aplikace lze přidat do Homebrew"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld nainstalovaných aplikací lze přidat do Homebrew"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Jednu nainstalovanou aplikaci lze přidat do Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld nainstalovaných aplikací lze přidat do Homebrew"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Es gibt %lld App, die zur Homebrew-Verwaltung hinzugefügt werden können"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Es gibt %lld Apps, die zur Homebrew-Verwaltung hinzugefügt werden können"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -56198,6 +58186,160 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "There are %lld installed apps that can be added to Homebrew"
+                }
+              }
+            }
+          }
+        },
+        "en-GB" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld installed app that can be added to Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld installed apps that can be added to Homebrew"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld application installée qui peut être ajoutée à Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld applications installées qui peuvent être ajoutées à Homebrew"
+                }
+              }
+            }
+          }
+        },
+        "it" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "C'è %lld app installata che può essere aggiunta a Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ci sono %lld app installate che possono essere aggiunte a Homebrew"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.adoptable-packages.available.%lld-excluded.%lld" : {
+      "comment" : "A headline that describes how many adoptable packages are available, including any that have been excluded. The first argument is the count of adoptable packages that are not excluded. The second argument is the count of adoptable packages that have been excluded.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are %1$lld installed apps -excluded.%2$lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il y a %1$lld applications installées (exclues : %2$lld)."
+          }
+        }
+      }
+    },
+    "start-page.adoptable-packages.excluded.%lld" : {
+      "comment" : "A subheading displaying the number of apps that will not be adopted. The argument is the count of apps that will not be adopted.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld additional app that is ignored"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld additional apps that are ignored"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld application additionnelle qui est ignorée"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld applications additionnelles qui sont ignorées"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "start-page.adoptable-packages.only-%lld-excluded-available" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There is %lld ignored adoptable apps"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "There are %lld ignored adoptable apps"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld application adoptable qui est ignorée"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld applications adoptables qui sont ignorées"
                 }
               }
             }
@@ -57811,7 +59953,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Es konnten keine veralteten Pakete überprüft werden."
+            "value" : "Es konnte nicht nach veralteten Paketen gesucht werden"
           }
         },
         "en" : {
@@ -57830,6 +59972,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No se pudo comprobar los paquetes desactualizados"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de vérifier les paquets obsolètes"
           }
         },
         "it" : {
@@ -58150,6 +60298,24 @@
             }
           }
         },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld Cask qui n’a pas pu être chargée"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld Casks qui n’ont pas pu être chargées"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "variations" : {
             "plural" : {
@@ -58359,6 +60525,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Hay formulas de %lld que no pudieron ser cargadoas"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld Formule qui n’a pas pu être chargée"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld Formules qui n’ont pas pu être chargées"
                 }
               }
             }
@@ -59290,6 +61474,12 @@
             "value" : "Versión instalada"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version installée"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -59427,7 +61617,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach Paketaktualisierungen wird gesucht…"
+            "value" : "Suche nach Paketaktualisierungen …"
           }
         },
         "en" : {
@@ -59534,6 +61724,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versión más reciente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle version"
           }
         },
         "it" : {
@@ -59673,6 +61869,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Hay %lld paquetes desactualizados no gestionados"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld paquet obsolète non géré"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld paquets obsolètes non gérés"
                 }
               }
             }
@@ -59880,6 +62094,24 @@
             }
           }
         },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a 1 paquet supplémentaire non géré par Homebrew"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Il y a %lld paquets supplémentaires non gérés par Homebrew"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -60008,6 +62240,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paquetes desactualizados sin administrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paquets obsolètes non gérés"
           }
         },
         "it" : {
@@ -60162,6 +62400,12 @@
             "value" : "Después de dar click en “Abrir Terminal”, usa ⌘+V para pegar el comando que Cork copio por ti, luego presiona Enter (↩)."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Après avoir cliqué \"Ouvrir le Terminal », utilisez ⌘+V pour coller la commande que Cork a copié pour vous, puis appuyez sur Entrée (↩).\nSi aucune commande n’a été copiée, tapez la commande \"brew update\" puis appuyez sur Entrée (↩)."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -60230,6 +62474,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualizar a tráves de la terminal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise à jour via le Terminal"
           }
         },
         "it" : {
@@ -61715,7 +63965,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauvegarde de l'ancienne version..."
+            "value" : "Sauvegarde de l'ancienne version…"
           }
         },
         "it" : {
@@ -62920,6 +65170,12 @@
             "value" : "Todos los paquetes manejados por Homebrew están actualizados"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tous les paquets gérés par Homebrew sont à jour"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -63918,6 +66174,12 @@
           }
         },
         "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "􀎧"
+          }
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "􀎧"

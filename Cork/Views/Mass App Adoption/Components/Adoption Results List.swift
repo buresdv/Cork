@@ -37,7 +37,8 @@ struct AdoptionResultsList: View
                     }
                 }
             }
-            .frame(height: 100, alignment: .leading)
+            .listStyle(.bordered(alternatesRowBackgrounds: true))
+            .frame(minHeight: 100)
         }
     }
 }

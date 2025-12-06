@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "applicationinspector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/buresdv/ApplicationInspector",
+      "state" : {
+        "revision" : "72d9888b3da342df026254a940553c31b72daec8",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "buttonkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Dean151/ButtonKit",
@@ -25,6 +34,15 @@
       "state" : {
         "revision" : "cc938ecf0bed848dc80a9726ac5455104e3f9dae",
         "version" : "9.0.2"
+      }
+    },
+    {
+      "identity" : "factory",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hmlongco/Factory",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "a46ce210c1535064beffd1f00caf9835507b656f"
       }
     },
     {
