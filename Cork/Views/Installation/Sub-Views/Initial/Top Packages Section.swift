@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import Defaults
+import CorkModels
 
 struct TopPackagesSection: View
 {
@@ -15,7 +16,7 @@ struct TopPackagesSection: View
 
     let packageTracker: TopPackagesTracker
 
-    let trackerType: PackageType
+    let trackerType: BrewPackage.PackageType
     
     private var packages: [BrewPackage]
     {

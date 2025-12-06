@@ -15,6 +15,8 @@ import Defaults
 import SwiftData
 import SwiftUI
 import UserNotifications
+import CorkModels
+import CorkTerminalFunctions
 
 @main
 struct CorkApp: App
@@ -90,7 +92,8 @@ struct CorkApp: App
                 .environment(outdatedPackagesTracker)
                 .environment(topPackagesTracker)
                 .modelContainer(for: [
-                    SavedTaggedPackage.self
+                    SavedTaggedPackage.self,
+                    ExcludedAdoptableApp.self
                 ])
                 .task
                 {
@@ -131,146 +134,19 @@ struct CorkApp: App
                 }
                 .onAppear
                 {
-                    print("Licensing state: \(appDelegate.appState.licensingState)")
-
-                    #if SELF_COMPILED
-                        AppConstants.shared.logger.debug("Will set licensing state to Self Compiled")
-                        appDelegate.appState.licensingState = .selfCompiled
-                    #else
-                        if !hasValidatedEmail
-                        {
-                            if appDelegate.appState.licensingState != .selfCompiled
-                            {
-                                if let demoActivatedAt
-                                {
-                                    let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.shared.demoLengthInSeconds
-
-                                    AppConstants.shared.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
-
-                                    AppConstants.shared.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
-
-                                    if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
-                                    { // Check if there is still time on the demo
-                                        /// do stuff if there is
-                                    }
-                                    else
-                                    {
-                                        hasFinishedLicensingWorkflow = false
-                                    }
-                                }
-                            }
-                        }
-                    #endif
+                    handleLicensing()
                 }
                 .onAppear
                 {
-                    // Start the background update scheduler when the app starts
-                    backgroundUpdateTimer.schedule
-                    { (completion: NSBackgroundActivityScheduler.CompletionHandler) in
-                        AppConstants.shared.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
-
-                        Task
-                        {
-                            var updateResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
-
-                            AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
-
-                            do
-                            {
-                                let temporaryOutdatedPackageTracker: OutdatedPackagesTracker = await .init()
-
-                                try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
-
-                                var newOutdatedPackages: Set<OutdatedPackage> = await temporaryOutdatedPackageTracker.outdatedPackages
-
-                                AppConstants.shared.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
-
-                                defer
-                                {
-                                    AppConstants.shared.logger.log("Will purge temporary update trackers")
-
-                                    updateResult = .init(standardOutput: "", standardError: "")
-                                    newOutdatedPackages = .init()
-                                }
-
-                                if await newOutdatedPackages.count > outdatedPackagesTracker.outdatedPackages.count
-                                {
-                                    AppConstants.shared.logger.log("New updates found")
-
-                                    /// Set this to `true` so the normal notification doesn't get sent
-                                    await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
-
-                                    let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.displayableOutdatedPackages)
-                                    AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
-
-                                    sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
-
-                                    await outdatedPackagesTracker.setOutdatedPackages(to: newOutdatedPackages)
-
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1)
-                                    {
-                                        sendStandardUpdatesAvailableNotification = true
-                                    }
-                                }
-                                else
-                                {
-                                    AppConstants.shared.logger.log("No new updates found")
-                                }
-                            }
-                            catch
-                            {
-                                AppConstants.shared.logger.error("Something got fucked up about checking for outdated packages")
-                            }
-                        }
-
-                        completion(NSBackgroundActivityScheduler.Result.finished)
-                    }
+                    handleBackgroundUpdating()
                 }
                 .onChange(of: demoActivatedAt) // React to when the user activates the demo
                 { _, newValue in
-                    if let newValue
-                    { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
-                        AppConstants.shared.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
-                        hasFinishedLicensingWorkflow = true
-                    }
+                    handleDemoTiming(newValue: newValue)
                 }
                 .onChange(of: outdatedPackagesTracker.displayableOutdatedPackages.count)
                 { _, outdatedPackageCount in
-                    AppConstants.shared.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
-
-                    // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
-                    withAnimation
-                    {
-                        outdatedPackagesTracker.isCheckingForPackageUpdates = false
-                    }
-
-                    if outdatedPackageCount == 0
-                    {
-                        NSApp.dockTile.badgeLabel = ""
-                    }
-                    else
-                    {
-                        if areNotificationsEnabled
-                        {
-                            if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
-                            {
-                                NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
-                            }
-
-                            // TODO: Changing the package display type sends a notificaiton, which is not visible since the app is in the foreground. Once macOS 15 comes out, move `sendStandardUpdatesAvailableNotification` into the AppState and suppress it
-                            if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
-                            {
-                                AppConstants.shared.logger.log("Will try to send notification")
-
-                                /// This needs to be checked because when the background update system finds an update, we don't want to send this normal notification.
-                                /// Instead, we want to send a more succinct notification that includes only the new package
-                                if sendStandardUpdatesAvailableNotification
-                                {
-                                    sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String(localized: "notification.outdated-packages-found.body-\(outdatedPackageCount)"))
-                                }
-                            }
-                        }
-                    }
+                    handleOutdatedPackageChangeAppBadge(outdatedPackageCount: outdatedPackageCount)
                 }
                 .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
                 { _, newValue in
@@ -415,7 +291,7 @@ struct CorkApp: App
         WindowGroup(id: .previewWindowID, for: MinimalHomebrewPackage.self)
         { $packageToPreview in
             
-            let convertedMinimalPackage: BrewPackage? = .init(from: packageToPreview)
+            let convertedMinimalPackage: BrewPackage? = BrewPackage(using: packageToPreview)
             
             PackagePreview(packageToPreview: convertedMinimalPackage)
                 .navigationTitle(packageToPreview?.name ?? "")
@@ -716,7 +592,7 @@ struct CorkApp: App
         {
             Button
             {
-                openWindow(id: .errorInspectorWindowID, value: PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
+                openWindow(id: .errorInspectorWindowID, value: BrewPackage.PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
             } label: {
                 Text("debug.action.show-error-inspector")
             }
@@ -724,9 +600,10 @@ struct CorkApp: App
             Text("debug.action.ui")
         }
     }
-
+    
     // MARK: - Functions
-
+    
+    // MARK: - App badge
     func setAppBadge(outdatedPackageNotificationType: OutdatedPackageNotificationType)
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
@@ -741,9 +618,160 @@ struct CorkApp: App
             NSApp.dockTile.badgeLabel = ""
         }
     }
-
+    
     private func setWhetherToSendStandardUpdatesAvailableNotification(to newValue: Bool)
     {
         self.sendStandardUpdatesAvailableNotification = newValue
     }
+    
+    func handleOutdatedPackageChangeAppBadge(outdatedPackageCount: Int)
+    {
+        AppConstants.shared.logger.debug("Number of displayable outdated packages changed (\(outdatedPackageCount))")
+
+        // TODO: Remove this once I figure out why the updating spinner sometimes doesn't disappear
+        withAnimation
+        {
+            outdatedPackagesTracker.isCheckingForPackageUpdates = false
+        }
+
+        if outdatedPackageCount == 0
+        {
+            NSApp.dockTile.badgeLabel = ""
+        }
+        else
+        {
+            if areNotificationsEnabled
+            {
+                if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
+                {
+                    NSApp.dockTile.badgeLabel = String(outdatedPackageCount)
+                }
+
+                // TODO: Changing the package display type sends a notificaiton, which is not visible since the app is in the foreground. Once macOS 15 comes out, move `sendStandardUpdatesAvailableNotification` into the AppState and suppress it
+                if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .both
+                {
+                    AppConstants.shared.logger.log("Will try to send notification")
+
+                    /// This needs to be checked because when the background update system finds an update, we don't want to send this normal notification.
+                    /// Instead, we want to send a more succinct notification that includes only the new package
+                    if sendStandardUpdatesAvailableNotification
+                    {
+                        sendNotification(title: String(localized: "notification.outdated-packages-found.title"), subtitle: String(localized: "notification.outdated-packages-found.body-\(outdatedPackageCount)"))
+                    }
+                }
+            }
+        }
+    }
+    
+    // MARK: - Background updating
+    
+    func handleBackgroundUpdating()
+    {
+        // Start the background update scheduler when the app starts
+        backgroundUpdateTimer.schedule
+        { (completion: NSBackgroundActivityScheduler.CompletionHandler) in
+            AppConstants.shared.logger.log("Scheduled event fired at \(Date(), privacy: .auto)")
+
+            Task
+            {
+                var updateResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
+
+                AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
+
+                do
+                {
+                    let temporaryOutdatedPackageTracker: OutdatedPackagesTracker = await .init()
+
+                    try await temporaryOutdatedPackageTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
+
+                    var newOutdatedPackages: Set<OutdatedPackage> = await temporaryOutdatedPackageTracker.outdatedPackages
+
+                    AppConstants.shared.logger.debug("Outdated packages checker output: \(newOutdatedPackages, privacy: .public)")
+
+                    defer
+                    {
+                        AppConstants.shared.logger.log("Will purge temporary update trackers")
+
+                        updateResult = .init(standardOutput: "", standardError: "")
+                        newOutdatedPackages = .init()
+                    }
+
+                    if await newOutdatedPackages.count > outdatedPackagesTracker.outdatedPackages.count
+                    {
+                        AppConstants.shared.logger.log("New updates found")
+
+                        /// Set this to `true` so the normal notification doesn't get sent
+                        await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
+
+                        let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.displayableOutdatedPackages)
+                        AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
+
+                        sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
+
+                        await outdatedPackagesTracker.setOutdatedPackages(to: newOutdatedPackages)
+
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+                        {
+                            sendStandardUpdatesAvailableNotification = true
+                        }
+                    }
+                    else
+                    {
+                        AppConstants.shared.logger.log("No new updates found")
+                    }
+                }
+                catch
+                {
+                    AppConstants.shared.logger.error("Something got fucked up about checking for outdated packages")
+                }
+            }
+
+            completion(NSBackgroundActivityScheduler.Result.finished)
+        }
+    }
+    
+    // MARK: - Licensing
+    func handleLicensing()
+    {
+        print("Licensing state: \(appDelegate.appState.licensingState)")
+
+        #if SELF_COMPILED
+            AppConstants.shared.logger.debug("Will set licensing state to Self Compiled")
+            appDelegate.appState.licensingState = .selfCompiled
+        #else
+            if !hasValidatedEmail
+            {
+                if appDelegate.appState.licensingState != .selfCompiled
+                {
+                    if let demoActivatedAt
+                    {
+                        let timeDemoWillRunOutAt: Date = demoActivatedAt + AppConstants.shared.demoLengthInSeconds
+
+                        AppConstants.shared.logger.debug("There is \(demoActivatedAt.timeIntervalSinceNow.formatted()) to go on the demo")
+
+                        AppConstants.shared.logger.debug("Demo will time out at \(timeDemoWillRunOutAt.formatted(date: .complete, time: .complete))")
+
+                        if ((demoActivatedAt.timeIntervalSinceNow) + AppConstants.shared.demoLengthInSeconds) > 0
+                        { // Check if there is still time on the demo
+                            /// do stuff if there is
+                        }
+                        else
+                        {
+                            hasFinishedLicensingWorkflow = false
+                        }
+                    }
+                }
+            }
+        #endif
+    }
+    
+    func handleDemoTiming(newValue: Date?)
+    {
+        if let newValue
+        { // If the demo has not been activated, `demoActivatedAt` is nil. So, when it's not nil anymore, it means the user activated it
+            AppConstants.shared.logger.debug("The user activated the demo at \(newValue.formatted(date: .complete, time: .complete), privacy: .public)")
+            hasFinishedLicensingWorkflow = true
+        }
+    }
 }
+

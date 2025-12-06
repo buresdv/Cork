@@ -10,6 +10,7 @@ import CorkShared
 import SwiftUI
 import ButtonKit
 import Defaults
+import CorkModels
 
 struct AddFormulaView: View
 {

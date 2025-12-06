@@ -8,6 +8,8 @@
 import SwiftUI
 import CorkShared
 import ButtonKit
+import CorkModels
+import CorkTerminalFunctions
 
 extension EnvironmentValues
 {
@@ -109,7 +111,15 @@ struct TapDetailView: View, Sendable
 
             do
             {
-                tapInfo = try await parseTapInfo(from: tapInfoRaw)
+                guard let tapInfoAsData = await tapInfoRaw.data(using: .utf8) else
+                {
+                    errorOutReason = "Failed to convert String to Data"
+                    erroredOut = true
+                    
+                    return
+                }
+                
+                tapInfo = try await .init(from: tapInfoAsData)
             }
             catch let parsingError
             {

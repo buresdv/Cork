@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ApplicationInspector
 
 /// Show the icon of a linked app
 struct AppIconDisplay: View
