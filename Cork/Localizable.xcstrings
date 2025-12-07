@@ -21,7 +21,7 @@
             "value" : ""
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : ""
@@ -104,7 +104,7 @@
             "value" : "(%@)"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "(%@)"
@@ -192,7 +192,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -274,7 +274,7 @@
             "value" : "⚠️"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "⚠️"
@@ -362,7 +362,7 @@
             "value" : "Contact Me"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Contact Me"
@@ -450,7 +450,7 @@
             "value" : "Contribute"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Contribute"
@@ -538,7 +538,7 @@
             "value" : "GitHub"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "GitHub"
@@ -626,7 +626,7 @@
             "value" : "Mastodon"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Mastodon"
@@ -714,7 +714,7 @@
             "value" : "Website"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Website"
@@ -802,7 +802,7 @@
             "value" : "Acknowledged Contributors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Acknowledged Contributors"
@@ -890,7 +890,7 @@
             "value" : "Rob Napier"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Rob Napier"
@@ -978,7 +978,7 @@
             "value" : "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Gave invaluable help with all sorts of problems, from async Swift to blocking package installations"
@@ -1066,7 +1066,7 @@
             "value" : "Łukasz Rutkowski"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Łukasz Rutkowski"
@@ -1154,7 +1154,7 @@
             "value" : "Fixed many async and SwiftUI problems"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fixed many async and SwiftUI problems"
@@ -1242,7 +1242,7 @@
             "value" : "Jierong Li"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Jierong Li"
@@ -1330,7 +1330,7 @@
             "value" : "Fixed package counts on the start page not updating"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fixed package counts on the start page not updating"
@@ -1418,7 +1418,7 @@
             "value" : "Oscar Bazaldua"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Oscar Bazaldua"
@@ -1506,7 +1506,7 @@
             "value" : "Made the first approved pull request; fixed package counts, along with Jierong Li"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Made the first approved pull request; fixed package counts, along with Jierong Li"
@@ -1594,7 +1594,7 @@
             "value" : "Andrey Radchishin"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Andrey Radchishin"
@@ -1682,7 +1682,7 @@
             "value" : "Added a way of going back to the Homebrew Status page"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Added a way of going back to the Homebrew Status page"
@@ -1770,7 +1770,7 @@
             "value" : "Christian Tietze"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Christian Tietze"
@@ -1858,7 +1858,7 @@
             "value" : "Came up with many advanced logic optimisations, as well as continuously offering valuable Swift support"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Came up with many advanced logic optimizations, as well as continously offering valuable Swift support"
@@ -1946,7 +1946,7 @@
             "value" : "Mike Simons"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Mike Simons"
@@ -2034,7 +2034,7 @@
             "value" : "Created the Tuist configuration for compiling self-hosted versions"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Created the Tuist configuration for compiling self-hosted versions"
@@ -2122,7 +2122,7 @@
             "value" : "© %@ David Bureš and contributors."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "© %@ David Bureš and contributors"
@@ -2210,7 +2210,7 @@
             "value" : "© %lld David Bureš and contributors."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "© %lld David Bureš and contributors"
@@ -2298,7 +2298,7 @@
             "value" : "Packages Used"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages Used"
@@ -2386,7 +2386,7 @@
             "value" : "DavidFoundation"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DavidFoundation"
@@ -2474,7 +2474,7 @@
             "value" : "My own package that provides some basic convenience features"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "My own package that provides some basic convenience features"
@@ -2562,7 +2562,7 @@
             "value" : "LaunchAtLogin"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "LaunchAtLogin"
@@ -2650,7 +2650,7 @@
             "value" : "A package that lets Cork start when you log in"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "A package that lets Cork start when you log in"
@@ -2738,7 +2738,7 @@
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
@@ -2826,7 +2826,7 @@
             "value" : "Special Thanks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Special Thanks"
@@ -2914,7 +2914,7 @@
             "value" : "Seb Jachec"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Seb Jachec"
@@ -3002,7 +3002,7 @@
             "value" : "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Implemented a function for getting real-time outputs of commands, making more than half of all features in Cork much faster"
@@ -3090,7 +3090,7 @@
             "value" : "Implemented the way of skipping licensing for users who compiled Cork themselves"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Implemented the way of skipping licensing for users who compiled Cork themselves"
@@ -3178,7 +3178,7 @@
             "value" : "Dimitri Bouniol"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Dimitri Bouniol"
@@ -3266,7 +3266,7 @@
             "value" : "Ben Carlsson"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Ben Carlsson"
@@ -3354,7 +3354,7 @@
             "value" : "Jerry Zhang"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Jerry Zhang"
@@ -3442,7 +3442,7 @@
             "value" : "Translated Cork into Simplified Chinese"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated Cork into Simplified Chinese"
@@ -3530,7 +3530,7 @@
             "value" : "sh95014"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "sh95014"
@@ -3618,7 +3618,7 @@
             "value" : "Translated Cork into Traditional Chinese"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated Cork into Traditional Chinese"
@@ -3706,7 +3706,7 @@
             "value" : "Maurice Meysel"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Maurice Meysel"
@@ -3794,7 +3794,7 @@
             "value" : "Translated Cork into German"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated Cork into German"
@@ -3882,7 +3882,7 @@
             "value" : "Bryan Ledda"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Bryan Ledda"
@@ -3970,7 +3970,7 @@
             "value" : "Translated Cork into French"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated Cork into French"
@@ -4059,7 +4059,7 @@
             "value" : "Nikita Utkin"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Nikita Utkin"
@@ -4148,7 +4148,7 @@
             "value" : "Translated Cork into Russian"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated Cork into Russian"
@@ -4237,7 +4237,7 @@
             "value" : "Igor Petruchek"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Igor Petruchek"
@@ -4326,7 +4326,7 @@
             "value" : "Translated Cork into Ukraininan"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated Cork into Ukraininan"
@@ -4414,7 +4414,7 @@
             "value" : "Translators"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Translators"
@@ -4502,7 +4502,7 @@
             "value" : "Version %@ (%@)"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Version %@ (%@)"
@@ -4590,7 +4590,7 @@
             "value" : "Status of outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Status of outdated packaes"
@@ -4678,7 +4678,7 @@
             "value" : "List of outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "List of outdated packages"
@@ -4766,7 +4766,7 @@
             "value" : "Loading outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading outdated packages"
@@ -4854,7 +4854,7 @@
             "value" : "Package of Cask type"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package of Cask type"
@@ -4942,7 +4942,7 @@
             "value" : "Package of Formula type"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package of Formula type"
@@ -5030,7 +5030,7 @@
             "value" : "Package of an unimplemented type"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package of an unimplemented type"
@@ -5118,7 +5118,7 @@
             "value" : "Package of an unknown type"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package of an unknown type"
@@ -5206,7 +5206,7 @@
             "value" : "Return to status page"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Return to status page"
@@ -5295,7 +5295,7 @@
             "value" : "List of installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "List of installed packages"
@@ -5383,7 +5383,7 @@
             "value" : "List of installed Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "List of installed Casks"
@@ -5471,7 +5471,7 @@
             "value" : "List of installed Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "List of installed Formulae"
@@ -5559,7 +5559,7 @@
             "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
@@ -5647,7 +5647,7 @@
             "value" : "Try Demo"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try Demo"
@@ -5736,7 +5736,7 @@
             "value" : "Adopt"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adopt"
@@ -5825,7 +5825,7 @@
             "value" : "Adopt %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adopt %@"
@@ -5914,7 +5914,7 @@
             "value" : "Add"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add"
@@ -6002,7 +6002,7 @@
             "value" : "Add apps to Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add apps to Homebrew"
@@ -6151,7 +6151,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -6365,7 +6365,7 @@
             "value" : "Buy Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Buy Cork"
@@ -6453,7 +6453,7 @@
             "value" : "Cancel"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cancel"
@@ -6541,7 +6541,7 @@
             "value" : "Cancel and disable mass app adoption"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cancel and disable mass app adoption"
@@ -6629,7 +6629,7 @@
             "value" : "Check for Updates…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check for Updates…"
@@ -6717,7 +6717,7 @@
             "value" : "Check for outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check for outdated packages"
@@ -6805,7 +6805,7 @@
             "value" : "Activate"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Activate"
@@ -6894,7 +6894,7 @@
             "value" : "Clear metadata"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Clear metadata"
@@ -6982,7 +6982,7 @@
             "value" : "Close"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Close"
@@ -7070,7 +7070,7 @@
             "value" : "Copy"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Copy"
@@ -7158,7 +7158,7 @@
             "value" : "Copy to Clipboard"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Copy to Clipboard"
@@ -7246,7 +7246,7 @@
             "value" : "Done"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Done"
@@ -7334,7 +7334,7 @@
             "value" : "Finish in Terminal"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Finish in Terminal"
@@ -7423,7 +7423,7 @@
             "value" : "Status page"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Status page"
@@ -7511,7 +7511,7 @@
             "value" : "Go to Status Page"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Go to Status Page"
@@ -7599,7 +7599,7 @@
             "value" : "Hide"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hide"
@@ -7687,7 +7687,7 @@
             "value" : "Hide section…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hide section…"
@@ -7775,7 +7775,7 @@
             "value" : "Hide section"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hide section"
@@ -7863,7 +7863,7 @@
             "value" : "Inspect error…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Inspect error…"
@@ -7951,7 +7951,7 @@
             "value" : "Installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed packages"
@@ -8039,7 +8039,7 @@
             "value" : "Open Terminal"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Open Terminal"
@@ -8128,7 +8128,7 @@
             "value" : "Ignore %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Ignore %@"
@@ -8217,7 +8217,7 @@
             "value" : "Stop ignoring %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Stop ignoring %@"
@@ -8306,7 +8306,7 @@
             "value" : "Preview %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Preview %@"
@@ -8394,7 +8394,7 @@
             "value" : "Purge %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Purge %@"
@@ -8482,7 +8482,7 @@
             "value" : "Are you sure you want to purge %@?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to purge %@?"
@@ -8570,7 +8570,7 @@
             "value" : "Quit Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Quit Cork"
@@ -8658,7 +8658,7 @@
             "value" : "Reinstall Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reinstall Homebrew"
@@ -8746,7 +8746,7 @@
             "value" : "Reinstall"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reinstall"
@@ -8834,7 +8834,7 @@
             "value" : "Reload Services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reload Services"
@@ -8922,7 +8922,7 @@
             "value" : "Repair %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Repair %@"
@@ -9011,7 +9011,7 @@
             "value" : "Repair Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Repair Homebrew"
@@ -9099,7 +9099,7 @@
             "value" : "Report on GitHub…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Report on GitHub…"
@@ -9188,7 +9188,7 @@
             "value" : "Report Bugs"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Report Bugs"
@@ -9276,7 +9276,7 @@
             "value" : "Reset executable to default location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reset executable to default location"
@@ -9364,7 +9364,7 @@
             "value" : "Restart Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Restart Cork"
@@ -9453,7 +9453,7 @@
             "value" : "Reveal %@ in Finder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reveal %@ in Finder"
@@ -9541,7 +9541,7 @@
             "value" : "Reveal Applications in Finder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reveal Applications in Finder"
@@ -9629,7 +9629,7 @@
             "value" : "Reveal %@ in Finder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reveal %@ in Finder"
@@ -9717,7 +9717,7 @@
             "value" : "Reveal in Finder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reveal in Finder"
@@ -9805,7 +9805,7 @@
             "value" : "Search Again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Search Again"
@@ -9893,7 +9893,7 @@
             "value" : "Show"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show"
@@ -9982,7 +9982,7 @@
             "value" : "Show less"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show less"
@@ -10071,7 +10071,7 @@
             "value" : "Show more"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show more"
@@ -10159,7 +10159,7 @@
             "value" : "Show Terminal output"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show Terminal output"
@@ -10247,7 +10247,7 @@
             "value" : "Uninstall %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Uninstall %@"
@@ -10335,7 +10335,7 @@
             "value" : "Are you sure you want to uninstall %@?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to uninstall %@?"
@@ -10424,7 +10424,7 @@
             "value" : "Update %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update %@"
@@ -10512,7 +10512,7 @@
             "value" : "Update Homebrew and all packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update Homebrew and all packages"
@@ -10600,7 +10600,7 @@
             "value" : "Update Homebrew through Terminal"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update Homebrew through Terminal"
@@ -10688,7 +10688,7 @@
             "value" : "Use Cork without notifications"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Use Cork without notifications"
@@ -10776,7 +10776,7 @@
             "value" : "This action cannot be undone"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This action cannot be undone"
@@ -10865,7 +10865,7 @@
             "value" : "Report on the forums…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Report on the forums…"
@@ -10953,7 +10953,7 @@
             "value" : "Stop"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Stop"
@@ -11041,7 +11041,7 @@
             "value" : "Loading of top packages timed out"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading of top packages timed out"
@@ -11129,7 +11129,7 @@
             "value" : "An error occurred while installing %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "An error occurred while installing %@"
@@ -11217,7 +11217,7 @@
             "value" : "Try installing the package again, or restarting Cork\nIf the problem persists, restart your Mac"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try installing the package again, or restarting Cork\nIf the problem persists, restart your Mac"
@@ -11306,7 +11306,7 @@
             "value" : "An error occurred during the install process"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "An error occurred during the install process"
@@ -11394,7 +11394,7 @@
             "value" : "Packages successfully installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages successfully installed"
@@ -11482,7 +11482,7 @@
             "value" : "There were no errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were no errors"
@@ -11570,7 +11570,7 @@
             "value" : "Install"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install"
@@ -11658,7 +11658,7 @@
             "value" : "You can either wait for this process to finish, or force it to stop.\nForcing it to stop may lead to breaking your Homebrew installation."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You can either wait for this process to finish, or force it to stop.\nForcing it to stop might lead to breaking your Homebrew installation."
@@ -11746,7 +11746,7 @@
             "value" : "Another Homebrew process is already running"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Another Homebrew process is already running"
@@ -11834,7 +11834,7 @@
             "value" : "%@ was installed outside of Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ was installed outside of Homebrew"
@@ -11922,7 +11922,7 @@
             "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
@@ -12010,7 +12010,7 @@
             "value" : "Downloading %@…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Downloading %@…"
@@ -12098,7 +12098,7 @@
             "value" : "Fetching Dependencies…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fetching Dependencies…"
@@ -12186,7 +12186,7 @@
             "value" : "Done"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Done"
@@ -12274,7 +12274,7 @@
             "value" : "Hide details"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hide details"
@@ -12362,7 +12362,7 @@
             "value" : "Homebrew did not provide any output"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew didn’t provide any output"
@@ -12450,7 +12450,7 @@
             "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
@@ -12538,7 +12538,7 @@
             "value" : "Package installation terminated unexpectedly"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package installation terminated unexpectedly"
@@ -12626,7 +12626,7 @@
             "value" : "Installing %@…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installing %@…"
@@ -12714,7 +12714,7 @@
             "value" : "Installing Dependency %lld/%lld"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installing Dependency %lld/%lld"
@@ -12802,7 +12802,7 @@
             "value" : "Installing Package…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installing Package…"
@@ -12890,7 +12890,7 @@
             "value" : "Linking Binaries…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Linking Binaries…"
@@ -12978,7 +12978,7 @@
             "value" : "Loading Dependencies…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading Dependencies…"
@@ -13066,7 +13066,7 @@
             "value" : "Moving %@ into the Applications Directory…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Moving %@ into the Applications Directory…"
@@ -13154,7 +13154,7 @@
             "value" : "Building Dependency Graph…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Building Dependency Graph…"
@@ -13242,7 +13242,7 @@
             "value" : "Elevated permissions are required to install %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Elevated permissions are required to install %@"
@@ -13330,7 +13330,7 @@
             "value" : "You will have to install this package through the Terminal.\nUse the command below."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You will have to install this package through the Terminal.\nUse the command below."
@@ -13418,7 +13418,7 @@
             "value" : "Show details"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show details"
@@ -13507,7 +13507,7 @@
             "value" : "%1$@ does not support %2$@ processors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ doesn't support %2$@ chips"
@@ -13595,7 +13595,7 @@
             "value" : "This package does not support your processor"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This package doesn't support your chip"
@@ -13683,7 +13683,7 @@
             "value" : "Already Installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Already Installed"
@@ -13772,7 +13772,7 @@
             "value" : "No description provided"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No description provided"
@@ -13860,7 +13860,7 @@
             "value" : "Loading description…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading description…"
@@ -13949,7 +13949,7 @@
             "value" : "Could not load description"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't load description"
@@ -14038,7 +14038,7 @@
             "value" : "Not optimised for %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Not optimized for %@"
@@ -14126,7 +14126,7 @@
             "value" : "Search"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Search"
@@ -14214,7 +14214,7 @@
             "value" : "Search for packages…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Search for packages…"
@@ -14302,7 +14302,7 @@
             "value" : "Found Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Found Casks"
@@ -14390,7 +14390,7 @@
             "value" : "No Casks found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No Casks found"
@@ -14478,7 +14478,7 @@
             "value" : "Found Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Found Formulae"
@@ -14566,7 +14566,7 @@
             "value" : "No Formulae found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No Formulae found"
@@ -14654,7 +14654,7 @@
             "value" : "No results found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No results found"
@@ -14742,7 +14742,7 @@
             "value" : "Searching for %@…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Searching for %@…"
@@ -14831,7 +14831,7 @@
             "value" : "Install packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install packages"
@@ -14919,7 +14919,7 @@
             "value" : "Top Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Top Casks"
@@ -15007,7 +15007,7 @@
             "value" : "Top Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Top Formulae"
@@ -15156,7 +15156,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -15370,7 +15370,7 @@
             "value" : "Elevated permissions are required to uninstall %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Elevated permissions are required to uninstall %@"
@@ -15458,7 +15458,7 @@
             "value" : "You will have to uninstall this package through the Terminal.\nUse the command below."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You will have to uninstall this package through the Terminal.\nUse the command below."
@@ -15547,7 +15547,7 @@
             "value" : "Add a tap"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add a tap"
@@ -15635,7 +15635,7 @@
             "value" : "Add"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add"
@@ -15723,7 +15723,7 @@
             "value" : "Successfully added %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Successfully added %@"
@@ -15811,7 +15811,7 @@
             "value" : "There were no errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were no errors"
@@ -15899,7 +15899,7 @@
             "value" : "Try Again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try Again"
@@ -15987,7 +15987,7 @@
             "value" : "An error occurred while adding %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "An error occurred while adding %@"
@@ -16075,7 +16075,7 @@
             "value" : "Try adding it again in a few minutes"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try adding it again in a few minutes"
@@ -16163,7 +16163,7 @@
             "value" : "%@ does not exist"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ doesn't exist"
@@ -16251,7 +16251,7 @@
             "value" : "Double-check that you entered the name correctly"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Double-check that you wrote the name right"
@@ -16339,7 +16339,7 @@
             "value" : "Tap address:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap address:"
@@ -16427,7 +16427,7 @@
             "value" : "Use external address"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Use external address"
@@ -16515,7 +16515,7 @@
             "value" : "Add a tap from an external address "
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add a tap from an external address "
@@ -16603,7 +16603,7 @@
             "value" : "Adding %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adding %@"
@@ -16692,7 +16692,7 @@
             "value" : "Tap name empty"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap name empty"
@@ -16781,7 +16781,7 @@
             "value" : "You did not enter any tap name"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You didn't put in any tap name"
@@ -16869,7 +16869,7 @@
             "value" : "Tap name needs a slash"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap name needs a slash"
@@ -16957,7 +16957,7 @@
             "value" : "Tap names always have to contain a slash"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap names always have to contain a slash"
@@ -17045,7 +17045,7 @@
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
@@ -17133,7 +17133,7 @@
             "value" : "Try searching for another package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try searching for another package"
@@ -17221,7 +17221,7 @@
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to uninstall %@, return to Cork and close this dialog"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to uninstall %@, return to Cork and close this dialog"
@@ -17309,7 +17309,7 @@
             "value" : "Couldn’t adopt %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t adopt %@"
@@ -17397,7 +17397,7 @@
             "value" : "Finished adopting %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Finished adopting %@"
@@ -17485,7 +17485,7 @@
             "value" : "This package can now be updated through Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This package can now be updated through Homebrew"
@@ -17573,7 +17573,7 @@
             "value" : "Adopting %@…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adopting %@…"
@@ -17661,7 +17661,7 @@
             "value" : "Ignored adoptable apps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Ignored adoptable apps"
@@ -17744,7 +17744,7 @@
             "value" : "adoptable-packages.excluded.label"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "adoptable-packages.excluded.label"
@@ -17834,7 +17834,7 @@
             "value" : "Adoptable apps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adoptable apps"
@@ -17922,7 +17922,7 @@
             "value" : "Could not delete cache"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t delete cache"
@@ -18011,7 +18011,7 @@
             "value" : "Try restarting Cork. If the problem persists, clear Cork metadata"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try restarting Cork. If the problem persists, clear Cork metadata"
@@ -18100,7 +18100,7 @@
             "value" : "Could not apply tagged state to packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't apply tagged state to packages"
@@ -18188,7 +18188,7 @@
             "value" : "Cork could not find this package in the package database"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cork could not find this package in the package database"
@@ -18276,7 +18276,7 @@
             "value" : "Could not find package in database"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't find package in database"
@@ -18365,7 +18365,7 @@
             "value" : "Delete the metadata folder manually, or try restarting Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete the metadata folder manually, or try restarting Cork"
@@ -18454,7 +18454,7 @@
             "value" : "Could not clear metadata"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't clear metadata"
@@ -18542,7 +18542,7 @@
             "value" : "Make sure you have given Cork permission to access your Documents folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Make sure you've given Cork permission to access your Documents folder"
@@ -18630,7 +18630,7 @@
             "value" : "Could not create Metadata folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't create Metadata folder"
@@ -18718,7 +18718,7 @@
             "value" : "Could not create Metadata file"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't create metadata file"
@@ -18806,7 +18806,7 @@
             "value" : "Could not write Homebrew backup"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't write Homebrew backup"
@@ -18894,7 +18894,7 @@
             "value" : "Could not find this package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not find this package"
@@ -18982,7 +18982,7 @@
             "value" : "Could not find the selected package in the list of available packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not find the selected package in the list of available packages"
@@ -19070,7 +19070,7 @@
             "value" : "Move the backup file to a different location, then try again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Move the backup file to a different location, then try again"
@@ -19158,7 +19158,7 @@
             "value" : "Insufficient permissions to read backup file"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Insufficient permissions to read backup file"
@@ -19246,7 +19246,7 @@
             "value" : "Could not create backup parent folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't create backup parent folder"
@@ -19334,7 +19334,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -19422,7 +19422,7 @@
             "value" : "Could not read package info"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t read package info"
@@ -19511,7 +19511,7 @@
             "value" : "There was an error while parsing outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There was an error while parsing outdated packages"
@@ -19600,7 +19600,7 @@
             "value" : "Could not retrieve outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't retrieve outdated packages"
@@ -19688,7 +19688,7 @@
             "value" : "Move the backup file to a different location, then try again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Move the backup file to a different location, then try again"
@@ -19776,7 +19776,7 @@
             "value" : "Could not read backup file"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't read backup file"
@@ -19864,7 +19864,7 @@
             "value" : "Could not read backup"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't read backup"
@@ -19952,7 +19952,7 @@
             "value" : "Package %@ prevented loading"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package %@ prevented loading"
@@ -20040,7 +20040,7 @@
             "value" : "A fatal error occurred during package installation"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "A fatal error occurred during package installation"
@@ -20128,7 +20128,7 @@
             "value" : "Could not load packages (%@)"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not load packages (%@)"
@@ -20216,7 +20216,7 @@
             "value" : "Could not synchronise packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not synchronize packages"
@@ -20304,7 +20304,7 @@
             "value" : "Could not find the custom Homebrew executable"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't find the custom Homebrew executable"
@@ -20392,7 +20392,7 @@
             "value" : "Check if your network is working properly, then try again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check if your network is working properly, then try again"
@@ -20480,7 +20480,7 @@
             "value" : "Could not establish a secure connection to authorisation server"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not establish a secure connection to authorization server"
@@ -20568,7 +20568,7 @@
             "value" : "Your Mac is not connected to the internet. Check your internet settings."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your Mac is not connected to the internet. Check your internet settings."
@@ -20656,7 +20656,7 @@
             "value" : "Could not connect to the internet"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not connect to the internet"
@@ -20744,7 +20744,7 @@
             "value" : "Check your internet connection and try again\nAlternatively, the authorisation server may be offline at the moment"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check your internet connection and try again\nAlternatively, the authorization server may be offline at the moment"
@@ -20832,7 +20832,7 @@
             "value" : "License checking timed out"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "License checking timed out"
@@ -20920,7 +20920,7 @@
             "value" : "An unknown error occured"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "An unknown error occured"
@@ -21009,7 +21009,7 @@
             "value" : "Homebrew did not return valid data"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew didn't return valid data"
@@ -21097,7 +21097,7 @@
             "value" : "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew for macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cork cannot access your Homebrew installation\nWe are investigating the cause of this problem, which has appeared in the newest Homebrew or macOS release\nUntil then, Cork will not work. As soon as this problem is fixed, Cork will be updated"
@@ -21185,7 +21185,7 @@
             "value" : "Homebrew is not configured properly for Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew is not configured properly for Cork"
@@ -21273,7 +21273,7 @@
             "value" : "Homebrew installation broken"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew installation broken"
@@ -21361,7 +21361,7 @@
             "value" : "The file you tried to restore from does not have the correct structure"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The file you tried to restore from doesn't have the correct structure"
@@ -21449,7 +21449,7 @@
             "value" : "Backup File Broken"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Backup File Broken"
@@ -21537,7 +21537,7 @@
             "value" : "Reinstall Cork and try again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reinstall Cork and try again"
@@ -21625,7 +21625,7 @@
             "value" : "Could not find metadata folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't find metadata folder"
@@ -21713,7 +21713,7 @@
             "value" : "You still have packages installed from %@\nUninstall them and try again"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You still have packages installed from %@\nUninstall them and try again"
@@ -21801,7 +21801,7 @@
             "value" : "Homebrew sent Cork an invalid response"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew sent Cork an invalid response"
@@ -21889,7 +21889,7 @@
             "value" : "Could not get top packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't get top packages"
@@ -21977,7 +21977,7 @@
             "value" : "You can keep using Cork without notifications"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You can keep using Cork without notifications"
@@ -22065,7 +22065,7 @@
             "value" : "There was a problem obtaining notifications permissions"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There was a problem obtaining notifications permissions"
@@ -22154,7 +22154,7 @@
             "value" : "Cork could not understand the response from Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cork couldn't understand the response from Homebrew"
@@ -22242,7 +22242,7 @@
             "value" : "Homebrew did not return valid data"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew didn't return valid data"
@@ -22330,7 +22330,7 @@
             "value" : "This package needs to be repaired"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This package needs to be repaired"
@@ -22418,7 +22418,7 @@
             "value" : "%@ is corrupted"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ is corrupted"
@@ -22506,7 +22506,7 @@
             "value" : "Restart Cork, and if the problem persists, reinstall it"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Restart Cork, and if the problem persists, reinstall it"
@@ -22594,7 +22594,7 @@
             "value" : "Could not read tap info"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t read tap info"
@@ -22682,7 +22682,7 @@
             "value" : "Could not access folder containing Taps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t access folder containing Taps"
@@ -22770,7 +22770,7 @@
             "value" : "The selected package could not be installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The selected package couldn't be installed"
@@ -22858,7 +22858,7 @@
             "value" : "Could not get selected top package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't get selected top package"
@@ -22946,7 +22946,7 @@
             "value" : "File %@ is not a valid Homebrew package and needs to be removed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "File %@ is not a valid Homebrew package and needs to be removed"
@@ -23034,7 +23034,7 @@
             "value" : "Invalid file %@ in a package folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Invalid file %@ in a package folder"
@@ -23122,7 +23122,7 @@
             "value" : "Could not uninstall %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't uninstall %@"
@@ -23210,7 +23210,7 @@
             "value" : "%2$@ is a dependency of %1$@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%2$@ is a dependency of %1$@"
@@ -23298,7 +23298,7 @@
             "value" : "Adding %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adding %@"
@@ -23387,7 +23387,7 @@
             "value" : "Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cork"
@@ -23475,7 +23475,7 @@
             "value" : "%@ Homebrew Backup"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ Homebrew Backup"
@@ -23563,7 +23563,7 @@
             "value" : "Homebrew Backup"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew Backup"
@@ -23651,7 +23651,7 @@
             "value" : "Backing up Homebrew…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Backing up Homebrew…"
@@ -23739,7 +23739,7 @@
             "value" : "There were no errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were no errors"
@@ -23827,7 +23827,7 @@
             "value" : "Successfully restored from backup"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Successfully restored from backup"
@@ -23915,7 +23915,7 @@
             "value" : "Restoring from backup…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Restoring from backup…"
@@ -24003,7 +24003,7 @@
             "value" : "Hang tight! This might take a few minutes"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hang tight! This might take a few minutes"
@@ -24091,7 +24091,7 @@
             "value" : "Unknown"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unknown"
@@ -24174,7 +24174,7 @@
             "value" : "DEBUG: Log packages to be adopted"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG: Log packages to be adopted"
@@ -24263,7 +24263,7 @@
             "value" : "DEBUG: Activate demo"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG: Activate demo"
@@ -24352,7 +24352,7 @@
             "value" : "DEBUG: Licensing"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG: Licensing"
@@ -24441,7 +24441,7 @@
             "value" : "DEBUG: Reset licensing state"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG: Reset licensing state"
@@ -24530,7 +24530,7 @@
             "value" : "Show error inspector"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show error inspector"
@@ -24618,7 +24618,7 @@
             "value" : "DEBUG: UI"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG: UI"
@@ -24707,7 +24707,7 @@
             "value" : "DEBUG: UI"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "DEBUG"
@@ -24796,7 +24796,7 @@
             "value" : "Error Inspector"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Error Inspector"
@@ -24884,7 +24884,7 @@
             "value" : "Could not determine which folder the brewfile export process was initiated from"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not determine which folder the brewfile export process was initiated from"
@@ -24972,7 +24972,7 @@
             "value" : "Could not dump the brewfile into the provided location with error: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not dump the brewfile into the provided location with error: %@"
@@ -25060,7 +25060,7 @@
             "value" : "Could not get the location of the selected brewfile"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not get the location of the selected brewfile"
@@ -25148,7 +25148,7 @@
             "value" : "Could not import brewfile: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not import brewfile: %@"
@@ -25236,7 +25236,7 @@
             "value" : "Could not read contents of cached Cask downloads folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t read contents of cached Cask downloads folder"
@@ -25324,7 +25324,7 @@
             "value" : "Could not read contents of cached downloads folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t read contents of cached downloads folder"
@@ -25412,7 +25412,7 @@
             "value" : "Could not read contents of cached Formulae downloads folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t read contents of cached Formulae downloads folder"
@@ -25495,7 +25495,7 @@
             "value" : "error.data-downloading.couldnt-execute-request.%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "error.data-downloading.couldnt-execute-request.%@"
@@ -25584,7 +25584,7 @@
             "value" : "Homebrew server returned the wrong response code: %lld"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew server returned the wrong response code: %lld"
@@ -25672,7 +25672,7 @@
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
@@ -25760,7 +25760,7 @@
             "value" : "The provided URL is not a valid Homebrew server URL"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The provided URL is not a valid Homebrew server URL"
@@ -25848,7 +25848,7 @@
             "value" : "No data received while fetching top packages from the Homebrew server"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No data received while fetching top packages from the Homebrew server"
@@ -25936,7 +25936,7 @@
             "value" : "Could not find the requested package in the parent folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not find the requested package in the parent folder"
@@ -26024,7 +26024,7 @@
             "value" : "An error occurred"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "An error occurred"
@@ -26112,7 +26112,7 @@
             "value" : "Could not decode JSON response from Homebrew:\n%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't decode JSON response from Homebrew:\n%@"
@@ -26200,7 +26200,7 @@
             "value" : "Could not convert JSON response from Homebrew to Data"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't convert JSON response from Homebrew to Data"
@@ -26288,7 +26288,7 @@
             "value" : "Invalid Homebrew response"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Invalid Homebrew response"
@@ -26376,7 +26376,7 @@
             "value" : "Could not execute intent"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t execute intent"
@@ -26464,7 +26464,7 @@
             "value" : "Could not convert the provided String to Data with error: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not convert the provided String to Data with error: %@"
@@ -26552,7 +26552,7 @@
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
@@ -26640,7 +26640,7 @@
             "value" : "Authorisation complex for license retrieval could not be encoded"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Authorization complex for license retrieval could not be encoded"
@@ -26728,7 +26728,7 @@
             "value" : "Could not connect to the internet. Cork will not be able to complete the licensing check"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not connect to the internet. Will not be able to complete the licensing check"
@@ -26816,7 +26816,7 @@
             "value" : "Unimplemented error occured while getting license status: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unimplemented error occured while getting license status: %@"
@@ -26904,7 +26904,7 @@
             "value" : "Checking for license status timed out"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Checking for license status timed out"
@@ -26992,7 +26992,7 @@
             "value" : "Cache purging failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cache purging failed"
@@ -27080,7 +27080,7 @@
             "value" : "Standard error not empty"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Standard error not empty"
@@ -27168,7 +27168,7 @@
             "value" : "Could not get the number of orphans uninstalled as a result of this operation"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not get the number of orphans uninstalled as a result of this operation"
@@ -27256,7 +27256,7 @@
             "value" : "Could not uninstall orphans: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not uninstall orphans: %@"
@@ -27344,7 +27344,7 @@
             "value" : "Unexpected terminal output of the orphan uninstallation function"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unexpected terminal output of the orphan uninstallation function"
@@ -27432,7 +27432,7 @@
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
@@ -27520,7 +27520,7 @@
             "value" : "HOME is not properly set in the Homebrew command"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "HOME is not properly set in the Homebrew command"
@@ -27608,7 +27608,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -27696,7 +27696,7 @@
             "value" : "An error occurred during the pinning process"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "An error occured during the pinning process"
@@ -27784,7 +27784,7 @@
             "value" : "Could not load package from JSON response from Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't load package from JSON response from Homebrew"
@@ -27872,7 +27872,7 @@
             "value" : "Package %@ does not have any versions installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package %@ does not have any versions installed"
@@ -27961,7 +27961,7 @@
             "value" : "%@ is not a package folder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ is not a package folder"
@@ -28050,7 +28050,7 @@
             "value" : "Could not load package %1$@ (%2$@):\n%3$@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't load package %1$@ (%2$@):\n%3$@"
@@ -28138,7 +28138,7 @@
             "value" : "Could not load Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t load Casks"
@@ -28226,7 +28226,7 @@
             "value" : "Could not load Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t load Formulae"
@@ -28314,7 +28314,7 @@
             "value" : "Could not load Taps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn’t load Taps"
@@ -28402,7 +28402,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -28490,7 +28490,7 @@
             "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
@@ -28578,7 +28578,7 @@
             "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
@@ -28666,7 +28666,7 @@
             "value" : "Homebrew did not respond"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew didn't respond"
@@ -28755,7 +28755,7 @@
             "value" : "Some packages were not loaded due to an internal error"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Some packages were not loaded due to an internal error"
@@ -28843,7 +28843,7 @@
             "value" : "Homebrew returned JSON with the following error:\n%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew returned JSON with the following error:\n%@"
@@ -28931,7 +28931,7 @@
             "value" : "Could not find any package with the provided UUID in the package tracker"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not find any package with the provided UUID in the package tracker"
@@ -29019,7 +29019,7 @@
             "value" : "Package synchronisation failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package synchronization failed"
@@ -29107,7 +29107,7 @@
             "value" : "Could not obtain access permissions to the specified folder: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not obtain access permissions to the specified folder: %@"
@@ -29195,7 +29195,7 @@
             "value" : "REGEX matched nothing"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "REGEX matched nothing"
@@ -29283,7 +29283,7 @@
             "value" : "Could not encode data: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not encode data: %@"
@@ -29371,7 +29371,7 @@
             "value" : "Homebrew outdated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew outdated"
@@ -29459,7 +29459,7 @@
             "value" : "Homebrew did not return any data"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew didn't return any data"
@@ -29547,7 +29547,7 @@
             "value" : "Unimplemented error: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unimplemented error: %@"
@@ -29635,7 +29635,7 @@
             "value" : "Parsing of services failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Parsing of services failed"
@@ -29723,7 +29723,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -29811,7 +29811,7 @@
             "value" : "Could not stop the service: %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not stop the service: %@"
@@ -29899,7 +29899,7 @@
             "value" : "Could not remove tap %1$@ with output: %2$@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not remove tap%1$@ with output: %2$@"
@@ -29987,7 +29987,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -30075,7 +30075,7 @@
             "value" : "%@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@"
@@ -30163,7 +30163,7 @@
             "value" : "Could not download top packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't download top packages"
@@ -30251,7 +30251,7 @@
             "value" : "The requested package was not found in the array, even though it should have been found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The requested package was not found in the array, even though it should have been found"
@@ -30339,7 +30339,7 @@
             "value" : "No"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No"
@@ -30427,7 +30427,7 @@
             "value" : "Tes"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Yes"
@@ -30515,7 +30515,7 @@
             "value" : "GutHub"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "GitHub"
@@ -30603,7 +30603,7 @@
             "value" : "Hello, World"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hello, World!"
@@ -30691,7 +30691,7 @@
             "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
@@ -30779,7 +30779,7 @@
             "value" : "Are you sure you want to hide the Adoptable Packages section?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to hide the Adoptable Packages section?"
@@ -30867,7 +30867,7 @@
             "value" : "homebrew/core"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "homebrew/core"
@@ -30955,7 +30955,7 @@
             "value" : "https://gitea.com/some-cool-address"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "https://gitea.com/some-cool-address"
@@ -31044,7 +31044,7 @@
             "value" : "Installing %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installing %@"
@@ -31132,7 +31132,7 @@
             "value" : "Get a list of installed Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get a list of installed Casks"
@@ -31220,7 +31220,7 @@
             "value" : "Get installed Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get installed Casks"
@@ -31308,7 +31308,7 @@
             "value" : "Get a list of installed Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get a list of installed Formulae"
@@ -31396,7 +31396,7 @@
             "value" : "Get installed Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get installed Formulae"
@@ -31484,7 +31484,7 @@
             "value" : "Get a list of installed Formulae and Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get a list of installed Formulae and Casks"
@@ -31572,7 +31572,7 @@
             "value" : "Load only manually installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Load only manually installed packages"
@@ -31660,7 +31660,7 @@
             "value" : "Get installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get installed packages"
@@ -31748,7 +31748,7 @@
             "value" : "Look for updates to installed Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Look for updates to installed Packages"
@@ -31836,7 +31836,7 @@
             "value" : "Package refreshing result"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package refreshing result"
@@ -31924,7 +31924,7 @@
             "value" : "Refreshing of packages failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Refreshing of packages failed"
@@ -32012,7 +32012,7 @@
             "value" : "Packages refreshed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages refreshed"
@@ -32100,7 +32100,7 @@
             "value" : "Packages refreshed with errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages refreshed with errors"
@@ -32188,7 +32188,7 @@
             "value" : "Refresh Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Refresh Packages"
@@ -32276,7 +32276,7 @@
             "value" : "Homebrew Package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew Package"
@@ -32364,7 +32364,7 @@
             "value" : "A lightweight representation of a package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "A lightweight representation of a package"
@@ -32452,7 +32452,7 @@
             "value" : "Thank you for supporting Cork!"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Thank you for supporting Cork!"
@@ -32540,7 +32540,7 @@
             "value" : "License Activated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "License Activated"
@@ -32628,7 +32628,7 @@
             "value" : "In Demo Mode"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "In Demo Mode"
@@ -32716,7 +32716,7 @@
             "value" : "The demo is available until %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The demo is available until %@"
@@ -32804,7 +32804,7 @@
             "value" : "Email you bought Cork with:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Email you bought Cork with:"
@@ -32892,7 +32892,7 @@
             "value" : "dev@corkmac.app"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "dev@corkmac.app"
@@ -32980,7 +32980,7 @@
             "value" : "Email not found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Email not found"
@@ -33068,7 +33068,7 @@
             "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You can buy Cork using the button below, or by visiting the [website](https://corkmac.app).\nNot sure if Cork is right for you? Try the demo, which is limited to 7 days."
@@ -33156,7 +33156,7 @@
             "value" : "Thank you for checking out Cork!"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Thank you for checking out Cork!"
@@ -33244,7 +33244,7 @@
             "value" : "for 25€"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "for 25€"
@@ -33332,7 +33332,7 @@
             "value" : "If you would like to support the development of my apps, consider [buying Cork](https://corkmac.app)"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "If you'd like to support the development of my apps, consider [buying Cork](https://corkmac.app)"
@@ -33420,7 +33420,7 @@
             "value" : "You have compiled Cork yourself"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You have compiled Cork yourself"
@@ -33508,7 +33508,7 @@
             "value" : "License…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "License…"
@@ -33596,7 +33596,7 @@
             "value" : "Loading info…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading info…"
@@ -33684,7 +33684,7 @@
             "value" : "Loading top packages… "
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading top packages… "
@@ -33772,7 +33772,7 @@
             "value" : "Main Window"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Main Window"
@@ -33860,7 +33860,7 @@
             "value" : "Maintenance finished"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Maintenance finished"
@@ -33948,7 +33948,7 @@
             "value" : "Cached downloads deleted"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cached downloads deleted"
@@ -34036,7 +34036,7 @@
             "value" : "You reclaimed %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You reclaimed %@"
@@ -34124,7 +34124,7 @@
             "value" : "Found some problems with Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Found some problems with Homebrew"
@@ -34212,7 +34212,7 @@
             "value" : "No problems with Homebrew found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No problems with Homebrew found"
@@ -34385,7 +34385,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -34659,7 +34659,7 @@
             "value" : "Orphaned packages uninstalled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Orphaned packages uninstalled"
@@ -34747,7 +34747,7 @@
             "value" : "Could not uninstall orphaned packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't uninstall orphaned packages"
@@ -34835,7 +34835,7 @@
             "value" : "Error %@ occurred"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Error %@ occurred"
@@ -34923,7 +34923,7 @@
             "value" : "Package cache purged"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package cache purged"
@@ -35011,7 +35011,7 @@
             "value" : "Could not purge package cache"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't purge package cache"
@@ -35099,7 +35099,7 @@
             "value" : "Error %@ occurred"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Error %@ occurred"
@@ -35188,7 +35188,7 @@
             "value" : "Some caches were not purged because of %@ not being updated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Some caches weren't purged because of %@ not being updated"
@@ -35337,7 +35337,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -35551,7 +35551,7 @@
             "value" : "Deleting cached downloads…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Deleting cached downloads…"
@@ -35640,7 +35640,7 @@
             "value" : "Firing up…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Firing up…"
@@ -35728,7 +35728,7 @@
             "value" : "Purging cache…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Purging cache…"
@@ -35816,7 +35816,7 @@
             "value" : "Uninstalling orphans…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Uninstalling orphans…"
@@ -35904,7 +35904,7 @@
             "value" : "Running health check…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Running health check…"
@@ -35992,7 +35992,7 @@
             "value" : "Downloads:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Downloads:"
@@ -36080,7 +36080,7 @@
             "value" : "Delete cached downloads"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete cached downloads"
@@ -36168,7 +36168,7 @@
             "value" : "Purge Homebrew cache"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Purge Homebrew cache"
@@ -36256,7 +36256,7 @@
             "value" : "Other:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Other:"
@@ -36344,7 +36344,7 @@
             "value" : "Perform health check"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Perform health check"
@@ -36432,7 +36432,7 @@
             "value" : "Packages:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages:"
@@ -36520,7 +36520,7 @@
             "value" : "Uninstall orphaned packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Uninstall orphaned packages"
@@ -36608,7 +36608,7 @@
             "value" : "Start"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Start"
@@ -36697,7 +36697,7 @@
             "value" : "Maintenance"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Maintenance"
@@ -36786,7 +36786,7 @@
             "value" : "Adding apps failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adding apps failed"
@@ -36875,7 +36875,7 @@
             "value" : "Details"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Details"
@@ -36964,7 +36964,7 @@
             "value" : "There were errors when adding the selected apps to Homebrew."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were errors when adding the selected apps to Homebrew."
@@ -37053,7 +37053,7 @@
             "value" : "All selected apps were added to Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "All selected apps were added to Homebrew"
@@ -37142,7 +37142,7 @@
             "value" : "You can now update the added apps through Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You can now update the added apps through Homebrew"
@@ -37231,7 +37231,7 @@
             "value" : "Adding some apps failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Adding some apps failed"
@@ -37320,7 +37320,7 @@
             "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
@@ -37409,7 +37409,7 @@
             "value" : "App adoption"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "App adoption"
@@ -37498,7 +37498,7 @@
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
@@ -37587,7 +37587,7 @@
             "value" : "Open Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Open Cork"
@@ -37675,7 +37675,7 @@
             "value" : "Try again, or restart Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try again, or restart Cork"
@@ -37763,7 +37763,7 @@
             "value" : "%@\nTry again, or restart Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@\nTry again, or restart Cork"
@@ -37852,7 +37852,7 @@
             "value" : "About Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "About Cork"
@@ -37941,7 +37941,7 @@
             "value" : "Add Tap"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add Tap"
@@ -38030,7 +38030,7 @@
             "value" : "Add a new tap"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add a new tap"
@@ -38118,7 +38118,7 @@
             "value" : "Install Package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install Package"
@@ -38207,7 +38207,7 @@
             "value" : "Install Package Directly"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install Package Directly"
@@ -38296,7 +38296,7 @@
             "value" : "Install a package by name, bypassing search"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install a package by name, bypassing search"
@@ -38384,7 +38384,7 @@
             "value" : "Install a new package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install a new package"
@@ -38532,7 +38532,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -38746,7 +38746,7 @@
             "value" : "Perform Homebrew cleanup tasks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Perform Homebrew cleanup tasks"
@@ -38834,7 +38834,7 @@
             "value" : "Manage Services…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Manage Services…"
@@ -38922,7 +38922,7 @@
             "value" : "Manage Services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Manage Services"
@@ -39010,7 +39010,7 @@
             "value" : "Export Homebrew Backup…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Export Homebrew Backup…"
@@ -39098,7 +39098,7 @@
             "value" : "Restore from Backup…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Restore from Backup…"
@@ -39186,7 +39186,7 @@
             "value" : "Maintenance"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Maintenance"
@@ -39275,7 +39275,7 @@
             "value" : "Delete Cached Downloads"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete Cached Downloads"
@@ -39363,7 +39363,7 @@
             "value" : "No cached downloads to delete"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No cached downloads to delete"
@@ -39451,7 +39451,7 @@
             "value" : "Perform Maintenance…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Perform Maintenance…"
@@ -39539,7 +39539,7 @@
             "value" : "Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages"
@@ -39627,7 +39627,7 @@
             "value" : "Add a Tap…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add a Tap…"
@@ -39715,7 +39715,7 @@
             "value" : "Install Packages…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Install Packages…"
@@ -39803,7 +39803,7 @@
             "value" : "Update Packages…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update Packages…"
@@ -39891,7 +39891,7 @@
             "value" : "Search"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Search"
@@ -39979,7 +39979,7 @@
             "value" : "Services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Services"
@@ -40067,7 +40067,7 @@
             "value" : "Open Services Manager…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Open Services Manager…"
@@ -40155,7 +40155,7 @@
             "value" : "Update Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update Packages"
@@ -40243,7 +40243,7 @@
             "value" : "Update installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update installed packages"
@@ -40331,7 +40331,7 @@
             "value" : "Installation process finished"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installation process finished"
@@ -40419,7 +40419,7 @@
             "value" : "New outdated package"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "New outdated package"
@@ -40568,7 +40568,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -40783,7 +40783,7 @@
             "value" : "Found outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Found outdated packages"
@@ -40872,7 +40872,7 @@
             "value" : "Updates failed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updates failed"
@@ -40960,7 +40960,7 @@
             "value" : "Packages updated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages updated"
@@ -41048,7 +41048,7 @@
             "value" : "There were some errors during updating"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were some errors during updating"
@@ -41136,7 +41136,7 @@
             "value" : "Updating packages…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updating packages…"
@@ -41224,7 +41224,7 @@
             "value" : "All optional features enabled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "All optional features enabled"
@@ -41312,7 +41312,7 @@
             "value" : "Basic Features"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Basic Features"
@@ -41400,7 +41400,7 @@
             "value" : "Discoverability"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Discoverability"
@@ -41488,7 +41488,7 @@
             "value" : "Extra Features"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Extra Features"
@@ -41576,7 +41576,7 @@
             "value" : "Package Features"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package Features"
@@ -41664,7 +41664,7 @@
             "value" : "Tap Features"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap Features"
@@ -41752,7 +41752,7 @@
             "value" : "Package compatibility checking"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package compatibility checking"
@@ -41840,7 +41840,7 @@
             "value" : "More info about dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "More info about dependencies"
@@ -41928,7 +41928,7 @@
             "value" : "Searching through package dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Searching through package dependencies"
@@ -42016,7 +42016,7 @@
             "value" : "Full package caveats"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Full package caveats"
@@ -42104,7 +42104,7 @@
             "value" : "Find popular packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Find popular packages"
@@ -42192,7 +42192,7 @@
             "value" : "Homebrew maintenance"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew maintenance"
@@ -42280,7 +42280,7 @@
             "value" : "Quick actions in Menu Bar"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Quick actions in Menu Bar"
@@ -42368,7 +42368,7 @@
             "value" : "Notifications about various actions"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Notifications about various actions"
@@ -42456,7 +42456,7 @@
             "value" : "Show detailed info about outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show detailed info about outdated packages"
@@ -42544,7 +42544,7 @@
             "value" : "Show basic info about outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show basic info about outdated packages"
@@ -42632,7 +42632,7 @@
             "value" : "Show version info about outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show versions in info about outdated packages"
@@ -42720,7 +42720,7 @@
             "value" : "Package descriptions in search"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package descriptions in search"
@@ -42808,7 +42808,7 @@
             "value" : "Package details"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package details"
@@ -42896,7 +42896,7 @@
             "value" : "Package purging"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package purging"
@@ -42984,7 +42984,7 @@
             "value" : "Revealing packages in Finder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Revealing packages in Finder"
@@ -43072,7 +43072,7 @@
             "value" : "Searching through installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Searching through installed packages"
@@ -43160,7 +43160,7 @@
             "value" : "Package searching"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package searching"
@@ -43248,7 +43248,7 @@
             "value" : "Show all packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show all packages"
@@ -43336,7 +43336,7 @@
             "value" : "Show manually installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show manually installed packages"
@@ -43424,7 +43424,7 @@
             "value" : "Package tagging"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package tagging"
@@ -43512,7 +43512,7 @@
             "value" : "Tap details"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap details"
@@ -43601,7 +43601,7 @@
             "value" : "Hide details about"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hide details about"
@@ -43689,7 +43689,7 @@
             "value" : "You can always customise your experience in the Settings"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You can always customize your experience in the Settings"
@@ -43778,7 +43778,7 @@
             "value" : "Show details about"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show details about"
@@ -43866,7 +43866,7 @@
             "value" : "Show Onboarding…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show Onboarding…"
@@ -43954,7 +43954,7 @@
             "value" : "Say hello to the world's apps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Say hello to the world's apps"
@@ -44042,7 +44042,7 @@
             "value" : "Welcome to the future of Homebrew!"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Welcome to the future of Homebrew!"
@@ -44132,7 +44132,7 @@
             "value" : "Disable adoption"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Disable adoption"
@@ -44220,7 +44220,7 @@
             "value" : "This action cannot be undone"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This action cannot be undone"
@@ -44309,7 +44309,7 @@
             "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
@@ -44397,7 +44397,7 @@
             "value" : "Pin to version %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Pin to version %@"
@@ -44485,7 +44485,7 @@
             "value" : "Unpin from version %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unpin from version %@"
@@ -44573,7 +44573,7 @@
             "value" : "􀓕 Has caveats…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀓕 Has caveats…"
@@ -44661,7 +44661,7 @@
             "value" : "Collapse"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Collapse"
@@ -44749,7 +44749,7 @@
             "value" : "Expand"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Expand"
@@ -44837,7 +44837,7 @@
             "value" : "Click to see caveats"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Click to see caveats"
@@ -44925,7 +44925,7 @@
             "value" : "Loading package info…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading package info…"
@@ -45013,7 +45013,7 @@
             "value" : "Dependency of %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Dependency of %@"
@@ -45101,7 +45101,7 @@
             "value" : "Loading Dependants…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading Dependants…"
@@ -45189,7 +45189,7 @@
             "value" : "Dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Dependencies"
@@ -45277,7 +45277,7 @@
             "value" : "Declaration Type"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Declaration Type"
@@ -45365,7 +45365,7 @@
             "value" : "Direct"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Direct"
@@ -45453,7 +45453,7 @@
             "value" : "Indirect"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Indirect"
@@ -45541,7 +45541,7 @@
             "value" : "Name"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Name"
@@ -45629,7 +45629,7 @@
             "value" : "Version"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Version"
@@ -45718,7 +45718,7 @@
             "value" : "Dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Dependencies"
@@ -45806,7 +45806,7 @@
             "value" : "This package is depreciated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This package is deprecated"
@@ -45894,7 +45894,7 @@
             "value" : "􀇿 Depreciated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀇿 Deprecated"
@@ -45982,7 +45982,7 @@
             "value" : "􀇿 Depreciated…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀇿 Deprecated…"
@@ -46070,7 +46070,7 @@
             "value" : "Homepage"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homepage"
@@ -46158,7 +46158,7 @@
             "value" : "Info"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Info"
@@ -46246,7 +46246,7 @@
             "value" : "Installed On"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed On"
@@ -46335,7 +46335,7 @@
             "value" : "Installed As"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed As"
@@ -46423,7 +46423,7 @@
             "value" : "Notes"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Notes"
@@ -46511,7 +46511,7 @@
             "value" : "Outdated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Outdated"
@@ -46600,7 +46600,7 @@
             "value" : "%@ is pinned. It will not be updated."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ is pinned. It will not be updated."
@@ -46688,7 +46688,7 @@
             "value" : "Size"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Size"
@@ -46777,7 +46777,7 @@
             "value" : "Why is the size so small?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Why is the size so small?"
@@ -46866,7 +46866,7 @@
             "value" : "Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Casks are not installed into the same installation directory as Formulae. Casks are installed into the Applications directory."
@@ -46955,7 +46955,7 @@
             "value" : "Sometimes, Cork might not have access to the actual app. In that case, the size of the folder containing a link to the app is calculated."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sometimes, Cork might not have access to the actual app. In that case, the size of the folder containing a link to the app is calculated."
@@ -47043,7 +47043,7 @@
             "value" : "Type"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Type"
@@ -47131,7 +47131,7 @@
             "value" : "Cask"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cask"
@@ -47219,7 +47219,7 @@
             "value" : "Formula"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Formula"
@@ -47307,7 +47307,7 @@
             "value" : "Preview"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Preview"
@@ -47395,7 +47395,7 @@
             "value" : "This might take a long time…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This might take a long time…"
@@ -47484,7 +47484,7 @@
             "value" : "Repairing %@…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Repairing %@…"
@@ -47572,7 +47572,7 @@
             "value" : "%@ was repaired"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ was repaired"
@@ -47660,7 +47660,7 @@
             "value" : "No further problems were found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No further problems were found"
@@ -47748,7 +47748,7 @@
             "value" : "Cask"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cask"
@@ -47837,7 +47837,7 @@
             "value" : "Formula"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Formula"
@@ -47925,7 +47925,7 @@
             "value" : "Manually Installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Manually Installed"
@@ -48014,7 +48014,7 @@
             "value" : "Tagged Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tagged Packages"
@@ -48102,7 +48102,7 @@
             "value" : "Tap"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap"
@@ -48190,7 +48190,7 @@
             "value" : "Loading service info…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading service info…"
@@ -48338,7 +48338,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -48552,7 +48552,7 @@
             "value" : "These services are running normally"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "These services are running normally"
@@ -48700,7 +48700,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -48914,7 +48914,7 @@
             "value" : "These services either crashed, or could not be started at all"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "These services either crashed, or could not be started at all"
@@ -49062,7 +49062,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -49276,7 +49276,7 @@
             "value" : "These services are not currently running"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "These services are not currently running"
@@ -49364,7 +49364,7 @@
             "value" : "Loading services…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading services…"
@@ -49452,7 +49452,7 @@
             "value" : "No services found"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No services found"
@@ -49540,7 +49540,7 @@
             "value" : "Services Status"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Services Status"
@@ -49688,7 +49688,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -49902,7 +49902,7 @@
             "value" : "The status of these services could not be determined"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The status of these services could not be determined"
@@ -49990,7 +49990,7 @@
             "value" : "Error Log Location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Error Log Location"
@@ -50078,7 +50078,7 @@
             "value" : "Exit Code"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Exit Code"
@@ -50166,7 +50166,7 @@
             "value" : "Is Loaded"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Is Loaded"
@@ -50254,7 +50254,7 @@
             "value" : "Location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Location"
@@ -50342,7 +50342,7 @@
             "value" : "Log Location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Log Location"
@@ -50430,7 +50430,7 @@
             "value" : "Root Location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Root Location"
@@ -50518,7 +50518,7 @@
             "value" : "Schedulable "
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Schedulable"
@@ -50606,7 +50606,7 @@
             "value" : "Start %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Start %@"
@@ -50694,7 +50694,7 @@
             "value" : "Status"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Status"
@@ -50782,7 +50782,7 @@
             "value" : "Stop %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Stop %@"
@@ -50870,7 +50870,7 @@
             "value" : "User"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "User"
@@ -50958,7 +50958,7 @@
             "value" : "Services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Services"
@@ -51106,7 +51106,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -51320,7 +51320,7 @@
             "value" : "Could not load services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not load services"
@@ -51408,7 +51408,7 @@
             "value" : "Could not start %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not start %@"
@@ -51496,7 +51496,7 @@
             "value" : "Could not stop %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not stop %@"
@@ -51584,7 +51584,7 @@
             "value" : "Could not synchronise services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Could not synchronize services"
@@ -51672,7 +51672,7 @@
             "value" : "Homebrew is out of date"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew is out of date"
@@ -51760,7 +51760,7 @@
             "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that does not work, update through the Terminal."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that doesn't work, update through the Terminal."
@@ -51848,7 +51848,7 @@
             "value" : "This service must be started as root"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "This service must be started as root"
@@ -51936,7 +51936,7 @@
             "value" : "Errored Out"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Errored Out"
@@ -52024,7 +52024,7 @@
             "value" : "None"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "None"
@@ -52112,7 +52112,7 @@
             "value" : "Other"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Other"
@@ -52200,7 +52200,7 @@
             "value" : "Scheduled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Scheduled"
@@ -52288,7 +52288,7 @@
             "value" : "Started"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Started"
@@ -52376,7 +52376,7 @@
             "value" : "Stopped"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Stopped"
@@ -52464,7 +52464,7 @@
             "value" : "Unknown"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unknown"
@@ -52552,7 +52552,7 @@
             "value" : "Homebrew Services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew Services"
@@ -52641,7 +52641,7 @@
             "value" : "Analytics:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Analytics:"
@@ -52729,7 +52729,7 @@
             "value" : "Collect analytics"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Collect analytics"
@@ -52817,7 +52817,7 @@
             "value" : "Homebrew location:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew location:"
@@ -52905,7 +52905,7 @@
             "value" : "Set Custom Location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Set Custom Location"
@@ -52993,7 +52993,7 @@
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Custom Homebrew locations are not officially supported.\nIf you have a custom Homebrew location selected, you will not get any support for Cork or Homebrew.\nIf you select a custom Homebrew location, you will be solely responsible for maintaining your Homebrew installation."
@@ -53081,7 +53081,7 @@
             "value" : "Are you sure you want to set a custom Homebrew location?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to set a custom Homebrew location?"
@@ -53169,7 +53169,7 @@
             "value" : "%@ is not a Homebrew executable."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ is not a Homebrew executable."
@@ -53257,7 +53257,7 @@
             "value" : "The selected file is not an executable."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "The selected file is not an executable."
@@ -53345,7 +53345,7 @@
             "value" : "Reset location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Reset location"
@@ -53433,7 +53433,7 @@
             "value" : "Select custom location"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Select custom location"
@@ -53521,7 +53521,7 @@
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No support for Cork will be provided as long as Developer settings are enabled"
@@ -53609,7 +53609,7 @@
             "value" : "Enable developer settings"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable developer settings"
@@ -53697,7 +53697,7 @@
             "value" : "Error checking:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Error checking:"
@@ -53785,7 +53785,7 @@
             "value" : "Strictly check for Homebrew errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Strictly check for Homebrew errors"
@@ -53873,7 +53873,7 @@
             "value" : "Advanced:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Advanced:"
@@ -53961,7 +53961,7 @@
             "value" : "Discoverability"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Discoverability"
@@ -54050,7 +54050,7 @@
             "value" : "Hide when all adoptable apps are excluded"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Hide when all adoptable apps are excluded"
@@ -54138,7 +54138,7 @@
             "value" : "App adoption:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "App adoption:"
@@ -54227,7 +54227,7 @@
             "value" : "Find external apps that can be added to Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Find external apps that can be added to Homebrew"
@@ -54315,7 +54315,7 @@
             "value" : "Sort top packages by:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sort top packages by:"
@@ -54404,7 +54404,7 @@
             "value" : "Fewest downloads"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fewest downloads"
@@ -54493,7 +54493,7 @@
             "value" : "Most downloads"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Most downloads"
@@ -54582,7 +54582,7 @@
             "value" : "Random"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Random"
@@ -54670,7 +54670,7 @@
             "value" : "Get top packages for:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Get top packages for:"
@@ -54759,7 +54759,7 @@
             "value" : "Last month"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Last month"
@@ -54848,7 +54848,7 @@
             "value" : "Last three months"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Last three months"
@@ -54937,7 +54937,7 @@
             "value" : "Last year"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Last year"
@@ -55026,7 +55026,7 @@
             "value" : "Enable Discoverability"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable Discoverability"
@@ -55114,7 +55114,7 @@
             "value" : "Enable extra animations"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable extra animations"
@@ -55203,7 +55203,7 @@
             "value" : "General"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "General"
@@ -55291,7 +55291,7 @@
             "value" : "Backup date format:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Backup date format:"
@@ -55379,7 +55379,7 @@
             "value" : "Abbreviated"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Abbreviated"
@@ -55467,7 +55467,7 @@
             "value" : "Complete"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
@@ -55555,7 +55555,7 @@
             "value" : "Long"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Long"
@@ -55643,7 +55643,7 @@
             "value" : "Numeric"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Numeric"
@@ -55731,7 +55731,7 @@
             "value" : "Omitted"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Omitted"
@@ -55819,7 +55819,7 @@
             "value" : "Dependencies:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Dependencies:"
@@ -55907,7 +55907,7 @@
             "value" : "Show more info about dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show more info about dependencies"
@@ -55995,7 +55995,7 @@
             "value" : "Package filtering:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package filtering:"
@@ -56083,7 +56083,7 @@
             "value" : "Show all packages, including dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show all packages, including dependencies"
@@ -56171,7 +56171,7 @@
             "value" : "Show only manually installed packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show only manually installed packages"
@@ -56259,7 +56259,7 @@
             "value" : "Automatic startup:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Automatic startup:"
@@ -56348,7 +56348,7 @@
             "value" : "Open at login"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Open at login"
@@ -56436,7 +56436,7 @@
             "value" : "Menu Bar:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Menu Bar:"
@@ -56524,7 +56524,7 @@
             "value" : "Show in Menu Bar"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show in Menu Bar"
@@ -56612,7 +56612,7 @@
             "value" : "Outdated package info:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Outdated package info:"
@@ -56700,7 +56700,7 @@
             "value" : "Show old versions"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show old versions"
@@ -56789,7 +56789,7 @@
             "value" : "Complete"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
@@ -56878,7 +56878,7 @@
             "value" : "Minimal"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Minimal"
@@ -56967,7 +56967,7 @@
             "value" : "Versions only"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Versions only"
@@ -57055,7 +57055,7 @@
             "value" : "Outdated packages:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Outdated packages:"
@@ -57144,7 +57144,7 @@
             "value" : "Package caveats:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package caveats:"
@@ -57232,7 +57232,7 @@
             "value" : "Full"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Full"
@@ -57320,7 +57320,7 @@
             "value" : "Minified"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Minified"
@@ -57408,7 +57408,7 @@
             "value" : "􀅴 Click on the \"Has caveats\" pill to see the caveats"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀅴 Click on the \"Has caveats\" pill to see the caveats"
@@ -57496,7 +57496,7 @@
             "value" : "Package details:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package details:"
@@ -57584,7 +57584,7 @@
             "value" : "Enable swipe actions"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable swipe actions"
@@ -57672,7 +57672,7 @@
             "value" : "Allow revealing packages in Finder"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Allow revealing packages in Finder"
@@ -57760,7 +57760,7 @@
             "value" : "Show search field for dependencies"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show search field for dependencies"
@@ -57848,7 +57848,7 @@
             "value" : "Package notes:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package notes:"
@@ -57936,7 +57936,7 @@
             "value" : "Search results:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Search results:"
@@ -58024,7 +58024,7 @@
             "value" : "Show package descriptions"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show package descriptions"
@@ -58113,7 +58113,7 @@
             "value" : "Sort packages by:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sort packages by:"
@@ -58202,7 +58202,7 @@
             "value" : "Name"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Name"
@@ -58291,7 +58291,7 @@
             "value" : "Installation Date"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installation Date"
@@ -58380,7 +58380,7 @@
             "value" : "Size"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Size"
@@ -58468,7 +58468,7 @@
             "value" : "Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew"
@@ -58556,7 +58556,7 @@
             "value" : "Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages"
@@ -58645,7 +58645,7 @@
             "value" : "Compatibility:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Compatibility:"
@@ -58734,7 +58734,7 @@
             "value" : "Check package compatibility"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Check package compatibility"
@@ -58822,7 +58822,7 @@
             "value" : "Show packages not managed by Homebrew"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show packages not managed by Homebrew"
@@ -58912,7 +58912,7 @@
             "value" : "Installation:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installation:"
@@ -59001,7 +59001,7 @@
             "value" : "Automatically accept package EULAs"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Automatically accept package EULAs"
@@ -59089,7 +59089,7 @@
             "value" : "Clean up after old packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Clean up after old packages"
@@ -59177,7 +59177,7 @@
             "value" : "Disable Automatic Cleanup"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Disable Automatic Cleanup"
@@ -59265,7 +59265,7 @@
             "value" : "Disabling automatic cleanups might break your Homebrew installation."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Disabling automatic cleanups might break your Homebrew installation."
@@ -59353,7 +59353,7 @@
             "value" : "Are you sure you want to disable automatic cleanups?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Are you sure you want to disable automatic cleanups?"
@@ -59441,7 +59441,7 @@
             "value" : "Disabling cleanup makes installing packages faster,\nbut makes Homebrew slower overall. \nDisabling this option might break your Homebrew installation.\nThis option also controls automatic cleanups that occur\nafter you have not used Homebrew for more than 30 days."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Disabling cleanup makes installing packages faster,\nbut makes Homebrew slower overall. \nDisabling this option might break your Homebrew installation.\nThis option also controls automatic cleanups that occur\nafter you have not used Homebrew for more than 30 days."
@@ -59530,7 +59530,7 @@
             "value" : "Show list of packages currently being installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show list of packages currently being installed"
@@ -59618,7 +59618,7 @@
             "value" : "Package removal:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Package removal:"
@@ -59706,7 +59706,7 @@
             "value" : "Require confirmation when removing packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Require confirmation when removing packages"
@@ -59795,7 +59795,7 @@
             "value" : "Uninstallation:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Uninstallation:"
@@ -59883,7 +59883,7 @@
             "value" : "Enable package purging"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable package purging"
@@ -59971,7 +59971,7 @@
             "value" : "Purging may break your other packages.\nAre you sure you want to continue?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Purging may break your other packages.\nAre you sure you want to continue?"
@@ -60059,7 +60059,7 @@
             "value" : "Enable Package Purging"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable Package Purging"
@@ -60147,7 +60147,7 @@
             "value" : "Allow purging packages?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Allow purging packages?"
@@ -60235,7 +60235,7 @@
             "value" : "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Purging removes all files associated with a package.\nThis can remove shared files and break your other packages."
@@ -60324,7 +60324,7 @@
             "value" : "Purge cache after uninstalling packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Purge cache after uninstalling packages"
@@ -60413,7 +60413,7 @@
             "value" : "Remove orphans after uninstalling packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Remove orphans after uninstalling packages"
@@ -60501,7 +60501,7 @@
             "value" : "Show real-time outputs of operations"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show real-time outputs of operations"
@@ -60589,7 +60589,7 @@
             "value" : "Show real-time outputs by default"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Show real-time outputs by default"
@@ -60677,7 +60677,7 @@
             "value" : "Maintenance"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Maintenance"
@@ -60766,7 +60766,7 @@
             "value" : "Set default steps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Set default steps"
@@ -60855,7 +60855,7 @@
             "value" : "Notifications"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Notifications"
@@ -60943,7 +60943,7 @@
             "value" : "Enable notifications"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Enable notifications"
@@ -61031,7 +61031,7 @@
             "value" : "Notifications will get shown only when Cork is not the active window"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Notifications will get shown only when Cork is not the active window"
@@ -61119,7 +61119,7 @@
             "value" : "􀅴 Enable notifications for Cork in System Settings"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀅴 Enable notifications for Cork in System Settings"
@@ -61207,7 +61207,7 @@
             "value" : "Installation results"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installation results"
@@ -61296,7 +61296,7 @@
             "value" : "App adoption results"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "App adoption results"
@@ -61384,7 +61384,7 @@
             "value" : "Update results"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update results"
@@ -61472,7 +61472,7 @@
             "value" : "Notify about:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Notify about:"
@@ -61560,7 +61560,7 @@
             "value" : "Outdated packages alert type:"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Outdated packages alert type:"
@@ -61648,7 +61648,7 @@
             "value" : "Badge"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Badge"
@@ -61736,7 +61736,7 @@
             "value" : "Badge and Notification"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Badge and Notification"
@@ -61824,7 +61824,7 @@
             "value" : "None"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "None"
@@ -61912,7 +61912,7 @@
             "value" : "Notification"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Notification"
@@ -62000,7 +62000,7 @@
             "value" : "Advanced"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Advanced"
@@ -62088,7 +62088,7 @@
             "value" : "Basic"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Basic"
@@ -62176,7 +62176,7 @@
             "value" : "Balanced"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Balanced"
@@ -62264,7 +62264,7 @@
             "value" : "Slightly Advanced"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Slightly Advanced"
@@ -62352,7 +62352,7 @@
             "value" : "Slightly Basic"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Slightly Basic"
@@ -62440,7 +62440,7 @@
             "value" : "How would you like to experience Cork?"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "How would you like to experience Cork?"
@@ -62529,7 +62529,7 @@
             "value" : "Installed Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed Packages"
@@ -62617,7 +62617,7 @@
             "value" : "Added Taps"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Added Taps"
@@ -62705,7 +62705,7 @@
             "value" : "Remove %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Remove %@"
@@ -62794,7 +62794,7 @@
             "value" : "Try again in a few minutes, or restart Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Try again in a few minutes, or restart Cork"
@@ -62882,7 +62882,7 @@
             "value" : "Could not remove %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't remove %@"
@@ -62970,7 +62970,7 @@
             "value" : "Tag %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tag %@"
@@ -63058,7 +63058,7 @@
             "value" : "Untag %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Untag %@"
@@ -63146,7 +63146,7 @@
             "value" : "Installed Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed Casks"
@@ -63234,7 +63234,7 @@
             "value" : "Installed Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed Formulae"
@@ -63322,7 +63322,7 @@
             "value" : "No Casks installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No Casks installed"
@@ -63410,7 +63410,7 @@
             "value" : "No Formulae installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No Formulae installed"
@@ -63559,7 +63559,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -63773,7 +63773,7 @@
             "value" : "Taps provide additional packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Taps provide additional packages"
@@ -63922,7 +63922,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -64137,7 +64137,7 @@
             "value" : "There are %1$lld installed apps -excluded.%2$lld"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There are %1$lld installed apps -excluded.%2$lld"
@@ -64286,7 +64286,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -64560,7 +64560,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -64774,7 +64774,7 @@
             "value" : "Homebrew analytics are disabled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew analytics are disabled"
@@ -64862,7 +64862,7 @@
             "value" : "Homebrew is not collecting any data about how you use it"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew is not collecting any data about how you use it"
@@ -64950,7 +64950,7 @@
             "value" : "Homebrew analytics are enabled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew analytics are enabled"
@@ -65038,7 +65038,7 @@
             "value" : "Homebrew is collecting various anonymised data, such as which packages you have installed"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew is collecting various anonymized data, such as which packages you have installed"
@@ -65126,7 +65126,7 @@
             "value" : "You have %@ of cached downloads"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You have %@ of cached downloads"
@@ -65214,7 +65214,7 @@
             "value" : "Delete Cached Downloads…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete Cached Downloads…"
@@ -65302,7 +65302,7 @@
             "value" : "These files are leftovers from completed package installations. They are safe to remove."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "These files are leftovers from completed package installations. They're safe to remove."
@@ -65390,7 +65390,7 @@
             "value" : "Others"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Others"
@@ -65478,7 +65478,7 @@
             "value" : "Cached Download Size"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cached Download Size"
@@ -65627,7 +65627,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -65841,7 +65841,7 @@
             "value" : "Casks are packages that have graphical windows"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Casks are packages that have graphical windows"
@@ -65990,7 +65990,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -66204,7 +66204,7 @@
             "value" : "Formulae are packages that you use through a terminal"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Formulae are packages that you use through a terminal"
@@ -66293,7 +66293,7 @@
             "value" : "Loading Packages…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading Packages…"
@@ -66381,7 +66381,7 @@
             "value" : "Could not check for outdated packges"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Couldn't check for outdated packges"
@@ -66469,7 +66469,7 @@
             "value" : "Brew Maintenance…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Brew Maintenance…"
@@ -66557,7 +66557,7 @@
             "value" : "Homebrew Status"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homebrew Status"
@@ -66705,7 +66705,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -66979,7 +66979,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -67254,7 +67254,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -67468,7 +67468,7 @@
             "value" : "Deselect All"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Deselect All"
@@ -67556,7 +67556,7 @@
             "value" : "Select All"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Select All"
@@ -67644,7 +67644,7 @@
             "value" : "Update"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Update"
@@ -67793,7 +67793,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -68007,7 +68007,7 @@
             "value" : "Installed Version"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Installed Version"
@@ -68095,7 +68095,7 @@
             "value" : "Outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Outdated packages"
@@ -68183,7 +68183,7 @@
             "value" : "Checking for package updates…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Checking for package updates…"
@@ -68271,7 +68271,7 @@
             "value" : "Newest Version"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Newest Version"
@@ -68419,7 +68419,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -68693,7 +68693,7 @@
             }
           }
         },
-        "es" : {
+        "es-419" : {
           "variations" : {
             "plural" : {
               "one" : {
@@ -68907,7 +68907,7 @@
             "value" : "Unmanaged outdated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Unmanaged outdated packages"
@@ -68995,7 +68995,7 @@
             "value" : "Disabled"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Disabled"
@@ -69083,7 +69083,7 @@
             "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
@@ -69171,7 +69171,7 @@
             "value" : "Updating through the Terminal"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updating through the Terminal"
@@ -69259,7 +69259,7 @@
             "value" : "Tap"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tap"
@@ -69347,7 +69347,7 @@
             "value" : "Contents"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Contents"
@@ -69435,7 +69435,7 @@
             "value" : "Mostly Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Mostly Casks"
@@ -69523,7 +69523,7 @@
             "value" : "Only Casks"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Only Casks"
@@ -69611,7 +69611,7 @@
             "value" : "Mostly Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Mostly Formulae"
@@ -69699,7 +69699,7 @@
             "value" : "Only Formulae"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Only Formulae"
@@ -69787,7 +69787,7 @@
             "value" : "None"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "None"
@@ -69875,7 +69875,7 @@
             "value" : "Homepage"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Homepage"
@@ -69963,7 +69963,7 @@
             "value" : "Casks Included"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Casks Included"
@@ -70051,7 +70051,7 @@
             "value" : "Formulae Included"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Formulae Included"
@@ -70140,7 +70140,7 @@
             "value" : "Included Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Included Packages"
@@ -70228,7 +70228,7 @@
             "value" : "Info"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Info"
@@ -70316,7 +70316,7 @@
             "value" : "Loading tap info…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Loading tap info…"
@@ -70405,7 +70405,7 @@
             "value" : "%@ is an official tap.\nPackages included in it are audited to make sure they are safe."
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%@ is an official tap.\nPackages included in it are audited to make sure they are safe."
@@ -70493,7 +70493,7 @@
             "value" : "Number of Packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Number of Packages"
@@ -70581,7 +70581,7 @@
             "value" : "Remove %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Remove %@"
@@ -70669,7 +70669,7 @@
             "value" : "Backing up old version…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Backing up old version…"
@@ -70757,7 +70757,7 @@
             "value" : "Cleaning up…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Cleaning up…"
@@ -70845,7 +70845,7 @@
             "value" : "Downloading…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Downloading…"
@@ -70933,7 +70933,7 @@
             "value" : "Linking new version…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Linking new version…"
@@ -71021,7 +71021,7 @@
             "value" : "Updating…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updating…"
@@ -71109,7 +71109,7 @@
             "value" : "Packages updated with errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Packages updated with errors"
@@ -71197,7 +71197,7 @@
             "value" : "There were some errors during updating.\nCheck below for more information"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were some errors during updating.\nCheck below for more information"
@@ -71285,7 +71285,7 @@
             "value" : "Action is needed to finish updating"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Action is needed to finish updating"
@@ -71373,7 +71373,7 @@
             "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
@@ -71461,7 +71461,7 @@
             "value" : "Successfully updated packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Successfully updated packages"
@@ -71549,7 +71549,7 @@
             "value" : "There were no errors"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "There were no errors"
@@ -71637,7 +71637,7 @@
             "value" : "Successfully updated selected packages"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Successfully updated selected packages"
@@ -71725,7 +71725,7 @@
             "value" : "I do not know what you did to make this appear"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "I don't know what you did to make this appear"
@@ -71813,7 +71813,7 @@
             "value" : "Updating %@…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updating %@…"
@@ -71901,7 +71901,7 @@
             "value" : "All packages managed by Homebrew are up to date"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "All packages managed by Homebrew are up to date"
@@ -71989,7 +71989,7 @@
             "value" : "No updates available"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "No updates available"
@@ -72077,7 +72077,7 @@
             "value" : "You are all up to date"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You're all up to date"
@@ -72165,7 +72165,7 @@
             "value" : "Fetching updates…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Fetching updates…"
@@ -72253,7 +72253,7 @@
             "value" : "Done"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Done"
@@ -72342,7 +72342,7 @@
             "value" : "Ready"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Ready"
@@ -72430,7 +72430,7 @@
             "value" : "Updating packages…"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updating packages…"
@@ -72518,7 +72518,7 @@
             "value" : "Updating package caches"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Updating package caches"
@@ -72606,7 +72606,7 @@
             "value" : "v. %@"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "v. %@"
@@ -72694,7 +72694,7 @@
             "value" : "About"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "About"
@@ -72782,7 +72782,7 @@
             "value" : "Services"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Services"
@@ -72870,7 +72870,7 @@
             "value" : "􀇾"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀇾"
@@ -72952,7 +72952,7 @@
             "value" : "􀎧"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀎧"
@@ -73040,7 +73040,7 @@
             "value" : "􀇾"
           }
         },
-        "es" : {
+        "es-419" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "􀐫"
