@@ -2090,8 +2090,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Created the Tuist configuration for compiling self-hosted versions"
+            "state" : "translated",
+            "value" : "建立 Tuist 設定來用於編譯自託管版本"
           }
         }
       }
@@ -4734,8 +4734,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of outdated packages"
+            "state" : "translated",
+            "value" : "舊版套件清單"
           }
         }
       }
@@ -4822,8 +4822,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loading outdated packages"
+            "state" : "translated",
+            "value" : "載入舊版套件"
           }
         }
       }
@@ -7066,7 +7066,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Copy"
           }
         },
@@ -7390,8 +7390,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Finish in Terminal"
+            "state" : "translated",
+            "value" : "切換到終端機完成"
           }
         }
       }
@@ -11742,7 +11742,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Another Homebrew process is already running"
           }
         },
@@ -17041,8 +17041,8 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialog"
+            "state" : "translated",
+            "value" : "Click \"Open Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command\nFollow the instructions to install %@, return to Cork and close this dialogue"
           }
         },
         "es-419" : {
@@ -17129,7 +17129,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Try searching for another package"
           }
         },
@@ -18775,7 +18775,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法創建元資料檔案"
+            "value" : "無法建立主資料檔案"
           }
         }
       }
@@ -24968,7 +24968,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Could not dump the brewfile into the provided location with error: %@"
           }
         },
@@ -31656,7 +31656,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Get installed packages"
           }
         },
@@ -31744,8 +31744,8 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Look for updates to installed Packages"
+            "state" : "translated",
+            "value" : "Look for updates for installed Packages"
           }
         },
         "es-419" : {
@@ -37227,7 +37227,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Adding some apps failed"
           }
         },
@@ -39684,7 +39684,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新增 Tap⋯"
+            "value" : "新增第三方套件來源⋯"
           }
         }
       }
@@ -42100,7 +42100,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Find popular packages"
           }
         },
@@ -47127,7 +47127,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Cask"
           }
         },
@@ -52813,7 +52813,7 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Homebrew location:"
           }
         },
@@ -68063,8 +68063,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed Version"
+            "state" : "translated",
+            "value" : "已安装的版本"
           }
         }
       }
@@ -68152,7 +68152,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "落伍套件"
+            "value" : "舊版本套件"
           }
         }
       }
@@ -68327,8 +68327,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Newest Version"
+            "state" : "translated",
+            "value" : "最新版本"
           }
         }
       }
@@ -70462,7 +70462,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 是個官方的 Tap。\n內含套件都經過審查以確保安全。"
+            "value" : "%@ 是個官方的安裝來源。\n內含套件都經過審查以確保安全。"
           }
         }
       }
@@ -71957,8 +71957,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "All packages managed by Homebrew are up to date"
+            "state" : "translated",
+            "value" : "所有經由 Homebrew 管理的套件均為最新版本"
           }
         }
       }
@@ -72750,8 +72750,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "About"
+            "state" : "translated",
+            "value" : "關於"
           }
         }
       }
@@ -72838,8 +72838,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Services"
+            "state" : "translated",
+            "value" : "服務"
           }
         }
       }
