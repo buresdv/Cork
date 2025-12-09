@@ -1,5 +1,8 @@
 import Testing
+import Foundation
 import CorkShared
+import CorkModels
+import CorkTerminalFunctions
 
 @Suite("Tap Decoding")
 struct TapDecodingTest
@@ -39,14 +42,22 @@ struct TapDecodingTest
   }
 ]
 """
-        let decodedTapInfo = try? await parseTapInfo(from: demoData)
+        guard let tapInfoAsData: Data = demoData.data(using: .utf8) else
+        {
+            fatalError("Couldn't convert the demo data from String to Data - the testing environment is fucked")
+        }
         
-        #expect(decodedTapInfo?.name == "marsanne/cask")
-        #expect(decodedTapInfo?.user == "marsanne")
-        #expect(decodedTapInfo?.installed == true)
-        #expect(decodedTapInfo?.path.absoluteString == "/opt/homebrew/Library/Taps/marsanne/homebrew-cask")
-        #expect(decodedTapInfo?.caskTokens.count == 2)
-        #expect(decodedTapInfo?.caskFiles?.count == 2)
+        guard let decodedTapInfo: TapInfo = try? await .init(from: tapInfoAsData) else
+        {
+            fatalError("Couldn't init the TapInfo struct from the provided data")
+        }
+        
+        #expect(decodedTapInfo.name == "marsanne/cask")
+        #expect(decodedTapInfo.user == "marsanne")
+        #expect(decodedTapInfo.installed == true)
+        #expect(decodedTapInfo.path.absoluteString == "/opt/homebrew/Library/Taps/marsanne/homebrew-cask")
+        #expect(decodedTapInfo.caskTokens.count == 2)
+        #expect(decodedTapInfo.caskFiles?.count == 2)
     }
 
     @Test("Decode Core Tap")
@@ -69,6 +80,11 @@ struct TapDecodingTest
     {
         let coreTapRawOutput: String = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tapName]).standardOutput
         
-        return try? await parseTapInfo(from: coreTapRawOutput)
+        guard let tapInfoAsData: Data = coreTapRawOutput.data(using: .utf8) else
+        {
+            fatalError("Couldn't convert the demo data from String to Data - the testing environment is fucked")
+        }
+        
+        return try? await .init(from: tapInfoAsData)
     }
 }
