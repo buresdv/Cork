@@ -166,8 +166,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This might take a long time…"
+            "state" : "translated",
+            "value" : "將會耗費較長時間…"
           }
         }
       }
@@ -522,7 +522,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cask 並不和 Formula 一起安裝在同一個檔案夾，而是另外安裝在應用程式檔案夾。"
+            "value" : "Casks 並未安裝在與 Formulae 相同的安裝目錄中。Casks 會安裝到 Applications 目錄中。"
           }
         }
       }
@@ -611,7 +611,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "由於 Cork 並不能檢視您的應用程式檔案夾，所以它無法獲取程式的真正大小，只能依靠 Cask 裡的元資料。"
+            "value" : "有時候，Cork 可能無法存取實際的應用程式。在這種情況下，會計算包含應用程式連結的資料夾大小。"
           }
         }
       }
@@ -732,7 +732,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Cask"
           }
         },
@@ -768,7 +768,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Cask"
           }
         },
@@ -786,8 +786,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cask"
+            "state" : "translated",
+            "value" : "圖形介面軟體"
           }
         }
       }
@@ -874,8 +874,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Formula"
+            "state" : "translated",
+            "value" : "命令列工具"
           }
         }
       }
@@ -962,8 +962,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Preview"
+            "state" : "translated",
+            "value" : "預覽"
           }
         }
       }
@@ -1052,7 +1052,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "修復 %@⋯"
+            "value" : "正在修復 %@…"
           }
         }
       }
@@ -1139,8 +1139,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Notes"
+            "state" : "translated",
+            "value" : "備註"
           }
         }
       }
@@ -1349,7 +1349,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Cask"
           }
         },
@@ -1385,7 +1385,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Cask"
           }
         },
@@ -1403,8 +1403,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cask"
+            "state" : "translated",
+            "value" : "圖形介面軟體"
           }
         }
       }
@@ -1492,8 +1492,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Formula"
+            "state" : "translated",
+            "value" : "命令列工具"
           }
         }
       }
@@ -1581,7 +1581,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "手動安裝"
+            "value" : "已透過手動安裝"
           }
         }
       }
@@ -1670,7 +1670,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "有標籤的套件"
+            "value" : "已加上標籤的套件"
           }
         }
       }
@@ -1703,7 +1703,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Tap"
           }
         },
@@ -1739,7 +1739,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Tap"
           }
         },
@@ -1757,8 +1757,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Tap"
+            "state" : "translated",
+            "value" : "第三方倉庫"
           }
         }
       }
@@ -1845,8 +1845,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loading service info…"
+            "state" : "translated",
+            "value" : "載入服務資訊…"
           }
         }
       }
@@ -2116,8 +2116,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "You have %lld active services"
+                  "state" : "translated",
+                  "value" : "您有 %lld 個已啟用的服務"
                 }
               }
             }
@@ -2208,7 +2208,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "落伍"
+            "value" : "已過時"
           }
         }
       }
@@ -2242,8 +2242,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed As"
+            "state" : "translated",
+            "value" : "Instalado como"
           }
         },
         "fr" : {
@@ -2278,8 +2278,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed As"
+            "state" : "translated",
+            "value" : "Yüklü adı"
           }
         },
         "uk" : {
@@ -2296,8 +2296,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed As"
+            "state" : "translated",
+            "value" : "已安裝為"
           }
         }
       }
@@ -2567,8 +2567,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "You have %lld services with errors"
+                  "state" : "translated",
+                  "value" : "您有 %lld 個服務出現錯誤"
                 }
               }
             }
@@ -2747,7 +2747,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "取消釘選 %@ 版本"
+            "value" : "取消鎖定 %@ 版本"
           }
         }
       }
@@ -2835,7 +2835,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "含警訊 􀅴"
+            "value" : "􀓕 包含注意事項…"
           }
         }
       }
@@ -2923,7 +2923,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "縮限"
+            "value" : "收起"
           }
         }
       }
@@ -3011,7 +3011,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示全部"
+            "value" : "展開"
           }
         }
       }
@@ -3099,7 +3099,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "點擊以查閱警訊"
+            "value" : "點擊以查看注意事項"
           }
         }
       }
@@ -3187,7 +3187,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下載套件資訊⋯"
+            "value" : "下載套件資訊…"
           }
         }
       }
@@ -3275,7 +3275,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "受 %@ 依存"
+            "value" : "%@ 的依賴項目"
           }
         }
       }
@@ -3363,7 +3363,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "計算依存⋯"
+            "value" : "載入依賴項目…"
           }
         }
       }
@@ -3451,7 +3451,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "依存關係"
+            "value" : "依賴項目"
           }
         }
       }
@@ -3980,7 +3980,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "依存關係"
+            "value" : "依賴項目"
           }
         }
       }
@@ -4067,8 +4067,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This package is deprecated"
+            "state" : "translated",
+            "value" : "這些套件已經淘汰"
           }
         }
       }
@@ -4155,8 +4155,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "􀇿 Deprecated"
+            "state" : "translated",
+            "value" : "已淘汰"
           }
         }
       }
@@ -4243,8 +4243,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "􀇿 Deprecated…"
+            "state" : "translated",
+            "value" : "已淘汰…"
           }
         }
       }
@@ -4507,8 +4507,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "These services are running normally"
+            "state" : "translated",
+            "value" : "這些服務運行正常"
           }
         }
       }
@@ -4595,8 +4595,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "These services either crashed, or could not be started at all"
+            "state" : "translated",
+            "value" : "這些服務發生崩潰，或無法啟動"
           }
         }
       }
@@ -4630,8 +4630,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
+            "state" : "translated",
+            "value" : "¿Estas seguro que deseas añadir %lld de tus aplicaciones instaladas a Homebrew?"
           }
         },
         "fr" : {
@@ -4666,8 +4666,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
+            "state" : "translated",
+            "value" : "Yüklü uygulamalarınızdan %lld tanesini Homebrew’e eklemek istediğinizden emin misiniz?"
           }
         },
         "uk" : {
@@ -4684,8 +4684,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
+            "state" : "translated",
+            "value" : "您確定要將您已安裝的應用程式中的 %lld 添加到 Homebrew 嗎？"
           }
         }
       }
@@ -4861,8 +4861,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This service must be started as root"
+            "state" : "translated",
+            "value" : "這項服務必須以管理員身份啟動"
           }
         }
       }
@@ -4949,8 +4949,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Errored Out"
+            "state" : "translated",
+            "value" : "出現錯誤"
           }
         }
       }
@@ -5037,8 +5037,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "None"
+            "state" : "translated",
+            "value" : "無"
           }
         }
       }
@@ -5125,8 +5125,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Other"
+            "state" : "translated",
+            "value" : "其他"
           }
         }
       }
@@ -5213,8 +5213,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Scheduled"
+            "state" : "translated",
+            "value" : "已安排"
           }
         }
       }
@@ -5301,8 +5301,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Started"
+            "state" : "translated",
+            "value" : "已開始"
           }
         }
       }
@@ -5389,8 +5389,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stopped"
+            "state" : "translated",
+            "value" : "已停止"
           }
         }
       }
@@ -5477,8 +5477,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unknown"
+            "state" : "translated",
+            "value" : "未知"
           }
         }
       }
@@ -5565,8 +5565,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew Services"
+            "state" : "translated",
+            "value" : "Homebrew 服務"
           }
         }
       }
@@ -5741,8 +5741,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew is out of date"
+            "state" : "translated",
+            "value" : "Homebrew 不是最新版本"
           }
         }
       }
@@ -5918,7 +5918,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自訂位置"
+            "value" : "設定自訂位置"
           }
         }
       }
@@ -6006,7 +6006,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自訂 Homebrew 位置並無正式支援。\n您如果使用自訂 Homebrew 位置，將需自行維護 Homebrew 安裝，無法得到任何 Cork 或 Homebrew 的支援。"
+            "value" : "官方不支援自訂 Homebrew 位置。\n如果您選擇了自訂 Homebrew 位置，您將不會獲得任何 Cork 或 Homebrew 支援，且必須自行負責維護您的 Homebrew 安裝。\n"
           }
         }
       }
@@ -6446,7 +6446,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自訂位置"
+            "value" : "選擇自訂位置"
           }
         }
       }
@@ -6621,8 +6621,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "To use services, update your Homebrew installation by clicking the button below.\nIf that doesn't work, update through the Terminal."
+            "state" : "translated",
+            "value" : "要使用服務，請點擊下方按鈕更新您的 Homebrew 安裝。\n如果無法運作，請透過終端機進行更新。"
           }
         }
       }
@@ -6709,8 +6709,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not synchronize services"
+            "state" : "translated",
+            "value" : "無法同步服務"
           }
         }
       }
@@ -6980,8 +6980,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "You have %lld inactive services"
+                  "state" : "translated",
+                  "value" : "您有 %lld 個尚未啟動的服務"
                 }
               }
             }
@@ -7071,8 +7071,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Location"
+            "state" : "translated",
+            "value" : "位置"
           }
         }
       }
@@ -7159,8 +7159,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "These services are not currently running"
+            "state" : "translated",
+            "value" : "這些服務目前尚未執行"
           }
         }
       }
@@ -7247,8 +7247,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loading services…"
+            "state" : "translated",
+            "value" : "載入服務…"
           }
         }
       }
@@ -7335,8 +7335,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No services found"
+            "state" : "translated",
+            "value" : "找不到可用的服務"
           }
         }
       }
@@ -7423,8 +7423,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Services Status"
+            "state" : "translated",
+            "value" : "服務狀態"
           }
         }
       }
@@ -7694,8 +7694,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "You have %lld services with an unknown status"
+                  "state" : "translated",
+                  "value" : "您擁有 %lld 個狀態未知的服務"
                 }
               }
             }
@@ -7785,8 +7785,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The status of these services could not be determined"
+            "state" : "translated",
+            "value" : "這些服務的狀態無法確定"
           }
         }
       }
@@ -7873,8 +7873,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error Log Location"
+            "state" : "translated",
+            "value" : "錯誤日誌位置"
           }
         }
       }
@@ -7961,8 +7961,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Exit Code"
+            "state" : "translated",
+            "value" : "結束代碼"
           }
         }
       }
@@ -8049,8 +8049,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Is Loaded"
+            "state" : "translated",
+            "value" : "已載入"
           }
         }
       }
@@ -8137,8 +8137,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Log Location"
+            "state" : "translated",
+            "value" : "日誌位置"
           }
         }
       }
@@ -8225,8 +8225,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not stop %@"
+            "state" : "translated",
+            "value" : "無法停止 %@"
           }
         }
       }
@@ -8313,8 +8313,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Root Location"
+            "state" : "translated",
+            "value" : "根目錄"
           }
         }
       }
@@ -8401,8 +8401,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Schedulable"
+            "state" : "translated",
+            "value" : "可排定"
           }
         }
       }
@@ -8489,8 +8489,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Start %@"
+            "state" : "translated",
+            "value" : "開始 %@"
           }
         }
       }
@@ -8577,8 +8577,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Status"
+            "state" : "translated",
+            "value" : "狀態"
           }
         }
       }
@@ -8665,8 +8665,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stop %@"
+            "state" : "translated",
+            "value" : "停止 %@"
           }
         }
       }
@@ -8753,8 +8753,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "User"
+            "state" : "translated",
+            "value" : "使用者"
           }
         }
       }
@@ -8841,8 +8841,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Services"
+            "state" : "translated",
+            "value" : "服務"
           }
         }
       }
@@ -9112,8 +9112,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld services found"
+                  "state" : "translated",
+                  "value" : "找到 %lld 個服務"
                 }
               }
             }
@@ -9203,8 +9203,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not load services"
+            "state" : "translated",
+            "value" : "無法載入服務"
           }
         }
       }
@@ -9291,8 +9291,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not start %@"
+            "state" : "translated",
+            "value" : "無法開始 %@"
           }
         }
       }
@@ -9380,7 +9380,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "釘選 %@ 版本"
+            "value" : "鎖定版本為 %@"
           }
         }
       }
@@ -9413,8 +9413,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This action cannot be undone"
+            "state" : "translated",
+            "value" : "Esta accion no se puede deshacer"
           }
         },
         "fr" : {
@@ -9449,8 +9449,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This action cannot be undone"
+            "state" : "translated",
+            "value" : "Bu işlem geri alınamaz"
           }
         },
         "uk" : {
@@ -9467,8 +9467,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This action cannot be undone"
+            "state" : "translated",
+            "value" : "這項操作無法還原"
           }
         }
       }
@@ -9555,8 +9555,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error checking:"
+            "state" : "translated",
+            "value" : "檢查錯誤："
           }
         }
       }
@@ -10714,8 +10714,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Perform Homebrew cleanup tasks"
+            "state" : "translated",
+            "value" : "執行 Homebrew 清理任務"
           }
         }
       }
@@ -10749,7 +10749,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
         },
@@ -10785,7 +10785,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
         },
@@ -10803,7 +10803,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "F: %1$lld | C: %2$lld | T:%3$lld"
           }
         }
@@ -10891,8 +10891,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Manage Services…"
+            "state" : "translated",
+            "value" : "服務管理…"
           }
         }
       }
@@ -10979,8 +10979,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Manage Services"
+            "state" : "translated",
+            "value" : "服務管理"
           }
         }
       }
@@ -11068,7 +11068,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "輸出 Homebrew 備份⋯"
+            "value" : "匯出 Homebrew 備份…"
           }
         }
       }
@@ -11156,7 +11156,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "從備份回復⋯"
+            "value" : "從備份回復…"
           }
         }
       }
@@ -11509,7 +11509,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "進行維護⋯"
+            "value" : "維護進行中…"
           }
         }
       }
@@ -11720,8 +11720,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption"
+            "state" : "translated",
+            "value" : "Adopcion de aplicación"
           }
         },
         "fr" : {
@@ -11756,8 +11756,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption"
+            "state" : "translated",
+            "value" : "Uygulama devralma"
           }
         },
         "uk" : {
@@ -11774,8 +11774,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption"
+            "state" : "translated",
+            "value" : "應用程式接管"
           }
         }
       }
@@ -11863,7 +11863,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝套件⋯"
+            "value" : "安裝套件…"
           }
         }
       }
@@ -12314,7 +12314,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移除下載快取⋯"
+            "value" : "刪除下載快取…"
           }
         }
       }
@@ -12403,7 +12403,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "開始了⋯"
+            "value" : "啟動中…"
           }
         }
       }
@@ -12491,7 +12491,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移除快取⋯"
+            "value" : "清除快取…"
           }
         }
       }
@@ -12579,7 +12579,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載遺孤套件⋯"
+            "value" : "孤立套件解除安裝中…"
           }
         }
       }
@@ -12667,7 +12667,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "執行健康檢查⋯"
+            "value" : "執行健康檢查…"
           }
         }
       }
@@ -12843,7 +12843,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移除下載快取"
+            "value" : "刪除下載快取"
           }
         }
       }
@@ -13053,8 +13053,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
+            "state" : "translated",
+            "value" : "Algunas aplicaciones fueron añadidas a Homebrew con éxito, pero algunas encontraron errores.\nVea abajo para mas informacion."
           }
         },
         "fr" : {
@@ -13089,8 +13089,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
+            "state" : "translated",
+            "value" : "Bazı uygulamalar Homebrew’e başarıyla eklendi, ancak bazıları hatalarla karşılaştı.\nDaha fazla bilgi için aşağıya bakın."
           }
         },
         "uk" : {
@@ -13107,8 +13107,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Some apps were successfully added to Homebrew, but some encountered errors.\nSee below for more information."
+            "state" : "translated",
+            "value" : "某些應用程式已成功加入 Homebrew，但有些出現錯誤。\n詳情請見下方。"
           }
         }
       }
@@ -13284,7 +13284,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載遺孤套件"
+            "value" : "解除安裝孤立套件"
           }
         }
       }
@@ -13495,8 +13495,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding apps failed"
+            "state" : "translated",
+            "value" : "Fallo al añadir aplicaciones"
           }
         },
         "fr" : {
@@ -13531,8 +13531,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding apps failed"
+            "state" : "translated",
+            "value" : "Uygulamaların eklenmesi başarısız oldu"
           }
         },
         "uk" : {
@@ -13549,8 +13549,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding apps failed"
+            "state" : "translated",
+            "value" : "新增應用程式時失敗"
           }
         }
       }
@@ -13584,8 +13584,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Details"
+            "state" : "translated",
+            "value" : "Detalles"
           }
         },
         "fr" : {
@@ -13620,8 +13620,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Details"
+            "state" : "translated",
+            "value" : "Detaylar"
           }
         },
         "uk" : {
@@ -13638,8 +13638,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Details"
+            "state" : "translated",
+            "value" : "詳細資訊"
           }
         }
       }
@@ -13673,8 +13673,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "There were errors when adding the selected apps to Homebrew."
+            "state" : "translated",
+            "value" : "Hubieron errores al añadir las aplicaciones seleccionadas a Hombebrew."
           }
         },
         "fr" : {
@@ -13709,8 +13709,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "There were errors when adding the selected apps to Homebrew."
+            "state" : "translated",
+            "value" : "Seçili uygulamalar Homebrew’e eklenirken hatalar oluştu."
           }
         },
         "uk" : {
@@ -13727,8 +13727,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "There were errors when adding the selected apps to Homebrew."
+            "state" : "translated",
+            "value" : "將選定的應用程式添加到 Homebrew 時出現錯誤。"
           }
         }
       }
@@ -13762,8 +13762,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "All selected apps were added to Homebrew"
+            "state" : "translated",
+            "value" : "Todas las aplicaciones seleccionadas fueron añadidas a Homebrew"
           }
         },
         "fr" : {
@@ -13798,8 +13798,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "All selected apps were added to Homebrew"
+            "state" : "translated",
+            "value" : "Seçili tüm uygulamalar Homebrew’e eklendi"
           }
         },
         "uk" : {
@@ -13816,8 +13816,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "All selected apps were added to Homebrew"
+            "state" : "translated",
+            "value" : "所有選定的應用程式已添加到 Homebrew"
           }
         }
       }
@@ -13851,8 +13851,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "You can now update the added apps through Homebrew"
+            "state" : "translated",
+            "value" : "Ahora puedes actualizar las aplicaciones añadidas a través de Homebrew"
           }
         },
         "fr" : {
@@ -13887,8 +13887,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "You can now update the added apps through Homebrew"
+            "state" : "translated",
+            "value" : "Eklenen uygulamaları artık Homebrew üzerinden güncelleyebilirsiniz"
           }
         },
         "uk" : {
@@ -13905,8 +13905,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "You can now update the added apps through Homebrew"
+            "state" : "translated",
+            "value" : "您可以經由 Homebrew 更新已新增的應用程式"
           }
         }
       }
@@ -13940,8 +13940,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding some apps failed"
+            "state" : "translated",
+            "value" : "Fallo al añadir algunas aplicaciones"
           }
         },
         "fr" : {
@@ -13976,8 +13976,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding some apps failed"
+            "state" : "translated",
+            "value" : "Bazı uygulamaları ekleme işlemi başarısız oldu"
           }
         },
         "uk" : {
@@ -13994,8 +13994,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding some apps failed"
+            "state" : "translated",
+            "value" : "新增某些應用程式時失敗"
           }
         }
       }
@@ -14083,7 +14083,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新增第三方套件來源⋯"
+            "value" : "新增 Tap…"
           }
         }
       }
@@ -14171,7 +14171,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新套件⋯"
+            "value" : "更新套件…"
           }
         }
       }
@@ -14206,8 +14206,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Disable adoption"
+            "state" : "translated",
+            "value" : "Deshabilitar adopción"
           }
         },
         "fr" : {
@@ -14242,8 +14242,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Disable adoption"
+            "state" : "translated",
+            "value" : "Devralmayı devre dışı bırak"
           }
         },
         "uk" : {
@@ -14260,8 +14260,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Disable adoption"
+            "state" : "translated",
+            "value" : "停用接管"
           }
         }
       }
@@ -14349,7 +14349,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件搜尋"
+            "value" : "搜尋套件"
           }
         }
       }
@@ -14437,7 +14437,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知各種行動"
+            "value" : "關於各種操作的通知"
           }
         }
       }
@@ -14524,8 +14524,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show detailed info about outdated packages"
+            "state" : "translated",
+            "value" : "顯示舊版套件的詳細資訊"
           }
         }
       }
@@ -14612,8 +14612,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show basic info about outdated packages"
+            "state" : "translated",
+            "value" : "顯示舊版套件的基本資訊"
           }
         }
       }
@@ -14700,8 +14700,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show versions in info about outdated packages"
+            "state" : "translated",
+            "value" : "顯示舊版套件的版本資訊"
           }
         }
       }
@@ -14789,7 +14789,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "搜尋時顯示套件描述"
+            "value" : "在搜尋時顯示套件說明"
           }
         }
       }
@@ -14877,7 +14877,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件細節"
+            "value" : "套件詳細資訊"
           }
         }
       }
@@ -15405,7 +15405,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示手動安裝套件"
+            "value" : "顯示已透過手動安裝的套件"
           }
         }
       }
@@ -15581,7 +15581,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap 細節"
+            "value" : "Tap 詳細資訊"
           }
         }
       }
@@ -15670,7 +15670,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隱藏相關細節"
+            "value" : "隱藏詳細資訊"
           }
         }
       }
@@ -15847,7 +15847,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示相關細節"
+            "value" : "顯示詳細資訊"
           }
         }
       }
@@ -15935,7 +15935,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示初始設定⋯"
+            "value" : "顯示入門指南…"
           }
         }
       }
@@ -16463,7 +16463,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件成功更新"
+            "value" : "已更新套件"
           }
         }
       }
@@ -16550,8 +16550,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Services"
+            "state" : "translated",
+            "value" : "服務"
           }
         }
       }
@@ -16638,8 +16638,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Open Services Manager…"
+            "state" : "translated",
+            "value" : "開啟服務管理器…"
           }
         }
       }
@@ -16991,7 +16991,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新的落伍套件"
+            "value" : "新的舊版套件"
           }
         }
       }
@@ -17263,7 +17263,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "您有 %lld 個落伍套件"
+                  "value" : "您有 %lld 個舊版套件"
                 }
               }
             }
@@ -17355,7 +17355,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "發現落伍套件"
+            "value" : "發現舊版套件"
           }
         }
       }
@@ -17532,7 +17532,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件更新時發生錯誤"
+            "value" : "更新套件時發生錯誤"
           }
         }
       }
@@ -17708,7 +17708,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件更新中⋯"
+            "value" : "套件更新中…"
           }
         }
       }
@@ -17796,7 +17796,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所有功能皆選取"
+            "value" : "所有功能皆已選取"
           }
         }
       }
@@ -18412,7 +18412,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "額外的依存關係資訊"
+            "value" : "有關依賴項目的更多資訊"
           }
         }
       }
@@ -18500,7 +18500,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在套件依存關係裡搜尋"
+            "value" : "搜尋套件的依賴項目"
           }
         }
       }
@@ -18675,8 +18675,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Strictly check for Homebrew errors"
+            "state" : "translated",
+            "value" : "嚴格檢查 Homebrew 的錯誤"
           }
         }
       }
@@ -19034,8 +19034,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld Casks that couldn't be loaded"
+                  "state" : "translated",
+                  "value" : "有 %lld 個 Cask 無法載入"
                 }
               }
             }
@@ -19941,7 +19941,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件下載中⋯"
+            "value" : "載入套件中…"
           }
         }
       }
@@ -20028,8 +20028,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't check for outdated packges"
+            "state" : "translated",
+            "value" : "無法檢查舊版的套件"
           }
         }
       }
@@ -20117,7 +20117,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 維護⋯"
+            "value" : "Homebrew 維護…"
           }
         }
       }
@@ -20475,8 +20475,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld Formulae that couldn't be loaded"
+                  "state" : "translated",
+                  "value" : "有 %lld 個 Formulae 無法載入"
                 }
               }
             }
@@ -21378,7 +21378,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "共有 %lld 個落伍套件"
+                  "value" : "共有 %lld 個舊版套件"
                 }
               }
             }
@@ -21557,7 +21557,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "舊版本套件"
+            "value" : "舊版套件"
           }
         }
       }
@@ -21645,7 +21645,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "查看套件更新⋯"
+            "value" : "正在檢查套件更新…"
           }
         }
       }
@@ -21909,7 +21909,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "刪除下載快取⋯"
+            "value" : "刪除下載快取…"
           }
         }
       }
@@ -22179,8 +22179,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld additional packages not managed by Homebrew"
+                  "state" : "translated",
+                  "value" : "有 %lld 個額外的套件未由 Homebrew 管理"
                 }
               }
             }
@@ -22270,8 +22270,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Formulae installed"
+            "state" : "translated",
+            "value" : "尚未安装任何 Formula"
           }
         }
       }
@@ -22359,7 +22359,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已安裝的 Tap"
+            "value" : "已新增的 Tap"
           }
         }
       }
@@ -22624,7 +22624,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移除 %@ 失敗"
+            "value" : "無法移除 %@"
           }
         }
       }
@@ -23063,8 +23063,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Casks installed"
+            "state" : "translated",
+            "value" : "尚未安装任何 Cask"
           }
         }
       }
@@ -23612,14 +23612,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld installed app that can be added to Homebrew"
+                  "state" : "translated",
+                  "value" : "Hay %lld aplicacion instalada que puede ser añadida a Homebrew"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld installed apps that can be added to Homebrew"
+                  "state" : "translated",
+                  "value" : "Hay %lld aplicaciones instaladas que pueden ser añadidas a Homebrew"
                 }
               }
             }
@@ -23726,14 +23726,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld installed app that can be added to Homebrew"
+                  "state" : "translated",
+                  "value" : "Homebrew'e eklenebilecek %lld yüklü uygulama var"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld installed apps that can be added to Homebrew"
+                  "state" : "translated",
+                  "value" : "Homebrew’e eklenebilecek %lld yüklü uygulama var"
                 }
               }
             }
@@ -23786,8 +23786,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld installed apps that can be added to Homebrew"
+                  "state" : "translated",
+                  "value" : "有 %lld 個已安裝的應用程式可以添加到 Homebrew"
                 }
               }
             }
@@ -23878,8 +23878,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "There are %1$lld installed apps -excluded.%2$lld"
+            "state" : "translated",
+            "value" : "有 %1$lld 個已安裝的應用程式 -已排除。%2$lld"
           }
         }
       }
@@ -23976,14 +23976,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld additional app that is ignored"
+                  "state" : "translated",
+                  "value" : "Hay %lld aplicacion adicional que esta siendo ignorada"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld additional apps that are ignored"
+                  "state" : "translated",
+                  "value" : "Hay %lld aplicaciones adicionales que estan siendo ignoradas"
                 }
               }
             }
@@ -24090,14 +24090,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld additional app that is ignored"
+                  "state" : "translated",
+                  "value" : "Yoksayılan %lld ek uygulama var"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld additional apps that are ignored"
+                  "state" : "translated",
+                  "value" : "Yoksayılan %lld ek uygulama var"
                 }
               }
             }
@@ -24150,8 +24150,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld additional apps that are ignored"
+                  "state" : "translated",
+                  "value" : "有 %lld 個額外的應用程式被忽略"
                 }
               }
             }
@@ -24250,14 +24250,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld ignored adoptable apps"
+                  "state" : "translated",
+                  "value" : "Hay %lld aplicacion adoptable siendo ignorada"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld ignored adoptable apps"
+                  "state" : "translated",
+                  "value" : "Hay %lld aplicaciones adotables siendo ignoradas"
                 }
               }
             }
@@ -24364,14 +24364,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There is %lld ignored adoptable apps"
+                  "state" : "translated",
+                  "value" : "Yoksayılan %lld devralınabilir uygulama var"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld ignored adoptable apps"
+                  "state" : "translated",
+                  "value" : "Yoksayılan %lld devralınabilir uygulama var"
                 }
               }
             }
@@ -24424,8 +24424,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld ignored adoptable apps"
+                  "state" : "translated",
+                  "value" : "有 %lld 個被忽略的可接管應用程式"
                 }
               }
             }
@@ -24604,7 +24604,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 不收集您使用方式的任何資訊"
+            "value" : "Homebrew 不會收集任何有關您使用方式的資料"
           }
         }
       }
@@ -25050,8 +25050,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "There are %lld unmanaged outdated packages"
+                  "state" : "translated",
+                  "value" : "有 %lld 個未管理的舊版套件"
                 }
               }
             }
@@ -25141,8 +25141,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unmanaged outdated packages"
+            "state" : "translated",
+            "value" : "未經管理的舊版套件"
           }
         }
       }
@@ -25318,7 +25318,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您已有最新版本"
+            "value" : "您已更新至最新版本"
           }
         }
       }
@@ -25405,8 +25405,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Action is needed to finish updating"
+            "state" : "translated",
+            "value" : "需要進行操作以完成更新"
           }
         }
       }
@@ -25493,8 +25493,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Some of your packages can only be updated through the Terminal\nClick \"Finish in Terminal\" below\nUse ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions\nAfter the command finishes, return to Cork"
+            "state" : "translated",
+            "value" : "部分套件僅能透過終端更新。請點擊下方的「在終端完成」。\n使用 ⌘+V 來黏貼命令，然後按 ↩（Return）執行命令並遵循指示。命令完成後，回到 Cork"
           }
         }
       }
@@ -25758,7 +25758,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "成功更新了選擇的套件"
+            "value" : "選擇的套件已成功更新"
           }
         }
       }
@@ -25934,7 +25934,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新 %@⋯"
+            "value" : "正在更新 %@…"
           }
         }
       }
@@ -26022,7 +26022,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所有經由 Homebrew 管理的套件均為最新版本"
+            "value" : "經由 Homebrew 管理的所有套件均為最新版本"
           }
         }
       }
@@ -26110,7 +26110,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無更新必要"
+            "value" : "毋需更新"
           }
         }
       }
@@ -26198,7 +26198,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "查詢更新⋯"
+            "value" : "正在獲取更新…"
           }
         }
       }
@@ -26463,7 +26463,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "準備妥當"
+            "value" : "已準備"
           }
         }
       }
@@ -26551,7 +26551,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新套件⋯"
+            "value" : "正在更新套件…"
           }
         }
       }
@@ -26639,7 +26639,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新套件快取"
+            "value" : "正在更新套件快取"
           }
         }
       }
@@ -26672,7 +26672,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "v. %@"
           }
         },
@@ -26708,8 +26708,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "v. %@"
+            "state" : "translated",
+            "value" : "Sürüm %@"
           }
         },
         "uk" : {
@@ -26726,7 +26726,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "v. %@"
           }
         }
@@ -27161,7 +27161,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請詳查下方資訊"
+            "value" : "更新過程中出現了一些錯誤。\n請查看以下內容以獲得更多資訊"
           }
         }
       }
@@ -27249,7 +27249,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新中⋯"
+            "value" : "正在更新…"
           }
         }
       }
@@ -27512,8 +27512,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "After you click \"Open Terminal\", use ⌘+V to paste in the command Cork copied for you, then press Return (↩).\nIf no command was copied, write in the command \"brew update\" and press Return (↩)."
+            "state" : "translated",
+            "value" : "在您點擊「開啟終端」後，使用 ⌘+V 粘貼 Cork 為您複製的指令，然後按下 Return (↩) 鍵。\n如果沒有複製任何指令，請輸入「brew update」，然後按 Return (↩) 鍵。"
           }
         }
       }
@@ -27600,8 +27600,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating through the Terminal"
+            "state" : "translated",
+            "value" : "經由終端機更新"
           }
         }
       }
@@ -27634,7 +27634,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Tap"
           }
         },
@@ -27670,7 +27670,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Tap"
           }
         },
@@ -27688,8 +27688,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Tap"
+            "state" : "translated",
+            "value" : "第三方倉庫"
           }
         }
       }
@@ -28393,7 +28393,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "連結新版中⋯"
+            "value" : "正在連結新版…"
           }
         }
       }
@@ -28746,7 +28746,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下載 Tap 資訊⋯"
+            "value" : "載入 Tap 資訊…"
           }
         }
       }
@@ -29099,7 +29099,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "備份舊版中⋯"
+            "value" : "備份舊版中…"
           }
         }
       }
@@ -29187,7 +29187,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "清理中⋯"
+            "value" : "清理中…"
           }
         }
       }
@@ -29275,7 +29275,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下載中⋯"
+            "value" : "下載中…"
           }
         }
       }
@@ -29452,7 +29452,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "入門"
+            "value" : "簡易"
           }
         }
       }
@@ -29628,8 +29628,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Versions only"
+            "state" : "translated",
+            "value" : "僅版本資訊"
           }
         }
       }
@@ -29717,7 +29717,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "只顯示手動安裝套件"
+            "value" : "只顯示手動安裝的套件"
           }
         }
       }
@@ -29805,7 +29805,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動啟始："
+            "value" : "自動啟動："
           }
         }
       }
@@ -29894,7 +29894,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "登入時啟動"
+            "value" : "登入時開啟"
           }
         }
       }
@@ -30157,8 +30157,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Outdated package info:"
+            "state" : "translated",
+            "value" : "舊版套件資訊："
           }
         }
       }
@@ -30245,8 +30245,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show old versions"
+            "state" : "translated",
+            "value" : "顯示舊版"
           }
         }
       }
@@ -30334,8 +30334,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Complete"
+            "state" : "translated",
+            "value" : "完成"
           }
         }
       }
@@ -30405,7 +30405,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Minimal"
           }
         },
@@ -30423,8 +30423,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Minimal"
+            "state" : "translated",
+            "value" : "最小"
           }
         }
       }
@@ -30511,8 +30511,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Outdated packages:"
+            "state" : "translated",
+            "value" : "舊版本套件："
           }
         }
       }
@@ -30600,7 +30600,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件篩選："
+            "value" : "篩選套件："
           }
         }
       }
@@ -30953,7 +30953,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "􀅴 點擊「含警訊」紐來檢視警訊"
+            "value" : "􀅴 點擊「含有警告資訊」鈕來查看警訊"
           }
         }
       }
@@ -31041,7 +31041,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件簡介："
+            "value" : "套件詳細資訊："
           }
         }
       }
@@ -31128,8 +31128,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Enable swipe actions"
+            "state" : "translated",
+            "value" : "啟用滑動操作"
           }
         }
       }
@@ -31305,7 +31305,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示依存關係搜尋欄"
+            "value" : "顯示依賴項目的搜尋欄位"
           }
         }
       }
@@ -31392,8 +31392,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package notes:"
+            "state" : "translated",
+            "value" : "套件備註："
           }
         }
       }
@@ -31481,7 +31481,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示包括依存的所有套件"
+            "value" : "顯示包括依賴項目的所有套件"
           }
         }
       }
@@ -31569,7 +31569,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示更多依存關係的資訊"
+            "value" : "顯示更多依賴項目的資訊"
           }
         }
       }
@@ -31657,7 +31657,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示套件簡介"
+            "value" : "顯示套件說明"
           }
         }
       }
@@ -31746,7 +31746,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一個月來"
+            "value" : "上月以來"
           }
         }
       }
@@ -31868,8 +31868,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide when all adoptable apps are excluded"
+            "state" : "translated",
+            "value" : "Ocultar cuando todas las aplicaciones adoptables están excluidas"
           }
         },
         "fr" : {
@@ -31904,8 +31904,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide when all adoptable apps are excluded"
+            "state" : "translated",
+            "value" : "Devralınabilir uygulamaların tümü dışlandığında gizle"
           }
         },
         "uk" : {
@@ -31922,8 +31922,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide when all adoptable apps are excluded"
+            "state" : "translated",
+            "value" : "當所有可接管的應用程式被排除時隱藏"
           }
         }
       }
@@ -31956,8 +31956,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption:"
+            "state" : "translated",
+            "value" : "Añadir adopcion:"
           }
         },
         "fr" : {
@@ -31992,8 +31992,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption:"
+            "state" : "translated",
+            "value" : "Uygulama devralma:"
           }
         },
         "uk" : {
@@ -32010,8 +32010,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption:"
+            "state" : "translated",
+            "value" : "應用程式接管："
           }
         }
       }
@@ -32045,8 +32045,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Find external apps that can be added to Homebrew"
+            "state" : "translated",
+            "value" : "Encontrar aplicaciones externas que pueden ser añadidas a Homebrew"
           }
         },
         "fr" : {
@@ -32081,8 +32081,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Find external apps that can be added to Homebrew"
+            "state" : "translated",
+            "value" : "Homebrew’e eklenebilecek Homebrew dışı uygulamaları bul"
           }
         },
         "uk" : {
@@ -32099,8 +32099,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Find external apps that can be added to Homebrew"
+            "state" : "translated",
+            "value" : "尋找可新增至 Homebrew 的外部應用程式"
           }
         }
       }
@@ -32632,7 +32632,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "三個月來"
+            "value" : "過去三個月"
           }
         }
       }
@@ -32720,7 +32720,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "依存關係："
+            "value" : "依賴項目："
           }
         }
       }
@@ -32809,7 +32809,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一年來"
+            "value" : "過去一年"
           }
         }
       }
@@ -32985,8 +32985,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Enable extra animations"
+            "state" : "translated",
+            "value" : "啟用額外的動畫"
           }
         }
       }
@@ -33020,7 +33020,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "General"
           }
         },
@@ -33162,8 +33162,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Backup date format:"
+            "state" : "translated",
+            "value" : "備份日期格式："
           }
         }
       }
@@ -33250,8 +33250,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Abbreviated"
+            "state" : "translated",
+            "value" : "簡稱"
           }
         }
       }
@@ -33338,8 +33338,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Complete"
+            "state" : "translated",
+            "value" : "完成"
           }
         }
       }
@@ -33426,8 +33426,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Long"
+            "state" : "translated",
+            "value" : "長"
           }
         }
       }
@@ -33514,8 +33514,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Numeric"
+            "state" : "translated",
+            "value" : "數字"
           }
         }
       }
@@ -33602,8 +33602,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Omitted"
+            "state" : "translated",
+            "value" : "省略"
           }
         }
       }
@@ -33902,8 +33902,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption results"
+            "state" : "translated",
+            "value" : "Añadir resultados de adopcion"
           }
         },
         "fr" : {
@@ -33938,8 +33938,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption results"
+            "state" : "translated",
+            "value" : "Uygulama devralma sonuçları"
           }
         },
         "uk" : {
@@ -33956,8 +33956,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "App adoption results"
+            "state" : "translated",
+            "value" : "應用程式接管結果"
           }
         }
       }
@@ -34045,7 +34045,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "實時顯示終端機輸出"
+            "value" : "顯示操作的即時輸出"
           }
         }
       }
@@ -34133,7 +34133,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "預設實時顯示終端機輸出"
+            "value" : "預設顯示即時輸出"
           }
         }
       }
@@ -34575,7 +34575,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知只會在 Cork 不是前景程式時顯示。"
+            "value" : "只有當 Cork 不是作用中視窗時，通知才會顯示"
           }
         }
       }
@@ -34751,7 +34751,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝成果"
+            "value" : "安裝結果"
           }
         }
       }
@@ -34839,7 +34839,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新成果"
+            "value" : "更新結果"
           }
         }
       }
@@ -34928,7 +34928,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載套件後清除快取"
+            "value" : "套件解除安裝後清除快取"
           }
         }
       }
@@ -35016,7 +35016,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知項目："
+            "value" : "通知內容："
           }
         }
       }
@@ -35104,7 +35104,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "落伍套件通知型態："
+            "value" : "舊版套件通知類型："
           }
         }
       }
@@ -35544,7 +35544,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "高手"
+            "value" : "專業"
           }
         }
       }
@@ -35632,7 +35632,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "初學"
+            "value" : "基礎"
           }
         }
       }
@@ -35809,7 +35809,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載套件後清除遺孤套件"
+            "value" : "套件解除安裝後清除孤立套件"
           }
         }
       }
@@ -35897,7 +35897,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "清除動作將刪除所有與套件相關的檔案。\n這可能會移除共享的檔案，導致其他套件故障。"
+            "value" : "清除會移除與套件相關的所有檔案。\n這可能會移除共享檔案，導致其他套件出現問題。"
           }
         }
       }
@@ -36074,7 +36074,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "清理舊套件"
+            "value" : "清理舊版套件"
           }
         }
       }
@@ -36339,7 +36339,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Homebrew"
           }
         }
@@ -36693,8 +36693,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show packages not managed by Homebrew"
+            "state" : "translated",
+            "value" : "顯示非 Homebrew 管理的套件"
           }
         }
       }
@@ -36872,8 +36872,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Automatically accept package EULAs"
+            "state" : "translated",
+            "value" : "自動同意套件使用條款"
           }
         }
       }
@@ -37049,7 +37049,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "允許套件清除？"
+            "value" : "允許清除套件？"
           }
         }
       }
@@ -37313,7 +37313,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "停用清理可以讓套件安裝較快，但整體上會讓 Homebrew 變慢。\n停用本功能可能導致 Homebrew 故障。\n本選項也控制 Homebrew 閒置 30 天之後自動清理。"
+            "value" : "停用清理功能會加快套件安裝速度，但會讓 Homebrew 整體執行變慢。\n\n停用此選項可能會損壞你的 Homebrew 安裝。\n\n此選項同時也控制自動清理功能，當你超過 30 天未使用 Homebrew 時會自動執行清理。"
           }
         }
       }
@@ -37402,7 +37402,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示安裝中的套件"
+            "value" : "顯示目前正在安裝的套件清單"
           }
         }
       }
@@ -37489,8 +37489,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package removal:"
+            "state" : "translated",
+            "value" : "移除套件："
           }
         }
       }
@@ -37577,8 +37577,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Require confirmation when removing packages"
+            "state" : "translated",
+            "value" : "解除安裝套件時要求確認"
           }
         }
       }
@@ -37667,7 +37667,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載："
+            "value" : "解除安裝："
           }
         }
       }
@@ -37931,7 +37931,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "啟用套件清除"
+            "value" : "啟用清除套件"
           }
         }
       }
@@ -38189,7 +38189,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "(%@)"
           }
         }
@@ -38277,8 +38277,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This Cask is already present in the Applications folder\nUninstall it, then try again"
+            "state" : "translated",
+            "value" : "此 Cask 軟體已存在於「應用程式」資料夾中\n解除安裝，然後再試一次"
           }
         }
       }
@@ -38454,7 +38454,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請嘗試重新安裝套件，或重啟 Cork。\n如果問題無法解決，請嘗試重啟您的 Mac。"
+            "value" : "請嘗試重新安裝套件，或重啟 Cork\n如果問題無法解決，嘗試將您的 Mac 重新開機"
           }
         }
       }
@@ -38543,7 +38543,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝時發生錯誤"
+            "value" : "安裝過程發生錯誤"
           }
         }
       }
@@ -38631,7 +38631,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件成功安裝"
+            "value" : "套件已成功安裝"
           }
         }
       }
@@ -38895,7 +38895,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您可以等待它結束，或強制它結束。\n請注意強制結束可能導致 Homebrew 安裝受損。"
+            "value" : "您可以等待此過程完成，或強制停止它。\n強制停止可能會導致 Homebrew 安裝損壞。"
           }
         }
       }
@@ -38983,7 +38983,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "另一個 Homebrew 行程已經在執行"
+            "value" : "另一個 Homebrew 程序已在運行中"
           }
         }
       }
@@ -39070,8 +39070,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ was installed outside of Homebrew"
+            "state" : "translated",
+            "value" : "%@ 不是經由 Homebrew 安裝"
           }
         }
       }
@@ -39159,7 +39159,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下載 %@⋯"
+            "value" : "下載中 %@…"
           }
         }
       }
@@ -39335,7 +39335,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "查詢依存關係⋯"
+            "value" : "正在取得依賴項目…"
           }
         }
       }
@@ -39423,7 +39423,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完畢"
+            "value" : "完成"
           }
         }
       }
@@ -39511,7 +39511,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隱藏詳細訊息"
+            "value" : "隱藏詳細資訊"
           }
         }
       }
@@ -39598,8 +39598,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew didn’t provide any output"
+            "state" : "translated",
+            "value" : "Homebrew 沒有提供任何輸出"
           }
         }
       }
@@ -39686,8 +39686,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew terminated the installation of this package \nbefore it properly started.\nCheck below for the output of the installation command"
+            "state" : "translated",
+            "value" : "Homebrew 在它正確開始之前就終止了此套件的安裝。\n請參閱下方安裝指令之輸出結果"
           }
         }
       }
@@ -39774,8 +39774,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package installation terminated unexpectedly"
+            "state" : "translated",
+            "value" : "安裝套件時意外結束"
           }
         }
       }
@@ -39863,7 +39863,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝 %@⋯"
+            "value" : "正在安裝 %@…"
           }
         }
       }
@@ -39951,7 +39951,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝依存的 %lld/%lld"
+            "value" : "正在安裝依賴項目 %lld/%lld"
           }
         }
       }
@@ -40039,7 +40039,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝套件⋯"
+            "value" : "正在安裝套件…"
           }
         }
       }
@@ -40126,8 +40126,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loading of top packages timed out"
+            "state" : "translated",
+            "value" : "熱門套件載入時間過長"
           }
         }
       }
@@ -40215,8 +40215,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Report on the forums…"
+            "state" : "translated",
+            "value" : "在論壇中回報…"
           }
         }
       }
@@ -40304,7 +40304,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下載依存關係⋯"
+            "value" : "載入依賴項目…"
           }
         }
       }
@@ -40391,8 +40391,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Search Again"
+            "state" : "translated",
+            "value" : "重新搜尋"
           }
         }
       }
@@ -40569,7 +40569,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在 GitHub 上反映⋯"
+            "value" : "在 GitHub 上反應…"
           }
         }
       }
@@ -40658,7 +40658,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "反映程式缺陷"
+            "value" : "回報 Bug"
           }
         }
       }
@@ -40746,7 +40746,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將程式檔位置重置回預設值"
+            "value" : "將可執行檔重設為預設位置"
           }
         }
       }
@@ -40834,7 +40834,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重啟 Cork"
+            "value" : "重新啟動 Cork"
           }
         }
       }
@@ -40868,8 +40868,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reveal %@ in Finder"
+            "state" : "translated",
+            "value" : "Mostrar %@ en Finder"
           }
         },
         "fr" : {
@@ -40904,8 +40904,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reveal %@ in Finder"
+            "state" : "translated",
+            "value" : "%@ öğesini Finder'da göster"
           }
         },
         "uk" : {
@@ -40922,8 +40922,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reveal %@ in Finder"
+            "state" : "translated",
+            "value" : "在 Finder 中顯示 %@"
           }
         }
       }
@@ -41010,8 +41010,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reveal Applications in Finder"
+            "state" : "translated",
+            "value" : "在 Finder 中顯示應用程式"
           }
         }
       }
@@ -41098,8 +41098,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reveal %@ in Finder"
+            "state" : "translated",
+            "value" : "在 Finder 中顯示 %@"
           }
         }
       }
@@ -41187,7 +41187,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在 Finder 裡顯示"
+            "value" : "在 Finder 內顯示"
           }
         }
       }
@@ -41362,8 +41362,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This action cannot be undone"
+            "state" : "translated",
+            "value" : "這項操作無法復原"
           }
         }
       }
@@ -41397,8 +41397,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show less"
+            "state" : "translated",
+            "value" : "Mostrar menos"
           }
         },
         "fr" : {
@@ -41433,8 +41433,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show less"
+            "state" : "translated",
+            "value" : "Daha az göster"
           }
         },
         "uk" : {
@@ -41451,8 +41451,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show less"
+            "state" : "translated",
+            "value" : "減少顯示"
           }
         }
       }
@@ -41486,8 +41486,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show more"
+            "state" : "translated",
+            "value" : "Mostrar más"
           }
         },
         "fr" : {
@@ -41522,8 +41522,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show more"
+            "state" : "translated",
+            "value" : "Daha fazla göster"
           }
         },
         "uk" : {
@@ -41540,8 +41540,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show more"
+            "state" : "translated",
+            "value" : "增加顯示"
           }
         }
       }
@@ -41628,8 +41628,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show Terminal output"
+            "state" : "translated",
+            "value" : "顯示終端機輸出"
           }
         }
       }
@@ -41717,7 +41717,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載 %@"
+            "value" : "解除安裝 %@"
           }
         }
       }
@@ -41804,8 +41804,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to uninstall %@?"
+            "state" : "translated",
+            "value" : "您確定要移除 %@ 嗎？"
           }
         }
       }
@@ -41893,8 +41893,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Update %@"
+            "state" : "translated",
+            "value" : "更新 %@"
           }
         }
       }
@@ -41981,8 +41981,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Update Homebrew and all packages"
+            "state" : "translated",
+            "value" : "更新 Homebrew 和所有套件"
           }
         }
       }
@@ -42069,8 +42069,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Update Homebrew through Terminal"
+            "state" : "translated",
+            "value" : "經由終端機更新 Homebrew"
           }
         }
       }
@@ -42158,7 +42158,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "停用通知"
+            "value" : "在沒有通知情況下使用 Cork"
           }
         }
       }
@@ -42246,7 +42246,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "鏈結程式碼⋯"
+            "value" : "連結程式中…"
           }
         }
       }
@@ -42334,7 +42334,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將 %@ 移至應用程式檔案夾⋯"
+            "value" : "將 %@ 移至應用程式檔案夾…"
           }
         }
       }
@@ -42421,8 +42421,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reload Services"
+            "state" : "translated",
+            "value" : "重新載入服務"
           }
         }
       }
@@ -43038,7 +43038,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請稍等幾分鐘後再重試新增。"
+            "value" : "請稍後再重新嘗試新增"
           }
         }
       }
@@ -43126,7 +43126,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 並不存在"
+            "value" : "%@ 不存在"
           }
         }
       }
@@ -43214,7 +43214,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請確認名稱無誤。"
+            "value" : "請再次確認您所輸入的名稱正確無誤"
           }
         }
       }
@@ -43478,7 +43478,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您必須用終端機來卸載這個套件。\n請用下列指令。"
+            "value" : "您必須使用終端機來解除安裝這個套件。\n使用下列指令。"
           }
         }
       }
@@ -43566,7 +43566,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新增 Tap %@"
+            "value" : "正在新增 Tap %@"
           }
         }
       }
@@ -43744,7 +43744,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您未輸入任何 Tap 的名稱"
+            "value" : "您尚未輸入任何 Tap 的名稱"
           }
         }
       }
@@ -43920,7 +43920,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap 名稱裡都必需要有個斜線號。"
+            "value" : "Tap 名稱必需包含斜線號"
           }
         }
       }
@@ -44095,8 +44095,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Try searching for another package"
+            "state" : "translated",
+            "value" : "嘗試搜尋其他套件"
           }
         }
       }
@@ -44253,8 +44253,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t adopt %@"
+            "state" : "translated",
+            "value" : "%@ devralınamadı"
           }
         },
         "uk" : {
@@ -44271,8 +44271,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t adopt %@"
+            "state" : "translated",
+            "value" : "無法接管 %@"
           }
         }
       }
@@ -44449,7 +44449,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載 %@ 需要提升權限"
+            "value" : "需要提升權限才能解除安裝 %@"
           }
         }
       }
@@ -44537,7 +44537,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "建立依存關係圖⋯"
+            "value" : "建立依賴關係圖…"
           }
         }
       }
@@ -44626,7 +44626,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未曾針對 %@ 作最佳化"
+            "value" : "尚未針對 %@ 執行最佳化"
           }
         }
       }
@@ -44714,7 +44714,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝 %@ 需要提升權限"
+            "value" : "需要提升權限才能安裝 %@"
           }
         }
       }
@@ -44802,7 +44802,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您必須在終端機裡使用以下指令安裝此套件。"
+            "value" : "您必須透過終端機安裝此套件。\n請使用以下指令。"
           }
         }
       }
@@ -44978,8 +44978,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ doesn't support %2$@ chips"
+            "state" : "translated",
+            "value" : "%1$@ 不支援 %2$@ 處理器"
           }
         }
       }
@@ -45066,8 +45066,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This package doesn't support your chip"
+            "state" : "translated",
+            "value" : "這個套件不支援您的處理器"
           }
         }
       }
@@ -45244,7 +45244,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未提供任何描述"
+            "value" : "尚未提供任何說明"
           }
         }
       }
@@ -45332,7 +45332,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "下載簡介⋯"
+            "value" : "載入說明…"
           }
         }
       }
@@ -45421,7 +45421,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法下載描述"
+            "value" : "無法載入說明"
           }
         }
       }
@@ -45872,7 +45872,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "搜尋套件⋯"
+            "value" : "搜尋套件…"
           }
         }
       }
@@ -45960,7 +45960,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "尋獲 Cask"
+            "value" : "已找到的 Casks"
           }
         }
       }
@@ -46047,8 +46047,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Casks found"
+            "state" : "translated",
+            "value" : "找不到任何 Casks"
           }
         }
       }
@@ -46136,7 +46136,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "尋獲 Formula"
+            "value" : "已找到 Formulae"
           }
         }
       }
@@ -46223,8 +46223,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No Formulae found"
+            "state" : "translated",
+            "value" : "找不到任何 Formulae"
           }
         }
       }
@@ -46311,8 +46311,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No results found"
+            "state" : "translated",
+            "value" : "找不到相符的結果"
           }
         }
       }
@@ -46400,7 +46400,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "搜尋 %@ 中⋯"
+            "value" : "搜尋 %@ 中…"
           }
         }
       }
@@ -46577,7 +46577,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "熱門 Cask"
+            "value" : "熱門應用程式"
           }
         }
       }
@@ -46665,7 +46665,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "熱門 Formula"
+            "value" : "熱門命令列工具"
           }
         }
       }
@@ -46840,8 +46840,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reinstall"
+            "state" : "translated",
+            "value" : "重新安裝"
           }
         }
       }
@@ -46910,8 +46910,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This package can now be updated through Homebrew"
+            "state" : "translated",
+            "value" : "Bu paket artık Homebrew üzerinden güncellenebilir"
           }
         },
         "uk" : {
@@ -46928,8 +46928,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "This package can now be updated through Homebrew"
+            "state" : "translated",
+            "value" : "這項套件現在可以透過 Homebrew 更新"
           }
         }
       }
@@ -47016,7 +47016,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Dimitri Bouniol"
           }
         }
@@ -47104,7 +47104,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "DavidFoundation"
           }
         }
@@ -47193,7 +47193,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我自用一些基本便利功能的套件"
+            "value" : "我的套件提供了一些基本的便利功能"
           }
         }
       }
@@ -47280,8 +47280,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "LaunchAtLogin"
+            "state" : "translated",
+            "value" : "開機時啟動"
           }
         }
       }
@@ -47369,7 +47369,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使 Cork 於登入時自動開啟的套件"
+            "value" : "於登入時讓 Cork 自動開啟的套件"
           }
         }
       }
@@ -47402,8 +47402,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "[Privacy policy](https://corkmac.app/privacy-en.html)"
+            "state" : "translated",
+            "value" : "[Politica de Privacidad](https://corkmac.aoo/privacy-en.html)"
           }
         },
         "fr" : {
@@ -47545,7 +47545,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "特別銘謝"
+            "value" : "特别感谢"
           }
         }
       }
@@ -47632,7 +47632,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Seb Jachec"
           }
         }
@@ -47667,7 +47667,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Implementó una función para obtener resultados de comandos en tiempo real, lo que hace que más de la mitad de todas las funciones de Cork sean mucho más rápidas."
+            "value" : "Se Implementó una función para obtener resultados de comandos en tiempo real, lo que hace que más de la mitad de todas las funciones de Cork sean mucho más rápidas"
           }
         },
         "fr" : {
@@ -47721,7 +47721,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "寫了一個能實時取得指令回應的函數，使 Cork 大半的功能都更加迅速。"
+            "value" : "實作了一個取得即時指令輸出的功能，讓 Cork 中一半以上的功能變得更快"
           }
         }
       }
@@ -47755,7 +47755,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Implementó la forma de omitir licencias para los usuarios que compilaron Cork ellos mismos."
+            "value" : "Se Implementó la forma de omitir licencias para los usuarios que compilaron Cork ellos mismos"
           }
         },
         "fr" : {
@@ -47808,8 +47808,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Implemented the way of skipping licensing for users who compiled Cork themselves"
+            "state" : "translated",
+            "value" : "為自行編譯 Cork 的使用者實施跳過授權的方式"
           }
         }
       }
@@ -47896,7 +47896,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Ben Carlsson"
           }
         }
@@ -47931,7 +47931,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© %lld David Bureš y colaboradores."
+            "value" : "© %lld David Bureš y colaboradores"
           }
         },
         "fr" : {
@@ -47985,7 +47985,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© %lld David Bureš 等貢獻者"
+            "value" : "© %lld David Bureš 等多位貢獻者"
           }
         }
       }
@@ -48072,7 +48072,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Jerry Zhang"
           }
         }
@@ -48248,7 +48248,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "sh95014"
           }
         }
@@ -48337,7 +48337,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "為 Cork 提供繁體中文翻譯"
+            "value" : "為 Cork 提供正體中文翻譯"
           }
         }
       }
@@ -48424,7 +48424,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Maurice Meysel"
           }
         }
@@ -48600,7 +48600,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Bryan Ledda"
           }
         }
@@ -48777,7 +48777,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Nikita Utkin"
           }
         }
@@ -48866,7 +48866,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "運用套件"
+            "value" : "已使用的套件"
           }
         }
       }
@@ -48900,7 +48900,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© %@ David Bureš y colaboradores."
+            "value" : "© %@ David Bureš y colaboradores"
           }
         },
         "fr" : {
@@ -48954,7 +48954,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© %@ David Bureš 等貢獻者"
+            "value" : "© %@ David Bureš 等多位貢獻者"
           }
         }
       }
@@ -49042,7 +49042,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Igor Petruchek"
           }
         }
@@ -49218,7 +49218,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -49300,7 +49300,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "⚠️"
           }
         }
@@ -49477,7 +49477,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "捐助"
+            "value" : "貢獻"
           }
         }
       }
@@ -49564,7 +49564,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "GitHub"
           }
         }
@@ -49652,7 +49652,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Mastodon"
           }
         }
@@ -49829,7 +49829,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "感謝貢獻"
+            "value" : "鳴謝貢獻者"
           }
         }
       }
@@ -49916,7 +49916,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Rob Napier"
           }
         }
@@ -50004,7 +50004,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Łukasz Rutkowski"
           }
         }
@@ -50181,7 +50181,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "修理了許多非同步和 SwiftUI 問題"
+            "value" : "修正了多個非同步和 SwiftUI 的問題"
           }
         }
       }
@@ -50268,7 +50268,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Jierong Li"
           }
         }
@@ -50357,7 +50357,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "修理了套件數量和起始頁面未更新的問題"
+            "value" : "修正了在起始頁面上套件計數未更新的問題"
           }
         }
       }
@@ -50444,7 +50444,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Oscar Bazaldua"
           }
         }
@@ -50533,7 +50533,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "貢獻了第一個通過的拉取請求，與 Jierong Li 一同修理套件數量"
+            "value" : "完成了第一個獲准的 Pull request；與 Jierong Li 一起完成修正了套件計數"
           }
         }
       }
@@ -50620,7 +50620,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Andrey Radchishin"
           }
         }
@@ -50709,7 +50709,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "加入返回主頁功能"
+            "value" : "已新增返回 Homebrew 狀態頁面的方式"
           }
         }
       }
@@ -50796,7 +50796,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Christian Tietze"
           }
         }
@@ -50885,7 +50885,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "想出許多高階最佳化邏輯，並持續提供有價值的 Swift 支援"
+            "value" : "提出了許多進階的最佳化邏輯，同時提供持續且具有價值的 Swift 支援"
           }
         }
       }
@@ -50972,7 +50972,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Mike Simons"
           }
         }
@@ -51238,8 +51238,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Reinstall Homebrew"
+            "state" : "translated",
+            "value" : "重新安裝 Homebrew"
           }
         }
       }
@@ -51272,8 +51272,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide section…"
+            "state" : "translated",
+            "value" : "Ocultar sección…"
           }
         },
         "fr" : {
@@ -51308,8 +51308,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide section…"
+            "state" : "translated",
+            "value" : "Bölümü gizle…"
           }
         },
         "uk" : {
@@ -51326,8 +51326,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide section…"
+            "state" : "translated",
+            "value" : "隱藏部分…"
           }
         }
       }
@@ -51450,7 +51450,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cerrar "
+            "value" : "Cerrar"
           }
         },
         "fr" : {
@@ -51592,7 +51592,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "拷貝"
+            "value" : "複製"
           }
         }
       }
@@ -51680,7 +51680,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "拷貝至剪貼簿"
+            "value" : "複製到剪貼簿"
           }
         }
       }
@@ -51768,7 +51768,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "結束"
+            "value" : "完成"
           }
         }
       }
@@ -51945,7 +51945,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "返回主頁"
+            "value" : "狀態頁面"
           }
         }
       }
@@ -52033,7 +52033,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "返回主頁"
+            "value" : "前往狀態頁面"
           }
         }
       }
@@ -52154,8 +52154,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide section"
+            "state" : "translated",
+            "value" : "Ocultar sección"
           }
         },
         "fr" : {
@@ -52190,8 +52190,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide section"
+            "state" : "translated",
+            "value" : "Bölümü gizle"
           }
         },
         "uk" : {
@@ -52208,8 +52208,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hide section"
+            "state" : "translated",
+            "value" : "隱藏部分"
           }
         }
       }
@@ -52278,8 +52278,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check for outdated packages"
+            "state" : "translated",
+            "value" : "Güncel olmayan paketleri denetle"
           }
         },
         "uk" : {
@@ -52296,8 +52296,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check for outdated packages"
+            "state" : "translated",
+            "value" : "檢查舊版套件"
           }
         }
       }
@@ -52384,8 +52384,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Inspect error…"
+            "state" : "translated",
+            "value" : "檢查錯誤…"
           }
         }
       }
@@ -52454,8 +52454,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed packages"
+            "state" : "translated",
+            "value" : "Kurulu paketler"
           }
         },
         "uk" : {
@@ -52472,8 +52472,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Installed packages"
+            "state" : "translated",
+            "value" : "已安裝的套件"
           }
         }
       }
@@ -52595,8 +52595,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Ignore %@"
+            "state" : "translated",
+            "value" : "Ignorar %@"
           }
         },
         "fr" : {
@@ -52631,8 +52631,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Ignore %@"
+            "state" : "translated",
+            "value" : "%@ öğesini yoksay"
           }
         },
         "uk" : {
@@ -52649,8 +52649,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Ignore %@"
+            "state" : "translated",
+            "value" : "忽略 %@"
           }
         }
       }
@@ -52684,8 +52684,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stop ignoring %@"
+            "state" : "translated",
+            "value" : "Dejar de ignorar %@"
           }
         },
         "fr" : {
@@ -52720,8 +52720,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stop ignoring %@"
+            "state" : "translated",
+            "value" : "%@ öğesini yoksaymayı bırak"
           }
         },
         "uk" : {
@@ -52738,8 +52738,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Stop ignoring %@"
+            "state" : "translated",
+            "value" : "停止略過 %@"
           }
         }
       }
@@ -52773,8 +52773,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Preview %@"
+            "state" : "translated",
+            "value" : "Vista previa de %@"
           }
         },
         "fr" : {
@@ -52809,8 +52809,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Preview %@"
+            "state" : "translated",
+            "value" : "%@ öğesini önizle"
           }
         },
         "uk" : {
@@ -52827,8 +52827,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Preview %@"
+            "state" : "translated",
+            "value" : "預覽 %@"
           }
         }
       }
@@ -53003,8 +53003,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to purge %@?"
+            "state" : "translated",
+            "value" : "您確定要清除 %@ 嗎？"
           }
         }
       }
@@ -53249,8 +53249,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check for Updates…"
+            "state" : "translated",
+            "value" : "Güncellemeleri denetle…"
           }
         },
         "uk" : {
@@ -53267,8 +53267,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check for Updates…"
+            "state" : "translated",
+            "value" : "正在檢查更新…"
           }
         }
       }
@@ -53444,8 +53444,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed packages"
+            "state" : "translated",
+            "value" : "已安裝的套件清單"
           }
         }
       }
@@ -53602,8 +53602,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Status of outdated packaes"
+            "state" : "translated",
+            "value" : "Güncel olmayan paketlerin durumu"
           }
         },
         "uk" : {
@@ -53620,8 +53620,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Status of outdated packaes"
+            "state" : "translated",
+            "value" : "舊版套件的狀況"
           }
         }
       }
@@ -53690,8 +53690,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of outdated packages"
+            "state" : "translated",
+            "value" : "Güncel olmayan paketlerin listesi"
           }
         },
         "uk" : {
@@ -53778,8 +53778,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Loading outdated packages"
+            "state" : "translated",
+            "value" : "Güncel olmayan paketler yükleniyor"
           }
         },
         "uk" : {
@@ -53866,8 +53866,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of Cask type"
+            "state" : "translated",
+            "value" : "Cask türü paket"
           }
         },
         "uk" : {
@@ -53884,8 +53884,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of Cask type"
+            "state" : "translated",
+            "value" : "Cask 類型套件"
           }
         }
       }
@@ -53954,8 +53954,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of Formula type"
+            "state" : "translated",
+            "value" : "Formül türü paket"
           }
         },
         "uk" : {
@@ -53972,8 +53972,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of Formula type"
+            "state" : "translated",
+            "value" : "Formula 類型套件"
           }
         }
       }
@@ -54042,8 +54042,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of an unimplemented type"
+            "state" : "translated",
+            "value" : "Henüz tanımlanmamış türde paket"
           }
         },
         "uk" : {
@@ -54060,8 +54060,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of an unimplemented type"
+            "state" : "translated",
+            "value" : "尚未實作類型的套件"
           }
         }
       }
@@ -54130,8 +54130,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of an unknown type"
+            "state" : "translated",
+            "value" : "Bilinmeyen türde paket"
           }
         },
         "uk" : {
@@ -54148,8 +54148,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package of an unknown type"
+            "state" : "translated",
+            "value" : "未知類型的套件"
           }
         }
       }
@@ -54218,8 +54218,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Return to status page"
+            "state" : "translated",
+            "value" : "Durum sayfasına geri dön"
           }
         },
         "uk" : {
@@ -54236,8 +54236,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Return to status page"
+            "state" : "translated",
+            "value" : "返回狀態頁面"
           }
         }
       }
@@ -54306,8 +54306,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed Casks"
+            "state" : "translated",
+            "value" : "Yüklü Cask'ların listesi"
           }
         },
         "uk" : {
@@ -54324,8 +54324,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed Casks"
+            "state" : "translated",
+            "value" : "已安裝的 Cask 清單"
           }
         }
       }
@@ -54358,8 +54358,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cancel and disable mass app adoption"
+            "state" : "translated",
+            "value" : "Cancelar y deshabilitar adopción masiva de aplicaciones"
           }
         },
         "fr" : {
@@ -54394,8 +54394,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cancel and disable mass app adoption"
+            "state" : "translated",
+            "value" : "İptal et ve toplu uygulama devralmayı devre dışı bırak"
           }
         },
         "uk" : {
@@ -54412,8 +54412,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cancel and disable mass app adoption"
+            "state" : "translated",
+            "value" : "取消並停用批次應用程式接管"
           }
         }
       }
@@ -54482,8 +54482,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed Formulae"
+            "state" : "translated",
+            "value" : "Kurulu Formüllerin listesi"
           }
         },
         "uk" : {
@@ -54500,8 +54500,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "List of installed Formulae"
+            "state" : "translated",
+            "value" : "已安裝的 Formulae 軟體清單"
           }
         }
       }
@@ -54570,8 +54570,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
+            "state" : "translated",
+            "value" : "Homebrew tarafından yönetilen %1$lld güncel olmayan paket ve Homebrew tarafından yönetilmeyen %2$lld güncel olmayan paket"
           }
         },
         "uk" : {
@@ -54588,8 +54588,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
+            "state" : "translated",
+            "value" : "%1$lld 個由 Homebrew 管理的舊版套件和 %2$lld 個未由 Homebrew 管理的舊版套件"
           }
         }
       }
@@ -54747,8 +54747,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopt"
+            "state" : "translated",
+            "value" : "Devral"
           }
         },
         "uk" : {
@@ -54765,8 +54765,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopt"
+            "state" : "translated",
+            "value" : "接管"
           }
         }
       }
@@ -54854,8 +54854,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopt %@"
+            "state" : "translated",
+            "value" : "接管 %@"
           }
         }
       }
@@ -54889,8 +54889,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add"
+            "state" : "translated",
+            "value" : "Añadir"
           }
         },
         "fr" : {
@@ -54925,8 +54925,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add"
+            "state" : "translated",
+            "value" : "Ekle"
           }
         },
         "uk" : {
@@ -54943,8 +54943,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add"
+            "state" : "translated",
+            "value" : "新增"
           }
         }
       }
@@ -54977,8 +54977,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add apps to Homebrew"
+            "state" : "translated",
+            "value" : "Añadir aplicaciones a Homebrew"
           }
         },
         "fr" : {
@@ -55013,8 +55013,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add apps to Homebrew"
+            "state" : "translated",
+            "value" : "Uygulamaları Homebrew’e ekle"
           }
         },
         "uk" : {
@@ -55031,8 +55031,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Add apps to Homebrew"
+            "state" : "translated",
+            "value" : "將應用程式新增到 Homebrew"
           }
         }
       }
@@ -55129,14 +55129,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Add %lld app"
+                  "state" : "translated",
+                  "value" : "Añadir la aplicacion %lld"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Add %lld apps"
+                  "state" : "translated",
+                  "value" : "Añador las aplicaciones %lld"
                 }
               }
             }
@@ -55243,14 +55243,14 @@
             "plural" : {
               "one" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Add %lld app"
+                  "state" : "translated",
+                  "value" : "%lld uygulama ekle"
                 }
               },
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Add %lld apps"
+                  "state" : "translated",
+                  "value" : "%lld uygulama ekle"
                 }
               }
             }
@@ -55303,8 +55303,8 @@
             "plural" : {
               "other" : {
                 "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Add %lld apps"
+                  "state" : "translated",
+                  "value" : "新增 %lld 應用程式"
                 }
               }
             }
@@ -55552,8 +55552,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Finished adopting %@"
+            "state" : "translated",
+            "value" : "%@ için devralma tamamlandı"
           }
         },
         "uk" : {
@@ -55570,8 +55570,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Finished adopting %@"
+            "state" : "translated",
+            "value" : "已完成接管 %@"
           }
         }
       }
@@ -55640,8 +55640,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopting %@…"
+            "state" : "translated",
+            "value" : "%@ devralınıyor…"
           }
         },
         "uk" : {
@@ -55658,8 +55658,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adopting %@…"
+            "state" : "translated",
+            "value" : "接管中 %@…"
           }
         }
       }
@@ -55834,8 +55834,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew outdated"
+            "state" : "translated",
+            "value" : "Homebrew 版本過舊"
           }
         }
       }
@@ -55922,8 +55922,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The specified path points to the Formulae folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+            "state" : "translated",
+            "value" : "指定的路徑指向 Formulae 資料夾本身，而不是套件。\n您的 Homebrew 已損壞，這不是 Cork 的問題"
           }
         }
       }
@@ -56010,8 +56010,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew didn't respond"
+            "state" : "translated",
+            "value" : "Homebrew 沒有回應"
           }
         }
       }
@@ -56099,8 +56099,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Some packages were not loaded due to an internal error"
+            "state" : "translated",
+            "value" : "部分套件因內部錯誤而無法載入"
           }
         }
       }
@@ -56187,8 +56187,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew returned JSON with the following error:\n%@"
+            "state" : "translated",
+            "value" : "Homebrew 返回的 JSON 包含以下錯誤：%@"
           }
         }
       }
@@ -56275,8 +56275,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not find any package with the provided UUID in the package tracker"
+            "state" : "translated",
+            "value" : "在套件追蹤器中找不到具有該 UUID 的套件"
           }
         }
       }
@@ -56363,8 +56363,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package synchronization failed"
+            "state" : "translated",
+            "value" : "套件同步失敗"
           }
         }
       }
@@ -56451,8 +56451,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not obtain access permissions to the specified folder: %@"
+            "state" : "translated",
+            "value" : "無法取得指定資料夾的存取權限：%@"
           }
         }
       }
@@ -56539,8 +56539,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "REGEX matched nothing"
+            "state" : "translated",
+            "value" : "正規表達式未匹配任何內容"
           }
         }
       }
@@ -56627,8 +56627,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not encode data: %@"
+            "state" : "translated",
+            "value" : "無法對資料進行編碼：%@"
           }
         }
       }
@@ -56715,8 +56715,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew didn't return any data"
+            "state" : "translated",
+            "value" : "Homebrew 未回應任何資料"
           }
         }
       }
@@ -56749,7 +56749,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -56785,7 +56785,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -56803,7 +56803,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -56891,8 +56891,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unimplemented error: %@"
+            "state" : "translated",
+            "value" : "此功能尚未實作：%@"
           }
         }
       }
@@ -56979,8 +56979,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Parsing of services failed"
+            "state" : "translated",
+            "value" : "服務解析失敗"
           }
         }
       }
@@ -57013,7 +57013,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -57049,7 +57049,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -57067,7 +57067,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -57155,8 +57155,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not stop the service: %@"
+            "state" : "translated",
+            "value" : "無法停止該服務：%@"
           }
         }
       }
@@ -57243,8 +57243,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not remove tap%1$@ with output: %2$@"
+            "state" : "translated",
+            "value" : "無法移除 Tap %1$@ 結果：%2$@"
           }
         }
       }
@@ -57277,7 +57277,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -57313,7 +57313,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -57331,7 +57331,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -57365,7 +57365,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -57401,7 +57401,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -57419,7 +57419,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -57507,8 +57507,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't download top packages"
+            "state" : "translated",
+            "value" : "無法下載熱門套件"
           }
         }
       }
@@ -57595,8 +57595,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The requested package was not found in the array, even though it should have been found"
+            "state" : "translated",
+            "value" : "找不到請求的套件，但照理說應該要有"
           }
         }
       }
@@ -57683,8 +57683,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The specified path points to the Cask folder itself, not a package.\nYour Homebrew is broken, this is not a Cork issue"
+            "state" : "translated",
+            "value" : "指定的路徑指向 Cask 資料夾本身，而不是套件。\n您的 Homebrew 已損壞，這不是 Cork 的問題"
           }
         }
       }
@@ -57771,8 +57771,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t load Taps"
+            "state" : "translated",
+            "value" : "無法載入 Tap"
           }
         }
       }
@@ -57859,8 +57859,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Yes"
+            "state" : "translated",
+            "value" : "是"
           }
         }
       }
@@ -57947,8 +57947,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not get the number of orphans uninstalled as a result of this operation"
+            "state" : "translated",
+            "value" : "無法取得此操作移除的孤立套件數量"
           }
         }
       }
@@ -58035,8 +58035,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t execute intent"
+            "state" : "translated",
+            "value" : "無法執行操作"
           }
         }
       }
@@ -58123,8 +58123,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not convert the provided String to Data with error: %@"
+            "state" : "translated",
+            "value" : "無法將提供的字串轉換為資料，錯誤：%@"
           }
         }
       }
@@ -58211,8 +58211,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+            "state" : "translated",
+            "value" : "無法使用內建的 JSON 解碼器解碼提供的數據：%@"
           }
         }
       }
@@ -58299,8 +58299,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Authorization complex for license retrieval could not be encoded"
+            "state" : "translated",
+            "value" : "無法對許可證檢索的授權複雜功能進行編碼"
           }
         }
       }
@@ -58387,8 +58387,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not connect to the internet. Will not be able to complete the licensing check"
+            "state" : "translated",
+            "value" : "無法連線至網際網路。無法完成授權檢查"
           }
         }
       }
@@ -58475,8 +58475,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unimplemented error occured while getting license status: %@"
+            "state" : "translated",
+            "value" : "取得授權狀態時發生未實作錯誤：%@"
           }
         }
       }
@@ -58563,8 +58563,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Checking for license status timed out"
+            "state" : "translated",
+            "value" : "檢查授權狀態載入時間過長"
           }
         }
       }
@@ -58651,8 +58651,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cache purging failed"
+            "state" : "translated",
+            "value" : "快取清除失敗"
           }
         }
       }
@@ -58739,8 +58739,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Standard error not empty"
+            "state" : "translated",
+            "value" : "標準錯誤不為空"
           }
         }
       }
@@ -58827,8 +58827,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not uninstall orphans: %@"
+            "state" : "translated",
+            "value" : "無法移除孤立套件： %@"
           }
         }
       }
@@ -58915,8 +58915,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t load Formulae"
+            "state" : "translated",
+            "value" : "無法載入 Formulae"
           }
         }
       }
@@ -59003,8 +59003,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected terminal output of the orphan uninstallation function"
+            "state" : "translated",
+            "value" : "孤立套件解除安裝功能出現未預期的終端輸出"
           }
         }
       }
@@ -59091,8 +59091,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not decode the provided data using the built-in JSON decoder: %@"
+            "state" : "translated",
+            "value" : "無法使用內建的 JSON 解碼器解碼提供的數據：%@"
           }
         }
       }
@@ -59179,8 +59179,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "HOME is not properly set in the Homebrew command"
+            "state" : "translated",
+            "value" : "HOME 在 Homebrew 命令中未正確設置"
           }
         }
       }
@@ -59213,7 +59213,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -59267,7 +59267,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -59355,8 +59355,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "An error occured during the pinning process"
+            "state" : "translated",
+            "value" : "釘選過程中發生錯誤"
           }
         }
       }
@@ -59443,8 +59443,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't load package from JSON response from Homebrew"
+            "state" : "translated",
+            "value" : "無法從 Homebrew 的 JSON 回應載入套件"
           }
         }
       }
@@ -59531,8 +59531,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package %@ does not have any versions installed"
+            "state" : "translated",
+            "value" : "套件 %@ 沒有任何已安裝的版本"
           }
         }
       }
@@ -59620,8 +59620,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ is not a package folder"
+            "state" : "translated",
+            "value" : "%@ 不是套件資料夾"
           }
         }
       }
@@ -59709,8 +59709,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't load package %1$@ (%2$@):\n%3$@"
+            "state" : "translated",
+            "value" : "無法載入套件 %1$@ (%2$@):%3$@"
           }
         }
       }
@@ -59797,8 +59797,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t load Casks"
+            "state" : "translated",
+            "value" : "無法載入 Cask"
           }
         }
       }
@@ -59831,8 +59831,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No"
+            "state" : "translated",
+            "value" : "Nº"
           }
         },
         "fr" : {
@@ -59885,8 +59885,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No"
+            "state" : "translated",
+            "value" : "否"
           }
         }
       }
@@ -59973,7 +59973,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "GitHub"
           }
         }
@@ -60061,8 +60061,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't convert JSON response from Homebrew to Data"
+            "state" : "translated",
+            "value" : "無法將 Homebrew 的 JSON 回應轉換為數據"
           }
         }
       }
@@ -60150,7 +60150,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "讀取熱門套件中⋯"
+            "value" : "讀取熱門套件中…"
           }
         }
       }
@@ -60237,7 +60237,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "dev@corkmac.app"
           }
         }
@@ -60326,7 +60326,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "查無此電郵帳號"
+            "value" : "無此電子信箱"
           }
         }
       }
@@ -60414,7 +60414,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您可以用下方按鈕或至[網站](https://corkmac.app)購買 Cork。\n不確定 Cork 符合您需求嗎？可以先試用七天。"
+            "value" : "您可以用下方按鈕或訪問[網站](https://corkmac.app)購買 Cork。\n不確定 Cork 符合您需求嗎？可以先試用 7 天。"
           }
         }
       }
@@ -60677,8 +60677,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "If you'd like to support the development of my apps, consider [buying Cork](https://corkmac.app)"
+            "state" : "translated",
+            "value" : "如果您想支援我關於應用程式的開發，考慮[購買 Cork](https://corkmac.app)"
           }
         }
       }
@@ -60765,8 +60765,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "You have compiled Cork yourself"
+            "state" : "translated",
+            "value" : "您已經自己編譯了 Cork"
           }
         }
       }
@@ -60854,7 +60854,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "授權⋯"
+            "value" : "授權…"
           }
         }
       }
@@ -60942,7 +60942,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "讀取資訊中⋯"
+            "value" : "讀取資訊中…"
           }
         }
       }
@@ -61118,7 +61118,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "試用期將於 %@ 截止"
+            "value" : "試用將於 %@ 截止"
           }
         }
       }
@@ -61908,13 +61908,13 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "移除了 %lld 個遺孤套件"
+                  "value" : "移除了 %lld 個孤立套件"
                 }
               },
               "zero" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "無遺孤套件"
+                  "value" : "未發現孤立套件"
                 }
               }
             }
@@ -62005,7 +62005,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "卸載了遺孤套件"
+            "value" : "孤立套件已解除安裝"
           }
         }
       }
@@ -62093,7 +62093,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法卸載遺孤套件"
+            "value" : "孤立套件無法解除安裝"
           }
         }
       }
@@ -62269,7 +62269,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您購買 Cork 時使用的的電郵地址："
+            "value" : "購買 Cork 時您所使用的的電子信箱地址："
           }
         }
       }
@@ -62444,8 +62444,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Hello, World!"
+            "state" : "translated",
+            "value" : "哈囉，世界！"
           }
         }
       }
@@ -62532,8 +62532,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Get a list of installed Formulae and Casks"
+            "state" : "translated",
+            "value" : "獲取已安裝的 Cask 及 Formulae 軟體清單"
           }
         }
       }
@@ -62620,8 +62620,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
+            "state" : "translated",
+            "value" : "當有新的可接管應用程式可用時，此部分將自動重新出現。\n\n您可以隨時在 Cork 的設定中的「可發現性」標籤中再次顯示此部分"
           }
         }
       }
@@ -62654,8 +62654,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to hide the Adoptable Packages section?"
+            "state" : "translated",
+            "value" : "¿Estas seguro que quieres ocultar la seccion de Paquetes Adoptables?"
           }
         },
         "fr" : {
@@ -62690,8 +62690,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to hide the Adoptable Packages section?"
+            "state" : "translated",
+            "value" : "Devralınabilir Paketler bölümünü gizlemek istediğinize emin misiniz?"
           }
         },
         "uk" : {
@@ -62708,8 +62708,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Are you sure you want to hide the Adoptable Packages section?"
+            "state" : "translated",
+            "value" : "您確定要隱藏「可接管套件」的區域嗎？"
           }
         }
       }
@@ -62796,7 +62796,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "homebrew/core"
           }
         }
@@ -62884,7 +62884,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "https://gitea.com/some-cool-address"
           }
         }
@@ -62974,7 +62974,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安裝 %@"
+            "value" : "正在安裝 %@"
           }
         }
       }
@@ -63061,8 +63061,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Get a list of installed Casks"
+            "state" : "translated",
+            "value" : "獲取已安裝的 Cask 軟體清單"
           }
         }
       }
@@ -63149,8 +63149,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Get installed Casks"
+            "state" : "translated",
+            "value" : "獲取已安裝的 Casks 軟體"
           }
         }
       }
@@ -63237,8 +63237,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Get a list of installed Formulae"
+            "state" : "translated",
+            "value" : "獲取已安裝的 Formulae 軟體清單"
           }
         }
       }
@@ -63325,8 +63325,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Get installed Formulae"
+            "state" : "translated",
+            "value" : "獲取已安裝的 Formulae 軟體"
           }
         }
       }
@@ -63413,8 +63413,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Load only manually installed packages"
+            "state" : "translated",
+            "value" : "僅載入手動安裝的套件"
           }
         }
       }
@@ -63502,7 +63502,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "授權啟動"
+            "value" : "授權已啟用"
           }
         }
       }
@@ -63589,8 +63589,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Get installed packages"
+            "state" : "translated",
+            "value" : "獲取已安裝的套件"
           }
         }
       }
@@ -63677,8 +63677,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Look for updates to installed Packages"
+            "state" : "translated",
+            "value" : "尋找已安裝套件的更新"
           }
         }
       }
@@ -63765,8 +63765,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package refreshing result"
+            "state" : "translated",
+            "value" : "套件重新整理結果"
           }
         }
       }
@@ -63853,8 +63853,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Refreshing of packages failed"
+            "state" : "translated",
+            "value" : "重新整理套件失敗"
           }
         }
       }
@@ -63941,8 +63941,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Packages refreshed"
+            "state" : "translated",
+            "value" : "套件已重新整理"
           }
         }
       }
@@ -64029,8 +64029,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Packages refreshed with errors"
+            "state" : "translated",
+            "value" : "套件重新整理時出現錯誤"
           }
         }
       }
@@ -64117,8 +64117,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Refresh Packages"
+            "state" : "translated",
+            "value" : "重新整理套件"
           }
         }
       }
@@ -64205,8 +64205,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew Package"
+            "state" : "translated",
+            "value" : "Homebrew 套件"
           }
         }
       }
@@ -64293,8 +64293,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "A lightweight representation of a package"
+            "state" : "translated",
+            "value" : "精簡後的套件"
           }
         }
       }
@@ -64469,8 +64469,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Invalid Homebrew response"
+            "state" : "translated",
+            "value" : "無效的 Homebrew 回應"
           }
         }
       }
@@ -64557,8 +64557,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't decode JSON response from Homebrew:\n%@"
+            "state" : "translated",
+            "value" : "無法解碼來自 Homebrew 的 JSON 回應：%@"
           }
         }
       }
@@ -64591,8 +64591,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Ignored adoptable apps"
+            "state" : "translated",
+            "value" : "Aplicaciones adoptables ignoradas"
           }
         },
         "fr" : {
@@ -64627,8 +64627,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Ignored adoptable apps"
+            "state" : "translated",
+            "value" : "Yoksayılan devralınabilir uygulamalar"
           }
         },
         "uk" : {
@@ -64645,8 +64645,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Ignored adoptable apps"
+            "state" : "translated",
+            "value" : "忽略已接管的應用程式"
           }
         }
       }
@@ -64733,8 +64733,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Check your internet connection and try again\nAlternatively, the authorization server may be offline at the moment"
+            "state" : "translated",
+            "value" : "檢查您的網際網路連線，然後再試一次\n或者，授權伺服器目前可能處於離線狀態"
           }
         }
       }
@@ -64821,8 +64821,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Package %@ prevented loading"
+            "state" : "translated",
+            "value" : "套件 %@ 阻止載入"
           }
         }
       }
@@ -64997,8 +64997,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not load packages (%@)"
+            "state" : "translated",
+            "value" : "無法載入套件 (%@)"
           }
         }
       }
@@ -65262,7 +65262,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請檢查您的網路連線，然後重試"
+            "value" : "檢查您的網路是否正常運作，然後再試一次"
           }
         }
       }
@@ -65437,8 +65437,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Your Mac is not connected to the internet. Check your internet settings."
+            "state" : "translated",
+            "value" : "您的 Mac 沒有連接到網際網路。請檢查您的網路設定。"
           }
         }
       }
@@ -65525,8 +65525,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not connect to the internet"
+            "state" : "translated",
+            "value" : "無法連接到網際網路"
           }
         }
       }
@@ -65613,8 +65613,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "License checking timed out"
+            "state" : "translated",
+            "value" : "檢查授權載入時間過長"
           }
         }
       }
@@ -65789,8 +65789,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "An unknown error occured"
+            "state" : "translated",
+            "value" : "發生未知錯誤"
           }
         }
       }
@@ -65879,7 +65879,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法解讀 Homebrew 回應"
+            "value" : "Homebrew 沒有返回有效數據"
           }
         }
       }
@@ -65967,7 +65967,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cork 無法使用您的 Homebrew 安裝\n我們正在研究這個在最新的 Homebrew 或 macOS 版本上所發現的問題。\nCork 目前無法執行，我們將儘速解決問題並更新。"
+            "value" : "Cork 無法訪問您的 Homebrew 安裝\n我們正在調查此問題的原因，該問題出現在最新的 Homebrew 或 macOS 發行版中\n在此之前，Cork 將無法使用。一旦此問題修復，Cork 將會更新"
           }
         }
       }
@@ -66055,7 +66055,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 的設定不如 Cork 所預期"
+            "value" : "Homebrew 在 Cork 的配置不正確"
           }
         }
       }
@@ -66142,8 +66142,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew installation broken"
+            "state" : "translated",
+            "value" : "Homebrew 安裝已損壞"
           }
         }
       }
@@ -66231,7 +66231,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您試圖回復的檔案有結構錯誤"
+            "value" : "您嘗試還原的檔案結構不正確"
           }
         }
       }
@@ -66319,7 +66319,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "備份檔損壞"
+            "value" : "備份檔已損壞"
           }
         }
       }
@@ -66407,7 +66407,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請重新安裝 Cork 再重試。"
+            "value" : "重新安裝 Cork 並重新嘗試"
           }
         }
       }
@@ -66495,7 +66495,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "查無元資料檔案夾"
+            "value" : "找不到元數據資料夾"
           }
         }
       }
@@ -66671,7 +66671,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請把備份檔移到另一個位置之後再重試"
+            "value" : "將備份文件移動到不同的位置，然後再試一次"
           }
         }
       }
@@ -66759,7 +66759,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 傳給 Cork 一個無效的回應"
+            "value" : "Homebrew 向 Cork 發送了無效的回應"
           }
         }
       }
@@ -66847,7 +66847,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請確認您有允許 Cork 使用文件檔案夾。"
+            "value" : "確保您已經授予 Cork 訪問您的文件夾的權限"
           }
         }
       }
@@ -66928,7 +66928,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "adoptable-packages.excluded.label"
           }
         }
@@ -66963,8 +66963,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adoptable apps"
+            "state" : "translated",
+            "value" : "Aplicaciones adoptables"
           }
         },
         "fr" : {
@@ -66999,8 +66999,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adoptable apps"
+            "state" : "translated",
+            "value" : "Devralınabilir uygulamalar"
           }
         },
         "uk" : {
@@ -67017,8 +67017,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adoptable apps"
+            "state" : "translated",
+            "value" : "可加入接管的應用程式"
           }
         }
       }
@@ -67105,8 +67105,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t delete cache"
+            "state" : "translated",
+            "value" : "無法刪除快取"
           }
         }
       }
@@ -67195,7 +67195,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請嘗試重啟 Cork。如果無法解決問題，請嘗試清除 Cork 的元資料。"
+            "value" : "請嘗試重啟 Cork。如果無法解決問題，嘗試清除 Cork 的元資料"
           }
         }
       }
@@ -67460,7 +67460,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "套件資料庫裡無此套件"
+            "value" : "無法在資料庫中找到套件"
           }
         }
       }
@@ -67549,7 +67549,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請手動刪除元資料的檔案夾，或重啟 Cork。"
+            "value" : "請手動刪除元資料的檔案夾，或嘗試重新啟動 Cork"
           }
         }
       }
@@ -67815,7 +67815,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法取得落伍套件"
+            "value" : "無法取得舊版套件"
           }
         }
       }
@@ -67903,7 +67903,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法建立主資料檔案"
+            "value" : "無法建立元資料檔案"
           }
         }
       }
@@ -68166,8 +68166,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not find the selected package in the list of available packages"
+            "state" : "translated",
+            "value" : "無法在可用套件清單中找到所選的套件"
           }
         }
       }
@@ -68255,7 +68255,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請把備份檔移到另一個位置之後再重試"
+            "value" : "將備份文件移動到不同的位置，然後再試一次"
           }
         }
       }
@@ -68343,7 +68343,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "備份檔讀取權限不足"
+            "value" : "無法讀取備份文件，權限不足"
           }
         }
       }
@@ -68464,7 +68464,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -68500,7 +68500,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         },
@@ -68518,7 +68518,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "%@"
           }
         }
@@ -68606,8 +68606,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read package info"
+            "state" : "translated",
+            "value" : "無法讀取套件資訊"
           }
         }
       }
@@ -68696,7 +68696,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "解讀落伍套件時發生錯誤"
+            "value" : "解讀舊版套件時發生錯誤"
           }
         }
       }
@@ -68784,7 +68784,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您仍有從 %@ 安裝的套件\n請把它們卸載後再重試"
+            "value" : "您仍有從 %@ 安裝的套件\n解除安裝後再重新嘗試"
           }
         }
       }
@@ -68959,8 +68959,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "An error occurred"
+            "state" : "translated",
+            "value" : "發生錯誤"
           }
         }
       }
@@ -69047,8 +69047,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not get the location of the selected brewfile"
+            "state" : "translated",
+            "value" : "無法獲得所選 brewfile 的路徑"
           }
         }
       }
@@ -69135,8 +69135,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Activate demo"
+            "state" : "translated",
+            "value" : "除錯：啟動試用"
           }
         }
       },
@@ -69224,8 +69224,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Licensing"
+            "state" : "translated",
+            "value" : "除錯：授權中"
           }
         }
       },
@@ -69313,8 +69313,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Reset licensing state"
+            "state" : "translated",
+            "value" : "除錯：重置授權中的狀態"
           }
         }
       },
@@ -69402,8 +69402,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Show error inspector"
+            "state" : "translated",
+            "value" : "顯示錯誤檢查器"
           }
         }
       }
@@ -69490,8 +69490,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: UI"
+            "state" : "translated",
+            "value" : "除錯：使用者介面"
           }
         }
       },
@@ -69579,8 +69579,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG"
+            "state" : "translated",
+            "value" : "除錯"
           }
         }
       },
@@ -69668,8 +69668,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Error Inspector"
+            "state" : "translated",
+            "value" : "錯誤檢查器"
           }
         }
       }
@@ -69756,8 +69756,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not determine which folder the brewfile export process was initiated from"
+            "state" : "translated",
+            "value" : "無法確定 brewfile 匯出過程是從哪個資料夾啟動的"
           }
         }
       }
@@ -69844,8 +69844,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not dump the brewfile into the provided location with error: %@"
+            "state" : "translated",
+            "value" : "無法將 brewfile 匯出到指定位置，錯誤：%@"
           }
         }
       }
@@ -69932,8 +69932,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not import brewfile: %@"
+            "state" : "translated",
+            "value" : "無法匯入 brewfile：%@"
           }
         }
       }
@@ -70020,8 +70020,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Unknown"
+            "state" : "translated",
+            "value" : "未知"
           }
         }
       }
@@ -70108,8 +70108,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read contents of cached Cask downloads folder"
+            "state" : "translated",
+            "value" : "無法讀取快取的 Cask 下載資料夾內容"
           }
         }
       }
@@ -70196,8 +70196,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read contents of cached downloads folder"
+            "state" : "translated",
+            "value" : "無法讀取快取下載資料夾的內容"
           }
         }
       }
@@ -70284,8 +70284,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read contents of cached Formulae downloads folder"
+            "state" : "translated",
+            "value" : "無法讀取 Formulae 下載快取資料夾中的内容"
           }
         }
       }
@@ -70367,7 +70367,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "error.data-downloading.couldnt-execute-request.%@"
           }
         }
@@ -70456,8 +70456,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew server returned the wrong response code: %lld"
+            "state" : "translated",
+            "value" : "Homebrew 伺服器返回了錯誤的回應碼：%lld"
           }
         }
       }
@@ -70544,8 +70544,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Homebrew server returned the wrong response code, and the provided response code could not be properly read"
+            "state" : "translated",
+            "value" : "Homebrew 伺服器回應的狀態碼不正確，提供的回應碼無法被正常讀取"
           }
         }
       }
@@ -70632,8 +70632,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The provided URL is not a valid Homebrew server URL"
+            "state" : "translated",
+            "value" : "提供的網址並不是有效的 Homebrew 伺服器網址"
           }
         }
       }
@@ -70720,8 +70720,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "No data received while fetching top packages from the Homebrew server"
+            "state" : "translated",
+            "value" : "從 Homebrew 伺服器獲取熱門套件時未收到任何資料"
           }
         }
       }
@@ -70808,8 +70808,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Could not find the requested package in the parent folder"
+            "state" : "translated",
+            "value" : "無法在上級資料夾中找到所要求的套件"
           }
         }
       }
@@ -70890,8 +70890,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Log packages to be adopted"
+            "state" : "translated",
+            "value" : "除錯：將被接管的套件日誌"
           }
         }
       }
@@ -71067,7 +71067,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "通知並未啟用，但您可以繼續使用 Cork。"
+            "value" : "您可以在不顯示通知的情況下繼續使用 Cork"
           }
         }
       }
@@ -71420,7 +71420,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法解讀熱門套件"
+            "value" : "Homebrew 沒有傳回有效的資料"
           }
         }
       }
@@ -71508,7 +71508,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本套件需要修復"
+            "value" : "這項套件需要修復"
           }
         }
       }
@@ -71683,8 +71683,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Restart Cork, and if the problem persists, reinstall it"
+            "state" : "translated",
+            "value" : "重新啟動 Cork，如果問題仍然存在，請重新安裝"
           }
         }
       }
@@ -71771,8 +71771,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read tap info"
+            "state" : "translated",
+            "value" : "無法讀取 Tap 資訊"
           }
         }
       }
@@ -71859,8 +71859,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t access folder containing Taps"
+            "state" : "translated",
+            "value" : "無法存取包含 Taps 的資料夾"
           }
         }
       }
@@ -71948,7 +71948,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您選的套件無法安裝"
+            "value" : "您所選擇的套件無法安裝"
           }
         }
       }
@@ -72035,8 +72035,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "File %@ is not a valid Homebrew package and needs to be removed"
+            "state" : "translated",
+            "value" : "檔案 %@ 不是有效的 Homebrew 套件，需要移除"
           }
         }
       }
@@ -72124,7 +72124,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "從備份回復中⋯"
+            "value" : "從備份回復中…"
           }
         }
       }
@@ -72211,8 +72211,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Invalid file %@ in a package folder"
+            "state" : "translated",
+            "value" : "套件資料夾中存在無效檔案 %@"
           }
         }
       }
@@ -72299,8 +72299,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn't uninstall %@"
+            "state" : "translated",
+            "value" : "無法解除安裝 %@"
           }
         }
       }
@@ -72387,8 +72387,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%2$@ is a dependency of %1$@"
+            "state" : "translated",
+            "value" : "%2$@ 是 %1$@ 的依賴項目"
           }
         }
       }
@@ -72421,8 +72421,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding %@"
+            "state" : "translated",
+            "value" : "Agregando %@"
           }
         },
         "fr" : {
@@ -72457,8 +72457,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding %@"
+            "state" : "translated",
+            "value" : "%@ ekleniyor"
           }
         },
         "uk" : {
@@ -72475,8 +72475,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Adding %@"
+            "state" : "translated",
+            "value" : "正在新增 %@"
           }
         }
       }
@@ -72564,7 +72564,7 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Cork"
           }
         }
@@ -72829,7 +72829,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Homebrew 備份中⋯"
+            "value" : "正在備份 Homebrew…"
           }
         }
       }
@@ -73005,7 +73005,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "從備份成功回復"
+            "value" : "成功從備份還原"
           }
         }
       }
