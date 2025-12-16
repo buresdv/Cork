@@ -58185,6 +58185,23 @@
         }
       }
     },
+    "start-page.adoptable-packages.available.%lld-excluded.%lld" : {
+      "comment" : "A headline that describes how many adoptable packages are available, including any that have been excluded. The first argument is the count of adoptable packages that are not excluded. The second argument is the count of adoptable packages that have been excluded.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are %1$lld installed apps -excluded.%2$lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il y a %1$lld applications installées (exclues : %2$lld)."
+          }
+        }
+      }
+    },
     "start-page.adoptable-packages.excluded.%lld" : {
       "comment" : "A subheading displaying the number of apps that will not be adopted. The argument is the count of apps that will not be adopted.",
       "localizations" : {
