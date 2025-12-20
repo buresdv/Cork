@@ -10104,7 +10104,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示較少"
+            "value" : "減少顯示"
           }
         }
       }
@@ -11107,7 +11107,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "顯示更多"
+            "value" : "增加顯示"
           }
         }
       }
@@ -44686,8 +44686,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Désactiver l'adoption"
+            "state" : "new",
+            "value" : "Disable adoption"
           }
         },
         "it" : {
@@ -64142,8 +64142,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Complet"
+            "state" : "new",
+            "value" : "Complete"
           }
         },
         "it" : {
@@ -64243,8 +64243,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Minimum"
+            "state" : "new",
+            "value" : "Minimal"
           }
         },
         "it" : {
@@ -65847,8 +65847,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versions uniquement"
+            "state" : "new",
+            "value" : "Versions only"
           }
         },
         "it" : {
