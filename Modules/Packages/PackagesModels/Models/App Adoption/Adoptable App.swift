@@ -16,12 +16,39 @@ public extension BrewPackagesTracker
     struct AdoptableApp: Identifiable, Hashable, Sendable
     {
         public let id: UUID = .init()
-
-        public let caskName: String
-        public let appExecutable: String
         
-        public let description: String?
+        /// A Cask which might be a match for the found executable
+        public final class AdoptionCandidate: Hashable, Sendable
+        {
+            /// The Cask name of the adoptable app - `discord-canary`
+            public let caskName: String
+            
+            /// Description for the cask of the installation candidate
+            public let caskDescription: String?
+            
+            public init(caskName: String, caskDescription: String?)
+            {
+                self.caskName = caskName
+                self.caskDescription = caskDescription
+            }
+            
+            public func hash(into hasher: inout Hasher) {
+                hasher.combine(self.caskName)
+                hasher.combine(self.caskDescription)
+            }
+            
+            static public func == (rhs: AdoptionCandidate, lhs: AdoptionCandidate) -> Bool
+            {
+                return ObjectIdentifier(rhs) == ObjectIdentifier(lhs)
+            }
+        }
+        
+        public let adoptionCandidates: [AdoptionCandidate]
+        
+        /// The name of the installed executable - `Discord.app`
+        public let appExecutable: String
 
+        /// Location of the executable
         public let fullAppUrl: URL
 
         public var isMarkedForAdoption: Bool
@@ -29,14 +56,12 @@ public extension BrewPackagesTracker
         public var app: Application?
 
         public init(
-            caskName: String,
-            description: String?,
+            adoptionCandidates: [AdoptableApp.AdoptionCandidate],
             appExecutable: String
         ) {
-            self.caskName = caskName
-            self.appExecutable = appExecutable
+            self.adoptionCandidates = adoptionCandidates
             
-            self.description = description
+            self.appExecutable = appExecutable
 
             self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(appExecutable, conformingTo: .application)
 
