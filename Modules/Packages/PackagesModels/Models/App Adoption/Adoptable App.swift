@@ -13,12 +13,12 @@ import SwiftData
 public extension BrewPackagesTracker
 {
     /// A struct for holding a Cask's name and its executable
-    struct AdoptableApp: Identifiable, Hashable, Sendable
+    struct AdoptableApp: Identifiable, Hashable
     {
         public let id: UUID = .init()
         
         /// A Cask which might be a match for the found executable
-        public final class AdoptionCandidate: Hashable, Sendable
+        public final actor AdoptionCandidate: Hashable
         {
             /// The Cask name of the adoptable app - `discord-canary`
             public let caskName: String
@@ -26,12 +26,17 @@ public extension BrewPackagesTracker
             /// Description for the cask of the installation candidate
             public let caskDescription: String?
             
+            /// Whether this partcular adoption candidate is selected for adoption
+            public var isSelectedForAdoption: Bool
+            
             public init(caskName: String, caskDescription: String?)
             {
                 self.caskName = caskName
                 self.caskDescription = caskDescription
+                self.isSelectedForAdoption = false
             }
             
+            nonisolated
             public func hash(into hasher: inout Hasher) {
                 hasher.combine(self.caskName)
                 hasher.combine(self.caskDescription)
@@ -44,6 +49,12 @@ public extension BrewPackagesTracker
         }
         
         public let adoptionCandidates: [AdoptionCandidate]
+        
+        nonisolated
+        public var selectedAdoptionCandidate: AdoptionCandidate?
+        {
+            return self.adoptionCandidates.filter{$0.isSelectedForAdoption}.first
+        }
         
         /// The name of the installed executable - `Discord.app`
         public let appExecutable: String
