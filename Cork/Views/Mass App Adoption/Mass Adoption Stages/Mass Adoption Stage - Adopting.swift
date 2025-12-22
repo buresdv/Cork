@@ -28,7 +28,7 @@ struct MassAdoptionStage_Adopting: View
         {
             for appToAdopt in appsToAdopt
             {
-                AppConstants.shared.logger.info("Will start adoption process for \(appToAdopt.caskName)")
+                AppConstants.shared.logger.info("Will start adoption process for \(appToAdopt.selectedAdoptionCandidate.caskName)")
 
                 await massAppAdoptionTracker.adoptNextApp(appToAdopt: appToAdopt)
                 

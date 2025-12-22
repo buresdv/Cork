@@ -198,7 +198,7 @@ public extension BrewPackagesTracker
         print("Finally processed adoption candidates: \(adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker)")
 
         var adoptableAppsWithConstructedBundles: [BrewPackagesTracker.AdoptableApp] = .init()
-
+        
         await withTaskGroup(of: AdoptableApp.self)
         { taskGroup in
             for adoptableApp in finalProcessedAdoptableApps

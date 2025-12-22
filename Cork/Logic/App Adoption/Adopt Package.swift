@@ -17,7 +17,7 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
         _ appToAdopt: BrewPackagesTracker.AdoptableApp
     ) async -> AdoptionProcessResult
     {
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", appToAdopt.caskName])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", appToAdopt.selectedAdoptionCandidate.caskName])
         adoptionProcess = process
         
         var consolidatedOutput: (standardOutput: [String], standardError: [String]) = (standardOutput: .init(), standardError: .init())
@@ -38,20 +38,20 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
         }
         
         AppConstants.shared.logger.debug("""
-        Finished mass adoption process for cask \(appToAdopt.caskName) with this result:
+        Finished mass adoption process for cask \(appToAdopt.selectedAdoptionCandidate.caskName) with this result:
         Output: \(consolidatedOutput.standardOutput.joined())
         Error: \(consolidatedOutput.standardError.joined())
         """)
         
         if consolidatedOutput.standardError.isEmpty
         {
-            AppConstants.shared.logger.info("Adoption process for cask \(appToAdopt.caskName) was successful")
+            AppConstants.shared.logger.info("Adoption process for cask \(appToAdopt.selectedAdoptionCandidate.caskName) was successful")
             
             return .success(appToAdopt)
         }
         else
         {
-            AppConstants.shared.logger.error("Adoption process for cask \(appToAdopt.caskName) failed")
+            AppConstants.shared.logger.error("Adoption process for cask \(appToAdopt.selectedAdoptionCandidate.caskName) failed")
             
             return .failure(
                 .failedWithError(

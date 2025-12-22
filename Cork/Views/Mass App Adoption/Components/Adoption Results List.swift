@@ -23,7 +23,7 @@ struct AdoptionResultsList: View
                 {
                     HStack(alignment: .center)
                     {
-                        Text(failedAdoptionCandidate.caskName)
+                        Text(failedAdoptionCandidate.selectedAdoptionCandidate.caskName)
                         
                         Spacer()
                         

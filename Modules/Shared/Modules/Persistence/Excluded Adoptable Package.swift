@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-public final class ExcludedAdoptableApp: Sendable
+public final class ExcludedAdoptableApp
 {
     @Attribute(.unique) @Attribute(.spotlight)
     public var appExecutable: String

@@ -13,12 +13,13 @@ import SwiftData
 public extension BrewPackagesTracker
 {
     /// A struct for holding a Cask's name and its executable
-    struct AdoptableApp: Identifiable, Hashable
+    struct AdoptableApp: Identifiable, Hashable, @unchecked Sendable // TODO: Remove this @unchecked
     {
         public let id: UUID = .init()
         
         /// A Cask which might be a match for the found executable
-        public final actor AdoptionCandidate: Hashable
+        @Observable
+        public final class AdoptionCandidate: Identifiable, Hashable
         {
             /// The Cask name of the adoptable app - `discord-canary`
             public let caskName: String
@@ -33,7 +34,7 @@ public extension BrewPackagesTracker
             {
                 self.caskName = caskName
                 self.caskDescription = caskDescription
-                self.isSelectedForAdoption = false
+                self.isSelectedForAdoption = true
             }
             
             nonisolated
@@ -51,9 +52,9 @@ public extension BrewPackagesTracker
         public let adoptionCandidates: [AdoptionCandidate]
         
         nonisolated
-        public var selectedAdoptionCandidate: AdoptionCandidate?
+        public var selectedAdoptionCandidate: AdoptionCandidate
         {
-            return self.adoptionCandidates.filter{$0.isSelectedForAdoption}.first
+            return self.adoptionCandidates.filter{$0.isSelectedForAdoption}.first!
         }
         
         /// The name of the installed executable - `Discord.app`
@@ -89,18 +90,20 @@ public extension BrewPackagesTracker
             return try? .init(from: self.fullAppUrl)
         }
         
+        @MainActor
         public func excludeSelf() async
         {
             let excludedAppRepresentation: ExcludedAdoptableApp = .init(fromAdoptableApp: self)
             
-            await excludedAppRepresentation.saveSelfToDatabase()
+            excludedAppRepresentation.saveSelfToDatabase()
         }
         
+        @MainActor
         public func includeSelf() async
         {
             let excludedAppRepresentation: ExcludedAdoptableApp = .init(fromAdoptableApp: self)
             
-            await excludedAppRepresentation.deleteSelfFromDatabase()
+            excludedAppRepresentation.deleteSelfFromDatabase()
         }
     }
 }
