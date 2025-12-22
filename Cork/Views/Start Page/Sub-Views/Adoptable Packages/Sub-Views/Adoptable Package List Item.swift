@@ -5,10 +5,10 @@
 //  Created by David Bureš - P on 22.12.2025.
 //
 
-import SwiftUI
-import CorkModels
 import ButtonKit
+import CorkModels
 import CorkShared
+import SwiftUI
 
 struct AdoptablePackageListItem: View
 {
@@ -16,25 +16,25 @@ struct AdoptablePackageListItem: View
     {
         case excludeOnly, includeOnly, none
     }
-    
+
     enum AdoptionCandidatesDisplayType
     {
         case oneAdoptionCandidate(
             adoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate
         )
-        
+
         case multipleAdoptionCandidates(
             adoptionCandidates: [BrewPackagesTracker.AdoptableApp.AdoptionCandidate],
             selectedAdoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate
         )
     }
-    
+
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    
+
     let adoptableCask: BrewPackagesTracker.AdoptableApp
-    
+
     let exclusionButtonType: ExclusionButtonType
-    
+
     /// Retrieve the correct number of adoption candidates for this adoptable app
     var adoptionCandidateDisplayType: AdoptionCandidatesDisplayType
     {
@@ -90,10 +90,11 @@ struct AdoptablePackageListItem: View
             } label: {
                 Label("action.reveal-\(adoptableCask.appExecutable)-in-finder", systemImage: "finder")
             }
-            
+
             Divider()
-            
-            switch exclusionButtonType {
+
+            switch exclusionButtonType
+            {
             case .excludeOnly:
                 ignoreAdoptableAppButton(appToIgnore: adoptableCask)
             case .includeOnly:
@@ -103,29 +104,34 @@ struct AdoptablePackageListItem: View
             }
         }
     }
-    
+
     @ViewBuilder
     func adoptionCandidateInfo_onlyOneAdoptionCandidate(
         adoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate
     ) -> some View
     {
-        HStack(alignment: .firstTextBaseline, spacing: 5)
+        HStack(alignment: .firstTextBaseline)
         {
-            Text(adoptableCask.appExecutable)
+            VStack(alignment: .leading, spacing: 4)
+            {
+                Text(adoptableCask.appExecutable)
 
+                if let caskDescription = adoptionCandidate.caskDescription
+                {
+                    Text(caskDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+            }
+            
+            Spacer()
+            
             Text("(\(adoptionCandidate.caskName))")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
-
-        if let caskDescription = adoptionCandidate.caskDescription
-        {
-            Text(caskDescription)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-        }
     }
-    
+
     @ViewBuilder
     func adoptionCandidatesInfo_multipleAdoptionCandidates(
         adoptionCandidates: [BrewPackagesTracker.AdoptableApp.AdoptionCandidate]
@@ -133,47 +139,63 @@ struct AdoptablePackageListItem: View
     {
         HStack(alignment: .firstTextBaseline, spacing: 5)
         {
-            Text(adoptableCask.appExecutable)
-            
-            Picker("", selection: Binding<BrewPackagesTracker.AdoptableApp.AdoptionCandidate>(get: {
-                return adoptionCandidates.filter(\.isSelectedForAdoption).first!
-            }, set: { newValue in
-                if let modifiedAdoptionCandidate = adoptionCandidates.filter({ $0.caskName == newValue.caskName }).first
+            VStack(alignment: .leading, spacing: 4)
+            {
+                Text(adoptableCask.appExecutable)
+                
+                if let caskDescription = adoptionCandidates.filter(\.isSelectedForAdoption).first?.caskDescription
                 {
-                    modifiedAdoptionCandidate.isSelectedForAdoption = newValue.isSelectedForAdoption
+                    Text(caskDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                 }
-            }))
+            }
+
+            Picker("", selection: Binding(
+                get: {
+                    adoptionCandidates.first { $0.isSelectedForAdoption }
+                },
+                set: { newSelectedCandidate in
+                    guard let newSelectedCandidate = newSelectedCandidate else { return }
+
+                    // Deselect all, then select the new one
+                    for candidate in adoptionCandidates
+                    {
+                        candidate.isSelectedForAdoption = (candidate.id == newSelectedCandidate.id)
+                    }
+                }
+            ))
             {
                 ForEach(adoptionCandidates)
                 { adoptionCandidate in
                     Text(adoptionCandidate.caskName)
-                        .tag(adoptionCandidate.caskName)
+                        .tag(adoptionCandidate)
                 }
             }
-
+            .pickerStyle(.automatic)
         }
     }
-    
+
     @ViewBuilder
     func ignoreAdoptableAppButton(appToIgnore: BrewPackagesTracker.AdoptableApp) -> some View
     {
         AsyncButton
         {
             AppConstants.shared.logger.info("Adding app \(appToIgnore.appExecutable) to the excluded apps")
-            
+
             await appToIgnore.excludeSelf()
         } label: {
             Label("action.package-adoption.ignore.\(appToIgnore.appExecutable)", systemImage: "xmark.circle")
         }
     }
-    
+
     @ViewBuilder
     func includeAdoptableAppButton(appToInclude: BrewPackagesTracker.AdoptableApp) -> some View
     {
         AsyncButton
         {
             AppConstants.shared.logger.info("Removing app \(appToInclude.appExecutable) from the excluded apps")
-            
+
             await appToInclude.includeSelf()
         } label: {
             Label("action.package-adoption.include.\(appToInclude.appExecutable)", systemImage: "plus.circle")
