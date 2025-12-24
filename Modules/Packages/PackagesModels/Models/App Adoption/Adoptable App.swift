@@ -19,7 +19,7 @@ public extension BrewPackagesTracker
 
         /// A Cask which might be a match for the found executable
         @Observable
-        public final class AdoptionCandidate: Identifiable, Hashable
+        public class AdoptionCandidate: Identifiable, Hashable
         {
             /// The Cask name of the adoptable app - `discord-canary`
             public let caskName: String
@@ -53,11 +53,16 @@ public extension BrewPackagesTracker
         public let adoptionCandidates: [AdoptionCandidate]
 
         public nonisolated
-        var selectedAdoptionCandidate: AdoptionCandidate
+        var selectedAdoptionCandidate: AdoptionCandidate?
         {
-            return self.adoptionCandidates.filter { $0.isSelectedForAdoption }.first!
+            return self.adoptionCandidates.filter { $0.isSelectedForAdoption }.first
         }
-
+        
+        public var selectedAdoptionCandidateCaskName: String?
+        {
+            return self.selectedAdoptionCandidate?.caskName
+        }
+        
         /// The name of the installed executable - `Discord.app`
         public let appExecutable: String
 

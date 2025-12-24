@@ -363,11 +363,9 @@ struct AdoptablePackagesSection: View
     {
         Button
         {
-            /*
-            let namesOfAdoptedPackages: [String] = brewPackagesTracker.adoptableAppsSelectedToBeAdopted.map{ $0.caskName }
+            let namesOfAdoptedPackages: [String] = brewPackagesTracker.adoptableAppsSelectedToBeAdopted.map{ $0.selectedAdoptionCandidateCaskName! }
             
             AppConstants.shared.logger.debug("\(namesOfAdoptedPackages.count), \(namesOfAdoptedPackages.formatted(.list(type: .and)))")
-             */
         } label: {
             Text("DEBUG: Log packages to be adopted")
         }

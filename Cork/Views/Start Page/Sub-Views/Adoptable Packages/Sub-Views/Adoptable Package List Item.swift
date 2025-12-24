@@ -25,7 +25,7 @@ struct AdoptablePackageListItem: View
 
         case multipleAdoptionCandidates(
             adoptionCandidates: [BrewPackagesTracker.AdoptableApp.AdoptionCandidate],
-            selectedAdoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate
+            selectedAdoptionCandidate: BrewPackagesTracker.AdoptableApp.AdoptionCandidate?
         )
     }
 
@@ -79,9 +79,21 @@ struct AdoptablePackageListItem: View
             switch adoptionCandidateDisplayType
             {
             case .oneAdoptionCandidate(let adoptionCandidate):
-                PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.caskName)", packageToPreview: .init(name: adoptionCandidate.caskName, type: .cask, installedIntentionally: true))
+                PreviewPackageButtonWithCustomLabel(
+                    label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.caskName)", packageToPreview: .init(name: adoptionCandidate.caskName, type: .cask, installedIntentionally: true)
+                )
+                
             case .multipleAdoptionCandidates(_, let selectedAdoptionCandidate):
-                PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(selectedAdoptionCandidate.caskName)", packageToPreview: .init(name: selectedAdoptionCandidate.caskName, type: .cask, installedIntentionally: true))
+                if let selectedAdoptionCandidate
+                {
+                    PreviewPackageButtonWithCustomLabel(
+                        label: "action.preview-package-app-would-be-adopted-as.\(selectedAdoptionCandidate.caskName)", packageToPreview: .init(name: selectedAdoptionCandidate.caskName, type: .cask, installedIntentionally: true)
+                    )
+                }
+                else
+                {
+                    Text("error.preview-package-app-would-be-adopted-as.no-cask-name-selected")
+                }
             }
 
             Button
