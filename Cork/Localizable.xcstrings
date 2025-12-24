@@ -50371,6 +50371,9 @@
         }
       }
     },
+    "package-adoption.multiple-adoption-candidates.%lld-available" : {
+
+    },
     "package-details.action.pin-version-%@" : {
       "localizations" : {
         "cs" : {

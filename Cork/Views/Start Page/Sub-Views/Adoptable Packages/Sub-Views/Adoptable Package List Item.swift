@@ -168,8 +168,18 @@ struct AdoptablePackageListItem: View
             {
                 ForEach(adoptionCandidates)
                 { adoptionCandidate in
-                    Text(adoptionCandidate.caskName)
-                        .tag(adoptionCandidate)
+                    VStack(alignment: .leading, spacing: 4)
+                    {
+                        Text(adoptionCandidate.caskName)
+                        
+                        if let caskDescription = adoptionCandidate.caskDescription
+                        {
+                            Text(caskDescription)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .tag(adoptionCandidate)
                 }
             }
             .pickerStyle(.automatic)

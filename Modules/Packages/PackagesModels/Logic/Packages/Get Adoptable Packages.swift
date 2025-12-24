@@ -65,7 +65,9 @@ public extension BrewPackagesTracker
 
                     let processedAdoptableCasks: [AdoptableApp] = await getAdoptableAppsFromAvailableCasks(installedApps: installedApps, unprocessedAdoptionCandidates: unprocessedAdoptionCandidates)
 
-                    return processedAdoptableCasks
+                    let sortedProcessedAdoptableCasks: Set<AdoptableApp> = await markMostLikelyAdoptionCandidate(adoptableApps: Set(processedAdoptableCasks))
+
+                    return sortedProcessedAdoptableCasks.sorted(by: { $0.appExecutable < $1.appExecutable })
                 }
                 catch let applicationDirectoryAccessingError
                 {
@@ -144,7 +146,7 @@ public extension BrewPackagesTracker
             else
             {
                 AppConstants.shared.logger.info("Extracted adoption candidate (\(parsedCask.token) has no executable defined - skipping")
-                
+
                 return nil
             }
         })
@@ -191,14 +193,14 @@ public extension BrewPackagesTracker
 
         /// Filter out packages that are already included in the Cask tracker (which means they are already installed)
         let adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker: Set<AdoptionCandidateWithAssociatedExecutable> = relevantAdoptionCandidates.filter { !caskNamesOfInstalledPackages.contains($0.appExecutableForCandidate) }
-        
+
         /// Transform the adoption candidates into usable ``AdoptableApp``
         let finalProcessedAdoptableApps: Set<AdoptableApp> = await constructFinalAdoptableAppsFromUnprocessedCandidates(unprocessedAdoptionCandidates: adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker)
 
         print("Finally processed adoption candidates: \(adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker)")
 
         var adoptableAppsWithConstructedBundles: [BrewPackagesTracker.AdoptableApp] = .init()
-        
+
         await withTaskGroup(of: AdoptableApp.self)
         { taskGroup in
             for adoptableApp in finalProcessedAdoptableApps
@@ -236,5 +238,74 @@ public extension BrewPackagesTracker
                 .init(adoptionCandidates: $0.value.map { $0.adoptionCandidate }, appExecutable: $0.key)
             }
         )
+    }
+
+    /// Go over the adoptable apps, and mark the most likely adoption candidate as selected by default
+    private nonisolated
+    func markMostLikelyAdoptionCandidate(
+        adoptableApps: Set<BrewPackagesTracker.AdoptableApp>
+    ) async -> Set<BrewPackagesTracker.AdoptableApp>
+    {
+        await withTaskGroup(of: BrewPackagesTracker.AdoptableApp.self)
+        { taskGroup in
+            for adoptableApp in adoptableApps
+            {
+                taskGroup.addTask
+                {
+                    let candidates = adoptableApp.adoptionCandidates
+
+                    let sorted = candidates.sorted
+                    { lhs, rhs in
+                        let lhsHasAt = lhs.caskName.contains("@")
+                        let rhsHasAt = rhs.caskName.contains("@")
+
+                        if lhsHasAt != rhsHasAt
+                        {
+                            return !lhsHasAt
+                        }
+
+                        if lhsHasAt && rhsHasAt
+                        {
+                            let lhsHasBeta = lhs.caskName.lowercased().contains("beta")
+                            let rhsHasBeta = rhs.caskName.lowercased().contains("beta")
+                            if lhsHasBeta != rhsHasBeta
+                            {
+                                return !lhsHasBeta
+                            }
+                        }
+
+                        return lhs.caskName < rhs.caskName
+                    }
+
+                    for i in candidates.indices
+                    {
+                        candidates[i].isSelectedForAdoption = false
+                    }
+                    sorted.first?.isSelectedForAdoption = true
+
+                    return adoptableApp.withUpdatedCandidates(candidates)
+                }
+            }
+            var collectedApps = Set<BrewPackagesTracker.AdoptableApp>()
+            for await app in taskGroup
+            {
+                collectedApps.insert(app)
+            }
+            return collectedApps
+        }
+    }
+}
+
+private extension BrewPackagesTracker.AdoptableApp
+{
+    func withUpdatedCandidates(_ newCandidates: [BrewPackagesTracker.AdoptableApp.AdoptionCandidate]) -> BrewPackagesTracker.AdoptableApp
+    {
+        var newApp = BrewPackagesTracker.AdoptableApp(
+            adoptionCandidates: newCandidates,
+            appExecutable: self.appExecutable
+        )
+        newApp.app = self.app
+        newApp.isMarkedForAdoption = self.isMarkedForAdoption
+        return newApp
     }
 }
