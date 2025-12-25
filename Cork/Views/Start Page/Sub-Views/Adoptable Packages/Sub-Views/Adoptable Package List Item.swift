@@ -93,6 +93,7 @@ struct AdoptablePackageListItem: View
                 else
                 {
                     Text("error.preview-package-app-would-be-adopted-as.no-cask-name-selected")
+                        .disabled(true)
                 }
             }
 

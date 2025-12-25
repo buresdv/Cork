@@ -168,7 +168,8 @@ struct AdoptablePackagesSection: View
                     
                     if !brewPackagesTracker.adoptableAppsNonExcluded.isEmpty
                     {
-                        DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation()) {
+                        DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation())
+                        {
                             AdoptablePackagesList()
                         } label: {
                             Text("adoptable-packages.label")
@@ -177,8 +178,9 @@ struct AdoptablePackagesSection: View
                     
                     if !brewPackagesTracker.excludedAdoptableApps.isEmpty
                     {
-                        DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation()) {
-                            excludedAdoptablePackagesList
+                        DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation())
+                        {
+                            ExcludedAdoptablePackagesList()
                         } label: {
                             Text("adoptable-packages.excluded-label")
                         }
@@ -304,56 +306,6 @@ struct AdoptablePackagesSection: View
             Label("action.hide-adoptable-packages-section-if-only-excluded-apps-available", systemImage: "eye.slash")
         }
         .labelStyle(.titleOnly)
-    }
-    
-    @State private var numberOfMaxShownIgnoredAdoptableApps: Int = 5
-        
-    @ViewBuilder
-    var excludedAdoptablePackagesList: some View
-    {
-        List
-        {
-            Section
-            {
-                ForEach(brewPackagesTracker.excludedAdoptableApps.prefix(numberOfMaxShownIgnoredAdoptableApps))
-                { ignoredApp in
-                    AdoptablePackageListItem(adoptableCask: ignoredApp, exclusionButtonType: .includeOnly)
-                        .saturation(0.3)
-                }
-            } footer: {
-                HStack(alignment: .center)
-                {
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownIgnoredAdoptableApps += 10
-                        }
-                    } label: {
-                        Label("action.show-more", systemImage: "chevron.down")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownIgnoredAdoptableApps >= brewPackagesTracker.excludedAdoptableApps.count)
-
-                    Spacer()
-
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownIgnoredAdoptableApps -= 10
-                        }
-                    } label: {
-                        Label("action.show-less", systemImage: "chevron.up")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownIgnoredAdoptableApps < 7)
-                }
-            }
-        }
-        .listStyle(.bordered(alternatesRowBackgrounds: true))
-        .animation(.smooth, value: excludedApps)
-        .transition(.push(from: .top))
     }
     
     #if DEBUG

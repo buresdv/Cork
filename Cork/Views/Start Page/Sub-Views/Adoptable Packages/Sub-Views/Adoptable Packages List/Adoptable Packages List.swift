@@ -16,84 +16,97 @@ struct AdoptablePackagesList: View
     
     @State private var numberOfMaxShownAdoptableApps: Int = 5
     
+    @State private var searchText: String = ""
+    
     @Query private var excludedApps: [ExcludedAdoptableApp]
+    
+    var displayedAdoptablePackages: ArraySlice<BrewPackagesTracker.AdoptableApp>
+    {
+        var filteredAdoptablePackages: [BrewPackagesTracker.AdoptableApp]
+        {
+            guard !searchText.isEmpty else
+            {
+                return brewPackagesTracker.adoptableAppsNonExcluded
+            }
+            return brewPackagesTracker.adoptableAppsNonExcluded.filter
+            { adoptableApp in
+                return adoptableApp.appExecutable.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+        
+        return filteredAdoptablePackages.prefix(numberOfMaxShownAdoptableApps)
+    }
     
     var body: some View
     {
-        List
-        {
-            Section
-            {
-                ForEach(brewPackagesTracker.adoptableAppsNonExcluded.prefix(numberOfMaxShownAdoptableApps))
-                { adoptableCask in
-                    HStack(alignment: .center)
-                    {
-                        Toggle(isOn: Binding<Bool>(
-                            get: {
-                                adoptableCask.isMarkedForAdoption
-                            }, set: { _ in
-                                if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
-                                {
-                                    brewPackagesTracker.adoptableApps[index].changeMarkedState()
-                                }
-                            }
-                        ))
-                        {
-                            EmptyView()
-                        }
-                        .labelsHidden()
-
-                        AdoptablePackageListItem(adoptableCask: adoptableCask, exclusionButtonType: .excludeOnly)
-                        /* .onTapGesture
-                         {
-                             if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
-                             {
-                                 brewPackagesTracker.adoptableApps[index].changeMarkedState()
-                             }
-                         } */
-                    }
-                }
-            } header: {
-                HStack(alignment: .center, spacing: 10)
-                {
-                    deselectAllButton
-
-                    selectAllButton
-                }
-            } footer: {
+        AdoptablePackageListTemplate(adoptablePackageType: .adoptablePackages, searchText: $searchText) {
+            ForEach(displayedAdoptablePackages)
+            { adoptableCask in
                 HStack(alignment: .center)
                 {
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownAdoptableApps += 10
+                    Toggle(isOn: Binding<Bool>(
+                        get: {
+                            adoptableCask.isMarkedForAdoption
+                        }, set: { _ in
+                            if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
+                            {
+                                brewPackagesTracker.adoptableApps[index].changeMarkedState()
+                            }
                         }
-                    } label: {
-                        Label("action.show-more", systemImage: "chevron.down")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownAdoptableApps >= brewPackagesTracker.adoptableAppsNonExcluded.count)
-
-                    Spacer()
-
-                    Button
+                    ))
                     {
-                        withAnimation
-                        {
-                            numberOfMaxShownAdoptableApps -= 10
-                        }
-                    } label: {
-                        Label("action.show-less", systemImage: "chevron.up")
+                        EmptyView()
                     }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownAdoptableApps < 7)
+                    .labelsHidden()
+
+                    AdoptablePackageListItem(adoptableCask: adoptableCask, exclusionButtonType: .excludeOnly)
+                    /* .onTapGesture
+                     {
+                         if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
+                         {
+                             brewPackagesTracker.adoptableApps[index].changeMarkedState()
+                         }
+                     } */
                 }
             }
+        } sectionHeaderContent: {
+            HStack(alignment: .center, spacing: 10)
+            {
+                deselectAllButton
+
+                selectAllButton
+            }
+        } sectionFooterContent: {
+            HStack(alignment: .center)
+            {
+                Button
+                {
+                    withAnimation
+                    {
+                        numberOfMaxShownAdoptableApps += 10
+                    }
+                } label: {
+                    Label("action.show-more", systemImage: "chevron.down")
+                }
+                .buttonStyle(.accessoryBar)
+                .disabled(numberOfMaxShownAdoptableApps >= brewPackagesTracker.adoptableAppsNonExcluded.count)
+
+                Spacer()
+
+                Button
+                {
+                    withAnimation
+                    {
+                        numberOfMaxShownAdoptableApps -= 10
+                    }
+                } label: {
+                    Label("action.show-less", systemImage: "chevron.up")
+                }
+                .buttonStyle(.accessoryBar)
+                .disabled(numberOfMaxShownAdoptableApps < 7)
+            }
         }
-        .listStyle(.bordered(alternatesRowBackgrounds: true))
-        .animation(.smooth, value: excludedApps)
-        .transition(.push(from: .top))
+        .animation(.smooth, value: displayedAdoptablePackages)
     }
     
     @ViewBuilder
