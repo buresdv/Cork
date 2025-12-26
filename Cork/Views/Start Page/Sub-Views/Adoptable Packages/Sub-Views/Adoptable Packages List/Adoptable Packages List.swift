@@ -5,41 +5,56 @@
 //  Created by David Bureš - P on 22.12.2025.
 //
 
-import SwiftUI
 import CorkModels
 import CorkShared
 import SwiftData
+import SwiftUI
 
 struct AdoptablePackagesList: View
 {
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    
+
     @State private var numberOfMaxShownAdoptableApps: Int = 5
-    
+
     @State private var searchText: String = ""
-    
+
     @Query private var excludedApps: [ExcludedAdoptableApp]
-    
+
     var displayedAdoptablePackages: ArraySlice<BrewPackagesTracker.AdoptableApp>
     {
         var filteredAdoptablePackages: [BrewPackagesTracker.AdoptableApp]
         {
-            guard !searchText.isEmpty else
+            guard !searchText.isEmpty
+            else
             {
                 return brewPackagesTracker.adoptableAppsNonExcluded
             }
+
             return brewPackagesTracker.adoptableAppsNonExcluded.filter
             { adoptableApp in
-                return adoptableApp.appExecutable.localizedCaseInsensitiveContains(searchText)
+
+                let appExecutableMatches: Bool = adoptableApp.appExecutable.localizedCaseInsensitiveContains(searchText)
+
+                let adoptionCandidateMatches: Bool = adoptableApp.adoptionCandidates.contains
+                { adoptionCandidate in
+                    let caskNameMatches: Bool = adoptionCandidate.caskName.localizedCaseInsensitiveContains(searchText)
+
+                    let caskDescriptionMatches: Bool = adoptionCandidate.caskDescription?.localizedCaseInsensitiveContains(searchText) ?? false
+
+                    return caskNameMatches || caskDescriptionMatches
+                }
+
+                return appExecutableMatches || adoptionCandidateMatches
             }
         }
-        
+
         return filteredAdoptablePackages.prefix(numberOfMaxShownAdoptableApps)
     }
-    
+
     var body: some View
     {
-        AdoptablePackageListTemplate(adoptablePackageType: .adoptablePackages, searchText: $searchText) {
+        AdoptablePackageListTemplate(adoptablePackageType: .adoptablePackages, searchText: $searchText)
+        {
             ForEach(displayedAdoptablePackages)
             { adoptableCask in
                 HStack(alignment: .center)
@@ -108,7 +123,7 @@ struct AdoptablePackagesList: View
         }
         .animation(.smooth, value: displayedAdoptablePackages)
     }
-    
+
     @ViewBuilder
     var deselectAllButton: some View
     {

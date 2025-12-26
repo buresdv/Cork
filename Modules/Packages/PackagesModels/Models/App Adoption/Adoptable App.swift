@@ -76,8 +76,7 @@ public extension BrewPackagesTracker
         public init(
             adoptionCandidates: [AdoptableApp.AdoptionCandidate],
             appExecutable: String
-        )
-        {
+        ) {
             self.adoptionCandidates = adoptionCandidates
 
             self.appExecutable = appExecutable

@@ -10,6 +10,8 @@ import SwiftUI
 
 public enum DisplayableAlert: LocalizedError
 {
+    case generic(customMessage: String)
+    
     case couldNotGetContentsOfPackageFolder(String), couldNotLoadAnyPackages(LocalizedError), couldNotLoadCertainPackage(String, URL, failureReason: String)
     case licenseCheckingFailedDueToAuthorizationComplexNotBeingEncodedProperly, licenseCheckingFailedDueToNoInternet, licenseCheckingFailedDueToTimeout, licenseCheckingFailedForOtherReason(localizedDescription: String)
     case tapLoadingFailedDueToTapParentLocation(localizedDescription: String), tapLoadingFailedDueToTapItself(localizedDescription: String)

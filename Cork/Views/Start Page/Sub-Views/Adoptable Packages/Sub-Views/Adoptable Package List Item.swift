@@ -29,6 +29,7 @@ struct AdoptablePackageListItem: View
         )
     }
 
+    @Environment(AppState.self) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let adoptableCask: BrewPackagesTracker.AdoptableApp
@@ -82,7 +83,7 @@ struct AdoptablePackageListItem: View
                 PreviewPackageButtonWithCustomLabel(
                     label: "action.preview-package-app-would-be-adopted-as.\(adoptionCandidate.caskName)", packageToPreview: .init(name: adoptionCandidate.caskName, type: .cask, installedIntentionally: true)
                 )
-                
+
             case .multipleAdoptionCandidates(_, let selectedAdoptionCandidate):
                 if let selectedAdoptionCandidate
                 {
@@ -136,9 +137,9 @@ struct AdoptablePackageListItem: View
                         .foregroundColor(.secondary)
                 }
             }
-            
+
             Spacer()
-            
+
             Text("(\(adoptionCandidate.caskName))")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
@@ -155,7 +156,7 @@ struct AdoptablePackageListItem: View
             VStack(alignment: .leading, spacing: 4)
             {
                 Text(adoptableCask.appExecutable)
-                
+
                 if let caskDescription = adoptionCandidates.filter(\.isSelectedForAdoption).first?.caskDescription
                 {
                     Text(caskDescription)
@@ -164,14 +165,26 @@ struct AdoptablePackageListItem: View
                 }
             }
 
+            Spacer()
+
             Picker("", selection: Binding(
                 get: {
                     adoptionCandidates.first { $0.isSelectedForAdoption }
                 },
                 set: { newSelectedCandidate in
-                    guard let newSelectedCandidate = newSelectedCandidate else { return }
+                    guard let newSelectedCandidate = newSelectedCandidate
+                    else
+                    {
+                        appState.showAlert(
+                            errorToShow: .generic(
+                                customMessage: String(localized: "mass-adoption.failed.details-dropdown.missing-candidate-cask-name")
+                            )
+                        )
+                        
+                        return
+                    }
 
-                    // Deselect all, then select the new one
+                    // Deselect all candidates, then select the new one
                     for candidate in adoptionCandidates
                     {
                         candidate.isSelectedForAdoption = (candidate.id == newSelectedCandidate.id)
@@ -184,7 +197,7 @@ struct AdoptablePackageListItem: View
                     VStack(alignment: .leading, spacing: 4)
                     {
                         Text(adoptionCandidate.caskName)
-                        
+
                         if let caskDescription = adoptionCandidate.caskDescription
                         {
                             Text(caskDescription)
@@ -196,6 +209,7 @@ struct AdoptablePackageListItem: View
                 }
             }
             .pickerStyle(.automatic)
+            .fixedSize()
         }
     }
 
