@@ -471,6 +471,9 @@ private extension View
             { error in
                 switch error
                 {
+                case .generic:
+                    EmptyView()
+                    
                 case .couldNotGetContentsOfPackageFolder:
                     EmptyView()
 

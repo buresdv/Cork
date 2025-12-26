@@ -20,13 +20,44 @@ struct ExcludedAdoptablePackagesList: View
     
     @Query private var excludedApps: [ExcludedAdoptableApp]
     
+    var displayedExcludedAdoptablePackages: ArraySlice<BrewPackagesTracker.AdoptableApp>
+    {
+        var filteredAdoptablePackages: [BrewPackagesTracker.AdoptableApp]
+        {
+            guard !searchText.isEmpty
+            else
+            {
+                return brewPackagesTracker.excludedAdoptableApps
+            }
+
+            return brewPackagesTracker.excludedAdoptableApps.filter
+            { adoptableApp in
+
+                let appExecutableMatches: Bool = adoptableApp.appExecutable.localizedCaseInsensitiveContains(searchText)
+
+                let adoptionCandidateMatches: Bool = adoptableApp.adoptionCandidates.contains
+                { adoptionCandidate in
+                    let caskNameMatches: Bool = adoptionCandidate.caskName.localizedCaseInsensitiveContains(searchText)
+
+                    let caskDescriptionMatches: Bool = adoptionCandidate.caskDescription?.localizedCaseInsensitiveContains(searchText) ?? false
+
+                    return caskNameMatches || caskDescriptionMatches
+                }
+
+                return appExecutableMatches || adoptionCandidateMatches
+            }
+        }
+
+        return filteredAdoptablePackages.prefix(numberOfMaxShownIgnoredAdoptableApps)
+    }
+    
     var body: some View
     {
         AdoptablePackageListTemplate(
             adoptablePackageType: .ignoredPackages,
             searchText: $searchText
         ){
-            ForEach(brewPackagesTracker.excludedAdoptableApps.prefix(numberOfMaxShownIgnoredAdoptableApps))
+            ForEach(displayedExcludedAdoptablePackages)
             { ignoredApp in
                 AdoptablePackageListItem(adoptableCask: ignoredApp, exclusionButtonType: .includeOnly)
                     .saturation(0.3)

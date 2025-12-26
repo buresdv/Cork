@@ -9,6 +9,7 @@ import ButtonKit
 import CorkModels
 import CorkShared
 import SwiftUI
+import SwiftData
 
 struct AdoptablePackageListItem: View
 {
@@ -33,8 +34,18 @@ struct AdoptablePackageListItem: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let adoptableCask: BrewPackagesTracker.AdoptableApp
+    
+    var isAdoptableCaskDisabled: Bool
+    {
+        return self.excludedApps.contains
+        { excludedApp in
+            return excludedApp.appExecutable == adoptableCask.appExecutable
+        }
+    }
 
     let exclusionButtonType: ExclusionButtonType
+    
+    @Query private var excludedApps: [ExcludedAdoptableApp]
 
     /// Retrieve the correct number of adoption candidates for this adoptable app
     var adoptionCandidateDisplayType: AdoptionCandidatesDisplayType
@@ -210,6 +221,7 @@ struct AdoptablePackageListItem: View
             }
             .pickerStyle(.automatic)
             .fixedSize()
+            .disabled(isAdoptableCaskDisabled)
         }
     }
 
