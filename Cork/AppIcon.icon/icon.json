@@ -1,0 +1,234 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : "system-light"
+    },
+    {
+      "appearance" : "dark",
+      "value" : "system-dark"
+    }
+  ],
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "srgb:0.00000,0.00000,0.00000,1.00000"
+              }
+            }
+          ],
+          "image-name" : "5 - Layer.svg",
+          "name" : "5 - Layer",
+          "opacity" : 1
+        }
+      ],
+      "name" : "Group: Face",
+      "opacity" : 1,
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "blend-mode-specializations" : [
+        {
+          "value" : "darken"
+        },
+        {
+          "appearance" : "dark",
+          "value" : "darken"
+        },
+        {
+          "appearance" : "tinted",
+          "value" : "darken"
+        }
+      ],
+      "hidden" : false,
+      "layers" : [
+        {
+          "blend-mode-specializations" : [
+            {
+              "value" : "normal"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "normal"
+            },
+            {
+              "appearance" : "tinted",
+              "value" : "normal"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "display-p3:0.58824,0.58824,0.58824,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "display-p3:0.58824,0.58824,0.58824,1.00000"
+              }
+            }
+          ],
+          "glass-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : true
+            }
+          ],
+          "hidden" : false,
+          "image-name" : "4 - Layer.svg",
+          "name" : "4 - Layer",
+          "opacity-specializations" : [
+            {
+              "value" : 0.5
+            },
+            {
+              "appearance" : "dark",
+              "value" : 0.5
+            },
+            {
+              "appearance" : "tinted",
+              "value" : 0.5
+            }
+          ]
+        }
+      ],
+      "name" : "Group: Rim",
+      "opacity-specializations" : [
+        {
+          "value" : 1
+        },
+        {
+          "appearance" : "dark",
+          "value" : 1
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "blend-mode-specializations" : [
+        {
+          "value" : "multiply"
+        },
+        {
+          "appearance" : "dark",
+          "value" : "normal"
+        },
+        {
+          "appearance" : "tinted",
+          "value" : "normal"
+        }
+      ],
+      "hidden" : false,
+      "layers" : [
+        {
+          "blend-mode-specializations" : [
+            {
+              "value" : "multiply"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "soft-light"
+            },
+            {
+              "appearance" : "tinted",
+              "value" : "soft-light"
+            }
+          ],
+          "fill" : {
+            "solid" : "srgb:0.62745,0.62745,0.62745,1.00000"
+          },
+          "image-name" : "3 - Layer.svg",
+          "name" : "3 - Layer",
+          "opacity-specializations" : [
+            {
+              "value" : 0.5
+            },
+            {
+              "appearance" : "dark",
+              "value" : 0.6
+            }
+          ]
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "display-p3:0.98824,0.78824,0.48235,1.00000"
+              }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            }
+          ],
+          "glass" : false,
+          "image-name" : "1 - Layer.png",
+          "name" : "1 - Layer"
+        }
+      ],
+      "name" : "Group: Body",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "2 - Layer.svg",
+          "name" : "2 - Layer",
+          "opacity-specializations" : [
+            {
+              "value" : 1
+            },
+            {
+              "appearance" : "dark",
+              "value" : 1
+            }
+          ]
+        }
+      ],
+      "name" : "Group: Cork",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
