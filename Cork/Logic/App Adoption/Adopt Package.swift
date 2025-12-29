@@ -17,7 +17,18 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
         _ appToAdopt: BrewPackagesTracker.AdoptableApp
     ) async -> AdoptionProcessResult
     {
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", appToAdopt.caskName])
+        guard let caskToAdopt = appToAdopt.selectedAdoptionCandidateCaskName else
+        {
+            return .failure(
+                .failedWithError(
+                    failedAdoptionCandidate: appToAdopt,
+                    error: "There were no selected adoption candidates for adoptable app \(appToAdopt.appExecutable)"
+                )
+            )
+        }
+        
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt])
+        
         adoptionProcess = process
         
         var consolidatedOutput: (standardOutput: [String], standardError: [String]) = (standardOutput: .init(), standardError: .init())
@@ -38,20 +49,20 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
         }
         
         AppConstants.shared.logger.debug("""
-        Finished mass adoption process for cask \(appToAdopt.caskName) with this result:
+        Finished mass adoption process for cask \(caskToAdopt) with this result:
         Output: \(consolidatedOutput.standardOutput.joined())
         Error: \(consolidatedOutput.standardError.joined())
         """)
         
         if consolidatedOutput.standardError.isEmpty
         {
-            AppConstants.shared.logger.info("Adoption process for cask \(appToAdopt.caskName) was successful")
+            AppConstants.shared.logger.info("Adoption process for cask \(caskToAdopt) was successful")
             
             return .success(appToAdopt)
         }
         else
         {
-            AppConstants.shared.logger.error("Adoption process for cask \(appToAdopt.caskName) failed")
+            AppConstants.shared.logger.error("Adoption process for cask \(caskToAdopt) failed")
             
             return .failure(
                 .failedWithError(

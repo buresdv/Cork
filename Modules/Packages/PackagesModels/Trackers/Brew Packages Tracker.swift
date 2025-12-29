@@ -136,7 +136,7 @@ public class BrewPackagesTracker
         return adoptableApps.filter { adoptableApp in
             excludedAdoptableAppsInSavedFormat.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
         }
-        .sorted(by: { $0.caskName < $1.caskName })
+        .sorted(by: { $0.appExecutable < $1.appExecutable })
     }
     
     private static var excludedAdoptableAppsFetchDescriptor: FetchDescriptor<ExcludedAdoptableApp> = .init(predicate: #Predicate { _ in
@@ -166,7 +166,7 @@ public class BrewPackagesTracker
         return adoptableApps.filter { adoptableApp in
             return !excludedAdoptableAppsInSavedFormat.contains(where: { $0.appExecutable == adoptableApp.appExecutable })
         }
-        .sorted(by: { $0.caskName < $1.caskName })
+        .sorted(by: { $0.appExecutable < $1.appExecutable })
     }
     
     /// Adoptable apps that will get installed when clicking the `Adopt` button

@@ -168,8 +168,9 @@ struct AdoptablePackagesSection: View
                     
                     if !brewPackagesTracker.adoptableAppsNonExcluded.isEmpty
                     {
-                        DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation()) {
-                            adoptablePackagesList
+                        DisclosureGroup(isExpanded: $isAdoptablePackagesDisclosureGroupOpened.animation())
+                        {
+                            AdoptablePackagesList()
                         } label: {
                             Text("adoptable-packages.label")
                         }
@@ -177,8 +178,9 @@ struct AdoptablePackagesSection: View
                     
                     if !brewPackagesTracker.excludedAdoptableApps.isEmpty
                     {
-                        DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation()) {
-                            excludedAdoptablePackagesList
+                        DisclosureGroup(isExpanded: $isExcludedAdoptablePackagesDisclosureGroupOpened.animation())
+                        {
+                            ExcludedAdoptablePackagesList()
                         } label: {
                             Text("adoptable-packages.excluded-label")
                         }
@@ -306,175 +308,6 @@ struct AdoptablePackagesSection: View
         .labelStyle(.titleOnly)
     }
     
-    @State private var numberOfMaxShownAdoptableApps: Int = 5
-    
-    @State private var numberOfMaxShownIgnoredAdoptableApps: Int = 5
-
-    @ViewBuilder
-    var adoptablePackagesList: some View
-    {
-        List
-        {
-            Section
-            {
-                ForEach(brewPackagesTracker.adoptableAppsNonExcluded.prefix(numberOfMaxShownAdoptableApps))
-                { adoptableCask in
-                    HStack(alignment: .center)
-                    {
-                        Toggle(isOn: Binding<Bool>(
-                            get: {
-                                adoptableCask.isMarkedForAdoption
-                            }, set: { _ in
-                                if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
-                                {
-                                    brewPackagesTracker.adoptableApps[index].changeMarkedState()
-                                }
-                            }
-                        ))
-                        {
-                            EmptyView()
-                        }
-                        .labelsHidden()
-
-                        AdoptablePackageListItem(adoptableCask: adoptableCask, exclusionButtonType: .excludeOnly)
-                            /*.onTapGesture
-                            {
-                                if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
-                                {
-                                    brewPackagesTracker.adoptableApps[index].changeMarkedState()
-                                }
-                            }*/
-                    }
-                }
-            } header: {
-                HStack(alignment: .center, spacing: 10)
-                {
-                    deselectAllButton
-
-                    selectAllButton
-                }
-            } footer: {
-                HStack(alignment: .center)
-                {
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownAdoptableApps += 10
-                        }
-                    } label: {
-                        Label("action.show-more", systemImage: "chevron.down")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownAdoptableApps >= brewPackagesTracker.adoptableAppsNonExcluded.count)
-
-                    Spacer()
-
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownAdoptableApps -= 10
-                        }
-                    } label: {
-                        Label("action.show-less", systemImage: "chevron.up")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownAdoptableApps < 7)
-                }
-            }
-        }
-        .listStyle(.bordered(alternatesRowBackgrounds: true))
-        .animation(.smooth, value: excludedApps)
-        .transition(.push(from: .top))
-    }
-        
-    @ViewBuilder
-    var excludedAdoptablePackagesList: some View
-    {
-        List
-        {
-            Section
-            {
-                ForEach(brewPackagesTracker.excludedAdoptableApps.prefix(numberOfMaxShownIgnoredAdoptableApps))
-                { ignoredApp in
-                    AdoptablePackageListItem(adoptableCask: ignoredApp, exclusionButtonType: .includeOnly)
-                        .saturation(0.3)
-                }
-            } footer: {
-                HStack(alignment: .center)
-                {
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownIgnoredAdoptableApps += 10
-                        }
-                    } label: {
-                        Label("action.show-more", systemImage: "chevron.down")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownIgnoredAdoptableApps >= brewPackagesTracker.excludedAdoptableApps.count)
-
-                    Spacer()
-
-                    Button
-                    {
-                        withAnimation
-                        {
-                            numberOfMaxShownIgnoredAdoptableApps -= 10
-                        }
-                    } label: {
-                        Label("action.show-less", systemImage: "chevron.up")
-                    }
-                    .buttonStyle(.accessoryBar)
-                    .disabled(numberOfMaxShownIgnoredAdoptableApps < 7)
-                }
-            }
-        }
-        .listStyle(.bordered(alternatesRowBackgrounds: true))
-        .animation(.smooth, value: excludedApps)
-        .transition(.push(from: .top))
-    }
-
-    @ViewBuilder
-    var deselectAllButton: some View
-    {
-        Button
-        {
-            AppConstants.shared.logger.debug("Will deselect all adoptable casks")
-
-            for (index, _) in brewPackagesTracker.adoptableApps.enumerated()
-            {
-                brewPackagesTracker.adoptableApps[index].isMarkedForAdoption = false
-            }
-
-        } label: {
-            Text("start-page.updated.action.deselect-all")
-        }
-        .buttonStyle(.accessoryBar)
-        .disabled(brewPackagesTracker.adoptableAppsSelectedToBeAdopted.isEmpty)
-    }
-
-    @ViewBuilder
-    var selectAllButton: some View
-    {
-        Button
-        {
-            AppConstants.shared.logger.debug("Will select all adoptable casks")
-
-            for (index, _) in brewPackagesTracker.adoptableApps.enumerated()
-            {
-                brewPackagesTracker.adoptableApps[index].isMarkedForAdoption = true
-            }
-
-        } label: {
-            Text("start-page.updated.action.select-all")
-        }
-        .buttonStyle(.accessoryBar)
-        .disabled(!brewPackagesTracker.hasSelectedOnlySomeAppsToAdopt && brewPackagesTracker.adoptableAppsSelectedToBeAdopted == brewPackagesTracker.adoptableAppsNonExcluded)
-    }
-    
     #if DEBUG
     // MARK: - Debug stuff
     @ViewBuilder
@@ -482,7 +315,7 @@ struct AdoptablePackagesSection: View
     {
         Button
         {
-            let namesOfAdoptedPackages: [String] = brewPackagesTracker.adoptableAppsSelectedToBeAdopted.map{ $0.caskName }
+            let namesOfAdoptedPackages: [String] = brewPackagesTracker.adoptableAppsSelectedToBeAdopted.map{ $0.selectedAdoptionCandidateCaskName! }
             
             AppConstants.shared.logger.debug("\(namesOfAdoptedPackages.count), \(namesOfAdoptedPackages.formatted(.list(type: .and)))")
         } label: {
@@ -491,97 +324,3 @@ struct AdoptablePackagesSection: View
     }
     #endif
 }
-
-struct AdoptablePackageListItem: View
-{
-    enum ExclusionButtonType
-    {
-        case excludeOnly, includeOnly, none
-    }
-    
-    let adoptableCask: BrewPackagesTracker.AdoptableApp
-    
-    let exclusionButtonType: ExclusionButtonType
-
-    var body: some View
-    {
-        HStack(alignment: .center, spacing: 5)
-        {
-            if let app = adoptableCask.app
-            {
-                AppIconDisplay(
-                    displayType: .asIcon(usingApp: app),
-                    allowRevealingInFinderFromIcon: false
-                )
-            }
-
-            VStack(alignment: .leading, spacing: 2)
-            {
-                HStack(alignment: .firstTextBaseline, spacing: 5)
-                {
-                    Text(adoptableCask.appExecutable)
-
-                    Text("(\(adoptableCask.caskName))")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-
-                if let caskDescription = adoptableCask.description
-                {
-                    Text(caskDescription)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-            }
-        }
-        .contextMenu
-        {
-            PreviewPackageButtonWithCustomLabel(label: "action.preview-package-app-would-be-adopted-as.\(adoptableCask.caskName)", packageToPreview: .init(name: adoptableCask.caskName, type: .cask, installedIntentionally: true))
-
-            Button
-            {
-                adoptableCask.fullAppUrl.revealInFinder(.openParentDirectoryAndHighlightTarget)
-            } label: {
-                Label("action.reveal-\(adoptableCask.appExecutable)-in-finder", systemImage: "finder")
-            }
-            
-            Divider()
-            
-            switch exclusionButtonType {
-            case .excludeOnly:
-                ignoreAdoptableAppButton(appToIgnore: adoptableCask)
-            case .includeOnly:
-                includeAdoptableAppButton(appToInclude: adoptableCask)
-            case .none:
-                EmptyView()
-            }
-        }
-    }
-    
-    @ViewBuilder
-    func ignoreAdoptableAppButton(appToIgnore: BrewPackagesTracker.AdoptableApp) -> some View
-    {
-        AsyncButton
-        {
-            AppConstants.shared.logger.info("Adding app \(appToIgnore.appExecutable) to the excluded apps")
-            
-            await appToIgnore.excludeSelf()
-        } label: {
-            Label("action.package-adoption.ignore.\(appToIgnore.appExecutable)", systemImage: "xmark.circle")
-        }
-    }
-    
-    @ViewBuilder
-    func includeAdoptableAppButton(appToInclude: BrewPackagesTracker.AdoptableApp) -> some View
-    {
-        AsyncButton
-        {
-            AppConstants.shared.logger.info("Removing app \(appToInclude.appExecutable) from the excluded apps")
-            
-            await appToInclude.includeSelf()
-        } label: {
-            Label("action.package-adoption.include.\(appToInclude.appExecutable)", systemImage: "plus.circle")
-        }
-    }
-}
-

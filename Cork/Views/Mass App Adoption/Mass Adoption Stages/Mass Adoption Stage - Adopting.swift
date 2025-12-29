@@ -28,7 +28,13 @@ struct MassAdoptionStage_Adopting: View
         {
             for appToAdopt in appsToAdopt
             {
-                AppConstants.shared.logger.info("Will start adoption process for \(appToAdopt.caskName)")
+                guard let selectedAdoptionCandidateCaskName = appToAdopt.selectedAdoptionCandidateCaskName else
+                {
+                    AppConstants.shared.logger.error("Failed to get the cask for an adoption candidate")
+                    
+                    return
+                }
+                AppConstants.shared.logger.info("Will start adoption process for \(selectedAdoptionCandidateCaskName)")
 
                 await massAppAdoptionTracker.adoptNextApp(appToAdopt: appToAdopt)
                 

@@ -23,7 +23,14 @@ struct AdoptionResultsList: View
                 {
                     HStack(alignment: .center)
                     {
-                        Text(failedAdoptionCandidate.caskName)
+                        if let adoptionCandidateCaskName = failedAdoptionCandidate.selectedAdoptionCandidateCaskName
+                        {
+                            Text(adoptionCandidateCaskName)
+                        }
+                        else
+                        {
+                            Text("mass-adoption.failed.details-dropdown.missing-candidate-cask-name")
+                        }
                         
                         Spacer()
                         

@@ -14,6 +14,8 @@ public extension DisplayableAlert
     {
         switch self
         {
+        case .generic:
+            return String(localized: "error.generic")
         case .couldNotGetContentsOfPackageFolder:
             return String(localized: "alert.could-not-get-contents-of-package-folder.title")
         case .couldNotLoadAnyPackages(let error):

@@ -5,23 +5,68 @@
 //  Created by David Bureš - P on 28.10.2025.
 //
 
-import Foundation
 import ApplicationInspector
 import CorkShared
+import Foundation
 import SwiftData
 
 public extension BrewPackagesTracker
 {
     /// A struct for holding a Cask's name and its executable
-    struct AdoptableApp: Identifiable, Hashable, Sendable
+    struct AdoptableApp: Identifiable, Hashable, @unchecked Sendable // TODO: Remove this @unchecked
     {
         public let id: UUID = .init()
 
-        public let caskName: String
-        public let appExecutable: String
-        
-        public let description: String?
+        /// A Cask which might be a match for the found executable
+        @Observable
+        public class AdoptionCandidate: Identifiable, Hashable
+        {
+            /// The Cask name of the adoptable app - `discord-canary`
+            public let caskName: String
 
+            /// Description for the cask of the installation candidate
+            public let caskDescription: String?
+
+            /// Whether this partcular adoption candidate is selected for adoption
+            public var isSelectedForAdoption: Bool
+
+            public init(caskName: String, caskDescription: String?)
+            {
+                self.caskName = caskName
+                self.caskDescription = caskDescription
+                self.isSelectedForAdoption = true
+            }
+
+            public nonisolated
+            func hash(into hasher: inout Hasher)
+            {
+                hasher.combine(self.caskName)
+            }
+
+            public nonisolated
+            static func == (rhs: AdoptionCandidate, lhs: AdoptionCandidate) -> Bool
+            {
+                return rhs.caskName == lhs.caskName
+            }
+        }
+
+        public let adoptionCandidates: [AdoptionCandidate]
+
+        public nonisolated
+        var selectedAdoptionCandidate: AdoptionCandidate?
+        {
+            return self.adoptionCandidates.filter { $0.isSelectedForAdoption }.first
+        }
+        
+        public var selectedAdoptionCandidateCaskName: String?
+        {
+            return self.selectedAdoptionCandidate?.caskName
+        }
+        
+        /// The name of the installed executable - `Discord.app`
+        public let appExecutable: String
+
+        /// Location of the executable
         public let fullAppUrl: URL
 
         public var isMarkedForAdoption: Bool
@@ -29,14 +74,12 @@ public extension BrewPackagesTracker
         public var app: Application?
 
         public init(
-            caskName: String,
-            description: String?,
+            adoptionCandidates: [AdoptableApp.AdoptionCandidate],
             appExecutable: String
         ) {
-            self.caskName = caskName
+            self.adoptionCandidates = adoptionCandidates
+
             self.appExecutable = appExecutable
-            
-            self.description = description
 
             self.fullAppUrl = URL.applicationDirectory.appendingPathComponent(appExecutable, conformingTo: .application)
 
@@ -52,19 +95,21 @@ public extension BrewPackagesTracker
         {
             return try? .init(from: self.fullAppUrl)
         }
-        
+
+        @MainActor
         public func excludeSelf() async
         {
             let excludedAppRepresentation: ExcludedAdoptableApp = .init(fromAdoptableApp: self)
-            
-            await excludedAppRepresentation.saveSelfToDatabase()
+
+            excludedAppRepresentation.saveSelfToDatabase()
         }
-        
+
+        @MainActor
         public func includeSelf() async
         {
             let excludedAppRepresentation: ExcludedAdoptableApp = .init(fromAdoptableApp: self)
-            
-            await excludedAppRepresentation.deleteSelfFromDatabase()
+
+            excludedAppRepresentation.deleteSelfFromDatabase()
         }
     }
 }
