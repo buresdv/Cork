@@ -72,140 +72,30 @@ struct CorkApp: App
     {
         Window("Main Window", id: .mainWindowID)
         {
-            ContentView()
-                .sheet(isPresented: !$hasFinishedOnboarding, onDismiss: {
-                    hasFinishedOnboarding = true
-                }, content: {
-                    OnboardingView()
-                })
-                .sheet(isPresented: !$hasFinishedLicensingWorkflow, onDismiss: {
-                    hasFinishedLicensingWorkflow = true
-                }, content: {
-                    LicensingView()
-                        .interactiveDismissDisabled()
-                })
-                .environment(appDelegate.appState)
-                .environment(brewPackagesTracker)
-                .environment(tapTracker)
-                .environment(cachedDownloadsTracker)
-                .environment(updateProgressTracker)
-                .environment(outdatedPackagesTracker)
-                .environment(topPackagesTracker)
-                .modelContainer(for: [
-                    SavedTaggedPackage.self,
-                    ExcludedAdoptableApp.self
-                ])
-                .task
-                {
-                    NSWindow.allowsAutomaticWindowTabbing = false
-
-                    if areNotificationsEnabled
-                    {
-                        await appDelegate.appState.setupNotifications()
-                    }
-                }
-                .task
-                {
-                    if lastSubmittedCorkVersion.isEmpty
-                    { /// Make sure we have a Cork version to check against
-                        let currentCorkVersion: String = "1.4.1"
-
-                        #if DEBUG
-                            AppConstants.shared.logger.debug("There's no saved Cork version - Will save 1.4.1")
-                        #endif
-
-                        lastSubmittedCorkVersion = currentCorkVersion
-                    }
-
-                    if lastSubmittedCorkVersion != String(NSApplication.appVersion!)
-                    { /// Submit the version if this version has not already been submitted
-                        #if DEBUG
-                            AppConstants.shared.logger.debug("Last submitted version doesn't match current version")
-                        #endif
-
-                        try? await submitSystemVersion()
-                    }
-                    else
-                    {
-                        #if DEBUG
-                            AppConstants.shared.logger.debug("Last submitted version matches the current version")
-                        #endif
-                    }
-                }
-                .onAppear
-                {
-                    handleLicensing()
-                }
-                .onAppear
-                {
-                    handleBackgroundUpdating()
-                }
-                .onChange(of: demoActivatedAt) // React to when the user activates the demo
-                { _, newValue in
-                    handleDemoTiming(newValue: newValue)
-                }
-                .onChange(of: outdatedPackagesTracker.displayableOutdatedPackages.count)
-                { _, outdatedPackageCount in
-                    handleOutdatedPackageChangeAppBadge(outdatedPackageCount: outdatedPackageCount)
-                }
-                .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
-                { _, newValue in
-                    setAppBadge(outdatedPackageNotificationType: newValue)
-                }
-                .onChange(of: areNotificationsEnabled)
-                { _, newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
-                    Task
-                    {
-                        await appDelegate.appState.requestNotificationAuthorization()
-
-                        if appDelegate.appState.notificationEnabledInSystemSettings == true
+            switch hasFinishedLicensingWorkflow
+            {
+            case true:
+                mainWindow
+            case false:
+                LicensingView()
+                    .environment(appDelegate.appState)
+                    .modify
+                    { viewProxy in
+                        if #available(macOS 15, *)
                         {
-                            await appDelegate.appState.requestNotificationAuthorization()
-                            if appDelegate.appState.notificationAuthStatus == .denied
-                            {
-                                areNotificationsEnabled = false
-                            }
+                            viewProxy
+                                .containerBackground(.thinMaterial, for: .window)
+                                .toolbarVisibility(.automatic, for: .windowToolbar)
+                        }
+                        else
+                        {
+                            viewProxy
                         }
                     }
-
-                    if newValue == false
-                    {
-                        NSApp.dockTile.badgeLabel = ""
-                    }
-                    else
-                    {
-                        setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
-                    }
-                }
-                .fileExporter(
-                    isPresented: $isShowingBrewfileExporter,
-                    document: StringFile(initialText: brewfileContents),
-                    contentType: .homebrewBackup,
-                    defaultFilename: defaultBackupDateFormat != .omitted ? String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: defaultBackupDateFormat, time: .omitted))") : String(localized: "brewfile.export.default-export-name.empty")
-                )
-                { result in
-                    switch result
-                    {
-                    case .success(let success):
-                        AppConstants.shared.logger.log("Succeeded in exporting: \(success, privacy: .public)")
-                    case .failure(let failure):
-                        AppConstants.shared.logger.error("Failed in exporting: \(failure, privacy: .public)")
-                    }
-                }
-                .fileImporter(
-                    isPresented: $isShowingBrewfileImporter,
-                    allowedContentTypes: [.homebrewBackup],
-                    allowsMultipleSelection: false
-                )
-                { result in
-                    switch result
-                    {
-                    case .success(let success):
-                        AppConstants.shared.logger.debug("Succeeded in importing: \(success, privacy: .public)")
-                    case .failure(let failure):
-                        AppConstants.shared.logger.error("Failed in importing: \(failure, privacy: .public)")
-                    }
-                }
+                    .navigationTitle(String(localized: "app-name"))
+                    .navigationSubtitle(String(localized: "licensing.title"))
+            }
+            
         }
         .commands
         {
@@ -331,6 +221,146 @@ struct CorkApp: App
         }
     }
 
+    // MARK: - Main App ViewBuilder
+    @ViewBuilder
+    var mainWindow: some View
+    {
+        ContentView()
+            .sheet(isPresented: !$hasFinishedOnboarding, onDismiss: {
+                hasFinishedOnboarding = true
+            }, content: {
+                OnboardingView()
+            })
+            .sheet(isPresented: !$hasFinishedLicensingWorkflow, onDismiss: {
+                hasFinishedLicensingWorkflow = true
+            }, content: {
+                LicensingView()
+                    .interactiveDismissDisabled()
+            })
+            .environment(appDelegate.appState)
+            .environment(brewPackagesTracker)
+            .environment(tapTracker)
+            .environment(cachedDownloadsTracker)
+            .environment(updateProgressTracker)
+            .environment(outdatedPackagesTracker)
+            .environment(topPackagesTracker)
+            .modelContainer(for: [
+                SavedTaggedPackage.self,
+                ExcludedAdoptableApp.self
+            ])
+            .task
+            {
+                NSWindow.allowsAutomaticWindowTabbing = false
+
+                if areNotificationsEnabled
+                {
+                    await appDelegate.appState.setupNotifications()
+                }
+            }
+            .task
+            {
+                if lastSubmittedCorkVersion.isEmpty
+                { /// Make sure we have a Cork version to check against
+                    let currentCorkVersion: String = "1.4.1"
+
+                    #if DEBUG
+                        AppConstants.shared.logger.debug("There's no saved Cork version - Will save 1.4.1")
+                    #endif
+
+                    lastSubmittedCorkVersion = currentCorkVersion
+                }
+
+                if lastSubmittedCorkVersion != String(NSApplication.appVersion!)
+                { /// Submit the version if this version has not already been submitted
+                    #if DEBUG
+                        AppConstants.shared.logger.debug("Last submitted version doesn't match current version")
+                    #endif
+
+                    try? await submitSystemVersion()
+                }
+                else
+                {
+                    #if DEBUG
+                        AppConstants.shared.logger.debug("Last submitted version matches the current version")
+                    #endif
+                }
+            }
+            .onAppear
+            {
+                handleLicensing()
+            }
+            .onAppear
+            {
+                handleBackgroundUpdating()
+            }
+            .onChange(of: demoActivatedAt) // React to when the user activates the demo
+            { _, newValue in
+                handleDemoTiming(newValue: newValue)
+            }
+            .onChange(of: outdatedPackagesTracker.displayableOutdatedPackages.count)
+            { _, outdatedPackageCount in
+                handleOutdatedPackageChangeAppBadge(outdatedPackageCount: outdatedPackageCount)
+            }
+            .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
+            { _, newValue in
+                setAppBadge(outdatedPackageNotificationType: newValue)
+            }
+            .onChange(of: areNotificationsEnabled)
+            { _, newValue in // Remove the badge from the app icon if the user turns off notifications, put it back when they turn them back on
+                Task
+                {
+                    await appDelegate.appState.requestNotificationAuthorization()
+
+                    if appDelegate.appState.notificationEnabledInSystemSettings == true
+                    {
+                        await appDelegate.appState.requestNotificationAuthorization()
+                        if appDelegate.appState.notificationAuthStatus == .denied
+                        {
+                            areNotificationsEnabled = false
+                        }
+                    }
+                }
+
+                if newValue == false
+                {
+                    NSApp.dockTile.badgeLabel = ""
+                }
+                else
+                {
+                    setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
+                }
+            }
+            .fileExporter(
+                isPresented: $isShowingBrewfileExporter,
+                document: StringFile(initialText: brewfileContents),
+                contentType: .homebrewBackup,
+                defaultFilename: defaultBackupDateFormat != .omitted ? String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: defaultBackupDateFormat, time: .omitted))") : String(localized: "brewfile.export.default-export-name.empty")
+            )
+            { result in
+                switch result
+                {
+                case .success(let success):
+                    AppConstants.shared.logger.log("Succeeded in exporting: \(success, privacy: .public)")
+                case .failure(let failure):
+                    AppConstants.shared.logger.error("Failed in exporting: \(failure, privacy: .public)")
+                }
+            }
+            .fileImporter(
+                isPresented: $isShowingBrewfileImporter,
+                allowedContentTypes: [.homebrewBackup],
+                allowsMultipleSelection: false
+            )
+            { result in
+                switch result
+                {
+                case .success(let success):
+                    AppConstants.shared.logger.debug("Succeeded in importing: \(success, privacy: .public)")
+                case .failure(let failure):
+                    AppConstants.shared.logger.error("Failed in importing: \(failure, privacy: .public)")
+                }
+            }
+    }
+    
     // MARK: - Menu Bar ViewBuilders
 
     @ViewBuilder
