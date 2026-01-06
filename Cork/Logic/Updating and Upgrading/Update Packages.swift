@@ -44,7 +44,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: U
             {
                 detailStage.currentStage = .backingUp
             }
-            else if outputLine.contains("Moving App") || outputLine.contains("Linking")
+            else if outputLine.contains("Moving App") || outputLine.contains("Linking") || outputLine.contains("✔︎")
             {
                 detailStage.currentStage = .linking
             }
