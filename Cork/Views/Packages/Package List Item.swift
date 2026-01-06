@@ -16,7 +16,7 @@ struct PackageListItem: View
 
     var isPackageOutdated: Bool
     {
-        if outdatedPackagesTracker.displayableOutdatedPackages.contains(where: { $0.package.name == packageItem.name })
+        if outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.contains(where: { $0.package.name == packageItem.name })
         {
             return true
         }

@@ -144,7 +144,7 @@ struct CorkApp: App
                 { _, newValue in
                     handleDemoTiming(newValue: newValue)
                 }
-                .onChange(of: outdatedPackagesTracker.displayableOutdatedPackages.count)
+                .onChange(of: outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)
                 { _, outdatedPackageCount in
                     handleOutdatedPackageChangeAppBadge(outdatedPackageCount: outdatedPackageCount)
                 }
@@ -320,7 +320,7 @@ struct CorkApp: App
 
         // MARK: - Menu Bar Extra
 
-        MenuBarExtra("app-name", systemImage: outdatedPackagesTracker.displayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
+        MenuBarExtra("app-name", systemImage: outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.isEmpty ? "mug" : "mug.fill", isInserted: $showInMenuBar)
         {
             MenuBarItem()
                 .environment(appDelegate.appState)
@@ -608,9 +608,9 @@ struct CorkApp: App
     {
         if outdatedPackageNotificationType == .badge || outdatedPackageNotificationType == .both
         {
-            if !outdatedPackagesTracker.displayableOutdatedPackages.isEmpty
+            if !outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.isEmpty
             {
-                NSApp.dockTile.badgeLabel = String(outdatedPackagesTracker.displayableOutdatedPackages.count)
+                NSApp.dockTile.badgeLabel = String(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)
             }
         }
         else if outdatedPackageNotificationType == .notification || outdatedPackageNotificationType == .none
@@ -703,7 +703,7 @@ struct CorkApp: App
                         /// Set this to `true` so the normal notification doesn't get sent
                         await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
 
-                        let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.displayableOutdatedPackages)
+                        let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages)
                         AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                         sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))

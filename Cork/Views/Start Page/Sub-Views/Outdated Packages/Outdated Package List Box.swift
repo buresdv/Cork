@@ -11,19 +11,7 @@ import CorkShared
 import CorkModels
 
 struct OutdatedPackageListBox: View
-{
-    enum OutdatedPackageListBoxViewType
-    {
-        /// Only packages that are managed by Homerbew are outdated
-        case managedOnly
-        
-        /// Both packages that are managed by Homebrew, and those that are not (available only through the `--greedy` flag) are available
-        case bothManagedAndUnmanaged
-        
-        /// Only unmanaged packages (available only through the `--greedy` flag) are availabe
-        case unmanagedOnly
-    }
-    
+{    
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
     
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
@@ -34,37 +22,6 @@ struct OutdatedPackageListBox: View
     @Binding var isDropdownExpanded: Bool
 
     @State private var isSelfUpdatingSectionExpanded: Bool = false
-
-    private var packagesMarkedForUpdating: [OutdatedPackage]
-    {
-        return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.isMarkedForUpdating }
-    }
-
-    private var packagesManagedByHomebrew: Set<OutdatedPackage>
-    {
-        return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .homebrew }
-    }
-
-    private var packagesThatUpdateThemselves: Set<OutdatedPackage>
-    {
-        return outdatedPackagesTracker.displayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
-    }
-
-    private var outdatedPackageListBoxType: OutdatedPackageListBoxViewType
-    {
-        if !packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
-        { /// Managed packages are not empty, unmanaged packages are not empty
-            return .bothManagedAndUnmanaged
-        }
-        else if packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
-        { /// Managed packages are empty, unmanaged packages are not empty
-            return .unmanagedOnly
-        }
-        else
-        {
-            return .managedOnly
-        }
-    }
     
     var body: some View
     {
@@ -74,7 +31,7 @@ struct OutdatedPackageListBox: View
             {
                 VStack(alignment: .leading)
                 {
-                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.displayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
@@ -82,20 +39,18 @@ struct OutdatedPackageListBox: View
                             {
                                 Group
                                 {
-                                    if packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
-                                    { /// If the only outdated packages are those that update themselves, show a special message
-                                        Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.displayableOutdatedPackages.count)")
-                                    }
-                                    else
-                                    { /// Otherwise, show the standard message
-                                        Text("start-page.updates.count-\(outdatedPackagesTracker.displayableOutdatedPackages.count)")
+                                    switch outdatedPackagesTracker.outdatedPackageListBoxViewType {
+                                    case .managedOnly, .bothManagedAndUnmanaged:
+                                        Text("start-page.updates.count-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+                                    case .unmanagedOnly:
+                                        Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
                                     }
                                 }
                                 .font(.headline)
 
                                 Spacer()
 
-                                if packagesMarkedForUpdating.count == outdatedPackagesTracker.displayableOutdatedPackages.count
+                                if outdatedPackagesTracker.displayableOutdatedPackagesTracker.areAllOutdatedPackagesMarkedForUpdating
                                 {
                                     Button
                                     {
@@ -112,16 +67,25 @@ struct OutdatedPackageListBox: View
                                 {
                                     Button
                                     {
-                                        appState.showSheet(ofType: .partialUpdate(packagesToUpdate: packagesMarkedForUpdating))
+                                        appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating))
                                     } label: {
-                                        Text("start-page.update-incremental.package-count-\(packagesMarkedForUpdating.count)")
+                                        Text("start-page.update-incremental.package-count-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating.count)")
                                     }
-                                    .disabled(packagesMarkedForUpdating.isEmpty)
+                                    .disabled(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
                                 }
                             }
 
                             DisclosureGroup(isExpanded: $isDropdownExpanded)
                             {
+                                switch outdatedPackagesTracker.outdatedPackageListBoxViewType
+                                {
+                                case .managedOnly:
+                                    <#code#>
+                                case .bothManagedAndUnmanaged:
+                                    <#code#>
+                                case .unmanagedOnly:
+                                    <#code#>
+                                }
                                 switch outdatedPackageListBoxType
                                 {
                                 case .managedOnly:
@@ -241,7 +205,7 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.select-all")
         }
-        .disabled(packagesMarkedForUpdating.count == outdatedPackagesTracker.displayableOutdatedPackages.count)
+        .disabled(packagesMarkedForUpdating.count == outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)
         .modify
         { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all

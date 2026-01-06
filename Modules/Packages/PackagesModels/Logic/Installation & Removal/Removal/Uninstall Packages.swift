@@ -106,7 +106,7 @@ public extension BrewPackagesTracker
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        if let index = outdatedPackagesTracker.displayableOutdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        if let index = outdatedPackagesTracker.outdatedPackages.firstIndex(where: { $0.package.name == package.name })
         {
             outdatedPackagesTracker.outdatedPackages.remove(at: index)
         }
