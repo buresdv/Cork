@@ -706,7 +706,7 @@ struct CorkApp: App
                         let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages)
                         AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
-                        sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map(\.package.name).formatted(.list(type: .and)))
+                        sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map{$0.package.name}.formatted(.list(type: .and)))
 
                         await outdatedPackagesTracker.setOutdatedPackages(to: newOutdatedPackages)
 

@@ -154,7 +154,7 @@ public extension OutdatedPackagesTracker
         {
             if let foundOutdatedFormula = await brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
             {
-                finalOutdatedFormulaTracker.insert(.init(
+                await finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,
                     installedVersions: outdatedFormula.installedVersions,
                     newerVersion: outdatedFormula.currentVersion,
@@ -167,7 +167,7 @@ public extension OutdatedPackagesTracker
         return finalOutdatedFormulaTracker
     }
 
-    private
+    private nonisolated
     func getOutdatedCasks(from intermediaryArray: [OutdatedPackageCommandOutput.Casks], brewPackagesTracker: BrewPackagesTracker, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
     {
         var finalOutdatedCaskTracker: Set<OutdatedPackage> = .init()
@@ -176,7 +176,7 @@ public extension OutdatedPackagesTracker
         {
             if let foundOutdatedCask = await brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.name == outdatedCask.name })
             {
-                finalOutdatedCaskTracker.insert(.init(
+                await finalOutdatedCaskTracker.insert(.init(
                     package: foundOutdatedCask,
                     installedVersions: outdatedCask.installedVersions,
                     newerVersion: outdatedCask.currentVersion,

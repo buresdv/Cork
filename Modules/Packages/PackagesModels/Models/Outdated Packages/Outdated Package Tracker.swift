@@ -10,7 +10,8 @@ import DefaultsMacros
 import Foundation
 import SwiftUI
 
-@Observable @MainActor
+@MainActor
+@Observable
 public class OutdatedPackagesTracker
 {
     @ObservableDefault(.displayOnlyIntentionallyInstalledPackagesByDefault) @ObservationIgnored var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
@@ -90,6 +91,7 @@ public class OutdatedPackagesTracker
     }
 }
 
+@MainActor
 @Observable
 public class DisplayableOutdatedPackagesTracker: OutdatedPackagesTracker
 {

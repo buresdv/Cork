@@ -6,9 +6,32 @@
 //
 
 import SwiftUI
+import CorkModels
+import Defaults
 
-struct OutdatedPackagesList: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct OutdatedPackagesList: View
+{
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
+    
+    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    
+    var body: some View
+    {        
+        if outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesManagedByHomebrew.isEmpty
+        {
+            Text("update-packages.no-managed-updates")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        else
+        {
+            switch outdatedPackageInfoDisplayAmount
+            {
+            case .none, .versionOnly:
+                OutdatedPackagesList_List(packageUpdatingType: .homebrew)
+            case .all:
+                OutdatedPackagesList_Table()
+            }
+        }
     }
 }
