@@ -82,14 +82,21 @@ struct UpdateSomePackagesView: View
                         updateProgress = Double(index) + 1
                         AppConstants.shared.logger.info("Update progress index: \(updateProgress)")
                     }
-
-                    if !packageUpdatingErrors.isEmpty
+                    
+                    if packageUpdatingErrors.isEmpty
                     {
-                        packageUpdatingStage = .erroredOut(packagesRequireSudo: packageUpdatingErrors.contains("a terminal is required to read the password"))
+                        packageUpdatingStage = .finished
                     }
                     else
                     {
-                        packageUpdatingStage = .finished
+                        if packageUpdatingErrors.contains("a terminal is required to read the password")
+                        {
+                            packageUpdatingStage = .erroredOut(packagesRequireSudo: true)
+                        }
+                        else
+                        {
+                            packageUpdatingStage = .erroredOut(packagesRequireSudo: false)
+                        }
                     }
                 }
 
