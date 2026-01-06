@@ -2,8 +2,8 @@ import ProjectDescription
 
 let settings = Environment.selfCompiled.getBoolean(default: false)
 
-let version: Version = .init(1, 7, 3)
-let build: String = "109"
+let version: String = "1.7.3.1"
+let build: String = "110"
 
 func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
     var additionalCompilationConditions = [String]()
@@ -243,7 +243,7 @@ let project = Project(
     settings: .settings(
         base: [
             "SWIFT_VERSION": "6.0",
-            "MARKETING_VERSION": .init(stringLiteral: version.description),
+            "MARKETING_VERSION": .init(stringLiteral: version),
             "CURRENT_PROJECT_VERSION": .init(stringLiteral: build)
         ],
         configurations: [
