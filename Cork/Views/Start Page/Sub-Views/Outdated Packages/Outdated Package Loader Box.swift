@@ -19,6 +19,8 @@ struct OutdatedPackageLoaderBox: View
     
     @Binding var errorOutReason: String?
     
+    @State private var anotherOutdatedPackageRetrievalProcessIsAlreadyRunning: Bool = false
+    
     var body: some View
     {
         Grid
@@ -35,12 +37,25 @@ struct OutdatedPackageLoaderBox: View
         }
         .task
         {
+            guard anotherOutdatedPackageRetrievalProcessIsAlreadyRunning == false else
+            {
+                AppConstants.shared.logger.info("Another outdated package retrieval process is already running. Will not start another one.")
+                
+                return
+            }
+            
+            anotherOutdatedPackageRetrievalProcessIsAlreadyRunning = true
+            
             outdatedPackagesTracker.isCheckingForPackageUpdates = true
 
+            AppConstants.shared.logger.info("Will start outdated package retrieval process")
+            
             defer
             {
                 withAnimation
                 {
+                    anotherOutdatedPackageRetrievalProcessIsAlreadyRunning = false
+                    
                     outdatedPackagesTracker.isCheckingForPackageUpdates = false
                 }
             }

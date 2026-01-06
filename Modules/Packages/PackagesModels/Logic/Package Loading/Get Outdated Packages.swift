@@ -90,6 +90,12 @@ public extension OutdatedPackagesTracker
         /// Introduces an empty argument in case the updating is non-greedy
         let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
+        AppConstants.shared.logger.debug("""
+        Output of outdated packages retrieval: 
+            Standard output: \(rawOutput.standardOutput)
+            Standard error: \(rawOutput.standardError)
+""")
+        
         // MARK: - Error checking
 
         if rawOutput.standardError.contains("HOME must be set")
