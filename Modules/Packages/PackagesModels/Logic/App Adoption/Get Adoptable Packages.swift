@@ -192,7 +192,17 @@ public extension BrewPackagesTracker
         let caskNamesOfInstalledPackages: Set<String> = await .init(successfullyLoadedCasks.map { $0.name })
 
         /// Filter out packages that are already included in the Cask tracker (which means they are already installed)
-        let adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker: Set<AdoptionCandidateWithAssociatedExecutable> = relevantAdoptionCandidates.filter { !caskNamesOfInstalledPackages.contains($0.appExecutableForCandidate) }
+        /// Also filters out any substrings of that cask name. So, if 1
+        let adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker: Set<AdoptionCandidateWithAssociatedExecutable> = relevantAdoptionCandidates.filter
+        { adoptableApp in
+            !caskNamesOfInstalledPackages.contains
+            { installedCaskName in
+                let candidateCaskName = adoptableApp.adoptionCandidate.caskName
+                
+                // Check both directions for substring match
+                return candidateCaskName.contains(installedCaskName) || installedCaskName.contains(candidateCaskName)
+            }
+        }
 
         /// Transform the adoption candidates into usable ``AdoptableApp``
         let finalProcessedAdoptableApps: Set<AdoptableApp> = await constructFinalAdoptableAppsFromUnprocessedCandidates(unprocessedAdoptionCandidates: adoptionCandidatesOfAppsNotInstalledThroughHomebrewThatAreAlsoNotInTheCackTracker)
