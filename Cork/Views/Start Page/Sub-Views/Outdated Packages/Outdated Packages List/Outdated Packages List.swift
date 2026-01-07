@@ -16,6 +16,16 @@ struct OutdatedPackagesList: View
 
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
+    var areThereAnySelfManagedUpdatesAvailable: Bool
+    {
+        return !outdatedPackagesTracker.packagesThatUpdateThemselves.isEmpty
+    }
+    
+    var numberOfSelfManagedUpdates: Int
+    {
+        return outdatedPackagesTracker.packagesThatUpdateThemselves.count
+    }
+    
     var body: some View
     {
         if outdatedPackagesTracker.packagesManagedByHomebrew.isEmpty
@@ -30,8 +40,24 @@ struct OutdatedPackagesList: View
             {
             case .none, .versionOnly:
                 OutdatedPackagesList_List(packageUpdatingType: .homebrew)
+                
+                if areThereAnySelfManagedUpdatesAvailable
+                {
+                    DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
+                    {
+                        OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
+                    }
+                }
             case .all:
                 OutdatedPackagesList_Table(packageUpdatingType: .homebrew)
+                
+                if areThereAnySelfManagedUpdatesAvailable
+                {
+                    DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
+                    {
+                        OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
+                    }
+                }
             }
         }
     }

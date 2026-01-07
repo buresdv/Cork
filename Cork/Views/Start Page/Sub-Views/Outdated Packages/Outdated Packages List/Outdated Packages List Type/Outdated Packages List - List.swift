@@ -29,11 +29,36 @@ struct OutdatedPackagesList_List: View
         }
     }
     
-    /// Check whether all relevant packages are deselected
+    var sortedRelevantPackages: [OutdatedPackage]
+    {
+        return relevantPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! })
+    }
+    
+    var filteredRelevantPackages: [OutdatedPackage]
+    {
+        guard !searchText.isEmpty else
+        {
+            return sortedRelevantPackages
+        }
+        
+        return sortedRelevantPackages.filter({ $0.package.name.localizedCaseInsensitiveContains(searchText) })
+    }
+    
+    /// Check whether all relevant packages are deselected - for `Deselect All` button
     var areAnyRelevantPackagesSelected: Bool
     {
         !relevantPackages.filter({ $0.isMarkedForUpdating }).isEmpty
     }
+    
+    /// Check if there is at least one package that is not selected - for `Select All` button
+    var areAnyPackagesLeftToSelect: Bool
+    {
+        return relevantPackages.filter({ !$0.isMarkedForUpdating }).isEmpty
+    }
+    
+    @State private var isShowingSearchField: Bool = false
+    
+    @State private var searchText: String = ""
     
     var body: some View
     {
@@ -41,7 +66,7 @@ struct OutdatedPackagesList_List: View
         {
             Section
             {
-                ForEach(relevantPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                ForEach(filteredRelevantPackages)
                 { outdatedPackage in
                     Toggle(isOn: Bindable(outdatedPackage).isMarkedForUpdating)
                     {
@@ -49,13 +74,30 @@ struct OutdatedPackagesList_List: View
                     }
                 }
             } header: {
-                // TODO: Implement this
-                 HStack(alignment: .center, spacing: 10)
-                 {
-                     deselectAllButton(packagesToDeselect: relevantPackages)
+                VStack(alignment: .leading, spacing: 5)
+                {
+                    HStack(alignment: .center, spacing: 10)
+                    {
+                        deselectAllButton(packagesToDeselect: relevantPackages)
 
-                     selectAllButton(packagesToSelect: relevantPackages)
-                 }
+                        selectAllButton(packagesToSelect: relevantPackages)
+                        
+                        Spacer()
+                        
+                        ToggleSearchFieldButton(isShowingSearchField: $isShowingSearchField)
+                    }
+                   
+                   if isShowingSearchField
+                   {
+                       Divider()
+                       
+                       CustomSearchField(
+                           search: $searchText,
+                           customPromptText: nil
+                       )
+                       .transition(.push(from: .top))
+                   }
+                }
             }
         }
         .listStyle(.bordered(alternatesRowBackgrounds: true))
@@ -73,7 +115,7 @@ struct OutdatedPackagesList_List: View
         } label: {
             Text("start-page.updated.action.select-all")
         }
-        .disabled(outdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
+        .disabled(areAnyPackagesLeftToSelect)
         .buttonStyle(.accessoryBar)
     }
     
