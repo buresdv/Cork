@@ -27,7 +27,6 @@ public class OutdatedPackagesTracker
     {
         self.isCheckingForPackageUpdates = true
         self.outdatedPackages = .init()
-        self.displayableOutdatedPackagesTracker = .init()
     }
 
     public var isCheckingForPackageUpdates: Bool
@@ -35,8 +34,6 @@ public class OutdatedPackagesTracker
     public var outdatedPackages: Set<OutdatedPackage>
 
     public var errorOutReason: String?
-
-    public var displayableOutdatedPackagesTracker: DisplayableOutdatedPackagesTracker
 
     public var outdatedPackageDisplayStage: OutdatedPackageDisplayStage
     {
@@ -50,7 +47,7 @@ public class OutdatedPackagesTracker
             {
                 return .checkingForUpdates
             }
-            else if displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.isEmpty
+            else if allDisplayableOutdatedPackages.isEmpty
             {
                 return .noUpdatesAvailable
             }
@@ -76,11 +73,11 @@ public class OutdatedPackagesTracker
 
     public var outdatedPackageListBoxViewType: OutdatedPackageListBoxViewType
     {
-        if !displayableOutdatedPackagesTracker.packagesManagedByHomebrew.isEmpty && !displayableOutdatedPackagesTracker.packagesThatUpdateThemselves.isEmpty
+        if !packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
         { /// Managed packages are not empty, unmanaged packages are not empty
             return .bothManagedAndUnmanaged
         }
-        else if displayableOutdatedPackagesTracker.packagesManagedByHomebrew.isEmpty && !displayableOutdatedPackagesTracker.packagesThatUpdateThemselves.isEmpty
+        else if packagesManagedByHomebrew.isEmpty && !packagesThatUpdateThemselves.isEmpty
         { /// Managed packages are empty, unmanaged packages are not empty
             return .unmanagedOnly
         }
@@ -91,11 +88,9 @@ public class OutdatedPackagesTracker
     }
 }
 
-@MainActor
-@Observable
-public class DisplayableOutdatedPackagesTracker: OutdatedPackagesTracker
+public extension OutdatedPackagesTracker
 {
-    public var allDisplayableOutdatedPackages: Set<OutdatedPackage>
+    var allDisplayableOutdatedPackages: Set<OutdatedPackage>
     {
         /// Depending on whether greedy updating is enabled:
         /// - If enabled, include packages that are also self-updating
@@ -121,22 +116,22 @@ public class DisplayableOutdatedPackagesTracker: OutdatedPackagesTracker
         }
     }
 
-    public var packagesMarkedForUpdating: [OutdatedPackage]
+    var packagesMarkedForUpdating: [OutdatedPackage]
     {
         return allDisplayableOutdatedPackages.filter { $0.isMarkedForUpdating }
     }
 
-    public var packagesManagedByHomebrew: Set<OutdatedPackage>
+    var packagesManagedByHomebrew: Set<OutdatedPackage>
     {
         return allDisplayableOutdatedPackages.filter { $0.updatingManagedBy == .homebrew }
     }
 
-    public var packagesThatUpdateThemselves: Set<OutdatedPackage>
+    var packagesThatUpdateThemselves: Set<OutdatedPackage>
     {
         return allDisplayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
     }
     
-    public var areAllOutdatedPackagesMarkedForUpdating: Bool
+    var areAllOutdatedPackagesMarkedForUpdating: Bool
     {
         return packagesMarkedForUpdating.count == allDisplayableOutdatedPackages.count
     }

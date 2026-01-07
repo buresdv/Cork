@@ -31,47 +31,23 @@ struct OutdatedPackageListBox: View
             {
                 VStack(alignment: .leading)
                 {
-                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
+                    GroupBoxHeadlineGroupWithArbitraryContent(image: outdatedPackagesTracker.allDisplayableOutdatedPackages.count == 1 ? "square.and.arrow.down" : "square.and.arrow.down.on.square")
                     {
                         VStack(alignment: .leading, spacing: 5)
                         {
                             HStack(alignment: .firstTextBaseline)
                             {
-                                Group
-                                {
-                                    switch outdatedPackagesTracker.outdatedPackageListBoxViewType {
-                                    case .managedOnly, .bothManagedAndUnmanaged:
-                                        Text("start-page.updates.count-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
-                                    case .unmanagedOnly:
-                                        Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
-                                    }
-                                }
-                                .font(.headline)
+                                boxTitle
 
                                 Spacer()
 
-                                if outdatedPackagesTracker.displayableOutdatedPackagesTracker.areAllOutdatedPackagesMarkedForUpdating
+                                if outdatedPackagesTracker.areAllOutdatedPackagesMarkedForUpdating
                                 {
-                                    Button
-                                    {
-                                        appState.showSheet(ofType: .fullUpdate)
-                                    } label: {
-                                        Text("start-page.updates.action")
-                                    }
-                                    
-                                    #if DEBUG
-                                    // Text(String(packagesMarkedForUpdating.count))
-                                    #endif
+                                    fullUpdateButton
                                 }
                                 else
                                 {
-                                    Button
-                                    {
-                                        appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating))
-                                    } label: {
-                                        Text("start-page.update-incremental.package-count-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating.count)")
-                                    }
-                                    .disabled(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
+                                    partialUpdateButton
                                 }
                             }
 
@@ -125,7 +101,51 @@ struct OutdatedPackageListBox: View
             }
         }
         .accessibilityLabel("accessibility.label.outdated-packages-box.listing-outdated-packages")
-        .accessibilityValue("accessibility.value.listing-outdated-packages.\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesManagedByHomebrew.count)-managed.\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesThatUpdateThemselves.count)-unmanaged")
+        .accessibilityValue("accessibility.value.listing-outdated-packages.\(outdatedPackagesTracker.packagesManagedByHomebrew.count)-managed.\(outdatedPackagesTracker.packagesThatUpdateThemselves.count)-unmanaged")
+    }
+    
+    // MARK: - ViewBuilders
+    
+    @ViewBuilder
+    private var boxTitle: some View
+    {
+        Group
+        {
+            switch outdatedPackagesTracker.outdatedPackageListBoxViewType {
+            case .managedOnly, .bothManagedAndUnmanaged:
+                Text("start-page.updates.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+            case .unmanagedOnly:
+                Text("start-page.updates.only-unmanaged.count-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+            }
+        }
+        .font(.headline)
+    }
+    
+    @ViewBuilder
+    private var fullUpdateButton: some View
+    {
+        Button
+        {
+            appState.showSheet(ofType: .fullUpdate)
+        } label: {
+            Text("start-page.updates.action")
+        }
+        
+        #if DEBUG
+        // Text(String(packagesMarkedForUpdating.count))
+        #endif
+    }
+    
+    @ViewBuilder
+    private var partialUpdateButton: some View
+    {
+        Button
+        {
+            appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackagesTracker.packagesMarkedForUpdating))
+        } label: {
+            Text("start-page.update-incremental.package-count-\(outdatedPackagesTracker.packagesMarkedForUpdating.count)")
+        }
+        .disabled(outdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
     }
 
     // MARK: - Outdated package list complex
@@ -149,7 +169,7 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.deselect-all")
         }
-        .disabled(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
+        .disabled(outdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
         .modify
         { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all
@@ -181,7 +201,7 @@ struct OutdatedPackageListBox: View
         } label: {
             Text("start-page.updated.action.select-all")
         }
-        .disabled(outdatedPackagesTracker.displayableOutdatedPackagesTracker.areAllOutdatedPackagesMarkedForUpdating)
+        .disabled(outdatedPackagesTracker.areAllOutdatedPackagesMarkedForUpdating)
         .modify
         { viewProxy in
             if outdatedPackageInfoDisplayAmount != .all

@@ -57,11 +57,11 @@ public final class OutdatedPackage: Identifiable, Equatable, Hashable
         hasher.combine(package.name)
     }
     
-    public func changeMarkedState(_ toState: Bool? = nil)
+    public func changeMarkedState(to state: Bool? = nil)
     {
-        if let toState
+        if let state
         {
-            self.isMarkedForUpdating = toState
+            self.isMarkedForUpdating = state
         }
         else
         {

@@ -22,7 +22,7 @@ struct MenuBar_PackageUpdating: View
         }
         else
         {
-            if !outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.isEmpty
+            if !outdatedPackagesTracker.allDisplayableOutdatedPackages.isEmpty
             {
                 if let sanitizedSheetState = appState.sheetToShow
                 {
@@ -30,12 +30,12 @@ struct MenuBar_PackageUpdating: View
                     {
                         Menu
                         {
-                            ForEach(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                            ForEach(outdatedPackagesTracker.allDisplayableOutdatedPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                             { outdatedPackage in
                                 SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: false)
                             }
                         } label: {
-                            Text("notification.outdated-packages-found.body-\(outdatedPackagesTracker.displayableOutdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
+                            Text("notification.outdated-packages-found.body-\(outdatedPackagesTracker.allDisplayableOutdatedPackages.count)")
                         }
                         
                         Button("navigation.upgrade-packages")

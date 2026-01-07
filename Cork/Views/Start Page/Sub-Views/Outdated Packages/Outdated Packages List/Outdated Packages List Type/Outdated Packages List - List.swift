@@ -5,35 +5,43 @@
 //  Created by David Bureš - P on 06.01.2026.
 //
 
-import SwiftUI
 import CorkModels
 import Defaults
+import SwiftUI
 
 struct OutdatedPackagesList_List: View
 {
+    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
+    
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
-    
+
     let packageUpdatingType: OutdatedPackage.PackageUpdatingType
-    
-    var body: some View
+
+    /// Filter out those relevant packages for this context form the tracker
+    var relevantPackages: Set<OutdatedPackage>
     {
         switch packageUpdatingType
         {
         case .homebrew:
-            list_homebrewUpdating
+            return outdatedPackagesTracker.packagesManagedByHomebrew
         case .selfUpdating:
-            EmptyView() // TODO: Implement self-updating packages
+            return outdatedPackagesTracker.packagesThatUpdateThemselves
         }
     }
     
-    @ViewBuilder
-    var list_homebrewUpdating: some View
+    /// Check whether all relevant packages are deselected
+    var areAnyRelevantPackagesSelected: Bool
+    {
+        !relevantPackages.filter({ $0.isMarkedForUpdating }).isEmpty
+    }
+    
+    var body: some View
     {
         List
         {
             Section
             {
-                ForEach(outdatedPackagesTracker.displayableOutdatedPackagesTracker.packagesManagedByHomebrew.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
+                ForEach(relevantPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! }))
                 { outdatedPackage in
                     Toggle(isOn: Bindable(outdatedPackage).isMarkedForUpdating)
                     {
@@ -42,86 +50,46 @@ struct OutdatedPackagesList_List: View
                 }
             } header: {
                 // TODO: Implement this
-                /*
-                HStack(alignment: .center, spacing: 10)
-                {
-                    deselectAllButton
+                 HStack(alignment: .center, spacing: 10)
+                 {
+                     deselectAllButton(packagesToDeselect: relevantPackages)
 
-                    selectAllButton
-                }
-                 */
+                     selectAllButton(packagesToSelect: relevantPackages)
+                 }
             }
         }
         .listStyle(.bordered(alternatesRowBackgrounds: true))
     }
-}
-
-private struct OutdatedPackageListBoxRow: View
-{
-    @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
-    @Default(.showOldVersionsInOutdatedPackageList) var showOldVersionsInOutdatedPackageList
-
-    let outdatedPackage: OutdatedPackage
-
-    @State private var isExpanded: Bool = false
-
-    var body: some View
-    {
-        VStack(alignment: .leading)
-        {
-            switch outdatedPackageInfoDisplayAmount
-            {
-            case .none:
-                outdatedPackageDetails_none
-            case .versionOnly:
-                outdatedPackageDetails_versionOnly
-            case .all:
-                EmptyView()
-            }
-        }
-        .contextMenu
-        {
-            PreviewPackageButton(packageToPreview: .init(
-                name: outdatedPackage.package.name,
-                type: outdatedPackage.package.type,
-                installedIntentionally: outdatedPackage.package.installedIntentionally
-            ))
-        }
-    }
-
-    // MARK: - Various types of outdated package displays
-
+    
     @ViewBuilder
-    var outdatedPackageDetails_none: some View
+    func selectAllButton(packagesToSelect: Set<OutdatedPackage>) -> some View
     {
-        SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: true)
-    }
-
-    @ViewBuilder
-    var outdatedPackageDetails_versionOnly: some View
-    {
-        HStack(alignment: .center)
+        Button
         {
-            SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: true)
-
-            HStack(alignment: .center)
+            relevantPackages.forEach
             {
-                let installedVersions: String = outdatedPackage.installedVersions.formatted(.list(type: .and))
-                let newerVersion: String = outdatedPackage.newerVersion
-                
-                let pillForegroundColor: NSColor = .secondaryLabelColor
-                let pillBackgroundColor: NSColor = .quinaryLabel
-                
-                if showOldVersionsInOutdatedPackageList
-                {
-                    
-                    PillText(text: "\(installedVersions) → \(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
-                }
-                else
-                {
-                    PillText(text: "\(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
-                }
+                $0.changeMarkedState(to: true)
             }
+        } label: {
+            Text("start-page.updated.action.select-all")
         }
+        .disabled(outdatedPackagesTracker.packagesMarkedForUpdating.isEmpty)
+        .buttonStyle(.accessoryBar)
+    }
+    
+    @ViewBuilder
+    func deselectAllButton(packagesToDeselect: Set<OutdatedPackage>) -> some View
+    {
+        Button
+        {
+            relevantPackages.forEach
+            {
+                $0.changeMarkedState(to: false)
+            }
+        } label: {
+            Text("start-page.updated.action.deselect-all")
+        }
+        .disabled(!areAnyRelevantPackagesSelected)
+        .buttonStyle(.accessoryBar)
     }
 }
