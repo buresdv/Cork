@@ -27731,6 +27731,196 @@
       },
       "shouldTranslate" : false
     },
+    "DEBUG: Test View" : {
+      "comment" : "A debug-only text that can be used to test the layout of this view.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test View"
+          }
+        }
+      }
+    },
+    "DEBUG: Test Viwe" : {
+      "comment" : "A debug label that can be used to test the layout of this view.",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG: Test Viwe"
+          }
+        }
+      }
+    },
     "debug.action.activate-demo" : {
       "localizations" : {
         "cs" : {
