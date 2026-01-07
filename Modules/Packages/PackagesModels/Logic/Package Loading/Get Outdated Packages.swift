@@ -78,7 +78,8 @@ public extension OutdatedPackagesTracker
     }
 
     /// Load outdated packages into the outdated package tracker
-    private nonisolated func getOutdatedPackagesInternal(
+    private nonisolated
+    func getOutdatedPackagesInternal(
         brewPackagesTracker: BrewPackagesTracker,
         forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
     ) async throws -> Set<OutdatedPackage>
@@ -146,7 +147,8 @@ public extension OutdatedPackagesTracker
 
     // MARK: - Helper functions
 
-    private nonisolated func getOutdatedFormulae(
+    private nonisolated
+    func getOutdatedFormulae(
         from intermediaryArray: [OutdatedPackageCommandOutput.Formulae],
         brewPackagesTracker: BrewPackagesTracker,
         forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
@@ -158,7 +160,7 @@ public extension OutdatedPackagesTracker
         {
             if let foundOutdatedFormula = await brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
             {
-                finalOutdatedFormulaTracker.insert(.init(
+                await finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,
                     installedVersions: outdatedFormula.installedVersions,
                     newerVersion: outdatedFormula.currentVersion,
@@ -171,15 +173,16 @@ public extension OutdatedPackagesTracker
         return finalOutdatedFormulaTracker
     }
 
-    private func getOutdatedCasks(from intermediaryArray: [OutdatedPackageCommandOutput.Casks], brewPackagesTracker: BrewPackagesTracker, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
+    private nonisolated
+    func getOutdatedCasks(from intermediaryArray: [OutdatedPackageCommandOutput.Casks], brewPackagesTracker: BrewPackagesTracker, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
     {
         var finalOutdatedCaskTracker: Set<OutdatedPackage> = .init()
 
         for outdatedCask in intermediaryArray
         {
-            if let foundOutdatedCask = brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.name == outdatedCask.name })
+            if let foundOutdatedCask = await brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.name == outdatedCask.name })
             {
-                finalOutdatedCaskTracker.insert(.init(
+                await finalOutdatedCaskTracker.insert(.init(
                     package: foundOutdatedCask,
                     installedVersions: outdatedCask.installedVersions,
                     newerVersion: outdatedCask.currentVersion,
