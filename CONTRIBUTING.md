@@ -1,4 +1,9 @@
 # Contributing Protips
+
+## AI Policy
+As stated in the Code of Conduct, using AI or AI-adjacent technologies is strictly forbidden.
+
+## Commit Markers
 If you want to make your commit messages stand out, you can use my syntax for marking additions/removals/adjustments/etc.
 - **+** for **additions**. When you add a new feature or function, mark it with +
 - **-** for **removals**. When you remove something, mark it with -
