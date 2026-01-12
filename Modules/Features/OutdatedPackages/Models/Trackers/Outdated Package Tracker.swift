@@ -9,11 +9,15 @@ import Defaults
 import DefaultsMacros
 import Foundation
 import SwiftUI
+import FactoryKit
+import CorkModels
 
 @MainActor
 @Observable
 public class OutdatedPackagesTracker
 {
+    @ObservationIgnored @InjectedObservable(\.brewPackagesTracker) var brewPackagesTracker: BrewPackagesTracker
+    
     @ObservableDefault(.displayOnlyIntentionallyInstalledPackagesByDefault) @ObservationIgnored var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @ObservableDefault(.includeGreedyOutdatedPackages) @ObservationIgnored var includeGreedyOutdatedPackages: Bool

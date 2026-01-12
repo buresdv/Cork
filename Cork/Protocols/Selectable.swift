@@ -8,8 +8,8 @@
 import Foundation
 
 // TODO: Implement this for the right objects (like OutdatedPackage)
-/// Protocol providing boilerplate for marking something as either selected or not selectd
-protocol Selectable: AnyObject
+/// Protocol providing boilerplate for marking an object as either selected or not selectd
+protocol Selectable: AnyObject, Observable
 {
     var isSelected: Bool { get set }
     

@@ -17,7 +17,7 @@ public class BrewPackagesTracker
 {
     @ObservationIgnored @Injected(\.appConstants) private var appConstants: AppConstants
     
-    public init() {}
+    public nonisolated init() {}
     
     public var installedFormulae: BrewPackages = .init()
     public var installedCasks: BrewPackages = .init()
@@ -139,7 +139,7 @@ public class BrewPackagesTracker
         .sorted(by: { $0.appExecutable < $1.appExecutable })
     }
     
-    private static var excludedAdoptableAppsFetchDescriptor: FetchDescriptor<ExcludedAdoptableApp> = .init(predicate: #Predicate { _ in
+    private static let excludedAdoptableAppsFetchDescriptor: FetchDescriptor<ExcludedAdoptableApp> = .init(predicate: #Predicate { _ in
         return true
     })
     

@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import CorkModels
 
 @Observable @MainActor
 public final class OutdatedPackage: Identifiable, Equatable, Hashable
 {
-    public init(package: BrewPackage, installedVersions: [String], newerVersion: String, updatingManagedBy: PackageUpdatingType) {
+    public init(
+        package: BrewPackage,
+        installedVersions: [String],
+        newerVersion: String,
+        updatingManagedBy: PackageUpdatingType
+    ) {
         self.package = package
         self.installedVersions = installedVersions
         self.newerVersion = newerVersion

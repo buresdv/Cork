@@ -86,7 +86,7 @@ public struct AppConstants: Sendable
     public static let shared: AppConstants = .init()
     
     // MARK: - Persistence
-    public let modelContainer: ModelContainer
+    public nonisolated let modelContainer: ModelContainer
     
     // MARK: - Logging
 

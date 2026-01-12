@@ -17,7 +17,6 @@ public extension BrewPackagesTracker
         package: BrewPackage,
         cachedDownloadsTracker: CachedDownloadsTracker,
         appState: AppState,
-        outdatedPackagesTracker: OutdatedPackagesTracker,
         shouldRemoveAllAssociatedFiles: Bool
     ) async throws
     {

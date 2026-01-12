@@ -8,7 +8,6 @@
 import CorkShared
 import Foundation
 import SwiftUI
-import CorkModels
 import CorkTerminalFunctions
 
 public enum OutdatedPackageRetrievalError: LocalizedError
@@ -60,13 +59,13 @@ public extension OutdatedPackagesTracker
         let casks: [Casks]
     }
     
-    func getOutdatedPackages(brewPackagesTracker: BrewPackagesTracker) async throws
+    func getOutdatedPackages() async throws
     {
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew
-        async let outdatedPackagesNonGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .homebrew)
+        async let outdatedPackagesNonGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(forUpdatingType: .homebrew)
 
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew, plus those that are not
-        async let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .selfUpdating)
+        async let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(forUpdatingType: .selfUpdating)
         
         print("Contents of non-greedy update checker: \(try await outdatedPackagesNonGreedy.map(\.package.name)), \(try await outdatedPackagesNonGreedy.count)")
         print("Contents of greedy update checker: \(try await outdatedPackagesGreedy.map(\.package.name)), \(try await outdatedPackagesGreedy.count)")
@@ -80,7 +79,6 @@ public extension OutdatedPackagesTracker
     /// Load outdated packages into the outdated package tracker
     private nonisolated
     func getOutdatedPackagesInternal(
-        brewPackagesTracker: BrewPackagesTracker,
         forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
     ) async throws -> Set<OutdatedPackage>
     {
@@ -133,8 +131,15 @@ public extension OutdatedPackagesTracker
 
             // MARK: - Outdated package matching
 
-            async let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(from: rawDecodedOutdatedPackages.formulae, brewPackagesTracker: brewPackagesTracker, forUpdatingType: updatingType)
-            async let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(from: rawDecodedOutdatedPackages.casks, brewPackagesTracker: brewPackagesTracker, forUpdatingType: updatingType)
+            async let finalOutdatedFormulae: Set<OutdatedPackage> = await getOutdatedFormulae(
+                from: rawDecodedOutdatedPackages.formulae,
+                forUpdatingType: updatingType
+            )
+            
+            async let finalOutdatedCasks: Set<OutdatedPackage> = await getOutdatedCasks(
+                from: rawDecodedOutdatedPackages.casks,
+                forUpdatingType: updatingType
+            )
 
             return await finalOutdatedFormulae.union(finalOutdatedCasks)
         }
@@ -150,7 +155,6 @@ public extension OutdatedPackagesTracker
     private nonisolated
     func getOutdatedFormulae(
         from intermediaryArray: [OutdatedPackageCommandOutput.Formulae],
-        brewPackagesTracker: BrewPackagesTracker,
         forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
     ) async -> Set<OutdatedPackage>
     {
@@ -174,7 +178,10 @@ public extension OutdatedPackagesTracker
     }
 
     private nonisolated
-    func getOutdatedCasks(from intermediaryArray: [OutdatedPackageCommandOutput.Casks], brewPackagesTracker: BrewPackagesTracker, forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType) async -> Set<OutdatedPackage>
+    func getOutdatedCasks(
+        from intermediaryArray: [OutdatedPackageCommandOutput.Casks],
+        forUpdatingType updatingType: OutdatedPackage.PackageUpdatingType
+    ) async -> Set<OutdatedPackage>
     {
         var finalOutdatedCaskTracker: Set<OutdatedPackage> = .init()
 

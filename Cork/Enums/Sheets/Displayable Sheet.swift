@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkFeature_OutdatedPackages
 
 public enum DisplayableSheet: Identifiable, Equatable
 {

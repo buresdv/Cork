@@ -36,6 +36,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(corkModelsTarget),
             .target(corkTerminalFunctionsTarget),
             .target(corkIntentsTarget),
+            .target(corkFeature_OutdatedPackagesTarget),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
             .external(name: "ApplicationInspector"),
@@ -198,6 +199,33 @@ let corkIntentsTarget: ProjectDescription.Target = .target(
     ])
 )
 
+let corkFeature_OutdatedPackagesTarget: ProjectDescription.Target = .target(
+    name: "CorkFeature_OutdatedPackages",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-feature.outdated-packages",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Features/OutdatedPackages/**/*.swift"
+    ],
+    dependencies: [
+        .target(corkSharedTarget),
+        .external(name: "FactoryKit"),
+        .external(name: "Defaults"),
+        .external(name: "DefaultsMacros")
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
 let corkHelpTarget: ProjectDescription.Target = .target(
     name: "CorkHelp",
     destinations: [.mac],
@@ -242,9 +270,12 @@ let project = Project(
     ],
     settings: .settings(
         base: [
-            "SWIFT_VERSION": "6.0",
+            "SWIFT_VERSION": "6.2",
             "MARKETING_VERSION": .init(stringLiteral: version),
-            "CURRENT_PROJECT_VERSION": .init(stringLiteral: build)
+            "CURRENT_PROJECT_VERSION": .init(stringLiteral: build),
+            "SWIFT_UPCOMING_FEATURE_EXTENSIBLE_ATTRIBUTE": "YES",
+            "SWIFT_UPCOMING_FEATURE_INFER_SENDABLE_FROM_CAPTURES": "YES",
+            //"SWIFT_APPROACHABLE_CONCURRENCY": "YES"
         ],
         configurations: [
             .debug(
@@ -266,6 +297,7 @@ let project = Project(
         corkIntentsTarget,
         corkNotificationsTarget,
         corkHelpTarget,
+        corkFeature_OutdatedPackagesTarget,
         corkTestsTarget
     ]
 
