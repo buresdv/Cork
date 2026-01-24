@@ -58,19 +58,19 @@ struct InstallingPackageView: View
 
                         // CASKS
                         case .downloadingCask:
-                            Text("add-package.install.downloading-cask-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.downloading-cask-\(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise))")
 
                         case .installingCask:
-                            Text("add-package.install.installing-cask-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.installing-cask-\(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise))")
 
                         case .linkingCaskBinary:
                             Text("add-package.install.linking-cask-binary")
 
                         case .movingCask:
-                            Text("add-package.install.moving-cask-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.moving-cask-\(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise))")
 
                         case .requiresSudoPassword:
-                            Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise))")
                                 .onAppear
                                 {
                                     packageInstallationProcessStep = .requiresSudoPassword
@@ -84,7 +84,7 @@ struct InstallingPackageView: View
                                 }
 
                         case .binaryAlreadyExists:
-                            Text("add-package.install.binary-already-exists-\(installationProgressTracker.packageBeingInstalled.package.name)")
+                            Text("add-package.install.binary-already-exists-\(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise))")
                                 .onAppear
                                 {
                                     packageInstallationProcessStep = .binaryAlreadyExists

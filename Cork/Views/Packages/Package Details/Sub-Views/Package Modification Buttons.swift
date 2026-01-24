@@ -63,7 +63,7 @@ struct PackageModificationButtons: View
                                 PurgePackageButton(package: package)
                                     .labelStyle(.titleOnly)
                             } label: {
-                                Text("action.uninstall-\(package.name)")
+                                Text("action.uninstall-\(package.getPackageName(withPrecision: .precise))")
                             } primaryAction: {
                                 // TODO: This is a duplicate of the logic already present in RemovePackageButton. Find a way to merge them.
                                 if !shouldRequestPackageRemovalConfirmation

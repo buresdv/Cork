@@ -162,7 +162,7 @@ struct OutdatedPackageListBox: View
                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
                 {
-                    copyOutdatedPackage.isMarkedForUpdating = false
+                    copyOutdatedPackage.isSelected = false
                 }
                 return copyOutdatedPackage
             })
@@ -194,7 +194,7 @@ struct OutdatedPackageListBox: View
                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                 if copyOutdatedPackage.id == modifiedElement.id
                 {
-                    copyOutdatedPackage.isMarkedForUpdating = true
+                    copyOutdatedPackage.isSelected = true
                 }
                 return copyOutdatedPackage
             })
@@ -230,14 +230,14 @@ struct OutdatedPackageListBox: View
                     Toggle(isOn: Binding<Bool>(
                         get: {
                             /// This was vibe-coded. It fixes the problem, but I have no idea why.
-                            outdatedPackagesTracker.outdatedPackages.contains(where: { $0.id == outdatedPackage.id && $0.isMarkedForUpdating })
+                            outdatedPackagesTracker.outdatedPackages.contains(where: { $0.id == outdatedPackage.id && $0.isSelected })
                         }, set: { toggleState in
                             outdatedPackagesTracker.outdatedPackages = Set(outdatedPackagesTracker.outdatedPackages.map
                             { modifiedElement in
                                 var copyOutdatedPackage: OutdatedPackage = modifiedElement
                                 if copyOutdatedPackage.id == outdatedPackage.id
                                 {
-                                    copyOutdatedPackage.isMarkedForUpdating = toggleState
+                                    copyOutdatedPackage.isSelected = toggleState
                                 }
                                 return copyOutdatedPackage
                             })
@@ -249,7 +249,7 @@ struct OutdatedPackageListBox: View
                 }
                 .width(45)
 
-                TableColumn("package-details.dependencies.results.name", value: \.package.name)
+                TableColumn("package-details.dependencies.results.name", value: \.package.getPackageName(withPrecision: .precise))
 
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
@@ -273,7 +273,7 @@ struct OutdatedPackageListBox: View
                         .contextMenu
                         {
                             PreviewPackageButton(packageToPreview: .init(
-                                name: outdatedPackage.package.name,
+                                name: outdatedPackage.package.getPackageName(withPrecision: .precise),
                                 type: outdatedPackage.package.type,
                                 installedIntentionally: outdatedPackage.package.installedIntentionally)
                             )

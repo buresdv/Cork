@@ -65,7 +65,7 @@ struct AdoptablePackagesList: View
                         }, set: { _ in
                             if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
                             {
-                                brewPackagesTracker.adoptableApps[index].changeMarkedState()
+                                brewPackagesTracker.adoptableApps[index].changeSelectedState()
                             }
                         }
                     ))
@@ -79,7 +79,7 @@ struct AdoptablePackagesList: View
                      {
                          if let index = brewPackagesTracker.adoptableApps.firstIndex(where: { $0.id == adoptableCask.id })
                          {
-                             brewPackagesTracker.adoptableApps[index].changeMarkedState()
+                             brewPackagesTracker.adoptableApps[index].changeSelectedState()
                          }
                      } */
                 }

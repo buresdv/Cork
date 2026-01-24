@@ -68,8 +68,8 @@ public extension OutdatedPackagesTracker
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew, plus those that are not
         async let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .selfUpdating)
         
-        print("Contents of non-greedy update checker: \(try await outdatedPackagesNonGreedy.map(\.package.name)), \(try await outdatedPackagesNonGreedy.count)")
-        print("Contents of greedy update checker: \(try await outdatedPackagesGreedy.map(\.package.name)), \(try await outdatedPackagesGreedy.count)")
+        print("Contents of non-greedy update checker: \(try await outdatedPackagesNonGreedy.map{$0.package.getPackageName(withPrecision: .precise)}), \(try await outdatedPackagesNonGreedy.count)")
+        print("Contents of greedy update checker: \(try await outdatedPackagesGreedy.map{$0.package.getPackageName(withPrecision: .precise)}), \(try await outdatedPackagesGreedy.count)")
         
         /// This includes only those packages that are greedy
         let difference: Set<OutdatedPackage> = try await outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
@@ -158,7 +158,7 @@ public extension OutdatedPackagesTracker
 
         for outdatedFormula in intermediaryArray
         {
-            if let foundOutdatedFormula = await brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name == outdatedFormula.name })
+            if let foundOutdatedFormula = await brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.getPackageName(withPrecision: .precise) == outdatedFormula.name })
             {
                 await finalOutdatedFormulaTracker.insert(.init(
                     package: foundOutdatedFormula,
@@ -180,7 +180,7 @@ public extension OutdatedPackagesTracker
 
         for outdatedCask in intermediaryArray
         {
-            if let foundOutdatedCask = await brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.name == outdatedCask.name })
+            if let foundOutdatedCask = await brewPackagesTracker.successfullyLoadedCasks.first(where: { $0.getPackageName(withPrecision: .precise) == outdatedCask.name })
             {
                 await finalOutdatedCaskTracker.insert(.init(
                     package: foundOutdatedCask,

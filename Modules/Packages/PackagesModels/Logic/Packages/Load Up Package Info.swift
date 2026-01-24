@@ -271,10 +271,10 @@ extension BrewPackage
         switch type
         {
         case .formula:
-            rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", name])
+            rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", self.getPackageName(withPrecision: .precise)])
 
         case .cask:
-            rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", "--cask", name])
+            rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", "--cask", self.getPackageName(withPrecision: .precise)])
         }
 
         // MARK: - Error checking

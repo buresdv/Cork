@@ -56,11 +56,13 @@ struct MaintenanceFinishedView: View
             /// Process:
             /// 1. Get only the names of outdated packages
             /// 2. Get only the names of packages that are outdated, and are holding back cache purge
-            // let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = outdatedPackageTacker.outdatedPackages.map(\.package.name).filter({ packagesHoldingBackCachePurge.contains($0) })
+            // let intentionallyInstalledPackagesHoldingBackCachePurge: [String] = outdatedPackageTacker.outdatedPackages.map(\.package.getPackageName(withPrecision: .precise)).filter({ packagesHoldingBackCachePurge.contains($0) })
 
             /// **Motivation**: Same as above, but even more performant
             /// Only formulae can hold back cache purging. Therefore, we just filter out the outdated formulae, and those must be holding back the purging
-            return outdatedPackagesTracker.allDisplayableOutdatedPackages.filter { $0.package.type == .formula }.map(\.package.name)
+            return outdatedPackagesTracker.allDisplayableOutdatedPackages.filter { $0.package.type == .formula }.map{
+                $0.package.getPackageName(withPrecision: .precise)
+            }
         }
         else
         {

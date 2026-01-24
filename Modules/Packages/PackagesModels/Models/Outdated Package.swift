@@ -8,13 +8,13 @@
 import Foundation
 
 @Observable @MainActor
-public final class OutdatedPackage: Identifiable, Equatable, Hashable
-{
+public final class OutdatedPackage: Identifiable, Equatable, Hashable, Selectable
+{    
     public init(package: BrewPackage, installedVersions: [String], newerVersion: String, updatingManagedBy: PackageUpdatingType) {
         self.package = package
         self.installedVersions = installedVersions
         self.newerVersion = newerVersion
-        self.isMarkedForUpdating = true
+        self.isSelected = true
         self.updatingManagedBy = updatingManagedBy
     }
     
@@ -43,29 +43,17 @@ public final class OutdatedPackage: Identifiable, Equatable, Hashable
     public let installedVersions: [String]
     public let newerVersion: String
 
-    public var isMarkedForUpdating: Bool
+    public var isSelected: Bool
 
     public let updatingManagedBy: PackageUpdatingType
 
     public nonisolated static func == (lhs: OutdatedPackage, rhs: OutdatedPackage) -> Bool
     {
-        return lhs.package.name == rhs.package.name
+        return lhs.package.getCompletePackageName() == rhs.package.getCompletePackageName()
     }
 
     public nonisolated func hash(into hasher: inout Hasher)
     {
-        hasher.combine(package.name)
-    }
-    
-    public func changeMarkedState(to state: Bool? = nil)
-    {
-        if let state
-        {
-            self.isMarkedForUpdating = state
-        }
-        else
-        {
-            self.isMarkedForUpdating.toggle()
-        }
+        hasher.combine(package.getCompletePackageName())
     }
 }

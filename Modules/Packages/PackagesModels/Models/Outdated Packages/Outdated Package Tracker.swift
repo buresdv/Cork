@@ -118,7 +118,7 @@ public extension OutdatedPackagesTracker
 
     var packagesMarkedForUpdating: [OutdatedPackage]
     {
-        return allDisplayableOutdatedPackages.filter { $0.isMarkedForUpdating }
+        return allDisplayableOutdatedPackages.filter { $0.isSelected }
     }
 
     var packagesManagedByHomebrew: Set<OutdatedPackage>

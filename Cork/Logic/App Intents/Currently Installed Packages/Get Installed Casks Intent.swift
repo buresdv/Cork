@@ -49,7 +49,7 @@ public struct GetInstalledCasksIntent: AppIntent
 
             let minimalPackages: [MinimalHomebrewPackage] = validInstalledCasks.map
             { package in
-                .init(name: package.name, type: .cask, installDate: package.installedOn, installedIntentionally: true)
+                .init(name: package.getPackageName(withPrecision: .precise), type: .cask, installDate: package.installedOn, installedIntentionally: true)
             }
 
             return .result(value: minimalPackages)

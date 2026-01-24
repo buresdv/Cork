@@ -41,19 +41,19 @@ struct OutdatedPackagesList_Table: View
             return sortedRelevantPackages
         }
         
-        return sortedRelevantPackages.filter({ $0.package.name.localizedCaseInsensitiveContains(searchText) })
+        return sortedRelevantPackages.filter({ $0.package.getPackageName(withPrecision: .precise).localizedCaseInsensitiveContains(searchText) })
     }
     
     /// Check whether all relevant packages are deselected - for `Deselect All` button
     var areAnyRelevantPackagesSelected: Bool
     {
-        !relevantPackages.filter({ $0.isMarkedForUpdating }).isEmpty
+        !relevantPackages.filter({ $0.isSelected }).isEmpty
     }
     
     /// Check if there is at least one package that is not selected - for `Select All` button
     var areAnyPackagesLeftToSelect: Bool
     {
-        return relevantPackages.filter({ !$0.isMarkedForUpdating }).isEmpty
+        return relevantPackages.filter({ !$0.isSelected }).isEmpty
     }
     
     @State private var isShowingSearchField: Bool = false
@@ -97,13 +97,13 @@ struct OutdatedPackagesList_Table: View
             {
                 TableColumn("start-page.updates.action")
                 { outdatedPackage in
-                    Toggle(isOn: Bindable(outdatedPackage).isMarkedForUpdating) {
+                    Toggle(isOn: Bindable(outdatedPackage).isSelected) {
                         EmptyView()
                     }
                 }
                 .width(45)
 
-                TableColumn("package-details.dependencies.results.name", value: \.package.name)
+                TableColumn("package-details.dependencies.results.name", value: \.package.getPackageName(withPrecision: .precise))
 
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
@@ -127,7 +127,7 @@ struct OutdatedPackagesList_Table: View
                         .contextMenu
                         {
                             PreviewPackageButton(packageToPreview: .init(
-                                name: outdatedPackage.package.name,
+                                name: outdatedPackage.package.getPackageName(withPrecision: .precise),
                                 type: outdatedPackage.package.type,
                                 installedIntentionally: outdatedPackage.package.installedIntentionally)
                             )
@@ -145,7 +145,7 @@ struct OutdatedPackagesList_Table: View
         {
             relevantPackages.forEach
             {
-                $0.changeMarkedState(to: true)
+                $0.changeSelectedState(to: true)
             }
         } label: {
             Text("start-page.updated.action.select-all")
@@ -161,7 +161,7 @@ struct OutdatedPackagesList_Table: View
         {
             relevantPackages.forEach
             {
-                $0.changeMarkedState(to: false)
+                $0.changeSelectedState(to: false)
             }
         } label: {
             Text("start-page.updated.action.deselect-all")

@@ -20,12 +20,12 @@ public extension CachedDownloadsTracker
         {
             let normalizedCachedPackageName: String = cachedDownload.packageName.onlyLetters
 
-            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
+            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.getPackageName(withPrecision: .general).localizedCaseInsensitiveContains(normalizedCachedPackageName) })
             { /// The cached package is a formula
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a formula")
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .formula))
             }
-            else if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name.localizedCaseInsensitiveContains(normalizedCachedPackageName) })
+            else if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.getPackageName(withPrecision: .general).localizedCaseInsensitiveContains(normalizedCachedPackageName) })
             { /// The cached package is a cask
                 AppConstants.shared.logger.debug("Cached package \(cachedDownload.packageName) (\(normalizedCachedPackageName)) is a cask")
                 cachedDownloadsTracker.append(.init(packageName: cachedDownload.packageName, sizeInBytes: cachedDownload.sizeInBytes, packageType: .cask))

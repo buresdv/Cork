@@ -41,19 +41,19 @@ struct OutdatedPackagesList_List: View
             return sortedRelevantPackages
         }
         
-        return sortedRelevantPackages.filter({ $0.package.name.localizedCaseInsensitiveContains(searchText) })
+        return sortedRelevantPackages.filter({ $0.package.getPackageName(withPrecision: .precise).localizedCaseInsensitiveContains(searchText) })
     }
     
     /// Check whether all relevant packages are deselected - for `Deselect All` button
     var areAnyRelevantPackagesSelected: Bool
     {
-        !relevantPackages.filter({ $0.isMarkedForUpdating }).isEmpty
+        !relevantPackages.filter({ $0.isSelected }).isEmpty
     }
     
     /// Check if there is at least one package that is not selected - for `Select All` button
     var areAnyPackagesLeftToSelect: Bool
     {
-        return relevantPackages.filter({ !$0.isMarkedForUpdating }).isEmpty
+        return relevantPackages.filter({ !$0.isSelected }).isEmpty
     }
     
     @State private var isShowingSearchField: Bool = false
@@ -68,7 +68,7 @@ struct OutdatedPackagesList_List: View
             {
                 ForEach(filteredRelevantPackages)
                 { outdatedPackage in
-                    Toggle(isOn: Bindable(outdatedPackage).isMarkedForUpdating)
+                    Toggle(isOn: Bindable(outdatedPackage).isSelected)
                     {
                         OutdatedPackageListBoxRow(outdatedPackage: outdatedPackage)
                     }
@@ -110,7 +110,7 @@ struct OutdatedPackagesList_List: View
         {
             relevantPackages.forEach
             {
-                $0.changeMarkedState(to: true)
+                $0.changeSelectedState(to: true)
             }
         } label: {
             Text("start-page.updated.action.select-all")
@@ -126,7 +126,7 @@ struct OutdatedPackagesList_List: View
         {
             relevantPackages.forEach
             {
-                $0.changeMarkedState(to: false)
+                $0.changeSelectedState(to: false)
             }
         } label: {
             Text("start-page.updated.action.deselect-all")

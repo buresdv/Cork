@@ -49,7 +49,7 @@ struct PackagesIncludedInTapList: View
                         {
                             SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
 
-                            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package.name }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package.name })
+                            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package.getPackageName(withPrecision: .precise) }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package.getPackageName(withPrecision: .precise) })
                             {
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }

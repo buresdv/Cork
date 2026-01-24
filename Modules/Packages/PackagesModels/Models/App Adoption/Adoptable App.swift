@@ -86,7 +86,7 @@ public extension BrewPackagesTracker
             self.isMarkedForAdoption = true
         }
 
-        public mutating func changeMarkedState()
+        public mutating func changeSelectedState()
         {
             self.isMarkedForAdoption.toggle()
         }

@@ -35,7 +35,7 @@ public extension DisplayableAlert
         case .couldNotFindPackageUUIDInList:
             return nil
         case .uninstallationNotPossibleDueToDependency(let packageThatTheUserIsTryingToUninstall, let offendingDependencyProhibitingUninstallation):
-            return String(localized: "alert.unable-to-uninstall-dependency.message-\(offendingDependencyProhibitingUninstallation)-\(packageThatTheUserIsTryingToUninstall.name)")
+            return String(localized: "alert.unable-to-uninstall-dependency.message-\(offendingDependencyProhibitingUninstallation)-\(packageThatTheUserIsTryingToUninstall.getPackageName(withPrecision: .precise))")
         case .metadataFolderDoesNotExist:
             return String(localized: "alert.metadata-folder-does-not-exist.message")
         case .couldNotCreateCorkMetadataDirectory:

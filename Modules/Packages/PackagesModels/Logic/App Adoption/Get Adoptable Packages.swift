@@ -189,7 +189,7 @@ public extension BrewPackagesTracker
         }
 
         /// Only get the names of installed packages to make the comparing faster
-        let caskNamesOfInstalledPackages: Set<String> = await .init(successfullyLoadedCasks.map { $0.name })
+        let caskNamesOfInstalledPackages: Set<String> = await .init(successfullyLoadedCasks.map { $0.getPackageName(withPrecision: .precise) })
 
         /// Filter out packages that are already included in the Cask tracker (which means they are already installed)
         /// Also filters out any substrings of that cask name. So, if 1

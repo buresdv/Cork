@@ -63,7 +63,7 @@ struct GetInstalledFormulaeIntent: AppIntent
 
             var minimalPackages: [MinimalHomebrewPackage] = validInstalledFormulae.map
             { package in
-                .init(name: package.name, type: .formula, installedIntentionally: package.installedIntentionally)
+                .init(name: package.getPackageName(withPrecision: .precise), type: .formula, installedIntentionally: package.installedIntentionally)
             }
 
             if getOnlyManuallyInstalledPackages

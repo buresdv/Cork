@@ -36,7 +36,7 @@ public func shell(
 }
 
 /// # Usage:
-/// for await output in shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
+/// for await output in shell(AppConstants.shared.brewExecutablePath, ["install", package.getPackageName(withPrecision: .precise)])
 /// {
 ///    switch output
 ///    {

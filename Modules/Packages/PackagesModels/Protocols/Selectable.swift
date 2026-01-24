@@ -9,16 +9,19 @@ import Foundation
 
 // TODO: Implement this for the right objects (like OutdatedPackage)
 /// Protocol providing boilerplate for marking something as either selected or not selectd
-protocol Selectable: AnyObject
+public protocol Selectable: AnyObject
 {
+    @MainActor
     var isSelected: Bool { get set }
     
-    func setSelectedState(to newState: Bool?)
+    @MainActor
+    func changeSelectedState(to newState: Bool?)
 }
 
-extension Selectable
+public extension Selectable
 {
-    func setSelectedState(to newState: Bool? = nil)
+    @MainActor
+    func changeSelectedState(to newState: Bool? = nil)
     {
         if let newState
         {

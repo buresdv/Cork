@@ -27,14 +27,14 @@ struct SudoRequiredForRemovalSheet: View, Sendable
                 {
                     VStack(alignment: .leading, spacing: 10)
                     {
-                        Text("add-package.uninstall.requires-sudo-password-\(package.name)")
+                        Text("add-package.uninstall.requires-sudo-password-\(package.getPackageName(withPrecision: .precise))")
                             .font(.headline)
 
                         ManualUninstallInstructions(package: package)
                     }
                 }
 
-                Text("add.package.uninstall.requires-sudo-password.terminal-instructions-\(package.name)")
+                Text("add.package.uninstall.requires-sudo-password.terminal-instructions-\(package.getPackageName(withPrecision: .precise))")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -84,7 +84,7 @@ private struct ManualUninstallInstructions: View
 
     var manualUninstallCommand: String
     {
-        return "brew uninstall \(package.type == .cask ? "--cask" : "") \(isPurgingPackage ? "--zap" : "") \(package.name)"
+        return "brew uninstall \(package.type == .cask ? "--cask" : "") \(isPurgingPackage ? "--zap" : "") \(package.getPackageName(withPrecision: .precise))"
     }
 
     var body: some View

@@ -20,7 +20,7 @@ struct SidebarContextMenu: View
     
     var isPackageOutdated: Bool
     {
-        if outdatedPackagesTracker.allDisplayableOutdatedPackages.contains(where: { $0.package.name == package.name })
+        if outdatedPackagesTracker.allDisplayableOutdatedPackages.contains(where: { $0.package.getPackageName(withPrecision: .precise) == package.getPackageName(withPrecision: .precise) })
         {
             return true
         }

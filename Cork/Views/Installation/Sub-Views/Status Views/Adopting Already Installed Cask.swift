@@ -34,29 +34,29 @@ struct AdoptingAlreadyInstalledCaskView: View
         switch adoptionStep
         {
         case .working:
-            ProgressView("adopt-cask.in-progress.\(caskToAdopt.name)")
+            ProgressView("adopt-cask.in-progress.\(caskToAdopt.getPackageName(withPrecision: .precise))")
                 .progressViewStyle(.linear)
                 .task
                 {
-                    AppConstants.shared.logger.debug("Started adoption process for cask \(caskToAdopt.name)")
+                    AppConstants.shared.logger.debug("Started adoption process for cask \(caskToAdopt.getPackageName(withPrecision: .precise))")
 
-                    let adoptionResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt.name])
+                    let adoptionResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt.getPackageName(withPrecision: .precise)])
 
                     AppConstants.shared.logger.debug("""
-                    Finished adoption process for cask \(caskToAdopt.name) with this result:
+                    Finished adoption process for cask \(caskToAdopt.getPackageName(withPrecision: .precise)) with this result:
                     Output: \(adoptionResult.standardOutput)
                     Error: \(adoptionResult.standardError)
                     """)
                     
                     if adoptionResult.standardOutput.contains("was successfully installed")
                     {
-                        AppConstants.shared.logger.info("Adoption frocess for cask \(caskToAdopt.name) was successful")
+                        AppConstants.shared.logger.info("Adoption frocess for cask \(caskToAdopt.getPackageName(withPrecision: .precise)) was successful")
                         
                         self.adoptionStep = .finished
                     }
                     else
                     {
-                        AppConstants.shared.logger.error("Adoption frocess for cask \(caskToAdopt.name) failed")
+                        AppConstants.shared.logger.error("Adoption frocess for cask \(caskToAdopt.getPackageName(withPrecision: .precise)) failed")
                         self.adoptionStep = .failed
                     }
                 }
@@ -66,7 +66,7 @@ struct AdoptingAlreadyInstalledCaskView: View
                 ComplexWithIcon(systemName: "checkmark.seal")
                 {
                     HeadlineWithSubheadline(
-                        headline: "adopt-cask.finished-\(caskToAdopt.name)",
+                        headline: "adopt-cask.finished-\(caskToAdopt.getPackageName(withPrecision: .precise))",
                         subheadline: "adopt-cask.finished.description",
                         alignment: .leading
                     )
@@ -76,7 +76,7 @@ struct AdoptingAlreadyInstalledCaskView: View
             ComplexWithIcon(systemName: "exclamationmark.triangle")
             {
                 HeadlineWithSubheadline(
-                    headline: "adopt-cask.fatal-error-\(caskToAdopt.name)",
+                    headline: "adopt-cask.fatal-error-\(caskToAdopt.getPackageName(withPrecision: .precise))",
                     subheadline: "add-package.fatal-error.description",
                     alignment: .leading
                 )

@@ -19,7 +19,7 @@ struct UpdatePackageButton: View
     
     var outdatedPackageFromTracker: [OutdatedPackage]
     {
-        return outdatedPackagesTracker.outdatedPackages.filter({ $0.package.name == packageToUpdate.name })
+        return outdatedPackagesTracker.outdatedPackages.filter({ $0.package.getCompletePackageName() == packageToUpdate.getCompletePackageName() })
     }
     
     var body: some View
@@ -28,7 +28,7 @@ struct UpdatePackageButton: View
         {
             appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackageFromTracker))
         } label: {
-            Text("action.update-\(packageToUpdate.name)")
+            Text("action.update-\(packageToUpdate.getPackageName(withPrecision: .precise))")
         }
 
     }

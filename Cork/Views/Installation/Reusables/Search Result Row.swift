@@ -49,14 +49,14 @@ struct SearchResultRow: View, Sendable
                 case .searchResults:
                     if searchedForPackage.type == .formula
                     {
-                        if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == searchedForPackage.name })
+                        if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.getCompletePackageName() == searchedForPackage.getCompletePackageName() })
                         {
                             PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }
                     }
                     else
                     {
-                        if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == searchedForPackage.name })
+                        if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.getCompletePackageName() == searchedForPackage.getCompletePackageName() })
                         {
                             PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }
@@ -114,7 +114,7 @@ struct SearchResultRow: View, Sendable
         {
             if showDescriptionsInSearchResults
             {
-                AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
+                AppConstants.shared.logger.info("\(searchedForPackage.getPackageName(withPrecision: .precise), privacy: .auto) came into view")
 
                 if description == nil
                 {
@@ -123,11 +123,11 @@ struct SearchResultRow: View, Sendable
                         isLoadingDescription = false
                     }
 
-                    AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) does not have its description loaded")
+                    AppConstants.shared.logger.info("\(searchedForPackage.getPackageName(withPrecision: .precise), privacy: .auto) does not have its description loaded")
 
                     do
                     {
-                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.name, type: searchedForPackage.type, installedOn: Date(), versions: [], url: nil, sizeInBytes: nil, downloadCount: nil)
+                        let searchedForPackage: BrewPackage = .init(name: searchedForPackage.getPackageName(withPrecision: .precise), type: searchedForPackage.type, installedOn: Date(), versions: [], url: nil, sizeInBytes: nil, downloadCount: nil)
 
                         do
                         {
@@ -147,7 +147,7 @@ struct SearchResultRow: View, Sendable
                 }
                 else
                 {
-                    AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) already has its description loaded")
+                    AppConstants.shared.logger.info("\(searchedForPackage.getPackageName(withPrecision: .precise), privacy: .auto) already has its description loaded")
                 }
             }
         }

@@ -22,6 +22,76 @@ public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadi
 /// A representation of a Homebrew package
 public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable
 {
+    /// The package's name parsed into chunks
+    public struct BrewPackageName: Equatable, Hashable, Codable, Sendable
+    {
+        
+        public init(from unparsedName: String)
+        {
+            let packageNameWithoutTap: String =
+            { /// First, remove the tap name from the package name if it has it
+                
+                /// If there are no slashes, return the package name, as we don't need to modify the slashes
+                guard unparsedName.contains("/") else
+                {
+                    return unparsedName
+                }
+                
+                if let sanitizedName = try? unparsedName.regexMatch("[^\\/]*$")
+                { /// Try to remove everything before the last slash
+                    return sanitizedName
+                }
+                else
+                { /// If the removal of the slashes doesn't work, return the unmodified name
+                    return unparsedName
+                }
+            }()
+            
+            /// If there is no `@` - meaning there is no bound version - just init with the name without the tap slashes
+            guard packageNameWithoutTap.contains("@") else
+            {
+                self.packageIdentifier = unparsedName
+                self.boundVersion = nil
+                
+                return
+            }
+            
+            let splitPackageName: [String] = packageNameWithoutTap.components(separatedBy: "@")
+            
+            /// Check if there are actually only two components to the name - if not, something went wrong, and we return the unparsed name
+            guard splitPackageName.count == 2 else
+            {
+                AppConstants.shared.logger.error("Failed while parsing package name \(packageNameWithoutTap, privacy: .public). Name should not contain more than two components at this stage.")
+                
+                self.packageIdentifier = packageNameWithoutTap
+                self.boundVersion = nil
+                
+                return
+            }
+            
+            if let packageIdentifier = splitPackageName.first, let boundVersion = splitPackageName.last
+            {
+                self.packageIdentifier = packageIdentifier
+                self.boundVersion = boundVersion
+            } else {
+                AppConstants.shared.logger.error("Failed while parsing package name \(packageNameWithoutTap, privacy: .public). There should be at least two elements in the split version at this stage.")
+                
+                self.packageIdentifier = packageNameWithoutTap
+                self.boundVersion = nil
+            }
+        }
+        
+        /// The core name of the package
+        ///
+        /// If the package has a bound version, this is the part before the `@`.  In the case of `cork@beta`, the Package Identifier is `cork`
+        public let packageIdentifier: String
+        
+        /// The bound version of the package, designating its specific version or release
+        ///
+        /// If the package has a bound version, this is the part after the `@`. In the case of `cork@beta`, the Bound Version is `beta`
+        public let boundVersion: String?
+    }
+    
     public init(
         name: String,
         type: BrewPackage.PackageType,
@@ -35,7 +105,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         downloadCount: Int?
     ) {
         self.id = .init()
-        self.name = name
+        self.name = .init(from: name)
         self.type = type
         self.isTagged = isTagged ?? false
         self.isPinned = isPinned ?? false
@@ -49,7 +119,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     }
     
     public var id: UUID
-    public let name: String
+    private let name: BrewPackageName
 
     public let type: PackageType
     public var isTagged: Bool = false
@@ -142,6 +212,40 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         }
     }
     
+    // MARK: - Logic
+    /// How precise the retrieved name should be - if it's about the package in general, or the very specific version of that package
+    public enum NameRetrievalPrecision
+    {
+        /// Includes only the base name
+        case general
+        
+        /// Includes the base name and the bound version, if one exists
+        case precise
+    }
+    
+    /// Get a formatted version of the package's name
+    public func getPackageName(withPrecision precision: NameRetrievalPrecision) -> String
+    {
+        switch precision
+        {
+        case .general:
+            return self.name.packageIdentifier
+        case .precise:
+            guard let boundVersionUnwrapped = name.boundVersion else
+            {
+                return self.name.packageIdentifier
+            }
+            
+            return "\(self.name.packageIdentifier)@\(boundVersionUnwrapped)"
+        }
+    }
+    
+    /// Get the whole package name struct
+    public func getCompletePackageName() -> BrewPackageName
+    {
+        return self.name
+    }
+    
     /// The purpose of the tagged status change operation
     public enum TaggedStatusChangePurpose: String
     {
@@ -163,7 +267,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public mutating func changeTaggedStatus(purpose: TaggedStatusChangePurpose)
     {
         
-        let packageName: String = self.name
+        let packageName: String = self.getPackageName(withPrecision: .precise)
         
         AppConstants.shared.logger.debug("Will change the tagged status of package \(packageName) for the purpose of \(purpose.rawValue)")
         
@@ -226,7 +330,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         
         if self.isPinned
         {
-            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", name])
+            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", self.getPackageName(withPrecision: .precise)])
 
             if !pinResult.standardError.isEmpty
             {
@@ -235,7 +339,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         }
         else
         {
-            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", name])
+            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", self.getPackageName(withPrecision: .precise)])
             if !unpinResult.standardError.isEmpty
             {
                 AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
@@ -270,7 +374,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     
     public mutating func changeBeingModifiedStatus(to setState: Bool? = nil)
     {
-        let packageName: String = self.name
+        let packageName: String = self.getPackageName(withPrecision: .precise)
         
         AppConstants.shared.logger.debug("Will change the \"Being Modified\" status of package \(packageName)")
         
@@ -281,44 +385,6 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         else
         {
             isBeingModified.toggle()
-        }
-    }
-    
-    public func getSanitizedName() -> String
-    {
-        var packageNameWithoutTap: String
-        { /// First, remove the tap name from the package name if it has it
-            if self.name.contains("/")
-            { /// Check if the package name contains slashes (this would mean it includes the tap name)
-                if let sanitizedName = try? self.name.regexMatch("[^\\/]*$")
-                {
-                    return sanitizedName
-                }
-                else
-                {
-                    return self.name
-                }
-            }
-            else
-            {
-                return self.name
-            }
-        }
-
-        if packageNameWithoutTap.contains("@")
-        { /// Only do the matching if the name contains @
-            if let sanitizedName = try? packageNameWithoutTap.regexMatch(".+?(?=@)")
-            { /// Try to REGEX-match the name out of the raw name
-                return sanitizedName
-            }
-            else
-            { /// If the REGEX matching fails, just show the entire name
-                return packageNameWithoutTap
-            }
-        }
-        else
-        { /// If the name doesn't contain the @, don't do anything
-            return packageNameWithoutTap
         }
     }
 
@@ -354,7 +420,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
             packageURL = contentsOfParentFolder.filter
             {
-                $0.lastPathComponent.contains(name)
+                $0.lastPathComponent.contains(self.getPackageName(withPrecision: .precise))
             }.first
 
             guard let packageURL

@@ -143,7 +143,7 @@ private extension BrewPackagesTracker
                     switch rawResult
                     {
                     case .success(let success):
-                        return success.name
+                        return success.getPackageName(withPrecision: .precise)
                     case .failure(let failure):
                         return failure.errorDescription
                     }

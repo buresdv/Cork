@@ -45,13 +45,13 @@ class InstallationProgressTracker
     {
         let package: BrewPackage = packageBeingInstalled.package
 
-        AppConstants.shared.logger.debug("Installing package \(package.name, privacy: .auto)")
+        AppConstants.shared.logger.debug("Installing package \(package.getPackageName(withPrecision: .precise), privacy: .auto)")
 
         var installationResult: TerminalOutput = .init(standardOutput: "", standardError: "")
 
         if package.type == .formula
         {
-            AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
+            AppConstants.shared.logger.info("Package \(package.getPackageName(withPrecision: .precise), privacy: .public) is Formula")
 
             let output: String = try await installFormula(using: brewPackagesTracker).joined(separator: "")
 
@@ -88,9 +88,9 @@ class InstallationProgressTracker
         var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
         var installOutput: [String] = .init()
 
-        AppConstants.shared.logger.info("Package \(package.name, privacy: .public) is Formula")
+        AppConstants.shared.logger.info("Package \(package.getPackageName(withPrecision: .precise), privacy: .public) is Formula")
 
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", package.getPackageName(withPrecision: .precise)])
         installationProcess = process
         for await output in stream
         {
@@ -110,7 +110,7 @@ class InstallationProgressTracker
                 if outputLine.contains("Fetching dependencies")
                 {
                     // First, we have to get a list of all the dependencies
-                    var matchedDependencies: String = try outputLine.regexMatch("(?<=\(package.name): ).*?(.*)")
+                    var matchedDependencies: String = try outputLine.regexMatch("(?<=\(package.getPackageName(withPrecision: .precise)): ).*?(.*)")
                     matchedDependencies = matchedDependencies.replacingOccurrences(of: " and", with: ",") // The last dependency is different, because it's preceded by "and" instead of "," so let's replace that "and" with "," so we can split it nicely
 
                     AppConstants.shared.logger.debug("Matched Dependencies: \(matchedDependencies, privacy: .auto)")
@@ -126,7 +126,7 @@ class InstallationProgressTracker
                     packageBeingInstalled.packageInstallationProgress = 1
                 }
 
-                else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(package.name) dependency")
+                else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(package.getPackageName(withPrecision: .precise)) dependency")
                 {
                     AppConstants.shared.logger.info("Will install dependencies!")
                     packageBeingInstalled.installationStage = .installingDependencies
@@ -151,7 +151,7 @@ class InstallationProgressTracker
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * (Double(numberOfPackageDependencies) * Double(5))))
                 }
 
-                else if outputLine.contains("Fetching \(package.name)") || outputLine.contains("Installing \(package.name)")
+                else if outputLine.contains("Fetching \(package.getPackageName(withPrecision: .precise))") || outputLine.contains("Installing \(package.getPackageName(withPrecision: .precise))")
                 {
                     if hasAlreadyMatchedLineAboutInstallingPackageItself
                     { /// Only the second line about the package being installed is valid
@@ -205,9 +205,9 @@ class InstallationProgressTracker
         let package: BrewPackage = packageBeingInstalled.package
 
         AppConstants.shared.logger.info("Package is Cask")
-        AppConstants.shared.logger.debug("Installing package \(package.name, privacy: .public)")
+        AppConstants.shared.logger.debug("Installing package \(package.getPackageName(withPrecision: .precise), privacy: .public)")
 
-        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", package.name])
+        let (stream, process): (AsyncStream<StreamedTerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", package.getPackageName(withPrecision: .precise)])
         installationProcess = process
         for await output in stream
         {
@@ -255,7 +255,7 @@ class InstallationProgressTracker
                 }
                 else if outputLine.contains("Purging files")
                 {
-                    AppConstants.shared.logger.info("Purging old version of cask \(package.name)")
+                    AppConstants.shared.logger.info("Purging old version of cask \(package.getPackageName(withPrecision: .precise))")
 
                     packageBeingInstalled.installationStage = .installingCask
 

@@ -73,7 +73,7 @@ extension BrewPackagesTracker
                     switch formula
                     {
                     case .success(var brewPackage):
-                        if brewPackage.name == taggedName
+                        if brewPackage.getPackageName(withPrecision: .precise) == taggedName
                         {
                             brewPackage.changeTaggedStatus(purpose: .justLoading)
                         }
@@ -88,7 +88,7 @@ extension BrewPackagesTracker
                     switch cask
                     {
                     case .success(var brewPackage):
-                        if brewPackage.name == taggedName
+                        if brewPackage.getPackageName(withPrecision: .precise) == taggedName
                         {
                             brewPackage.changeTaggedStatus(purpose: .justLoading)
                         }

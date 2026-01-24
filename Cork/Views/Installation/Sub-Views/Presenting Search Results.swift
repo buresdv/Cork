@@ -122,12 +122,12 @@ struct PresentingSearchResultsView: View
                 return
             }
             openWindow(value: MinimalHomebrewPackage(
-                name: selectedPackage.name,
+                name: selectedPackage.getPackageName(withPrecision: .precise),
                 type: selectedPackage.type,
                 installedIntentionally: selectedPackage.installedIntentionally
             ))
 
-            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
+            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.getPackageName(withPrecision: .precise))")
         }
         .disabled(foundPackageSelection == nil)
         .labelStyle(.titleOnly)
@@ -179,7 +179,7 @@ struct PresentingSearchResultsView: View
             installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: foundPackageSelection, installationStage: .ready, packageInstallationProgress: 0)
 
             #if DEBUG
-                AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+                AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise), privacy: .public)")
             #endif
         }
     }

@@ -36,16 +36,16 @@ public extension BrewPackagesTracker
             }
         }
 
-        AppConstants.shared.logger.info("Will try to remove package \(package.name, privacy: .auto)")
+        AppConstants.shared.logger.info("Will try to remove package \(package.getPackageName(withPrecision: .precise), privacy: .auto)")
         var uninstallCommandOutput: TerminalOutput
 
         if !shouldRemoveAllAssociatedFiles
         {
-            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", package.name])
+            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", package.getPackageName(withPrecision: .precise)])
         }
         else
         {
-            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.name])
+            uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.getPackageName(withPrecision: .precise)])
         }
 
         AppConstants.shared.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardError)")
@@ -88,7 +88,7 @@ public extension BrewPackagesTracker
                 {
                     AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
                     
-                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name, errorDetails: uninstallCommandOutput.standardError))
+                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.getPackageName(withPrecision: .precise), errorDetails: uninstallCommandOutput.standardError))
                 }
                 else
                 {
@@ -106,7 +106,7 @@ public extension BrewPackagesTracker
         AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
-        if let index = outdatedPackagesTracker.outdatedPackages.firstIndex(where: { $0.package.name == package.name })
+        if let index = outdatedPackagesTracker.outdatedPackages.firstIndex(where: { $0.package.getPackageName(withPrecision: .precise) == package.getPackageName(withPrecision: .precise) })
         {
             outdatedPackagesTracker.outdatedPackages.remove(at: index)
         }

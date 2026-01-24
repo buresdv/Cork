@@ -25,7 +25,7 @@ struct TagUntagButton: View
                 package.changeTaggedStatus(purpose: .actuallyChangingTheTaggedState)
             }
         } label: {
-            Label(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.name)" : "sidebar.section.all.contextmenu.tag-\(package.name)", systemImage: package.isTagged ? "tag.slash" : "tag")
+            Label(package.isTagged ? "sidebar.section.all.contextmenu.untag-\(package.getPackageName(withPrecision: .precise))" : "sidebar.section.all.contextmenu.tag-\(package.getPackageName(withPrecision: .precise))", systemImage: package.isTagged ? "tag.slash" : "tag")
         }
     }
 }

@@ -38,7 +38,7 @@ struct UpdateSomePackagesView: View
             case .updating:
                 ProgressView(value: updateProgress, total: Double(packagesToUpdate.count))
                 {
-                    Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.name)")
+                    Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.getPackageName(withPrecision: .precise))")
                 }
                 .frame(width: 200)
                 .task
@@ -51,11 +51,11 @@ struct UpdateSomePackagesView: View
 
                         if packageBeingCurrentlyUpdated.type == .formula
                         {
-                            updateCommandArguments = ["reinstall", packageBeingCurrentlyUpdated.name]
+                            updateCommandArguments = ["reinstall", packageBeingCurrentlyUpdated.getPackageName(withPrecision: .precise)]
                         }
                         else
                         {
-                            updateCommandArguments = ["reinstall", "--cask", packageBeingCurrentlyUpdated.name]
+                            updateCommandArguments = ["reinstall", "--cask", packageBeingCurrentlyUpdated.getPackageName(withPrecision: .precise)]
                         }
 
                         AppConstants.shared.logger.info("Update command: \(updateCommandArguments)")
@@ -74,7 +74,7 @@ struct UpdateSomePackagesView: View
 
                                 if !errorLine.contains("The post-install step did not complete successfully")
                                 {
-                                    packageUpdatingErrors.append("\(packageBeingCurrentlyUpdated.name): \(errorLine)")
+                                    packageUpdatingErrors.append("\(packageBeingCurrentlyUpdated.getPackageName(withPrecision: .precise)): \(errorLine)")
                                 }
                             }
                         }

@@ -25,12 +25,12 @@ struct TopPackagesSection: View
         case .formula:
             packageTracker.sortedTopFormulae.filter
             {
-                !brewPackagesTracker.successfullyLoadedFormulae.map(\.name).contains($0.name)
+                !brewPackagesTracker.successfullyLoadedFormulae.map{$0.getCompletePackageName()}.contains($0.getCompletePackageName())
             }
         case .cask:
             packageTracker.sortedTopCasks.filter
             {
-                !brewPackagesTracker.successfullyLoadedCasks.map(\.name).contains($0.name)
+                !brewPackagesTracker.successfullyLoadedCasks.map{$0.getCompletePackageName()}.contains($0.getCompletePackageName())
             }
         }
     }

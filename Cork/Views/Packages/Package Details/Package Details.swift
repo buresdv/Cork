@@ -219,14 +219,14 @@ private extension BrewPackagesTracker
     {
         if let possibleFormula: BrewPackage = self.successfullyLoadedFormulae.filter({ $0.id == package.id }).first
         {
-            AppConstants.shared.logger.debug("Found the correct formula: \(possibleFormula.name), ID: \(possibleFormula.id)")
+            AppConstants.shared.logger.debug("Found the correct formula: \(possibleFormula.getPackageName(withPrecision: .precise)), ID: \(possibleFormula.id)")
             
             return possibleFormula
         }
 
         if let possibleCask: BrewPackage = self.successfullyLoadedCasks.filter({ $0.id == package.id }).first
         {
-            AppConstants.shared.logger.debug("Found the correct cask: \(possibleCask.name), ID: \(possibleCask.id)")
+            AppConstants.shared.logger.debug("Found the correct cask: \(possibleCask.getPackageName(withPrecision: .precise)), ID: \(possibleCask.id)")
             
             return possibleCask
         }
@@ -253,7 +253,7 @@ private extension BrewPackagesTracker
             /// Initialize the fast comparable representation from a ``BrewPackage``
             init(from brewPackage: BrewPackage)
             {
-                self.init(name: brewPackage.name, type: brewPackage.type, versions: brewPackage.versions)
+                self.init(name: brewPackage.getPackageName(withPrecision: .precise), type: brewPackage.type, versions: brewPackage.versions)
             }
         }
         
@@ -261,13 +261,13 @@ private extension BrewPackagesTracker
         
         if let possibleFormula: BrewPackage = self.successfullyLoadedFormulae.filter({ FastPackageComparableRepresentation(from: $0) == hashOfSearchedForPackage }).first
         {
-            AppConstants.shared.logger.debug("Found the correct Formula using hashing: \(possibleFormula.name), ID: \(possibleFormula.id)")
+            AppConstants.shared.logger.debug("Found the correct Formula using hashing: \(possibleFormula.getPackageName(withPrecision: .precise)), ID: \(possibleFormula.id)")
             return possibleFormula
         }
         
         if let possibleCask: BrewPackage = self.successfullyLoadedCasks.filter({ FastPackageComparableRepresentation(from: $0) == hashOfSearchedForPackage }).first
         {
-            AppConstants.shared.logger.debug("Found the correct Cask using hashing: \(possibleCask.name), ID: \(possibleCask.id)")
+            AppConstants.shared.logger.debug("Found the correct Cask using hashing: \(possibleCask.getPackageName(withPrecision: .precise)), ID: \(possibleCask.id)")
             
             return possibleCask
         }

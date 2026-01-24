@@ -17,7 +17,7 @@ struct InstallationFatalErrorView: View
         ComplexWithIcon(systemName: "exclamationmark.triangle")
         {
             HeadlineWithSubheadline(
-                headline: "add-package.fatal-error-\(packageBeingInstalled.name)",
+                headline: "add-package.fatal-error-\(packageBeingInstalled.getPackageName(withPrecision: .precise))",
                 subheadline: "add-package.fatal-error.description",
                 alignment: .leading
             )

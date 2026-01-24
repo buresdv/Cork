@@ -111,7 +111,7 @@ struct InstallationInitialView: View
             }
             
             openWindow(value: MinimalHomebrewPackage(
-                name: packageToPreview.name,
+                name: packageToPreview.getPackageName(withPrecision: .precise),
                 type: packageToPreview.type,
                 installedIntentionally: packageToPreview.installedIntentionally
             ))
@@ -134,7 +134,7 @@ struct InstallationInitialView: View
             
             installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
             
-            AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name, privacy: .public)")
+            AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.getPackageName(withPrecision: .precise), privacy: .public)")
             
             packageInstallationProcessStep = .installing
             
