@@ -5,13 +5,13 @@
 //  Created by David Bureš on 12.03.2023.
 //
 
-import SwiftUI
 import CorkModels
+import SwiftUI
 
 struct PackagesIncludedInTapList: View
 {
     @Environment(\.selectedTap) var selectedTap: BrewTap?
-    
+
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let packages: [MinimalHomebrewPackage]
@@ -22,50 +22,72 @@ struct PackagesIncludedInTapList: View
     {
         if searchString.isEmpty
         {
-            return packages.sorted {
-                return $0.name < $1.name
+            return packages.sorted
+            {
+                $0.name < $1.name
             }
         }
         else
         {
-            return packages.filter({ $0.name.localizedCaseInsensitiveContains(searchString) }).sorted {
+            return packages.filter { $0.name.localizedCaseInsensitiveContains(searchString) }.sorted
+            {
                 $0.name < $1.name
             }
         }
     }
-    
+
     var body: some View
     {
         VStack(spacing: 5)
         {
             CustomSearchField(search: $searchString, customPromptText: "tap-details.included-packages.search.prompt")
-            ScrollView
+            List
             {
-                List
-                {
-                    ForEach(packagesToDisplay)
-                    { package in
-                        HStack(alignment: .center)
+                ForEach(packagesToDisplay)
+                { (minimalPackage: MinimalHomebrewPackage) in
+                    HStack(alignment: .center)
+                    {
+                        if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
                         {
-                            SanitizedPackageName(package: .init(name: package.name, type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil), shouldShowVersion: true)
+                            SanitizedPackageName(
+                                package: initializedBrewPackageForDisplayInList,
+                                shouldShowVersion: true
+                            )
 
-                            if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.name == package.getPackageName(withPrecision: .precise) }) || brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.name == package.getPackageName(withPrecision: .precise) })
+                            var isPackageAlreadyInstalled: Bool
+                            {
+                                var packageContainedInFormulae: Bool {
+                                    return brewPackagesTracker.successfullyLoadedFormulae.contains { installedPackage in
+                                        installedPackage.getPackageName(withPrecision: .precise) == minimalPackage.name
+                                    }
+                                }
+                                
+                                var packageContainedInCasks: Bool {
+                                    return brewPackagesTracker.successfullyLoadedCasks.contains { installedPackage in
+                                        installedPackage.getPackageName(withPrecision: .precise) == minimalPackage.name
+                                    }
+                                }
+                                  
+                                return packageContainedInFormulae || packageContainedInCasks
+                            }
+                            
+                            if isPackageAlreadyInstalled
                             {
                                 PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                             }
                         }
-                        .contextMenu
-                        {
-                            contextMenu(packageToPreview: package)
-                        }
+                    }
+                    .contextMenu
+                    {
+                        contextMenu(packageToPreview: minimalPackage)
                     }
                 }
-                .frame(height: 150)
-                .listStyle(.bordered(alternatesRowBackgrounds: true))
             }
+            .frame(height: 150)
+            .listStyle(.bordered(alternatesRowBackgrounds: true))
         }
     }
-    
+
     @ViewBuilder
     func contextMenu(packageToPreview: MinimalHomebrewPackage) -> some View
     {

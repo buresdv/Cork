@@ -248,8 +248,11 @@ struct OutdatedPackageListBox: View
                     }
                 }
                 .width(45)
-
-                TableColumn("package-details.dependencies.results.name", value: \.package.getPackageName(withPrecision: .precise))
+                
+                TableColumn("package-details.dependencies.results.name")
+                { outdatedPackage in
+                    Text(outdatedPackage.package.getPackageName(withPrecision: .precise))
+                }
 
                 TableColumn("start-page.updates.installed-version")
                 { outdatedPackage in
