@@ -63,18 +63,18 @@ public extension OutdatedPackagesTracker
     func getOutdatedPackages(brewPackagesTracker: BrewPackagesTracker) async throws
     {
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew
-        async let outdatedPackagesNonGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .homebrew)
+        let outdatedPackagesNonGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .homebrew)
 
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew, plus those that are not
-        async let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .selfUpdating)
+        let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .selfUpdating)
         
-        print("Contents of non-greedy update checker: \(try await outdatedPackagesNonGreedy.map(\.package.name)), \(try await outdatedPackagesNonGreedy.count)")
-        print("Contents of greedy update checker: \(try await outdatedPackagesGreedy.map(\.package.name)), \(try await outdatedPackagesGreedy.count)")
+        print("Contents of non-greedy update checker: \( outdatedPackagesNonGreedy.map(\.package.name)), \( outdatedPackagesNonGreedy.count)")
+        print("Contents of greedy update checker: \( outdatedPackagesGreedy.map(\.package.name)), \( outdatedPackagesGreedy.count)")
         
         /// This includes only those packages that are greedy
-        let difference: Set<OutdatedPackage> = try await outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
+        let difference: Set<OutdatedPackage> = outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
         
-        self.outdatedPackages = try await outdatedPackagesNonGreedy.union(difference)
+        self.outdatedPackages = outdatedPackagesNonGreedy.union(difference)
     }
 
     /// Load outdated packages into the outdated package tracker
