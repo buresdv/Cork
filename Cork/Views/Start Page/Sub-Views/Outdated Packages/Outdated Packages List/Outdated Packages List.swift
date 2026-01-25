@@ -16,6 +16,11 @@ struct OutdatedPackagesList: View
 
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
+    var areThereAnyHomebrewManagedUpdatesAvailable: Bool
+    {
+        return !outdatedPackagesTracker.packagesManagedByHomebrew.isEmpty
+    }
+    
     var areThereAnySelfManagedUpdatesAvailable: Bool
     {
         return !outdatedPackagesTracker.packagesThatUpdateThemselves.isEmpty
@@ -28,37 +33,54 @@ struct OutdatedPackagesList: View
     
     var body: some View
     {
-        if outdatedPackagesTracker.packagesManagedByHomebrew.isEmpty
+        switch outdatedPackageInfoDisplayAmount
         {
-            Text("update-packages.no-managed-updates")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-        }
-        else
-        {
-            switch outdatedPackageInfoDisplayAmount
+        case .none, .versionOnly:
+            
+            if areThereAnyHomebrewManagedUpdatesAvailable
             {
-            case .none, .versionOnly:
                 OutdatedPackagesList_List(packageUpdatingType: .homebrew)
-                
-                if areThereAnySelfManagedUpdatesAvailable
+            }
+            else
+            {
+                noManagedUpdatesAvailableMessage
+            }
+            
+            if areThereAnySelfManagedUpdatesAvailable
+            {
+                DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
                 {
-                    DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
-                    {
-                        OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
-                    }
+                    OutdatedPackagesList_List(packageUpdatingType: .selfUpdating)
                 }
-            case .all:
+            }
+        case .all:
+            
+            if areThereAnyHomebrewManagedUpdatesAvailable
+            {
                 OutdatedPackagesList_Table(packageUpdatingType: .homebrew)
-                
-                if areThereAnySelfManagedUpdatesAvailable
+            }
+            else
+            {
+                noManagedUpdatesAvailableMessage
+            }
+            
+            if areThereAnySelfManagedUpdatesAvailable
+            {
+                DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
                 {
-                    DisclosureGroup("start-page.updates.self-updating.\(numberOfSelfManagedUpdates).list")
-                    {
-                        OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
-                    }
+                    OutdatedPackagesList_Table(packageUpdatingType: .selfUpdating)
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    var noManagedUpdatesAvailableMessage: some View
+    {
+        Text("update-packages.no-managed-updates")
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .padding([.leading])
     }
 }
