@@ -175,6 +175,12 @@ public struct AppConstants: Sendable
             return nil
         }
     }
+    
+    // MARK: - Terminal
+    /// Symbols that discard the whole line of a terminal output
+    public let disqualifyingSymbolsForTerminalOutputs: [String] = [
+        "✔︎"
+    ]
 
     // MARK: - Storage for tagging
 

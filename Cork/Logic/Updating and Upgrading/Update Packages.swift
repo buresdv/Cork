@@ -11,6 +11,22 @@ import CorkShared
 import CorkTerminalFunctions
 import Defaults
 
+extension UpdateProgressTracker
+{
+    func updatePackages() async
+    {
+        Self.UpdateProcessStages.matchStage(output: "something", in: Self) { processStage in
+            switch processStage
+            {
+            case .cleanup:
+                // logic here
+            case .backingUp:
+                // logic here
+            }
+        }
+    }
+}
+
 @MainActor
 func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: UpdatingProcessDetails) async
 {
@@ -45,7 +61,7 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: U
             {
                 detailStage.currentStage = .backingUp
             }
-            else if outputLine.contains("Moving App") || outputLine.contains("Linking") || outputLine.contains("✔︎")
+            else if outputLine.contains("Moving App") || outputLine.contains("Linking")
             {
                 detailStage.currentStage = .linking
             }
