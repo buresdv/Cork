@@ -8,6 +8,7 @@
 import Foundation
 import Defaults
 
+/*
 /// Protocol which adds support for broadcasting real-time outputs of terminal commands
 public protocol TerminalOutputStreamable: Observable
 {
@@ -64,3 +65,4 @@ public extension TerminalOutputStreamable
         }
     }
 }
+*/

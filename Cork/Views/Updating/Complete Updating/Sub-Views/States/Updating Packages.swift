@@ -14,8 +14,6 @@ struct UpdatingPackagesStateView: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
-    @Bindable var updateProcessDetailsStage: UpdatingProcessDetails
-
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
 
     @Binding var isShowingRealTimeTerminalOutput: Bool

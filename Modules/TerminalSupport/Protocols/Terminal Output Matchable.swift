@@ -7,36 +7,56 @@
 
 import Foundation
 
-/// Protocol for adding support for matching various terminal output strings
-public protocol TerminalOutputMatchable
+enum TerminalOutputMatch<T: TerminalOutputMatchable>
 {
-    /// Match for these standard outputs
-    var matchForStandardOutputs: [String] { get }
-
-    /// March for these standard errors
-    var matchForStandardErrors: [String] { get }
+    case normal(T)
+    case error(T)
+    case unmatched
 }
 
-public extension TerminalOutputMatchable
+// MARK: - Protocol
+/// Protocol allowing for the matching of Terminal outputs
+protocol TerminalOutputMatchable: CaseIterable
 {
-    /// Match the right stage for output
-    static func matchStage(
-        output: TerminalOutput,
-        in cases: [Self],
-        handler: (Self) -> Void
+    /// Terminal outputs to match to each normal case
+    var patterns: [String] { get }
+
+    /// Terminal outputs to ignore
+    static var ignoredPatterns: [String]? { get }
+
+    /// Terminal errors to match to each error
+    var isError: Bool { get }
+}
+
+// MARK: - Default Implementation
+
+extension TerminalOutputMatchable
+{
+    static var normalCases: [Self] { allCases.filter { !$0.isError } }
+    static var errorCases: [Self] { allCases.filter { $0.isError } }
+
+    static var ignoredPatterns: [String]? { nil }
+
+    static func match(
+        _ output: TerminalOutput,
+        handler: (TerminalOutputMatch<Self>) -> Void
     )
     {
-        if let matched = cases.first(where: { matchable in
-            let standardOutputMatches = matchable.matchForStandardOutputs.contains
-            { output.standardOutput.contains($0) }
+        let combinedOutput = output.standardOutput + output.standardError
 
-            let standardErrorMatches = matchable.matchForStandardErrors.contains
-            { output.standardError.contains($0) }
+        if let ignoredPatterns, ignoredPatterns.contains(where: { combinedOutput.contains($0) }) { return }
 
-            return standardOutputMatches || standardErrorMatches
-        })
+        if let matched = normalCases.first(where: { $0.patterns.contains(where: { output.standardOutput.contains($0) }) })
         {
-            handler(matched)
+            handler(.normal(matched))
+        }
+        else if let matched = errorCases.first(where: { $0.patterns.contains(where: { output.standardError.contains($0) }) })
+        {
+            handler(.error(matched))
+        }
+        else
+        {
+            handler(.unmatched)
         }
     }
 }
