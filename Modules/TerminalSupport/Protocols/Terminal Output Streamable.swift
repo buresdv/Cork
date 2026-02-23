@@ -9,6 +9,7 @@ import Defaults
 import Foundation
 import SwiftUI
 
+/*
 /// Protocol which adds support for broadcasting real-time outputs of terminal commands
 public protocol TerminalOutputStreamable: AnyObject, Observable
 {
@@ -98,3 +99,4 @@ public extension TerminalOutputStreamable where Self: AnyObject
         }
     }
 }
+*/
