@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TerminalOutputMatch<T: TerminalOutputMatchable>
+public enum TerminalOutputMatch<T: TerminalOutputMatchable>
 {
     case normal(T)
     case error(T)
@@ -15,8 +15,9 @@ enum TerminalOutputMatch<T: TerminalOutputMatchable>
 }
 
 // MARK: - Protocol
+
 /// Protocol allowing for the matching of Terminal outputs
-protocol TerminalOutputMatchable: CaseIterable
+public protocol TerminalOutputMatchable: CaseIterable
 {
     /// Terminal outputs to match to each normal case
     var patterns: [String] { get }
@@ -30,7 +31,7 @@ protocol TerminalOutputMatchable: CaseIterable
 
 // MARK: - Default Implementation
 
-extension TerminalOutputMatchable
+public extension TerminalOutputMatchable
 {
     static var normalCases: [Self] { allCases.filter { !$0.isError } }
     static var errorCases: [Self] { allCases.filter { $0.isError } }
@@ -42,21 +43,27 @@ extension TerminalOutputMatchable
         handler: (TerminalOutputMatch<Self>) -> Void
     )
     {
-        let combinedOutput = output.standardOutput + output.standardError
-
-        if let ignoredPatterns, ignoredPatterns.contains(where: { combinedOutput.contains($0) }) { return }
-
-        if let matched = normalCases.first(where: { $0.patterns.contains(where: { output.standardOutput.contains($0) }) })
+        if let ignoredPatterns
         {
-            handler(.normal(matched))
+            switch output
+            {
+            case .standardOutput(let string), .standardError(let string):
+                if ignoredPatterns.contains(where: { string.contains($0) }) { return }
+            }
         }
-        else if let matched = errorCases.first(where: { $0.patterns.contains(where: { output.standardError.contains($0) }) })
+
+        switch output
         {
-            handler(.error(matched))
-        }
-        else
-        {
-            handler(.unmatched)
+        case .standardOutput(let string):
+            if let matched = normalCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            {
+                handler(.normal(matched))
+            }
+        case .standardError(let string):
+            if let matched = errorCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            {
+                handler(.error(matched))
+            }
         }
     }
 }

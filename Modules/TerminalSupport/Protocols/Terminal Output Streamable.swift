@@ -16,7 +16,7 @@ public protocol TerminalOutputStreamable: Observable
     var shouldShowRealTimeOutputs: Bool { get }
     
     /// Attach to a process and stream its real-time output
-    func realTimeOutput(process: Process, processPipe: Pipe, errorPipe: Pipe) async throws -> AsyncStream<StreamedTerminalOutput>
+    func realTimeOutput(process: Process, processPipe: Pipe, errorPipe: Pipe) async throws -> AsyncStream<TerminalOutput>
 }
 
 public extension TerminalOutputStreamable
@@ -26,7 +26,7 @@ public extension TerminalOutputStreamable
         return Defaults[.showRealTimeTerminalOutputOfOperations]
     }
     
-    static func realTimeOutput(process: Process, processPipe: Pipe, errorPipe: Pipe) async throws -> AsyncStream<StreamedTerminalOutput>
+    static func realTimeOutput(process: Process, processPipe: Pipe, errorPipe: Pipe) async throws -> AsyncStream<TerminalOutput>
     {
         return AsyncStream
         { continuation in

@@ -15,25 +15,23 @@ public func shell(
     _ arguments: [String],
     environment: [String: String]? = nil,
     workingDirectory: URL? = nil
-) async -> TerminalOutput
+) async -> [TerminalOutput]
 {
-    var allOutput: [String] = .init()
-    var allErrors: [String] = .init()
+    var allOutputs: [TerminalOutput] = .init()
+    
     for await streamedOutput in shell(launchPath, arguments, environment: environment, workingDirectory: workingDirectory)
     {
         switch streamedOutput
         {
         case .standardOutput(let output):
-            allOutput.append(output)
+            allOutputs.append(.standardOutput(output))
         case .standardError(let error):
-            allErrors.append(error)
+            allOutputs.append(.standardError(error))
         }
     }
 
-    return .init(
-        standardOutput: allOutput.joined(),
-        standardError: allErrors.joined()
-    )
+    
+    return allOutputs
 }
 
 /// # Usage:
@@ -52,7 +50,7 @@ public func shell(
     _ arguments: [String],
     environment: [String: String]? = nil,
     workingDirectory: URL? = nil
-) -> AsyncStream<StreamedTerminalOutput>
+) -> AsyncStream<TerminalOutput>
 {
     let task: Process = .init()
     
@@ -172,7 +170,7 @@ public func shell(
     _ arguments: [String],
     environment: [String: String]? = nil,
     workingDirectory: URL? = nil
-) -> (stream: AsyncStream<StreamedTerminalOutput>, process: Process)
+) -> (stream: AsyncStream<TerminalOutput>, process: Process)
 {
     let task: Process = .init()
 
@@ -256,7 +254,7 @@ public func shell(
         AppConstants.shared.logger.error("\(String(describing: error))")
     }
 
-    let stream: AsyncStream<StreamedTerminalOutput> = AsyncStream
+    let stream: AsyncStream<TerminalOutput> = AsyncStream
     { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
             guard let standardOutput = String(data: handler.availableData, encoding: .utf8)

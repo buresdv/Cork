@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 import FactoryKit
+import CorkTerminalFunctions
 
 @Observable
 class UpdateProgressTracker
 {
-    @Injected(\.appConstants) var appConstants
+    @Injected(\.appConstants) @ObservationIgnored var appConstants
     
     var updateProgress: Float = 0
     var errors: [String] = .init()

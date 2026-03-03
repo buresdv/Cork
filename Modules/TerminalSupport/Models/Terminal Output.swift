@@ -7,22 +7,23 @@
 
 import Foundation
 
-public struct TerminalOutput
-{
-    public var standardOutput: String
-    public var standardError: String
-    
-    public init(
-        standardOutput: String,
-        standardError: String
-    ) {
-        self.standardOutput = standardOutput
-        self.standardError = standardError
-    }
-}
-
-public enum StreamedTerminalOutput
+public enum TerminalOutput: Sendable
 {
     case standardOutput(String)
     case standardError(String)
+
+    public var containsErrors: Bool
+    {
+        if case .standardError = self { return true }
+        return false
+    }
+}
+
+public extension Array<TerminalOutput>
+{
+    /// Whether the result of the call has any errors
+    var containsErrors: Bool
+    {
+        contains(where: \.containsErrors)
+    }
 }

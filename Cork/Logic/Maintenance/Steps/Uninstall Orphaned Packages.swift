@@ -25,7 +25,7 @@ enum OrphanUninstallationError: LocalizedError
 
 func uninstallOrphanedPackages() async throws -> TerminalOutput
 {
-    let commandResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["autoremove"])
+    let commandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["autoremove"])
 
     if !commandResult.standardOutput.contains("Autoremoving")
     {
