@@ -23,19 +23,19 @@ enum OrphanUninstallationError: LocalizedError
     }
 }
 
-func uninstallOrphanedPackages() async throws -> TerminalOutput
+func uninstallOrphanedPackages() async throws -> [TerminalOutput]
 {
     let commandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["autoremove"])
 
-    if !commandResult.standardOutput.contains("Autoremoving")
+    if !commandResult.contains("autoremoving", in: .standardOutputs)
     {
-        if commandResult.standardError.isEmpty
+        if !commandResult.containsErrors
         {
             return commandResult
         }
         else
         {
-            AppConstants.shared.logger.error("Unexpected orphan package removal output:\nStandard output: \(commandResult.standardOutput, privacy: .public)\nStandard error: \(commandResult.standardError, privacy: .public)")
+            AppConstants.shared.logger.error("Unexpected orphan package removal output:\nStandard output: \(commandResult.standardOutputs, privacy: .public)\nStandard error: \(commandResult.standardErrors, privacy: .public)")
             throw OrphanUninstallationError.unexpectedCommandOutput
         }
     }
