@@ -5,89 +5,128 @@
 //  Created by David Bureš on 03.09.2023.
 //
 
-import Foundation
-import SwiftUI
 import CorkShared
 import CorkTerminalFunctions
+import Foundation
+import SwiftUI
 
-public enum UntapError: LocalizedError
+public extension TapTracker
 {
-    case couldNotUntap(tapName: String, failureReason: String)
-
-    public var errorDescription: String?
+    enum UntapError: LocalizedError
     {
-        switch self
+        case couldNotUntap(tapName: String, failureReason: String)
+
+        public var errorDescription: String?
         {
-        case .couldNotUntap(let tapName, let failureReason):
-            return String(localized: "error.tap.untap.could-not-untap.tap-\(tapName).failure-reason-\(failureReason)")
+            switch self
+            {
+            case .couldNotUntap(let tapName, let failureReason):
+                return String(localized: "error.tap.untap.could-not-untap.tap-\(tapName).failure-reason-\(failureReason)")
+            }
+        }
+    }
+
+    enum FromTrackerRemovalError: LocalizedError
+    {
+        case noTapsWereRemoved
+    }
+
+    /// Specify what the purpose of the tap removal operation should be
+    enum TapRemovalPurpose: CustomStringConvertible
+    {
+        /// Only remove the tap from the tracker, keep it installed
+        case removeFromTracker
+
+        /// Uninstall the tap from Homebrew, then remove it from the tracker
+        case removeFromHomebrewAndTracker
+
+        public var description: String
+        {
+            switch self
+            {
+            case .removeFromTracker:
+                "Removal from tracker only"
+            case .removeFromHomebrewAndTracker:
+                "Removal from Homebrew and tracker"
+            }
+        }
+    }
+
+    /// Remove a tap, either from just the tracker, or Homebrew as well as the tracker
+    /// - Parameters:
+    ///   - tapToRemove: ``BrewTap`` to remove
+    ///   - purpose: Whether to only remove the tap from the tracker and keep it installed, or uninstall it and then remove it
+    /// - Throws:
+    ///     - ``UntapError`` if the removal of the tap from Homebrew failed
+    ///     - ``FromTrackerRemovalError`` if the removal of the tap from the tracker failed
+    func removeTap(
+        tapToRemove: BrewTap,
+        purpose: TapTracker.TapRemovalPurpose
+    ) async throws
+    {
+        appConstants.logger.info("Will start \(purpose.description) process for tap \(tapToRemove.name(withPrecision: .full), privacy: .public)")
+
+        tapToRemove.changeBeingModifiedStatus()
+
+        switch purpose
+        {
+        case .removeFromTracker:
+            try self.removeTapFromTracker(tapToRemove: tapToRemove)
+        case .removeFromHomebrewAndTracker:
+            do
+            { // This do statement has to be here so the tap doesn't get removed from the trakcer if the removal fails
+                try await self.removeTapFromHomebrew(tapToRemove: tapToRemove)
+                try self.removeTapFromTracker(tapToRemove: tapToRemove)
+            }
+            catch let tapRemovalFromTrackerError as TapTracker.FromTrackerRemovalError
+            {
+                /// Pass the error up the chain
+                throw tapRemovalFromTrackerError
+            }
+            catch let tapRemovalFromHomebrewError as TapTracker.UntapError
+            {
+                throw tapRemovalFromHomebrewError
+            }
         }
     }
 }
 
-@MainActor
-public func removeTap(name: String, tapTracker: TapTracker, appState: AppState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: Bool = false) async throws
+private extension TapTracker
 {
-    var indexToReplaceGlobal: Int?
-
-    if shouldApplyUninstallSpinnerToRelevantItemInSidebar
+    func removeTapFromTracker(
+        tapToRemove: BrewTap
+    ) throws(TapTracker.FromTrackerRemovalError)
     {
-        if let indexToReplace = tapTracker.addedTaps.firstIndex(where: { $0.name == name })
+        let numberOfAddedTapsBeforeRemovalAction: Int = self.numberOfAddedTaps
+        
+        self.addedTaps.removeAll(where: { $0 == tapToRemove })
+        
+        if numberOfAddedTapsBeforeRemovalAction == self.numberOfAddedTaps
         {
-            tapTracker.addedTaps[indexToReplace].changeBeingModifiedStatus()
-
-            indexToReplaceGlobal = indexToReplace
+            throw .noTapsWereRemoved
         }
     }
-    else
-    {
-        appState.isShowingUninstallationProgressView = true
-    }
 
-    let untapResult: String = await shell(AppConstants.shared.brewExecutablePath, ["untap", name]).standardError
-    AppConstants.shared.logger.debug("Untapping result: \(untapResult)")
-
-    defer
+    func removeTapFromHomebrew(
+        tapToRemove: BrewTap
+    ) async throws(TapTracker.UntapError)
     {
-        appState.isShowingUninstallationProgressView = false
-    }
+        let untapResult: [TerminalOutput] = await shell(appConstants.brewExecutablePath, ["untap", tapToRemove.name(withPrecision: .full)])
 
-    if untapResult.contains("Untapped")
-    {
-        AppConstants.shared.logger.info("Untapping was successful")
-        DispatchQueue.main.async
+        if untapResult.contains("Untapped", in: .standardOutputs, .standardErrors)
         {
-            withAnimation
-            {
-                tapTracker.addedTaps.removeAll(where: { $0.name == name })
-            }
-        }
-    }
-    else
-    {
-        AppConstants.shared.logger.warning("Untapping failed")
-
-        if untapResult.contains("because it contains the following installed formulae or casks")
-        {
-            appState.showAlert(errorToShow: .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: name))
-        }
-
-        if let indexToReplaceGlobal
-        {
-            tapTracker.addedTaps[indexToReplaceGlobal].changeBeingModifiedStatus()
+            appConstants.logger.info("\(TapTracker.TapRemovalPurpose.removeFromHomebrewAndTracker.description) of tap \(tapToRemove.name(withPrecision: .full), privacy: .public) was successful")
         }
         else
         {
-            AppConstants.shared.logger.warning("Could not get index for that tap. Will loop over all of them")
+            appConstants.logger.error("\(TapTracker.TapRemovalPurpose.removeFromHomebrewAndTracker.description, privacy: .public) of tap \(tapToRemove.name(withPrecision: .full), privacy: .public) failed")
             
-            for index in tapTracker.addedTaps.indices
+            if untapResult.contains("because it contains the following installed formulae or casks")
             {
-                if tapTracker.addedTaps[index].isBeingModified
-                {
-                    tapTracker.addedTaps[index].isBeingModified = false
-                }
+                appState.showAlert(errorToShow: .couldNotRemoveTapDueToPackagesFromItStillBeingInstalled(offendingTapProhibitingRemovalOfTap: tapToRemove.name(withPrecision: .full)))
             }
+            
+            throw .couldNotUntap(tapName: tapToRemove.name(withPrecision: .full), failureReason: untapResult.standardErrors.formatted(.list(type: .and)))
         }
-
-        throw UntapError.couldNotUntap(tapName: name, failureReason: untapResult)
     }
 }

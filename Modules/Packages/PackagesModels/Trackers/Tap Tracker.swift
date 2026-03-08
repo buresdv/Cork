@@ -7,10 +7,15 @@
 
 import Foundation
 import Observation
+import FactoryKit
 
 @Observable @MainActor
 public class TapTracker
 {
+    @Injected(\.appConstants) @ObservationIgnored var appConstants
+    
+    @InjectedObservable(\.appState) var appState
+    
     public init()
     {
         self.addedTaps = .init()
