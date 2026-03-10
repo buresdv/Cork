@@ -14,7 +14,7 @@ public class TapTracker
 {
     @Injected(\.appConstants) @ObservationIgnored var appConstants
     
-    @InjectedObservable(\.appState) var appState
+    @Injected(\.appState) @ObservationIgnored var appState
     
     public init()
     {

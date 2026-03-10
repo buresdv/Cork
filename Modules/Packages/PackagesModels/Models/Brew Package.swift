@@ -330,19 +330,19 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         
         if self.isPinned
         {
-            let pinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["unpin", self.name(withPrecision: .precise)])
+            let pinResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["unpin", self.name(withPrecision: .precise)])
 
-            if !pinResult.standardError.isEmpty
+            if pinResult.containsErrors
             {
-                AppConstants.shared.logger.error("Error pinning: \(pinResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.error("Error pinning: \(pinResult.standardErrors, privacy: .public)")
             }
         }
         else
         {
-            let unpinResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["pin", self.name(withPrecision: .precise)])
-            if !unpinResult.standardError.isEmpty
+            let unpinResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["pin", self.name(withPrecision: .precise)])
+            if unpinResult.containsErrors
             {
-                AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.error("Error unpinning: \(unpinResult.standardErrors, privacy: .public)")
             }
         }
 

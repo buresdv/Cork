@@ -17,6 +17,8 @@ public class BrewPackagesTracker
 {
     @ObservationIgnored @Injected(\.appConstants) private var appConstants: AppConstants
     
+    @ObservationIgnored @InjectedObservable(\.appState) var appState
+    
     public init() {}
     
     public var installedFormulae: BrewPackages = .init()

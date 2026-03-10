@@ -12,3 +12,8 @@ public protocol Modifiable: Sendable
 {
     var isBeingModified: Bool { get set }
 }
+
+public protocol ModifiableActor: Actor
+{
+    var isBeingModified: Bool { get set }
+}

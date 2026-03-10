@@ -266,7 +266,7 @@ extension BrewPackage
             return decoder
         }()
 
-        var rawOutput: TerminalOutput
+        var rawOutput: [TerminalOutput]
 
         switch type
         {
@@ -279,7 +279,7 @@ extension BrewPackage
 
         // MARK: - Error checking
 
-        guard !rawOutput.standardOutput.isEmpty
+        guard !rawOutput.containsErrors
         else
         {
             AppConstants.shared.logger.error("Did not get any terminal output from the package details loading function")
@@ -287,11 +287,11 @@ extension BrewPackage
             throw BrewPackageInfoLoadingError.didNotGetAnyTerminalOutput
         }
 
-        if !rawOutput.standardError.isEmpty
+        if rawOutput.containsErrors
         {
             AppConstants.shared.logger.warning("Standard error of the package details loading function is not empty. Will investigate if the error can be ignored.")
 
-            if rawOutput.standardError.range(of: "(T|t)reating.*as a (formula|cask)", options: .regularExpression) != nil
+            if rawOutput.standardErrors.joined().range(of: "(T|t)reating.*as a (formula|cask)", options: .regularExpression) != nil
             {
                 AppConstants.shared.logger.notice("The error of package details loading function was not serious enough to throw an error. Ignoring.")
             }
@@ -299,13 +299,13 @@ extension BrewPackage
             {
                 AppConstants.shared.logger.error("Error was serious enough to throw an error")
 
-                throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardError)
+                throw BrewPackageInfoLoadingError.standardErrorNotEmpty(presentError: rawOutput.standardErrors.joined())
             }
         }
 
-        AppConstants.shared.logger.debug("JSON output: \(rawOutput.standardOutput)")
+        AppConstants.shared.logger.debug("JSON output: \(rawOutput.standardOutputs)")
 
-        guard let decodableData: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
+        guard let decodableData: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false)
         else
         {
             AppConstants.shared.logger.error("Could not convert string of package details loading function to data")
@@ -334,7 +334,7 @@ extension BrewPackage
                     name: formulaInfo.name,
                     description: formulaInfo.desc,
                     homepage: formulaInfo.homepage,
-                    tap: .init(name: formulaInfo.tap),
+                    tap: try .init(name: formulaInfo.tap),
                     installedAsDependency: formulaInfo.installed.first?.installedAsDependency ?? false,
                     dependencies: formulaInfo.extractDependencies(),
                     outdated: formulaInfo.outdated,
@@ -357,7 +357,7 @@ extension BrewPackage
                     name: caskInfo.token,
                     description: caskInfo.desc,
                     homepage: caskInfo.homepage,
-                    tap: .init(name: caskInfo.tap),
+                    tap: try .init(name: caskInfo.tap),
                     installedAsDependency: false,
                     dependencies: nil,
                     outdated: caskInfo.outdated,

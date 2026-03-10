@@ -66,7 +66,7 @@ public extension TapTracker
     {
         appConstants.logger.info("Will start \(purpose.description) process for tap \(tapToRemove.name(withPrecision: .full), privacy: .public)")
 
-        tapToRemove.changeBeingModifiedStatus()
+        await tapToRemove.changeBeingModifiedStatus()
 
         switch purpose
         {

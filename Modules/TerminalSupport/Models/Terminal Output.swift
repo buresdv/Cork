@@ -97,3 +97,27 @@ public extension [TerminalOutput]
         }
     }
 }
+
+public extension [TerminalOutput]
+{
+    /// Designate the output as purely for retrieving JSON
+    /// By designating a command as "JSON Retrieval" command, the system will only care about the first output, and automatically transform the output array into just the first output - which is expected to contains the JSON response
+    /// - Parameter failOnAnyErrorsPresent: Set whether the command should fail if there any any errors at all. If set to `false`, errors being present in the output will get ignored. If set to `true`, the operation will fail and return `nil`
+    /// - Returns: Optional transformed JSON output into `Data` for further parsing in its own respective JSON parser
+    func getJsonFromOutput(
+        failOnAnyErrorsPresent: Bool
+    ) -> Data?
+    {
+        if failOnAnyErrorsPresent, self.containsErrors
+        {
+            return nil
+        }
+        
+        guard let firstElementInOutputArray: String = self.standardOutputs.first else
+        {
+            return nil
+        }
+        
+        return firstElementInOutputArray.data(using: .utf8)
+    }
+}

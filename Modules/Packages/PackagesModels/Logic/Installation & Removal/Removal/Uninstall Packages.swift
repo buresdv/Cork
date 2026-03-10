@@ -16,7 +16,6 @@ public extension BrewPackagesTracker
     func uninstallSelectedPackage(
         package: BrewPackage,
         cachedDownloadsTracker: CachedDownloadsTracker,
-        appState: AppState,
         outdatedPackagesTracker: OutdatedPackagesTracker,
         shouldRemoveAllAssociatedFiles: Bool
     ) async throws
@@ -37,7 +36,7 @@ public extension BrewPackagesTracker
         }
 
         AppConstants.shared.logger.info("Will try to remove package \(package.name(withPrecision: .precise), privacy: .auto)")
-        var uninstallCommandOutput: TerminalOutput
+        var uninstallCommandOutput: [TerminalOutput]
 
         if !shouldRemoveAllAssociatedFiles
         {
@@ -48,15 +47,15 @@ public extension BrewPackagesTracker
             uninstallCommandOutput = await shell(AppConstants.shared.brewExecutablePath, ["uninstall", "--zap", package.name(withPrecision: .precise)])
         }
 
-        AppConstants.shared.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardError)")
+        AppConstants.shared.logger.warning("Uninstall process Standard error: \(uninstallCommandOutput.standardErrors)")
 
-        if uninstallCommandOutput.standardError.contains("because it is required by")
+        if uninstallCommandOutput.contains("because it is required by", in: .standardErrors)
         {
             AppConstants.shared.logger.warning("Could not uninstall this package because it's a dependency")
 
             do
             {
-                let dependencyName: String = try uninstallCommandOutput.standardError.regexMatch("(?<=required by ).*?(?=, which)")
+                let dependencyName: String = try uninstallCommandOutput.standardErrors.joined().regexMatch("(?<=required by ).*?(?=, which)")
 
                 appState.showAlert(errorToShow: .uninstallationNotPossibleDueToDependency(packageThatTheUserIsTryingToUninstall: package, offendingDependencyProhibitingUninstallation: dependencyName))
 
@@ -68,7 +67,7 @@ public extension BrewPackagesTracker
                 throw RegexError.regexFunctionCouldNotMatchAnything
             }
         }
-        else if uninstallCommandOutput.standardError.contains("sudo: a terminal is required to read the password")
+        else if uninstallCommandOutput.standardErrors.contains("sudo: a terminal is required to read the password")
         {
             // TODO: So far, this only stops the package from being removed from the tracker. Implement a tutorial on how to uninstall the package
 
@@ -84,11 +83,11 @@ public extension BrewPackagesTracker
             {
                 try await self.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
                 
-                if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
+                if uninstallCommandOutput.containsErrors && uninstallCommandOutput.standardErrors.contains("Error:")
                 {
-                    AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
+                    AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardErrors)")
                     
-                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name(withPrecision: .precise), errorDetails: uninstallCommandOutput.standardError))
+                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name(withPrecision: .precise), errorDetails: uninstallCommandOutput.standardErrors.formatted(.list(type: .and))))
                 }
                 else
                 {
@@ -103,7 +102,7 @@ public extension BrewPackagesTracker
 
         appState.isShowingUninstallationProgressView = false
 
-        AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutput, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardError, privacy: .public)")
+        AppConstants.shared.logger.info("Package uninstallation process output:\nStandard output: \(uninstallCommandOutput.standardOutputs, privacy: .public)\nStandard error: \(uninstallCommandOutput.standardErrors, privacy: .public)")
 
         /// If the user removed a package that was outdated, remove it from the outdated package tracker
         if let index = outdatedPackagesTracker.outdatedPackages.firstIndex(where: { $0.package.name(withPrecision: .precise) == package.name(withPrecision: .precise) })

@@ -7,7 +7,19 @@
 
 import Foundation
 
-public final class BrewTap: Identifiable, Hashable
+public extension BrewTap.BrewTapName
+{
+    static let homebrewCore: BrewTap.BrewTapName = .init(repo: .homebrew, tapName: "core")
+    static let homebrewCask: BrewTap.BrewTapName = .init(repo: .homebrew, tapName: "cask")
+}
+
+public extension BrewTap
+{
+    static let homebrewCore: BrewTap = .init(name: .homebrewCore)
+    static let homebrewCask: BrewTap = .init(name: .homebrewCask)
+}
+
+public final actor BrewTap: Identifiable, Hashable, ModifiableActor
 {
     public struct BrewTapName: Hashable, Equatable, Sendable
     {
@@ -126,7 +138,8 @@ public final class BrewTap: Identifiable, Hashable
     
     public let id: UUID = .init()
     
-    private let nameInternal: BrewTapName
+    // Expose immutable, Sendable state nonisolated so it can be used from any context safely.
+    public nonisolated let nameInternal: BrewTapName
     
     public func name(
         withPrecision precision: BrewTapName.NameRetrievalPrecision
@@ -154,7 +167,7 @@ public final class BrewTap: Identifiable, Hashable
         
     }
     
-    public func getCopleteTapName() -> BrewTapName
+    public func getCompleteTapName() -> BrewTapName
     {
         return self.nameInternal
     }
@@ -172,10 +185,10 @@ public final class BrewTap: Identifiable, Hashable
         lhs: BrewTap,
         rhs: BrewTap
     ) -> Bool {
-        return lhs.getCopleteTapName() == rhs.getCopleteTapName()
+        return lhs.nameInternal == rhs.nameInternal
     }
     
     public nonisolated func hash(into hasher: inout Hasher) {
-        hasher.combine(self.getCopleteTapName())
+        hasher.combine(self.nameInternal)
     }
 }

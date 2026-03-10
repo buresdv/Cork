@@ -28,7 +28,7 @@ public extension BrewPackagesTracker
         }
         catch
         { /// If the pinned packages cannot be read for some reason, use the built-in command to get them
-            let rawOutput: String = await shell(AppConstants.shared.brewExecutablePath, ["list", "--pinned"]).standardOutput
+            let rawOutput: String = await shell(AppConstants.shared.brewExecutablePath, ["list", "--pinned"]).standardOutputs.joined()
             
             AppConstants.shared.logger.debug("Retrieved a list of pinned package names from command. Raw output: \(rawOutput)")
             

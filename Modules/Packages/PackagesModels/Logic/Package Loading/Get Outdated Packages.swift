@@ -89,26 +89,26 @@ public extension OutdatedPackagesTracker
         
         // Then we can get the updating under way
         /// Introduces an empty argument in case the updating is non-greedy
-        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
+        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
         AppConstants.shared.logger.debug("""
         Output of outdated packages retrieval: 
-            Standard output: \(rawOutput.standardOutput)
-            Standard error: \(rawOutput.standardError)
+            Standard output: \(rawOutput.standardOutputs)
+            Standard error: \(rawOutput.standardErrors)
 """)
         
         // MARK: - Error checking
 
-        if rawOutput.standardError.contains("HOME must be set")
+        if rawOutput.contains("HOME must be set", in: .standardErrors)
         {
             AppConstants.shared.logger.error("Encountered HOME error")
             throw OutdatedPackageRetrievalError.homeNotSet
         }
 
-        if !rawOutput.standardError.isEmpty
+        if rawOutput.containsErrors
         {
-            AppConstants.shared.logger.error("Standard error for package updating is not empty: \(rawOutput.standardError)")
-            throw OutdatedPackageRetrievalError.otherError(rawOutput.standardError)
+            AppConstants.shared.logger.error("Standard error for package updating is not empty: \(rawOutput.standardErrors)")
+            throw OutdatedPackageRetrievalError.otherError(rawOutput.standardErrors.formatted(.list(type: .and)))
         }
 
         // MARK: - Decoding
@@ -122,7 +122,7 @@ public extension OutdatedPackagesTracker
 
         do
         {
-            guard let decodableOutput: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
+            guard let decodableOutput: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false)
             else
             {
                 AppConstants.shared.logger.error("Could not convert raw output of decoding function to data for the decoder")
