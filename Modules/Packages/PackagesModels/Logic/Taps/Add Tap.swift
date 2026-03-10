@@ -15,11 +15,11 @@ public func addTap(name: String, forcedRepoAddress: String? = nil) async -> Stri
 
     if let forcedRepoAddress
     {
-        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardError
+        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name, forcedRepoAddress]).standardErrors.joined()
     }
     else
     {
-        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name]).standardError
+        tapResult = await shell(AppConstants.shared.brewExecutablePath, ["tap", name]).standardErrors.joined()
     }
 
     AppConstants.shared.logger.debug("Tapping result: \(tapResult, privacy: .public)")

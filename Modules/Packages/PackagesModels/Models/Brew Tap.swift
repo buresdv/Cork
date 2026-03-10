@@ -141,7 +141,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor
     // Expose immutable, Sendable state nonisolated so it can be used from any context safely.
     public nonisolated let nameInternal: BrewTapName
     
-    public func name(
+    public nonisolated func name(
         withPrecision precision: BrewTapName.NameRetrievalPrecision
     ) -> String
     {
@@ -167,7 +167,7 @@ public final actor BrewTap: Identifiable, Hashable, ModifiableActor
         
     }
     
-    public func getCompleteTapName() -> BrewTapName
+    public nonisolated func getCompleteTapName() -> BrewTapName
     {
         return self.nameInternal
     }

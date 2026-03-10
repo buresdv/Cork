@@ -99,7 +99,7 @@ private extension TapTracker
     {
         let numberOfAddedTapsBeforeRemovalAction: Int = self.numberOfAddedTaps
         
-        self.addedTaps.removeAll(where: { $0 == tapToRemove })
+        self.addedTaps.remove(.success(tapToRemove))
         
         if numberOfAddedTapsBeforeRemovalAction == self.numberOfAddedTaps
         {
