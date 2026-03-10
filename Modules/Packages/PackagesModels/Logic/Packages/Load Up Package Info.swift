@@ -376,7 +376,7 @@ public extension BrewPackage
                     name: caskInfo.token,
                     description: caskInfo.desc,
                     homepage: caskInfo.homepage,
-                    tap: .init(name: caskInfo.tap),
+                    tap: try .init(name: caskInfo.tap),
                     installedAsDependency: false,
                     dependencies: nil,
                     outdated: caskInfo.outdated,

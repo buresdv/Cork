@@ -19,6 +19,8 @@ public class BrewPackagesTracker: @MainActor Loadable
     
     @ObservationIgnored @InjectedObservable(\.appState) var appState
     
+    @ObservationIgnored @InjectedObservable(\.appState) var appState
+    
     public init() {}
     
     public var installedFormulae: BrewPackages = .init()
