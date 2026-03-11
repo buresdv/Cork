@@ -18,119 +18,73 @@ extension EnvironmentValues
 
 struct TapDetailView: View, Sendable
 {
+    enum TapDetailsLoadingState
+    {
+        case loading
+        case loaded(info: TapInfo)
+        case erroredOut(withErrorText: String)
+    }
+    
     let tap: BrewTap
 
     @Environment(AppState.self) var appState: AppState
     @Environment(TapTracker.self) var tapTracker: TapTracker
-
-    @State private var isLoadingTapInfo: Bool = true
     
     @State var tapInfo: TapInfo?
 
-    @State private var erroredOut: Bool = false
-    @State private var errorOutReason: String = ""
+    @State private var loadingState: TapDetailsLoadingState = .loading
 
     var body: some View
     {
         VStack(alignment: .leading)
         {
-            if isLoadingTapInfo
-            {
-                HStack(alignment: .center)
+            switch loadingState {
+            case .loading:
+                BrewTap.loadingView
+            case .loaded(let tapInfo):
+                VStack(alignment: .leading, spacing: 10)
                 {
-                    VStack(alignment: .center)
+                    FullSizeGroupedForm
                     {
-                        ProgressView
+                        TapDetailsInfo(
+                            tap: tap,
+                            tapInfo: tapInfo
+                        )
+                        
+                        TapDetailsIncludedPackages(
+                            includedFormulae: tapInfo.includedFormulaeWithAdditionalMetadata,
+                            includedCasks: tapInfo.includedCasksWithAdditionalMetadata
+                        )
+                    }
+                    .scrollDisabled(true)
+                    
+                    ButtonBottomRow
+                    {
+                        Spacer()
+                        
+                        AsyncButton
                         {
-                            Text("tap-details.loading")
+                            try await tapTracker.removeTap(tapToRemove: tap, purpose: .removeFromHomebrewAndTracker)
+                        } label: {
+                            Text("tap-details.remove-\(tap.name(withPrecision: .full))")
                         }
+                        .asyncButtonStyle(.trailing)
+                        .disabledWhenLoading()
                     }
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            }
-            else
-            {
-                if erroredOut
-                { /// Show this if there was an error during the info loading process
-                    InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json", errorDescription: errorOutReason)
-                }
-                else
-                {
-                    if let tapInfo
-                    {
-                        VStack(alignment: .leading, spacing: 10)
-                        {
-                            FullSizeGroupedForm
-                            {
-                                TapDetailsInfo(
-                                    tap: tap,
-                                    tapInfo: tapInfo
-                                )
-                                
-                                TapDetailsIncludedPackages(
-                                    includedFormulae: tapInfo.includedFormulaeWithAdditionalMetadata,
-                                    includedCasks: tapInfo.includedCasksWithAdditionalMetadata
-                                )
-                            }
-                            .scrollDisabled(true)
-                            
-                            ButtonBottomRow
-                            {
-                                Spacer()
-                                
-                                AsyncButton
-                                {
-                                    try await removeTap(name: tap.name, tapTracker: tapTracker, appState: appState)
-                                } label: {
-                                    Text("tap-details.remove-\(tap.name)")
-                                }
-                                .asyncButtonStyle(.trailing)
-                                .disabledWhenLoading()
-                            }
-                        }
-                    }
-                    else
-                    {
-                        InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json", errorDescription: errorOutReason)
-                    }
-                }
+            case .erroredOut(let withErrorText):
+                InlineFatalError(errorMessage: "alert.generic.couldnt-parse-json", errorDescription: withErrorText)
             }
         }
         .environment(\.selectedTap, tap)
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(id: tap.id)
         {
-            isLoadingTapInfo = true
-            
-            defer
-            {
-                isLoadingTapInfo = false
-            }
-
-            if let tapInfoRaw: String = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", tap.name]).standardOutputs.first
-            {
-                
-            }
-
             do
             {
-                guard let tapInfoAsData = await tapInfoRaw.data(using: .utf8) else
-                {
-                    errorOutReason = "Failed to convert String to Data"
-                    erroredOut = true
-                    
-                    return
-                }
-                
-                tapInfo = try await .init(from: tapInfoAsData)
-            }
-            catch let parsingError
-            {
-                AppConstants.shared.logger.error("Failed while parsing package info: \(parsingError, privacy: .public)")
-
-                errorOutReason = parsingError.localizedDescription
-
-                erroredOut = true
+                tapInfo = try await tap.loadDetails()
+            } catch let tapDetailsLoadingError {
+                loadingState = .erroredOut(withErrorText: tapDetailsLoadingError.localizedDescription)
             }
         }
     }

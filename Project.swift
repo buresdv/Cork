@@ -36,6 +36,7 @@ func corkTarget(configureWithSelfCompiled: Bool) -> ProjectDescription.Target {
             .target(corkModelsTarget),
             .target(corkTerminalFunctionsTarget),
             .target(corkIntentsTarget),
+            .target(corkFeature_brewfiles),
             .external(name: "LaunchAtLogin"),
             .external(name: "DavidFoundation"),
             .external(name: "ApplicationInspector"),
@@ -198,6 +199,27 @@ let corkIntentsTarget: ProjectDescription.Target = .target(
     ])
 )
 
+let corkFeature_brewfiles: ProjectDescription.Target = .target(
+    name: "CorkFeature_Brewfiles",
+    destinations: [.mac],
+    product: .staticLibrary,
+    bundleId: "eu.davidbures.cork-feature.brewfiles",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/Features/Brewfiles/**/*.swift"
+    ],
+    settings: .settings(configurations: [
+        .debug(
+            name: "Debug",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        ),
+        .release(
+            name: "Release",
+            xcconfig: .relativeToRoot("xcconfigs/Cork.xcconfig")
+        )
+    ])
+)
+
 let corkHelpTarget: ProjectDescription.Target = .target(
     name: "CorkHelp",
     destinations: [.mac],
@@ -266,7 +288,8 @@ let project = Project(
         corkIntentsTarget,
         corkNotificationsTarget,
         corkHelpTarget,
-        corkTestsTarget
+        corkTestsTarget,
+        corkFeature_brewfiles
     ]
 
 )

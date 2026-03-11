@@ -8,9 +8,26 @@
 import Foundation
 
 /// Decodable tap info
-public struct TapInfo: Codable
+public struct TapInfo: Codable, Sendable
 {
-    public init(from jsonData: Data) async throws(JSONParsingError)
+    public enum JSONParsingError: LocalizedError
+    {
+        case couldNotDecode(failureReason: String)
+        case couldNotGetRelevantTapInfo
+
+        public var errorDescription: String?
+        {
+            switch self
+            {
+            case .couldNotDecode(let failureReason):
+                return String(localized: "error.json-parsing.could-not-decode.\(failureReason)")
+            case .couldNotGetRelevantTapInfo:
+                return String(localized: "error.json-parsing.no-tap-info-in-info-list")
+            }
+        }
+    }
+    
+    public init(from jsonData: Data) async throws(TapInfo.JSONParsingError)
     {
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
