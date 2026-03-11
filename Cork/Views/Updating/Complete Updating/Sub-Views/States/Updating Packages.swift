@@ -28,9 +28,12 @@ struct UpdatingPackagesStateView: View
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
 
-                SubtitleText(text: updateProcessDetailsStage.currentStage.rawValue)
-                    .lineLimit(nil)
-                    .fixedSize(horizontal: false, vertical: true)
+                if let currentStage = updateProgressTracker.currentStage
+                {
+                    SubtitleText(text: currentStage.rawValue)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
 
             LiveTerminalOutputView(
@@ -40,7 +43,7 @@ struct UpdatingPackagesStateView: View
         }
         .task
         {
-            await updatePackages(updateProgressTracker: updateProgressTracker, detailStage: updateProcessDetailsStage)
+            await updateProgressTracker.updatePackages()
 
             packageUpdatingStep = .updatingOutdatedPackageTracker
         }

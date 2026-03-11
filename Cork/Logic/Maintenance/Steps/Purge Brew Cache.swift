@@ -14,9 +14,9 @@ import CorkTerminalFunctions
      case standardErrorNotEmpty
  } */
 
-func purgeBrewCache() async throws -> TerminalOutput
+func purgeBrewCache() async throws -> [TerminalOutput]
 {
-    async let commandResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["cleanup"])
+    async let commandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["cleanup"])
 
     return await commandResult
 }

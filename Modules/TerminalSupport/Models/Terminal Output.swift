@@ -7,10 +7,21 @@
 
 import Foundation
 
-public enum TerminalOutput: Sendable
+public enum TerminalOutput: Sendable, CustomStringConvertible
 {
     case standardOutput(String)
     case standardError(String)
+
+    public var description: String
+    {
+        switch self
+        {
+        case .standardOutput(let outputString):
+            return outputString
+        case .standardError(let errorString):
+            return errorString
+        }
+    }
 
     public var containsErrors: Bool
     {
@@ -112,12 +123,13 @@ public extension [TerminalOutput]
         {
             return nil
         }
-        
-        guard let firstElementInOutputArray: String = self.standardOutputs.first else
+
+        guard let firstElementInOutputArray: String = self.standardOutputs.first
+        else
         {
             return nil
         }
-        
+
         return firstElementInOutputArray.data(using: .utf8)
     }
 }

@@ -11,7 +11,7 @@ import CorkTerminalFunctions
 
 enum HealthCheckError: LocalizedError
 {
-    case errorsThrownInStandardOutput
+    case errorsThrownInStandardOutput(error: String)
 
     var errorDescription: String?
     {
@@ -23,19 +23,16 @@ enum HealthCheckError: LocalizedError
     }
 }
 
-func performBrewHealthCheck() async throws -> TerminalOutput
+func performBrewHealthCheck() async throws(HealthCheckError) -> [TerminalOutput]
 {
-    async let commandResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["doctor"])
+    let commandResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["doctor"])
 
-    await print(commandResult)
-
-    if await commandResult.standardOutput == ""
+    guard !commandResult.containsErrors else
     {
-        return await commandResult
+        AppConstants.shared.logger.error("Brew health check had errors: \(commandResult.standardErrors)")
+        
+        throw .errorsThrownInStandardOutput(error: commandResult.standardErrors.formatted(.list(type: .and)))
     }
-    else
-    {
-        print("Homebrew health check error: \(await commandResult.standardOutput)")
-        throw HealthCheckError.errorsThrownInStandardOutput
-    }
+    
+    return commandResult
 }

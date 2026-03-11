@@ -30,18 +30,18 @@ func uninstallOrphansUtility() async throws -> Int
 {
     do
     {
-        let orphanUninstallationOutput: TerminalOutput = try await uninstallOrphanedPackages()
+        let orphanUninstallationOutput: [TerminalOutput] = try await uninstallOrphanedPackages()
 
-        AppConstants.shared.logger.debug("Orphan removal output:\nStandard output: \(orphanUninstallationOutput.standardOutput, privacy: .public)\nStandard error: \(orphanUninstallationOutput.standardError, privacy: .public)")
+        AppConstants.shared.logger.debug("Orphan removal output:\nStandard output: \(orphanUninstallationOutput.standardOutputs, privacy: .public)\nStandard error: \(orphanUninstallationOutput.standardErrors, privacy: .public)")
 
-        if orphanUninstallationOutput.standardError.isEmpty && orphanUninstallationOutput.standardOutput.isEmpty
+        if orphanUninstallationOutput.standardErrors.isEmpty && orphanUninstallationOutput.standardOutputs.isEmpty
         {
             AppConstants.shared.logger.info("No orphans found")
             return 0
         }
         else
         {
-            guard let numberOfRemovedOrphans: Int = try Int(orphanUninstallationOutput.standardOutput.regexMatch("(?<=Autoremoving ).*?(?= unneeded)"))
+            guard let numberOfRemovedOrphans: Int = try Int(orphanUninstallationOutput.standardOutputs.joined().regexMatch("(?<=Autoremoving ).*?(?= unneeded)"))
             else
             {
                 throw OrphanRemovalError.couldNotGetNumberOfUninstalledOrphans

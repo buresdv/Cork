@@ -5,31 +5,25 @@
 //  Created by David Bureš on 05.02.2023.
 //
 
-import Foundation
+import CorkModels
 import CorkShared
 import CorkTerminalFunctions
-import CorkModels
+import Foundation
 
 func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]
 {
-    var finalPackageArray: [String]
+    var finalCommandOutputs: [TerminalOutput]
 
     switch packageType
     {
     case .formula:
-        let foundFormulae: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["search", "--formulae", packageName])
-
-        finalPackageArray = foundFormulae.standardOutput.components(separatedBy: "\n")
+        finalCommandOutputs = await shell(AppConstants.shared.brewExecutablePath, ["search", "--formulae", packageName])
 
     case .cask:
-        let foundCasks: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["search", "--casks", packageName])
-
-        finalPackageArray = foundCasks.standardOutput.components(separatedBy: "\n")
+        finalCommandOutputs = await shell(AppConstants.shared.brewExecutablePath, ["search", "--casks", packageName])
     }
 
-    finalPackageArray.removeLast()
+    AppConstants.shared.logger.info("Search found these packages: \(finalCommandOutputs, privacy: .auto)")
 
-    AppConstants.shared.logger.info("Search found these packages: \(finalPackageArray, privacy: .auto)")
-
-    return finalPackageArray
+    return finalCommandOutputs.standardOutputs
 }

@@ -16,7 +16,7 @@ public extension BrewfileManager
     {
         case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile(error: String)
 
-        var errorDescription: String?
+        public var errorDescription: String?
         {
             switch self
             {

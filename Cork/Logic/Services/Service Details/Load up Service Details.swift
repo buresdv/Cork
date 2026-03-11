@@ -12,11 +12,11 @@ import CorkTerminalFunctions
 extension HomebrewService
 {
     @MainActor
-    func loadDetails() async throws -> ServiceDetails?
+    func loadDetails() async throws(ServicesTracker.HomebrewServiceLoadingError) -> ServiceDetails?
     {
         AppConstants.shared.logger.debug("Will try to load up service details for service \(name)")
 
-        let rawOutput: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", name, "--json"])
+        let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["services", "info", name, "--json"])
 
         let decoder: JSONDecoder = {
             let decoder: JSONDecoder = .init()
@@ -27,15 +27,15 @@ extension HomebrewService
 
         // MARK: - Error checking
 
-        if !rawOutput.standardError.isEmpty
+        guard !rawOutput.containsErrors else
         {
             AppConstants.shared.logger.error("Failed while loading up service details: Standard Error not empty")
-            throw HomebrewServiceLoadingError.standardErrorNotEmpty(standardError: rawOutput.standardError)
+            throw .standardErrorNotEmpty(standardError: rawOutput.standardErrors.formatted(.list(type: .and)))
         }
 
         do
         {
-            guard let decodableOutput: Data = rawOutput.standardOutput.data(using: .utf8, allowLossyConversion: false)
+            guard let decodableOutput: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false)
             else
             {
                 return nil
@@ -53,7 +53,7 @@ extension HomebrewService
         {
             AppConstants.shared.logger.error("Parsing of service details of service \(self.name) failed: \(parsingError)")
 
-            throw HomebrewServiceLoadingError.servicesParsingFailed
+            throw .servicesParsingFailed
         }
     }
 }

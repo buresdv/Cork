@@ -13,6 +13,7 @@ import SwiftUI
 
 extension UpdateProgressTracker
 {
+    @MainActor
     func updatePackages() async
     {
         let showRealTimeTerminalOutputs: Bool = Defaults[.showRealTimeTerminalOutputOfOperations]

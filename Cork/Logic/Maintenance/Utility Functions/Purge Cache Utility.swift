@@ -30,15 +30,15 @@ func purgeHomebrewCacheUtility() async throws -> [String]
 {
     do
     {
-        let cachePurgeOutput: TerminalOutput = try await purgeBrewCache()
+        let cachePurgeOutput: [TerminalOutput] = try await purgeBrewCache()
 
-        AppConstants.shared.logger.debug("Cache purge output:\nStandard output: \(cachePurgeOutput.standardOutput, privacy: .auto)\nStandard error: \(cachePurgeOutput.standardError, privacy: .public)")
+        AppConstants.shared.logger.debug("Cache purge output:\nStandard output: \(cachePurgeOutput.standardOutputs, privacy: .auto)\nStandard error: \(cachePurgeOutput.standardErrors, privacy: .public)")
 
         var packagesHoldingBackCachePurgeTracker: [String] = .init()
 
-        if cachePurgeOutput.standardError.contains("Warning: Skipping")
+        if cachePurgeOutput.standardErrors.contains("Warning: Skipping")
         { // Here, we'll write out all the packages that are blocking updating
-            var packagesHoldingBackCachePurgeInitialArray: [String] = cachePurgeOutput.standardError.components(separatedBy: "Warning:") // The output has these packages in one giant list. Split them into an array so we can iterate over them and extract their names
+            var packagesHoldingBackCachePurgeInitialArray: [String] = cachePurgeOutput.standardErrors.joined().components(separatedBy: "Warning:") // The output has these packages in one giant list. Split them into an array so we can iterate over them and extract their names
             // I can't just try to regex-match on the raw output, because it will only match the first package in that case
 
             packagesHoldingBackCachePurgeInitialArray.removeFirst() // The first element in this array is "" for some reason, remove that so we save some resources
