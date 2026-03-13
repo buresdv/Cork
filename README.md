@@ -8,6 +8,10 @@ A fast GUI for Homebrew written in SwiftUI
 
 ![Start Page](https://github.com/user-attachments/assets/7daafde7-b479-4f30-ad53-fb4eab628345)
 
+## AI Policy
+
+Absolutely no AI is used to create any part of the app. All code and documentation is completely human-made.
+
 ## Special Thanks
 
 I'd like to personally thank [Dmitri Bouniol](https://github.com/dimitribouniol) and [Ben Carlsson](https://twos.dev) for coming up with a way for self-compiled builds to bypass the license check.
