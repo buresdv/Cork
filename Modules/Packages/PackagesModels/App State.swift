@@ -96,9 +96,6 @@ public final class AppState
 
     // MARK: - Loading of packages and taps
 
-    public var isLoadingFormulae: Bool = true
-    public var isLoadingCasks: Bool = true
-
     public var isLoadingTopPackages: Bool = false
 
     // MARK: - Loading errors

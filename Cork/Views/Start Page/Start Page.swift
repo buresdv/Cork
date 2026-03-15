@@ -44,7 +44,7 @@ struct StartPage: View
 
     var startPageStage: StartPageStage
     {
-        if appState.isLoadingFormulae && appState.isLoadingCasks || tapTracker.isBeingLoaded
+        if brewPackagesTracker.isBeingLoaded || tapTracker.isBeingLoaded
         {
             return .loading
         }

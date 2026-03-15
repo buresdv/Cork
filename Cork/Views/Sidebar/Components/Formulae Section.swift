@@ -24,7 +24,7 @@ struct FormulaeSection: View
     
     private var areNoFormulaeInstalled: Bool
     {
-        if !appState.isLoadingFormulae && brewPackagesTracker.numberOfInstalledFormulae == 0
+        if !brewPackagesTracker.isBeingLoaded && brewPackagesTracker.numberOfInstalledFormulae == 0
         {
             return true
         }
@@ -48,9 +48,9 @@ struct FormulaeSection: View
             }
             else
             {
-                if appState.isLoadingFormulae
+                if brewPackagesTracker.isBeingLoaded
                 {
-                    ProgressView()
+                    BrewPackagesTracker.loadingView
                 }
                 else
                 {

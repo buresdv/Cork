@@ -251,8 +251,7 @@ private extension View
 
                 defer
                 {
-                    view.appState.isLoadingFormulae = false
-                    view.appState.isLoadingCasks = false
+                    view.brewPackagesTracker.isBeingLoaded = false
                 }
 
                 async let availableFormulae: BrewPackages? = await view.brewPackagesTracker.loadInstalledPackages(packageTypeToLoad: .formula, appState: view.appState)
@@ -329,7 +328,7 @@ private extension View
 
                 if view.enableDiscoverability
                 {
-                    if view.appState.isLoadingFormulae && view.appState.isLoadingCasks || view.tapTracker.addedTaps.isEmpty
+                    if view.brewPackagesTracker.isBeingLoaded || view.tapTracker.addedTaps.isEmpty
                     {
                         await view.loadTopPackages()
                     }

@@ -22,7 +22,7 @@ struct CasksSection: View
     
     private var areNoCasksInstalled: Bool
     {
-        if !appState.isLoadingCasks && brewPackagesTracker.numberOfInstalledCasks == 0
+        if !brewPackagesTracker.isBeingLoaded && brewPackagesTracker.numberOfInstalledCasks == 0
         {
             return true
         }
@@ -46,7 +46,7 @@ struct CasksSection: View
             }
             else
             {
-                if appState.isLoadingCasks
+                if brewPackagesTracker.isBeingLoaded
                 {
                     ProgressView()
                 }

@@ -13,7 +13,7 @@ import FactoryKit
 import CorkShared
 
 @Observable @MainActor
-public class BrewPackagesTracker
+public class BrewPackagesTracker: @MainActor Loadable
 {
     @ObservationIgnored @Injected(\.appConstants) private var appConstants: AppConstants
     
@@ -23,6 +23,8 @@ public class BrewPackagesTracker
     
     public var installedFormulae: BrewPackages = .init()
     public var installedCasks: BrewPackages = .init()
+    
+    public var isBeingLoaded: Bool = true
 
     // MARK: - Successfully loaded packages
     /// Formulae that were successfuly loaded from disk
@@ -206,5 +208,13 @@ public extension BrewPackagesTracker
     var numberOfInstalledPackages: Int
     {
         return self.numberOfInstalledFormulae + self.numberOfInstalledCasks
+    }
+}
+
+public extension BrewPackagesTracker
+{
+    static var loadingView: some View
+    {
+        ProgressView()
     }
 }
