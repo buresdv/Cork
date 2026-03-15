@@ -8,13 +8,14 @@
 import CorkShared
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct PresentingSearchResultsView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Bindable var searchResultTracker: SearchResultTracker
 

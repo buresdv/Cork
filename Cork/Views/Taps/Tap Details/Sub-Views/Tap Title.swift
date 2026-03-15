@@ -19,13 +19,13 @@ struct TapDetailsTitle: View
         {
             HStack(alignment: .center, spacing: 5)
             {
-                Text(tap.name)
+                Text(tap.name(withPrecision: .full))
                     .font(.title)
 
                 if isOfficial
                 {
                     Image(systemName: "checkmark.shield")
-                        .help("tap-details.official-\(tap.name)")
+                        .help("tap-details.official-\(tap.name(withPrecision: .full))")
                 }
             }
         }

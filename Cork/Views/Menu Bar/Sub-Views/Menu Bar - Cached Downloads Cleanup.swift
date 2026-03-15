@@ -9,10 +9,11 @@ import SwiftUI
 import CorkShared
 import CorkNotifications
 import CorkModels
+import FactoryKit
 
 struct MenuBar_CachedDownloadsCleanup: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
     

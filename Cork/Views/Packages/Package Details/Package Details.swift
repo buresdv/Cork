@@ -9,6 +9,7 @@ import CorkShared
 import SwiftUI
 import CorkModels
 import ApplicationInspector
+import FactoryKit
 
 struct PackageDetailView: View, Sendable, DismissablePane
 {
@@ -47,7 +48,7 @@ struct PackageDetailView: View, Sendable, DismissablePane
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var isShowingExpandedDependencies: Bool = false

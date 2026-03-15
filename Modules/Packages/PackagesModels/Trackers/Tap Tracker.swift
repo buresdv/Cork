@@ -8,17 +8,21 @@
 import FactoryKit
 import Foundation
 import Observation
+import SwiftUI
 
 @Observable @MainActor
-public class TapTracker
+public class TapTracker: @MainActor Loadable
 {
     @Injected(\.appConstants) @ObservationIgnored var appConstants
 
     @Injected(\.appState) @ObservationIgnored var appState
+    
+    public var isBeingLoaded: Bool
 
     public init()
     {
         self.addedTaps = .init()
+        self.isBeingLoaded = true
     }
 
     public var addedTaps: BrewTaps
@@ -59,5 +63,13 @@ public extension TapTracker
     var numberOfAddedTaps: Int
     {
         return self.addedTaps.count
+    }
+}
+
+public extension TapTracker
+{
+    static var loadingView: some View
+    {
+        ProgressView()
     }
 }

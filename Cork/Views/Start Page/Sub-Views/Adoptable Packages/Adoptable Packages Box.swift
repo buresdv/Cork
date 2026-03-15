@@ -11,6 +11,7 @@ import SwiftUI
 import ButtonKit
 import SwiftData
 import CorkModels
+import FactoryKit
 
 struct AdoptablePackagesSection: View
 {
@@ -19,7 +20,7 @@ struct AdoptablePackagesSection: View
     
     @Default(.hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable) var hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable: Bool
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @State private var isShowingAdoptionWarning: Bool = false

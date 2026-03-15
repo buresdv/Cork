@@ -10,12 +10,13 @@ import SwiftUI
 import CorkShared
 import CorkModels
 import CorkTerminalFunctions
+import FactoryKit
 
 struct ReinstallCorruptedPackageView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
     
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
@@ -56,8 +57,8 @@ struct ReinstallCorruptedPackageView: View
                 }
                 .task
                 {
-                    let reinstallationResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
-                    AppConstants.shared.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutput, privacy: .public)\nStandard error:\(reinstallationResult.standardError, privacy: .public)")
+                    let reinstallationResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["reinstall", corruptedPackageToReinstall.name])
+                    AppConstants.shared.logger.debug("Reinstallation result:\nStandard output: \(reinstallationResult.standardOutputs, privacy: .public)\nStandard error:\(reinstallationResult.standardErrors, privacy: .public)")
 
                     corruptedPackageReinstallationStage = .finished
                 }

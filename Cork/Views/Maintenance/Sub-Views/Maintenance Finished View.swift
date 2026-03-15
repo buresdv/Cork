@@ -9,6 +9,7 @@ import CorkShared
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct MaintenanceFinishedView: View
 {
@@ -16,7 +17,7 @@ struct MaintenanceFinishedView: View
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker

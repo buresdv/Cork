@@ -16,8 +16,6 @@ struct UpdatePackagesView: View
 
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
-    @Bindable var updateProcessDetailsStage: UpdatingProcessDetails = .init()
-
     @State private var isRealTimeTerminalOutputExpanded: Bool = false
 
     var body: some View
@@ -46,7 +44,6 @@ struct UpdatePackagesView: View
 
                     case .updatingPackages:
                         UpdatingPackagesStateView(
-                            updateProcessDetailsStage: updateProcessDetailsStage,
                             packageUpdatingStep: $packageUpdatingStep,
                             isShowingRealTimeTerminalOutput: $isRealTimeTerminalOutputExpanded
                         )

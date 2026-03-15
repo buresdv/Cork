@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct UninstallationProgressWheel: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     var body: some View
     {

@@ -8,13 +8,14 @@
 import SwiftUI
 import ButtonKit
 import CorkModels
+import FactoryKit
 
 struct SudoRequiredForRemovalSheet: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     var body: some View

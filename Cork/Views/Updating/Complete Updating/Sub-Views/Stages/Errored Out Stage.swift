@@ -10,6 +10,7 @@ import CorkShared
 import Defaults
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct ErroredOutStageView: View
 {
@@ -17,7 +18,7 @@ struct ErroredOutStageView: View
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     let sudoRequiredForUpdate: Bool

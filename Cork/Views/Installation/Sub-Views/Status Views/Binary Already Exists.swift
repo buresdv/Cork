@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct BinaryAlreadyExistsView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Bindable var installationProgressTracker: InstallationProgressTracker

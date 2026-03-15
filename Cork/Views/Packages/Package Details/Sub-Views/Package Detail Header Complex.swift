@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkShared
 import CorkModels
+import FactoryKit
 
 struct PackageDetailHeaderComplex: View
 {
@@ -16,7 +17,7 @@ struct PackageDetailHeaderComplex: View
         case loadingDependants, showingDependants(dependantsToShow: [String]), noDependantsToShow
     }
     
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     let package: BrewPackage

@@ -9,10 +9,11 @@ import SwiftUI
 import CorkShared
 import CorkModels
 import CorkTerminalFunctions
+import FactoryKit
 
 struct MaintenanceRunningView: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
@@ -115,8 +116,8 @@ struct MaintenanceRunningView: View
 
                         do
                         {
-                            let healthCheckOutput: TerminalOutput = try await performBrewHealthCheck()
-                            AppConstants.shared.logger.log("Health check output:\nStandard output: \(healthCheckOutput.standardOutput)\nStandard error: \(healthCheckOutput.standardError)")
+                            let healthCheckOutput: [TerminalOutput] = try await performBrewHealthCheck()
+                            AppConstants.shared.logger.log("Health check output:\nStandard output: \(healthCheckOutput.standardOutputs)\nStandard error: \(healthCheckOutput.standardErrors)")
 
                             brewHealthCheckFoundNoProblems = true
                         }

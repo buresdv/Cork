@@ -46,7 +46,7 @@ struct LoadServicesButton: View
         {
             try await servicesTracker.loadServices()
         }
-        catch let servicesLoadingError as HomebrewServiceLoadingError
+        catch let servicesLoadingError
         {
             switch servicesLoadingError
             {
@@ -55,10 +55,6 @@ struct LoadServicesButton: View
             default:
                 servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
             }
-        }
-        catch let servicesLoadingError
-        {
-            servicesState.showError(.couldNotLoadServices(error: servicesLoadingError.localizedDescription))
         }
     }
 }

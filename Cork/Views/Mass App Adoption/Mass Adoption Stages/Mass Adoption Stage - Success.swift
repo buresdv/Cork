@@ -8,10 +8,14 @@
 import SwiftUI
 import Defaults
 import CorkNotifications
+import FactoryKit
+import CorkModels
 
 struct MassAdoptionStage_Success: View
 {
     @Default(.notifyAboutMassAdoptionResults) var notifyAboutMassAdoptionResults: Bool
+    
+    @InjectedObservable(\.appState) var appState: AppState
     
     var body: some View
     {

@@ -10,6 +10,7 @@ import CorkShared
 import ButtonKit
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct PackageModificationButtons: View
 {
@@ -17,7 +18,7 @@ struct PackageModificationButtons: View
     @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
@@ -75,7 +76,6 @@ struct PackageModificationButtons: View
                                         try await brewPackagesTracker.uninstallSelectedPackage(
                                             package: package,
                                             cachedDownloadsTracker: cachedDownloadsTracker,
-                                            appState: appState,
                                             outdatedPackagesTracker: outdatedPackagesTracker,
                                             shouldRemoveAllAssociatedFiles: false
                                         )

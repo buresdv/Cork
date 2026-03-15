@@ -9,10 +9,11 @@ import SwiftUI
 import CorkShared
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct SidebarContextMenu: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     

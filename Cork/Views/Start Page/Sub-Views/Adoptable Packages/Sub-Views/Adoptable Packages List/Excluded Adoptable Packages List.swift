@@ -59,7 +59,10 @@ struct ExcludedAdoptablePackagesList: View
         ){
             ForEach(displayedExcludedAdoptablePackages)
             { ignoredApp in
-                AdoptablePackageListItem(adoptableCask: ignoredApp, exclusionButtonType: .includeOnly)
+                AdoptablePackageListItem(
+                    adoptableCask: ignoredApp,
+                    exclusionButtonType: .includeOnly
+                )
                     .saturation(0.3)
             }
         } sectionHeaderContent: {

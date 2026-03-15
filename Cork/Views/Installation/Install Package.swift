@@ -11,6 +11,7 @@ import SwiftUI
 import ButtonKit
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct AddFormulaView: View
 {
@@ -19,7 +20,7 @@ struct AddFormulaView: View
     @State private var packageRequested: String = ""
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 

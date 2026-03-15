@@ -8,10 +8,11 @@
 import SwiftUI
 import ButtonKit
 import CorkModels
+import FactoryKit
 
 struct PinUnpinButton: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     var package: BrewPackage

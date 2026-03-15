@@ -8,10 +8,11 @@
 import Charts
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct CachedDownloadsFolderInfoBox: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 

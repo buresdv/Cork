@@ -8,12 +8,13 @@
 import SwiftUI
 import CorkShared
 import CorkModels
+import FactoryKit
 
 struct BrokenPackageListRow: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
     
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     
     let error: BrewPackage.PackageLoadingError
     

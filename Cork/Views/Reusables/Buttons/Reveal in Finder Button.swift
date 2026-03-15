@@ -8,12 +8,13 @@
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct RevealPackageInFinderButton: View
 {
     @Default(.enableRevealInFinder) var enableRevealInFinder: Bool
     
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     
     let package: BrewPackage
     

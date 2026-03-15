@@ -24,8 +24,31 @@ public extension BrewTap
 
 public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableActor
 {
-    public struct BrewTapName: Hashable, Equatable, Sendable
+    public struct BrewTapName: Hashable, Equatable, Comparable, Sendable
     {
+        public static func < (lhs: BrewTap.BrewTapName, rhs: BrewTap.BrewTapName) -> Bool
+        {
+            switch (lhs.repo, rhs.repo)
+            {
+                case (.external, .homebrew): /// Third party comes first
+                    return true
+
+                case (.homebrew, .external): /// First party comes last
+                    return false
+
+                case (.homebrew, .homebrew): /// Both first party - sort alphabetically
+                    return lhs.tapName < rhs.tapName
+
+                case (.external(let lhsRepoName), .external(let rhsRepoName)): /// Both third party - sort alphabetically by repo name first, then by tap name is needed
+                    if lhsRepoName != rhsRepoName
+                    {
+                        return lhsRepoName < rhsRepoName
+                    }
+
+                    return lhs.tapName < rhs.tapName
+            }
+        }
+        
         public enum NameRetrievalPrecision: Sendable
         {
             /// All parts: `marsanne/cask`

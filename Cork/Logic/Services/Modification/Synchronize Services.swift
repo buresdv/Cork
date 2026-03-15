@@ -9,49 +9,36 @@ import Foundation
 
 extension ServicesTracker
 {
-    func synchronizeServices(preserveIDs: Bool) async throws
+    func synchronizeServices(preserveIDs: Bool) async throws(HomebrewServiceLoadingError)
     {
-        do
+        let dummyServicesTracker: ServicesTracker = .init()
+
+        try await dummyServicesTracker.loadServices()
+
+        let updatedServices: Set<HomebrewService> = dummyServicesTracker.services
+
+        if !preserveIDs
         {
-            let dummyServicesTracker: ServicesTracker = .init()
-
-            try await dummyServicesTracker.loadServices()
-
-            let updatedServices: Set<HomebrewService> = dummyServicesTracker.services
-
-            if !preserveIDs
-            {
-                services = updatedServices
+            services = updatedServices
+        }
+        else
+        {
+            let originalServicesWithTheirUUIDs: [String: UUID] = services.reduce(into: [:])
+            { result, originalService in
+                result[originalService.name] = originalService.id
             }
-            else
-            {
-                let originalServicesWithTheirUUIDs: [String: UUID] = services.reduce(into: [:])
-                { result, originalService in
-                    result[originalService.name] = originalService.id
+
+            let updatedServicesWithOldIDs: Set<HomebrewService> = Set(updatedServices.map { updatedService in
+                var copyUpdatedService: HomebrewService = updatedService
+
+                if let preservedID = originalServicesWithTheirUUIDs[copyUpdatedService.name] {
+                    copyUpdatedService.id = preservedID
                 }
 
-                let updatedServicesWithOldIDs: Set<HomebrewService> = Set(updatedServices.map
-                { updatedService in
-                    var copyUpdatedService: HomebrewService = updatedService
+                return copyUpdatedService
+            })
 
-                    for originalServiceWithItsOldUUID in originalServicesWithTheirUUIDs
-                    {
-                        if originalServiceWithItsOldUUID.key == copyUpdatedService.name
-                        {
-                            copyUpdatedService.id = originalServiceWithItsOldUUID.value
-                        }
-                    }
-
-                    return copyUpdatedService
-                })
-
-                services = updatedServicesWithOldIDs
-            }
-        }
-        catch let servicesLoadingError as HomebrewServiceLoadingError
-        {
-            /// Just rethrow the error further up the chain
-            throw servicesLoadingError
+            services = updatedServicesWithOldIDs
         }
     }
 }

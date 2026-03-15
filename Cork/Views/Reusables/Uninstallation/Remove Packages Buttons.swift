@@ -10,6 +10,7 @@ import CorkShared
 import ButtonKit
 import Defaults
 import CorkModels
+import FactoryKit
 
 /// Button for uninstalling packages
 struct UninstallPackageButton: View
@@ -44,7 +45,7 @@ private struct RemovePackageButton: View
     @Default(.shouldRequestPackageRemovalConfirmation) var shouldRequestPackageRemovalConfirmation: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
@@ -63,7 +64,6 @@ private struct RemovePackageButton: View
                 try await brewPackagesTracker.uninstallSelectedPackage(
                     package: package,
                     cachedDownloadsTracker: cachedDownloadsTracker,
-                    appState: appState,
                     outdatedPackagesTracker: outdatedPackagesTracker,
                     shouldRemoveAllAssociatedFiles: shouldPurge
                 )

@@ -9,12 +9,13 @@ import CorkShared
 import Defaults
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct SidebarView: View
 {
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""

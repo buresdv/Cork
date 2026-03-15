@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct MenuBar_PackageUpdating: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View

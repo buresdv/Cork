@@ -8,11 +8,12 @@
 // swiftlint:disable file_length
 
 import ButtonKit
-import CorkShared
-import Defaults
-import SwiftUI
 import CorkModels
+import CorkShared
 import CorkTerminalFunctions
+import Defaults
+import FactoryKit
+import SwiftUI
 
 struct ContentView: View, Sendable
 {
@@ -30,7 +31,7 @@ struct ContentView: View, Sendable
 
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
@@ -221,7 +222,7 @@ private extension View
                 if FileManager.default.fileExists(atPath: AppConstants.shared.documentsDirectoryPath.path)
                 {
                     AppConstants.shared.logger.info("Documents directory exists - will try to delete it...")
-                    
+
                     do
                     {
                         try FileManager.default.removeItem(at: AppConstants.shared.documentsDirectoryPath)
@@ -271,16 +272,14 @@ private extension View
             {
                 defer
                 {
-                    view.appState.isLoadingTaps = false
+                    view.tapTracker.isBeingLoaded = false
                 }
 
-                async let tapTracker: [BrewTap] = await view.tapTracker.loadUpTappedTaps()
-
-                do
+                do throws(TapLoadingError)
                 {
-                    view.tapTracker.addedTaps = try await tapTracker
+                    view.tapTracker.addedTaps = try await view.tapTracker.loadUpTappedTaps()
                 }
-                catch let tapLoadingError as TapLoadingError
+                catch let tapLoadingError
                 {
                     AppConstants.shared.logger.error("Failed while loading taps: \(tapLoadingError.localizedDescription)")
 
@@ -292,13 +291,9 @@ private extension View
                         view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapParentLocation(localizedDescription: errorDetails))
                     case .couldNotReadTapFolderContents(let errorDetails):
                         view.appState.showAlert(errorToShow: .tapLoadingFailedDueToTapItself(localizedDescription: errorDetails))
+                    case .couldNotParseTapName(let errorDetails):
+                        view.appState.showAlert(errorToShow: .generic(customMessage: errorDetails))
                     }
-                }
-                catch let unimplementedError
-                {
-                    AppConstants.shared.logger.error("Failed while loading taps: Unimplemented error: \(unimplementedError.localizedDescription)")
-
-                    view.appState.failedWhileLoadingTaps = true
                 }
             }
     }
@@ -310,9 +305,9 @@ private extension View
             {
                 AppConstants.shared.logger.info("Started Analytics startup action at \(Date())")
 
-                async let analyticsQueryCommand: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
+                async let analyticsQueryCommand: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["analytics"])
 
-                if await analyticsQueryCommand.standardOutput.localizedCaseInsensitiveContains("Analytics are enabled")
+                if await analyticsQueryCommand.standardOutputs.joined().localizedCaseInsensitiveContains("Analytics are enabled")
                 {
                     view.allowBrewAnalytics = true
                     AppConstants.shared.logger.info("Analytics are ENABLED")
@@ -430,7 +425,7 @@ private extension View
 
                 case .massAppAdoption(let appsToAdopt):
                     MassAppAdoptionView(appsToAdopt: appsToAdopt)
-                    
+
                 case .fullUpdate:
                     UpdatePackagesView()
 
@@ -473,7 +468,7 @@ private extension View
                 {
                 case .generic:
                     EmptyView()
-                    
+
                 case .couldNotGetContentsOfPackageFolder:
                     EmptyView()
 
@@ -655,7 +650,6 @@ private extension View
                         try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToUninstall,
                             cachedDownloadsTracker: view.cachedDownloadsTracker,
-                            appState: view.appState,
                             outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: false
                         )
@@ -671,7 +665,6 @@ private extension View
                         try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToPurge,
                             cachedDownloadsTracker: view.cachedDownloadsTracker,
-                            appState: view.appState,
                             outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: true
                         )

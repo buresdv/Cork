@@ -9,12 +9,13 @@ import SwiftUI
 import CorkShared
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct UpdatingPackageTrackerStateView: View
 {
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
     
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker

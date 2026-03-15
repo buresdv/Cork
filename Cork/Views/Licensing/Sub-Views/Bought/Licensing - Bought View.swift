@@ -8,6 +8,7 @@
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct Licensing_BoughtView: View
 {
@@ -17,7 +18,7 @@ struct Licensing_BoughtView: View
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     var body: some View
     {

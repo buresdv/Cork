@@ -10,6 +10,7 @@ import SwiftUI
 import CorkShared
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct DiscoverabilityPane: View
 {
@@ -19,7 +20,7 @@ struct DiscoverabilityPane: View
     @Default(.allowMassPackageAdoption) var allowMassPackageAdoption: Bool
     @Default(.hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable) var hideAdoptablePackagesSectionIfThereAreOnlyExcludedAppsAvailable: Bool
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     var body: some View
     {

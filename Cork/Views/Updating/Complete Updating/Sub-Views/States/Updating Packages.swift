@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct UpdatingPackagesStateView: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 

@@ -10,6 +10,7 @@ import Defaults
 import SwiftUI
 import UserNotifications
 import CorkModels
+import FactoryKit
 
 struct NotificationsPane: View
 {
@@ -19,7 +20,7 @@ struct NotificationsPane: View
     @Default(.notifyAboutPackageUpgradeResults) var notifyAboutPackageUpgradeResults: Bool
     @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @State private var isShowingNotificationHelpPopup: Bool = false
 

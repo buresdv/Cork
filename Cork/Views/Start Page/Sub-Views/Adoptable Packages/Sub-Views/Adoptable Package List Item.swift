@@ -10,6 +10,7 @@ import CorkModels
 import CorkShared
 import SwiftUI
 import SwiftData
+import FactoryKit
 
 struct AdoptablePackageListItem: View
 {
@@ -30,7 +31,7 @@ struct AdoptablePackageListItem: View
         )
     }
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let adoptableCask: BrewPackagesTracker.AdoptableApp

@@ -9,6 +9,7 @@ import CorkNotifications
 import CorkShared
 import Defaults
 import SwiftUI
+import FactoryKit
 
 struct NoUpdatesAvailableStageView: View
 {

@@ -7,12 +7,13 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct MenuBarItem: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker

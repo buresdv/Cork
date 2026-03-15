@@ -9,13 +9,14 @@ import CorkShared
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct LicensingView: View
 {
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
     @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     var body: some View
     {

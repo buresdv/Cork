@@ -9,6 +9,7 @@ import SwiftUI
 import CorkShared
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct Licensing_DemoView: View
 {
@@ -16,7 +17,7 @@ struct Licensing_DemoView: View
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     var body: some View
     {

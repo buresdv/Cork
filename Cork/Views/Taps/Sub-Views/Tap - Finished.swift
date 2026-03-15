@@ -5,13 +5,16 @@
 //  Created by David Bureš on 05.12.2023.
 //
 
-import SwiftUI
-import CorkShared
 import CorkModels
+import CorkShared
 import CorkTerminalFunctions
+import FactoryKit
+import SwiftUI
 
 struct AddTapFinishedView: View
 {
+    @InjectedObservable(\.appState) var appState: AppState
+
     @Environment(TapTracker.self) var tapTracker: TapTracker
 
     let requestedTap: String
@@ -30,13 +33,14 @@ struct AddTapFinishedView: View
                 .fixedSize(horizontal: true, vertical: true)
                 .onAppear
                 {
-                    withAnimation
+                    do
                     {
-                        tapTracker.addedTaps.prepend(BrewTap(name: requestedTap))
+                        try tapTracker.addedTaps.insert(.success(BrewTap(name: requestedTap)))
                     }
-
-                    /// Remove that one element of the array that's empty for some reason
-                    tapTracker.addedTaps.removeAll(where: { $0.name == "" })
+                    catch let tapTrackerAdditionError
+                    {
+                        appState.showAlert(errorToShow: .tapLoadingFailedDueToTapItself(localizedDescription: tapTrackerAdditionError.localizedDescription))
+                    }
 
                     AppConstants.shared.logger.info("Available taps: \(tapTracker.addedTaps, privacy: .public)")
                 }

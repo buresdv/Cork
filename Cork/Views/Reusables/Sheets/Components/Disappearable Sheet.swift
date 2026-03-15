@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct DisappearableSheet<Content: View>: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @ViewBuilder var sheetContent: Content

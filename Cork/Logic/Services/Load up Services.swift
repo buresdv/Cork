@@ -5,15 +5,20 @@
 //  Created by David Bureš on 20.03.2024.
 //
 
-import Foundation
 import CorkShared
 import CorkTerminalFunctions
+import Foundation
 
 extension ServicesTracker
 {
     enum HomebrewServiceLoadingError: LocalizedError
     {
-        case standardErrorNotEmpty(standardError: String), homebrewOutdated, standardErrorNotEmptyAndNoResultsInStandardOutput, couldNotEncodeString(String), servicesParsingFailed, otherError(String)
+        case standardErrorNotEmpty(standardError: String)
+        case homebrewOutdated
+        case standardErrorNotEmptyAndNoResultsInStandardOutput
+        case couldNotEncodeString(String)
+        case servicesParsingFailed
+        case otherError(String)
 
         var errorDescription: String?
         {
@@ -34,7 +39,7 @@ extension ServicesTracker
             }
         }
     }
-    
+
     fileprivate struct ServiceCommandOutput: Codable
     {
         /// Name of the service
@@ -67,7 +72,8 @@ extension ServicesTracker
 
         // MARK: - Error checking
 
-        guard !rawOutput.containsErrors else
+        guard !rawOutput.containsErrors
+        else
         {
             AppConstants.shared.logger.error("Failed while loading up services: Standard Error not empty")
             if rawOutput.standardErrors.contains("brew update")
@@ -90,11 +96,12 @@ extension ServicesTracker
             }
 
             /// Without this guard, the decoding throws, even if there was no error, just because the data is empty
-            guard !decodableData.isEmpty else
+            guard !decodableData.isEmpty
+            else
             {
                 return
             }
-            
+
             let rawDecodedServicesData: [ServiceCommandOutput] = try decoder.decode([ServiceCommandOutput].self, from: decodableData)
 
             var finalServices: Set<HomebrewService> = .init()

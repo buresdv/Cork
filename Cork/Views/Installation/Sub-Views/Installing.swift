@@ -9,12 +9,13 @@ import SwiftUI
 import CorkShared
 import CorkModels
 import CorkTerminalFunctions
+import FactoryKit
 
 struct InstallingPackageView: View
 {
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
@@ -118,12 +119,12 @@ struct InstallingPackageView: View
         {
             do
             {
-                let installationResult: TerminalOutput = try await installationProgressTracker.installPackage(
+                let installationResult: [TerminalOutput] = try await installationProgressTracker.installPackage(
                     using: brewPackagesTracker,
                     cachedDownloadsTracker: cachedDownloadsTracker
                 )
                 
-                AppConstants.shared.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutput, privacy: .public)\nStandard error: \(installationResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.debug("Installation result:\nStandard output: \(installationResult.standardOutputs, privacy: .public)\nStandard error: \(installationResult.standardErrors, privacy: .public)")
 
                 /// Check if the package installation stag at the end of the install process was something unexpected. Normal package installations go through multiple steps, and the three listed below are not supposed to be the end state. This means that something went wrong during the installation
                 let installationStage: PackageInstallationStage = installationProgressTracker.packageBeingInstalled.installationStage

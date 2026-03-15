@@ -10,6 +10,7 @@ import CorkShared
 import ButtonKit
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct Licensing_NotBoughtOrActivatedView: View
 {
@@ -17,7 +18,7 @@ struct Licensing_NotBoughtOrActivatedView: View
 
     @Environment(\.dismiss) var dismiss: DismissAction
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @State private var emailFieldContents: String = ""
 

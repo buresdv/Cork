@@ -10,6 +10,7 @@ import CorkShared
 import ButtonKit
 import CorkModels
 import CorkTerminalFunctions
+import FactoryKit
 
 extension EnvironmentValues
 {
@@ -27,7 +28,7 @@ struct TapDetailView: View, Sendable
     
     let tap: BrewTap
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(TapTracker.self) var tapTracker: TapTracker
     
     @State var tapInfo: TapInfo?

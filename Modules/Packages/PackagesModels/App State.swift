@@ -98,7 +98,6 @@ public final class AppState
 
     public var isLoadingFormulae: Bool = true
     public var isLoadingCasks: Bool = true
-    public var isLoadingTaps: Bool = true
 
     public var isLoadingTopPackages: Bool = false
 

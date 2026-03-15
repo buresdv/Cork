@@ -8,6 +8,7 @@
 import CorkNotifications
 import Defaults
 import SwiftUI
+import FactoryKit
 
 struct FinishedStageView: View
 {

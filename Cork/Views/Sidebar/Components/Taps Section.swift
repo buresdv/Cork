@@ -9,10 +9,11 @@ import CorkShared
 import SwiftUI
 import ButtonKit
 import CorkModels
+import FactoryKit
 
 struct TapsSection: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(TapTracker.self) var tapTracker: TapTracker
 
     let searchText: String
@@ -31,17 +32,17 @@ struct TapsSection: View
             }
             else
             {
-                if appState.isLoadingTaps
+                if tapTracker.isBeingLoaded
                 {
-                    ProgressView()
+                    TapTracker.loadingView
                 }
                 else
                 {
-                    ForEach(displayedTaps)
+                    ForEach(displayedTaps.sorted(by: { $0.nameInternal < $1.nameInternal }))
                     { tap in
                         NavigationLink(value: AppState.NavigationManager.DetailDestination.tap(tap: tap))
                         {
-                            Text(tap.name)
+                            Text(tap.name(withPrecision: .full))
 
                             if tap.isBeingModified
                             {
@@ -56,11 +57,11 @@ struct TapsSection: View
                         {
                             AsyncButton
                             {
-                                AppConstants.shared.logger.debug("Would remove \(tap.name, privacy: .public)")
+                                AppConstants.shared.logger.debug("Would remove \(tap.name(withPrecision: .full), privacy: .public)")
 
-                                try await removeTap(name: tap.name, tapTracker: tapTracker, appState: appState, shouldApplyUninstallSpinnerToRelevantItemInSidebar: true)
+                                try await tapTracker.removeTap(tapToRemove: tap, purpose: .removeFromHomebrewAndTracker)
                             } label: {
-                                Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name)")
+                                Text("sidebar.section.added-taps.contextmenu.remove-\(tap.name(withPrecision: .full))")
                             }
                             .asyncButtonStyle(.plainStyle)
                         }
@@ -70,15 +71,15 @@ struct TapsSection: View
         }
     }
 
-    private var displayedTaps: [BrewTap]
+    private var displayedTaps: Set<BrewTap>
     {
         if searchText.isEmpty || searchText.contains("#")
         {
-            return tapTracker.addedTaps
+            return tapTracker.successfullyLoadedTaps
         }
         else
         {
-            return tapTracker.addedTaps.filter { $0.name.contains(searchText) }
+            return tapTracker.successfullyLoadedTaps.filter({ $0.name(withPrecision: .full).localizedCaseInsensitiveContains(searchText) })
         }
     }
 }

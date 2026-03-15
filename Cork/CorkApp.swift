@@ -17,12 +17,16 @@ import SwiftUI
 import UserNotifications
 import CorkModels
 import CorkTerminalFunctions
+import CorkFeature_Brewfiles
+import FactoryKit
 
 @main
 struct CorkApp: App
 {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
+    @InjectedObservable(\.brewfileManager) var brewfileManager: BrewfileManager
+    
     @State var brewPackagesTracker: BrewPackagesTracker = .init()
     @State var tapTracker: TapTracker = .init()
 
@@ -426,13 +430,13 @@ struct CorkApp: App
     {
         AsyncButton
         {
-            do
+            do throws(BrewfileManager.BrewfileDumpingError)
             {
-                brewfileContents = try await exportBrewfile(appState: appDelegate.appState)
+                brewfileContents = try await brewfileManager.exportBrewfile(appState: appDelegate.appState)
 
                 isShowingBrewfileExporter = true
             }
-            catch let brewfileExportError as BrewfileDumpingError
+            catch let brewfileExportError
             {
                 AppConstants.shared.logger.error("\(brewfileExportError)")
 
@@ -455,7 +459,7 @@ struct CorkApp: App
 
         AsyncButton
         {
-            do
+            do throws(BrewfileManager.BrewfileReadingError)
             {
                 let picker: NSOpenPanel = .init()
                 picker.allowsMultipleSelection = false
@@ -467,14 +471,19 @@ struct CorkApp: App
                     guard let brewfileURL = picker.url
                     else
                     {
-                        throw BrewfileReadingError.couldNotGetBrewfileLocation
+                        throw BrewfileManager.BrewfileReadingError.couldNotGetBrewfileLocation
                     }
 
                     AppConstants.shared.logger.debug("\(brewfileURL.path)")
 
-                    do
+                    do throws(BrewfileManager.BrewfileReadingError)
                     {
-                        try await importBrewfile(from: brewfileURL, appState: appDelegate.appState, brewPackagesTracker: brewPackagesTracker, cachedDownloadsTracker: cachedDownloadsTracker)
+                        try await brewfileManager.importBrewfile(
+                            from: brewfileURL,
+                            appState: appDelegate.appState,
+                            brewPackagesTracker: brewPackagesTracker,
+                            cachedDownloadsTracker: cachedDownloadsTracker
+                        )
                     }
                     catch let brewfileImportingError
                     {
@@ -486,7 +495,7 @@ struct CorkApp: App
                     }
                 }
             }
-            catch let error as BrewfileReadingError
+            catch let error
             {
                 switch error
                 {
@@ -674,9 +683,9 @@ struct CorkApp: App
 
             Task
             {
-                var updateResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["update"])
+                var updateResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["update"])
 
-                AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutput, privacy: .public)\nStandard error: \(updateResult.standardError, privacy: .public)")
+                AppConstants.shared.logger.debug("Update result:\nStandard output: \(updateResult.standardOutputs, privacy: .public)\nStandard error: \(updateResult.standardErrors, privacy: .public)")
 
                 do
                 {
@@ -692,7 +701,7 @@ struct CorkApp: App
                     {
                         AppConstants.shared.logger.log("Will purge temporary update trackers")
 
-                        updateResult = .init(standardOutput: "", standardError: "")
+                        updateResult = .init()
                         newOutdatedPackages = .init()
                     }
 

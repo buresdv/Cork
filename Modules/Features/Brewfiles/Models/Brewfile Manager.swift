@@ -11,5 +11,10 @@ import CorkShared
 @Observable
 public class BrewfileManager
 {
+    let debug: Int
     
+    public init()
+    {
+        self.debug = 1
+    }
 }

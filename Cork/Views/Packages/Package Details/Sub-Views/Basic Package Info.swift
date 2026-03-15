@@ -93,7 +93,7 @@ struct BasicPackageInfoView: View
         {
             LabeledContent
             {
-                Text(packageDetails.tap.name)
+                Text(packageDetails.tap.name(withPrecision: .full))
             } label: {
                 Text("Tap")
             }

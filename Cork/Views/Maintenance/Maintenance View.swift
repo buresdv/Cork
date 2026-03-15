@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 enum MaintenanceSteps
 {
@@ -18,7 +19,7 @@ struct MaintenanceView: View
     @Environment(\.dismiss) var dismiss: DismissAction
     
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
 
     @State var maintenanceSteps: MaintenanceSteps = .ready
 

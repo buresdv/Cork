@@ -9,6 +9,7 @@ import SwiftUI
 import Defaults
 import CorkShared
 import CorkModels
+import FactoryKit
 
 struct OutdatedPackageListBox: View
 {    
@@ -16,7 +17,7 @@ struct OutdatedPackageListBox: View
     
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount: OutdatedPackageInfoAmount
 
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @Binding var isDropdownExpanded: Bool

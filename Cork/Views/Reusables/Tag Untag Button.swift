@@ -8,10 +8,11 @@
 import CorkShared
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct TagUntagButton: View
 {
-    @Environment(AppState.self) var appState: AppState
+    @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     let package: BrewPackage

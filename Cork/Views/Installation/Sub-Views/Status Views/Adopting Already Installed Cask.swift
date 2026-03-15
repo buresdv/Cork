@@ -40,15 +40,15 @@ struct AdoptingAlreadyInstalledCaskView: View
                 {
                     AppConstants.shared.logger.debug("Started adoption process for cask \(caskToAdopt.name(withPrecision: .precise))")
 
-                    let adoptionResult: TerminalOutput = await shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt.name(withPrecision: .precise)])
+                    let adoptionResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", "--adopt", caskToAdopt.name(withPrecision: .precise)])
 
                     AppConstants.shared.logger.debug("""
                     Finished adoption process for cask \(caskToAdopt.name(withPrecision: .precise)) with this result:
-                    Output: \(adoptionResult.standardOutput)
-                    Error: \(adoptionResult.standardError)
+                    Output: \(adoptionResult.standardOutputs)
+                    Error: \(adoptionResult.standardErrors)
                     """)
                     
-                    if adoptionResult.standardOutput.contains("was successfully installed")
+                    if adoptionResult.contains("was successfully installed", in: .standardOutputs)
                     {
                         AppConstants.shared.logger.info("Adoption frocess for cask \(caskToAdopt.name(withPrecision: .precise)) was successful")
                         
