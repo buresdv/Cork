@@ -7,10 +7,13 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct HomebrewServicesView: View
 {
     @Environment(\.controlActiveState) var controlActiveState: ControlActiveState
+    
+    @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(AppDelegate.self) var appDelegate: AppDelegate
 
@@ -68,7 +71,7 @@ struct HomebrewServicesView: View
                 {
                     Button
                     {
-                        appDelegate.appState.showSheet(ofType: .fullUpdate)
+                        appState.showSheet(ofType: .fullUpdate)
                         hasTriedToUpdateHomebrewThroughCork = true
                     } label: {
                         Text("action.update-homebrew")

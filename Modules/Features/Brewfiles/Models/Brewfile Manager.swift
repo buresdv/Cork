@@ -7,10 +7,11 @@
 
 import Foundation
 import CorkShared
+import FactoryKit
 
 @Observable
 public class BrewfileManager
-{
+{    
     let debug: Int
     
     public init()

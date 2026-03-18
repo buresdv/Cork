@@ -10,6 +10,7 @@ import CorkShared
 import Foundation
 import Observation
 @preconcurrency import UserNotifications
+import SwiftUI
 
 /// Class that holds the global state of the app, excluding services
 @Observable @MainActor
@@ -45,6 +46,8 @@ public final class AppState
 
         /// Which pane is opened in the detail
         public var openedScreen: DetailDestination?
+        
+        public var path: [DetailDestination] = .init()
 
         /// Dismiss the currently opened screen and return to the status page
         public func dismissScreen()

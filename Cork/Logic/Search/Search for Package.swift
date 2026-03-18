@@ -10,7 +10,7 @@ import CorkShared
 import CorkTerminalFunctions
 import Foundation
 
-func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]
+func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]?
 {
     var finalCommandOutputs: [TerminalOutput]
 
@@ -23,7 +23,12 @@ func searchForPackage(packageName: String, packageType: BrewPackage.PackageType)
         finalCommandOutputs = await shell(AppConstants.shared.brewExecutablePath, ["search", "--casks", packageName])
     }
 
-    AppConstants.shared.logger.info("Search found these packages: \(finalCommandOutputs, privacy: .auto)")
+    AppConstants.shared.logger.info("Search found \(finalCommandOutputs.count) packages: \(finalCommandOutputs, privacy: .auto)")
 
-    return finalCommandOutputs.standardOutputs
+    guard let unsplitListOfFoundPackages: String = finalCommandOutputs.standardOutputs.first else
+    {
+        return nil
+    }
+    
+    return unsplitListOfFoundPackages.components(separatedBy: .newlines)
 }

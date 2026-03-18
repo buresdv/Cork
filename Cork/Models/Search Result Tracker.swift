@@ -13,7 +13,7 @@ class SearchResultTracker
 {
     /// These two have to be arrays because the order matters
     /// When searching, Homebrew returns the best result at the top
-    var foundFormulae: [BrewPackage] = .init()
-    var foundCasks: [BrewPackage] = .init()
+    var foundFormulae: [BrewPackage]? = .init()
+    var foundCasks: [BrewPackage]? = .init()
     var selectedPackagesForInstallation: [String] = .init()
 }

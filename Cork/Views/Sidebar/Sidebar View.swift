@@ -40,9 +40,10 @@ struct SidebarView: View
 
     var body: some View
     {
-        @Bindable var appState: AppState = appState
+        let _ = print("Sidebar appState: \(ObjectIdentifier(appState))")
+        let _ = print("Sidebar navigationManager \(ObjectIdentifier(appState.navigationManager))")
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: $appState.navigationManager.openedScreen)
+        List(selection: Bindable(appState).navigationManager.path)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {

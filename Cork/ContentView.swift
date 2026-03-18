@@ -96,24 +96,24 @@ struct ContentView: View, Sendable
     {
         NavigationSplitView(columnVisibility: self.$columnVisibility)
         {
+            let _ = print("Parent appState: \(ObjectIdentifier(appState))")
+            let _ = print("Parent navigationManager: \(ObjectIdentifier(appState.navigationManager))")
+            
             SidebarView()
         } detail: {
-            if let openedScreen = appState.navigationManager.openedScreen
+            NavigationStack(path: Bindable(appState).navigationManager.path)
             {
-                switch openedScreen
+                StartPage()
+                    .frame(minWidth: 600, minHeight: 500)
+            }
+            .navigationDestination(for: AppState.NavigationManager.DetailDestination.self)
+            { destination in
+                switch destination
                 {
                 case .package(let package):
                     PackageDetailView(package: package)
                 case .tap(let tap):
                     TapDetailView(tap: tap)
-                }
-            }
-            else
-            {
-                NavigationStack
-                {
-                    StartPage()
-                        .frame(minWidth: 600, minHeight: 500)
                 }
             }
         }
@@ -623,7 +623,7 @@ private extension View
 
                 case .tapLoadingFailedDueToTapItself:
                     EmptyView()
-                case .couldNotDeleteCachedDownloads:
+                case .couldNotDeleteCachedDownloads(error: let error):
                     EmptyView()
                 }
             } message: { error in
@@ -705,3 +705,4 @@ private extension ContentView
         await self.topPackagesTracker.loadTopPackages(numberOfDays: self.discoverabilityDaySpan.rawValue, appState: self.appState)
     }
 }
+

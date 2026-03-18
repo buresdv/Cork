@@ -5,10 +5,10 @@
 //  Created by David Bureš on 29.09.2023.
 //
 
-import CorkShared
-import SwiftUI
 import CorkModels
+import CorkShared
 import FactoryKit
+import SwiftUI
 
 struct PresentingSearchResultsView: View
 {
@@ -30,10 +30,16 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
-    
+
     var wereAnyPackagesFound: Bool
     {
-        if searchResultTracker.foundFormulae.isEmpty && searchResultTracker.foundCasks.isEmpty
+        guard let formulae = searchResultTracker.foundFormulae, let casks = searchResultTracker.foundCasks
+        else
+        {
+            return false
+        }
+
+        if formulae.isEmpty && casks.isEmpty
         {
             return false
         }
@@ -51,22 +57,13 @@ struct PresentingSearchResultsView: View
             {
                 if !wereAnyPackagesFound
                 {
-                    if #available(macOS 14.0, *)
+                    ContentUnavailableView
                     {
-                        ContentUnavailableView {
-                            Label("add-package.search.results.packages.none-found", image: "custom.shippingbox.badge.magnifyingglass")
-                        } description: {
-                            Text("add.package.search.results.packages.none-found.description")
-                        } actions: {
-                            EmptyView()
-                        }
-
-                    } else {
-                        VStack(alignment: .center, spacing: 5) {
-                            Text("add-package.search.results.packages.none-found")
-                            
-                            restartSearchButton
-                        }
+                        Label("add-package.search.results.packages.none-found", image: "custom.shippingbox.badge.magnifyingglass")
+                    } description: {
+                        Text("add.package.search.results.packages.none-found.description")
+                    } actions: {
+                        EmptyView()
                     }
                 }
                 else
@@ -116,10 +113,11 @@ struct PresentingSearchResultsView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let selectedPackage = foundPackageSelection else
+            guard let selectedPackage = foundPackageSelection
+            else
             {
                 AppConstants.shared.logger.error("Failed to preview package")
-                
+
                 return
             }
             openWindow(value: MinimalHomebrewPackage(
@@ -172,7 +170,7 @@ struct PresentingSearchResultsView: View
             Text("action.search-again")
         }
     }
-    
+
     private func getRequestedPackages()
     {
         if let foundPackageSelection
@@ -190,53 +188,69 @@ private struct SearchResultsSection: View
 {
     let sectionType: BrewPackage.PackageType
 
-    let packageList: [BrewPackage]
+    let packageList: [BrewPackage]?
 
     @State private var isSectionCollapsed: Bool = false
 
     var body: some View
     {
-        if packageList.isEmpty
+        if let packageList
         {
-            Group
+            if packageList.isEmpty
             {
-                if #available(macOS 14.0, *)
+                Group
                 {
-                    switch sectionType
+                    if #available(macOS 14.0, *)
                     {
-                    case .formula:
-                        SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
-                    case .cask:
-                        SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
+                        switch sectionType
+                        {
+                        case .formula:
+                            SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
+                        case .cask:
+                            SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
+                        }
+                    }
+                    else
+                    {
+                        switch sectionType
+                        {
+                        case .formula:
+                            Text("add-package.search.results.formulae.none-found")
+                        case .cask:
+                            Text("add-package.search.results.casks.none-found")
+                        }
                     }
                 }
-                else
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+            }
+            else
+            {
+                Section
                 {
-                    switch sectionType
+                    if !isSectionCollapsed
                     {
-                    case .formula:
-                        Text("add-package.search.results.formulae.none-found")
-                    case .cask:
-                        Text("add-package.search.results.casks.none-found")
+                        ForEach(packageList)
+                        { package in
+                            SearchResultRow(searchedForPackage: package, context: .searchResults)
+                        }
                     }
+                } header: {
+                    CollapsibleSectionHeader(headerText: sectionType == .formula ? "add-package.search.results.formulae" : "add-package.search.results.casks", isCollapsed: $isSectionCollapsed)
                 }
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
         }
         else
         {
-            Section
-            {
-                if !isSectionCollapsed
-                {
-                    ForEach(packageList)
-                    { package in
-                        SearchResultRow(searchedForPackage: package, context: .searchResults)
-                    }
-                }
-            } header: {
-                CollapsibleSectionHeader(headerText: sectionType == .formula ? "add-package.search.results.formulae" : "add-package.search.results.casks", isCollapsed: $isSectionCollapsed)
-            }
+            searchFailed
         }
+    }
+    
+    @ViewBuilder
+    private var searchFailed: some View
+    {
+        InlineContentUnavailableView(
+            label: "add-package.search.failed",
+            image: "magnifyingglass"
+        )
     }
 }

@@ -20,8 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate
     @ObservableDefault(.showInMenuBar) @ObservationIgnored var showInMenuBar: Bool
     @ObservableDefault(.startWithoutWindow) @ObservationIgnored var startWithoutWindow: Bool
 
-    @MainActor let appState: AppState = .init()
-
     func applicationWillFinishLaunching(_: Notification)
     {
         if startWithoutWindow

@@ -118,6 +118,26 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
         self.isBeingModified = false
     }
     
+    public init(
+        minimalPackageFromName: String,
+        type: BrewPackage.PackageType
+    ) {
+        self.id = .init()
+        
+        self.internalName = .init(from: minimalPackageFromName)
+        self.type = type
+        
+        self.isTagged = false
+        self.isPinned = false
+        self.installedOn = nil
+        self.versions = .init()
+        self.url = .init(string: "")
+        self.installedIntentionally = false
+        self.sizeInBytes = 0
+        self.downloadCount = 0
+        self.isBeingModified = false
+    }
+    
     public var id: UUID
     private let internalName: BrewPackageName
 

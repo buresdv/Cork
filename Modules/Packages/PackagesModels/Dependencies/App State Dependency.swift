@@ -17,5 +17,6 @@ public extension Container
         {
             AppState()
         }
+        .singleton
     }
 }

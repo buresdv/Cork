@@ -24,36 +24,28 @@ struct InstallationSearchingView: View, Sendable
                 searchResultTracker.foundFormulae = []
                 searchResultTracker.foundCasks = []
 
-                async let foundFormulae: [String] = searchForPackage(packageName: packageRequested, packageType: .formula)
-                async let foundCasks: [String] = searchForPackage(packageName: packageRequested, packageType: .cask)
+                async let foundFormulae: [String]? = searchForPackage(packageName: packageRequested, packageType: .formula)
+                async let foundCasks: [String]? = searchForPackage(packageName: packageRequested, packageType: .cask)
 
-                for formula in await foundFormulae
+                if let foundFormulae = await foundFormulae, let foundCasks = await foundCasks
                 {
-                    searchResultTracker.foundFormulae.append(
-                        BrewPackage(
-                            rawName: formula,
-                            type: .formula,
-                            installedOn: nil,
-                            versions: [],
-                            url: nil,
-                            sizeInBytes: nil,
-                            downloadCount: nil
+                    for foundPackageName in foundFormulae {
+                        searchResultTracker.foundFormulae?.append(
+                            .init(
+                                minimalPackageFromName: foundPackageName,
+                                type: .formula
+                            )
                         )
-                    )
-                }
-                for cask in await foundCasks
-                {
-                    searchResultTracker.foundCasks.append(
-                        BrewPackage(
-                            rawName: cask,
-                            type: .cask,
-                            installedOn: nil,
-                            versions: [],
-                            url: nil,
-                            sizeInBytes: nil,
-                            downloadCount: nil
+                    }
+                    
+                    for foundPackageName in foundCasks {
+                        searchResultTracker.foundCasks?.append(
+                            .init(
+                                minimalPackageFromName: foundPackageName,
+                                type: .cask
+                            )
                         )
-                    )
+                    }
                 }
 
                 packageInstallationProcessStep = .presentingSearchResults
