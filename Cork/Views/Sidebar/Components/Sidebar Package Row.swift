@@ -18,12 +18,14 @@ struct SidebarPackageRow: View
     @Default(.enableSwipeActions) var enableSwipeActions: Bool
 
     @InjectedObservable(\.appState) var appState: AppState
+    @InjectedObservable(\.navigationManager) var navigationManager
+    
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {
-        NavigationLink(value: AppState.NavigationManager.DetailDestination.package(package: package))
+        NavigationLink(value: NavigationManager.DetailDestination.package(package: package))
         {
             PackageListItem(packageItem: package)
         }

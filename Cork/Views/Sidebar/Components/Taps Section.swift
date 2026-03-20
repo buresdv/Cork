@@ -14,6 +14,8 @@ import FactoryKit
 struct TapsSection: View
 {
     @InjectedObservable(\.appState) var appState: AppState
+    @InjectedObservable(\.navigationManager) var navigationManager
+    
     @Environment(TapTracker.self) var tapTracker: TapTracker
 
     let searchText: String
@@ -40,7 +42,7 @@ struct TapsSection: View
                 {
                     ForEach(displayedTaps.sorted(by: { $0.nameInternal < $1.nameInternal }))
                     { tap in
-                        NavigationLink(value: AppState.NavigationManager.DetailDestination.tap(tap: tap))
+                        NavigationLink(value: NavigationManager.DetailDestination.tap(tap: tap))
                         {
                             Text(tap.name(withPrecision: .full))
 

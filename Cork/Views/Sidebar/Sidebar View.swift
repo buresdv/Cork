@@ -16,6 +16,7 @@ struct SidebarView: View
     @Default(.allowMoreCompleteUninstallations) var allowMoreCompleteUninstallations: Bool
 
     @InjectedObservable(\.appState) var appState: AppState
+    @InjectedObservable(\.navigationManager) var navigationManager
 
     @State private var isShowingSearchField: Bool = false
     @State private var searchText: String = ""
@@ -41,9 +42,9 @@ struct SidebarView: View
     var body: some View
     {
         let _ = print("Sidebar appState: \(ObjectIdentifier(appState))")
-        let _ = print("Sidebar navigationManager \(ObjectIdentifier(appState.navigationManager))")
+        let _ = print("Sidebar navigationManager \(ObjectIdentifier(navigationManager))")
         /// Navigation selection enables "Home" button behaviour. [2023.09]
-        List(selection: Bindable(appState).navigationManager.path)
+        List(selection: Bindable(navigationManager).openedScreen)
         {
             if currentTokens.isEmpty || currentTokens.contains(.formula) || currentTokens.contains(.intentionallyInstalledPackage)
             {
@@ -85,13 +86,13 @@ struct SidebarView: View
             {
                 Button
                 {
-                    appState.navigationManager.dismissScreen()
+                    navigationManager.dismissScreen()
                 } label: {
                     Label("action.go-to-status-page", systemImage: "house")
                 }
                 .help("action.go-to-status-page")
                 .disabled(
-                    !appState.navigationManager.isAnyScreenOpened || !searchText.isEmpty || !currentTokens.isEmpty
+                    !navigationManager.isAnyScreenOpened || !searchText.isEmpty || !currentTokens.isEmpty
                 )
                 .accessibilityLabel("accessibility.label.return-to-status-page")
             }

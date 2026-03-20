@@ -32,6 +32,7 @@ struct ContentView: View, Sendable
     @Environment(\.openWindow) var openWindow: OpenWindowAction
 
     @InjectedObservable(\.appState) var appState: AppState
+    @InjectedObservable(\.navigationManager) var navigationManager
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
@@ -97,24 +98,24 @@ struct ContentView: View, Sendable
         NavigationSplitView(columnVisibility: self.$columnVisibility)
         {
             let _ = print("Parent appState: \(ObjectIdentifier(appState))")
-            let _ = print("Parent navigationManager: \(ObjectIdentifier(appState.navigationManager))")
-            
+            let _ = print("Parent navigationManager: \(ObjectIdentifier(navigationManager))")
+
             SidebarView()
         } detail: {
-            NavigationStack(path: Bindable(appState).navigationManager.path)
+            NavigationStack
             {
                 StartPage()
                     .frame(minWidth: 600, minHeight: 500)
-            }
-            .navigationDestination(for: AppState.NavigationManager.DetailDestination.self)
-            { destination in
-                switch destination
-                {
-                case .package(let package):
-                    PackageDetailView(package: package)
-                case .tap(let tap):
-                    TapDetailView(tap: tap)
-                }
+                    .navigationDestination(item: Bindable(navigationManager).openedScreen)
+                    { destination in
+                        switch destination
+                        {
+                        case .package(let package):
+                            PackageDetailView(package: package)
+                        case .tap(let tap):
+                            TapDetailView(tap: tap)
+                        }
+                    }
             }
         }
         .navigationTitle("app-name")
@@ -705,4 +706,3 @@ private extension ContentView
         await self.topPackagesTracker.loadTopPackages(numberOfDays: self.discoverabilityDaySpan.rawValue, appState: self.appState)
     }
 }
-
