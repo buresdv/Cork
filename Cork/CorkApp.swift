@@ -665,6 +665,14 @@ struct CorkApp: App
     
     // MARK: - Background updating
     
+    nonisolated static func backgroundNewlyOutdatedPackages(
+        refreshed refreshedOutdatedPackages: Set<OutdatedPackage>,
+        previous previousOutdatedPackages: Set<OutdatedPackage>
+    ) -> Set<OutdatedPackage>
+    {
+        refreshedOutdatedPackages.subtracting(previousOutdatedPackages)
+    }
+    
     func handleBackgroundUpdating()
     {
         // Start the background update scheduler when the app starts
@@ -696,14 +704,19 @@ struct CorkApp: App
                         newOutdatedPackages = .init()
                     }
 
-                    if await newOutdatedPackages.count > outdatedPackagesTracker.outdatedPackages.count
+                    let previousOutdatedPackages: Set<OutdatedPackage> = await outdatedPackagesTracker.outdatedPackages
+
+                    if await newOutdatedPackages.count > previousOutdatedPackages.count
                     {
                         AppConstants.shared.logger.log("New updates found")
 
                         /// Set this to `true` so the normal notification doesn't get sent
                         await setWhetherToSendStandardUpdatesAvailableNotification(to: false)
 
-                        let differentPackages: Set<OutdatedPackage> = await newOutdatedPackages.subtracting(outdatedPackagesTracker.allDisplayableOutdatedPackages)
+                        let differentPackages: Set<OutdatedPackage> = Self.backgroundNewlyOutdatedPackages(
+                            refreshed: newOutdatedPackages,
+                            previous: previousOutdatedPackages
+                        )
                         AppConstants.shared.logger.debug("Changed packages: \(differentPackages, privacy: .auto)")
 
                         sendNotification(title: String(localized: "notification.new-outdated-packages-found.title"), subtitle: differentPackages.map{$0.package.name(withPrecision: .precise)}.formatted(.list(type: .and)))
@@ -774,4 +787,3 @@ struct CorkApp: App
         }
     }
 }
-
