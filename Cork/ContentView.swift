@@ -102,20 +102,17 @@ struct ContentView: View, Sendable
 
             SidebarView()
         } detail: {
-            NavigationStack
+            switch navigationManager.openedScreen
             {
+            case .package(let package):
+                PackageDetailView(package: package)
+                    .frame(minWidth: 600, minHeight: 500)
+            case .tap(let tap):
+                TapDetailView(tap: tap)
+                    .frame(minWidth: 600, minHeight: 500)
+            case nil:
                 StartPage()
                     .frame(minWidth: 600, minHeight: 500)
-                    .navigationDestination(item: Bindable(navigationManager).openedScreen)
-                    { destination in
-                        switch destination
-                        {
-                        case .package(let package):
-                            PackageDetailView(package: package)
-                        case .tap(let tap):
-                            TapDetailView(tap: tap)
-                        }
-                    }
             }
         }
         .navigationTitle("app-name")
