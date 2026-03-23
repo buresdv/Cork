@@ -26,8 +26,8 @@ struct CorkApp: App
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
 
     @InjectedObservable(\.appState) var appState: AppState
+    @InjectedObservable(\.navigationManager) var navigationManager
     @InjectedObservable(\.brewfileManager) var brewfileManager: BrewfileManager
-    
     
     @State var brewPackagesTracker: BrewPackagesTracker = .init()
     @State var tapTracker: TapTracker = .init()
@@ -418,11 +418,11 @@ struct CorkApp: App
     {
         Button
         {
-            appState.navigationManager.dismissScreen()
+            navigationManager.dismissScreen()
         } label: {
             Label("action.go-to-status-page.menu-bar", systemImage: "house")
         }
-        .disabled(!appState.navigationManager.isAnyScreenOpened)
+        .disabled(!navigationManager.isAnyScreenOpened)
         Divider()
     }
 

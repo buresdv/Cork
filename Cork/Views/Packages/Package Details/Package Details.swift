@@ -138,6 +138,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(id: package.id)
         {
+            AppConstants.shared.logger.info("Will start loading of details for package \(package.name(withPrecision: .general))")
+            
             isLoadingDetails = true
             defer
             {
