@@ -24,6 +24,8 @@ public extension BrewTap
 
 public final actor BrewTap: Identifiable, Hashable, ModifiableActor, LoadableActor
 {
+    @Injected(\.appConstants) var appConstants: AppConstants
+    
     public struct BrewTapName: Hashable, Equatable, Comparable, Sendable
     {
         public static func < (lhs: BrewTap.BrewTapName, rhs: BrewTap.BrewTapName) -> Bool

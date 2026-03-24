@@ -210,6 +210,13 @@ let corkFeature_brewfiles: ProjectDescription.Target = .target(
     sources: [
         "Modules/Features/Brewfiles/**/*.swift"
     ],
+    dependencies: [
+        .target(corkSharedTarget),
+        .target(corkModelsTarget),
+        .external(name: "FactoryKit"),
+        .external(name: "Defaults"),
+        .external(name: "DefaultsMacros"),
+    ],
     settings: .settings(configurations: [
         .debug(
             name: "Debug",

@@ -30,8 +30,6 @@ struct TapDetailView: View, Sendable
 
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(TapTracker.self) var tapTracker: TapTracker
-    
-    @State var tapInfo: TapInfo?
 
     @State private var loadingState: TapDetailsLoadingState = .loading
 
@@ -81,9 +79,13 @@ struct TapDetailView: View, Sendable
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(id: tap.id)
         {
+            loadingState = .loading
+            
             do
             {
-                tapInfo = try await tap.loadDetails()
+                let loadedTapInfo: TapInfo = try await tap.loadDetails()
+                
+                loadingState = .loaded(info: loadedTapInfo)
             } catch let tapDetailsLoadingError {
                 loadingState = .erroredOut(withErrorText: tapDetailsLoadingError.localizedDescription)
             }
