@@ -65,7 +65,20 @@ func updatePackages(updateProgressTracker: UpdateProgressTracker, detailStage: U
                 updateProgressTracker.realTimeOutput.append(RealTimeTerminalLine(line: errorLine))
             }
 
-            if errorLine.contains("tap") || errorLine.contains("No checksum defined for")
+            let isIgnorable: Bool = errorLine.contains("tap")
+                || errorLine.contains("No checksum defined for")
+                || errorLine.contains("Bottle")
+                || errorLine.contains("Fetching")
+                || errorLine.contains("Downloading")
+                || errorLine.contains("Already downloaded")
+                || errorLine.contains("Pouring")
+                || errorLine.contains("Installing")
+                || errorLine.contains("🍺")
+                || errorLine.contains("✅")
+                || errorLine.contains("==>")
+                || errorLine.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+
+            if isIgnorable
             {
                 updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
 
