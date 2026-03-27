@@ -131,6 +131,12 @@ struct MaintenanceRunningView: View
             catch let healthCheckError
             {
                 AppConstants.shared.logger.error("Health check error: \(healthCheckError, privacy: .public)")
+                
+                switch healthCheckError
+                {
+                case .errorsThrownInStandardOutput(let errors):
+                    healthCheckResuts = .init(healthCheckResults: .problemsFound(problems: errors))
+                }
             }
         }
         else
@@ -141,7 +147,8 @@ struct MaintenanceRunningView: View
         let maintenanceResults: MaintenanceResults = .init(
             cachePurgeResults: cachePurgeResults,
             orphanRemovalResults: orphanRemovalResults,
-            healthCheckResults: healthCheckResuts)
+            healthCheckResults: healthCheckResuts
+        )
         
         maintenanceSteps = .finished(results: maintenanceResults)
     }

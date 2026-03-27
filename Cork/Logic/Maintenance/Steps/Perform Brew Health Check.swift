@@ -29,8 +29,16 @@ func performBrewHealthCheck() async throws(HealthCheckError)
 
     guard !commandResult.containsErrors else
     {
-        AppConstants.shared.logger.error("Brew health check had errors: \(commandResult.standardErrors)")
         
-        throw .errorsThrownInStandardOutput(errors: commandResult.standardErrors)
+        let stringsToExclude: [String] = ["Please note that these warnings are just used to help the Homebrew maintainers"]
+
+        let errorsWithoutUselessFluff: [String] = commandResult.standardErrors.filter
+        { string in
+            !string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && stringsToExclude.allSatisfy { !string.contains($0) }
+        }
+        
+        AppConstants.shared.logger.error("Brew health check had errors, removing useless fluff: \(errorsWithoutUselessFluff)")
+        
+        throw .errorsThrownInStandardOutput(errors: errorsWithoutUselessFluff)
     }
 }

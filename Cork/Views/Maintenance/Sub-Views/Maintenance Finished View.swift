@@ -189,20 +189,18 @@ struct MaintenanceFinishedView: View
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
                     case .problemsFound(let problems):
-                        VStack
+                        DisclosureGroup
                         {
-                            Text("maintenance.results.health-check.problems")
-                                .lineLimit(nil)
-                                .fixedSize(horizontal: false, vertical: true)
-                            
-                            DisclosureGroup {
-                                List(problems, id: \.self) { problem in
-                                    Text(problem)
-                                }
-                            } label: {
-                                Text("maintenance.results.health-check.problems.show-list")
+                            List(problems, id: \.self)
+                            { problem in
+                                Text(problem)
                             }
-
+                            .listStyle(.bordered)
+                            .alternatingRowBackgrounds()
+                            .frame(minHeight: 200)
+                            .fixedSize(horizontal: false, vertical: true)
+                        } label: {
+                            Text("maintenance.results.health-check.problems")
                         }
                     }
                 }
