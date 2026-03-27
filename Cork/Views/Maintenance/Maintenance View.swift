@@ -5,23 +5,58 @@
 //  Created by David Bureš on 13.02.2023.
 //
 
-import SwiftUI
 import CorkModels
 import FactoryKit
+import SwiftUI
 
-enum MaintenanceSteps
-{
-    case ready, maintenanceRunning, finished
-}
+typealias MaintenanceResults = MaintenanceFinishedView.MaintenanceResults
 
 struct MaintenanceView: View
 {
+    enum MaintenanceStage
+    {
+        case ready, maintenanceRunning, finished(results: MaintenanceResults)
+
+        var isDismissable: Bool
+        {
+            switch self
+            {
+            case .ready:
+                return true
+            case .maintenanceRunning:
+                return false
+            case .finished:
+                return true
+            }
+        }
+
+        var shouldShowTitle: Bool
+        {
+            switch self
+            {
+            case .ready:
+                return true
+            case .maintenanceRunning:
+                return false
+            case .finished:
+                return false
+            }
+        }
+    }
+
+    enum HealthCheckStatus
+    {
+        case notRunYet
+        case noProblemsFound
+        case problemsFound(problems: [String])
+    }
+
     @Environment(\.dismiss) var dismiss: DismissAction
-    
+
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
 
-    @State var maintenanceSteps: MaintenanceSteps = .ready
+    @State var maintenanceSteps: MaintenanceStage = .ready
 
     @State var shouldPurgeCache: Bool = true
     @State var shouldDeleteDownloads: Bool = true
@@ -32,24 +67,14 @@ struct MaintenanceView: View
 
     @State var packagesHoldingBackCachePurge: [String] = .init()
 
-    @State var brewHealthCheckFoundNoProblems: Bool = false
+    @State var brewHealthCheckStatus: HealthCheckStatus = .notRunYet
 
     @State var maintenanceFoundNoProblems: Bool = true
 
     @State var reclaimedSpaceAfterCachePurge: Int = 0
 
     @State var forcedOptions: Bool? = false
-    
-    var isDismissable: Bool
-    {
-        [.ready, .finished].contains(maintenanceSteps)
-    }
-    
-    var shouldShowTitle: Bool
-    {
-        [.ready].contains(maintenanceSteps)
-    }
-    
+
     var sheetTitle: LocalizedStringKey
     {
         switch maintenanceSteps
@@ -62,10 +87,11 @@ struct MaintenanceView: View
             return ""
         }
     }
-    
+
     var dismissButtonTitle: LocalizedStringKey
     {
-        switch maintenanceSteps {
+        switch maintenanceSteps
+        {
         case .ready:
             return "action.cancel"
         case .maintenanceRunning:
@@ -79,7 +105,7 @@ struct MaintenanceView: View
     {
         NavigationStack
         {
-            SheetTemplate(isShowingTitle: shouldShowTitle)
+            SheetTemplate(isShowingTitle: maintenanceSteps.shouldShowTitle)
             {
                 Group
                 {
@@ -105,28 +131,20 @@ struct MaintenanceView: View
                             numberOfOrphansRemoved: $numberOfOrphansRemoved,
                             packagesHoldingBackCachePurge: $packagesHoldingBackCachePurge,
                             reclaimedSpaceAfterCachePurge: $reclaimedSpaceAfterCachePurge,
-                            brewHealthCheckFoundNoProblems: $brewHealthCheckFoundNoProblems,
+                            healthCheckStatus: $brewHealthCheckStatus,
                             maintenanceSteps: $maintenanceSteps
                         )
 
-                    case .finished:
+                    case .finished(let results):
                         MaintenanceFinishedView(
-                            shouldUninstallOrphans: shouldUninstallOrphans,
-                            shouldPurgeCache: shouldPurgeCache,
-                            shouldDeleteDownloads: shouldDeleteDownloads,
-                            shouldPerformHealthCheck: shouldPerformHealthCheck,
-                            packagesHoldingBackCachePurge: packagesHoldingBackCachePurge,
-                            numberOfOrphansRemoved: numberOfOrphansRemoved,
-                            reclaimedSpaceAfterCachePurge: reclaimedSpaceAfterCachePurge,
-                            brewHealthCheckFoundNoProblems: brewHealthCheckFoundNoProblems,
-                            maintenanceFoundNoProblems: $maintenanceFoundNoProblems
+                            maintenanceResults: results
                         )
                     }
                 }
                 .navigationTitle(sheetTitle)
                 .toolbar
                 {
-                    if isDismissable
+                    if maintenanceSteps.isDismissable
                     {
                         ToolbarItem(placement: .cancellationAction)
                         {
@@ -140,6 +158,47 @@ struct MaintenanceView: View
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+extension MaintenanceView
+{
+    enum MaintenanceStep: MaintenanceActionable
+    {
+        case purgeCache
+        case deleteDownloads(cachedDownloadsTracker: CachedDownloadsTracker, appState: AppState)
+        case uninstallOrphans
+        case performHealthCheck
+
+        var actionName: LocalizedStringKey
+        {
+            switch self
+            {
+            case .purgeCache:
+                return "maintenance.steps.downloads.purge-cache"
+            case .deleteDownloads:
+                return "maintenance.steps.downloads.delete-cached-downloads"
+            case .uninstallOrphans:
+                return "maintenance.steps.packages.uninstall-orphans"
+            case .performHealthCheck:
+                return "maintenance.steps.other.health-check"
+            }
+        }
+
+        var actionInProgressName: LocalizedStringKey
+        {
+            switch self
+            {
+            case .purgeCache:
+                return "maintenance.step.purging-cache"
+            case .deleteDownloads:
+                return "maintenance.step.deleting-cached-downloads"
+            case .uninstallOrphans:
+                return "maintenance.step.removing-orphans"
+            case .performHealthCheck:
+                return "maintenance.step.running-health-check"
             }
         }
     }

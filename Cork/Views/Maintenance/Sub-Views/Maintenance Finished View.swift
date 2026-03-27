@@ -12,7 +12,30 @@ import CorkModels
 import FactoryKit
 
 struct MaintenanceFinishedView: View
-{
+{    
+    struct MaintenanceResults
+    {
+        struct CachePurgeResults
+        {
+            let reclaimedSpace: Int?
+            let packagesHoldingBackPurge: [String]?
+        }
+        
+        struct OrphanRemovalResults
+        {
+            let numberOfOprhansRemoved: Int?
+        }
+        
+        struct HealthCheckResults
+        {
+            let healthCheckResults: MaintenanceView.HealthCheckStatus
+        }
+        
+        let cachePurgeResults: CachePurgeResults?
+        let orphanRemovalResults: OrphanRemovalResults?
+        let healthCheckResults: HealthCheckResults?
+    }
+    
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -24,22 +47,15 @@ struct MaintenanceFinishedView: View
 
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
-    let shouldUninstallOrphans: Bool
-    let shouldPurgeCache: Bool
-    let shouldDeleteDownloads: Bool
-    let shouldPerformHealthCheck: Bool
-
-    let packagesHoldingBackCachePurge: [String]
-
-    let numberOfOrphansRemoved: Int
-    let reclaimedSpaceAfterCachePurge: Int
-
-    let brewHealthCheckFoundNoProblems: Bool
-
-    @Binding var maintenanceFoundNoProblems: Bool
+    let maintenanceResults: MaintenanceResults
 
     var displayablePackagesHoldingBackCachePurge: [String]
     {
+        guard let packagesHoldingBackPurge = maintenanceResults.cachePurgeResults?.packagesHoldingBackPurge else
+        {
+            return .init()
+        }
+        
         // See if the user wants to see all packages, or just those that are installed manually
         // If they only want to see those installed manually, only show those that are holding back cache purge that are actually only installed manually
 
@@ -67,7 +83,7 @@ struct MaintenanceFinishedView: View
         }
         else
         {
-            return packagesHoldingBackCachePurge
+            return packagesHoldingBackPurge
         }
     }
 
@@ -77,19 +93,23 @@ struct MaintenanceFinishedView: View
         {
             VStack(alignment: .leading, spacing: 5)
             {
+                
                 Text("maintenance.finished")
                     .font(.headline)
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
-
-                if shouldUninstallOrphans
+                
+                if let orphanRemovalResults = maintenanceResults.orphanRemovalResults
                 {
-                    Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
+                    if let numberOfOrphansRemoved = orphanRemovalResults.numberOfOprhansRemoved
+                    {
+                        Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved.formatted(.number))")
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
 
-                if shouldPurgeCache
+                if let cachePurgeResults = maintenanceResults.cachePurgeResults
                 {
                     VStack(alignment: .leading)
                     {
@@ -142,8 +162,8 @@ struct MaintenanceFinishedView: View
                          */
                     }
                 }
-
-                if shouldDeleteDownloads
+                
+                if let reclaimedSpaceAfterCachePurge = maintenanceResults.cachePurgeResults?.reclaimedSpace
                 {
                     VStack(alignment: .leading)
                     {
@@ -157,24 +177,24 @@ struct MaintenanceFinishedView: View
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
-
-                if shouldPerformHealthCheck
+                
+                if let healthCheckResults = maintenanceResults.healthCheckResults?.healthCheckResults
                 {
-                    if brewHealthCheckFoundNoProblems
+                    switch healthCheckResults
                     {
+                    case .notRunYet:
+                        EmptyView()
+                    case .noProblemsFound:
                         Text("maintenance.results.health-check.problems-none")
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
-                    }
-                    else
-                    {
-                        Text("maintenance.results.health-check.problems")
-                            .onAppear
-                            {
-                                maintenanceFoundNoProblems = false
-                            }
-                            .lineLimit(nil)
-                            .fixedSize(horizontal: false, vertical: true)
+                    case .problemsFound(let problems):
+                        HStack
+                        {
+                            Text("maintenance.results.health-check.problems")
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
                     }
                 }
             }
