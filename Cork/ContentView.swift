@@ -447,7 +447,7 @@ private extension View
                     case false:
                         MaintenanceView()
                     case true:
-                        MaintenanceView(shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
+                        MaintenanceView(forcedOptions: true)
                     }
                 }
             }

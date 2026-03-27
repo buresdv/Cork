@@ -21,6 +21,8 @@ struct MaintenancePane: View
     {
         SettingsPaneTemplate
         {
+            EmptyView()
+            /*
             VStack(alignment: .leading, spacing: 10)
             {
                 Text("settings.maintenance.default-steps")
@@ -36,6 +38,7 @@ struct MaintenancePane: View
                     enablePadding: false
                 )
             }
+             */
         }
     }
 }

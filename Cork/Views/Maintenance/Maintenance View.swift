@@ -51,6 +51,15 @@ struct MaintenanceView: View
         case problemsFound(problems: [String])
     }
 
+    @Observable
+    class SelectedMaintenanceStepsTracker
+    {
+        var shouldPurgeCache: Bool = true
+        var shouldDeleteDownloads: Bool = true
+        var shouldUninstallOrphans: Bool = true
+        var shouldPerformHealthCheck: Bool = false
+    }
+
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
@@ -58,10 +67,7 @@ struct MaintenanceView: View
 
     @State var maintenanceSteps: MaintenanceStage = .ready
 
-    @State var shouldPurgeCache: Bool = true
-    @State var shouldDeleteDownloads: Bool = true
-    @State var shouldUninstallOrphans: Bool = true
-    @State var shouldPerformHealthCheck: Bool = false
+    @State private var selectedMaintenanceStepsTracker: SelectedMaintenanceStepsTracker = .init()
 
     @State var numberOfOrphansRemoved: Int = 0
 
@@ -107,58 +113,51 @@ struct MaintenanceView: View
         {
             SheetTemplate(isShowingTitle: maintenanceSteps.shouldShowTitle)
             {
-                Group
-                {
-                    switch maintenanceSteps
+                maintenanceStepsViews
+                    .navigationTitle(sheetTitle)
+                    .toolbar
                     {
-                    case .ready:
-                        MaintenanceReadyView(
-                            shouldUninstallOrphans: $shouldUninstallOrphans,
-                            shouldPurgeCache: $shouldPurgeCache,
-                            shouldDeleteDownloads: $shouldDeleteDownloads,
-                            shouldPerformHealthCheck: $shouldPerformHealthCheck,
-                            maintenanceSteps: $maintenanceSteps,
-                            isShowingControlButtons: true,
-                            forcedOptions: forcedOptions!
-                        )
-
-                    case .maintenanceRunning:
-                        MaintenanceRunningView(
-                            shouldUninstallOrphans: shouldUninstallOrphans,
-                            shouldPurgeCache: shouldPurgeCache,
-                            shouldDeleteDownloads: shouldDeleteDownloads,
-                            shouldPerformHealthCheck: shouldPerformHealthCheck,
-                            numberOfOrphansRemoved: $numberOfOrphansRemoved,
-                            packagesHoldingBackCachePurge: $packagesHoldingBackCachePurge,
-                            reclaimedSpaceAfterCachePurge: $reclaimedSpaceAfterCachePurge,
-                            healthCheckStatus: $brewHealthCheckStatus,
-                            maintenanceSteps: $maintenanceSteps
-                        )
-
-                    case .finished(let results):
-                        MaintenanceFinishedView(
-                            maintenanceResults: results
-                        )
-                    }
-                }
-                .navigationTitle(sheetTitle)
-                .toolbar
-                {
-                    if maintenanceSteps.isDismissable
-                    {
-                        ToolbarItem(placement: .cancellationAction)
+                        if maintenanceSteps.isDismissable
                         {
-                            Button
+                            ToolbarItem(placement: .cancellationAction)
                             {
-                                dismiss()
-                            } label: {
-                                Text(dismissButtonTitle)
+                                Button
+                                {
+                                    dismiss()
+                                } label: {
+                                    Text(dismissButtonTitle)
+                                }
+                                .keyboardShortcut(.cancelAction)
                             }
-                            .keyboardShortcut(.cancelAction)
                         }
                     }
-                }
             }
+        }
+    }
+
+    @ViewBuilder
+    var maintenanceStepsViews: some View
+    {
+        switch maintenanceSteps
+        {
+        case .ready:
+            MaintenanceReadyView(
+                selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker,
+                maintenanceSteps: $maintenanceSteps,
+                isShowingControlButtons: true,
+                forcedOptions: forcedOptions!
+            )
+
+        case .maintenanceRunning:
+            MaintenanceRunningView(
+                maintenanceSteps: $maintenanceSteps,
+                selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker
+            )
+
+        case .finished(let results):
+            MaintenanceFinishedView(
+                maintenanceResults: results
+            )
         }
     }
 }

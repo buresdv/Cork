@@ -22,10 +22,7 @@ struct MaintenanceRunningView: View
     
     @Binding var maintenanceSteps: MaintenanceView.MaintenanceStage
 
-    let shouldUninstallOrphans: Bool
-    let shouldPurgeCache: Bool
-    let shouldDeleteDownloads: Bool
-    let shouldPerformHealthCheck: Bool
+    let selectedMaintenanceStepsTracker: MaintenanceView.SelectedMaintenanceStepsTracker
     
     @State private var cachePurgeResults: MaintenanceResults.CachePurgeResults?
     @State private var orphanRemovalResults: MaintenanceResults.OrphanRemovalResults?
@@ -38,14 +35,14 @@ struct MaintenanceRunningView: View
             Text(currentMaintenanceStepText)
                 .task
                 {
-                    
+                    await performMaintenance()
                 }
         }
     }
     
     func performMaintenance() async
     {
-        if shouldUninstallOrphans
+        if selectedMaintenanceStepsTracker.shouldUninstallOrphans
         {
             currentMaintenanceStepText = "maintenance.step.removing-orphans"
 
@@ -63,7 +60,7 @@ struct MaintenanceRunningView: View
             AppConstants.shared.logger.info("Will not uninstall orphans")
         }
 
-        if shouldPurgeCache
+        if selectedMaintenanceStepsTracker.shouldPurgeCache
         {
             currentMaintenanceStepText = "maintenance.step.purging-cache"
 
@@ -92,7 +89,7 @@ struct MaintenanceRunningView: View
             AppConstants.shared.logger.info("Will not purge cache")
         }
 
-        if shouldDeleteDownloads
+        if selectedMaintenanceStepsTracker.shouldDeleteDownloads
         {
             AppConstants.shared.logger.info("Will delete downloads")
 
@@ -123,7 +120,7 @@ struct MaintenanceRunningView: View
             AppConstants.shared.logger.info("Will not delete downloads")
         }
 
-        if shouldPerformHealthCheck
+        if selectedMaintenanceStepsTracker.shouldPerformHealthCheck
         {
             currentMaintenanceStepText = "maintenance.step.running-health-check"
 

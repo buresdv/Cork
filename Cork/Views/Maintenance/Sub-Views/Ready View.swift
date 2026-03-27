@@ -16,10 +16,7 @@ struct MaintenanceReadyView: View
     @Default(.default_shouldDeleteDownloads) var default_shouldDeleteDownloads: Bool
     @Default(.default_shouldPerformHealthCheck) var default_shouldPerformHealthCheck: Bool
 
-    @Binding var shouldUninstallOrphans: Bool
-    @Binding var shouldPurgeCache: Bool
-    @Binding var shouldDeleteDownloads: Bool
-    @Binding var shouldPerformHealthCheck: Bool
+    @Bindable var selectedMaintenanceStepsTracker: MaintenanceView.SelectedMaintenanceStepsTracker
 
     @Binding var maintenanceSteps: MaintenanceView.MaintenanceStage
 
@@ -39,7 +36,7 @@ struct MaintenanceReadyView: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Toggle(isOn: $shouldUninstallOrphans)
+                        Toggle(isOn: $selectedMaintenanceStepsTracker.shouldUninstallOrphans)
                         {
                             Text("maintenance.steps.packages.uninstall-orphans")
                         }
@@ -50,11 +47,11 @@ struct MaintenanceReadyView: View
                 {
                     VStack(alignment: .leading)
                     {
-                        Toggle(isOn: $shouldPurgeCache)
+                        Toggle(isOn: $selectedMaintenanceStepsTracker.shouldPurgeCache)
                         {
                             Text("maintenance.steps.downloads.purge-cache")
                         }
-                        Toggle(isOn: $shouldDeleteDownloads)
+                        Toggle(isOn: $selectedMaintenanceStepsTracker.shouldDeleteDownloads)
                         {
                             Text("maintenance.steps.downloads.delete-cached-downloads")
                         }
@@ -63,7 +60,7 @@ struct MaintenanceReadyView: View
 
                 LabeledContent("maintenance.steps.other")
                 {
-                    Toggle(isOn: $shouldPerformHealthCheck)
+                    Toggle(isOn: $selectedMaintenanceStepsTracker.shouldPerformHealthCheck)
                     {
                         Text("maintenance.steps.other.health-check")
                     }
@@ -85,7 +82,7 @@ struct MaintenanceReadyView: View
                         Text("maintenance.steps.start")
                     }
                     .keyboardShortcut(.defaultAction)
-                    .disabled(isStartDisabled)
+                    //.disabled(isStartDisabled)
                 }
             }
         }
@@ -95,14 +92,15 @@ struct MaintenanceReadyView: View
             {
                 /// Replace the provided values with those from AppStorage
                 /// I have to do this because I don't want the settings in the sheet itself to affect those in the defaults
-                shouldUninstallOrphans = default_shouldUninstallOrphans
-                shouldPurgeCache = default_shouldPurgeCache
-                shouldDeleteDownloads = default_shouldDeleteDownloads
-                shouldPerformHealthCheck = default_shouldPerformHealthCheck
+                selectedMaintenanceStepsTracker.shouldUninstallOrphans = default_shouldUninstallOrphans
+                selectedMaintenanceStepsTracker.shouldPurgeCache = default_shouldPurgeCache
+                selectedMaintenanceStepsTracker.shouldDeleteDownloads = default_shouldDeleteDownloads
+                selectedMaintenanceStepsTracker.shouldPerformHealthCheck = default_shouldPerformHealthCheck
             }
         }
     }
 
+    /*
     private var isStartDisabled: Bool
     {
         [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy
@@ -110,4 +108,5 @@ struct MaintenanceReadyView: View
             !$0
         }
     }
+     */
 }
