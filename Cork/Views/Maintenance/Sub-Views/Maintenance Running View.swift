@@ -26,6 +26,7 @@ struct MaintenanceRunningView: View
     
     @State private var cachePurgeResults: MaintenanceResults.CachePurgeResults?
     @State private var orphanRemovalResults: MaintenanceResults.OrphanRemovalResults?
+    @State private var cachedDownloadsRemovalResults: MaintenanceResults.CachedDownloadsRemovalResults?
     @State private var healthCheckResuts: MaintenanceResults.HealthCheckResults?
 
     var body: some View
@@ -75,7 +76,6 @@ struct MaintenanceRunningView: View
                 let reclaimedSpaceAfterPurge: Int = cacheSizeBeforePurge - cacheSizeAfterPurge
                 
                 cachePurgeResults = .init(
-                    reclaimedSpace: reclaimedSpaceAfterPurge,
                     packagesHoldingBackPurge: packagesHoldingBackPurge
                 )
             }
@@ -97,7 +97,13 @@ struct MaintenanceRunningView: View
 
             do throws(CachedDownloadDeletionError)
             {
+                let cachedDownloadsSizeBeforeDeletion: Int = cachedDownloadsTracker.cachedDownloadsSize
+                
                 try deleteCachedDownloads()
+                
+                let cachedDownloadsSizeAfterDeletion: Int = cachedDownloadsTracker.cachedDownloadsSize
+                
+                cachedDownloadsRemovalResults = .init(reclaimedSpace: cachedDownloadsSizeBeforeDeletion - cachedDownloadsSizeAfterDeletion)
             }
             catch let cacheDeletionError
             {
@@ -147,6 +153,7 @@ struct MaintenanceRunningView: View
         let maintenanceResults: MaintenanceResults = .init(
             cachePurgeResults: cachePurgeResults,
             orphanRemovalResults: orphanRemovalResults,
+            cachedDownloadsRemovalResults: cachedDownloadsRemovalResults,
             healthCheckResults: healthCheckResuts
         )
         

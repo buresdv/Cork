@@ -17,7 +17,6 @@ struct MaintenanceFinishedView: View
     {
         struct CachePurgeResults
         {
-            let reclaimedSpace: Int?
             let packagesHoldingBackPurge: [String]?
         }
 
@@ -26,6 +25,11 @@ struct MaintenanceFinishedView: View
             let numberOfOprhansRemoved: Int?
         }
 
+        struct CachedDownloadsRemovalResults
+        {
+            let reclaimedSpace: Int?
+        }
+        
         struct HealthCheckResults
         {
             let healthCheckResults: MaintenanceView.HealthCheckStatus
@@ -33,6 +37,7 @@ struct MaintenanceFinishedView: View
 
         let cachePurgeResults: CachePurgeResults?
         let orphanRemovalResults: OrphanRemovalResults?
+        let cachedDownloadsRemovalResults: CachedDownloadsRemovalResults?
         let healthCheckResults: HealthCheckResults?
     }
 
@@ -216,7 +221,7 @@ struct MaintenanceFinishedView: View
         {
             if selectedMaintenanceStepsTracker.shouldDeleteDownloads
             {
-                if let reclaimedSpaceAfterCachePurge = maintenanceResults.cachePurgeResults?.reclaimedSpace
+                if let reclaimedSpaceAfterCachePurge = maintenanceResults.cachedDownloadsRemovalResults?.reclaimedSpace
                 {
                     VStack(alignment: .leading)
                     {
@@ -229,6 +234,10 @@ struct MaintenanceFinishedView: View
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                }
+                else
+                {
+                    Text("maintenance.results.cached-downloads.could-not-determine-reclaimed-space")
                 }
             }
             else

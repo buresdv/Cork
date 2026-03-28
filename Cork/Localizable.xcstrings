@@ -38969,6 +38969,16 @@
         }
       }
     },
+    "maintenance.results.cached-downloads.could-not-determine-reclaimed-space" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t determine how much space was freed"
+          }
+        }
+      }
+    },
     "maintenance.results.cached-downloads.summary-%@" : {
       "localizations" : {
         "cs" : {
