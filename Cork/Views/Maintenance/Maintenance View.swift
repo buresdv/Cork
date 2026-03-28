@@ -39,7 +39,7 @@ struct MaintenanceView: View
             case .maintenanceRunning:
                 return false
             case .finished:
-                return false
+                return true
             }
         }
     }
@@ -90,7 +90,7 @@ struct MaintenanceView: View
         case .maintenanceRunning:
             return ""
         case .finished:
-            return ""
+            return "maintenance.finished"
         }
     }
 
@@ -156,6 +156,7 @@ struct MaintenanceView: View
 
         case .finished(let results):
             MaintenanceFinishedView(
+                selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker,
                 maintenanceResults: results
             )
         }
@@ -167,7 +168,7 @@ extension MaintenanceView
     enum MaintenanceStep: MaintenanceActionable
     {
         case purgeCache
-        case deleteDownloads(cachedDownloadsTracker: CachedDownloadsTracker, appState: AppState)
+        case deleteDownloads
         case uninstallOrphans
         case performHealthCheck
 

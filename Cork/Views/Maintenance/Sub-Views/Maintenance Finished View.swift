@@ -5,14 +5,14 @@
 //  Created by David Bureš on 04.10.2023.
 //
 
-import CorkShared
-import SwiftUI
-import Defaults
 import CorkModels
+import CorkShared
+import Defaults
 import FactoryKit
+import SwiftUI
 
 struct MaintenanceFinishedView: View
-{    
+{
     struct MaintenanceResults
     {
         struct CachePurgeResults
@@ -20,22 +20,22 @@ struct MaintenanceFinishedView: View
             let reclaimedSpace: Int?
             let packagesHoldingBackPurge: [String]?
         }
-        
+
         struct OrphanRemovalResults
         {
             let numberOfOprhansRemoved: Int?
         }
-        
+
         struct HealthCheckResults
         {
             let healthCheckResults: MaintenanceView.HealthCheckStatus
         }
-        
+
         let cachePurgeResults: CachePurgeResults?
         let orphanRemovalResults: OrphanRemovalResults?
         let healthCheckResults: HealthCheckResults?
     }
-    
+
     @Default(.displayOnlyIntentionallyInstalledPackagesByDefault) var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -47,15 +47,18 @@ struct MaintenanceFinishedView: View
 
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
 
+    let selectedMaintenanceStepsTracker: MaintenanceView.SelectedMaintenanceStepsTracker
+
     let maintenanceResults: MaintenanceResults
 
     var displayablePackagesHoldingBackCachePurge: [String]
     {
-        guard let packagesHoldingBackPurge = maintenanceResults.cachePurgeResults?.packagesHoldingBackPurge else
+        guard let packagesHoldingBackPurge = maintenanceResults.cachePurgeResults?.packagesHoldingBackPurge
+        else
         {
             return .init()
         }
-        
+
         // See if the user wants to see all packages, or just those that are installed manually
         // If they only want to see those installed manually, only show those that are holding back cache purge that are actually only installed manually
 
@@ -77,7 +80,8 @@ struct MaintenanceFinishedView: View
 
             /// **Motivation**: Same as above, but even more performant
             /// Only formulae can hold back cache purging. Therefore, we just filter out the outdated formulae, and those must be holding back the purging
-            return outdatedPackagesTracker.allDisplayableOutdatedPackages.filter { $0.package.type == .formula }.map{
+            return outdatedPackagesTracker.allDisplayableOutdatedPackages.filter { $0.package.type == .formula }.map
+            {
                 $0.package.name(withPrecision: .precise)
             }
         }
@@ -91,25 +95,60 @@ struct MaintenanceFinishedView: View
     {
         ComplexWithIcon(systemName: "checkmark.seal")
         {
-            VStack(alignment: .leading, spacing: 5)
+            Form
             {
-                
-                Text("maintenance.finished")
-                    .font(.headline)
-                    .lineLimit(nil)
-                    .fixedSize(horizontal: false, vertical: true)
-                
-                if let orphanRemovalResults = maintenanceResults.orphanRemovalResults
-                {
-                    if let numberOfOrphansRemoved = orphanRemovalResults.numberOfOprhansRemoved
-                    {
-                        Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved.formatted(.number))")
-                            .lineLimit(nil)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
+                orphanRemovalSection
 
-                if let cachePurgeResults = maintenanceResults.cachePurgeResults
+                cachePurgeSection
+
+                cachedDownloadsSection
+
+                healthCheckSection
+            }
+            .fixedSize(horizontal: false, vertical: true)
+        }
+        .task
+        {
+            do
+            {
+                try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
+            }
+            catch let synchronizationError
+            {
+                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var orphanRemovalSection: some View
+    {
+        MaintenanceResultSection(headerText: MaintenanceView.MaintenanceStep.uninstallOrphans.actionName)
+        {
+            if selectedMaintenanceStepsTracker.shouldUninstallOrphans
+            {
+                if let numberOfOrphansRemoved = maintenanceResults.orphanRemovalResults?.numberOfOprhansRemoved
+                {
+                    Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            else
+            {
+                actionWasNotPerformedView
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var cachePurgeSection: some View
+    {
+        MaintenanceResultSection(headerText: MaintenanceView.MaintenanceStep.purgeCache.actionName)
+        {
+            if selectedMaintenanceStepsTracker.shouldPurgeCache
+            {
+                if let cachePurgeResults = maintenanceResults.cachePurgeResults?.packagesHoldingBackPurge
                 {
                     VStack(alignment: .leading)
                     {
@@ -162,7 +201,21 @@ struct MaintenanceFinishedView: View
                          */
                     }
                 }
-                
+            }
+            else
+            {
+                actionWasNotPerformedView
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var cachedDownloadsSection: some View
+    {
+        MaintenanceResultSection(headerText: MaintenanceView.MaintenanceStep.deleteDownloads.actionName)
+        {
+            if selectedMaintenanceStepsTracker.shouldDeleteDownloads
+            {
                 if let reclaimedSpaceAfterCachePurge = maintenanceResults.cachePurgeResults?.reclaimedSpace
                 {
                     VStack(alignment: .leading)
@@ -177,7 +230,21 @@ struct MaintenanceFinishedView: View
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
-                
+            }
+            else
+            {
+                actionWasNotPerformedView
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var healthCheckSection: some View
+    {
+        MaintenanceResultSection(headerText: MaintenanceView.MaintenanceStep.performHealthCheck.actionName)
+        {
+            if selectedMaintenanceStepsTracker.shouldPerformHealthCheck
+            {
                 if let healthCheckResults = maintenanceResults.healthCheckResults?.healthCheckResults
                 {
                     switch healthCheckResults
@@ -202,21 +269,45 @@ struct MaintenanceFinishedView: View
                         } label: {
                             Text("maintenance.results.health-check.problems")
                         }
+                        .disclosureGroupStyle(NoPadding())
                     }
                 }
             }
-            .fixedSize(horizontal: false, vertical: true)
+            else
+            {
+                actionWasNotPerformedView
+            }
         }
-        .task
+    }
+
+    // MARK: - Action was not performed view
+
+    @ViewBuilder
+    private var actionWasNotPerformedView: some View
+    {
+        Text("maintenance.results.action-not-performed")
+            .font(.subheadline)
+    }
+}
+
+private struct MaintenanceResultSection<Content: View>: View
+{
+    let headerText: LocalizedStringKey
+
+    @ViewBuilder
+    var content: Content
+
+    var body: some View
+    {
+        Section
         {
-            do
-            {
-                try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-            }
-            catch let synchronizationError
-            {
-                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
-            }
+            content
+        } header: {
+            Text(headerText)
+                .font(.subheadline)
+                .bold()
+                .foregroundStyle(.secondary)
+                .padding(.top, 5)
         }
     }
 }
