@@ -8,14 +8,40 @@
 import Foundation
 import CorkShared
 import FactoryKit
+import SwiftUI
 
 @Observable
 public class BrewfileManager
-{    
-    let debug: Int
+{
+    public enum BrewfileExportStage: View
+    {
+        case exporting
+        case finished(withBrewbakFile: BrewbakFile)
+        case erroredOut(withError: BrewfileDumpingError)
+
+        public var body: some View
+        {
+            switch self
+            {
+            case .exporting:
+                ExportingView()
+            case .finished(let brewbakFile):
+                FinishedView(brewbakFile: brewbakFile)
+            case .erroredOut(let errors):
+                ErroredOutView(error: errors)
+            }
+        }
+    }
+    
+    public var exportStage: BrewfileExportStage
+    
+    public func openExportSheet()
+    {
+        self.exportStage = .exporting
+    }
     
     public init()
     {
-        self.debug = 1
+        self.exportStage = .exporting
     }
 }

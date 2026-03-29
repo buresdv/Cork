@@ -88,7 +88,14 @@ extension ServicesTracker
 
         do
         {
-            guard let decodableData: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: true)
+            guard !rawOutput.isEmpty && !rawOutput.contains("No services available", in: .standardErrors, .standardOutputs)
+            else
+            {
+                AppConstants.shared.logger.info("There are no services to load")
+                return
+            }
+
+            guard let decodableData: Data = rawOutput.getJsonFromOutput(failOnAnyErrorsPresent: false)
             else
             {
                 AppConstants.shared.logger.error("Failed while converting services string to data")

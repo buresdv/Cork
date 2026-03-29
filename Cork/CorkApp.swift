@@ -182,24 +182,9 @@ struct CorkApp: App
                         setAppBadge(outdatedPackageNotificationType: outdatedPackageNotificationType)
                     }
                 }
-                .fileExporter(
-                    isPresented: $isShowingBrewfileExporter,
-                    document: StringFile(initialText: brewfileContents),
-                    contentType: .homebrewBackup,
-                    defaultFilename: defaultBackupDateFormat != .omitted ? String(localized: "brewfile.export.default-export-name-\(Date().formatted(date: defaultBackupDateFormat, time: .omitted))") : String(localized: "brewfile.export.default-export-name.empty")
-                )
-                { result in
-                    switch result
-                    {
-                    case .success(let success):
-                        AppConstants.shared.logger.log("Succeeded in exporting: \(success, privacy: .public)")
-                    case .failure(let failure):
-                        AppConstants.shared.logger.error("Failed in exporting: \(failure, privacy: .public)")
-                    }
-                }
                 .fileImporter(
                     isPresented: $isShowingBrewfileImporter,
-                    allowedContentTypes: [.homebrewBackup],
+                    allowedContentTypes: [.brewbak],
                     allowsMultipleSelection: false
                 )
                 { result in
@@ -429,6 +414,14 @@ struct CorkApp: App
     @ViewBuilder
     var backupAndRestoreMenuBarSection: some View
     {
+        Button
+        {
+            appState.showSheet(ofType: .brewfileExport)
+        } label: {
+            Label("navigation.menu.import-export.export-brewfile", systemImage: "square.and.arrow.up")
+        }
+        
+        /*
         AsyncButton
         {
             do throws(BrewfileManager.BrewfileDumpingError)
@@ -459,7 +452,8 @@ struct CorkApp: App
             Label("navigation.menu.import-export.export-brewfile", systemImage: "square.and.arrow.up")
         }
         .asyncButtonStyle(.plainStyle)
-
+         */
+         
         AsyncButton
         {
             do throws(BrewfileManager.BrewfileReadingError)

@@ -32,17 +32,8 @@ public extension BrewfileManager
 
     /// Exports the Brewfile and returns the contents of the Brewfile itself for further manipulation. Does not preserve the Brewfile
     @MainActor
-    func exportBrewfile(
-        appState: AppState
-    ) async throws(BrewfileDumpingError) -> String
+    func exportBrewfile() async throws(BrewfileDumpingError) -> BrewbakFile
     {
-        appState.showSheet(ofType: .brewfileExport)
-
-        defer
-        {
-            appState.dismissSheet()
-        }
-
         let brewfileParentLocation: URL = URL.temporaryDirectory
 
         let pathRawOutput: [TerminalOutput] = await shell(URL(string: "/bin/pwd")!, ["-L"])
@@ -84,7 +75,7 @@ public extension BrewfileManager
             /// Delete the brewfile
             try? FileManager.default.removeItem(at: brewfileLocation)
 
-            return brewfileContents
+            return .init(text: brewfileContents)
         }
         catch let brewfileReadingError
         {

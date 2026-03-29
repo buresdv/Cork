@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UniformTypeIdentifiers
 
+/*
 struct StringFile: FileDocument
 {
     static var readableContentTypes: [UTType]
@@ -75,3 +76,5 @@ struct DataFile: FileDocument
         return FileWrapper(regularFileWithContents: data)
     }
 }
+
+*/

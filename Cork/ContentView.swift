@@ -14,6 +14,7 @@ import CorkTerminalFunctions
 import Defaults
 import FactoryKit
 import SwiftUI
+import CorkFeature_Brewfiles
 
 struct ContentView: View, Sendable
 {
@@ -33,6 +34,8 @@ struct ContentView: View, Sendable
 
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.navigationManager) var navigationManager
+    
+    @InjectedObservable(\.brewfileManager) var brewfileManager
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(TapTracker.self) var tapTracker: TapTracker
@@ -436,7 +439,7 @@ private extension View
                     SudoRequiredForRemovalSheet()
 
                 case .brewfileExport:
-                    BrewfileExportProgressView()
+                    BrewfileManager.BrewfileExportStage.exporting
 
                 case .brewfileImport:
                     BrewfileImportProgressView()
@@ -447,7 +450,7 @@ private extension View
                     case false:
                         MaintenanceView()
                     case true:
-                        MaintenanceView(shouldPurgeCache: false, shouldUninstallOrphans: false, shouldPerformHealthCheck: false, forcedOptions: true)
+                        MaintenanceView()
                     }
                 }
             }

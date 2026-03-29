@@ -153,6 +153,10 @@ struct StartPage: View
 
                 ButtonBottomRow
                 {
+                    #if DEBUG
+                    BrewfileIconProxy(brewbak: .init(text: "tap: marsanne/cask"))
+                    #endif
+                    
                     Spacer()
 
                     OpenMaintenanceSheetButton(appState: appState, labelType: .openMaintenanceSheet)
