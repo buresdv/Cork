@@ -22,7 +22,7 @@ public struct BrewfileIconProxy: View
         {
             Image(nsImage: NSWorkspace.shared.icon(for: .brewbak))
                 .resizable()
-                .frame(width: 32, height: 32)
+                .frame(width: 50, height: 50)
 
             Text("backup.brewbak-file.name")
                 .font(.caption)

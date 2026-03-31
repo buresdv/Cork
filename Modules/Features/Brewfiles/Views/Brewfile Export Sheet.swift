@@ -7,15 +7,25 @@
 
 import FactoryKit
 import SwiftUI
+import CorkShared
 
 public struct BrewfileExportSheet: View
 {
     @InjectedObservable(\.brewfileManager) var brewfileManager: BrewfileManager
 
+    public init()
+    {
+        brewfileManager.exportStage = .exporting
+    }
+    
     public var body: some View
     {
-        brewfileManager.exportStage.body
-            .padding()
+        NavigationStack
+        {
+            brewfileManager.exportStage.body
+                .padding()
+                .navigationTitle("brewfile.export.title")
+        }
     }
 }
 
@@ -37,6 +47,7 @@ struct ExportingView: View
         }
     }
 
+    @MainActor
     func performStageAction() async
     {
         do
@@ -47,6 +58,7 @@ struct ExportingView: View
         }
         catch let brewfileExportError
         {
+            AppConstants.shared.logger.error("Caught error from export function: \(brewfileExportError)")
             brewfileManager.exportStage = .erroredOut(withError: brewfileExportError)
         }
     }
@@ -54,11 +66,33 @@ struct ExportingView: View
 
 struct FinishedView: View
 {
+    @Environment(\.dismiss) var dismiss: DismissAction
+    
     let brewbakFile: BrewbakFile
 
     var body: some View
     {
-        BrewfileIconProxy(brewbak: brewbakFile)
+        HStack(alignment: .top, spacing: 10)
+        {
+            BrewfileIconProxy(brewbak: brewbakFile)
+            
+            VStack(alignment: .leading)
+            {
+                Text("brewfile.export.success.title")
+                    .font(.headline)
+                Text("brewfile.export.success.instructions")
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button {
+                    dismiss()
+                } label: {
+                    Text("action.close")
+                }
+
+            }
+        }
     }
 }
 
@@ -68,14 +102,35 @@ struct ErroredOutView: View
 
     var body: some View
     {
-        switch error
+        
+        HStack(alignment: .top, spacing: 10)
         {
-        case .couldNotDetermineWorkingDirectory:
-            Text(BrewfileManager.BrewfileDumpingError.couldNotDetermineWorkingDirectory.localizedDescription)
-        case .errorWhileDumpingBrewfile(let error):
-            Text(error)
-        case .couldNotReadBrewfile(let error):
-            Text(error)
+            Image(systemName: "xmark.seal")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .foregroundColor(.secondary)
+
+            VStack(alignment: .leading)
+            {
+                Text("error.brewfile.export.could-not-dump")
+                    .font(.headline)
+                
+                switch error
+                {
+                case .couldNotDetermineWorkingDirectory:
+                    Text(BrewfileManager.BrewfileDumpingError.couldNotDetermineWorkingDirectory.localizedDescription)
+                case .errorWhileDumpingBrewfile(let errors):
+                    List(errors, id: \.self)
+                    { error in
+                        Text(error)
+                    }
+                    .listStyle(.bordered)
+                    .alternatingRowBackgrounds()
+                    .frame(minHeight: 200)
+                case .couldNotReadBrewfile(let error):
+                    Text(error)
+                }
+            }
         }
     }
 }

@@ -439,7 +439,7 @@ private extension View
                     SudoRequiredForRemovalSheet()
 
                 case .brewfileExport:
-                    BrewfileManager.BrewfileExportStage.exporting
+                    BrewfileExportSheet()
 
                 case .brewfileImport:
                     BrewfileImportProgressView()

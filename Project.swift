@@ -210,6 +210,9 @@ let corkFeature_brewfiles: ProjectDescription.Target = .target(
     sources: [
         "Modules/Features/Brewfiles/**/*.swift"
     ],
+    resources: [
+        "Cork/Localizable.xcstrings"
+    ],
     dependencies: [
         .target(corkSharedTarget),
         .target(corkModelsTarget),

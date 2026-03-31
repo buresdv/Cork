@@ -77,14 +77,14 @@ public extension [TerminalOutput]
 public extension [TerminalOutput]
 {
     /// Whether to look for the particular string in outputs or errors
-    enum ContainsLookupType
+    public enum ContainsLookupType
     {
         case standardOutputs
         case standardErrors
     }
 
     /// Return a boolean value that indicates whether a String is present in the specified output type for this ``TerminalOutput`` array
-    func contains(
+    public func contains(
         _ searchString: String,
         in outputTypes: ContainsLookupType...
     ) -> Bool

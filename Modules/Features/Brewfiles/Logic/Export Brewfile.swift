@@ -14,7 +14,9 @@ public extension BrewfileManager
 {
     enum BrewfileDumpingError: LocalizedError
     {
-        case couldNotDetermineWorkingDirectory, errorWhileDumpingBrewfile(error: String), couldNotReadBrewfile(error: String)
+        case couldNotDetermineWorkingDirectory
+        case errorWhileDumpingBrewfile(errors: [String])
+        case couldNotReadBrewfile(error: String)
 
         public var errorDescription: String?
         {
@@ -22,8 +24,8 @@ public extension BrewfileManager
             {
             case .couldNotDetermineWorkingDirectory:
                 return String(localized: "error.brewfile.export.could-not-determine-working-directory")
-            case .errorWhileDumpingBrewfile(let error):
-                return String(localized: "error.brewfile.export.could-not-dump-with-error.\(error)")
+            case .errorWhileDumpingBrewfile:
+                return String(localized: "error.brewfile.export.could-not-dump-with-error")
             case .couldNotReadBrewfile(let error):
                 return error
             }
@@ -34,46 +36,38 @@ public extension BrewfileManager
     @MainActor
     func exportBrewfile() async throws(BrewfileDumpingError) -> BrewbakFile
     {
-        let brewfileParentLocation: URL = URL.temporaryDirectory
-
-        let pathRawOutput: [TerminalOutput] = await shell(URL(string: "/bin/pwd")!, ["-L"])
-
-        let brewfileDumpingResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "-f", "dump"], workingDirectory: brewfileParentLocation)
-
-        /// Throw an error if the working directory could not be determined
-        if pathRawOutput.containsErrors
-        {
-            throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
-        }
+        let brewfileParentLocation: URL = URL.temporaryDirectory.resolvingSymlinksInPath()
         
-        guard let finalPathOutput: String = pathRawOutput.standardOutputs.first else
-        {
-            throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
-        }
+        let finalBrewfileLocation: URL = brewfileParentLocation.appendingPathComponent("Brewfile", conformingTo: .fileURL)
+        
+        AppConstants.shared.logger.info("Brewfile parent location: \(brewfileParentLocation)")
+        
+        let brewfileDumpingResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["bundle", "dump", "--file", finalBrewfileLocation.path])
 
-        /// Throw an error if the working directory is so fucked up it's unusable
-        guard let workingDirectory: URL = URL(string: finalPathOutput.trimmingCharacters(in: .whitespacesAndNewlines)) else
+        guard !brewfileDumpingResult.contains("Error", in: .standardErrors, .standardOutputs) else
         {
-            throw BrewfileDumpingError.couldNotDetermineWorkingDirectory
+            AppConstants.shared.logger.error("There was an error in the dumping result")
+            
+            throw BrewfileDumpingError.errorWhileDumpingBrewfile(errors: brewfileDumpingResult.standardErrors)
         }
-
-        if brewfileDumpingResult.standardErrors.contains("(E|e)rror")
-        {
-            throw BrewfileDumpingError.errorWhileDumpingBrewfile(error: brewfileDumpingResult.standardErrors.formatted(.list(type: .and)))
-        }
-
-        AppConstants.shared.logger.info("Path: \(workingDirectory.path(), privacy: .auto)")
 
         print("Brewfile dumping result: \(brewfileDumpingResult)")
 
-        let brewfileLocation: URL = brewfileParentLocation.appendingPathComponent("Brewfile", conformingTo: .fileURL)
-
+        let doesBrewfileExist: Bool = FileManager.default.fileExists(atPath: finalBrewfileLocation.path())
+        
+        AppConstants.shared.logger.info("Does brewfile exist an expected location? \(doesBrewfileExist)")
+        
         do
         {
-            let brewfileContents: String = try String(contentsOf: brewfileLocation)
+            let brewfileContents: String = try String(contentsOf: finalBrewfileLocation)
 
             /// Delete the brewfile
-            try? FileManager.default.removeItem(at: brewfileLocation)
+            do
+            {
+                try FileManager.default.removeItem(at: finalBrewfileLocation)
+            } catch let tempBrewfileDeletionError {
+                AppConstants.shared.logger.error("Fialed while deleting old brewfile: \(tempBrewfileDeletionError)")
+            }
 
             return .init(text: brewfileContents)
         }
