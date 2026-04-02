@@ -5,51 +5,82 @@
 //  Created by David Bureš on 13.02.2023.
 //
 
-import SwiftUI
 import CorkModels
 import FactoryKit
+import SwiftUI
 
-enum MaintenanceSteps
-{
-    case ready, maintenanceRunning, finished
-}
+typealias MaintenanceResults = MaintenanceFinishedView.MaintenanceResults
 
 struct MaintenanceView: View
 {
+    enum MaintenanceStage
+    {
+        case ready, maintenanceRunning, finished(results: MaintenanceResults)
+
+        var isDismissable: Bool
+        {
+            switch self
+            {
+            case .ready:
+                return true
+            case .maintenanceRunning:
+                return false
+            case .finished:
+                return true
+            }
+        }
+
+        var shouldShowTitle: Bool
+        {
+            switch self
+            {
+            case .ready:
+                return true
+            case .maintenanceRunning:
+                return false
+            case .finished:
+                return true
+            }
+        }
+    }
+
+    enum HealthCheckStatus
+    {
+        case notRunYet
+        case noProblemsFound
+        case problemsFound(problems: [String])
+    }
+
+    @Observable
+    class SelectedMaintenanceStepsTracker
+    {
+        var shouldPurgeCache: Bool = true
+        var shouldDeleteDownloads: Bool = true
+        var shouldUninstallOrphans: Bool = true
+        var shouldPerformHealthCheck: Bool = false
+    }
+
     @Environment(\.dismiss) var dismiss: DismissAction
-    
+
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
 
-    @State var maintenanceSteps: MaintenanceSteps = .ready
+    @State var maintenanceSteps: MaintenanceStage = .ready
 
-    @State var shouldPurgeCache: Bool = true
-    @State var shouldDeleteDownloads: Bool = true
-    @State var shouldUninstallOrphans: Bool = true
-    @State var shouldPerformHealthCheck: Bool = false
+    @State private var selectedMaintenanceStepsTracker: SelectedMaintenanceStepsTracker = .init()
 
     @State var numberOfOrphansRemoved: Int = 0
 
     @State var packagesHoldingBackCachePurge: [String] = .init()
 
-    @State var brewHealthCheckFoundNoProblems: Bool = false
+    @State var brewHealthCheckStatus: HealthCheckStatus = .notRunYet
 
     @State var maintenanceFoundNoProblems: Bool = true
 
     @State var reclaimedSpaceAfterCachePurge: Int = 0
 
     @State var forcedOptions: Bool? = false
-    
-    var isDismissable: Bool
-    {
-        [.ready, .finished].contains(maintenanceSteps)
-    }
-    
-    var shouldShowTitle: Bool
-    {
-        [.ready].contains(maintenanceSteps)
-    }
-    
+
     var sheetTitle: LocalizedStringKey
     {
         switch maintenanceSteps
@@ -59,13 +90,14 @@ struct MaintenanceView: View
         case .maintenanceRunning:
             return ""
         case .finished:
-            return ""
+            return "maintenance.finished"
         }
     }
-    
+
     var dismissButtonTitle: LocalizedStringKey
     {
-        switch maintenanceSteps {
+        switch maintenanceSteps
+        {
         case .ready:
             return "action.cancel"
         case .maintenanceRunning:
@@ -79,67 +111,94 @@ struct MaintenanceView: View
     {
         NavigationStack
         {
-            SheetTemplate(isShowingTitle: shouldShowTitle)
+            SheetTemplate(isShowingTitle: maintenanceSteps.shouldShowTitle)
             {
-                Group
-                {
-                    switch maintenanceSteps
+                maintenanceStepsViews
+                    .navigationTitle(sheetTitle)
+                    .toolbar
                     {
-                    case .ready:
-                        MaintenanceReadyView(
-                            shouldUninstallOrphans: $shouldUninstallOrphans,
-                            shouldPurgeCache: $shouldPurgeCache,
-                            shouldDeleteDownloads: $shouldDeleteDownloads,
-                            shouldPerformHealthCheck: $shouldPerformHealthCheck,
-                            maintenanceSteps: $maintenanceSteps,
-                            isShowingControlButtons: true,
-                            forcedOptions: forcedOptions!
-                        )
-
-                    case .maintenanceRunning:
-                        MaintenanceRunningView(
-                            shouldUninstallOrphans: shouldUninstallOrphans,
-                            shouldPurgeCache: shouldPurgeCache,
-                            shouldDeleteDownloads: shouldDeleteDownloads,
-                            shouldPerformHealthCheck: shouldPerformHealthCheck,
-                            numberOfOrphansRemoved: $numberOfOrphansRemoved,
-                            packagesHoldingBackCachePurge: $packagesHoldingBackCachePurge,
-                            reclaimedSpaceAfterCachePurge: $reclaimedSpaceAfterCachePurge,
-                            brewHealthCheckFoundNoProblems: $brewHealthCheckFoundNoProblems,
-                            maintenanceSteps: $maintenanceSteps
-                        )
-
-                    case .finished:
-                        MaintenanceFinishedView(
-                            shouldUninstallOrphans: shouldUninstallOrphans,
-                            shouldPurgeCache: shouldPurgeCache,
-                            shouldDeleteDownloads: shouldDeleteDownloads,
-                            shouldPerformHealthCheck: shouldPerformHealthCheck,
-                            packagesHoldingBackCachePurge: packagesHoldingBackCachePurge,
-                            numberOfOrphansRemoved: numberOfOrphansRemoved,
-                            reclaimedSpaceAfterCachePurge: reclaimedSpaceAfterCachePurge,
-                            brewHealthCheckFoundNoProblems: brewHealthCheckFoundNoProblems,
-                            maintenanceFoundNoProblems: $maintenanceFoundNoProblems
-                        )
-                    }
-                }
-                .navigationTitle(sheetTitle)
-                .toolbar
-                {
-                    if isDismissable
-                    {
-                        ToolbarItem(placement: .cancellationAction)
+                        if maintenanceSteps.isDismissable
                         {
-                            Button
+                            ToolbarItem(placement: .cancellationAction)
                             {
-                                dismiss()
-                            } label: {
-                                Text(dismissButtonTitle)
+                                Button
+                                {
+                                    dismiss()
+                                } label: {
+                                    Text(dismissButtonTitle)
+                                }
+                                .keyboardShortcut(.cancelAction)
                             }
-                            .keyboardShortcut(.cancelAction)
                         }
                     }
-                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    var maintenanceStepsViews: some View
+    {
+        switch maintenanceSteps
+        {
+        case .ready:
+            MaintenanceReadyView(
+                selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker,
+                maintenanceSteps: $maintenanceSteps,
+                isShowingControlButtons: true,
+                forcedOptions: forcedOptions!
+            )
+
+        case .maintenanceRunning:
+            MaintenanceRunningView(
+                maintenanceSteps: $maintenanceSteps,
+                selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker
+            )
+
+        case .finished(let results):
+            MaintenanceFinishedView(
+                selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker,
+                maintenanceResults: results
+            )
+        }
+    }
+}
+
+extension MaintenanceView
+{
+    enum MaintenanceStep: MaintenanceActionable
+    {
+        case purgeCache
+        case deleteDownloads
+        case uninstallOrphans
+        case performHealthCheck
+
+        var actionName: LocalizedStringKey
+        {
+            switch self
+            {
+            case .purgeCache:
+                return "maintenance.steps.downloads.purge-cache"
+            case .deleteDownloads:
+                return "maintenance.steps.downloads.delete-cached-downloads"
+            case .uninstallOrphans:
+                return "maintenance.steps.packages.uninstall-orphans"
+            case .performHealthCheck:
+                return "maintenance.steps.other.health-check"
+            }
+        }
+
+        var actionInProgressName: LocalizedStringKey
+        {
+            switch self
+            {
+            case .purgeCache:
+                return "maintenance.step.purging-cache"
+            case .deleteDownloads:
+                return "maintenance.step.deleting-cached-downloads"
+            case .uninstallOrphans:
+                return "maintenance.step.removing-orphans"
+            case .performHealthCheck:
+                return "maintenance.step.running-health-check"
             }
         }
     }

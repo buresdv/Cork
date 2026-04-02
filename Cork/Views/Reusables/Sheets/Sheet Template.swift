@@ -10,9 +10,9 @@ import SwiftUI
 struct SheetTemplate<Content: View>: View
 {
     var isShowingTitle: Bool
-    
+
     @ViewBuilder var sheetContent: Content
-    
+
     var body: some View
     {
         sheetContent
@@ -21,3 +21,4 @@ struct SheetTemplate<Content: View>: View
             .frame(minWidth: 300)
     }
 }
+

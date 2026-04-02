@@ -15,12 +15,14 @@ struct MaintenancePane: View
     @Default(.default_shouldDeleteDownloads) var default_shouldDeleteDownloads: Bool
     @Default(.default_shouldPerformHealthCheck) var default_shouldPerformHealthCheck: Bool
 
-    @State var maintenanceStepsDummy: MaintenanceSteps = .ready
+    @State var maintenanceStepsDummy: MaintenanceView.MaintenanceStage = .ready
 
     var body: some View
     {
         SettingsPaneTemplate
         {
+            EmptyView()
+            /*
             VStack(alignment: .leading, spacing: 10)
             {
                 Text("settings.maintenance.default-steps")
@@ -36,6 +38,7 @@ struct MaintenancePane: View
                     enablePadding: false
                 )
             }
+             */
         }
     }
 }
