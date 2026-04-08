@@ -46,7 +46,7 @@ public extension TerminalOutput
         as _: T.Type,
         onStandardOutput: ((T.StandardCases) -> Void)? = nil,
         onErrorOutput: ((T.ErrorCases) -> Void)? = nil,
-        onUnimplementedOutput: (() -> Void)? = nil
+        onUnimplementedOutput: ((TerminalOutput) -> Void)? = nil
     )
     {
         if T.IgnoredCases.allCases.contains(where: { $0.patterns.contains(where: { description.contains($0) }) })
@@ -63,7 +63,7 @@ public extension TerminalOutput
             }
             else
             {
-                onUnimplementedOutput?()
+                onUnimplementedOutput?(self)
             }
 
         case .standardError(let string):
@@ -73,7 +73,7 @@ public extension TerminalOutput
             }
             else
             {
-                onUnimplementedOutput?()
+                onUnimplementedOutput?(self)
             }
         }
     }
@@ -88,7 +88,7 @@ public extension [TerminalOutput]
         as type: T.Type,
         onStandardOutput: ((T.StandardCases) -> Void)? = nil,
         onErrorOutput: ((T.ErrorCases) -> Void)? = nil,
-        onUnimplementedOutput: (() -> Void)? = nil
+        onUnimplementedOutput: ((TerminalOutput) -> Void)? = nil
     )
     {
         forEach
