@@ -22,6 +22,18 @@ extension UpdateProgressTracker
 
         for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
         {
+            output.match(as: UpdateProcessStages.self,
+                         onStandardOutput: { matchedStandardStage in
+                
+            },
+                         onErrorOutput: { matchedErrorStage in
+                switch matchedErrorStage
+                {
+                
+                }
+            })
+            
+            /*
             Self.UpdateProcessStages.match(output)
             { matchedStage in
                 switch matchedStage
@@ -50,6 +62,7 @@ extension UpdateProgressTracker
                     self.appConstants.logger.debug("Unimplemented match for output \(output)")
                 }
             }
+             */
         }
     }
 }

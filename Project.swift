@@ -123,7 +123,7 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
     bundleId: "eu.davidbures.cork-terminal-functions",
     deploymentTargets: .macOS("14.0.0"),
     sources: [
-        "Modules/TerminalSupport/**/*.swift"
+        .glob("Modules/TerminalSupport/**/*.swift", excluding: ["Modules/TerminalSupport/Tests/**"])
     ],
     dependencies: [
         .target(corkSharedTarget),
@@ -140,6 +140,20 @@ let corkTerminalFunctionsTarget: ProjectDescription.Target = .target(
         )
     ])
 )
+let corkTerminalFunctionsTestsTarget: ProjectDescription.Target = .target(
+    name: "CorkTerminalFunctionsTests",
+    destinations: [.mac],
+    product: .unitTests,
+    bundleId: "eu.davidbures.cork-terminal-functions-tests",
+    deploymentTargets: .macOS("14.0.0"),
+    sources: [
+        "Modules/TerminalSupport/Tests/**/*.swift"
+    ],
+    dependencies: [
+        .target(corkTerminalFunctionsTarget)  // ← depend on the compiled library, not the app
+    ],
+)
+
 
 let corkModelsTarget: ProjectDescription.Target = .target(
     name: "CorkModels",
@@ -297,8 +311,9 @@ let project = Project(
         corkIntentsTarget,
         corkNotificationsTarget,
         corkHelpTarget,
+        corkFeature_brewfiles,
         corkTestsTarget,
-        corkFeature_brewfiles
+        corkTerminalFunctionsTestsTarget
     ]
 
 )

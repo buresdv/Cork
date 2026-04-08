@@ -22,51 +22,71 @@ class UpdateProgressTracker
     
     var currentStage: UpdateProcessStages?
 
-    enum UpdateProcessStages: LocalizedStringKey, CustomStringConvertible, TerminalOutputMatchable
+    enum UpdateProcessStages: TerminalOutputMatchable
     {
-        var patterns: [String]
+        enum StandardCases: LocalizedStringKey, CustomStringConvertible, TerminalOutputCase
         {
-            switch self
+            case downloading = "update-packages.detail-stage.downloading"
+            case pouring = "update-packages.detail-stage.pouring"
+            case cleanup = "update-packages.detail-stage.cleanup"
+            case backingUp = "update-packages.detail-stage.backing-up"
+            case linking = "update-packages.detail-stage.linking"
+            
+            var patterns: [String]
             {
-            case .downloading:
-                ["Downloading"]
-            case .pouring:
-                ["Pouring"]
-            case .cleanup:
-                ["cleanup"]
-            case .backingUp:
-                ["Backing App"]
-            case .linking:
-                ["Moving App", "Linking", ""]
+                switch self
+                {
+                case .downloading:
+                    ["Downloading"]
+                case .pouring:
+                    ["Pouring"]
+                case .cleanup:
+                    ["cleanup"]
+                case .backingUp:
+                    ["Backing App"]
+                case .linking:
+                    ["Moving App", "Linking", ""]
+                }
+            }
+            
+            var description: String
+            {
+                switch self
+                {
+                case .downloading:
+                    return "Downloading"
+                case .pouring:
+                    return "Pouring"
+                case .cleanup:
+                    return "Cleanup"
+                case .backingUp:
+                    return "Backing Up"
+                case .linking:
+                    return "Linking"
+                }
             }
         }
-
-        var isError: Bool
-        {
-            return false
-        }
-
-        case downloading = "update-packages.detail-stage.downloading"
-        case pouring = "update-packages.detail-stage.pouring"
-        case cleanup = "update-packages.detail-stage.cleanup"
-        case backingUp = "update-packages.detail-stage.backing-up"
-        case linking = "update-packages.detail-stage.linking"
-
+        
+        typealias ErrorCases = ExpectsNoErrors
+        typealias IgnoredCases = IgnoresNoOutputs
+    }
+    
+    /*
+    enum IndividialPackageUpdatingStage: LocalizedStringKey, CustomStringConvertible, TerminalOutputMatchable
+    {
+        
         var description: String
-        {
-            switch self
-            {
-            case .downloading:
-                return "Downloading"
-            case .pouring:
-                return "Pouring"
-            case .cleanup:
-                return "Cleanup"
-            case .backingUp:
-                return "Backing Up"
-            case .linking:
-                return "Linkling"
-            }
-        }
+        
+        var patterns: [String]
+        
+        var isError: Bool
+        
+        
+    }
+     */
+    
+    enum UpdateProcessError: LocalizedError
+    {
+        
     }
 }
