@@ -57,9 +57,9 @@ struct CasksSection: View
                         case .alphabetically:
                             return firstPackage.name(withPrecision: .precise) < secondPackage.name(withPrecision: .precise)
                         case .byInstallDate:
-                            return firstPackage.installedOn! < secondPackage.installedOn!
+                            return (firstPackage.installedOn ?? .distantPast) < (secondPackage.installedOn ?? .distantPast)
                         case .bySize:
-                            return firstPackage.sizeInBytes! > secondPackage.sizeInBytes!
+                            return (firstPackage.sizeInBytes ?? 0) > (secondPackage.sizeInBytes ?? 0)
                         }
                     }))
                     { cask in
