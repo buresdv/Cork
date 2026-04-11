@@ -74,7 +74,6 @@ struct PackageModificationButtons: View
 
                                         try await brewPackagesTracker.uninstallSelectedPackage(
                                             package: package,
-                                            cachedDownloadsTracker: cachedDownloadsTracker,
                                             appState: appState,
                                             outdatedPackagesTracker: outdatedPackagesTracker,
                                             shouldRemoveAllAssociatedFiles: false

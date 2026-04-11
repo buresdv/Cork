@@ -126,7 +126,31 @@ public class BrewPackagesTracker
             installedCasks.insert(.success(package))
         }
     }
-    
+
+    public func removePackageFromTracker(_ package: BrewPackage)
+    {
+        if package.type == .formula
+        {
+            if let match = installedFormulae.first(where: {
+                if case .success(let existing) = $0 { return existing.id == package.id }
+                return false
+            })
+            {
+                installedFormulae.remove(match)
+            }
+        }
+        else
+        {
+            if let match = installedCasks.first(where: {
+                if case .success(let existing) = $0 { return existing.id == package.id }
+                return false
+            })
+            {
+                installedCasks.remove(match)
+            }
+        }
+    }
+
     // MARK: - App adoption
     /// All adoptable apps, including those that are excluded
     public var adoptableApps: [AdoptableApp] = .init()
