@@ -15,7 +15,6 @@ public extension BrewPackagesTracker
     @MainActor
     func uninstallSelectedPackage(
         package: BrewPackage,
-        cachedDownloadsTracker: CachedDownloadsTracker,
         appState: AppState,
         outdatedPackagesTracker: OutdatedPackagesTracker,
         shouldRemoveAllAssociatedFiles: Bool
@@ -80,24 +79,17 @@ public extension BrewPackagesTracker
         }
         else
         {
-            do
+            if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
             {
-                try await self.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
-                
-                if !uninstallCommandOutput.standardError.isEmpty && uninstallCommandOutput.standardError.contains("Error:")
-                {
-                    AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
-                    
-                    appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name(withPrecision: .precise), errorDetails: uninstallCommandOutput.standardError))
-                }
-                else
-                {
-                    AppConstants.shared.logger.info("Uninstalling can proceed")
-                }
+                AppConstants.shared.logger.error("There was a serious uninstall error: \(uninstallCommandOutput.standardError)")
+
+                appState.showAlert(errorToShow: .fatalPackageUninstallationError(packageName: package.name(withPrecision: .precise), errorDetails: uninstallCommandOutput.standardError))
             }
-            catch let synchronizationError
+            else
             {
-                appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
+                AppConstants.shared.logger.info("Uninstalling can proceed")
+
+                self.removePackageFromTracker(package)
             }
         }
 

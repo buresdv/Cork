@@ -654,7 +654,6 @@ private extension View
                     {
                         try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToUninstall,
-                            cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
                             outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: false
@@ -670,7 +669,6 @@ private extension View
                     {
                         try await view.brewPackagesTracker.uninstallSelectedPackage(
                             package: packageToPurge,
-                            cachedDownloadsTracker: view.cachedDownloadsTracker,
                             appState: view.appState,
                             outdatedPackagesTracker: view.outdatedPackagesTracker,
                             shouldRemoveAllAssociatedFiles: true
