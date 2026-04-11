@@ -106,22 +106,35 @@ public func shell(
         task.currentDirectoryURL = workingDirectory
     }
     
-    let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
-    
-    finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
-    
+    // MARK: - Configure sudo authentication
+
+    /// When Touch ID for sudo is enabled, provide a PTY so sudo goes through PAM
+    /// (which triggers Touch ID) instead of using the askpass helper
+    var ptyHandles: (master: FileHandle, slave: FileHandle)?
+
+    if isTouchIDSudoEnabled(), let pty = createPseudoTerminal()
+    {
+        task.standardInput = pty.slave
+        ptyHandles = pty
+    }
+    else
+    {
+        let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
+        finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
+    }
+
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
-    
+
     /// Filter out empty things from the arguments so they don't fuck it up
     task.arguments = arguments.filter({ $0 != "" })
-    
+
     let pipe: Pipe = .init()
     task.standardOutput = pipe
-    
+
     let errorPipe: Pipe = .init()
     task.standardError = errorPipe
-    
+
     do
     {
         try task.run()
@@ -130,7 +143,7 @@ public func shell(
     {
         AppConstants.shared.logger.error("\(String(describing: error))")
     }
-    
+
     return AsyncStream
     { continuation in
         pipe.fileHandleForReading.readabilityHandler = { handler in
@@ -139,29 +152,32 @@ public func shell(
             {
                 return
             }
-            
+
             guard !standardOutput.isEmpty
             else
             {
                 return
             }
-            
+
             continuation.yield(.standardOutput(standardOutput))
         }
-        
+
         errorPipe.fileHandleForReading.readabilityHandler = { handler in
             guard let errorOutput = String(data: handler.availableData, encoding: .utf8)
             else
             {
                 return
             }
-            
+
             guard !errorOutput.isEmpty else { return }
-            
+
             continuation.yield(.standardError(errorOutput))
         }
-        
-        task.terminationHandler = { _ in
+
+        task.terminationHandler = { [ptyHandles] _ in
+            /// Close PTY file handles when the process exits
+            ptyHandles?.master.closeFile()
+            ptyHandles?.slave.closeFile()
             continuation.finish()
         }
     }
@@ -231,13 +247,26 @@ public func shell(
         task.currentDirectoryURL = workingDirectory
     }
 
-    let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
+    // MARK: - Configure sudo authentication
 
-    finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
+    /// When Touch ID for sudo is enabled, provide a PTY so sudo goes through PAM
+    /// (which triggers Touch ID) instead of using the askpass helper
+    var ptyHandles: (master: FileHandle, slave: FileHandle)?
+
+    if isTouchIDSudoEnabled(), let pty = createPseudoTerminal()
+    {
+        task.standardInput = pty.slave
+        ptyHandles = pty
+    }
+    else
+    {
+        let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
+        finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
+    }
 
     task.environment = finalEnvironment
     task.launchPath = launchPath.absoluteString
-    
+
     /// Filter out empty things from the arguments so they don't fuck it up
     task.arguments = arguments.filter({ $0 != "" })
 
@@ -286,7 +315,10 @@ public func shell(
             continuation.yield(.standardError(errorOutput))
         }
 
-        task.terminationHandler = { _ in
+        task.terminationHandler = { [ptyHandles] _ in
+            /// Close PTY file handles when the process exits
+            ptyHandles?.master.closeFile()
+            ptyHandles?.slave.closeFile()
             continuation.finish()
         }
     }
