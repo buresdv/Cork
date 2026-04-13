@@ -1,6 +1,6 @@
 ## Mandatory Information
  
-### AI / LLM usage
+### AI / LLM Use
  
 Did you use any AIs / LLMs to create any part of this pull request?
  
