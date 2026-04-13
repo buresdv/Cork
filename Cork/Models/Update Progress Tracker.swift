@@ -11,7 +11,7 @@ import FactoryKit
 import CorkTerminalFunctions
 
 @Observable
-class UpdateProgressTracker
+public class UpdateProgressTracker
 {
     @Injected(\.appConstants) @ObservationIgnored var appConstants
     
@@ -20,7 +20,7 @@ class UpdateProgressTracker
 
     var realTimeOutput: [RealTimeTerminalLine] = .init()
     
-    var currentStage: UpdateProcessStages?
+    var currentStage: UpdateProcessStages.StandardCases?
 
     enum UpdateProcessStages: TerminalOutputMatchable
     {

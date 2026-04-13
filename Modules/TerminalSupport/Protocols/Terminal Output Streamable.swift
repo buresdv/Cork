@@ -5,64 +5,75 @@
 //  Created by David Bureš - P on 19.02.2026.
 //
 
-import Foundation
 import Defaults
+import Foundation
+import SwiftUI
 
-/*
 /// Protocol which adds support for broadcasting real-time outputs of terminal commands
 public protocol TerminalOutputStreamable: Observable
 {
-    /// Whether real time terminal outputs should be streamed
-    var shouldShowRealTimeOutputs: Bool { get }
-    
-    /// Attach to a process and stream its real-time output
-    func realTimeOutput(process: Process, processPipe: Pipe, errorPipe: Pipe) async throws -> AsyncStream<TerminalOutput>
+    /// Collect the real-time output
+    var outputs: [TerminalOutput] { get set }
+
+    /// Real-time filtered standard outputs
+    var standardOutputs: [TerminalOutput] { get async }
+
+    /// Real-time filtered standard errors
+    var standardErrors: [TerminalOutput] { get async }
+
+    /// Add an output to the output tracker
+    func insertOutput(_: TerminalOutput)
+
+    associatedtype StreamedOutputsDisplay: View
+    /// View for showing the terminal outputs
+    var streamedOutputsDisplay: StreamedOutputsDisplay { get }
+
+    /// Whether the output is expanded
+    var isStreamedOutputExpanded: Bool { get set }
 }
 
 public extension TerminalOutputStreamable
 {
-    static var shouldShowRealTimeOutputs: Bool
+    mutating func insertOutput(_ terminalOutput: TerminalOutput)
     {
-        return Defaults[.showRealTimeTerminalOutputOfOperations]
+        self.outputs.append(terminalOutput)
     }
-    
-    static func realTimeOutput(process: Process, processPipe: Pipe, errorPipe: Pipe) async throws -> AsyncStream<TerminalOutput>
+}
+
+// MARK: - View for showing outputs
+
+public extension TerminalOutputStreamable
+{
+    @MainActor
+    var streamedOutputsDisplay: some View
     {
-        return AsyncStream
-        { continuation in
-            processPipe.fileHandleForReading.readabilityHandler =
-            { handler in
-                guard let standardOutput = String(data: handler.availableData, encoding: .utf8)
-                else
-                {
-                    return
+        Group
+        {
+            if Defaults[.showRealTimeTerminalOutputOfOperations]
+            {
+                ScrollViewReader
+                { proxy in
+                    List
+                    {
+                        ForEach(outputs)
+                        { line in
+                            Text(line.description)
+                                .id(line.id)
+                                .lineLimit(nil)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                    .frame(minHeight: 200)
+                    .listStyle(.bordered)
+                    .onChange(of: outputs)
+                    { _, newValue in
+                        if let last = newValue.last
+                        {
+                            proxy.scrollTo(last.id, anchor: .bottom)
+                        }
+                    }
                 }
-                
-                guard !standardOutput.isEmpty
-                else
-                {
-                    return
-                }
-                
-                continuation.yield(.standardOutput(standardOutput))
-            }
-            
-            errorPipe.fileHandleForReading.readabilityHandler = { handler in
-                guard let errorOutput = String(data: handler.availableData, encoding: .utf8)
-                else
-                {
-                    return
-                }
-                
-                guard !errorOutput.isEmpty else { return }
-                
-                continuation.yield(.standardError(errorOutput))
-            }
-            
-            process.terminationHandler = { _ in
-                continuation.finish()
             }
         }
     }
 }
-*/

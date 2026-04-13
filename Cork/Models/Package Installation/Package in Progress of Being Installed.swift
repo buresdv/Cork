@@ -7,11 +7,12 @@
 
 import Foundation
 import CorkModels
+import CorkTerminalFunctions
 
 struct RealTimeTerminalLine: Identifiable, Hashable, Equatable
 {
     let id: UUID = .init()
-    let line: String
+    let line: TerminalOutput
 }
 
 struct PackageInProgressOfBeingInstalled: Identifiable

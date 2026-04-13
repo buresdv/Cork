@@ -17,7 +17,7 @@ struct CheckingForUpdatesStateView: View
     @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
     @Binding var packageUpdatingStage: PackageUpdatingStage
 
-    @Binding var updateAvailability: PackageUpdateAvailability
+    @Binding var updateAvailability: OutdatedPackagesTracker.PackageUpdateAvailability
 
     @Binding var isShowingRealTimeTerminalOutput: Bool
 

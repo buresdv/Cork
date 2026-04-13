@@ -9,6 +9,7 @@ import SwiftUI
 import CorkShared
 import Defaults
 
+/*
 struct LiveTerminalOutputView: View
 {
     @Default(.showRealTimeTerminalOutputOfOperations) var showRealTimeTerminalOutputOfOperations: Bool
@@ -68,3 +69,4 @@ struct LiveTerminalOutputView: View
         }
     }
 }
+*/

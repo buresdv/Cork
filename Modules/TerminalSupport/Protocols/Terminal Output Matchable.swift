@@ -37,6 +37,15 @@ public enum IgnoresNoOutputs: TerminalOutputCase
     public var patterns: [String] { [] }
 }
 
+/// Just pass the output itself without doing any matching
+public struct PassesOutputWithoutMatching: TerminalOutputCase
+{
+    public let string: String
+    public var patterns: [String] { [] }
+    
+    public static var allCases: [PassesOutputWithoutMatching] { [] }
+}
+
 // MARK: - Matching on Single Output
 
 public extension TerminalOutput
@@ -57,7 +66,11 @@ public extension TerminalOutput
         switch self
         {
         case .standardOutput(let string):
-            if let matched = T.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            if T.StandardCases.self == PassesOutputWithoutMatching.self
+            {
+                onUnimplementedOutput?(self)
+            }
+            else if let matched = T.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
             {
                 onStandardOutput?(matched)
             }
@@ -67,7 +80,10 @@ public extension TerminalOutput
             }
 
         case .standardError(let string):
-            if let matched = T.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            if T.ErrorCases.self == PassesOutputWithoutMatching.self
+            {
+                onUnimplementedOutput?(self)
+            } else if let matched = T.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
             {
                 onErrorOutput?(matched)
             }

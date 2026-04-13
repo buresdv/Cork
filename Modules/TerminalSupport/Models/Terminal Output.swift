@@ -7,8 +7,13 @@
 
 import Foundation
 
-public enum TerminalOutput: Sendable, CustomStringConvertible
+public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
 {
+    public var id: Self
+    {
+        return self
+    }
+
     case standardOutput(String)
     case standardError(String)
 
