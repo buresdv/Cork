@@ -28,15 +28,12 @@ struct CheckingForUpdatesStateView: View
             Text("update-packages.updating.checking")
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
-            LiveTerminalOutputView(
-                lineArray: Bindable(updateProgressTracker).realTimeOutput,
-                isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput,
-                forceKeepTerminalOutputInMemory: true
-            )
+            
+            updateProgressTracker.streamedOutputsDisplay
         }
         .task
         {
-            updateAvailability = await refreshPackages(updateProgressTracker, outdatedPackagesTracker: outdatedPackagesTracker)
+            updateAvailability = await outdatedPackagesTracker.refreshPackages(updateProgressTracker: updateProgressTracker)
 
             AppConstants.shared.logger.debug("Update availability result: \(updateAvailability.description, privacy: .public)")
 

@@ -63,7 +63,7 @@ struct InstallationTerminatedUnexpectedlyView: View
             {
                 ForEach(usableLiveTerminalOutput)
                 { outputLine in
-                    Text(outputLine.line)
+                    Text(outputLine.line.description)
                 }
             }
             .frame(maxHeight: 100, alignment: .leading)

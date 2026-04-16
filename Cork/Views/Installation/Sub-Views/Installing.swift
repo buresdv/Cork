@@ -98,10 +98,8 @@ struct InstallingPackageView: View
                                     packageInstallationProcessStep = .installationTerminatedUnexpectedly
                                 }
                         }
-                        LiveTerminalOutputView(
-                            lineArray: $installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput,
-                            isRealTimeTerminalOutputExpanded: $isShowingRealTimeOutput
-                        )
+                        
+                        installationProgressTracker.streamedOutputsDisplay
                     }
                 }
                 .allAnimationsDisabled()

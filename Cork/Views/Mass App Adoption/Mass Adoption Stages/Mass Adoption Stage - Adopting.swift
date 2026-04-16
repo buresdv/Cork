@@ -49,15 +49,15 @@ struct MassAdoptionStage_Adopting: View
             }
             else if !massAppAdoptionTracker.unsuccessfullyAdoptedApps.isEmpty && !massAppAdoptionTracker.successfullyAdoptedApps.isEmpty
             {
-                AppConstants.shared.logger.warning("Some selected apps were adoptes successfully, some unsuccessfully")
+                AppConstants.shared.logger.warning("No selected apps were adopted successfully")
                 
-                massAppAdoptionTracker.massAdoptionStage = .finished(result: .someSuccessSomeFailure)
+                massAppAdoptionTracker.massAdoptionStage = .finished(result: .failure)
             }
             else
             {
-                AppConstants.shared.logger.error("No selected apps were adopted successfully")
+                AppConstants.shared.logger.error("Some selected apps were adoptes successfully, some unsuccessfully")
                 
-                massAppAdoptionTracker.massAdoptionStage = .finished(result: .failure)
+                massAppAdoptionTracker.massAdoptionStage = .finished(result: .someSuccessSomeFailure)
             }
         }
         .onDisappear

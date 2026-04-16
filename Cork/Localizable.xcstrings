@@ -42407,6 +42407,19 @@
         }
       }
     },
+    "mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %1$@ is required, but version %2$@ is installed"
+          }
+        }
+      }
+    },
+    "mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected" : {
+
+    },
     "mass-adoption.failed.message" : {
       "comment" : "Message displayed in the body of the view when the mass adoption process fails.",
       "localizations" : {

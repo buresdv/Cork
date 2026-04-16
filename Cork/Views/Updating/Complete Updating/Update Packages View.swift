@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import CorkModels
 
 struct UpdatePackagesView: View
 {
     @State var packageUpdatingStage: PackageUpdatingStage = .updating
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
 
-    @State var updateAvailability: PackageUpdateAvailability = .updatesAvailable
+    @State var updateAvailability: OutdatedPackagesTracker.PackageUpdateAvailability = .updatesAvailable
 
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 

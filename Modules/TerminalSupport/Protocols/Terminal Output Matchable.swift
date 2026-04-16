@@ -31,6 +31,12 @@ public enum ExpectsNoErrors: TerminalOutputCase
     public var patterns: [String] { [] }
 }
 
+/// Use as `MatchesNoStandardOutputs` for matchables that have no standard cases
+public enum MatchesNoStandardOutputs: TerminalOutputCase
+{
+    public var patterns: [String] { [] }
+}
+
 /// Use as `IgnoresNoOutputs` for matchables that have no ignored cases
 public enum IgnoresNoOutputs: TerminalOutputCase
 {
@@ -42,7 +48,7 @@ public struct PassesOutputWithoutMatching: TerminalOutputCase
 {
     public let string: String
     public var patterns: [String] { [] }
-    
+
     public static var allCases: [PassesOutputWithoutMatching] { [] }
 }
 
@@ -51,45 +57,39 @@ public struct PassesOutputWithoutMatching: TerminalOutputCase
 public extension TerminalOutput
 {
     /// Match a single streamed output line against a ``TerminalOutputMatchable`` type
-    func match<T: TerminalOutputMatchable>(
+    @discardableResult
+    func match<T: TerminalOutputMatchable, Result>(
         as _: T.Type,
-        onStandardOutput: ((T.StandardCases) -> Void)? = nil,
-        onErrorOutput: ((T.ErrorCases) -> Void)? = nil,
-        onUnimplementedOutput: ((TerminalOutput) -> Void)? = nil
-    )
+        onStandardOutput: ((T.StandardCases) -> Result?)? = nil,
+        onErrorOutput: ((T.ErrorCases) -> Result?)? = nil,
+        onUnimplementedOutput: ((TerminalOutput) -> Result?)? = nil
+    ) -> Result?
     {
         if T.IgnoredCases.allCases.contains(where: { $0.patterns.contains(where: { description.contains($0) }) })
         {
-            return
+            return nil
         }
 
         switch self
         {
         case .standardOutput(let string):
-            if T.StandardCases.self == PassesOutputWithoutMatching.self
+            if let matched = T.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
             {
-                onUnimplementedOutput?(self)
-            }
-            else if let matched = T.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
-            {
-                onStandardOutput?(matched)
+                return onStandardOutput?(matched) ?? nil
             }
             else
             {
-                onUnimplementedOutput?(self)
+                return onUnimplementedOutput?(self) ?? nil
             }
 
         case .standardError(let string):
-            if T.ErrorCases.self == PassesOutputWithoutMatching.self
+            if let matched = T.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
             {
-                onUnimplementedOutput?(self)
-            } else if let matched = T.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
-            {
-                onErrorOutput?(matched)
+                return onErrorOutput?(matched) ?? nil
             }
             else
             {
-                onUnimplementedOutput?(self)
+                return onUnimplementedOutput?(self) ?? nil
             }
         }
     }
@@ -97,24 +97,38 @@ public extension TerminalOutput
 
 // MARK: - Matching on Batched Output
 
+public struct BatchedTerminalOutputMatchResult<T: TerminalOutputMatchable>
+{
+    public let standardOutputs: [T.StandardCases]
+    public let errorOutputs: [T.ErrorCases]
+    public let unimplementedOutputs: [TerminalOutput]
+}
+
 public extension [TerminalOutput]
 {
     /// Match a full batched output against a ``TerminalOutputMatchable`` type
     func match<T: TerminalOutputMatchable>(
-        as type: T.Type,
-        onStandardOutput: ((T.StandardCases) -> Void)? = nil,
-        onErrorOutput: ((T.ErrorCases) -> Void)? = nil,
-        onUnimplementedOutput: ((TerminalOutput) -> Void)? = nil
-    )
+        as type: T.Type
+    ) -> BatchedTerminalOutputMatchResult<T>
     {
+        var standardOutputs: [T.StandardCases] = []
+        var errorOutputs: [T.ErrorCases] = []
+        var unimplementedOutputs: [TerminalOutput] = []
+
         forEach
         {
             $0.match(
                 as: type,
-                onStandardOutput: onStandardOutput,
-                onErrorOutput: onErrorOutput,
-                onUnimplementedOutput: onUnimplementedOutput
+                onStandardOutput: { standardOutputs.append($0); return nil },
+                onErrorOutput: { errorOutputs.append($0); return nil },
+                onUnimplementedOutput: { unimplementedOutputs.append($0); return nil }
             )
         }
+
+        return .init(
+            standardOutputs: standardOutputs,
+            errorOutputs: errorOutputs,
+            unimplementedOutputs: unimplementedOutputs
+        )
     }
 }

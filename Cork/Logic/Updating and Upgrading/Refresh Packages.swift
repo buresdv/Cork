@@ -30,40 +30,61 @@ public extension OutdatedPackagesTracker
     
     enum PackageRefreshMatcher: TerminalOutputMatchable
     {
-        enum StandardCases: TerminalOutputCase
+        public enum StandardCases: TerminalOutputCase
         {
-            case updatingHomebrew
             case alreadyUpToDate
-            
-            var patterns: [String]
+            case other
+
+            public var patterns: [String]
             {
-                switch self {
-                case .updatingHomebrew:
-                    ["==> Updating Homebrew"]
+                switch self
+                {
                 case .alreadyUpToDate:
                     ["Already up-to-date"]
+                case .other:
+                    // Catch-all — any unrecognised stdout still increments progress
+                    [""]
                 }
             }
         }
-        
-        enum ErrorCases: TerminalOutputCase
+
+        public enum ErrorCases: TerminalOutputCase
         {
-            case error
-            
-            var patterns: [String]
+            case anotherUpdateInProgress
+            case emptyError
+            case updatedTap
+            case alreadyUpToDate
+            case noChecksumDefined
+
+            public var patterns: [String]
             {
-                switch self {
-                case .error:
+                switch self
+                {
+                case .anotherUpdateInProgress:
+                    ["Another active Homebrew update process is already in progress"]
+                case .emptyError:
                     ["Error: "]
+                case .updatedTap:
+                    ["Updated"]
+                case .alreadyUpToDate:
+                    ["Already up-to-date"]
+                case .noChecksumDefined:
+                    ["No checksum defined"]
                 }
             }
         }
-        
-        enum IgnorableCases: TerminalOutputCase
+
+        public enum IgnoredCases: TerminalOutputCase
         {
-            var patterns: [String]
+            case updatingHomebrew
+
+            public var patterns: [String]
             {
-                ["Another active Homebrew update process is already in progress", "No checksum defined"]
+                switch self
+                {
+                case .updatingHomebrew:
+                    ["==> Updating Homebrew..."]
+                }
             }
         }
     }
@@ -77,68 +98,43 @@ public extension OutdatedPackagesTracker
 
         for await output in shell(AppConstants.shared.brewExecutablePath, ["update"])
         {
+            AppConstants.shared.logger.log("Update function output: \(output.description, privacy: .public)")
+
             if showRealTimeTerminalOutputs
             {
                 updateProgressTracker.realTimeOutput.append(RealTimeTerminalLine(line: output))
             }
-            
-            output.match(as: PackageRefreshMatcher.self)
-            { matchedStandardCase in
-                switch matchedStandardCase
-                {
-                case .updatingHomebrew:
-                    
-                }
-            } onErrorOutput: { matchedErrorCase in
-                <#code#>
-            } onUnimplementedOutput: { unimplementedOutput in
-                <#code#>
-            }
 
-            
-            switch output
-            {
-            case .standardOutput(let outputLine):
-                AppConstants.shared.logger.log("Update function output: \(outputLine, privacy: .public)")
+            if let result: PackageUpdateAvailability = output.match(as: PackageRefreshMatcher.self,
+                onStandardOutput: { matched in
+                    updateProgressTracker.updateProgress += 0.1
 
-                if showRealTimeTerminalOutputs
-                {
-                    updateProgressTracker.realTimeOutput.append(RealTimeTerminalLine(line: outputLine))
-                }
-
-                updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
-
-                if self.allDisplayableOutdatedPackages.isEmpty
-                {
-                    if outputLine.starts(with: "Already up-to-date")
+                    switch matched
                     {
+                    case .alreadyUpToDate:
+                        guard self.allDisplayableOutdatedPackages.isEmpty
+                        else { return nil }
+
                         AppConstants.shared.logger.info("Inside update function: No updates available")
                         return .noUpdatesAvailable
+
+                    case .other:
+                        return nil
                     }
-                }
-
-            case .standardError(let errorLine):
-
-                if showRealTimeTerminalOutputs
-                {
-                    updateProgressTracker.realTimeOutput.append(RealTimeTerminalLine(line: errorLine))
-                }
-
-                if errorLine.starts(with: "Another active Homebrew update process is already in progress") || errorLine == "Error: " || errorLine.contains("Updated [0-9]+ tap") || errorLine == "Already up-to-date" || errorLine.contains("No checksum defined")
-                {
-                    updateProgressTracker.updateProgress = updateProgressTracker.updateProgress + 0.1
-                    AppConstants.shared.logger.log("Ignorable update function error: \(errorLine, privacy: .public)")
-
+                },
+                onErrorOutput: { matched in
+                    updateProgressTracker.updateProgress += 0.1
+                
                     return .noUpdatesAvailable
+                },
+                onUnimplementedOutput: { unimplemented in
+                    AppConstants.shared.logger.warning("Update function error: \(unimplemented.description, privacy: .public)")
+                    updateProgressTracker.errors.append("Update error: \(unimplemented.description)")
+                    return nil
                 }
-                else
-                {
-                    if !errorLine.contains("==> Updating Homebrew...")
-                    {
-                        AppConstants.shared.logger.warning("Update function error: \(errorLine, privacy: .public)")
-                        updateProgressTracker.errors.append("Update error: \(errorLine)")
-                    }
-                }
+            )
+            {
+                return result
             }
         }
         updateProgressTracker.updateProgress = Float(10) / Float(2)

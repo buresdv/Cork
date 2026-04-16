@@ -33,7 +33,7 @@ public protocol TerminalOutputStreamable: Observable
 }
 
 public extension TerminalOutputStreamable
-{
+{    
     mutating func insertOutput(_ terminalOutput: TerminalOutput)
     {
         self.outputs.append(terminalOutput)

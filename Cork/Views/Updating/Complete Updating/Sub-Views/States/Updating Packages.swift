@@ -37,10 +37,7 @@ struct UpdatingPackagesStateView: View
                 }
             }
 
-            LiveTerminalOutputView(
-                lineArray: Bindable(updateProgressTracker).realTimeOutput,
-                isRealTimeTerminalOutputExpanded: $isShowingRealTimeTerminalOutput
-            )
+            updateProgressTracker.streamedOutputsDisplay
         }
         .task
         {

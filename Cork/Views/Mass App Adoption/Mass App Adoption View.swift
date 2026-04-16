@@ -5,8 +5,9 @@
 //  Created by David Bureš - P on 07.10.2025.
 //
 
-import SwiftUI
 import CorkModels
+import FactoryKit
+import SwiftUI
 
 typealias AdoptionProcessResult = Result<BrewPackagesTracker.AdoptableApp, MassAppAdoptionView.AdoptionAttemptFailure>
 
@@ -15,23 +16,26 @@ struct MassAppAdoptionView: View
     @Observable
     final class MassAppAdoptionTacker
     {
+        @Injected(\.appConstants) @ObservationIgnored var appConstants
+
         @ObservationIgnored
         var adoptionProcess: Process?
 
         var outputLines: [RealTimeTerminalLine] = .init()
-        
+
         var massAdoptionStage: MassAdoptionStage = .adopting
-        
+
         private(set) var appCurrentlyBeingAdopted: BrewPackagesTracker.AdoptableApp
         private(set) var currentAdoptionIndex: Int
-        
+
         private(set) var appAdoptionResults: [AdoptionProcessResult] = .init()
-        
+
         var successfullyAdoptedApps: [BrewPackagesTracker.AdoptableApp]
         {
             return appAdoptionResults.compactMap
             { rawResult in
-                if case .success(let success) = rawResult {
+                if case .success(let success) = rawResult
+                {
                     return success
                 }
                 else
@@ -40,12 +44,13 @@ struct MassAppAdoptionView: View
                 }
             }
         }
-        
+
         var unsuccessfullyAdoptedApps: [MassAppAdoptionView.AdoptionAttemptFailure]
         {
             return appAdoptionResults.compactMap
             { rawResult in
-                if case .failure(let failure) = rawResult {
+                if case .failure(let failure) = rawResult
+                {
                     return failure
                 }
                 else
@@ -60,7 +65,7 @@ struct MassAppAdoptionView: View
             self.appCurrentlyBeingAdopted = appsToAdopt.first!
             self.currentAdoptionIndex = 0
         }
-        
+
         deinit
         {
             cancel()
@@ -71,10 +76,10 @@ struct MassAppAdoptionView: View
         {
             self.appCurrentlyBeingAdopted = appToAdopt
             self.currentAdoptionIndex += 1
-            
+
             self.appAdoptionResults.append(await self.adoptApp(appToAdopt))
         }
-        
+
         @discardableResult
         func cancel() -> Bool
         {
@@ -84,29 +89,88 @@ struct MassAppAdoptionView: View
             return true
         }
     }
-    
+
     @Environment(\.dismiss) var dismiss: DismissAction
-    
+
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
-    
+
     let appsToAdopt: [BrewPackagesTracker.AdoptableApp]
-    
+
     @State private var massAdoptionTracker: MassAppAdoptionTacker
-    
+
     init(appsToAdopt: [BrewPackagesTracker.AdoptableApp])
     {
         self.appsToAdopt = appsToAdopt
         self.massAdoptionTracker = .init(appsToAdopt: appsToAdopt)
     }
-    
+
     enum AdoptionAttemptFailure: Identifiable, Error
     {
-        case failedWithError(failedAdoptionCandidate: BrewPackagesTracker.AdoptableApp, error: String)
-        
+        /// Whether the error is implemented or now
+        enum AdoptionAttemptError: LocalizedError
+        {
+            /// The specific error
+            enum ImplementedError: LocalizedError
+            {
+                /// The adoption process only allows the user to install the app of the sme version. If there is a mismatch, it fails
+                case mismatchedVersions(MismatchedVersionsInfo)
+                /// If the user somehow got to this point by exploiting a bug without selecting an actual adoptable app
+                case noAdoptionCandidateProvided(appNameToAdopt: String)
+
+                var errorDescription: String?
+                {
+                    switch self
+                    {
+                    case .mismatchedVersions(let versionsInfo):
+                        switch versionsInfo
+                        {
+                        case .versionsKnown(let expected, let installed):
+                            return String(localized: "mass-adoption.failed.implemented.mismatched-versions.expected-\(expected).installed\(installed)")
+                        case .versionsUnknown(let rawTerminalOutput):
+                            return rawTerminalOutput
+                        }
+                    case .noAdoptionCandidateProvided(let candidateName):
+                        return String(localized: "mass-adoption.failed.implemented.no-adoption-candidate-for-\(candidateName)-selected")
+                    }
+                }
+
+                /// Whether the info about mismathced versions could be extracted
+                enum MismatchedVersionsInfo
+                {
+                    /// Version info could be extracted
+                    case versionsKnown(expected: String, installed: String)
+                    /// Version info could not be extracted
+                    case versionsUnknown(rawTerminalOutput: String)
+                }
+            }
+
+            /// The error is not implemented - throw a generic one
+            case unimplemented(rawTerminalOutput: String)
+            /// The error is known
+            case implemented(ImplementedError)
+            
+            var errorDescription: String?
+            {
+                switch self
+                {
+                case .unimplemented:
+                    return ""
+                case .implemented(let implementedError):
+                    return implementedError.localizedDescription
+                }
+            }
+        }
+
+        case failedWithError(
+            failedAdoptionCandidate: BrewPackagesTracker.AdoptableApp,
+            error: AdoptionAttemptError
+        )
+
         var id: UUID
         {
-            switch self {
+            switch self
+            {
             case .failedWithError(let failedAdoptionCandidate, let error):
                 return failedAdoptionCandidate.id
             }

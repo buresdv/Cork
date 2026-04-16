@@ -5,8 +5,8 @@
 //  Created by David Bureš - P on 05.04.2026.
 //
 
-import Testing
 import CorkTerminalFunctions
+import Testing
 
 func streamTestingOutputs(
     outputs: [String],
@@ -19,7 +19,7 @@ func streamTestingOutputs(
         {
             continuation.yield(.standardOutput(debugOutput))
         }
-        
+
         if let errors
         {
             for debugError in errors
@@ -27,7 +27,7 @@ func streamTestingOutputs(
                 continuation.yield(.standardError(debugError))
             }
         }
-        
+
         continuation.finish()
     }
 }
@@ -35,23 +35,21 @@ func streamTestingOutputs(
 @Suite("Terminal Output Matching")
 struct MatcherTesting
 {
-
     @Test("Test simple matching - no error cases or ignored strings")
     func testSimpleMatching() async throws
     {
         enum SimpleMatchingTest: TerminalOutputMatchable
         {
-            
             typealias ErrorCases = ExpectsNoErrors
-            
+
             typealias IgnoredCases = IgnoresNoOutputs
-            
+
             enum StandardCases: TerminalOutputCase
             {
                 case downloading
                 case installing
                 case done
-                
+
                 var patterns: [String]
                 {
                     switch self
@@ -64,11 +62,9 @@ struct MatcherTesting
                         ["Finished installing"]
                     }
                 }
-                
-                
             }
         }
-        
+
         let testingOutputs: [String] = [
             "This will not match to anything",
             "Downloading Cask Cork",
@@ -76,11 +72,11 @@ struct MatcherTesting
             "Finished installing Cask Cork",
             "Finished Installing Cask Cork"
         ]
-        
+
         var collectedResultsArray: [SimpleMatchingTest.StandardCases] = .init()
         var errorsArray: [SimpleMatchingTest.ErrorCases] = .init()
         var unimplementedResultsArray: [TerminalOutput] = .init()
-        
+
         for await debugOutput in streamTestingOutputs(outputs: testingOutputs, errors: nil)
         {
             debugOutput.match(as: SimpleMatchingTest.self)
@@ -99,17 +95,17 @@ struct MatcherTesting
             } onUnimplementedOutput: { unimplementedCase in
                 unimplementedResultsArray.append(unimplementedCase)
             }
-
         }
-        
+
         print("Results array: \(collectedResultsArray)")
-        
+
         #expect(collectedResultsArray == [.downloading, .installing, .done])
         #expect(errorsArray.isEmpty)
         #expect(unimplementedResultsArray.count == 2)
     }
-    
+
     // MARK: - More complex matching
+
     @Test("Test more complex matching - Outputs with some errors")
     func testMoreComplexMatching() async throws
     {
@@ -120,7 +116,7 @@ struct MatcherTesting
                 case downloading
                 case installing
                 case done
-                
+
                 var patterns: [String]
                 {
                     switch self
@@ -134,12 +130,12 @@ struct MatcherTesting
                     }
                 }
             }
-            
+
             enum ErrorCases: TerminalOutputCase
             {
                 case noResponseFromServer
                 case noPermissions
-                
+
                 var patterns: [String]
                 {
                     switch self
@@ -151,11 +147,11 @@ struct MatcherTesting
                     }
                 }
             }
-            
+
             enum IgnoredCases: TerminalOutputCase
             {
                 case cacheRefreshed
-                
+
                 var patterns: [String]
                 {
                     switch self
@@ -166,7 +162,7 @@ struct MatcherTesting
                 }
             }
         }
-        
+
         let testingOutputs: [String] = [
             "This line will not be matched",
             "Refreshing cache this line will also not be matched",
@@ -175,7 +171,7 @@ struct MatcherTesting
             "Finished installing Cork",
             "Installed Cork"
         ]
-        
+
         let testingErrors: [String] = [
             "This line will also not be matched",
             "Refreshing cache this line will also not be matched again",
@@ -183,11 +179,11 @@ struct MatcherTesting
             "Timed out",
             "Couldn't get permissions"
         ]
-        
+
         var collectedResultsArray: [MoreComplexMatching.StandardCases] = .init()
         var errorsArray: [MoreComplexMatching.ErrorCases] = .init()
         var unimplementedResultsArray: [TerminalOutput] = .init()
-        
+
         for await output in streamTestingOutputs(outputs: testingOutputs, errors: testingErrors)
         {
             output.match(as: MoreComplexMatching.self)
@@ -213,13 +209,60 @@ struct MatcherTesting
                 unimplementedResultsArray.append(unimplmenentedOutput)
             }
         }
-        
+
         print("Results array: \(collectedResultsArray)")
-        
+
         #expect(collectedResultsArray == [.downloading, .installing, .done, .done])
         #expect(errorsArray == [.noResponseFromServer, .noPermissions])
         #expect(unimplementedResultsArray.count == 3)
     }
-    
+
     // MARK: - Live matching
+}
+
+@Suite("Adoptable App Output Matching")
+struct AdoptableAppOutputMatching
+{
+    @Test func testErrorParsing() async throws
+    {
+        let output: [TerminalOutput] = [
+            .standardError("The bundle short version of /opt/homebrew/Caskroom/balenaetcher/2.1.4/balenaEtcher.app is 2.1.4 but is 2.1.2 for /Applications/balenaEtcher.app!"),
+            .standardOutput("This will not be matched"),
+            .standardOutput("This will be ignored"),
+            .standardError("This will be ignored as well")
+        ]
+        
+        enum AdoptableAppOutputMatcher: TerminalOutputMatchable
+        {
+            typealias StandardCases = MatchesNoStandardOutputs
+            
+            enum ErrorCases: TerminalOutputCase
+            {
+                case mismatchedVersions
+                
+                var patterns: [String]
+                {
+                    switch self
+                    {
+                    case .mismatchedVersions:
+                        ["The bundle short version of .+ is .+ but is .+ for .+!"]
+                    }
+                }
+            }
+            
+            enum IgnoredCases: TerminalOutputCase
+            {
+                var patterns: [String]
+                {
+                    ["This will be ignored"]
+                }
+            }
+        }
+        
+        let matchResult: BatchedTerminalOutputMatchResult = output.match(as: AdoptableAppOutputMatcher.self)
+        
+        #expect(matchResult.standardOutputs.isEmpty)
+        #expect(matchResult.errorOutputs == [.mismatchedVersions])
+        #expect(matchResult.unimplementedOutputs.count == 1)
+    }
 }

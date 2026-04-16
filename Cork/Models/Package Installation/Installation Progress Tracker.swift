@@ -11,8 +11,20 @@ import CorkModels
 import CorkTerminalFunctions
 
 @Observable
-class InstallationProgressTracker
+class InstallationProgressTracker: @MainActor TerminalOutputStreamable
 {
+    func insertOutput(_ output: CorkTerminalFunctions.TerminalOutput) {
+        self.outputs.append(output)
+    }
+    
+    var outputs: [CorkTerminalFunctions.TerminalOutput] = .init()
+    
+    var standardOutputs: [CorkTerminalFunctions.TerminalOutput] = .init()
+    
+    var standardErrors: [CorkTerminalFunctions.TerminalOutput] = .init()
+    
+    var isStreamedOutputExpanded: Bool = false
+    
     var packageBeingInstalled: PackageInProgressOfBeingInstalled = .init(package: .init(rawName: "", type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: 0, downloadCount: nil), installationStage: .downloadingCask, packageInstallationProgress: 0)
 
     var numberOfPackageDependencies: Int = 0
@@ -105,7 +117,7 @@ class InstallationProgressTracker
 
                 if showRealTimeTerminalOutputs
                 {
-                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
+                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: output))
                 }
 
                 AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
@@ -183,7 +195,7 @@ class InstallationProgressTracker
 
                 if showRealTimeTerminalOutputs
                 {
-                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
+                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: output))
                 }
 
                 if errorLine.contains("a password is required")
@@ -214,15 +226,15 @@ class InstallationProgressTracker
         installationProcess = process
         for await output in stream
         {
+            if showRealTimeTerminalOutputs
+            {
+                packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: output))
+            }
+            
             switch output
             {
             case .standardOutput(let outputLine):
                 AppConstants.shared.logger.info("Output line: \(outputLine, privacy: .public)")
-
-                if showRealTimeTerminalOutputs
-                {
-                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: outputLine))
-                }
 
                 if outputLine.contains("Downloading")
                 {
@@ -275,11 +287,6 @@ class InstallationProgressTracker
 
             case .standardError(let errorLine):
                 AppConstants.shared.logger.error("Line had error: \(errorLine, privacy: .public)")
-
-                if showRealTimeTerminalOutputs
-                {
-                    packageBeingInstalled.realTimeTerminalOutput.append(RealTimeTerminalLine(line: errorLine))
-                }
 
                 if errorLine.contains("a password is required")
                 {
