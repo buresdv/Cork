@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import CorkModels
 
 enum PackageUpdatingStage
 {
-    case updating, finished, erroredOut(packagesRequireSudo: Bool), noUpdatesAvailable
+    case updating
+    case finished
+    case erroredOut(results: (erroredOutPackage: OutdatedPackage, error: OutdatedPackagesTracker.IndividualPackageUpdatingError))
+    case noUpdatesAvailable
 }

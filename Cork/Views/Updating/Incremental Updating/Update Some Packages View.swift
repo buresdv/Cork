@@ -19,7 +19,8 @@ struct UpdateSomePackagesView: View
 
     @State private var packageUpdatingStage: PackageUpdatingStage = .updating
     @State private var packageBeingCurrentlyUpdated: BrewPackage = .init(rawName: "", type: .formula, installedOn: nil, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil)
-    @State private var updateProgress: Double = 0.0
+    
+    @State private var updateProgressValue: Progress?
 
     @State private var packageUpdatingErrors: [String] = .init()
 
@@ -37,66 +38,20 @@ struct UpdateSomePackagesView: View
             switch packageUpdatingStage
             {
             case .updating:
-                ProgressView(value: updateProgress, total: Double(packagesToUpdate.count))
+                if let updateProgressValue
                 {
-                    Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.name(withPrecision: .precise))")
-                }
-                .frame(width: 200)
-                .task
-                {
-                    for (index, outdatedPackage) in packagesToUpdate.enumerated()
+                    VStack(alignment: .center)
                     {
-                        packageBeingCurrentlyUpdated = outdatedPackage.package
-
-                        var updateCommandArguments: [String] = .init()
-
-                        if packageBeingCurrentlyUpdated.type == .formula
-                        {
-                            updateCommandArguments = ["reinstall", packageBeingCurrentlyUpdated.name(withPrecision: .precise)]
-                        }
-                        else
-                        {
-                            updateCommandArguments = ["reinstall", "--cask", packageBeingCurrentlyUpdated.name(withPrecision: .precise)]
-                        }
-
-                        AppConstants.shared.logger.info("Update command: \(updateCommandArguments)")
-
-                        for await output in shell(AppConstants.shared.brewExecutablePath, updateCommandArguments)
-                        {
-                            switch output
-                            {
-                            case .standardOutput(let outputLine):
-                                AppConstants.shared.logger.info("Individual package updating output: \(outputLine)")
-                                updateProgress = updateProgress + (Double(numberOfPackagesToUpdate) / 100)
-
-                            case .standardError(let errorLine):
-                                AppConstants.shared.logger.info("Individual package updating error: \(errorLine)")
-                                updateProgress = updateProgress + (Double(numberOfPackagesToUpdate) / 100)
-
-                                if !errorLine.contains("The post-install step did not complete successfully")
-                                {
-                                    packageUpdatingErrors.append("\(packageBeingCurrentlyUpdated.name(withPrecision: .precise)): \(errorLine)")
-                                }
-                            }
-                        }
-
-                        updateProgress = Double(index) + 1
-                        AppConstants.shared.logger.info("Update progress index: \(updateProgress)")
+                        ProgressView(updateProgressValue)
+                        
+                        Text("update-packages.incremental.update-in-progress-\(packageBeingCurrentlyUpdated.name(withPrecision: .precise))")
                     }
-                    
-                    if packageUpdatingErrors.isEmpty
+                    .frame(width: 200)
+                    .task
                     {
-                        packageUpdatingStage = .finished
-                    }
-                    else
-                    {
-                        if packageUpdatingErrors.contains("a terminal is required to read the password")
+                        for packageToUpdate in packagesToUpdate
                         {
-                            packageUpdatingStage = .erroredOut(packagesRequireSudo: true)
-                        }
-                        else
-                        {
-                            packageUpdatingStage = .erroredOut(packagesRequireSudo: false)
+                            updateProgressTracker.updateSinglePackage(packageToUpdate: packageToUpdate)
                         }
                     }
                 }
@@ -121,6 +76,10 @@ struct UpdateSomePackagesView: View
             }
         }
         .padding()
+        .onAppear
+        {
+            self.updateProgressValue = .init(totalUnitCount: Int64(numberOfPackagesToUpdate))
+        }
         .onDisappear
         {
             Task
