@@ -27,7 +27,7 @@ struct MenuBar_PackageUpdating: View
             {
                 if let sanitizedSheetState = appState.sheetToShow
                 {
-                    if sanitizedSheetState != .fullUpdate || sanitizedSheetState != .partialUpdate(packagesToUpdate: .init())
+                    if sanitizedSheetState != .update
                     {
                         Menu
                         {
@@ -42,7 +42,7 @@ struct MenuBar_PackageUpdating: View
                         Button("navigation.upgrade-packages")
                         {
                             switchCorkToForeground()
-                            appState.showSheet(ofType: .fullUpdate)
+                            appState.showSheet(ofType: .update)
                         }
                     }
                     else

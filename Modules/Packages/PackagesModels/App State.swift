@@ -180,7 +180,7 @@ public final class AppState
 
     @objc public func startUpdateProcessForLegacySelectors(_: NSMenuItem!)
     {
-        self.showSheet(ofType: .fullUpdate)
+        self.showSheet(ofType: .update)
 
         //sendNotification(title: String(localized: "notification.upgrade-process-started"))
     }

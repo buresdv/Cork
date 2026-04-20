@@ -13,6 +13,8 @@ import SwiftUI
 
 struct UpdateSomePackagesView: View
 {
+    @Injected(\.appConstants) var appConstants: AppConstants
+    
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
@@ -29,48 +31,60 @@ struct UpdateSomePackagesView: View
 
     var body: some View
     {
-            VStack(alignment: .center)
+        VStack(alignment: .center)
+        {
+            ProgressView(updateProgressTracker.updateProgress)
+
+            if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
             {
-                ProgressView(updateProgressTracker.updateProgress)
+                Text("update-packages.incremental.update-in-progress-\(packageBeingUpdated.package.name(withPrecision: .precise))")
+            }
+        }
+        .frame(width: 200)
+        .task
+        {
+            var consolidatedUpdateResults: [SinglePackageUpdatingResult] = .init()
+
+            for packageToUpdate in packagesToUpdate
+            {
                 
-                if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
-                {
-                    Text("update-packages.incremental.update-in-progress-\(packageBeingUpdated.package.name(withPrecision: .precise))")
+                
+                
+                let packageProgress = Progress(
+                    totalUnitCount: 2,
+                    parent: updateProgressTracker.updateProgress,
+                    pendingUnitCount: 1
+                )
+
+                updateProgressTracker.packageBeingCurrentlyUpdated = packageToUpdate
+                
+                packageProgress.completedUnitCount = 1
+
+                let updatingResult: SinglePackageUpdatingResult = await outdatedPackagesTracker.updateSinglePackage(
+                    packageToUpdate: packageToUpdate
+                )
+
+                consolidatedUpdateResults.append(updatingResult)
+
+                /// Extract only the failed updates from the results array
+                let failedUpdates = consolidatedUpdateResults.compactMap
+                { result -> OutdatedPackagesTracker.IndividualPackageUpdatingError? in
+                    guard case .failure(let error) = result else { return nil }
+                    return error
                 }
 
-            }
-            .frame(width: 200)
-            .task
-            {
-                var consolidatedUpdateResults: [SinglePackageUpdatingResult] = .init()
-
-                for packageToUpdate in packagesToUpdate
+                if failedUpdates.isEmpty
                 {
-                    updateProgressTracker.packageBeingCurrentlyUpdated = packageToUpdate
-
-                    let updatingResult: SinglePackageUpdatingResult = await outdatedPackagesTracker.updateSinglePackage(
-                        packageToUpdate: packageToUpdate
-                    )
-
-                    consolidatedUpdateResults.append(updatingResult)
-
-                    /// Extract only the failed updates from the results array
-                    let failedUpdates = consolidatedUpdateResults.compactMap
-                    { result -> OutdatedPackagesTracker.IndividualPackageUpdatingError? in
-                        guard case .failure(let error) = result else { return nil }
-                        return error
-                    }
-
-                    if failedUpdates.isEmpty
-                    {
-                        updateProgressTracker.updatingState = .finished
-                    }
-                    else
-                    {
-                        updateProgressTracker.updatingState = .erroredOut(results: failedUpdates)
-                    }
+                    updateProgressTracker.updatingState = .finished
                 }
+                else
+                {
+                    updateProgressTracker.updatingState = .erroredOut(results: failedUpdates)
+                }
+                
+                packageProgress.completedUnitCount = 2
             }
-            .padding()
+        }
+        .padding()
     }
 }

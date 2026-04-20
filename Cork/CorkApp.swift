@@ -92,7 +92,6 @@ struct CorkApp: App
                 .environment(brewPackagesTracker)
                 .environment(tapTracker)
                 .environment(cachedDownloadsTracker)
-                .environment(updateProgressTracker)
                 .environment(outdatedPackagesTracker)
                 .environment(topPackagesTracker)
                 .modelContainer(for: [

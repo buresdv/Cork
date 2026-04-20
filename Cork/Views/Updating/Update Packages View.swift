@@ -21,6 +21,7 @@ struct UpdatePackagesView: View
     
     @State private var updateProgressTracker: UpdateProgressTracker
     
+    @MainActor
     init(outdatedPackagesTrackerToUse: OutdatedPackagesTracker)
     {
         self.outdatedPackagesTrackerToUse = outdatedPackagesTrackerToUse

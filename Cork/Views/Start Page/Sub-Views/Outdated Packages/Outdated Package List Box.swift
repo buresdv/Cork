@@ -127,7 +127,7 @@ struct OutdatedPackageListBox: View
     {
         Button
         {
-            appState.showSheet(ofType: .fullUpdate)
+            appState.showSheet(ofType: .update)
         } label: {
             Text("start-page.updates.action")
         }
@@ -142,7 +142,7 @@ struct OutdatedPackageListBox: View
     {
         Button
         {
-            appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackagesTracker.packagesMarkedForUpdating))
+            appState.showSheet(ofType: .update)
         } label: {
             Text("start-page.update-incremental.package-count-\(outdatedPackagesTracker.packagesMarkedForUpdating.count)")
         }
