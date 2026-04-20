@@ -5,6 +5,7 @@
 //  Created by David Bureš on 04.07.2022.
 //
 
+import CorkModels
 import CorkTerminalFunctions
 import FactoryKit
 import Foundation
@@ -13,25 +14,31 @@ import SwiftUI
 @Observable
 public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
 {
-    public func insertOutput(_ output: CorkTerminalFunctions.TerminalOutput)
-    {
-        self.outputs.append(output)
-    }
-
-    public var outputs: [CorkTerminalFunctions.TerminalOutput] = .init()
-
-    public var standardOutputs: [CorkTerminalFunctions.TerminalOutput] = .init()
-
-    public var standardErrors: [CorkTerminalFunctions.TerminalOutput] = .init()
-
-    public var isStreamedOutputExpanded: Bool = false
+    public var outputs: [CorkTerminalFunctions.TerminalOutput]
 
     @Injected(\.appConstants) @ObservationIgnored var appConstants
 
-    var updateProgress: Float = 0
-    var errors: [String] = .init()
+    public var isStreamedOutputExpanded: Bool = false
 
-    var realTimeOutput: [RealTimeTerminalLine] = .init()
+    var updateProgress: Progress
 
-    var currentStage: UpdateProcessStages.StandardCases?
+    let outdatedPackagesTrackerToUse: OutdatedPackagesTracker
+
+    let packageUpdatingType: UpdatePackagesView.UpdateType
+
+    public nonisolated init(
+        outdatedPackagesTrackerToUse: OutdatedPackagesTracker
+    ) {
+        self.outdatedPackagesTrackerToUse = outdatedPackagesTrackerToUse
+        self.packageUpdatingType = {
+            if outdatedPackagesTrackerToUse.areAllOutdatedPackagesMarkedForUpdating
+            {
+                return .complete
+            }
+            else
+            {
+                return .partial(packagesToUpdate: outdatedPackagesTrackerToUse.packagesMarkedForUpdating)
+            }
+        }()
+    }
 }

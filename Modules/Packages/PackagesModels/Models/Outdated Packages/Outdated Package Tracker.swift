@@ -97,7 +97,7 @@ public class OutdatedPackagesTracker
 
     // MARK: - Matchers
 
-    public enum UpdateProcessStages: TerminalOutputMatchable
+    public enum UpdateProcessMatcher: TerminalOutputMatchable
     {
         public enum StandardCases: LocalizedStringKey, CustomStringConvertible, TerminalOutputCase
         {
@@ -232,8 +232,8 @@ public class OutdatedPackagesTracker
             case terminalRequired
         }
         
-        case implemented(ImplementedError)
-        case unimplemented(rawOutput: String)
+        case implemented(failedPackage: OutdatedPackage, error: ImplementedError)
+        case unimplemented(failedPackage: OutdatedPackage, rawOutput: String)
     }
 }
 

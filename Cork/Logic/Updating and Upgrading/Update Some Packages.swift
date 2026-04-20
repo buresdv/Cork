@@ -13,6 +13,8 @@ import Foundation
 /// The error result for updating single packages - a package that threw the error, along with the error it threw
 // public typealias SinglePackageUpdatingErrorResult = (package: OutdatedPackage, error: OutdatedPackagesTracker.IndividualPackageUpdatingError)
 
+public typealias SinglePackageUpdatingResult = Result<[TerminalOutput], OutdatedPackagesTracker.IndividualPackageUpdatingError>
+
 extension OutdatedPackagesTracker
 {
     /// Update a single package
@@ -22,7 +24,7 @@ extension OutdatedPackagesTracker
     /// - Returns: If successful, returns unimplemented cases for further review. If failed, returns the error case that caused the failure
     func updateSinglePackage(
         packageToUpdate: OutdatedPackage
-    ) async throws -> Result<[TerminalOutput], OutdatedPackagesTracker.IndividualPackageUpdatingError>
+    ) async throws -> SinglePackageUpdatingResult
     {
         let package = packageToUpdate.package
 
@@ -54,12 +56,16 @@ extension OutdatedPackagesTracker
                 {
                 case .postInstallStepFailed:
                     processError = .implemented(
-                        .postInstallStepFailed(
+                        failedPackage: packageToUpdate,
+                        error: .postInstallStepFailed(
                             rawOutput: output.description
                         )
                     )
                 case .terminalRequired:
-                    processError = .implemented(.terminalRequired)
+                    processError = .implemented(
+                        failedPackage: packageToUpdate,
+                        error: .terminalRequired
+                    )
                 }
             } onUnimplementedOutput: { unimplementedCase in
 
@@ -68,7 +74,10 @@ extension OutdatedPackagesTracker
                 case .standardOutput(let standardOutput):
                     processUnimplementedCases.append(unimplementedCase)
                 case .standardError(let standardError):
-                    processError = .unimplemented(rawOutput: standardError)
+                    processError = .unimplemented(
+                        failedPackage: packageToUpdate,
+                        rawOutput: standardError
+                    )
                 }
             }
         }

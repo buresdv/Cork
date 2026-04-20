@@ -7,6 +7,7 @@
 
 import CorkModels
 import SwiftUI
+import CorkShared
 
 struct AdoptionResultsList: View
 {
@@ -25,16 +26,34 @@ struct AdoptionResultsList: View
                     switch error
                     {
                     case .unimplemented(let rawTerminalOutput):
+                        unimplementedErrorRow(
+                            rowView: adoptionCandidateName(
+                                fromAdoptionCandidate: failedAdoptionCandidate
+                            ),
+                            rawTerminalOutput: rawTerminalOutput,
+                            openWindowAction: openWindow
+                        )
+                        
+                        /*
                         adoptionFailure_unimplementedError(
                             failedAdoptionCandidate: failedAdoptionCandidate,
                             rawTerminalOutput: rawTerminalOutput
                         )
+                         */
 
                     case .implemented(let implementedError):
+                        implementedErrorRow(
+                            rowView: adoptionCandidateName(
+                                fromAdoptionCandidate: failedAdoptionCandidate
+                            ),
+                            error: implementedError
+                        )
+                        /*
                         adoptionFailure_implementedError(
                             failedAdoptionCandidate: failedAdoptionCandidate,
                             error: implementedError
                         )
+                         */
                     }
                 }
             }

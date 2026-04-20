@@ -10,8 +10,8 @@ import CorkModels
 
 enum PackageUpdatingStage
 {
-    case updating
+    case updating(type: UpdatePackagesView.UpdateType)
     case finished
-    case erroredOut(results: (erroredOutPackage: OutdatedPackage, error: OutdatedPackagesTracker.IndividualPackageUpdatingError))
+    case erroredOut(results: [OutdatedPackagesTracker.IndividualPackageUpdatingError])
     case noUpdatesAvailable
 }

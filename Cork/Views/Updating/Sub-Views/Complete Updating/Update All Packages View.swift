@@ -8,7 +8,7 @@
 import SwiftUI
 import CorkModels
 
-struct UpdatePackagesView: View
+struct UpdateAllPackagesView: View
 {
     @State var packageUpdatingStage: PackageUpdatingStage = .updating
     @State var packageUpdatingStep: PackageUpdatingProcessSteps = .ready
