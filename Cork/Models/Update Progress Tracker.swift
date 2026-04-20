@@ -11,7 +11,7 @@ import FactoryKit
 import Foundation
 import SwiftUI
 
-@Observable
+@Observable @MainActor
 public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
 {
     public var outputs: [CorkTerminalFunctions.TerminalOutput]
@@ -26,10 +26,28 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
 
     let packageUpdatingType: UpdatePackagesView.UpdateType
 
-    public nonisolated init(
+    var updatingState: PackageUpdatingStage
+    
+    var packageBeingCurrentlyUpdated: OutdatedPackage?
+
+    enum PackageUpdatingStage
+    {
+        case updating(type: UpdatePackagesView.UpdateType)
+        case finished
+        case erroredOut(results: [OutdatedPackagesTracker.IndividualPackageUpdatingError])
+        case noUpdatesAvailable
+    }
+    
+    public init(
         outdatedPackagesTrackerToUse: OutdatedPackagesTracker
     ) {
+        self.outputs = []
+        self.packageBeingCurrentlyUpdated = nil
+
         self.outdatedPackagesTrackerToUse = outdatedPackagesTrackerToUse
+        
+        self.updateProgress = Progress(totalUnitCount: Int64(self.outdatedPackagesTrackerToUse.packagesMarkedForUpdating.count))
+        
         self.packageUpdatingType = {
             if outdatedPackagesTrackerToUse.areAllOutdatedPackagesMarkedForUpdating
             {
@@ -40,5 +58,7 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
                 return .partial(packagesToUpdate: outdatedPackagesTrackerToUse.packagesMarkedForUpdating)
             }
         }()
+
+        self.updatingState = .updating(type: self.packageUpdatingType)
     }
 }

@@ -24,7 +24,7 @@ extension OutdatedPackagesTracker
     /// - Returns: If successful, returns unimplemented cases for further review. If failed, returns the error case that caused the failure
     func updateSinglePackage(
         packageToUpdate: OutdatedPackage
-    ) async throws -> SinglePackageUpdatingResult
+    ) async -> SinglePackageUpdatingResult
     {
         let package = packageToUpdate.package
 

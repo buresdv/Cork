@@ -13,8 +13,7 @@ import FactoryKit
 import Foundation
 import SwiftUI
 
-@MainActor
-@Observable
+@Observable @MainActor
 public class OutdatedPackagesTracker
 {
     @Injected(\.appConstants) @ObservationIgnored public var appConstants

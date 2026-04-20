@@ -11,6 +11,7 @@ import Defaults
 import CorkModels
 import FactoryKit
 
+/*
 struct UpdatingPackageTrackerStateView: View
 {
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
@@ -19,8 +20,6 @@ struct UpdatingPackageTrackerStateView: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-
-    @Binding var packageUpdatingStage: PackageUpdatingStage
 
     var body: some View
     {
@@ -33,22 +32,15 @@ struct UpdatingPackageTrackerStateView: View
                 {
                     try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
                     
-                    updateProgressTracker.updateProgress = 10
+                    updateProgressTracker.updateProgress.completedUnitCount = Int64(outdatedPackagesTracker.packagesMarkedForUpdating.count)
 
                     if updateProgressTracker.errors.isEmpty
                     {
-                        packageUpdatingStage = .finished
+                        updateProgressTracker.updatingState = .finished
                     }
                     else
                     {
-                        if updateProgressTracker.errors.contains("a terminal is required to read the password")
-                        {
-                            packageUpdatingStage = .erroredOut(packagesRequireSudo: true)
-                        }
-                        else
-                        {
-                            packageUpdatingStage = .erroredOut(packagesRequireSudo: false)
-                        }
+                        updateProgressTracker.updatingState = .erroredOut(results: <#T##[OutdatedPackagesTracker.IndividualPackageUpdatingError]#>)
                     }
                 }
                 catch let outdatedPackageRetrievalError as OutdatedPackageRetrievalError
@@ -72,3 +64,4 @@ struct UpdatingPackageTrackerStateView: View
             }
     }
 }
+*/

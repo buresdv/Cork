@@ -18,8 +18,6 @@ struct UpdateSomePackagesView: View
     @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
-    @State private var packageBeingCurrentlyUpdated: BrewPackage?
-
     @State private var packageUpdatingErrors: [String] = .init()
 
     let packagesToUpdate: [OutdatedPackage]
@@ -33,14 +31,11 @@ struct UpdateSomePackagesView: View
     {
             VStack(alignment: .center)
             {
-                if let updateProgress = updateProgressTracker.updateProgress
-                {
-                    ProgressView(updateProgress)
-                }
+                ProgressView(updateProgressTracker.updateProgress)
                 
-                if let packageBeingUpdated = packageBeingCurrentlyUpdated
+                if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
                 {
-                    Text("update-packages.incremental.update-in-progress-\(packageBeingUpdated.name(withPrecision: .precise))")
+                    Text("update-packages.incremental.update-in-progress-\(packageBeingUpdated.package.name(withPrecision: .precise))")
                 }
 
             }
@@ -51,9 +46,9 @@ struct UpdateSomePackagesView: View
 
                 for packageToUpdate in packagesToUpdate
                 {
-                    packageBeingCurrentlyUpdated = packageToUpdate.package
+                    updateProgressTracker.packageBeingCurrentlyUpdated = packageToUpdate
 
-                    let updatingResult: SinglePackageUpdatingResult = outdatedPackagesTracker.updateSinglePackage(
+                    let updatingResult: SinglePackageUpdatingResult = await outdatedPackagesTracker.updateSinglePackage(
                         packageToUpdate: packageToUpdate
                     )
 
@@ -68,42 +63,14 @@ struct UpdateSomePackagesView: View
 
                     if failedUpdates.isEmpty
                     {
-                        updateProgressTracker.packageUpdatingState = .finished
+                        updateProgressTracker.updatingState = .finished
                     }
                     else
                     {
-                        updateProgressTracker.packageUpdatingState = .erroredOut(results: failedUpdates)
+                        updateProgressTracker.updatingState = .erroredOut(results: failedUpdates)
                     }
                 }
             }
             .padding()
-            .onAppear
-            {
-                updateProgressTracker.updateProgress = .init(totalUnitCount: Int64(numberOfPackagesToUpdate))
-            }
-            .onDisappear
-            {
-                Task
-                {
-                    do
-                    {
-                        outdatedPackagesTracker.isCheckingForPackageUpdates = true
-
-                        defer
-                        {
-                            outdatedPackagesTracker.isCheckingForPackageUpdates = false
-                        }
-
-                        AppConstants.shared.logger.debug("Will synchronize outdated packages")
-                        try await outdatedPackagesTracker.getOutdatedPackages(brewPackagesTracker: brewPackagesTracker)
-                    }
-                    catch let packageSynchronizationError
-                    {
-                        AppConstants.shared.logger.error("Could not synchronize packages: \(packageSynchronizationError, privacy: .public)")
-
-                        appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: packageSynchronizationError.localizedDescription))
-                    }
-                }
-            }
     }
 }

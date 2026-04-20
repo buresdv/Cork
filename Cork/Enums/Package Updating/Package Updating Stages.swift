@@ -8,10 +8,4 @@
 import Foundation
 import CorkModels
 
-enum PackageUpdatingStage
-{
-    case updating(type: UpdatePackagesView.UpdateType)
-    case finished
-    case erroredOut(results: [OutdatedPackagesTracker.IndividualPackageUpdatingError])
-    case noUpdatesAvailable
-}
+

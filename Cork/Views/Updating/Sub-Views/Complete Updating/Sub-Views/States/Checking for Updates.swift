@@ -40,13 +40,13 @@ struct CheckingForUpdatesStateView: View
             {
                 AppConstants.shared.logger.debug("Outside update function: No updates available")
 
-                updateProgressTracker.packageUpdatingState = .
+                updateProgressTracker.updatingState = .noUpdatesAvailable
             }
             else
             {
                 AppConstants.shared.logger.debug("Outside update function: Updates available")
                 
-                updateProgressTracker.packageUpdatingState = .updating(type: updateProgressTracker.packageUpdatingType)
+                updateProgressTracker.updatingState = .updating(type: updateProgressTracker.packageUpdatingType)
             }
         }
     }

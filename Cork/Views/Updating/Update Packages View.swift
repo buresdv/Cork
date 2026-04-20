@@ -11,43 +11,35 @@ import SwiftUI
 
 struct UpdatePackagesView: View
 {
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker
-
     enum UpdateType
     {
         case partial(packagesToUpdate: [OutdatedPackage])
         case complete
     }
 
-    var updateType: UpdateType
+    let outdatedPackagesTrackerToUse: OutdatedPackagesTracker
+    
+    @State private var updateProgressTracker: UpdateProgressTracker
+    
+    init(outdatedPackagesTrackerToUse: OutdatedPackagesTracker)
     {
-        if outdatedPackagesTracker.areAllOutdatedPackagesMarkedForUpdating
-        {
-            return complete
-        }
-        else
-        {
-            return partial(packagesToUpdate: outdatedPackagesTracker.packagesMarkedForUpdating)
-        }
+        self.outdatedPackagesTrackerToUse = outdatedPackagesTrackerToUse
+        _updateProgressTracker = State(initialValue: UpdateProgressTracker(outdatedPackagesTrackerToUse: outdatedPackagesTrackerToUse))
     }
-
-    @State private var updateProgressTracker: UpdateProgressTracker = .init()
 
     var body: some View
     {
         Group
         {
-            switch updateProgressTracker.packageUpdatingState
+            switch updateProgressTracker.updatingState
             {
-            case .ready:
-                ProgressView()
             case .updating(let type):
                 switch type
                 {
                 case .partial(let packagesToUpdate):
                     UpdateSomePackagesView(packagesToUpdate: packagesToUpdate)
                 case .complete:
-                    UpdateAllPackagesView()
+                    EmptyView()
                 }
             case .finished:
                 FinishedStageView()

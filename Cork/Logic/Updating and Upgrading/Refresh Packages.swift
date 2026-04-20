@@ -125,7 +125,7 @@ public extension OutdatedPackagesTracker
                 },
                 onUnimplementedOutput: { unimplemented in
                     AppConstants.shared.logger.warning("Update function error: \(unimplemented.description, privacy: .public)")
-                    updateProgressTracker.errors.append("Update error: \(unimplemented.description)")
+                updateProgressTracker.insertOutput(unimplemented)
                     return nil
                 }
             )

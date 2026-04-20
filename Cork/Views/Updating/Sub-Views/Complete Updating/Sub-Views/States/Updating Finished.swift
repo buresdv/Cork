@@ -9,14 +9,14 @@ import SwiftUI
 
 struct UpdatingFinishedStateView: View
 {
-    @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
+    @Environment(UpdateProgressTracker.self) var updateProgressTracker
 
     var body: some View
     {
         Text("update-packages.updating.finished")
             .onAppear
             {
-                packageUpdatingStep = .finished
+                updateProgressTracker.updatingState = .finished
             }
     }
 }
