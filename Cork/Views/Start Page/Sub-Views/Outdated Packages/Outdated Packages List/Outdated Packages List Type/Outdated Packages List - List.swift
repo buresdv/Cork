@@ -8,12 +8,13 @@
 import CorkModels
 import Defaults
 import SwiftUI
+import FactoryKit
 
 struct OutdatedPackagesList_List: View
 {
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
     
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let packageUpdatingType: OutdatedPackage.PackageUpdatingType
 

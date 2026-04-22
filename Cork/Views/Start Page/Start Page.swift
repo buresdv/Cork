@@ -33,7 +33,7 @@ struct StartPage: View
     
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     @InjectedObservable(\.brewfileManager) var brewfileManager: BrewfileManager
 

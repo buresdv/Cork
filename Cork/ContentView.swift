@@ -41,7 +41,7 @@ struct ContentView: View, Sendable
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn

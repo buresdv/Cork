@@ -30,25 +30,29 @@ struct UpdatePackagesView: View
 
     var body: some View
     {
-        Group
+        NavigationStack
         {
-            switch updateProgressTracker.updatingState
+            SheetTemplate(isShowingTitle: true)
             {
-            case .updating(let type):
-                switch type
+                switch updateProgressTracker.updatingState
                 {
-                case .partial(let packagesToUpdate):
-                    UpdateSomePackagesView(packagesToUpdate: packagesToUpdate)
-                case .complete:
-                    EmptyView()
+                case .updating(let type):
+                    switch type
+                    {
+                    case .partial(let packagesToUpdate):
+                        UpdateSomePackagesView(packagesToUpdate: packagesToUpdate)
+                    case .complete:
+                        EmptyView()
+                    }
+                case .finished:
+                    FinishedStageView()
+                case .erroredOut(let results):
+                    ErroredOutStageView(errors: results)
+                case .noUpdatesAvailable:
+                    NoUpdatesAvailableStageView()
                 }
-            case .finished:
-                FinishedStageView()
-            case .erroredOut(let results):
-                ErroredOutStageView(errors: results)
-            case .noUpdatesAvailable:
-                NoUpdatesAvailableStageView()
             }
+            .navigationTitle("update-packages.sheet-title")
         }
         .environment(updateProgressTracker)
     }

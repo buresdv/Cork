@@ -13,7 +13,7 @@ import FactoryKit
 struct UpdatingPackagesStateView: View
 {
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     var body: some View

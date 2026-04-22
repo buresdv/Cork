@@ -223,7 +223,7 @@ public class OutdatedPackagesTracker
         }
     }
     
-    public enum IndividualPackageUpdatingError: LocalizedError
+    public enum IndividualPackageUpdatingError: LocalizedError, Identifiable
     {
         public enum ImplementedError: LocalizedError
         {
@@ -231,8 +231,27 @@ public class OutdatedPackagesTracker
             case terminalRequired
         }
         
-        case implemented(failedPackage: OutdatedPackage, error: ImplementedError)
-        case unimplemented(failedPackage: OutdatedPackage, rawOutput: String)
+        case implemented(
+            failedPackage: OutdatedPackage,
+            error: ImplementedError
+        )
+        
+        case unimplemented(
+            failedPackage: OutdatedPackage,
+            rawOutput: String
+        )
+        
+        public var id: UUID
+        {
+            switch self
+            {
+                
+            case .implemented(let failedPackage, _):
+                return failedPackage.package.id
+            case .unimplemented(let failedPackage, _):
+                return failedPackage.package.id
+            }
+        }
     }
 }
 

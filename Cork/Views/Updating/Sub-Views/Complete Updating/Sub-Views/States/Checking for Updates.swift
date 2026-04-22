@@ -8,10 +8,11 @@
 import SwiftUI
 import CorkShared
 import CorkModels
+import FactoryKit
 
 struct CheckingForUpdatesStateView: View
 {
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
     @Binding var updateAvailability: OutdatedPackagesTracker.PackageUpdateAvailability

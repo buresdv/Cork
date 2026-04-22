@@ -8,12 +8,13 @@
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct OutdatedPackagesList_Table: View
 {
     // TODO: Pretty much all these properties shared with the List version of this. Find a way to merge them
     
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     let packageUpdatingType: OutdatedPackage.PackageUpdatingType
     

@@ -13,7 +13,7 @@ import FactoryKit
 struct CheckForOutdatedPackagesButton: View
 {
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {

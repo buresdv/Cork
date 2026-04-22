@@ -17,8 +17,6 @@ extension UpdateProgressTracker
     @MainActor
     func updatePackages() async
     {
-        let showRealTimeTerminalOutputs: Bool = Defaults[.showRealTimeTerminalOutputOfOperations]
-
         let includeGreedyPackages: Bool = Defaults[.includeGreedyOutdatedPackages]
 
         for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])

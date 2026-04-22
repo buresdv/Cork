@@ -21,7 +21,7 @@ struct SidebarPackageRow: View
     @InjectedObservable(\.navigationManager) var navigationManager
     
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var body: some View
     {

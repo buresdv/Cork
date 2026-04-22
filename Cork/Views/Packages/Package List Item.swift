@@ -7,12 +7,13 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 struct PackageListItem: View
 {
     var packageItem: BrewPackage
 
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var isPackageOutdated: Bool
     {

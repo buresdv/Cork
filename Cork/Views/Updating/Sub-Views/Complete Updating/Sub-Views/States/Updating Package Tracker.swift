@@ -17,7 +17,7 @@ struct UpdatingPackageTrackerStateView: View
     @Default(.includeGreedyOutdatedPackages) var includeGreedyOutdatedPackages: Bool
     
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 

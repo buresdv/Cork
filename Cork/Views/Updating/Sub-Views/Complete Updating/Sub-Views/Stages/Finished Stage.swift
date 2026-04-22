@@ -25,7 +25,6 @@ struct FinishedStageView: View
                     subheadline: "update-packages.finished.description",
                     alignment: .leading
                 )
-                .fixedSize()
             }
         }
         .onAppear
