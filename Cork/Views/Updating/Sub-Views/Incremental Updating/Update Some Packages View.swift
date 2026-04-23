@@ -31,9 +31,11 @@ struct UpdateSomePackagesView: View
 
     var body: some View
     {
-        VStack(alignment: .center)
+        VStack(alignment: .leading)
         {
             ProgressView(updateProgressTracker.updateProgress)
+            
+            updateProgressTracker.streamedOutputsDisplay
         }
         .toolbar
         {
@@ -67,7 +69,8 @@ struct UpdateSomePackagesView: View
                 packageProgress.completedUnitCount = 2
 
                 let updatingResult: SinglePackageUpdatingResult = await outdatedPackagesTracker.updateSinglePackage(
-                    packageToUpdate: packageToUpdate
+                    packageToUpdate: packageToUpdate,
+                    updateProgressTracker: updateProgressTracker
                 )
 
                 consolidatedUpdateResults.append(updatingResult)
@@ -76,7 +79,7 @@ struct UpdateSomePackagesView: View
             }
             
             /// Extract only the failed updates from the results array
-            let failedUpdates = consolidatedUpdateResults.compactMap
+            let failedUpdates: [OutdatedPackagesTracker.IndividualPackageUpdatingError] = consolidatedUpdateResults.compactMap
             { result -> OutdatedPackagesTracker.IndividualPackageUpdatingError? in
                 guard case .failure(let error) = result else { return nil }
                 return error

@@ -61,28 +61,39 @@ public extension TerminalOutputStreamable where Self: AnyObject
         {
             if Defaults[.showRealTimeTerminalOutputOfOperations]
             {
-                ScrollViewReader
-                { proxy in
-                    List
-                    {
-                        ForEach(self.outputs)
-                        { line in
-                            Text(line.description)
-                                .id(line.id)
-                                .lineLimit(nil)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                    }
-                    .frame(minHeight: 200)
-                    .listStyle(.bordered)
-                    .onChange(of: self.outputs)
-                    { _, newValue in
-                        if let last = newValue.last
+                DisclosureGroup(isExpanded: Bindable(self).isStreamedOutputExpanded)
+                {
+                    ScrollViewReader
+                    { proxy in
+                        List
                         {
-                            proxy.scrollTo(last.id, anchor: .bottom)
+                            ForEach(self.outputs)
+                            { line in
+                                Text(line.description)
+                                    .id(line.id)
+                                    .lineLimit(nil)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                        }
+                        .frame(minHeight: 200)
+                        .listStyle(.bordered)
+                        .onChange(of: self.outputs)
+                        { _, newValue in
+                            if let last = newValue.last
+                            {
+                                proxy.scrollTo(last.id, anchor: .bottom)
+                            }
                         }
                     }
+                } label: {
+                    Text("action.show-terminal-output")
                 }
+            }
+            else
+            {
+                #if DEBUG
+                Text("DEBUG: Streamed output disabled")
+                #endif
             }
         }
     }

@@ -29,6 +29,8 @@ struct UpdateResultsList: View
                     updateFailure_unimplementedError(failedPackage: failedPackage, rawTerminalOutput: rawOutput)
                 }
             }
+            .listStyle(.bordered(alternatesRowBackgrounds: true))
+            .frame(minHeight: 100)
         }
     }
     

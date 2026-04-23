@@ -23,7 +23,8 @@ extension OutdatedPackagesTracker
     /// - Parameter packageToUpdate: Which package to update
     /// - Returns: If successful, returns unimplemented cases for further review. If failed, returns the error case that caused the failure
     func updateSinglePackage(
-        packageToUpdate: OutdatedPackage
+        packageToUpdate: OutdatedPackage,
+        updateProgressTracker: UpdateProgressTracker
     ) async -> SinglePackageUpdatingResult
     {
         let package = packageToUpdate.package
@@ -48,6 +49,8 @@ extension OutdatedPackagesTracker
 
         for await output in stream
         {
+            updateProgressTracker.insertOutput(output)
+            
             output.match(as: IndividialPackageUpdatingStage.self)
             { standardCase in
                 consolidatedProcessResults.append(standardCase)
