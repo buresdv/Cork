@@ -37,7 +37,8 @@ struct UpdateSomePackagesView: View
         }
         .toolbar
         {
-            ToolbarItem(placement: .automatic) {
+            ToolbarItem(placement: .automatic)
+            {
                 if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
                 {
                     Text("update-packages.incremental.update-in-progress-\(packageBeingUpdated.package.name(withPrecision: .precise))")

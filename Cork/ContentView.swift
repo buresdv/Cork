@@ -423,6 +423,10 @@ private extension View
 
                 case .update:
                     UpdatePackagesView(outdatedPackagesTrackerToUse: view.outdatedPackagesTracker)
+                        .onDisappear
+                        {
+                            view.outdatedPackagesTracker.checkForUpdates()
+                        }
 
                 case .corruptedPackageFix(let corruptedPackage):
                     ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackage)
