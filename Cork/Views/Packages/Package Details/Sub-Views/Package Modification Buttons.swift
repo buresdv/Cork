@@ -20,7 +20,7 @@ struct PackageModificationButtons: View
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let package: BrewPackage
     @Bindable var packageDetails: BrewPackage.BrewPackageDetails

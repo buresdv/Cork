@@ -14,7 +14,7 @@ struct UpdatePackageButton: View
 {
     
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     let packageToUpdate: BrewPackage
     
@@ -27,7 +27,7 @@ struct UpdatePackageButton: View
     {
         Button
         {
-            appState.showSheet(ofType: .partialUpdate(packagesToUpdate: outdatedPackageFromTracker))
+            appState.showSheet(ofType: .update)
         } label: {
             Text("action.update-\(packageToUpdate.name(withPrecision: .precise))")
         }

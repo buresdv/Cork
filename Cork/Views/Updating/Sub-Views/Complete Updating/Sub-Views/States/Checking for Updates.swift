@@ -8,14 +8,12 @@
 import SwiftUI
 import CorkShared
 import CorkModels
+import FactoryKit
 
 struct CheckingForUpdatesStateView: View
 {
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
-
-    @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
-    @Binding var packageUpdatingStage: PackageUpdatingStage
 
     @Binding var updateAvailability: OutdatedPackagesTracker.PackageUpdateAvailability
 
@@ -33,7 +31,9 @@ struct CheckingForUpdatesStateView: View
         }
         .task
         {
-            updateAvailability = await outdatedPackagesTracker.refreshPackages(updateProgressTracker: updateProgressTracker)
+            updateAvailability = await outdatedPackagesTracker.refreshPackages(
+                updateProgressTracker: updateProgressTracker
+            )
 
             AppConstants.shared.logger.debug("Update availability result: \(updateAvailability.description, privacy: .public)")
 
@@ -41,14 +41,13 @@ struct CheckingForUpdatesStateView: View
             {
                 AppConstants.shared.logger.debug("Outside update function: No updates available")
 
-                updateProgressTracker.realTimeOutput = .init()
-
-                packageUpdatingStage = .noUpdatesAvailable
+                updateProgressTracker.updatingState = .noUpdatesAvailable
             }
             else
             {
                 AppConstants.shared.logger.debug("Outside update function: Updates available")
-                packageUpdatingStep = .updatingPackages
+                
+                updateProgressTracker.updatingState = .updating(type: updateProgressTracker.packageUpdatingType)
             }
         }
     }

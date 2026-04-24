@@ -8,13 +8,14 @@
 import CorkModels
 import Defaults
 import SwiftUI
+import FactoryKit
 
 /// Encapsulates both the managed and unmanaged lists
 struct OutdatedPackagesList: View
 {
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
 
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var areThereAnyHomebrewManagedUpdatesAvailable: Bool
     {

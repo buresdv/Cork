@@ -41,9 +41,7 @@ struct ContentView: View, Sendable
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
-
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var multiSelection: Set<UUID> = .init()
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
@@ -56,7 +54,7 @@ struct ContentView: View, Sendable
     {
         Button
         {
-            appState.showSheet(ofType: .fullUpdate)
+            appState.showSheet(ofType: .update)
         } label: {
             Label
             {
@@ -423,11 +421,12 @@ private extension View
                 case .massAppAdoption(let appsToAdopt):
                     MassAppAdoptionView(appsToAdopt: appsToAdopt)
 
-                case .fullUpdate:
-                    UpdatePackagesView()
-
-                case .partialUpdate(let packagesToUpdate):
-                    UpdateSomePackagesView(packagesToUpdate: packagesToUpdate)
+                case .update:
+                    UpdatePackagesView(outdatedPackagesTrackerToUse: view.outdatedPackagesTracker)
+                        .onDisappear
+                        {
+                            view.outdatedPackagesTracker.checkForUpdates()
+                        }
 
                 case .corruptedPackageFix(let corruptedPackage):
                     ReinstallCorruptedPackageView(corruptedPackageToReinstall: corruptedPackage)

@@ -15,7 +15,7 @@ struct SidebarContextMenu: View
 {
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     let package: BrewPackage
     

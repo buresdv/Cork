@@ -17,7 +17,7 @@ struct UpgradePackagesButton: View
     {
         Button
         {
-            appState.showSheet(ofType: .fullUpdate)
+            appState.showSheet(ofType: .update)
         } label: {
             Label("navigation.menu.packages.update", systemImage: "square.and.arrow.down")
         }

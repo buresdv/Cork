@@ -18,7 +18,7 @@ struct OutdatedPackagesBox: View
     }
 
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @Binding var isOutdatedPackageDropdownExpanded: Bool
 

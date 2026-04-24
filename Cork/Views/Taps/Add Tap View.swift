@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CorkModels
+import FactoryKit
 
 enum TapAddingStates
 {
@@ -37,7 +38,7 @@ struct AddTapView: View
     @State private var tappingError: TappingError = .other
 
     @Environment(TapTracker.self) var tapTracker: TapTracker
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     var isDismissable: Bool
     {

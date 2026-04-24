@@ -5,15 +5,19 @@
 //  Created by David Bureš on 15.03.2023.
 //
 
+import CorkShared
+import CorkTerminalFunctions
 import Defaults
 import DefaultsMacros
+import FactoryKit
 import Foundation
 import SwiftUI
 
-@MainActor
-@Observable
+@Observable @MainActor
 public class OutdatedPackagesTracker
 {
+    @Injected(\.appConstants) @ObservationIgnored public var appConstants
+
     @ObservableDefault(.displayOnlyIntentionallyInstalledPackagesByDefault) @ObservationIgnored var displayOnlyIntentionallyInstalledPackagesByDefault: Bool
 
     @ObservableDefault(.includeGreedyOutdatedPackages) @ObservationIgnored var includeGreedyOutdatedPackages: Bool
@@ -28,6 +32,9 @@ public class OutdatedPackagesTracker
         self.isCheckingForPackageUpdates = true
         self.outdatedPackages = .init()
     }
+
+    @ObservationIgnored
+    public var updateProcess: Process?
 
     public var isCheckingForPackageUpdates: Bool
 
@@ -86,6 +93,166 @@ public class OutdatedPackagesTracker
             return .managedOnly
         }
     }
+
+    // MARK: - Matchers
+
+    public enum UpdateProcessMatcher: TerminalOutputMatchable
+    {
+        public enum StandardCases: LocalizedStringKey, CustomStringConvertible, TerminalOutputCase
+        {
+            case downloading = "update-packages.detail-stage.downloading"
+            case pouring = "update-packages.detail-stage.pouring"
+            case cleanup = "update-packages.detail-stage.cleanup"
+            case backingUp = "update-packages.detail-stage.backing-up"
+            case linking = "update-packages.detail-stage.linking"
+
+            public var patterns: [String]
+            {
+                switch self
+                {
+                case .downloading:
+                    ["Downloading"]
+                case .pouring:
+                    ["Pouring"]
+                case .cleanup:
+                    ["cleanup"]
+                case .backingUp:
+                    ["Backing App"]
+                case .linking:
+                    ["Moving App", "Linking"]
+                }
+            }
+
+            public var description: String
+            {
+                switch self
+                {
+                case .downloading:
+                    return "Downloading"
+                case .pouring:
+                    return "Pouring"
+                case .cleanup:
+                    return "Cleanup"
+                case .backingUp:
+                    return "Backing Up"
+                case .linking:
+                    return "Linking"
+                }
+            }
+        }
+
+        public typealias ErrorCases = ExpectsNoErrors
+
+        public enum IgnoredCases: TerminalOutputCase
+        {
+            case tapUpdate
+            case noChecksumDefined
+
+            public var patterns: [String]
+            {
+                switch self
+                {
+                case .tapUpdate: ["tap"]
+                case .noChecksumDefined: ["No checksum defined for"]
+                }
+            }
+        }
+    }
+
+    public enum IndividialPackageUpdatingStage: TerminalOutputMatchable
+    {
+        public enum StandardCases: LocalizedStringKey, CustomStringConvertible, TerminalOutputCase
+        {
+            case downloading
+            case installingUpdate
+            case cleaningUp
+
+            public var patterns: [String]
+            {
+                switch self
+                {
+                case .downloading:
+                    ["Fetching"]
+                case .installingUpdate:
+                    ["Reinstalling", "Installing", "Pouring"]
+                case .cleaningUp:
+                    ["cleanup"]
+                }
+            }
+
+            public var description: String
+            {
+                switch self
+                {
+                case .downloading:
+                    return String(localized: "update-packages.detail-stage.downloading")
+                case .installingUpdate:
+                    return String(localized: "update-packages.detail-stage.installing-update")
+                case .cleaningUp:
+                    return String(localized: "update-packages.detail-stage.cleanup")
+                }
+            }
+        }
+
+        public enum ErrorCases: TerminalOutputCase
+        {
+            /// Post-install scripts provided by the package failed
+            case postInstallStepFailed
+
+            /// Expects password
+            case terminalRequired
+
+            public var patterns: [String]
+            {
+                switch self
+                {
+                case .postInstallStepFailed:
+                    ["post-install step did not complete successfully"]
+                case .terminalRequired:
+                    ["a terminal is required to read the password"]
+                }
+            }
+        }
+
+        public enum IgnoredCases: TerminalOutputCase
+        {
+            public var patterns: [String]
+            {
+                ["Caveats"]
+            }
+        }
+    }
+    
+    public enum IndividualPackageUpdatingError: LocalizedError, Identifiable
+    {
+        public enum ImplementedError: LocalizedError
+        {
+            case postInstallStepFailed(rawOutput: String)
+            case terminalRequired
+        }
+        
+        case implemented(
+            failedPackage: OutdatedPackage,
+            error: ImplementedError
+        )
+        
+        case unimplemented(
+            failedPackage: OutdatedPackage,
+            rawOutput: String
+        )
+        
+        public var id: UUID
+        {
+            switch self
+            {
+                
+            case .implemented(let failedPackage, _):
+                return failedPackage.package.id
+            case .unimplemented(let failedPackage, _):
+                return failedPackage.package.id
+            }
+        }
+    }
 }
 
 public extension OutdatedPackagesTracker
@@ -130,7 +297,7 @@ public extension OutdatedPackagesTracker
     {
         return allDisplayableOutdatedPackages.filter { $0.updatingManagedBy == .selfUpdating }
     }
-    
+
     var areAllOutdatedPackagesMarkedForUpdating: Bool
     {
         return packagesMarkedForUpdating.count == allDisplayableOutdatedPackages.count

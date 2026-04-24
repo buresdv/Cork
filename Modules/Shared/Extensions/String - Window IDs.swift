@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension String
+public extension String
 {
     static let mainWindowID: String = "main"
     static let previewWindowID: String = "window.package-preview"

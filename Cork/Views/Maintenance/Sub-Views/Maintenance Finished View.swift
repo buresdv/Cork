@@ -50,7 +50,7 @@ struct MaintenanceFinishedView: View
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let selectedMaintenanceStepsTracker: MaintenanceView.SelectedMaintenanceStepsTracker
 

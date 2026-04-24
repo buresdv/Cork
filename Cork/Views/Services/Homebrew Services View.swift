@@ -71,7 +71,7 @@ struct HomebrewServicesView: View
                 {
                     Button
                     {
-                        appState.showSheet(ofType: .fullUpdate)
+                        appState.showSheet(ofType: .update)
                         hasTriedToUpdateHomebrewThroughCork = true
                     } label: {
                         Text("action.update-homebrew")

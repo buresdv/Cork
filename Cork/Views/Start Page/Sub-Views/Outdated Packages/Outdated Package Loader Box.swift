@@ -16,7 +16,7 @@ struct OutdatedPackageLoaderBox: View
     
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     @Binding var errorOutReason: String?
     

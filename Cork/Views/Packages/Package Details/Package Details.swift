@@ -49,7 +49,7 @@ struct PackageDetailView: View, Sendable, DismissablePane
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     @State private var isShowingExpandedDependencies: Bool = false
     @State private var isShowingExpandedCaveats: Bool = false

@@ -102,13 +102,11 @@ public extension OutdatedPackagesTracker
 
             if showRealTimeTerminalOutputs
             {
-                updateProgressTracker.realTimeOutput.append(RealTimeTerminalLine(line: output))
+                updateProgressTracker.insertOutput(output)
             }
 
             if let result: PackageUpdateAvailability = output.match(as: PackageRefreshMatcher.self,
                 onStandardOutput: { matched in
-                    updateProgressTracker.updateProgress += 0.1
-
                     switch matched
                     {
                     case .alreadyUpToDate:
@@ -123,13 +121,11 @@ public extension OutdatedPackagesTracker
                     }
                 },
                 onErrorOutput: { matched in
-                    updateProgressTracker.updateProgress += 0.1
-                
                     return .noUpdatesAvailable
                 },
                 onUnimplementedOutput: { unimplemented in
                     AppConstants.shared.logger.warning("Update function error: \(unimplemented.description, privacy: .public)")
-                    updateProgressTracker.errors.append("Update error: \(unimplemented.description)")
+                updateProgressTracker.insertOutput(unimplemented)
                     return nil
                 }
             )
@@ -137,8 +133,6 @@ public extension OutdatedPackagesTracker
                 return result
             }
         }
-        updateProgressTracker.updateProgress = Float(10) / Float(2)
-
         return .updatesAvailable
     }
 }

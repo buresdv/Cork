@@ -9,15 +9,12 @@ import SwiftUI
 import CorkModels
 import FactoryKit
 
+/*
 struct UpdatingPackagesStateView: View
 {
     @InjectedObservable(\.appState) var appState: AppState
-    @Environment(OutdatedPackagesTracker.self) var outdatedPackagesTracker: OutdatedPackagesTracker
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
-
-    @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
-
-    @Binding var isShowingRealTimeTerminalOutput: Bool
 
     var body: some View
     {
@@ -29,7 +26,7 @@ struct UpdatingPackagesStateView: View
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
 
-                if let currentStage = updateProgressTracker.currentStage
+                if let currentStage = updateProgressTracker.updatingState
                 {
                     SubtitleText(text: currentStage.rawValue)
                         .lineLimit(nil)
@@ -47,3 +44,4 @@ struct UpdatingPackagesStateView: View
         }
     }
 }
+*/

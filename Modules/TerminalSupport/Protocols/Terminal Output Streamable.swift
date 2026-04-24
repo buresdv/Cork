@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 /// Protocol which adds support for broadcasting real-time outputs of terminal commands
-public protocol TerminalOutputStreamable: Observable
+public protocol TerminalOutputStreamable: AnyObject, Observable
 {
     /// Collect the real-time output
     var outputs: [TerminalOutput] { get set }
@@ -33,16 +33,26 @@ public protocol TerminalOutputStreamable: Observable
 }
 
 public extension TerminalOutputStreamable
-{    
-    mutating func insertOutput(_ terminalOutput: TerminalOutput)
+{
+    func insertOutput(_ terminalOutput: TerminalOutput)
     {
         self.outputs.append(terminalOutput)
+    }
+    
+    var standardOutputs: [TerminalOutput]
+    {
+        get async { outputs.filter { if case .standardOutput = $0 { true } else { false } } }
+    }
+
+    var standardErrors: [TerminalOutput]
+    {
+        get async { outputs.filter { if case .standardError = $0 { true } else { false } } }
     }
 }
 
 // MARK: - View for showing outputs
 
-public extension TerminalOutputStreamable
+public extension TerminalOutputStreamable where Self: AnyObject
 {
     @MainActor
     var streamedOutputsDisplay: some View
@@ -51,28 +61,39 @@ public extension TerminalOutputStreamable
         {
             if Defaults[.showRealTimeTerminalOutputOfOperations]
             {
-                ScrollViewReader
-                { proxy in
-                    List
-                    {
-                        ForEach(outputs)
-                        { line in
-                            Text(line.description)
-                                .id(line.id)
-                                .lineLimit(nil)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                    }
-                    .frame(minHeight: 200)
-                    .listStyle(.bordered)
-                    .onChange(of: outputs)
-                    { _, newValue in
-                        if let last = newValue.last
+                DisclosureGroup(isExpanded: Bindable(self).isStreamedOutputExpanded)
+                {
+                    ScrollViewReader
+                    { proxy in
+                        List
                         {
-                            proxy.scrollTo(last.id, anchor: .bottom)
+                            ForEach(self.outputs)
+                            { line in
+                                Text(line.description)
+                                    .id(line.id)
+                                    .lineLimit(nil)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                        }
+                        .frame(minHeight: 200)
+                        .listStyle(.bordered)
+                        .onChange(of: self.outputs)
+                        { _, newValue in
+                            if let last = newValue.last
+                            {
+                                proxy.scrollTo(last.id, anchor: .bottom)
+                            }
                         }
                     }
+                } label: {
+                    Text("action.show-terminal-output")
                 }
+            }
+            else
+            {
+                #if DEBUG
+                Text("DEBUG: Streamed output disabled")
+                #endif
             }
         }
     }

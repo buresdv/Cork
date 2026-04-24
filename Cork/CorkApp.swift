@@ -36,7 +36,6 @@ struct CorkApp: App
 
     @State var topPackagesTracker: TopPackagesTracker = .init()
 
-    @State var updateProgressTracker: UpdateProgressTracker = .init()
     @State var outdatedPackagesTracker: OutdatedPackagesTracker = .init()
 
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
@@ -93,7 +92,6 @@ struct CorkApp: App
                 .environment(brewPackagesTracker)
                 .environment(tapTracker)
                 .environment(cachedDownloadsTracker)
-                .environment(updateProgressTracker)
                 .environment(outdatedPackagesTracker)
                 .environment(topPackagesTracker)
                 .modelContainer(for: [

@@ -14,7 +14,7 @@ public enum DisplayableSheet: Identifiable, Equatable
     
     case tapAddition
     
-    case fullUpdate, partialUpdate(packagesToUpdate: [OutdatedPackage])
+    case update
     
     case massAppAdoption(appsToAdopt: [BrewPackagesTracker.AdoptableApp])
     

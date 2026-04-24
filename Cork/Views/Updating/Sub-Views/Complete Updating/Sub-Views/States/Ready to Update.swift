@@ -7,19 +7,18 @@
 
 import SwiftUI
 
+/*
 struct ReadyToUpdateStateView: View
 {
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
-    
-    @Binding var packageUpdatingStep: PackageUpdatingProcessSteps
 
     var body: some View
     {
         Text("update-packages.updating.ready")
             .onAppear
             {
-                updateProgressTracker.updateProgress = 0
-                packageUpdatingStep = .checkingForUpdates
+                updateProgressTracker.packageUpdatingState = .
             }
     }
 }
+*/

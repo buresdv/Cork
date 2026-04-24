@@ -10,21 +10,20 @@ import CorkTerminalFunctions
 import Defaults
 import Foundation
 import SwiftUI
+import CorkModels
 
 extension UpdateProgressTracker
 {
     @MainActor
     func updatePackages() async
     {
-        let showRealTimeTerminalOutputs: Bool = Defaults[.showRealTimeTerminalOutputOfOperations]
-
         let includeGreedyPackages: Bool = Defaults[.includeGreedyOutdatedPackages]
 
         for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
         {
-            output.match(as: UpdateProcessStages.self)
+            output.match(as: OutdatedPackagesTracker.UpdateProcessMatcher.self)
             { standardOutput in
-                self.currentStage = standardOutput
+                //self.currentStage = standardOutput
             }
         }
     }
