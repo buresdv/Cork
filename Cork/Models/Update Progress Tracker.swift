@@ -10,6 +10,7 @@ import CorkTerminalFunctions
 import FactoryKit
 import Foundation
 import SwiftUI
+import CorkShared
 
 @Observable @MainActor
 public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
