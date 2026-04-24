@@ -21,7 +21,7 @@ struct ErroredOutStageView: View
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(UpdateProgressTracker.self) var updateProgressTracker: UpdateProgressTracker
 
-    let errors: [OutdatedPackagesTracker.IndividualPackageUpdatingError]
+    let errors: [UpdateProgressTracker.IndividualPackageUpdatingError]
 
     var body: some View
     {

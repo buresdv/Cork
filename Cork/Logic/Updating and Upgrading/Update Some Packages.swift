@@ -13,7 +13,7 @@ import Foundation
 /// The error result for updating single packages - a package that threw the error, along with the error it threw
 // public typealias SinglePackageUpdatingErrorResult = (package: OutdatedPackage, error: OutdatedPackagesTracker.IndividualPackageUpdatingError)
 
-public typealias SinglePackageUpdatingResult = Result<[TerminalOutput], OutdatedPackagesTracker.IndividualPackageUpdatingError>
+public typealias SinglePackageUpdatingResult = Result<[TerminalOutput], UpdateProgressTracker.IndividualPackageUpdatingError>
 
 extension OutdatedPackagesTracker
 {
@@ -43,15 +43,15 @@ extension OutdatedPackagesTracker
 
         self.updateProcess = process
 
-        var consolidatedProcessResults: [IndividialPackageUpdatingStage.StandardCases] = .init()
-        var processError: IndividualPackageUpdatingError? = nil
+        var consolidatedProcessResults: [UpdateProgressTracker.IndividialPackageUpdatingStage.StandardCases] = .init()
+        var processError: UpdateProgressTracker.IndividualPackageUpdatingError? = nil
         var processUnimplementedCases: [TerminalOutput] = .init()
 
         for await output in stream
         {
             updateProgressTracker.insertOutput(output)
             
-            output.match(as: IndividialPackageUpdatingStage.self)
+            output.match(as: UpdateProgressTracker.IndividialPackageUpdatingStage.self)
             { standardCase in
                 consolidatedProcessResults.append(standardCase)
             } onErrorOutput: { errorCase in

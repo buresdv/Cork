@@ -38,7 +38,7 @@ public final class OutdatedPackage: Identifiable, Equatable, Hashable, Selectabl
         }
     }
 
-    public let package: BrewPackage
+    nonisolated public let package: BrewPackage
 
     public let installedVersions: [String]
     public let newerVersion: String

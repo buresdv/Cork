@@ -13,7 +13,7 @@ struct UpdateResultsList: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
     
-    let updateErrors: [OutdatedPackagesTracker.IndividualPackageUpdatingError]
+    let updateErrors: [UpdateProgressTracker.IndividualPackageUpdatingError]
     
     var body: some View
     {
@@ -37,7 +37,7 @@ struct UpdateResultsList: View
     @ViewBuilder
     func updateFailure_implementedError(
         failedPackage: OutdatedPackage,
-        error: OutdatedPackagesTracker.IndividualPackageUpdatingError.ImplementedError
+        error: UpdateProgressTracker.IndividualPackageUpdatingError.ImplementedError
     ) -> some View {
         VStack(alignment: .leading, spacing: 2)
         {

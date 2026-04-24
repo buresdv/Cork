@@ -12,16 +12,20 @@ import Foundation
 import SwiftUI
 import CorkModels
 
-extension UpdateProgressTracker
+extension OutdatedPackagesTracker
 {
     @MainActor
-    func updatePackages() async
+    func updatePackages(
+        updateProgressTracker: UpdateProgressTracker
+    ) async throws
     {
         let includeGreedyPackages: Bool = Defaults[.includeGreedyOutdatedPackages]
 
         for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
         {
-            output.match(as: OutdatedPackagesTracker.UpdateProcessMatcher.self)
+            updateProgressTracker.insertOutput(output)
+            
+            output.match(as: UpdateProgressTracker.UpdateProcessMatcher.self)
             { standardOutput in
                 //self.currentStage = standardOutput
             }

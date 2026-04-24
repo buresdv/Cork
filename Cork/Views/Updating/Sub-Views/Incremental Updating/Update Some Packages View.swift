@@ -79,8 +79,8 @@ struct UpdateSomePackagesView: View
             }
             
             /// Extract only the failed updates from the results array
-            let failedUpdates: [OutdatedPackagesTracker.IndividualPackageUpdatingError] = consolidatedUpdateResults.compactMap
-            { result -> OutdatedPackagesTracker.IndividualPackageUpdatingError? in
+            let failedUpdates: [UpdateProgressTracker.IndividualPackageUpdatingError] = consolidatedUpdateResults.compactMap
+            { result -> UpdateProgressTracker.IndividualPackageUpdatingError? in
                 guard case .failure(let error) = result else { return nil }
                 return error
             }
