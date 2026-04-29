@@ -5,7 +5,6 @@
 //  Created by David Bureš on 28.04.2026.
 //
 
-import CorkModels
 import CorkShared
 import CorkTerminalFunctions
 import Foundation
@@ -15,11 +14,15 @@ extension InstallationProgressTracker
     @MainActor
     private func installFormula() async throws(InstallationError.ImplementedError.FormulaInstallError)
     {
+        print("Hello")
+        /*
         let package: BrewPackage = packageBeingInstalled.package
         var packageDependencies: [String] = .init()
         /// For some reason, the line `fetching [package name]` appears twice during the matching process, and the first one is a dud. Ignore that first one.
         var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
         var installOutput: [String] = .init()
+        
+        var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
 
         AppConstants.shared.logger.info("Package \(package.name(withPrecision: .precise), privacy: .public) is Formula")
 
@@ -68,15 +71,18 @@ extension InstallationProgressTracker
 
                     // TODO: Add a math formula for advancing the stepper
                     packageBeingInstalled.packageInstallationProgress = packageBeingInstalled.packageInstallationProgress + Double(Double(10) / (Double(3) * Double(numberOfPackageDependencies)))
-                case .downloadingPackage:
-                    <#code#>
-                case .installingPackage:
-                    <#code#>
+                case .downloadingPackage(let package):
+                    AppConstants.shared.logger.info("Will download package \(package.name(withPrecision: .precise))")
+                case .installingPackage(let package):
+                    AppConstants.shared.logger.info("Will install package \(package.name(withPrecision: .precise))")
                 }
             } onErrorOutput: { errorCase in
-                <#code#>
+                switch errorCase
+                {
+                
+                }
             } onUnimplementedOutput: { unimplementedCase in
-                <#code#>
+                consolidatedUnimplementedOutput.append(unimplementedCase)
             }
 
             
@@ -151,8 +157,14 @@ extension InstallationProgressTracker
             }
         }
 
+        if !consolidatedUnimplementedOutput.isEmpty
+        {
+            
+        }
+        
         packageBeingInstalled.packageInstallationProgress = 10
 
         packageBeingInstalled.installationStage = .finished
+         */
     }
 }

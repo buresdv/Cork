@@ -32,26 +32,6 @@ extension InstallationProgressTracker
                 try await installCask(using: brewPackagesTracker)
             }
         }
-        catch let formulaInstallError as InstallationError.ImplementedError.FormulaInstallError
-        {
-            switch formulaInstallError
-            {
-            case .implemented(let implementedError):
-                <#code#>
-            case .unimplelented(let rawOutput):
-                <#code#>
-            }
-        }
-        catch let caskInstallError as InstallationError.ImplementedError.CaskInstallError
-        {
-            switch caskInstallError
-            {
-            case .implemented(let implementedError):
-                <#code#>
-            case .unimplelented(let rawOutput):
-                <#code#>
-            }
-        }
         catch let unexpectedError
         {}
 
