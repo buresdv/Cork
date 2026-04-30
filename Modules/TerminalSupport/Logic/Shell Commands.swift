@@ -56,7 +56,7 @@ public func shell(
 {
     let task: Process = .init()
     
-    var finalEnvironment: [String: String] = .init()
+    var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
     
     // MARK: - Set up the $HOME environment variable so brew commands work on versions 4.1 and up
     
@@ -176,7 +176,7 @@ public func shell(
 {
     let task: Process = .init()
 
-    var finalEnvironment: [String: String] = .init()
+    var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
 
     // MARK: - Set up the $HOME environment variable so brew commands work on versions 4.1 and up
 
