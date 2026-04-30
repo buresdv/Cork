@@ -17,14 +17,13 @@ struct PresentingSearchResultsView: View
 
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Bindable var searchResultTracker: SearchResultTracker
-
     @Binding var packageRequested: String
-    @Binding var foundPackageSelection: BrewPackage?
+    @Binding var selectedPackage: MinimalHomebrewPackage?
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
-
-    @Bindable var installationProgressTracker: InstallationProgressTracker
+    
+    let foundFormulae: [MinimalHomebrewPackage]
+    let foundCasks: [MinimalHomebrewPackage]
 
     @State private var isFormulaeSectionCollapsed: Bool = false
     @State private var isCasksSectionCollapsed: Bool = false
@@ -33,13 +32,7 @@ struct PresentingSearchResultsView: View
 
     var wereAnyPackagesFound: Bool
     {
-        guard let formulae = searchResultTracker.foundFormulae, let casks = searchResultTracker.foundCasks
-        else
-        {
-            return false
-        }
-
-        if formulae.isEmpty && casks.isEmpty
+        if foundFormulae.isEmpty && foundCasks.isEmpty
         {
             return false
         }
@@ -53,7 +46,7 @@ struct PresentingSearchResultsView: View
     {
         VStack
         {
-            List(selection: $foundPackageSelection)
+            List(selection: $selectedPackage)
             {
                 if !wereAnyPackagesFound
                 {
@@ -70,12 +63,12 @@ struct PresentingSearchResultsView: View
                 {
                     SearchResultsSection(
                         sectionType: .formula,
-                        packageList: searchResultTracker.foundFormulae
+                        packageList: foundFormulae
                     )
 
                     SearchResultsSection(
                         sectionType: .cask,
-                        packageList: searchResultTracker.foundCasks
+                        packageList: foundCasks
                     )
                 }
             }
@@ -84,7 +77,7 @@ struct PresentingSearchResultsView: View
 
             InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
             {
-                foundPackageSelection = nil // Clear all selected items when the user looks for a different package
+                selectedPackage = nil // Clear all selected items when the user looks for a different package
             }
         }
         .toolbar
@@ -113,22 +106,18 @@ struct PresentingSearchResultsView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let selectedPackage = foundPackageSelection
+            guard let selectedPackage = selectedPackage
             else
             {
                 AppConstants.shared.logger.error("Failed to preview package")
 
                 return
             }
-            openWindow(value: MinimalHomebrewPackage(
-                name: selectedPackage.name(withPrecision: .precise),
-                type: selectedPackage.type,
-                installedIntentionally: selectedPackage.installedIntentionally
-            ))
+            openWindow(value: selectedPackage)
 
-            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name(withPrecision: .precise))")
+            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
         }
-        .disabled(foundPackageSelection == nil)
+        .disabled(selectedPackage == nil)
         .labelStyle(.titleOnly)
     }
 
@@ -137,7 +126,7 @@ struct PresentingSearchResultsView: View
     {
         Button
         {
-            packageInstallationProcessStep = .searching
+            packageInstallationProcessStep = .searching(forSearchString: packageRequested)
         } label: {
             Text("add-package.search.action")
         }
@@ -150,14 +139,20 @@ struct PresentingSearchResultsView: View
     {
         Button
         {
-            getRequestedPackages()
-
-            packageInstallationProcessStep = .installing
+            if let selectedPackage
+            {
+                packageInstallationProcessStep = .installing(package: selectedPackage)
+            }
+            else
+            {
+                AppConstants.shared.logger.error("Impossible case")
+            }
+            
         } label: {
             Text("add-package.install.action")
         }
         .keyboardShortcut(.defaultAction)
-        .disabled(foundPackageSelection == nil)
+        .disabled(selectedPackage == nil)
     }
 
     @ViewBuilder
@@ -170,78 +165,59 @@ struct PresentingSearchResultsView: View
             Text("action.search-again")
         }
     }
-
-    private func getRequestedPackages()
-    {
-        if let foundPackageSelection
-        {
-            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: foundPackageSelection, installationStage: .ready, packageInstallationProgress: 0)
-
-            #if DEBUG
-                AppConstants.shared.logger.info("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise), privacy: .public)")
-            #endif
-        }
-    }
 }
 
 private struct SearchResultsSection: View
 {
     let sectionType: BrewPackage.PackageType
 
-    let packageList: [BrewPackage]?
+    let packageList: [MinimalHomebrewPackage]
 
     @State private var isSectionCollapsed: Bool = false
 
     var body: some View
     {
-        if let packageList
+        if packageList.isEmpty
         {
-            if packageList.isEmpty
+            Group
             {
-                Group
+                if #available(macOS 14.0, *)
                 {
-                    if #available(macOS 14.0, *)
+                    switch sectionType
                     {
-                        switch sectionType
-                        {
-                        case .formula:
-                            SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
-                        case .cask:
-                            SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
-                        }
-                    }
-                    else
-                    {
-                        switch sectionType
-                        {
-                        case .formula:
-                            Text("add-package.search.results.formulae.none-found")
-                        case .cask:
-                            Text("add-package.search.results.casks.none-found")
-                        }
+                    case .formula:
+                        SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
+                    case .cask:
+                        SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
                     }
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-            }
-            else
-            {
-                Section
+                else
                 {
-                    if !isSectionCollapsed
+                    switch sectionType
                     {
-                        ForEach(packageList)
-                        { package in
-                            SearchResultRow(searchedForPackage: package, context: .searchResults)
-                        }
+                    case .formula:
+                        Text("add-package.search.results.formulae.none-found")
+                    case .cask:
+                        Text("add-package.search.results.casks.none-found")
                     }
-                } header: {
-                    CollapsibleSectionHeader(headerText: sectionType == .formula ? "add-package.search.results.formulae" : "add-package.search.results.casks", isCollapsed: $isSectionCollapsed)
                 }
             }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
         }
         else
         {
-            searchFailed
+            Section
+            {
+                if !isSectionCollapsed
+                {
+                    ForEach(packageList)
+                    { package in
+                        SearchResultRow(searchedForPackage: package, context: .searchResults)
+                    }
+                }
+            } header: {
+                CollapsibleSectionHeader(headerText: sectionType == .formula ? "add-package.search.results.formulae" : "add-package.search.results.casks", isCollapsed: $isSectionCollapsed)
+            }
         }
     }
     

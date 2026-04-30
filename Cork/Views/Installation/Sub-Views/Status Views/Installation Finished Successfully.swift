@@ -10,11 +10,12 @@ import CorkShared
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct InstallationFinishedSuccessfullyView: View
 {
-    @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
-
+    @InjectedObservable(\.cachedDownloadsTracker) var cachedDownloadsTracker: CachedDownloadsTracker
+    
     @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
     var body: some View

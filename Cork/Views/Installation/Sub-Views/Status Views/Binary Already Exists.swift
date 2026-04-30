@@ -17,7 +17,8 @@ struct BinaryAlreadyExistsView: View, Sendable
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Bindable var installationProgressTracker: InstallationProgressTracker
+    let packageToInstall: MinimalHomebrewPackage
+    
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
     var body: some View
@@ -27,7 +28,7 @@ struct BinaryAlreadyExistsView: View, Sendable
             VStack(alignment: .leading, spacing: 10)
             {
                 HeadlineWithSubheadline(
-                    headline: "add-package.install.binary-already-exists-\(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise))",
+                    headline: "add-package.install.binary-already-exists-\(packageToInstall.name)",
                     subheadline: "add-package.install.binary-already-exists.subheadline",
                     alignment: .leading
                 )
@@ -41,15 +42,6 @@ struct BinaryAlreadyExistsView: View, Sendable
                         URL.applicationDirectory.revealInFinder(.openTargetItself)
                     } label: {
                         Text("action.reveal-applications-folder-in-finder")
-                    }
-                }
-                
-                ToolbarItem(placement: .automatic) {
-                    Button
-                    {
-                        packageInstallationProcessStep = .adoptingAlreadyInstalledCask
-                    } label: {
-                        Text("action.adopt", comment: "Action for adopting a package into Homebrew - it will add the already-instaled package into Homerbew to start updating it through Homebrew")
                     }
                 }
             }

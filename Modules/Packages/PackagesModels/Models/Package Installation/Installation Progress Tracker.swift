@@ -8,26 +8,28 @@
 import BetterProgress
 import CorkTerminalFunctions
 import Foundation
+import CorkShared
+import SwiftUI
 
 @Observable
-class InstallationProgressTracker: @MainActor TerminalOutputStreamable
+public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
 {
-    enum InstallationError: LocalizedError
+    public enum InstallationError: LocalizedError, Equatable
     {
-        enum ImplementedError: LocalizedError
+        public enum ImplementedError: LocalizedError, Equatable
         {
-            enum FormulaInstallError: LocalizedError
+            public enum FormulaInstallError: LocalizedError, Equatable
             {
-                enum ImplementedError: LocalizedError
+                public enum ImplementedError: LocalizedError, Equatable
                 {}
 
                 case implemented(ImplementedError)
                 case unimplelented(rawOutput: [TerminalOutput])
             }
 
-            enum CaskInstallError: LocalizedError
+            public enum CaskInstallError: LocalizedError, Equatable
             {
-                enum ImplementedError: LocalizedError
+                public enum ImplementedError: LocalizedError, Equatable
                 {
                     case requiresSudoPassword
                     case binaryAlreadyExists
@@ -48,25 +50,45 @@ class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         case unimplemented(rawOutput: [TerminalOutput])
     }
 
-    enum FormulaInstallMatcher: TerminalOutputMatchable
+    public enum FormulaInstallMatcher: TerminalOutputMatchable
     {
-        enum StandardCases: TerminalOutputCase
+        public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
         {
-            static let allCases: [InstallationProgressTracker.FormulaInstallMatcher.StandardCases] = [
+            public static let allCases: [InstallationProgressTracker.FormulaInstallMatcher.StandardCases] = [
                 .findingDependencies,
-                .downloadingDependencies(dependencyName: ""),
-                .installingDependencies(dependencyName: ""),
-                .downloadingPackage(package: .init(minimalPackageFromName: "", type: .formula)),
-                .installingPackage(package: .init(minimalPackageFromName: "", type: .formula))
+                .downloadingDependencies(
+                    dependencyName: ""
+                ),
+                .installingDependencies(
+                    dependencyName: "",
+                    dependencyNumber: .min,
+                    totalNumberOfDependencies: .min
+                ),
+                .downloadingPackage(
+                    package: .init(createEmpty: true)
+                ),
+                .installingPackage(
+                    package: .init(createEmpty: true)
+                )
             ]
             
             case findingDependencies
-            case downloadingDependencies(dependencyName: String)
-            case installingDependencies(dependencyName: String)
-            case downloadingPackage(package: BrewPackage)
-            case installingPackage(package: BrewPackage)
+            case downloadingDependencies(
+                dependencyName: String
+            )
+            case installingDependencies(
+                dependencyName: String,
+                dependencyNumber: Int,
+                totalNumberOfDependencies: Int
+            )
+            case downloadingPackage(
+                package: MinimalHomebrewPackage
+            )
+            case installingPackage(
+                package: MinimalHomebrewPackage
+            )
 
-            var patterns: [String]
+            public var patterns: [String]
             {
                 switch self
                 {
@@ -74,21 +96,37 @@ class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     ["Fetching dependencies"]
                 case .downloadingDependencies(let dependencyName):
                     ["Fetching \(dependencyName)"]
-                case .installingDependencies(let dependencyName):
+                case .installingDependencies(let dependencyName, _, _):
                     ["Installing \(dependencyName)"]
                 case .downloadingPackage(let package):
-                    ["Fetching \(package.name(withPrecision: .precise))"]
+                    ["Fetching \(package.name)"]
                 case .installingPackage(let package):
-                    ["Installing \(package.name(withPrecision: .precise))"]
+                    ["Installing \(package.name)"]
+                }
+            }
+            
+            public var stageDescription: LocalizedStringKey
+            {
+                switch self {
+                case .findingDependencies:
+                    return "add-package.install.loading-dependencies"
+                case .downloadingDependencies(let dependencyName):
+                    return "add-package.install.fetching-dependencies"
+                case .installingDependencies(let dependencyName, let dependencyNumber, let totalNumberOfDependencies):
+                    return "add-package.install.installing-dependencies-\(dependencyNumber)-of-\(totalNumberOfDependencies)"
+                case .downloadingPackage(let package):
+                    return "add-package.install.downloading-package-\(package.name)"
+                case .installingPackage(let package):
+                    return "add-package.install.installing-package-\(package.name)"
                 }
             }
         }
 
-        enum ErrorCases: TerminalOutputCase
+        public enum ErrorCases: TerminalOutputCase
         {
             case requiresPassword
 
-            var patterns: [String]
+            public var patterns: [String]
             {
                 switch self
                 {
@@ -98,19 +136,26 @@ class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             }
         }
 
-        typealias IgnoredCases = IgnoresNoOutputs
+        public typealias IgnoredCases = IgnoresNoOutputs
     }
 
-    enum CaskInstallMatcher: TerminalOutputMatchable
+    public enum CaskInstallMatcher: TerminalOutputMatchable
     {
-        enum StandardCases: TerminalOutputCase
+        public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
         {
-            case downloadingCask
-            case installingCask
-            case movingCask
-            case linkingAppToCask
+            public static let allCases: [InstallationProgressTracker.CaskInstallMatcher.StandardCases] = [
+                .downloadingCask(.init(createEmpty: true)),
+                .installingCask(.init(createEmpty: true)),
+                .movingCask(.init(createEmpty: true)),
+                .linkingAppToCask(.init(createEmpty: true))
+            ]
+            
+            case downloadingCask(MinimalHomebrewPackage)
+            case installingCask(MinimalHomebrewPackage)
+            case movingCask(MinimalHomebrewPackage)
+            case linkingAppToCask(MinimalHomebrewPackage)
 
-            var patterns: [String]
+            public var patterns: [String]
             {
                 switch self
                 {
@@ -124,15 +169,30 @@ class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     ["Linking binary"]
                 }
             }
+            
+            public var stageDescription: LocalizedStringKey
+            {
+                switch self
+                {
+                case .downloadingCask(let caskToInstall):
+                    return "add-package.install.downloading-cask-\(caskToInstall.name)"
+                case .installingCask(let caskToInstall):
+                    return "add-package.install.installing-cask-\(caskToInstall.name)"
+                case .movingCask(let caskToInstall):
+                    return "add-package.install.moving-cask-\(caskToInstall.name)"
+                case .linkingAppToCask(let caskToInstall):
+                    return "add-package.install.linking-cask-binary.\(caskToInstall.name)"
+                }
+            }
         }
 
-        enum ErrorCases: TerminalOutputCase
+        public enum ErrorCases: TerminalOutputCase
         {
             case requiresSudoPassword
             case binaryAlreadyExists
             case wrongArchitecture
 
-            var patterns: [String]
+            public var patterns: [String]
             {
                 switch self
                 {
@@ -146,41 +206,41 @@ class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             }
         }
 
-        typealias IgnoredCases = IgnoresNoOutputs
+        public typealias IgnoredCases = IgnoresNoOutputs
     }
 
-    enum InstallStageType
+    public enum InstallStageType
     {
         case formula(FormulaInstallMatcher.StandardCases)
         case cask(CaskInstallMatcher.StandardCases)
     }
     
-    func insertOutput(_ output: CorkTerminalFunctions.TerminalOutput)
+    public func insertOutput(_ output: CorkTerminalFunctions.TerminalOutput)
     {
         self.outputs.append(output)
     }
 
-    var outputs: [CorkTerminalFunctions.TerminalOutput] = .init()
+    public var outputs: [CorkTerminalFunctions.TerminalOutput] = .init()
 
-    var standardOutputs: [CorkTerminalFunctions.TerminalOutput] = .init()
+    public var standardOutputs: [CorkTerminalFunctions.TerminalOutput] = .init()
 
-    var standardErrors: [CorkTerminalFunctions.TerminalOutput] = .init()
+    public var standardErrors: [CorkTerminalFunctions.TerminalOutput] = .init()
 
-    var isStreamedOutputExpanded: Bool = false
+    public var isStreamedOutputExpanded: Bool = false
 
-    let packageToInstall: BrewPackage
+    public let packageToInstall: MinimalHomebrewPackage
 
-    var numberOfPackageDependencies: Int = 0
-    var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
-    var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
+    public var numberOfPackageDependencies: Int = 0
+    public var numberInLineOfPackageCurrentlyBeingFetched: Int = 0
+    public var numberInLineOfPackageCurrentlyBeingInstalled: Int = 0
 
-    var installationProcess: Process?
+    public var installationProcess: Process?
 
-    var installStage: InstallStageType
+    public var installStage: InstallStageType
 
-    var installProgress: Progress
+    public var installProgress: Progress
 
-    init(packageToInstall: BrewPackage)
+    public init(packageToInstall: MinimalHomebrewPackage)
     {
         let progress: Progress = {
             switch packageToInstall.type
@@ -197,7 +257,7 @@ class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             case .formula:
                 return .formula(.findingDependencies)
             case .cask:
-                return .cask(.downloadingCask)
+                return .cask(.downloadingCask(packageToInstall))
             }
         }()
 

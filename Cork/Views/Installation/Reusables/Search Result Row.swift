@@ -17,7 +17,7 @@ struct SearchResultRow: View, Sendable
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    let searchedForPackage: BrewPackage
+    let searchedForPackage: MinimalHomebrewPackage
     let context: Self.Context
 
     enum PackageDescriptionLoadingState: Equatable
@@ -128,7 +128,7 @@ struct SearchResultRow: View, Sendable
         {
             if showDescriptionsInSearchResults
             {
-                AppConstants.shared.logger.info("\(searchedForPackage.name(withPrecision: .precise), privacy: .auto) came into view")
+                AppConstants.shared.logger.info("\(searchedForPackage.name, privacy: .auto) came into view")
 
                 if self.packageDescriptionLoadingState == .loading
                 {
@@ -136,15 +136,10 @@ struct SearchResultRow: View, Sendable
 
                     do
                     {
-                        let searchedForPackage: BrewPackage = .init(
-                            rawName: searchedForPackage.name(withPrecision: .precise),
-                            type: searchedForPackage.type,
-                            installedOn: Date(),
-                            versions: [],
-                            url: nil,
-                            sizeInBytes: nil,
-                            downloadCount: nil
-                        )
+                        guard let searchedForPackageConvertedForDetailLoading: BrewPackage = .init(using: searchedForPackage) else
+                        {
+                            AppConstants.shared.logger.error("Failed to convert minimal package to actual package")
+                        }
 
                         do throws(BrewPackage.DescriptionLoadingError)
                         {

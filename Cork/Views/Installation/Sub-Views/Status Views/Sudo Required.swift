@@ -16,7 +16,7 @@ struct SudoRequiredView: View, Sendable
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Bindable var installationProgressTracker: InstallationProgressTracker
+    let packageToInstall: MinimalHomebrewPackage
 
     var body: some View
     {
@@ -26,14 +26,14 @@ struct SudoRequiredView: View, Sendable
             {
                 VStack(alignment: .leading, spacing: 10)
                 {
-                    Text("add-package.install.requires-sudo-password-\(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise))")
+                    Text("add-package.install.requires-sudo-password-\(packageToInstall.name)")
                         .font(.headline)
 
-                    ManualInstallInstructions(installationProgressTracker: installationProgressTracker)
+                    ManualInstallInstructions(packageToInstall: packageToInstall)
                 }
             }
 
-            Text("add.package.install.requires-sudo-password.terminal-instructions-\(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise))")
+            Text("add.package.install.requires-sudo-password.terminal-instructions-\(packageToInstall.name)")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -57,11 +57,11 @@ struct SudoRequiredView: View, Sendable
 
 private struct ManualInstallInstructions: View
 {
-    let installationProgressTracker: InstallationProgressTracker
+    let packageToInstall: MinimalHomebrewPackage
 
     var manualInstallCommand: String
     {
-        return "brew install \(installationProgressTracker.packageBeingInstalled.package.type == .cask ? "--cask" : "") \(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise))"
+        return "brew install \(packageToInstall.type == .cask ? "--cask" : "") \(packageToInstall.name)"
     }
 
     var body: some View

@@ -12,7 +12,9 @@ import Foundation
 extension InstallationProgressTracker
 {
     @MainActor
-    private func installFormula() async throws(InstallationError.ImplementedError.FormulaInstallError)
+    func installFormula(
+        _ formulaToInstall: MinimalHomebrewPackage
+    ) async throws(InstallationError.ImplementedError.FormulaInstallError)
     {
         print("Hello")
         /*

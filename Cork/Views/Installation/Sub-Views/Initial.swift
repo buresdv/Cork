@@ -25,8 +25,6 @@ struct InstallationInitialView: View
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @Bindable var searchResultTracker: SearchResultTracker
-
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
 
@@ -34,7 +32,7 @@ struct InstallationInitialView: View
 
     @Binding var foundPackageSelection: BrewPackage?
 
-    @Bindable var installationProgressTracker: InstallationProgressTracker
+    let packageToInstall: MinimalHomebrewPackage
 
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
@@ -133,11 +131,13 @@ struct InstallationInitialView: View
                 return
             }
             
-            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-            
-            AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise), privacy: .public)")
-            
-            packageInstallationProcessStep = .installing
+            packageInstallationProcessStep = .installing(
+                package: .init(
+                    name: packageToInstall.name(withPrecision: .precise),
+                    type: packageToInstall.type,
+                    installedIntentionally: false
+                )
+            )
             
         } label: {
             Text("add-package.install.action")
@@ -151,7 +151,7 @@ struct InstallationInitialView: View
     {
         Button
         {
-            packageInstallationProcessStep = .searching
+            packageInstallationProcessStep = .searching(forSearchString: packageRequested)
         } label: {
             Text("add-package.search.action")
         }

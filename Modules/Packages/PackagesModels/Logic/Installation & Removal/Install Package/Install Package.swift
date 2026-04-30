@@ -5,7 +5,6 @@
 //  Created by David Bureš on 28.04.2026.
 //
 
-import CorkModels
 import CorkShared
 import CorkTerminalFunctions
 import Foundation
@@ -13,23 +12,22 @@ import Foundation
 extension InstallationProgressTracker
 {
     @MainActor
-    func installPackage(
+    public func installPackage(
+        _ packageToInstall: MinimalHomebrewPackage,
         using brewPackagesTracker: BrewPackagesTracker,
         cachedDownloadsTracker: CachedDownloadsTracker
-    ) async throws(InstallationError) -> [TerminalOutput]
+    ) async throws(InstallationError)
     {
-        let package: BrewPackage = packageBeingInstalled.package
-
-        AppConstants.shared.logger.debug("Installing package \(package.name(withPrecision: .precise), privacy: .auto), of type \(package.type)")
+        AppConstants.shared.logger.debug("Installing package \(packageToInstall.name), privacy: .auto), of type \(packageToInstall.type)")
 
         do
         {
-            switch package.type
+            switch packageToInstall.type
             {
             case .formula:
-                try await installFormula(using: brewPackagesTracker)
+                try await installFormula(packageToInstall)
             case .cask:
-                try await installCask(using: brewPackagesTracker)
+                try await installCask(packageToInstall)
             }
         }
         catch let unexpectedError

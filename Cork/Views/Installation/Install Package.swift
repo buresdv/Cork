@@ -26,63 +26,26 @@ struct AddFormulaView: View
 
     @State private var foundPackageSelection: BrewPackage?
 
-    @Bindable var searchResultTracker: SearchResultTracker = .init()
-    @Bindable var installationProgressTracker: InstallationProgressTracker = .init()
-
     @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
 
     @State var packageInstallTrackingNumber: Float = 0
 
     @FocusState var isSearchFieldFocused: Bool
+    
+    @State private var installationProgressTracker: InstallationProgressTracker?
 
     @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
-    var shouldShowSheetTitle: Bool
-    {
-        [.ready, .presentingSearchResults].contains(packageInstallationProcessStep)
-    }
-    
-    var isDismissable: Bool
-    {
-        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly, .installing].contains(packageInstallationProcessStep)
-    }
-
     var sheetTitle: LocalizedStringKey
     {
-        switch packageInstallationProcessStep
-        {
-        case .ready:
-            return "add-package.title"
-        case .searching:
-            return ""
-        case .presentingSearchResults:
-            return "add-package.title"
-        case .installing:
-            return ""
-        case .finished:
-            return ""
-        case .fatalError:
-            return ""
-        case .requiresSudoPassword:
-            return ""
-        case .wrongArchitecture:
-            return ""
-        case .binaryAlreadyExists:
-            return ""
-        case .anotherProcessAlreadyRunning:
-            return ""
-        case .installationTerminatedUnexpectedly:
-            return ""
-        case .adoptingAlreadyInstalledCask:
-            return ""
-        }
+        return "add-package.title"
     }
 
     var body: some View
     {
         NavigationStack
         {
-            SheetTemplate(isShowingTitle: shouldShowSheetTitle)
+            SheetTemplate(isShowingTitle: true)
             {
                 Group
                 {
@@ -90,11 +53,10 @@ struct AddFormulaView: View
                     {
                     case .ready:
                         InstallationInitialView(
-                            searchResultTracker: searchResultTracker,
                             packageRequested: $packageRequested,
                             foundPackageSelection: $foundPackageSelection,
                             installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
+                            packageInstallationProcessStep: $packageInstallationProcessStep, packageToInstall: <#MinimalHomebrewPackage#>
                         )
 
                     case .searching:
@@ -154,14 +116,14 @@ struct AddFormulaView: View
                 .navigationTitle(sheetTitle)
                 .toolbar
                 {
-                    if isDismissable
+                    if packageInstallationProcessStep.isDismissable
                     {
                         ToolbarItem(placement: .cancellationAction)
                         {
                             AsyncButton
                             {
                                 dismiss()
-                                installationProgressTracker.cancel()
+                                installationProgressTracker.installationProcess.cancel()
                                 
                                 do
                                 {

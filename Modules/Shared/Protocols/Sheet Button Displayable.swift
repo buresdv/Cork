@@ -1,5 +1,5 @@
 //
-//  Sheet State Displayable.swift
+//  Sheet Button Displayable.swift
 //  CorkShared
 //
 //  Created by David Bureš - P on 23.04.2026.

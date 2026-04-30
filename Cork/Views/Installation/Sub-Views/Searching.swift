@@ -12,8 +12,6 @@ struct InstallationSearchingView: View, Sendable
 {
     @Binding var packageRequested: String
 
-    @Bindable var searchResultTracker: SearchResultTracker
-
     @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
 
     var body: some View
@@ -21,34 +19,30 @@ struct InstallationSearchingView: View, Sendable
         ProgressView("add-package.searching-\(packageRequested)")
             .task
             {
-                searchResultTracker.foundFormulae = []
-                searchResultTracker.foundCasks = []
-
-                async let foundFormulae: [String]? = searchForPackage(packageName: packageRequested, packageType: .formula)
-                async let foundCasks: [String]? = searchForPackage(packageName: packageRequested, packageType: .cask)
-
-                if let foundFormulae = await foundFormulae, let foundCasks = await foundCasks
-                {
-                    for foundPackageName in foundFormulae {
-                        searchResultTracker.foundFormulae?.append(
-                            .init(
-                                minimalPackageFromName: foundPackageName,
-                                type: .formula
-                            )
-                        )
-                    }
-                    
-                    for foundPackageName in foundCasks {
-                        searchResultTracker.foundCasks?.append(
-                            .init(
-                                minimalPackageFromName: foundPackageName,
-                                type: .cask
-                            )
-                        )
-                    }
+                async let foundFormulaeNames: [String] = searchForPackage(packageName: packageRequested, packageType: .formula)
+                async let foundCasksNames: [String] = searchForPackage(packageName: packageRequested, packageType: .cask)
+                
+                let foundFormulae: [MinimalHomebrewPackage] = await foundFormulaeNames.map { formulaName in
+                    return MinimalHomebrewPackage(
+                        name: formulaName,
+                        type: .formula,
+                        installedIntentionally: false
+                    )
+                }
+                
+                let foundCasks: [MinimalHomebrewPackage] = await foundCasksNames.map { caskName in
+                    return .init(
+                        name: caskName,
+                        type: .cask,
+                        installedIntentionally: false
+                    )
                 }
 
-                packageInstallationProcessStep = .presentingSearchResults
+                packageInstallationProcessStep = .presentingSearchResults(
+                    forSearchString: packageRequested,
+                    foundFormulae: foundFormulae,
+                    foundCasks: foundCasks
+                )
             }
     }
 }

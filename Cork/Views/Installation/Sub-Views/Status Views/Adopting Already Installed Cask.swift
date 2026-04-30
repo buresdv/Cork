@@ -14,11 +14,7 @@ struct AdoptingAlreadyInstalledCaskView: View
 {
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     
-    @Bindable var installationProgressTracker: InstallationProgressTracker
-
-    private var caskToAdopt: BrewPackage {
-        installationProgressTracker.packageBeingInstalled.package
-    }
+    let packageToInstall: MinimalHomebrewPackage
     
     private enum AdoptionStep
     {
@@ -31,6 +27,9 @@ struct AdoptingAlreadyInstalledCaskView: View
 
     var body: some View
     {
+        // TODO: Hook this into the standard adoption process
+        EmptyView()
+        /*
         switch adoptionStep
         {
         case .working:
@@ -82,5 +81,6 @@ struct AdoptingAlreadyInstalledCaskView: View
                 )
             }
         }
+        */
     }
 }
