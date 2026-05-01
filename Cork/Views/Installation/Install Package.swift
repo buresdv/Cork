@@ -49,33 +49,46 @@ struct AddFormulaView: View
             {
                 Group
                 {
+                    switch packageInstallationProcessStep {
+                    case .ready:
+                        InstallationInitialView(packageRequested: <#T##Binding<String>#>, foundPackageSelection: <#T##Binding<BrewPackage?>#>, packageToInstall: <#T##MinimalHomebrewPackage#>, packageInstallationProcessStep: <#T##Binding<PackageInstallationProcessSteps>#>)
+                    case .searching(let forSearchString):
+                        <#code#>
+                    case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
+                        <#code#>
+                    case .installing(let package):
+                        <#code#>
+                    case .finished:
+                        <#code#>
+                    case .unexpectedTerminalOutput(let rawOutput):
+                        <#code#>
+                    case .erroredOut(let withError):
+                        <#code#>
+                    }
                     switch packageInstallationProcessStep
                     {
                     case .ready:
                         InstallationInitialView(
                             packageRequested: $packageRequested,
                             foundPackageSelection: $foundPackageSelection,
-                            installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep, packageToInstall: <#MinimalHomebrewPackage#>
+                            packageToInstall: <#MinimalHomebrewPackage#>, packageInstallationProcessStep: $packageInstallationProcessStep
                         )
 
-                    case .searching:
+                    case .searching(let forSearchString):
                         InstallationSearchingView(
                             packageRequested: $packageRequested,
-                            searchResultTracker: searchResultTracker,
                             packageInstallationProcessStep: $packageInstallationProcessStep
                         )
 
-                    case .presentingSearchResults:
+                    case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
                         PresentingSearchResultsView(
-                            searchResultTracker: searchResultTracker,
                             packageRequested: $packageRequested,
                             foundPackageSelection: $foundPackageSelection,
                             packageInstallationProcessStep: $packageInstallationProcessStep,
                             installationProgressTracker: installationProgressTracker
                         )
 
-                    case .installing:
+                    case .installing(let package):
                         InstallingPackageView(
                             installationProgressTracker: installationProgressTracker,
                             packageInstallationProcessStep: $packageInstallationProcessStep
