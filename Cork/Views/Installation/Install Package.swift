@@ -13,8 +13,26 @@ import Defaults
 import CorkModels
 import FactoryKit
 
+typealias PackageInstallationProcessStepTracker = AddFormulaView.PackageInstallationProcessStepTracker
+
 struct AddFormulaView: View
 {
+    @Observable
+    final class PackageInstallationProcessStepTracker
+    {
+        private(set) var currentStep: PackageInstallationProcessSteps
+        
+        init()
+        {
+            self.currentStep = .ready
+        }
+        
+        func advanceStep(to newStep: PackageInstallationProcessSteps)
+        {
+            self.currentStep = newStep
+        }
+    }
+    
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @State private var packageRequested: String = ""
@@ -24,13 +42,11 @@ struct AddFormulaView: View
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @State private var foundPackageSelection: BrewPackage?
-
-    @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
-
     @State var packageInstallTrackingNumber: Float = 0
 
     @FocusState var isSearchFieldFocused: Bool
+    
+    @State private var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker = .init()
     
     @State private var installationProgressTracker: InstallationProgressTracker?
 
@@ -49,94 +65,40 @@ struct AddFormulaView: View
             {
                 Group
                 {
-                    switch packageInstallationProcessStep {
+                    switch packageInstallationProcessStepTracker.currentStep {
                     case .ready:
-                        InstallationInitialView(packageRequested: <#T##Binding<String>#>, foundPackageSelection: <#T##Binding<BrewPackage?>#>, packageToInstall: <#T##MinimalHomebrewPackage#>, packageInstallationProcessStep: <#T##Binding<PackageInstallationProcessSteps>#>)
-                    case .searching(let forSearchString):
-                        <#code#>
-                    case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
-                        <#code#>
-                    case .installing(let package):
-                        <#code#>
-                    case .finished:
-                        <#code#>
-                    case .unexpectedTerminalOutput(let rawOutput):
-                        <#code#>
-                    case .erroredOut(let withError):
-                        <#code#>
-                    }
-                    switch packageInstallationProcessStep
-                    {
-                    case .ready:
-                        InstallationInitialView(
-                            packageRequested: $packageRequested,
-                            foundPackageSelection: $foundPackageSelection,
-                            packageToInstall: <#MinimalHomebrewPackage#>, packageInstallationProcessStep: $packageInstallationProcessStep
-                        )
-
+                        InstallationInitialView()
                     case .searching(let forSearchString):
                         InstallationSearchingView(
-                            packageRequested: $packageRequested,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
+                            packageRequested: forSearchString
                         )
-
                     case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
                         PresentingSearchResultsView(
-                            packageRequested: $packageRequested,
-                            foundPackageSelection: $foundPackageSelection,
-                            packageInstallationProcessStep: $packageInstallationProcessStep,
-                            installationProgressTracker: installationProgressTracker
+                            oldSearchString: forSearchString,
+                            foundFormulae: foundFormulae,
+                            foundCasks: foundCasks
                         )
-
                     case .installing(let package):
-                        InstallingPackageView(
-                            installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
-                        )
-
+                        InstallingPackageView(packageToInstall: package)
                     case .finished:
                         InstallationFinishedSuccessfullyView()
-
-                    case .fatalError: /// This shows up when the function for executing the install action throws an error
-                        InstallationFatalErrorView(packageBeingInstalled: installationProgressTracker.packageBeingInstalled.package)
-
-                    case .requiresSudoPassword:
-                        SudoRequiredView(installationProgressTracker: installationProgressTracker)
-
-                    case .wrongArchitecture:
-                        WrongArchitectureView(installationProgressTracker: installationProgressTracker)
-
-                    case .binaryAlreadyExists:
-                        BinaryAlreadyExistsView(
-                            installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
-                        )
-
-                    case .anotherProcessAlreadyRunning:
-                        AnotherProcessAlreadyRunningView()
-
-                    case .installationTerminatedUnexpectedly:
-                        InstallationTerminatedUnexpectedlyView(
-                            terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput
-                        )
-                        
-                    case .adoptingAlreadyInstalledCask:
-                        AdoptingAlreadyInstalledCaskView(
-                            installationProgressTracker: installationProgressTracker
-                        )
+                    case .unexpectedTerminalOutput(let rawOutput):
+                        EmptyView()
+                    case .erroredOut(let withError):
+                        EmptyView()
                     }
                 }
                 .navigationTitle(sheetTitle)
                 .toolbar
                 {
-                    if packageInstallationProcessStep.isDismissable
+                    if packageInstallationProcessStepTracker.currentStep.isDismissable
                     {
                         ToolbarItem(placement: .cancellationAction)
                         {
                             AsyncButton
                             {
                                 dismiss()
-                                installationProgressTracker.installationProcess.cancel()
+                                installationProgressTracker?.cancel()
                                 
                                 do
                                 {
@@ -156,6 +118,7 @@ struct AddFormulaView: View
                 }
             }
         }
+        .environment(packageInstallationProcessStepTracker)
         .onDisappear
         {
             cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)

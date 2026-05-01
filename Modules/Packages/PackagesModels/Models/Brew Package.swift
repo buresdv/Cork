@@ -21,7 +21,8 @@ public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadi
 
 /// A representation of a Homebrew package
 public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable, PackageNameDisplayable
-{
+{    
+
     public init(
         rawName: String,
         type: BrewPackage.PackageType,
@@ -190,12 +191,12 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
     public enum NameDisplayComponents: Equatable
     {
-        case installedVersions([String])
+        case installedVersion(String)
         case boundVersion
 
-        var installedVersionValue: [String]?
+        var installedVersionValue: String?
         {
-            if case .installedVersions(let versions) = self { return versions }
+            if case .installedVersion(let version) = self { return version }
             return nil
         }
     }

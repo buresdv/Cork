@@ -17,10 +17,11 @@ struct PresentingSearchResultsView: View
 
     @InjectedObservable(\.appState) var appState: AppState
 
-    @Binding var packageRequested: String
+    @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
+    
+    @State private var searchString: String = ""
+    
     @Binding var selectedPackage: MinimalHomebrewPackage?
-
-    @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
     
     let foundFormulae: [MinimalHomebrewPackage]
     let foundCasks: [MinimalHomebrewPackage]
@@ -29,6 +30,18 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
+    
+    init(
+        oldSearchString: String,
+        selectedPackage: Binding<MinimalHomebrewPackage?> = .constant(nil),
+        foundFormulae: [MinimalHomebrewPackage],
+        foundCasks: [MinimalHomebrewPackage]
+    ) {
+        _searchString = State(initialValue: oldSearchString)
+        _selectedPackage = selectedPackage
+        self.foundFormulae = foundFormulae
+        self.foundCasks = foundCasks
+    }
 
     var wereAnyPackagesFound: Bool
     {
@@ -75,7 +88,7 @@ struct PresentingSearchResultsView: View
             .listStyle(.bordered(alternatesRowBackgrounds: true))
             .frame(minHeight: 200)
 
-            InstallProcessCustomSearchField(search: $packageRequested, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
+            InstallProcessCustomSearchField(search: $searchString, isFocused: $isSearchFieldFocused, customPromptText: String(localized: "add-package.search.prompt"))
             {
                 selectedPackage = nil // Clear all selected items when the user looks for a different package
             }
@@ -126,12 +139,12 @@ struct PresentingSearchResultsView: View
     {
         Button
         {
-            packageInstallationProcessStep = .searching(forSearchString: packageRequested)
+            packageInstallationProcessStepTracker.advanceStep(to: .searching(forSearchString: searchString))
         } label: {
             Text("add-package.search.action")
         }
         .keyboardShortcut(.defaultAction)
-        .disabled(packageRequested.isEmpty || !isSearchFieldFocused)
+        .disabled(searchString.isEmpty || !isSearchFieldFocused)
     }
 
     @ViewBuilder
@@ -141,7 +154,7 @@ struct PresentingSearchResultsView: View
         {
             if let selectedPackage
             {
-                packageInstallationProcessStep = .installing(package: selectedPackage)
+                packageInstallationProcessStepTracker.advanceStep(to: .installing(package: selectedPackage))
             }
             else
             {
@@ -160,7 +173,7 @@ struct PresentingSearchResultsView: View
     {
         Button
         {
-            packageInstallationProcessStep = .ready
+            packageInstallationProcessStepTracker.advanceStep(to: .ready)
         } label: {
             Text("action.search-again")
         }

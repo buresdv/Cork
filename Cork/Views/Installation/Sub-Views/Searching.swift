@@ -10,9 +10,9 @@ import CorkModels
 
 struct InstallationSearchingView: View, Sendable
 {
-    @Binding var packageRequested: String
+    let packageRequested: String
 
-    @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
+    @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
 
     var body: some View
     {
@@ -38,11 +38,11 @@ struct InstallationSearchingView: View, Sendable
                     )
                 }
 
-                packageInstallationProcessStep = .presentingSearchResults(
+                packageInstallationProcessStepTracker.advanceStep(to: .presentingSearchResults(
                     forSearchString: packageRequested,
                     foundFormulae: foundFormulae,
                     foundCasks: foundCasks
-                )
+                ))
             }
     }
 }

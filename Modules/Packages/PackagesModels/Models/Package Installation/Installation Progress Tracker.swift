@@ -272,7 +272,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
     }
 
     @discardableResult
-    func cancel() -> Bool
+    public func cancel() -> Bool
     {
         guard let installationProcess else { return false }
         installationProcess.terminate()

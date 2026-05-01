@@ -5,11 +5,11 @@
 //  Created by David Bureš on 20.08.2023.
 //
 
-import SwiftUI
+import CorkModels
 import CorkShared
 import Defaults
-import CorkModels
 import FactoryKit
+import SwiftUI
 
 struct InstallationInitialView: View
 {
@@ -25,16 +25,14 @@ struct InstallationInitialView: View
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
+    @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
+
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
 
-    @Binding var packageRequested: String
+    @State private var packageRequested: String = ""
 
-    @Binding var foundPackageSelection: BrewPackage?
-
-    let packageToInstall: MinimalHomebrewPackage
-
-    @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
+    @State private var foundPackageSelection: BrewPackage?
 
     @State var isSearchFieldFocused: Bool = true
 
@@ -81,11 +79,11 @@ struct InstallationInitialView: View
                 ToolbarItemGroup(placement: .automatic)
                 {
                     previewPackageButton
-                    
+
                     startInstallProcessForTopPackageButton
                 }
             }
-            
+
             ToolbarItem(placement: .primaryAction)
             {
                 searchForPackageButton
@@ -96,19 +94,20 @@ struct InstallationInitialView: View
             foundPackageSelection = nil
         }
     }
-    
+
     @ViewBuilder
     var previewPackageButton: some View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let packageToPreview: BrewPackage = foundPackageSelection else
+            guard let packageToPreview: BrewPackage = foundPackageSelection
+            else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to preview")
-                
+
                 return
             }
-            
+
             openWindow(value: MinimalHomebrewPackage(
                 name: packageToPreview.name(withPrecision: .precise),
                 type: packageToPreview.type,
@@ -118,40 +117,39 @@ struct InstallationInitialView: View
         .disabled(foundPackageSelection == nil)
         .labelStyle(.titleOnly)
     }
-    
+
     @ViewBuilder
     var startInstallProcessForTopPackageButton: some View
     {
         Button
         {
-            guard let packageToInstall: BrewPackage = foundPackageSelection else
+            guard let packageToInstall: BrewPackage = foundPackageSelection
+            else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to install")
-                
+
                 return
             }
-            
-            packageInstallationProcessStep = .installing(
-                package: .init(
-                    name: packageToInstall.name(withPrecision: .precise),
-                    type: packageToInstall.type,
-                    installedIntentionally: false
-                )
-            )
-            
+
+            packageInstallationProcessStepTracker.advanceStep(to: .installing(package: .init(
+                name: packageToInstall.name(withPrecision: .precise),
+                type: packageToInstall.type,
+                installedIntentionally: false
+            )))
+
         } label: {
             Text("add-package.install.action")
         }
         .keyboardShortcut(foundPackageSelection != nil ? .defaultAction : .init(.end))
         .disabled(foundPackageSelection == nil)
     }
-    
+
     @ViewBuilder
     var searchForPackageButton: some View
     {
         Button
         {
-            packageInstallationProcessStep = .searching(forSearchString: packageRequested)
+            packageInstallationProcessStepTracker.advanceStep(to: .searching(forSearchString: packageRequested))
         } label: {
             Text("add-package.search.action")
         }

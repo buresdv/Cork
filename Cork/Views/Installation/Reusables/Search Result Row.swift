@@ -39,7 +39,7 @@ struct SearchResultRow: View, Sendable
             HStack(alignment: .center)
             {
                 searchedForPackage.nameView(withComponents: .boundVersion)
-
+                
                 switch context
                 {
                 case .topPackages:
