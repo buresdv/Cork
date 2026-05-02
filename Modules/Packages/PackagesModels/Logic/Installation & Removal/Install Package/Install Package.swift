@@ -18,7 +18,7 @@ extension InstallationProgressTracker
         cachedDownloadsTracker: CachedDownloadsTracker
     ) async throws(InstallationError)
     {
-        AppConstants.shared.logger.debug("Installing package \(packageToInstall.name), privacy: .auto), of type \(packageToInstall.type)")
+        AppConstants.shared.logger.debug("Installing package \(packageToInstall.name(withPrecision: .precise)), privacy: .auto), of type \(packageToInstall.type)")
 
         do
         {

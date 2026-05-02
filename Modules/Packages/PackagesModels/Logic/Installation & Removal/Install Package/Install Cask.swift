@@ -17,9 +17,9 @@ extension InstallationProgressTracker
     ) async throws(InstallationError.ImplementedError.CaskInstallError)
     {
         AppConstants.shared.logger.info("Package is Cask")
-        AppConstants.shared.logger.debug("Installing package \(caskToInstall.name, privacy: .public)")
+        AppConstants.shared.logger.debug("Installing package \(caskToInstall.name(withPrecision: .precise), privacy: .public)")
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", caskToInstall.name])
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", caskToInstall.name(withPrecision: .precise)])
         installationProcess = process
         
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()

@@ -5,9 +5,9 @@
 //  Created by David Bureš - P on 29.04.2026.
 //
 
+import CorkShared
 import Foundation
 import SwiftUI
-import CorkShared
 
 /// Adds support for parsing, storing and displaying a Brew package name in a friendly manner
 public protocol PackageNameDisplayable
@@ -28,8 +28,50 @@ public protocol PackageNameDisplayable
 }
 
 /// The package's name parsed into chunks
-public struct BrewPackageName: Equatable, Hashable, Codable, Sendable
+public struct BrewPackageName: Equatable, Hashable, Codable, Comparable, Sendable
 {
+    public static func < (lhs: BrewPackageName, rhs: BrewPackageName) -> Bool
+    {
+        // First, compare by packageIdentifier alphabetically
+        if lhs.packageIdentifier != rhs.packageIdentifier
+        {
+            return lhs.packageIdentifier < rhs.packageIdentifier
+        }
+
+        // If identifiers are equal, handle boundVersion comparison
+        switch (lhs.boundVersion, rhs.boundVersion)
+        {
+        case (nil, nil): // Both have no bound version — equal
+            return false
+
+        case (nil, _): // lhs has no version, rhs does — lhs comes first
+            return true
+
+        case (_, nil): // rhs has no version, lhs does — rhs comes first
+            return false
+
+        case (let lhsVersion?, let rhsVersion?): // Both have versions
+            // Check if both are purely numeric
+            let lhsIsNumeric = Double(lhsVersion) != nil
+            let rhsIsNumeric = Double(rhsVersion) != nil
+
+            switch (lhsIsNumeric, rhsIsNumeric)
+            {
+            case (false, false): // Both alphanumeric — sort alphabetically
+                return lhsVersion < rhsVersion
+
+            case (false, true): // lhs alphanumeric, rhs numeric — lhs comes first
+                return true
+
+            case (true, false): // lhs numeric, rhs alphanumeric — rhs comes first
+                return false
+
+            case (true, true): // Both numeric — sort numerically ascending
+                return Int(lhsVersion)! < Int(rhsVersion)!
+            }
+        }
+    }
+
     public init(from unparsedName: String)
     {
         let packageNameWithoutTap: String =
@@ -134,7 +176,7 @@ public extension PackageNameDisplayable
                     .foregroundColor(.green)
                     .font(.subheadline)
             }
-            
+
             if displayComponents.contains(.boundVersion)
             {
                 if let boundVersion = self.internalName.boundVersion

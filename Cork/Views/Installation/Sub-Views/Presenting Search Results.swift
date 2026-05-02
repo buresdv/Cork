@@ -128,7 +128,7 @@ struct PresentingSearchResultsView: View
             }
             openWindow(value: selectedPackage)
 
-            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name)")
+            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name(withPrecision: .precise))")
         }
         .disabled(selectedPackage == nil)
         .labelStyle(.titleOnly)
