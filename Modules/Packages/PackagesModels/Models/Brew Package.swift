@@ -191,12 +191,12 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
     public enum NameDisplayComponents: Equatable
     {
-        case installedVersion(String)
+        case installedVersions([String])
         case boundVersion
 
-        var installedVersionValue: String?
+        var installedVersionValue: [String]?
         {
-            if case .installedVersion(let version) = self { return version }
+            if case .installedVersions(let versions) = self { return versions }
             return nil
         }
     }

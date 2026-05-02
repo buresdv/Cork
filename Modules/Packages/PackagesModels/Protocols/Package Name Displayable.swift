@@ -170,22 +170,25 @@ public extension PackageNameDisplayable
         {
             Text(self.internalName.packageIdentifier)
 
-            if let installedVersion = displayComponents.first(where: { $0.installedVersionValue != nil })?.installedVersionValue
-            {
-                Text("v. \(installedVersion)")
-                    .foregroundColor(.green)
-                    .font(.subheadline)
-            }
-
             if displayComponents.contains(.boundVersion)
             {
                 if let boundVersion = self.internalName.boundVersion
                 {
                     Text("􀎡 \(boundVersion)")
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color(nsColor: .tertiaryLabelColor))
                         .font(.subheadline)
+                        .layoutPriority(-Double(2))
                 }
             }
+            
+            if let installedVersions = displayComponents.first(where: { $0.installedVersionValue != nil })?.installedVersionValue
+            {
+                Text("v. \(installedVersions.formatted(.list(type: .and)))")
+                    .foregroundColor(.secondary)
+                    .font(.subheadline)
+                    .layoutPriority(-Double(3))
+            }
+
         }
     }
 }
