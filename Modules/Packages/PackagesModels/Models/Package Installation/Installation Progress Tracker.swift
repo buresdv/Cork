@@ -6,9 +6,9 @@
 //
 
 import BetterProgress
+import CorkShared
 import CorkTerminalFunctions
 import Foundation
-import CorkShared
 import SwiftUI
 
 @Observable
@@ -52,8 +52,9 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
 
     public enum FormulaInstallMatcher: TerminalOutputMatchable
     {
-        public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
+        public enum StandardCases: TerminalOutputCase, Sendable
         {
+            
             public static let allCases: [InstallationProgressTracker.FormulaInstallMatcher.StandardCases] = [
                 .findingDependencies,
                 .downloadingDependencies(
@@ -71,7 +72,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     package: .init(createEmpty: true)
                 )
             ]
-            
+
             case findingDependencies
             case downloadingDependencies(
                 dependencyName: String
@@ -104,10 +105,11 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     ["Installing \(package.name)"]
                 }
             }
-            
+
             public var stageDescription: LocalizedStringKey
             {
-                switch self {
+                switch self
+                {
                 case .findingDependencies:
                     return "add-package.install.loading-dependencies"
                 case .downloadingDependencies(let dependencyName):
@@ -143,24 +145,19 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
     {
         public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
         {
-            public static let allCases: [InstallationProgressTracker.CaskInstallMatcher.StandardCases] = [
-                .downloadingCask(.init(createEmpty: true)),
-                .installingCask(.init(createEmpty: true)),
-                .movingCask(.init(createEmpty: true)),
-                .linkingAppToCask(.init(createEmpty: true))
-            ]
+            public typealias Argument = MinimalHomebrewPackage
             
-            case downloadingCask(MinimalHomebrewPackage)
-            case installingCask(MinimalHomebrewPackage)
-            case movingCask(MinimalHomebrewPackage)
-            case linkingAppToCask(MinimalHomebrewPackage)
+            case downloadingCask
+            case installingCask
+            case movingCask
+            case linkingAppToCask
 
             public var patterns: [String]
             {
                 switch self
                 {
                 case .downloadingCask:
-                    ["Downloading"]
+                    ["Downloading", "Fetching downloads"]
                 case .installingCask:
                     ["Installing Cask", "Purging files"]
                 case .movingCask:
@@ -169,19 +166,25 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     ["Linking binary"]
                 }
             }
-            
-            public var stageDescription: LocalizedStringKey
-            {
-                switch self
+
+            @ViewBuilder
+            public func view(_ arguments: [MinimalHomebrewPackage]) -> some View {
+                if let caskToInstall = arguments.first(where: { $0.type == .cask })
                 {
-                case .downloadingCask(let caskToInstall):
-                    return "add-package.install.downloading-cask-\(caskToInstall.name)"
-                case .installingCask(let caskToInstall):
-                    return "add-package.install.installing-cask-\(caskToInstall.name)"
-                case .movingCask(let caskToInstall):
-                    return "add-package.install.moving-cask-\(caskToInstall.name)"
-                case .linkingAppToCask(let caskToInstall):
-                    return "add-package.install.linking-cask-binary.\(caskToInstall.name)"
+                    switch self
+                    {
+                    case .downloadingCask:
+                        Text("add-package.install.downloading-cask-\(caskToInstall.name(withPrecision: .precise))")
+                    case .installingCask:
+                        Text("add-package.install.installing-cask-\(caskToInstall.name(withPrecision: .precise))")
+                    case .movingCask:
+                        Text("add-package.install.moving-cask-\(caskToInstall.name(withPrecision: .precise))")
+                    case .linkingAppToCask:
+                        Text("add-package.install.linking-cask-binary.\(caskToInstall.name(withPrecision: .precise))")
+                    }
+                } else
+                {
+                    EmptyView()
                 }
             }
         }
@@ -214,7 +217,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         case formula(FormulaInstallMatcher.StandardCases)
         case cask(CaskInstallMatcher.StandardCases)
     }
-    
+
     public func insertOutput(_ output: CorkTerminalFunctions.TerminalOutput)
     {
         self.outputs.append(output)
@@ -251,13 +254,14 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 return .init(totalItems: Self.CaskInstallMatcher.StandardCases.allCases.count)
             }
         }()
-        
+
         let installStageType: InstallStageType = {
-            switch packageToInstall.type {
+            switch packageToInstall.type
+            {
             case .formula:
                 return .formula(.findingDependencies)
             case .cask:
-                return .cask(.downloadingCask(packageToInstall))
+                return .cask(.downloadingCask)
             }
         }()
 

@@ -12,6 +12,15 @@ import CorkTerminalFunctions
 
 enum PackageInstallationProcessSteps: Equatable
 {
+    enum UnexpectedTerminalOutputType: Equatable
+    {
+        /// The unexpected outputs did NOT contain any STDERR outputs
+        case containedErrors(rawOutput: [TerminalOutput])
+        
+        /// The unexpected outputs DID contain some STDERR outputs
+        case didNotContainErrors(rawOutput: [TerminalOutput])
+    }
+    
     case ready
     case searching(forSearchString: String)
     case presentingSearchResults(
@@ -21,8 +30,8 @@ enum PackageInstallationProcessSteps: Equatable
     )
     case installing(package: MinimalHomebrewPackage)
     case finished
-    case unexpectedTerminalOutput(rawOutput: [TerminalOutput])
-    case erroredOut(withError: InstallationProgressTracker.InstallationError)
+    case unexpectedTerminalOutput(UnexpectedTerminalOutputType)
+    case erroredOut(withError: InstallationProgressTracker.InstallationError.ImplementedError)
     
     var isDismissable: Bool
     {

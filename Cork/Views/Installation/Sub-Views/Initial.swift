@@ -32,7 +32,7 @@ struct InstallationInitialView: View
 
     @State private var packageRequested: String = ""
 
-    @State private var foundPackageSelection: BrewPackage?
+    @State private var foundPackageSelection: MinimalHomebrewPackage?
 
     @State var isSearchFieldFocused: Bool = true
 
@@ -100,7 +100,7 @@ struct InstallationInitialView: View
     {
         PreviewPackageButtonWithCustomAction
         {
-            guard let packageToPreview: BrewPackage = foundPackageSelection
+            guard let packageToPreview: MinimalHomebrewPackage = foundPackageSelection
             else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to preview")
@@ -108,11 +108,7 @@ struct InstallationInitialView: View
                 return
             }
 
-            openWindow(value: MinimalHomebrewPackage(
-                name: packageToPreview.name(withPrecision: .precise),
-                type: packageToPreview.type,
-                installedIntentionally: packageToPreview.installedIntentionally
-            ))
+            openWindow(value: packageToPreview)
         }
         .disabled(foundPackageSelection == nil)
         .labelStyle(.titleOnly)
@@ -123,7 +119,7 @@ struct InstallationInitialView: View
     {
         Button
         {
-            guard let packageToInstall: BrewPackage = foundPackageSelection
+            guard let packageToInstall: MinimalHomebrewPackage = foundPackageSelection
             else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to install")
@@ -131,11 +127,7 @@ struct InstallationInitialView: View
                 return
             }
 
-            packageInstallationProcessStepTracker.advanceStep(to: .installing(package: .init(
-                name: packageToInstall.name(withPrecision: .precise),
-                type: packageToInstall.type,
-                installedIntentionally: false
-            )))
+            packageInstallationProcessStepTracker.advanceStep(to: .installing(package: packageToInstall))
 
         } label: {
             Text("add-package.install.action")

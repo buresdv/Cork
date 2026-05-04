@@ -11,18 +11,10 @@ import SwiftUI
 /// Attach a displayable view to an enum
 public protocol StageDisplayable
 {
-    /// Text for the stage
-    var stageDescription: LocalizedStringKey { get }
+    associatedtype DisplayableView: View
+    associatedtype Argument
     
-    /// Optional to display
-    var view: (any View)? { get set }
-}
-
-public extension StageDisplayable
-{
-    var view: (any View)?
-        {
-            get { nil }
-            set { }
-        }
+    /// View to describe the stage with
+    @ViewBuilder
+    func view(_ arguments: [Argument]) -> DisplayableView
 }

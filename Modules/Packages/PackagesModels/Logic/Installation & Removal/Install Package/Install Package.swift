@@ -30,8 +30,17 @@ extension InstallationProgressTracker
                 try await installCask(packageToInstall)
             }
         }
-        catch let unexpectedError
-        {}
+        catch let formulaInstallError as InstallationError.ImplementedError.FormulaInstallError
+        {
+            print("Formula install error: \(formulaInstallError)")
+        }
+        catch let caskInstallError as InstallationError.ImplementedError.CaskInstallError
+        {
+            print("Cask install lerror: \(caskInstallError)")
+        }
+        catch let unexpectedError {
+            print("Unexpected install error: \(unexpectedError)")
+        }
 
         do
         {

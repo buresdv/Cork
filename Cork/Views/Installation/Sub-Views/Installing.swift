@@ -17,6 +17,8 @@ struct InstallingPackageView: View
 
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    
+    @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
@@ -24,34 +26,48 @@ struct InstallingPackageView: View
 
     @State var isShowingRealTimeOutput: Bool = false
 
-    @State private var installationProgressTracker: InstallationProgressTracker
-
-    init(packageToInstall: MinimalHomebrewPackage)
-    {
-        self.packageToInstall = packageToInstall
-        self._installationProgressTracker = State(
-            initialValue: InstallationProgressTracker(packageToInstall: packageToInstall)
-        )
-    }
+    @State private var installationProgressTracker: InstallationProgressTracker?
 
     var body: some View
     {
         VStack(alignment: .leading)
         {
-            ProgressView(installationProgressTracker.installProgress)
-
-            switch installationProgressTracker.installStage
+            if let installationProgressTracker
             {
-            case .formula(let standardCases):
-                Text(standardCases.stageDescription)
-            case .cask(let standardCases):
-                Text(standardCases.stageDescription)
+                ProgressView(installationProgressTracker.installProgress)
+                
+                switch installationProgressTracker.installStage
+                {
+                case .formula(let standardCases):
+                    Text(standardCases.stageDescription)
+                case .cask(let standardCases):
+                    standardCases.view([packageToInstall])
+                }
+                
+                installationProgressTracker.streamedOutputsDisplay
             }
         }
         .task
         {
-            do
-            {}
+            installationProgressTracker = .init(packageToInstall: packageToInstall)
+            
+            do throws(InstallationProgressTracker.InstallationError)
+            {
+                try await installationProgressTracker!.installPackage(
+                    packageToInstall,
+                    using: brewPackagesTracker,
+                    cachedDownloadsTracker: cachedDownloadsTracker
+                )
+            } catch let installationError
+            {
+                switch installationError
+                {
+                case .implemented(let implementedError):
+                    packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(withError: implementedError))
+                case .unimplemented(let rawOutput):
+                    packageInstallationProcessStepTracker.advanceStep(to: .unexpectedTerminalOutput())
+                }
+            }
         }
     }
 }

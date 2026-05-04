@@ -82,8 +82,15 @@ struct AddFormulaView: View
                         InstallingPackageView(packageToInstall: package)
                     case .finished:
                         InstallationFinishedSuccessfullyView()
-                    case .unexpectedTerminalOutput(let rawOutput):
-                        EmptyView()
+                    case .unexpectedTerminalOutput(let unexpectedOutputType):
+                        // TODO: Implement the unexpected output views
+                        switch unexpectedOutputType
+                        {
+                        case .containedErrors(let rawOutputThatContainsErrors):
+                            EmptyView()
+                        case .didNotContainErrors(let rawOutputThatDidNotContainErrors):
+                            EmptyView()
+                        }
                     case .erroredOut(let withError):
                         EmptyView()
                     }

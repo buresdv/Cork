@@ -19,7 +19,7 @@ extension InstallationProgressTracker
         AppConstants.shared.logger.info("Package is Cask")
         AppConstants.shared.logger.debug("Installing package \(caskToInstall.name(withPrecision: .precise), privacy: .public)")
 
-        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", caskToInstall.name(withPrecision: .precise)])
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", caskToInstall.name(withPrecision: .precise)])
         installationProcess = process
         
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
@@ -27,6 +27,8 @@ extension InstallationProgressTracker
         
         for await output in stream
         {
+            print("Raw cask install output: \(output)")
+            
             self.insertOutput(output)
 
             output.match(as: CaskInstallMatcher.self) { standardCase in
@@ -48,9 +50,6 @@ extension InstallationProgressTracker
             } onUnimplementedOutput: { unimplementedCase in
                 consolidatedUnimplementedOutput.append(unimplementedCase)
             }
-
-            installationProcess?.terminate()
-            break
         }
         
         if let installError
@@ -62,5 +61,7 @@ extension InstallationProgressTracker
         {
             throw .implemented(.containsUnexpectedOutputs(rawOutput: consolidatedUnimplementedOutput))
         }
+        
+        
     }
 }
