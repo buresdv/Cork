@@ -12,7 +12,7 @@ import BetterProgress
 public protocol Progressable
 {
     /// Optional ``Progress`` for this stage
-    var progress: Progress? { get set }
+    var progress: Progress { get set }
     
     /// Parent for this stage's ``Progress``
     var parentProgress: Progress? { get set }

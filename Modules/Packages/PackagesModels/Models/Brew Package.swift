@@ -21,8 +21,7 @@ public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadi
 
 /// A representation of a Homebrew package
 public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable, PackageNameDisplayable
-{    
-
+{
     public init(
         rawName: String,
         type: BrewPackage.PackageType,

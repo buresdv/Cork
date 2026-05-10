@@ -18,11 +18,11 @@ struct PresentingSearchResultsView: View
     @InjectedObservable(\.appState) var appState: AppState
 
     @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
-    
+
     @State private var searchString: String = ""
-    
+
     @Binding var selectedPackage: MinimalHomebrewPackage?
-    
+
     let foundFormulae: [MinimalHomebrewPackage]
     let foundCasks: [MinimalHomebrewPackage]
 
@@ -30,13 +30,14 @@ struct PresentingSearchResultsView: View
     @State private var isCasksSectionCollapsed: Bool = false
 
     @State var isSearchFieldFocused: Bool = true
-    
+
     init(
         oldSearchString: String,
         selectedPackage: Binding<MinimalHomebrewPackage?> = .constant(nil),
         foundFormulae: [MinimalHomebrewPackage],
         foundCasks: [MinimalHomebrewPackage]
-    ) {
+    )
+    {
         _searchString = State(initialValue: oldSearchString)
         _selectedPackage = selectedPackage
         self.foundFormulae = foundFormulae
@@ -160,7 +161,7 @@ struct PresentingSearchResultsView: View
             {
                 AppConstants.shared.logger.error("Impossible case")
             }
-            
+
         } label: {
             Text("add-package.install.action")
         }
@@ -194,25 +195,12 @@ private struct SearchResultsSection: View
         {
             Group
             {
-                if #available(macOS 14.0, *)
+                switch sectionType
                 {
-                    switch sectionType
-                    {
-                    case .formula:
-                        SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
-                    case .cask:
-                        SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
-                    }
-                }
-                else
-                {
-                    switch sectionType
-                    {
-                    case .formula:
-                        Text("add-package.search.results.formulae.none-found")
-                    case .cask:
-                        Text("add-package.search.results.casks.none-found")
-                    }
+                case .formula:
+                    SmallerContentUnavailableView(label: "add-package.search.results.formulae.none-found", image: "custom.apple.terminal.badge.magnifyingglass")
+                case .cask:
+                    SmallerContentUnavailableView(label: "add-package.search.results.casks.none-found", image: "custom.macwindow.badge.magnifyingglass")
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
@@ -225,7 +213,7 @@ private struct SearchResultsSection: View
                 {
                     ForEach(packageList)
                     { package in
-                        SearchResultRow(searchedForPackage: package, context: .searchResults)
+                        SearchResultRow(context: .searchResult(searchedForPackage: package))
                     }
                 }
             } header: {
@@ -233,7 +221,7 @@ private struct SearchResultsSection: View
             }
         }
     }
-    
+
     @ViewBuilder
     private var searchFailed: some View
     {

@@ -48,7 +48,7 @@ struct TopPackagesSection: View
                     
                     let convertedPackage: MinimalHomebrewPackage = .init(fromFullPackage: topPackage)
                     
-                    SearchResultRow(searchedForPackage: convertedPackage, context: .topPackages)
+                    SearchResultRow(context: .topPackage(package: convertedPackage, downloadCount: topPackage.downloadCount))
                 }
             }
         } header: {

@@ -26,38 +26,43 @@ struct InstallingPackageView: View
 
     @State var isShowingRealTimeOutput: Bool = false
 
-    @State private var installationProgressTracker: InstallationProgressTracker?
+    @State private var installationProgressTracker: InstallationProgressTracker
+
+        init(packageToInstall: MinimalHomebrewPackage)
+        {
+            self.packageToInstall = packageToInstall
+            self._installationProgressTracker = State(
+                initialValue: InstallationProgressTracker(packageToInstall: packageToInstall)
+            )
+        }
 
     var body: some View
     {
         VStack(alignment: .leading)
         {
-            if let installationProgressTracker
+            ProgressView(installationProgressTracker.installProgress)
+            
+            switch installationProgressTracker.installStage
             {
-                ProgressView(installationProgressTracker.installProgress)
-                
-                switch installationProgressTracker.installStage
-                {
-                case .formula(let standardCases):
-                    Text(standardCases.stageDescription)
-                case .cask(let standardCases):
-                    standardCases.view([packageToInstall])
-                }
-                
-                installationProgressTracker.streamedOutputsDisplay
+            case .formula(let standardCases):
+                Text(standardCases.stageDescription)
+            case .cask(let standardCases):
+                standardCases.view([packageToInstall])
             }
+            
+            installationProgressTracker.streamedOutputsDisplay
         }
         .task
         {
-            installationProgressTracker = .init(packageToInstall: packageToInstall)
-            
             do throws(InstallationProgressTracker.InstallationError)
             {
-                try await installationProgressTracker!.installPackage(
+                try await installationProgressTracker.installPackage(
                     packageToInstall,
                     using: brewPackagesTracker,
                     cachedDownloadsTracker: cachedDownloadsTracker
                 )
+                
+                packageInstallationProcessStepTracker.advanceStep(to: .finished)
             } catch let installationError
             {
                 switch installationError
@@ -65,7 +70,9 @@ struct InstallingPackageView: View
                 case .implemented(let implementedError):
                     packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(withError: implementedError))
                 case .unimplemented(let rawOutput):
-                    packageInstallationProcessStepTracker.advanceStep(to: .unexpectedTerminalOutput())
+                    packageInstallationProcessStepTracker.advanceStep(to:
+                            .unexpectedTerminalOutput(rawOutput.containsErrors ? .containedErrors(rawOutput: rawOutput) : .didNotContainErrors(rawOutput: rawOutput))
+                    )
                 }
             }
         }

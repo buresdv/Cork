@@ -20,11 +20,10 @@ public protocol PackageNameDisplayable
 
     /// Reconstruct the internal name into a Brew-compatible format
     func name(withPrecision precision: NameRetrievalPrecision) -> String
-
-    /// SwiftUI view for displaying the package's name
-    associatedtype NameView: View
-    @ViewBuilder
-    func nameView(withComponents: NameComponents...) -> NameView
+    
+    associatedtype PreviewSelfButton: View
+    /// Button for previewing the package
+    var previewSelfButton: PreviewSelfButton { get }
 }
 
 /// The package's name parsed into chunks
@@ -164,6 +163,25 @@ public extension PackageNameDisplayable
 
 public extension PackageNameDisplayable
 {
+    /// Context menu for the package's actions
+    @ViewBuilder
+    func contextMenu(
+        using packageDisplayable: any PackageNameDisplayable,
+        @ViewBuilder extraContent: () -> some View = { EmptyView() }
+    ) -> some View
+    {
+        self.previewSelfButton
+        
+        Divider()
+        
+        extraContent()
+    }
+}
+
+public extension PackageNameDisplayable
+{
+    /// SwiftUI view for displaying the package's name
+    @ViewBuilder
     func nameView(withComponents displayComponents: NameComponents...) -> some View
     {
         HStack(alignment: .firstTextBaseline, spacing: 5)
@@ -180,7 +198,7 @@ public extension PackageNameDisplayable
                         .layoutPriority(-Double(2))
                 }
             }
-            
+
             if let installedVersions = displayComponents.first(where: { $0.installedVersionValue != nil })?.installedVersionValue
             {
                 Text("v. \(installedVersions.formatted(.list(type: .and)))")
@@ -188,7 +206,6 @@ public extension PackageNameDisplayable
                     .font(.subheadline)
                     .layoutPriority(-Double(3))
             }
-
         }
     }
 }

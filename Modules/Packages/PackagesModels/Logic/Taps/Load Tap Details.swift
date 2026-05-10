@@ -55,9 +55,20 @@ public extension BrewTap
         case .external(let name):
             tapInfoRaw = try await self.loadTapJSONDataForThirdPartyTap()
         }
+        
+        guard let tapInfoRaw: Data = tapInfoLoadingResult.getJsonFromOutput(failOnAnyErrorsPresent: false)
+        else
+        {
+            appConstants.logger.info("Couldn't get any data from JSON output")
+            
+            throw .couldNotReadJson
+        }
+        
 
         do
         {
+            appConstants.logger.info("got valid data from JSON output: \(tapInfoRaw)")
+            
             self.setBeingLoadedStatus(to: false)
 
             return try await .init(from: tapInfoRaw)

@@ -31,7 +31,10 @@ struct SidebarPackageRow: View
         }
         .contextMenu
         {
-            SidebarContextMenu(package: package)
+            package.contextMenu(using: package)
+            {
+                SidebarContextMenu(package: package)
+            }
         }
         .modify
         { viewProxy in
