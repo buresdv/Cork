@@ -21,5 +21,6 @@ struct UpgradePackagesButton: View
         } label: {
             Label("navigation.menu.packages.update", systemImage: "square.and.arrow.down")
         }
+        .help("navigation.upgrade-packages.help")
     }
 }

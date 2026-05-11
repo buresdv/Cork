@@ -97,3 +97,5 @@ iOSInjectionProject/
 ### Projects ###
 *.xcodeproj
 *.xcworkspace
+
+log/

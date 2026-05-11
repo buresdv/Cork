@@ -294,6 +294,8 @@ extension BrewPackage
             rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", "--cask", self.name(withPrecision: .precise)])
         }
 
+        try Task.checkCancellation()
+
         // MARK: - Error checking
 
         guard !rawOutput.standardOutput.isEmpty

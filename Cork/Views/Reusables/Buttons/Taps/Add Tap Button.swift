@@ -20,5 +20,6 @@ struct AddTapButton: View
         } label: {
             Label("navigation.menu.packages.add-tap", image: "custom.spigot.badge.plus")
         }
+        .help("navigation.add-tap.help")
     }
 }
