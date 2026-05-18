@@ -26,7 +26,7 @@ struct SearchResultRow: View, Sendable
         case loaded(withResult: String)
         case failed(withError: BrewPackage.DescriptionLoadingError)
     }
-    
+
     @State private var packageDescriptionLoadingState: PackageDescriptionLoadingState = .loading
 
     @State private var isLoadingDescription: Bool = true
@@ -69,26 +69,27 @@ struct SearchResultRow: View, Sendable
                     }
 
                     /*
-                    if let isCompatible
-                    {
-                        if !isCompatible
-                        {
-                            if showCompatibilityWarning
-                            {
-                                Image(systemName: "exclamationmark.circle")
-                                Text("add-package.result.not-optimized-for-\(AppConstants.shared.osVersionString.fullName)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.red)
-                            }
-                        }
-                    }
-                     */
+                     if let isCompatible
+                     {
+                         if !isCompatible
+                         {
+                             if showCompatibilityWarning
+                             {
+                                 Image(systemName: "exclamationmark.circle")
+                                 Text("add-package.result.not-optimized-for-\(AppConstants.shared.osVersionString.fullName)")
+                                     .font(.subheadline)
+                                     .foregroundColor(.red)
+                             }
+                         }
+                     }
+                      */
                 }
             }
 
             if showDescriptionsInSearchResults
             {
-                switch packageDescriptionLoadingState {
+                switch packageDescriptionLoadingState
+                {
                 case .loading:
                     Text("add-package.result.loading-description")
                         .font(.caption)
@@ -97,22 +98,24 @@ struct SearchResultRow: View, Sendable
                     Text(result)
                         .font(.caption)
                 case .failed(let withError):
-                    switch withError {
+                    switch withError
+                    {
                     case .packageHasNoDescription:
                         NoDescriptionProvidedView()
                     case .outputHasUnexpectedFormat(let rawOutput):
                         Text(rawOutput.description)
                             .foregroundStyle(.orange)
                     case .unexpectedNumberOfOutputs(let outputs):
-                        DisclosureGroup("add-package.result.description.too-many-outputs.dropdown-label")
-                        {
-                            List(outputs)
-                            { rawOutput in
-                                Text(rawOutput.description)
-                            }
-                            .listStyle(.bordered(alternatesRowBackgrounds: true))
-                            .frame(minHeight: 20)
+                        Text("add-package.result.description.too-many-outputs.label")
+                            .foregroundStyle(.orange)
+                        
+                        List(outputs)
+                        { rawOutput in
+                            Text(rawOutput.description)
                         }
+                        .listStyle(.bordered(alternatesRowBackgrounds: true))
+                        .frame(minHeight: 100)
+                        .layoutPriority(10)
 
                     case .regexConstructionFailed:
                         Text(withError.localizedDescription)
@@ -126,7 +129,7 @@ struct SearchResultRow: View, Sendable
             if showDescriptionsInSearchResults
             {
                 AppConstants.shared.logger.info("\(searchedForPackage.name(withPrecision: .precise), privacy: .auto) came into view")
-                
+
                 if self.packageDescriptionLoadingState == .loading
                 {
                     AppConstants.shared.logger.info("\(searchedForPackage.name(withPrecision: .precise), privacy: .auto) does not have its description loaded")
@@ -148,7 +151,7 @@ struct SearchResultRow: View, Sendable
                             // let parsedPackageInfo: BrewPackage.BrewPackageDetails = try await searchedForPackage.loadDetails()
 
                             let loadedDescription: String = try await searchedForPackage.loadDescripton()
-                            
+
                             self.packageDescriptionLoadingState = .loaded(withResult: loadedDescription)
 
                             // isCompatible = parsedPackageInfo.isCompatible
