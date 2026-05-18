@@ -446,7 +446,17 @@ public extension BrewPackage
          }
          */
 
-        let descriptionLookupResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["desc", self.name(withPrecision: .precise)])
+        let commandArguments: [String] = {
+            switch self.type
+            {
+            case .formula:
+                return ["desc", self.name(withPrecision: .precise)]
+            case .cask:
+                return ["desc", "--cask", self.name(withPrecision: .precise)]
+            }
+        }()
+        
+        let descriptionLookupResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, commandArguments)
 
         AppConstants.shared.logger.debug("Raw terminal output for \(self.type.description)  : \(descriptionLookupResult)")
 
