@@ -126,7 +126,7 @@ public func shell(
                 return
             }
 
-            guard !standardOutput.isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+            guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
             else
             {
                 return
@@ -241,7 +241,7 @@ public func shell(
                 return
             }
 
-            guard !standardOutput.isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+            guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
             else
             {
                 return

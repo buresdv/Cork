@@ -80,7 +80,7 @@ struct InstallationInitialView: View
         {
             if enableDiscoverability
             {
-                ToolbarItemGroup(placement: .secondaryAction)
+                ToolbarItemGroup(placement: .automatic)
                 {
                     previewPackageButton
                     

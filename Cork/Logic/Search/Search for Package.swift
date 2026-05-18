@@ -30,5 +30,5 @@ func searchForPackage(packageName: String, packageType: BrewPackage.PackageType)
         return nil
     }
     
-    return unsplitListOfFoundPackages.components(separatedBy: .newlines)
+    return unsplitListOfFoundPackages.components(separatedBy: .newlines).filter { !$0.isEmpty }
 }
