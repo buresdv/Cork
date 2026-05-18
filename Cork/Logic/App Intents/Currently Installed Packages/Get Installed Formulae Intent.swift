@@ -68,7 +68,7 @@ struct GetInstalledFormulaeIntent: AppIntent
 
             if getOnlyManuallyInstalledPackages
             {
-                minimalPackages = minimalPackages.filter({ $0.installedIntentionally })
+                minimalPackages = minimalPackages.filter({ $0.installedIntentionally ?? false })
             }
 
             return .result(value: minimalPackages)

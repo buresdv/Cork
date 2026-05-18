@@ -60,23 +60,15 @@ struct PackageListItem: View
         {
             HStack(alignment: .firstTextBaseline)
             {
-                HStack(alignment: .firstTextBaseline, spacing: 5)
+                if packageItem.isTagged
                 {
-                    if packageItem.isTagged
-                    {
-                        Circle()
-                            .frame(width: 10, height: 10, alignment: .center)
-                            .foregroundStyle(.blue)
-                            .transition(.scale)
-                    }
-
-                    SanitizedPackageName(package: packageItem, shouldShowVersion: false)
+                    Circle()
+                        .frame(width: 10, height: 10, alignment: .center)
+                        .foregroundStyle(.blue)
+                        .transition(.scale)
                 }
 
-                Text(packageItem.getFormattedVersions())
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .layoutPriority(-Double(2))
+                packageItem.nameView(withComponents: .boundVersion, .installedVersions(packageItem.versions))
 
                 if packageItem.isBeingModified
                 {

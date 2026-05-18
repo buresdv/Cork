@@ -24,14 +24,14 @@ struct PackagesIncludedInTapList: View
         {
             return packages.sorted
             {
-                $0.name < $1.name
+                $0.internalName < $1.internalName
             }
         }
         else
         {
-            return packages.filter { $0.name.localizedCaseInsensitiveContains(searchString) }.sorted
+            return packages.filter { $0.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchString) }.sorted
             {
-                $0.name < $1.name
+                $0.internalName < $1.internalName
             }
         }
     }
@@ -49,22 +49,19 @@ struct PackagesIncludedInTapList: View
                     {
                         if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
                         {
-                            SanitizedPackageName(
-                                package: initializedBrewPackageForDisplayInList,
-                                shouldShowVersion: true
-                            )
+                            initializedBrewPackageForDisplayInList.nameView(withComponents: .boundVersion)
 
                             var isPackageAlreadyInstalled: Bool
                             {
                                 var packageContainedInFormulae: Bool {
                                     return brewPackagesTracker.successfullyLoadedFormulae.contains { installedPackage in
-                                        installedPackage.name(withPrecision: .precise) == minimalPackage.name
+                                        installedPackage.internalName == minimalPackage.internalName
                                     }
                                 }
                                 
                                 var packageContainedInCasks: Bool {
                                     return brewPackagesTracker.successfullyLoadedCasks.contains { installedPackage in
-                                        installedPackage.name(withPrecision: .precise) == minimalPackage.name
+                                        installedPackage.internalName == minimalPackage.internalName
                                     }
                                 }
                                   

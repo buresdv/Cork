@@ -7,33 +7,58 @@
 
 import AppIntents
 import Foundation
+import SwiftUI
 
-public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
+public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable, PackageNameDisplayable
 {
+    /// Initialize from an unparsed name
     public init(name: String, type: BrewPackage.PackageType, installDate: Date? = nil, installedIntentionally: Bool) {
         self.id = .init()
-        self.name = name
+        self.internalName = .init(from: name)
         self.type = type
         self.installDate = installDate
         self.installedIntentionally = installedIntentionally
     }
     
+    /// Initialize from a full package
+    public init(fromFullPackage fullPackage: BrewPackage)
+    {
+        self.id = .init()
+        self.internalName = fullPackage.internalName
+        self.type = fullPackage.type
+        self.installDate = fullPackage.installedOn
+        self.installedIntentionally = fullPackage.installedIntentionally
+    }
+    
     public var id: UUID
 
-    public var name: String
+    public var internalName: BrewPackageName
 
     public var type: BrewPackage.PackageType
 
     public var installDate: Date?
 
-    public var installedIntentionally: Bool
+    public var installedIntentionally: Bool?
 
+    @ViewBuilder
+    public var previewSelfButton: some View
+    {
+        if let installDate
+        {
+            EmptyView()
+        }
+        else
+        {
+            PreviewPackageButton(packageToPreview: self)
+        }
+    }
+    
     public static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
 
     public var displayRepresentation: DisplayRepresentation
     {
         DisplayRepresentation(
-            title: "\(name)",
+            title: "\(name(withPrecision: .precise))",
             subtitle: "intents.type.minimal-homebrew-package.representation.subtitle"
         )
     }
@@ -56,6 +81,15 @@ public extension MinimalHomebrewPackage
             type: homebrewPackage.type,
             installedIntentionally: homebrewPackage.installedIntentionally
         )
+    }
+}
+
+public extension MinimalHomebrewPackage
+{
+    /// Initialize an empty minimal package, for when we don't care what it is
+    init(createEmpty: Bool)
+    {
+        self.init(name: "", type: .formula, installedIntentionally: false)
     }
 }
 

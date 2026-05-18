@@ -38,7 +38,7 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                SanitizedPackageName(package: searchedForPackage, shouldShowVersion: true)
+                searchedForPackage.nameView(withComponents: .boundVersion)
 
                 switch context
                 {
