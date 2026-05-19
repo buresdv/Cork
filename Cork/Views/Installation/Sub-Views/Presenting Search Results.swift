@@ -21,7 +21,7 @@ struct PresentingSearchResultsView: View
 
     @State private var searchString: String = ""
 
-    @Binding var selectedPackage: MinimalHomebrewPackage?
+    @State var selectedPackage: MinimalHomebrewPackage?
 
     let foundFormulae: [MinimalHomebrewPackage]
     let foundCasks: [MinimalHomebrewPackage]
@@ -33,13 +33,12 @@ struct PresentingSearchResultsView: View
 
     init(
         oldSearchString: String,
-        selectedPackage: Binding<MinimalHomebrewPackage?> = .constant(nil),
         foundFormulae: [MinimalHomebrewPackage],
         foundCasks: [MinimalHomebrewPackage]
     )
     {
         _searchString = State(initialValue: oldSearchString)
-        _selectedPackage = selectedPackage
+        
         self.foundFormulae = foundFormulae
         self.foundCasks = foundCasks
     }

@@ -35,6 +35,36 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     case binaryAlreadyExists
                     case wrongArchitecture
                     case containsUnexpectedOutputs(rawOutput: [TerminalOutput])
+
+                    public var errorDescription: String?
+                    {
+                        switch self
+                        {
+                        case .requiresSudoPassword:
+                            return String(localized: "add-package.install.requires-sudo-password")
+                        case .binaryAlreadyExists:
+                            return String(localized: "add-package.install.binary-already-exists", bundle: .main)
+                        case .wrongArchitecture:
+                            return String(localized: "add-package.install.wrong-architecture")
+                        case .containsUnexpectedOutputs(let rawOutput):
+                            return String(localized: "add-package.install.contains-unexpected-outputs")
+                        }
+                    }
+
+                    public var recoverySuggestion: String?
+                    {
+                        switch self
+                        {
+                        case .requiresSudoPassword:
+                            return String(localized: "add-package.install.requires-sudo-password.recovery-suggestion")
+                        case .binaryAlreadyExists:
+                            return String(localized: "add-package.install.binary-already-exists.recovery-suggestion")
+                        case .wrongArchitecture:
+                            return String(localized: "add-package.install.wrong-architecture.recovery-suggestion")
+                        case .containsUnexpectedOutputs(let rawOutput):
+                            return String(localized: "add-package.install.contains-unexpected-outputs.recovery-suggestion")
+                        }
+                    }
                 }
 
                 case implemented(ImplementedError)
@@ -54,7 +84,6 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
     {
         public enum StandardCases: TerminalOutputCase, Sendable
         {
-            
             public static let allCases: [InstallationProgressTracker.FormulaInstallMatcher.StandardCases] = [
                 .findingDependencies,
                 .downloadingDependencies(
@@ -146,7 +175,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
         {
             public typealias Argument = MinimalHomebrewPackage
-            
+
             case downloadingCask
             case installingCask
             case movingCask
@@ -168,7 +197,8 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             }
 
             @ViewBuilder
-            public func view(_ arguments: [MinimalHomebrewPackage]) -> some View {
+            public func view(_ arguments: [MinimalHomebrewPackage]) -> some View
+            {
                 if let caskToInstall = arguments.first(where: { $0.type == .cask })
                 {
                     switch self
@@ -182,7 +212,8 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     case .linkingAppToCask:
                         Text("add-package.install.linking-cask-binary.\(caskToInstall.name(withPrecision: .precise))")
                     }
-                } else
+                }
+                else
                 {
                     EmptyView()
                 }

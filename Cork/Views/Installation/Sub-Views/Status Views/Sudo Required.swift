@@ -8,7 +8,7 @@
 import SwiftUI
 import CorkModels
 import FactoryKit
-
+/*
 struct SudoRequiredView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -96,3 +96,4 @@ private struct ManualInstallInstructions: View
         }
     }
 }
+*/

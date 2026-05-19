@@ -92,7 +92,7 @@ struct AddFormulaView: View
                             EmptyView()
                         }
                     case .erroredOut(let withError):
-                        EmptyView()
+                        ErroredOutView(error: withError)
                     }
                 }
                 .navigationTitle(sheetTitle)

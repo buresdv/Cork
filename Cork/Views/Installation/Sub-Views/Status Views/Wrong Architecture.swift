@@ -8,7 +8,7 @@
 import SwiftUI
 import CorkModels
 import FactoryKit
-
+/*
 struct WrongArchitectureView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -34,3 +34,4 @@ struct WrongArchitectureView: View, Sendable
         .fixedSize()
     }
 }
+*/

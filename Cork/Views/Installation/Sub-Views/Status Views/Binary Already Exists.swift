@@ -10,6 +10,7 @@ import SwiftUI
 import CorkModels
 import FactoryKit
 
+/*
 struct BinaryAlreadyExistsView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -49,3 +50,4 @@ struct BinaryAlreadyExistsView: View, Sendable
         .fixedSize()
     }
 }
+*/

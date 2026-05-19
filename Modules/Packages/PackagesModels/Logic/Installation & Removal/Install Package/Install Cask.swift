@@ -14,7 +14,7 @@ extension InstallationProgressTracker
     @MainActor
     func installCask(
         _ caskToInstall: MinimalHomebrewPackage
-    ) async throws(InstallationError.ImplementedError.CaskInstallError)
+    ) async throws(InstallationError)
     {
         AppConstants.shared.logger.info("Package is Cask")
         AppConstants.shared.logger.debug("Installing package \(caskToInstall.name(withPrecision: .precise), privacy: .public)")
@@ -38,6 +38,8 @@ extension InstallationProgressTracker
                 print("Matched install stage: \(standardCase)")
                 
             } onErrorOutput: { errorCase in
+                print("Matched error stage: \(errorCase)")
+                
                 switch errorCase
                 {
                 case .requiresSudoPassword:
@@ -48,18 +50,23 @@ extension InstallationProgressTracker
                     installError = .implemented(.wrongArchitecture)
                 }
             } onUnimplementedOutput: { unimplementedCase in
+                print("Matched unimplemented stage")
                 consolidatedUnimplementedOutput.append(unimplementedCase)
             }
         }
         
+        print("Install errors: \(installError)")
+        
         if let installError
         {
-            throw installError
+            print("Install process will throw error: \(installError)")
+            
+            throw .implemented(.couldNotInstallCask(installError))
         }
         
         if !consolidatedUnimplementedOutput.isEmpty
         {
-            throw .implemented(.containsUnexpectedOutputs(rawOutput: consolidatedUnimplementedOutput))
+            throw .implemented(.couldNotInstallCask(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
         }
         
         

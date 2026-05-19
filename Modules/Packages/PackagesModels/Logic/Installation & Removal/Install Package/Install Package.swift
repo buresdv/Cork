@@ -16,7 +16,7 @@ extension InstallationProgressTracker
         _ packageToInstall: MinimalHomebrewPackage,
         using brewPackagesTracker: BrewPackagesTracker,
         cachedDownloadsTracker: CachedDownloadsTracker
-    ) async throws(InstallationError)
+    ) async throws
     {
         AppConstants.shared.logger.debug("Installing package \(packageToInstall.name(withPrecision: .precise)), privacy: .auto), of type \(packageToInstall.type)")
 
@@ -30,16 +30,15 @@ extension InstallationProgressTracker
                 try await installCask(packageToInstall)
             }
         }
-        catch let formulaInstallError as InstallationError.ImplementedError.FormulaInstallError
+        catch let implementedError as InstallationError
         {
-            print("Formula install error: \(formulaInstallError)")
-        }
-        catch let caskInstallError as InstallationError.ImplementedError.CaskInstallError
-        {
-            print("Cask install lerror: \(caskInstallError)")
+            print("Package install error: \(implementedError)")
+            throw implementedError
         }
         catch let unexpectedError {
             print("Unexpected install error: \(unexpectedError)")
+            
+            throw unexpectedError
         }
 
         do
@@ -48,7 +47,7 @@ extension InstallationProgressTracker
         }
         catch let synchronizationError
         {
-            throw .implemented(
+            throw InstallationError.implemented(
                 .couldNotSynchronizePackages(synchronizationError)
             )
         }

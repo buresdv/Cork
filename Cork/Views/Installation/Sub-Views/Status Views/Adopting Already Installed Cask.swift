@@ -10,6 +10,7 @@ import SwiftUI
 import CorkModels
 import CorkTerminalFunctions
 
+/*
 struct AdoptingAlreadyInstalledCaskView: View
 {
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
@@ -84,3 +85,4 @@ struct AdoptingAlreadyInstalledCaskView: View
         */
     }
 }
+*/

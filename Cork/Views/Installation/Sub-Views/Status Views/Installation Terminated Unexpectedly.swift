@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 struct InstallationTerminatedUnexpectedlyView: View
 {
     let terminalOutputOfTheInstallation: [RealTimeTerminalLine]
@@ -73,3 +74,4 @@ struct InstallationTerminatedUnexpectedlyView: View
         
     }
 }
+*/

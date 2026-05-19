@@ -61,7 +61,7 @@ struct InstallingPackageView: View
         }
         .task
         {
-            do throws(InstallationProgressTracker.InstallationError)
+            do throws
             {
                 try await installationProgressTracker.installPackage(
                     packageToInstall,
@@ -70,10 +70,9 @@ struct InstallingPackageView: View
                 )
                 
                 packageInstallationProcessStepTracker.advanceStep(to: .finished)
-            } catch let installationError
+            } catch let installationError as InstallationProgressTracker.InstallationError
             {
-                switch installationError
-                {
+                switch installationError {
                 case .implemented(let implementedError):
                     packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(withError: implementedError))
                 case .unimplemented(let rawOutput):
@@ -81,6 +80,10 @@ struct InstallingPackageView: View
                             .unexpectedTerminalOutput(rawOutput.containsErrors ? .containedErrors(rawOutput: rawOutput) : .didNotContainErrors(rawOutput: rawOutput))
                     )
                 }
+            }
+            catch let unexpectedError
+            { /// There was an unexpected error, so handle that differently
+                
             }
         }
     }
