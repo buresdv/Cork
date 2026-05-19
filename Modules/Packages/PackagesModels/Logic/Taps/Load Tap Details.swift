@@ -56,14 +56,6 @@ public extension BrewTap
             tapInfoRaw = try await self.loadTapJSONDataForThirdPartyTap()
         }
         
-        guard let tapInfoRaw: Data = tapInfoLoadingResult.getJsonFromOutput(failOnAnyErrorsPresent: false)
-        else
-        {
-            appConstants.logger.info("Couldn't get any data from JSON output")
-            
-            throw .couldNotReadJson
-        }
-        
 
         do
         {

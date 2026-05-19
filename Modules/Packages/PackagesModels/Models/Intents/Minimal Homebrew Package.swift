@@ -9,8 +9,8 @@ import AppIntents
 import Foundation
 import SwiftUI
 
-public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable, PackageNameDisplayable
-{
+public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable, Package, DescriptionLoadable
+{    
     /// Initialize from an unparsed name
     public init(name: String, type: BrewPackage.PackageType, installDate: Date? = nil, installedIntentionally: Bool) {
         self.id = .init()

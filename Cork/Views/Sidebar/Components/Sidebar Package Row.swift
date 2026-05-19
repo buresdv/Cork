@@ -31,7 +31,7 @@ struct SidebarPackageRow: View
         }
         .contextMenu
         {
-            package.contextMenu(using: package)
+            package.contextMenu()
             {
                 SidebarContextMenu(package: package)
             }

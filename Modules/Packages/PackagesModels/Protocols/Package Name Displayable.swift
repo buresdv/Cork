@@ -166,7 +166,6 @@ public extension PackageNameDisplayable
     /// Context menu for the package's actions
     @ViewBuilder
     func contextMenu(
-        using packageDisplayable: any PackageNameDisplayable,
         @ViewBuilder extraContent: () -> some View = { EmptyView() }
     ) -> some View
     {

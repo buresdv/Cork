@@ -11,7 +11,6 @@ import CorkTerminalFunctions
 import FactoryKit
 import Foundation
 import SwiftUI
-import FactoryKit
 
 @Observable @MainActor
 public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
@@ -215,16 +214,6 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
         {
             switch self
             {
-            case .downloading:
-                return "Downloading"
-            case .pouring:
-                return "Pouring"
-            case .cleanup:
-                return "Cleanup"
-            case .backingUp:
-                return "Backing Up"
-            case .linking:
-                return "Linkling"
             case .implemented(let failedPackage, _):
                 return failedPackage.package.id
             case .unimplemented(let failedPackage, _):

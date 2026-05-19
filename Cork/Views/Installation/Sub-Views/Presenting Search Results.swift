@@ -96,7 +96,7 @@ struct PresentingSearchResultsView: View
         }
         .toolbar
         {
-            ToolbarItem(placement: .primaryAction)
+            ToolbarItem(placement: .automatic)
             {
                 searchForPackageButton
             }
@@ -105,34 +105,7 @@ struct PresentingSearchResultsView: View
             {
                 startInstallProcessButton
             }
-
-            ToolbarItemGroup(placement: .automatic)
-            {
-                previewPackageButton
-
-                startInstallProcessButton
-            }
         }
-    }
-
-    @ViewBuilder
-    var previewPackageButton: some View
-    {
-        PreviewPackageButtonWithCustomAction
-        {
-            guard let selectedPackage = selectedPackage
-            else
-            {
-                AppConstants.shared.logger.error("Failed to preview package")
-
-                return
-            }
-            openWindow(value: selectedPackage)
-
-            AppConstants.shared.logger.debug("Would preview package \(selectedPackage.name(withPrecision: .precise))")
-        }
-        .disabled(selectedPackage == nil)
-        .labelStyle(.titleOnly)
     }
 
     @ViewBuilder

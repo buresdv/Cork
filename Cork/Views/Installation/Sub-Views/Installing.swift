@@ -42,15 +42,22 @@ struct InstallingPackageView: View
         {
             ProgressView(installationProgressTracker.installProgress)
             
-            switch installationProgressTracker.installStage
-            {
-            case .formula(let standardCases):
-                Text(standardCases.stageDescription)
-            case .cask(let standardCases):
-                standardCases.view([packageToInstall])
-            }
-            
             installationProgressTracker.streamedOutputsDisplay
+        }
+        .toolbar
+        {
+            ToolbarItem(placement: .automatic)
+            {
+                switch installationProgressTracker.installStage
+                {
+                case .formula(let standardCases):
+                    Text(standardCases.stageDescription)
+                        .foregroundStyle(.secondary)
+                case .cask(let standardCases):
+                    standardCases.view([packageToInstall])
+                        .foregroundStyle(.secondary)
+                }
+            }
         }
         .task
         {

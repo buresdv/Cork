@@ -20,7 +20,7 @@ import SwiftUI
 public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadingError>>
 
 /// A representation of a Homebrew package
-public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable, PackageNameDisplayable
+public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable, Package
 {
     public init(
         rawName: String,
@@ -73,7 +73,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public var id: UUID
     public var internalName: BrewPackageName
 
-    public let type: PackageType
+    public var type: PackageType
     public var isTagged: Bool = false
 
     public var isPinned: Bool

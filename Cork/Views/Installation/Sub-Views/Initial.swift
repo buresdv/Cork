@@ -76,15 +76,13 @@ struct InstallationInitialView: View
         {
             if enableDiscoverability
             {
-                ToolbarItemGroup(placement: .automatic)
+                ToolbarItemGroup(placement: .primaryAction)
                 {
-                    previewPackageButton
-
                     startInstallProcessForTopPackageButton
                 }
             }
 
-            ToolbarItem(placement: .primaryAction)
+            ToolbarItem(placement: .automatic)
             {
                 searchForPackageButton
             }
@@ -93,25 +91,6 @@ struct InstallationInitialView: View
         {
             foundPackageSelection = nil
         }
-    }
-
-    @ViewBuilder
-    var previewPackageButton: some View
-    {
-        PreviewPackageButtonWithCustomAction
-        {
-            guard let packageToPreview: MinimalHomebrewPackage = foundPackageSelection
-            else
-            {
-                AppConstants.shared.logger.error("Could not retrieve top package to preview")
-
-                return
-            }
-
-            openWindow(value: packageToPreview)
-        }
-        .disabled(foundPackageSelection == nil)
-        .labelStyle(.titleOnly)
     }
 
     @ViewBuilder

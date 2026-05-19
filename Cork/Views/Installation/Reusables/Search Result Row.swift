@@ -19,6 +19,17 @@ struct SearchResultRow: View, Sendable
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
     
     let context: Self.Context
+    
+    var extractedRelevantPackage: MinimalHomebrewPackage
+    {
+        switch context
+        {
+        case .searchResult(let searchedForPackage):
+            return searchedForPackage
+        case .topPackage(let package, _):
+            return package
+        }
+    }
 
     enum PackageDescriptionLoadingState: Equatable
     {
@@ -163,8 +174,8 @@ struct SearchResultRow: View, Sendable
                         do throws(BrewPackage.DescriptionLoadingError)
                         {
                             // let parsedPackageInfo: BrewPackage.BrewPackageDetails = try await searchedForPackage.loadDetails()
-
-                            let loadedDescription: String = try await searchedForPackage.loadDescripton()
+                            
+                            let loadedDescription: String = try await extractedRelevantPackage.loadDescription()
 
                             self.packageDescriptionLoadingState = .loaded(withResult: loadedDescription)
 
@@ -181,6 +192,10 @@ struct SearchResultRow: View, Sendable
                     AppConstants.shared.logger.info("\(relevantPackage.name(withPrecision: .precise), privacy: .auto) already has its description loaded")
                 }
             }
+        }
+        .contextMenu
+        {
+            extractedRelevantPackage.contextMenu()
         }
     }
     
