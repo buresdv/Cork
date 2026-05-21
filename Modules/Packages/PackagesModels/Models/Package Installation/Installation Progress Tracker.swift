@@ -43,7 +43,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                         case .requiresSudoPassword:
                             return String(localized: "add-package.install.requires-sudo-password")
                         case .binaryAlreadyExists:
-                            return String(localized: "add-package.install.binary-already-exists", bundle: .main)
+                            return String(localized: "add-package.install.binary-already-exists")
                         case .wrongArchitecture:
                             return String(localized: "add-package.install.wrong-architecture")
                         case .containsUnexpectedOutputs(let rawOutput):

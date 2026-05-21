@@ -22,16 +22,23 @@ enum PackageInstallationProcessSteps: Equatable
     }
     
     case ready
-    case searching(forSearchString: String)
+    case searching(
+        forSearchString: String
+    )
     case presentingSearchResults(
         forSearchString: String,
         foundFormulae: [MinimalHomebrewPackage],
         foundCasks: [MinimalHomebrewPackage]
     )
-    case installing(package: MinimalHomebrewPackage)
+    case installing(
+        package: MinimalHomebrewPackage
+    )
     case finished
     case unexpectedTerminalOutput(UnexpectedTerminalOutputType)
-    case erroredOut(withError: InstallationProgressTracker.InstallationError.ImplementedError)
+    case erroredOut(
+        package: MinimalHomebrewPackage,
+        withError: InstallationProgressTracker.InstallationError.ImplementedError
+    )
     
     var isDismissable: Bool
     {

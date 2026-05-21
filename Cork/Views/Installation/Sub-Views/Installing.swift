@@ -74,7 +74,10 @@ struct InstallingPackageView: View
             {
                 switch installationError {
                 case .implemented(let implementedError):
-                    packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(withError: implementedError))
+                    packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(
+                        package: packageToInstall,
+                        withError: implementedError
+                    ))
                 case .unimplemented(let rawOutput):
                     packageInstallationProcessStepTracker.advanceStep(to:
                             .unexpectedTerminalOutput(rawOutput.containsErrors ? .containedErrors(rawOutput: rawOutput) : .didNotContainErrors(rawOutput: rawOutput))

@@ -134,7 +134,7 @@ struct MaintenanceFinishedView: View
             {
                 if let numberOfOrphansRemoved = maintenanceResults.orphanRemovalResults?.numberOfOprhansRemoved
                 {
-                    Text("maintenance.results.orphans-count-\(numberOfOrphansRemoved)")
+                    Text("maintenance.results.\(numberOfOrphansRemoved)-orphans-removed")
                         .lineLimit(nil)
                         .fixedSize(horizontal: false, vertical: true)
                 }

@@ -5,13 +5,13 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+import ButtonKit
+import CorkModels
 import CorkNotifications
 import CorkShared
-import SwiftUI
-import ButtonKit
 import Defaults
-import CorkModels
 import FactoryKit
+import SwiftUI
 
 typealias PackageInstallationProcessStepTracker = AddFormulaView.PackageInstallationProcessStepTracker
 
@@ -21,18 +21,18 @@ struct AddFormulaView: View
     final class PackageInstallationProcessStepTracker
     {
         private(set) var currentStep: PackageInstallationProcessSteps
-        
+
         init()
         {
             self.currentStep = .ready
         }
-        
+
         func advanceStep(to newStep: PackageInstallationProcessSteps)
         {
             self.currentStep = newStep
         }
     }
-    
+
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @State private var packageRequested: String = ""
@@ -45,9 +45,9 @@ struct AddFormulaView: View
     @State var packageInstallTrackingNumber: Float = 0
 
     @FocusState var isSearchFieldFocused: Bool
-    
+
     @State private var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker = .init()
-    
+
     @State private var installationProgressTracker: InstallationProgressTracker?
 
     @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
@@ -65,7 +65,8 @@ struct AddFormulaView: View
             {
                 Group
                 {
-                    switch packageInstallationProcessStepTracker.currentStep {
+                    switch packageInstallationProcessStepTracker.currentStep
+                    {
                     case .ready:
                         InstallationInitialView()
                     case .searching(let forSearchString):
@@ -91,8 +92,11 @@ struct AddFormulaView: View
                         case .didNotContainErrors(let rawOutputThatDidNotContainErrors):
                             EmptyView()
                         }
-                    case .erroredOut(let withError):
-                        ErroredOutView(error: withError)
+                    case .erroredOut(let package, let withError):
+                        ErroredOutView(
+                            error: withError,
+                            packageThatWasBeingInstalled: package
+                        )
                     }
                 }
                 .navigationTitle(sheetTitle)
@@ -106,7 +110,7 @@ struct AddFormulaView: View
                             {
                                 dismiss()
                                 installationProgressTracker?.cancel()
-                                
+
                                 do
                                 {
                                     try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
@@ -133,7 +137,6 @@ struct AddFormulaView: View
             {
                 try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
             }
-            
         }
     }
 }

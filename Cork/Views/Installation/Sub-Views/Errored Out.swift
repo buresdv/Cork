@@ -13,12 +13,13 @@ import SwiftUI
 struct ErroredOutView: View
 {
     let error: InstallationProgressTracker.InstallationError.ImplementedError
+    let packageThatWasBeingInstalled: MinimalHomebrewPackage
 
     var body: some View
     {
         ComplexWithIcon(systemName: "xmark.seal")
         {
-            HeadlineWithArbitraryContent(headline: "add-package.error.title")
+            HeadlineWithArbitraryContent(headline: "add-\(packageThatWasBeingInstalled.type.description)-\(packageThatWasBeingInstalled.name(withPrecision: .general)).error.title")
             {
                 switch error
                 {
@@ -38,41 +39,43 @@ struct ErroredOutView: View
                     switch caskInstallError
                     {
                     case .implemented(let implementedCaskInstallError):
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading)
+                        {
                             if let errorDescription = implementedCaskInstallError.errorDescription
                             {
                                 Text(errorDescription)
-                            } else {
+                            }
+                            else
+                            {
                                 Text("DEBUG: Unexpected missing string")
                             }
-                            
+
                             if let recoverySuggestion = implementedCaskInstallError.recoverySuggestion
                             {
                                 Text(recoverySuggestion)
-                            } else {
+                            }
+                            else
+                            {
                                 Text("DEBUG: Unexpected missing string")
                             }
                         }
                     case .unimplelented(let rawOutputs):
                         unimplementedErrorView(rawOutputs: rawOutputs)
                     }
-                        
-                    
-                case .couldNotSynchronizePackages(_):
+
+                case .couldNotSynchronizePackages:
                     EmptyView()
-                }
-                
                 }
             }
         }
     }
-
+    
     @ViewBuilder
     func unimplementedErrorView(rawOutputs: [TerminalOutput]) -> some View
     {
         VStack(alignment: .leading)
         {
-            Text("add-package.error.unimplemented-outputs.message")
+            Text("add-package.\(packageThatWasBeingInstalled.name(withPrecision: .general)).error.unimplemented-outputs.message")
 
             DisclosureGroup("add-package.error.unimplemented-outputs.dropdown.label")
             {
@@ -86,4 +89,4 @@ struct ErroredOutView: View
             }
         }
     }
-
+}

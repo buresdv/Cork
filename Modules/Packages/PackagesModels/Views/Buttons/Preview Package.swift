@@ -5,23 +5,22 @@
 //  Created by David Bureš on 16.09.2024.
 //
 
-import SwiftUI
-import CorkShared
 import ButtonKit
+import CorkShared
+import SwiftUI
 
 /// Preview a package according to its name
 public struct PreviewPackageButton: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
-    
-    public init(packageToPreview: MinimalHomebrewPackage) {
-        
+
+    public init(packageToPreview: MinimalHomebrewPackage)
+    {
         self.packageToPreview = packageToPreview
-        
     }
-    
+
     public let packageToPreview: MinimalHomebrewPackage
-    
+
     public var body: some View
     {
         Button
@@ -36,12 +35,15 @@ public struct PreviewPackageButton: View
 
 public struct PreviewPackageButtonWithCustomAction: View
 {
-    public init(action: @escaping () -> Void) {
+    public init(action: @escaping () -> Void)
+    {
         self.action = action
     }
-    
+
     public let action: () -> Void
-    public var body: some View {
+    
+    public var body: some View
+    {
         Button
         {
             action()
@@ -55,16 +57,17 @@ public struct PreviewPackageButtonWithCustomAction: View
 public struct PreviewPackageButtonWithCustomLabel: View
 {
     @Environment(\.openWindow) var openWindow: OpenWindowAction
-    
-    public init(label: LocalizedStringKey, packageToPreview: MinimalHomebrewPackage) {
+
+    public init(label: LocalizedStringKey, packageToPreview: MinimalHomebrewPackage)
+    {
         self.label = label
         self.packageToPreview = packageToPreview
     }
-    
+
     public let label: LocalizedStringKey
-    
+
     public let packageToPreview: MinimalHomebrewPackage
-    
+
     public var body: some View
     {
         Button
