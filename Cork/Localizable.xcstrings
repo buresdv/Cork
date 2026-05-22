@@ -23,7 +23,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : ""
           }
         },
@@ -118,7 +118,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "(%@)"
           }
         },
@@ -218,7 +218,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "%@"
           }
         },
@@ -312,7 +312,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "⚠️"
           }
         },
@@ -612,7 +612,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "GitHub"
           }
         },
@@ -712,7 +712,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Mastodon"
           }
         },
@@ -1012,7 +1012,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Rob Napier"
           }
         },
@@ -1212,7 +1212,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Łukasz Rutkowski"
           }
         },
@@ -1412,7 +1412,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Jierong Li"
           }
         },
@@ -1612,7 +1612,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Oscar Bazaldua"
           }
         },
@@ -1812,7 +1812,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Andrey Radchishin"
           }
         },
@@ -2012,7 +2012,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Christian Tietze"
           }
         },
@@ -2212,7 +2212,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Mike Simons"
           }
         },
@@ -2473,7 +2473,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© %@ David Bureš 及其他贡献者"
+            "value" : "© %@ David Bureš 及其他贡献者。"
           }
         },
         "zh-Hant" : {
@@ -2573,7 +2573,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "© %lld David Bureš 及其他贡献者"
+            "value" : "© %lld David Bureš 及其他贡献者。"
           }
         },
         "zh-Hant" : {
@@ -2712,7 +2712,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "DavidFoundation"
           }
         },
@@ -3312,7 +3312,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Seb Jachec"
           }
         },
@@ -3612,7 +3612,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Dimitri Bouniol"
           }
         },
@@ -3712,7 +3712,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Ben Carlsson"
           }
         },
@@ -3812,7 +3812,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Jerry Zhang"
           }
         },
@@ -4012,7 +4012,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "sh95014"
           }
         },
@@ -4212,7 +4212,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Maurice Meysel"
           }
         },
@@ -4412,7 +4412,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Bryan Ledda"
           }
         },
@@ -4613,7 +4613,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Nikita Utkin"
           }
         },
@@ -4815,7 +4815,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Igor Petruchek"
           }
         },
@@ -5023,7 +5023,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Traducteurs"
+            "value" : "Traductions"
           }
         },
         "it" : {
@@ -5277,7 +5277,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "待更新软件包的状态"
+            "value" : "Status of outdated packaes"
           }
         },
         "zh-Hant" : {
@@ -5377,7 +5377,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "待更新软件包列表"
+            "value" : "List of outdated packages"
           }
         },
         "zh-Hant" : {
@@ -5477,7 +5477,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在加载待更新软件包"
+            "value" : "Loading outdated packages"
           }
         },
         "zh-Hant" : {
@@ -5577,7 +5577,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cask 类型软件包"
+            "value" : "Package of Cask type"
           }
         },
         "zh-Hant" : {
@@ -5677,7 +5677,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Formula 类型软件包"
+            "value" : "Package of Formula type"
           }
         },
         "zh-Hant" : {
@@ -5777,7 +5777,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不支持类型的软件包"
+            "value" : "Package of an unimplemented type"
           }
         },
         "zh-Hant" : {
@@ -5877,7 +5877,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未知类型的软件包"
+            "value" : "Package of an unknown type"
           }
         },
         "zh-Hant" : {
@@ -5977,7 +5977,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "返回状态页"
+            "value" : "Return to status page"
           }
         },
         "zh-Hant" : {
@@ -6078,7 +6078,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已安装软件包列表"
+            "value" : "List of installed packages"
           }
         },
         "zh-Hant" : {
@@ -6178,7 +6178,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已安装 Cask 列表"
+            "value" : "List of installed Casks"
           }
         },
         "zh-Hant" : {
@@ -6278,7 +6278,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已安装 Fomula 列表"
+            "value" : "List of installed Formulae"
           }
         },
         "zh-Hant" : {
@@ -6378,7 +6378,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$lld 个由 Homebrew 管理的过时软件包，以及 %2$lld 个不由 Homebrew 管理的过时软件包"
+            "value" : "%1$lld outdated packages managed by Homebrew and %2$lld outdated packages not managed by Homebrew"
           }
         },
         "zh-Hant" : {
@@ -6579,7 +6579,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "接受"
+            "value" : "Adopt"
           }
         },
         "zh-Hant" : {
@@ -6781,7 +6781,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "添加"
+            "value" : "Add"
           }
         },
         "zh-Hant" : {
@@ -6881,7 +6881,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "添加应用到 Homebrew"
+            "value" : "Add apps to Homebrew"
           }
         },
         "zh-Hant" : {
@@ -7177,7 +7177,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "添加 %lld 个应用"
+                  "value" : "Add %lld apps"
                 }
               }
             }
@@ -7486,7 +7486,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "取消并禁用批量应用接管"
+            "value" : "Cancel and disable mass app adoption"
           }
         },
         "zh-Hant" : {
@@ -7586,7 +7586,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "检查更新…"
+            "value" : "Check for Updates…"
           }
         },
         "zh-Hant" : {
@@ -7686,7 +7686,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "检查过时的软件包"
+            "value" : "Check for outdated packages"
           }
         },
         "zh-Hant" : {
@@ -8788,7 +8788,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隐藏版块…"
+            "value" : "Hide section…"
           }
         },
         "zh-Hant" : {
@@ -8888,7 +8888,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "隐藏版块"
+            "value" : "Hide section"
           }
         },
         "zh-Hant" : {
@@ -8928,8 +8928,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ocultar campo de búsqueda para paquetes adoptables"
+            "state" : "new",
+            "value" : "Hide search field for adoptable packages"
           }
         },
         "fr" : {
@@ -8964,8 +8964,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скрыть поле поиска для пакетов, переводимых под контроль Homebrew"
+            "state" : "new",
+            "value" : "Hide search field for adoptable packages"
           }
         },
         "sv" : {
@@ -9189,7 +9189,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已安装软件包"
+            "value" : "Installed packages"
           }
         },
         "zh-Hant" : {
@@ -9390,7 +9390,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "忽略 %@"
+            "value" : "Ignore %@"
           }
         },
         "zh-Hant" : {
@@ -9491,7 +9491,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "停止忽略 %@"
+            "value" : "Stop ignoring %@"
           }
         },
         "zh-Hant" : {
@@ -9592,7 +9592,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "预览 %@"
+            "value" : "Preview %@"
           }
         },
         "zh-Hant" : {
@@ -10895,7 +10895,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在访达中显示 %@"
+            "value" : "Reveal %@ in Finder"
           }
         },
         "zh-Hant" : {
@@ -11496,7 +11496,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "显示更少"
+            "value" : "Show less"
           }
         },
         "zh-Hant" : {
@@ -11597,7 +11597,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "显示更多"
+            "value" : "Show more"
           }
         },
         "zh-Hant" : {
@@ -11637,8 +11637,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar campo de búsqueda"
+            "state" : "new",
+            "value" : "Show search field"
           }
         },
         "fr" : {
@@ -11673,8 +11673,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Показать поле поиска"
+            "state" : "new",
+            "value" : "Show search field"
           }
         },
         "sv" : {
@@ -11738,8 +11738,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar campo de búsqueda para paquetes adoptables"
+            "state" : "new",
+            "value" : "Show search field for adoptable packages"
           }
         },
         "fr" : {
@@ -11774,8 +11774,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Показать поле поиска для пакетов, переводимых под контроль Homebrew"
+            "state" : "new",
+            "value" : "Show search field for adoptable packages"
           }
         },
         "sv" : {
@@ -11814,13 +11814,13 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Zobrazit výstup Terminálu"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Terminal-Ausgabe zeigen"
           }
         },
@@ -11832,79 +11832,79 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Show Terminal output"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mostrar salidas en el terminal"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afficher la sortie Homebrew"
+            "state" : "needs_review",
+            "value" : "Afficher la sortie du terminal"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mostra output Terminale"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "ターミナル出力を表示"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Show Terminal output"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mostrar output do Terminal"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Показать вывод Терминала"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Show Terminal output"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Terminal Çıktısını Göster"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Показати вивід Терміналу"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "显示终端输出"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "顯示終端機輸出"
           }
         }
@@ -12300,7 +12300,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新 Homebrew 及所有软件包"
+            "value" : "更新 Homebrew 及所有包"
           }
         },
         "zh-Hant" : {
@@ -12715,99 +12715,9 @@
     "add-%@-%@.error.title" : {
       "comment" : "Title for „Install failed“ sheet. \nFirst placeholder is the type of the package, second is the name of the package that was being installed",
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible d’installer %1$@ %2$@"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install %1$@ %2$@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法安装 %1$@ %2$@"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Couldn’t install %1$@ %2$@"
           }
         }
@@ -12815,196 +12725,14 @@
     },
     "add-%@.error.title" : {
       "comment" : "Title for „Install failed“ sheet. The placeholder is the type of the package.",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "add-%@.error.title"
-          }
-        }
-      },
       "shouldTranslate" : false
     },
     "add-package.%@.error.unimplemented-outputs.message" : {
       "comment" : "Message for when an unexpected terminal output gets caught during the install process.\nThe placeholder is the name of the package that the user tried to install.",
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bien que cela ne signifie pas nécessairement que %@ n’a pas été installé, vous devriez vérifier la liste des sorties inattendues ci-dessous"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "虽然这不一定意味着 %@ 未安装，但您应该检查以下意外输出列表"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below"
           }
         }
@@ -13212,100 +12940,11 @@
     },
     "add-package.error.title" : {
       "comment" : "Title of the error screen.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le paquet n'a pas pu être installé"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t install package"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法安装软件包"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Couldn’t install package"
           }
         }
@@ -13313,100 +12952,11 @@
     },
     "add-package.error.unimplemented-outputs.dropdown.label" : {
       "comment" : "A label for a dropdown that shows the raw output of a failed installation.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sorties inattendues"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "意外输出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Unexpected outputs"
           }
         }
@@ -13414,100 +12964,11 @@
     },
     "add-package.error.unimplemented-outputs.message" : {
       "comment" : "A message displayed when an error is not yet implemented.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certains résultats inattendus ont été rencontrés"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some unexpected outputs were encountered"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "遇到一些意外输出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Some unexpected outputs were encountered"
           }
         }
@@ -16618,100 +16079,11 @@
     },
     "add-package.result.description.too-many-outputs.dropdown-label" : {
       "comment" : "A label that describes a dropdown that shows a list of possible package descriptions.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sorties inattendues"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected outputs"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "意外输出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Unexpected outputs"
           }
         }
@@ -16719,100 +16091,11 @@
     },
     "add-package.result.description.too-many-outputs.label" : {
       "comment" : "A label displayed when a package has too many output.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il y a eut une sortie inattendue"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "There was an unexpected output"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "出现意外输出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "There was an unexpected output"
           }
         }
@@ -17222,100 +16505,11 @@
     },
     "add-package.search.failed" : {
       "comment" : "Label for an inline content unavailable view that indicates that a search for packages failed.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could not find anything"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se pudo encontrar nada"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aucun élément trouvé"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t find anything"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "找不到任何内容"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Couldn’t find anything"
           }
         }
@@ -18325,99 +17519,9 @@
     "add-package.top-packages.list-item-%@" : {
       "comment" : "Label for the umber of downloads in a top package.\nPlaceholder is the number of times the package was downloaded.",
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ downloads"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Téléchargements de %@"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%@ downloads"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 次下载"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "%@ downloads"
           }
         }
@@ -19918,7 +19022,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tap 链接："
+            "value" : "Tap 链接: "
           }
         },
         "zh-Hant" : {
@@ -20118,7 +19222,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用外部链接添加 Tap "
+            "value" : "使用外部链接添加 Tap"
           }
         },
         "zh-Hant" : {
@@ -24627,7 +23731,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你的 Mac 没有连接到互联网。请检查你的网络设置。"
+            "value" : "你的 Mac 没有连接到互联网。\n请检查你的网络设置"
           }
         },
         "zh-Hant" : {
@@ -25844,7 +24948,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Z pípy %@ máte ještě nainstalované balíčky\u2028Odinstalujte je a zkuste to znovu"
+            "value" : "Z pípy %@ máte ještě nainstalované balíčky Odinstalujte je a zkuste to znovu"
           }
         },
         "de" : {
@@ -27769,7 +26873,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "Cork"
           }
         },
@@ -28130,7 +27234,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在备份 Homebrew…"
+            "value" : "备份 Homebrew..."
           }
         },
         "zh-Hant" : {
@@ -28430,7 +27534,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在从备份恢复…"
+            "value" : "正在从备份恢复..."
           }
         },
         "zh-Hant" : {
@@ -28642,194 +27746,11 @@
       }
     },
     "cleaningUp" : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "limpiando"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "cleaningUp"
-          }
-        }
-      },
       "shouldTranslate" : false
     },
     "DEBUG: Hello" : {
       "comment" : "A description of the download count of a package.",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Hello"
-          }
-        }
-      },
+      "isCommentAutoGenerated" : true,
       "shouldTranslate" : false
     },
     "DEBUG: Log packages to be adopted" : {
@@ -28854,8 +27775,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: Registrar paquetes a ser adoptados"
+            "state" : "new",
+            "value" : "DEBUG: Log packages to be adopted"
           }
         },
         "fr" : {
@@ -28929,290 +27850,17 @@
     },
     "DEBUG: Test View" : {
       "comment" : "A debug-only text that can be used to test the layout of this view.",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: Probar vista"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: visuale test"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: 测试视图"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test View"
-          }
-        }
-      },
+      "isCommentAutoGenerated" : true,
       "shouldTranslate" : false
     },
     "DEBUG: Test Viwe" : {
       "comment" : "A debug label that can be used to test the layout of this view.",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: Probar vista"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: 测试视图"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Test Viwe"
-          }
-        }
-      },
+      "isCommentAutoGenerated" : true,
       "shouldTranslate" : false
     },
     "DEBUG: Unexpected missing string" : {
       "comment" : "A message that is displayed when a cask installation error is not yet implemented.",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "DEBUG: Unexpected missing string"
-          }
-        }
-      },
+      "isCommentAutoGenerated" : true,
       "shouldTranslate" : false
     },
     "debug.action.activate-demo" : {
@@ -29243,8 +27891,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: Activar demo"
+            "state" : "new",
+            "value" : "DEBUG: Activate demo"
           }
         },
         "fr" : {
@@ -29344,8 +27992,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: Licenciamiento"
+            "state" : "new",
+            "value" : "DEBUG: Licensing"
           }
         },
         "fr" : {
@@ -29445,8 +28093,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUT: Reiniciar estatus de licencia"
+            "state" : "new",
+            "value" : "DEBUG: Reset licensing state"
           }
         },
         "fr" : {
@@ -29646,8 +28294,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "DEBUG: IU"
+            "state" : "new",
+            "value" : "DEBUG: UI"
           }
         },
         "fr" : {
@@ -29747,7 +28395,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "DEBUG"
           }
         },
@@ -29822,99 +28470,9 @@
     },
     "downloading" : {
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "downloading"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "downloading"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "descargando"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "downloading"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "downloading"
           }
         }
@@ -30744,7 +29302,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "error.data-downloading.couldnt-execute-request.%@"
           }
         },
@@ -33708,7 +32266,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法加载软件包 %1$@ (%2$@): %3$@"
+            "value" : "无法加载软件包 %1$@ (%2$@):  %3$@"
           }
         },
         "zh-Hant" : {
@@ -34949,8 +33507,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se pudo obtener el canndidato de adopción seleccionado"
+            "state" : "new",
+            "value" : "Couldn’t get the selected adoption candidate"
           }
         },
         "fr" : {
@@ -34985,8 +33543,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не удалось получить данные о выбранном приложении, переводимом под контроль Homebrew"
+            "state" : "new",
+            "value" : "Couldn’t get the selected adoption candidate"
           }
         },
         "sv" : {
@@ -36549,8 +35107,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Github"
+            "state" : "new",
+            "value" : "GitHub"
           }
         },
         "fr" : {
@@ -36949,7 +35507,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "homebrew/core"
           }
         },
@@ -37049,7 +35607,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "https://gitea.com/some-cool-address"
           }
         },
@@ -37223,98 +35781,6 @@
       }
     },
     "installingUpdate" : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "instalandoActualizacion"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "installingUpdate"
-          }
-        }
-      },
       "shouldTranslate" : false
     },
     "intent.get-installed-casks.description" : {
@@ -40421,13 +38887,13 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Údržba byla dokončena"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Wartung beendet"
           }
         },
@@ -40439,79 +38905,79 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Maintenance finished"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mantenimiento finalizado"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Maintenance terminée"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Manutenzione terminata"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Maintenance finished"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "유지 관리 완료"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Manutenção terminada"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Обслуживание завершено"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Maintenance finished"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Bakım tamamlandı"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Обслуговування завершено"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "维护完成"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "維護完畢"
           }
         }
@@ -40519,55 +38985,8 @@
     },
     "maintenance.results.%lld-orphans-removed" : {
       "comment" : "A message that describes the number of orphaned formulae that were removed. The argument is the number of orphaned formulae that were removed.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "variations" : {
-            "plural" : {
-              "few" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              },
-              "many" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              },
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -40580,240 +38999,6 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "en-GB" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "es-419" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Un paquet orphelin a été supprimé"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld Paquets orphelins ont été supprimés"
-                }
-              }
-            }
-          }
-        },
-        "it" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "ja" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "ko" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "pt-PT" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "ru" : {
-          "variations" : {
-            "plural" : {
-              "few" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              },
-              "many" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              },
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "sv" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "tr" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "uk" : {
-          "variations" : {
-            "plural" : {
-              "few" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              },
-              "many" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              },
-              "one" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "One orphaned package was removed"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "%lld orphaned packages were removed"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "已移除 %lld 个孤立软件包"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
                   "value" : "%lld orphaned packages were removed"
                 }
               }
@@ -40824,100 +39009,11 @@
     },
     "maintenance.results.action-not-performed" : {
       "comment" : "A message displayed when a maintenance action was not performed.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This action was not performed"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This action was not performed"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Esta accion no fue realizada"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cette action n'a pas été effectuée"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This action was not performed"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "该操作未被执行"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "This action was not performed"
           }
         }
@@ -41025,99 +39121,9 @@
     },
     "maintenance.results.cached-downloads.could-not-determine-reclaimed-space" : {
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could not determine how much space was freed"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se puedo determinar cuanto espacio se liberó"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible de déterminer combien d'espace a été libéré"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t determine how much space was freed"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法确定释放了多少空间"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Couldn’t determine how much space was freed"
           }
         }
@@ -41425,100 +39431,11 @@
     },
     "maintenance.results.health-check.problems.show-list" : {
       "comment" : "A button to show a list of health check problems.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show problems"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Show problems"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar problemas"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afficher les problèmes"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Show problems"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "显示问题"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Show problems"
           }
         }
@@ -41526,98 +39443,7 @@
     },
     "maintenance.results.orphans-count-%@" : {
       "comment" : "A label that describes the number of orphaned packages. The argument is the number of orphaned packages.",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "mantenimiento.results.orphans-count-%@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "maintenance.results.orphans-count-%@"
-          }
-        }
-      },
+      "isCommentAutoGenerated" : true,
       "shouldTranslate" : false
     },
     "maintenance.results.orphans-count-%lld" : {
@@ -43232,13 +41058,13 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mazání mezipaměti…"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Bereinige Zwischenspeicher…"
           }
         },
@@ -43250,79 +41076,79 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Purging cache…"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Purgando el caché…"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Purge du cache Homebrew…"
+            "state" : "needs_review",
+            "value" : "Purge du cache…"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Purgo cache…"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Purging cache…"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "캐시 삭제 중..."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Limpando a cache…"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Очистка кеша..."
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Purging cache…"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Önbellek temizleniyor…"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Очищення кешу..."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "清除缓存…"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "清除快取…"
           }
         }
@@ -43332,13 +41158,13 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Odinstalovávání osiřelých balíčků…"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Deinstalliere verwaiste Pakete…"
           }
         },
@@ -43350,79 +41176,79 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Uninstalling orphans…"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Desinstalado huérfanos…"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Désinstallation des paquets orphelins…"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Disinstallo orfani…"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Uninstalling orphans…"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "고아 삭제 중..."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Desinstalando orfãos"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Удаление ненужных зависимостей..."
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Uninstalling orphans…"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Artık kalan bileşenler kaldırılıyor…"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Видалення зайвих..."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "卸载孤立包…"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "孤立套件解除安裝中…"
           }
         }
@@ -44232,13 +42058,13 @@
       "localizations" : {
         "cs" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Spustit údržbu"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Starten"
           }
         },
@@ -44250,79 +42076,79 @@
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Start"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Iniciar"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Démarrer la maintenance…"
+            "state" : "needs_review",
+            "value" : "Démarrer"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Avvia"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Start"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "시작"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Começar"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Запуск"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Start"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Başlat"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Почати"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "开始"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "開始"
           }
         }
@@ -44660,8 +42486,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se pudo obtener el candidato para adopción de este Cask"
+            "state" : "new",
+            "value" : "Couldn’t get the adoption candidate for this Cask"
           }
         },
         "fr" : {
@@ -44696,8 +42522,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не удалось получить данные о приложении, переводимом под контроль Homebrew"
+            "state" : "new",
+            "value" : "Couldn’t get the adoption candidate for this Cask"
           }
         },
         "sv" : {
@@ -44734,99 +42560,9 @@
     },
     "mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@" : {
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se requiere la version %1$@, pero la version instalada es la %2$@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La version %1$@ est requise, mais la version %2$@ est installée"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Version %1$@ is required, but version %2$@ is installed"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "需要版本 %1$@，但已经安装了版本 %2$@"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Version %1$@ is required, but version %2$@ is installed"
           }
         }
@@ -44834,99 +42570,9 @@
     },
     "mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected" : {
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could not read the selected adoption candidate for %@"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se puedo leer el candidato de adopción para %@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible de lire le candidat d'adoption sélectionné pour %@"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t read the selected adoption candidate for %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法读取为 %@ 选中的采纳候选项"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Couldn’t read the selected adoption candidate for %@"
           }
         }
@@ -76373,8 +74019,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar aplicaciones adoptables…"
+            "state" : "new",
+            "value" : "Search adoptable apps…"
           }
         },
         "fr" : {
@@ -76409,8 +74055,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поиск приложений, переводимых под контроль Homebrew…"
+            "state" : "new",
+            "value" : "Search adoptable apps…"
           }
         },
         "sv" : {
@@ -76474,8 +74120,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar aplicaciones adoptables excluidas…"
+            "state" : "new",
+            "value" : "Search excluded adoptable apps…"
           }
         },
         "fr" : {
@@ -76510,8 +74156,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поиск исключенных приложений…"
+            "state" : "new",
+            "value" : "Search excluded adoptable apps…"
           }
         },
         "sv" : {
@@ -83487,100 +81133,11 @@
     },
     "update-packages.detail-stage.installing-update" : {
       "comment" : "Description of a stage of updating a package.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Installing updates..."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Installing updates..."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Instalando actualizaciones..."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Installation des mises à jour..."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Installing updates..."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "安装更新中..."
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Installing updates..."
           }
         }
@@ -84188,100 +81745,11 @@
     },
     "update-packages.failed.details-dropdown.label" : {
       "comment" : "A label for a dropdown that shows more details about a failed update.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizaciones fallidas"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Échec des mises à jour"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unsuccessful updates"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新失败"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Unsuccessful updates"
           }
         }
@@ -84289,100 +81757,11 @@
     },
     "update-packages.failed.message" : {
       "comment" : "Message displayed when an update to the app failed.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Some updates were not successful. Check below for more information on which packages could not be updated, and why those updates have failed. "
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Algunas actualizaciones no fueron exitosas.\nCompruebe a continuación para más información sobre qué paquetes no se pudieron actualizar, y por qué esas actualizaciones fallaron."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certaines mises à jour n’ont pas abouti.\nConsultez ci-dessous pour plus d’informations sur les paquets qui n’ont pas pu être mis à jour et sur les raisons de ces échecs."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "部分软件包更新失败。\n查看下方内容以了解更多信息，包括更新失败的软件包和其原因。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
           }
         }
@@ -84390,100 +81769,11 @@
     },
     "update-packages.failed.title" : {
       "comment" : "Title of the error screen when updating packages failed.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Could not update some packages"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No se han podido actualizar algunos paquetes"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible de mettre à jour certains paquets"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Couldn’t update some packages"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无法更新部分软件包"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Couldn’t update some packages"
           }
         }
@@ -85291,99 +82581,9 @@
     },
     "update-packages.sheet-title" : {
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Updating packages"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Updating packages"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizando paquetes"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mise à jour des paquets"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Updating packages"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "软件包更新中"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Updating packages"
           }
         }
@@ -85391,100 +82591,11 @@
     },
     "update-packages.unexpected-outputs.details-dropdown.label" : {
       "comment" : "A label for a dropdown that shows unexpected output from a package update.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salidas inesperadas de Homebrew"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sorties Homebrew inattendues"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Unexpected Homebrew outputs"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "意外的 Homebrew 输出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Unexpected Homebrew outputs"
           }
         }
@@ -85492,100 +82603,11 @@
     },
     "update-packages.unexpected-outputs.message" : {
       "comment" : "Message displayed when there are unexpected outputs during the update packages process.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the updates were unsuccessful. Review the unexpected outputs below and determine if they seem serious. "
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El proceso de actualización encontró algunas salidas inesperadas.\nEsto no necesariamente signifca que la actualizacion fallo. Vea las salidas inesperadas a continuación y decida su se ven serias."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le processus de mise à jour a rencontré des sorties inattendues.\nCela ne signifie pas nécessairement que la mise à jour a échoué. Consultez les sorties inattendues ci-dessous et déterminez si elles semblent sérieuses."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新过程中遇到了一些意外的输出。\n这并不一定意味着更新失败。查看下方的意外输出并判断其是否严重。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
           }
         }
@@ -85593,100 +82615,11 @@
     },
     "update-packages.unexpected-outputs.title" : {
       "comment" : "Title of the unexpected outputs stage in the update packages flow.",
+      "isCommentAutoGenerated" : true,
       "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se encontraron salidas inesperadas de Homebrew"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Des sorties Homebrew inattendues ont été rencontrées"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Encountered unexpected Homebrew outputs"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "遇到了意外的 Homebrew 输出"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "new",
             "value" : "Encountered unexpected Homebrew outputs"
           }
         }
@@ -86521,8 +83454,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
+            "state" : "new",
+            "value" : "􀇾"
           }
         },
         "fr" : {
@@ -86615,8 +83548,8 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
+            "state" : "new",
+            "value" : "􀎧"
           }
         },
         "fr" : {
@@ -86715,7 +83648,7 @@
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "new",
             "value" : "􀐫"
           }
         },
