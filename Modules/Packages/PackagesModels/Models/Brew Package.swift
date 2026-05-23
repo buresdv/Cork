@@ -87,18 +87,6 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
     public let sizeInBytes: Int64?
 
-    public var isInstalled: Bool
-    {
-        if installedOn != nil
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
-    }
-
     /// Download count for top packages
     public let downloadCount: Int?
 

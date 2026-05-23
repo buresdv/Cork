@@ -5,20 +5,20 @@
 //  Created by David Bureš on 27.02.2023.
 //
 
-import SwiftUI
-import Defaults
 import CorkModels
+import Defaults
 import FactoryKit
+import SwiftUI
 
 struct DependencyList: View
 {
     @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
     @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
-    
+
     @InjectedObservable(\.navigationManager) var navigationManager
-    
+
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    
+
     @State private var dependencySearchText: String = ""
 
     @State var dependencies: [BrewPackageDependency]
@@ -51,19 +51,16 @@ struct DependencyList: View
                     TableColumn("package-details.dependencies.results.name")
                     { dependency in
                         // Find the dependency in the tracker to show it in a more complete way
-                        if let dependencyFromTracker: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.internalName == BrewPackageName(from: dependency.name) }) {
-                            
+                        if let dependencyFromTracker: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.internalName == BrewPackageName(from: dependency.name) })
+                        {
                             dependencyFromTracker.nameView(withComponents: .boundVersion)
-                                .contextMenu {
-                                    Button {
-                                        navigationManager.openedScreen = .package(package: dependencyFromTracker)
-                                    } label: {
-                                        Text("action.open-detail-for-\(dependencyFromTracker.name(withPrecision: .inlineFormatted))")
-                                    }
-
+                                .contextMenu
+                                {
+                                    OpenPackageDetailButton(packageToOpenDetailFor: dependencyFromTracker)
                                 }
-                            
-                        } else {
+                        }
+                        else
+                        {
                             Text("DEBUG: Unexpected missing string")
                         }
                     }

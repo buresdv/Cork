@@ -22,7 +22,7 @@ public protocol PackageNameDisplayable
     func name(withPrecision precision: NameRetrievalPrecision) -> String
     
     associatedtype PreviewSelfButton: View
-    /// Button for previewing the package
+    /// Button for previewing packages that are not installed
     var previewSelfButton: PreviewSelfButton { get }
 }
 

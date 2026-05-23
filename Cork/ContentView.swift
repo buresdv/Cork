@@ -95,9 +95,6 @@ struct ContentView: View, Sendable
     {
         NavigationSplitView(columnVisibility: self.$columnVisibility)
         {
-            let _ = print("Parent appState: \(ObjectIdentifier(appState))")
-            let _ = print("Parent navigationManager: \(ObjectIdentifier(navigationManager))")
-
             SidebarView()
         } detail: {
             switch navigationManager.openedScreen

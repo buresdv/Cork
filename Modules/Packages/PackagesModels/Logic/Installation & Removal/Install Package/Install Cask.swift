@@ -31,7 +31,8 @@ extension InstallationProgressTracker
             
             self.insertOutput(output)
 
-            output.match(as: CaskInstallMatcher.self) { standardCase in
+            output.match(as: CaskInstallMatcher.self)
+            { standardCase in
                 
                 self.installStage = .cask(standardCase)
                 

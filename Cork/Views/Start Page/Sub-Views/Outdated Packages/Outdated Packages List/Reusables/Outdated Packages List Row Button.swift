@@ -5,9 +5,9 @@
 //  Created by David Bureš - P on 06.01.2026.
 //
 
-import SwiftUI
-import Defaults
 import CorkModels
+import Defaults
+import SwiftUI
 
 struct OutdatedPackageListBoxRow: View
 {
@@ -34,11 +34,10 @@ struct OutdatedPackageListBoxRow: View
         }
         .contextMenu
         {
-            PreviewPackageButton(packageToPreview: .init(
-                name: outdatedPackage.package.name(withPrecision: .precise),
-                type: outdatedPackage.package.type,
-                installedIntentionally: outdatedPackage.package.installedIntentionally
-            ))
+            outdatedPackage.package.contextMenu
+            {
+                OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
+            }
         }
     }
 
@@ -47,7 +46,11 @@ struct OutdatedPackageListBoxRow: View
     @ViewBuilder
     var outdatedPackageDetails_none: some View
     {
-        SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: true)
+        outdatedPackage.package.nameView(withComponents: .boundVersion)
+            .contextMenu
+            {
+                OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
+            }
     }
 
     @ViewBuilder
@@ -55,19 +58,18 @@ struct OutdatedPackageListBoxRow: View
     {
         HStack(alignment: .center)
         {
-            SanitizedPackageName(package: outdatedPackage.package, shouldShowVersion: true)
+            outdatedPackage.package.nameView(withComponents: .boundVersion)
 
             HStack(alignment: .center)
             {
                 let installedVersions: String = outdatedPackage.installedVersions.formatted(.list(type: .and))
                 let newerVersion: String = outdatedPackage.newerVersion
-                
+
                 let pillForegroundColor: NSColor = .secondaryLabelColor
                 let pillBackgroundColor: NSColor = .quinaryLabel
-                
+
                 if showOldVersionsInOutdatedPackageList
                 {
-                    
                     PillText(text: "\(installedVersions) → \(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
                 }
                 else
@@ -75,6 +77,10 @@ struct OutdatedPackageListBoxRow: View
                     PillText(text: "\(newerVersion)", backgroundColor: pillBackgroundColor, textColor: pillForegroundColor)
                 }
             }
+        }
+        .contextMenu
+        {            
+            OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
         }
     }
 }

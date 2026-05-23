@@ -106,7 +106,7 @@ struct OutdatedPackagesList_Table: View
 
                 TableColumn("package-details.dependencies.results.name")
                 { outdatedPackage in
-                    Text(outdatedPackage.package.name(withPrecision: .precise))
+                    outdatedPackage.package.nameView(withComponents: .boundVersion)
                 }
         
 
@@ -130,11 +130,9 @@ struct OutdatedPackagesList_Table: View
                 { outdatedPackage in
                     TableRow(outdatedPackage)
                         .contextMenu
-                        {
-                            PreviewPackageButton(packageToPreview: .init(
-                                name: outdatedPackage.package.name(withPrecision: .precise),
-                                type: outdatedPackage.package.type,
-                                installedIntentionally: outdatedPackage.package.installedIntentionally)
+                        {                            
+                            OpenPackageDetailButton(
+                                packageToOpenDetailFor: outdatedPackage.package
                             )
                         }
                 }

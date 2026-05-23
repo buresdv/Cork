@@ -5,11 +5,11 @@
 //  Created by David Bureš on 21.06.2024.
 //
 
+import CorkModels
 import CorkShared
+import CorkTerminalFunctions
 import Foundation
 import SwiftUI
-import CorkModels
-import CorkTerminalFunctions
 
 public enum OutdatedPackageRetrievalError: LocalizedError
 {
@@ -59,7 +59,7 @@ public extension OutdatedPackagesTracker
         let formulae: [Formulae]
         let casks: [Casks]
     }
-    
+
     func getOutdatedPackages(brewPackagesTracker: BrewPackagesTracker) async throws
     {
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew
@@ -67,13 +67,13 @@ public extension OutdatedPackagesTracker
 
         /// ``Set<OutdatedPackage>`` that holds packages whose updates are managed by Homebrew, plus those that are not
         let outdatedPackagesGreedy: Set<OutdatedPackage> = try await getOutdatedPackagesInternal(brewPackagesTracker: brewPackagesTracker, forUpdatingType: .selfUpdating)
-        
-        print("Contents of non-greedy update checker: \(outdatedPackagesNonGreedy.map{$0.package.name(withPrecision: .precise)}), \( outdatedPackagesNonGreedy.count)")
-        print("Contents of greedy update checker: \( outdatedPackagesGreedy.map{$0.package.name(withPrecision: .precise)}), \( outdatedPackagesGreedy.count)")
-        
+
+        print("Contents of non-greedy update checker: \(outdatedPackagesNonGreedy.map { $0.package.name(withPrecision: .precise) }), \(outdatedPackagesNonGreedy.count)")
+        print("Contents of greedy update checker: \(outdatedPackagesGreedy.map { $0.package.name(withPrecision: .precise) }), \(outdatedPackagesGreedy.count)")
+
         /// This includes only those packages that are greedy
         let difference: Set<OutdatedPackage> = outdatedPackagesGreedy.subtracting(outdatedPackagesNonGreedy)
-        
+
         self.outdatedPackages = outdatedPackagesNonGreedy.union(difference)
     }
 
@@ -86,17 +86,17 @@ public extension OutdatedPackagesTracker
     {
         // First, we have to pull the newest updates
         await shell(AppConstants.shared.brewExecutablePath, ["update"])
-        
+
         // Then we can get the updating under way
         /// Introduces an empty argument in case the updating is non-greedy
         let rawOutput: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["outdated", updatingType.argument, "--json=v2"])
 
         AppConstants.shared.logger.debug("""
-        Output of outdated packages retrieval: 
-            Standard output: \(rawOutput.standardOutputs)
-            Standard error: \(rawOutput.standardErrors)
-""")
-        
+                Output of outdated packages retrieval: 
+                    Standard output: \(rawOutput.standardOutputs)
+                    Standard error: \(rawOutput.standardErrors)
+        """)
+
         // MARK: - Error checking
 
         if rawOutput.contains("HOME must be set", in: .standardErrors)
