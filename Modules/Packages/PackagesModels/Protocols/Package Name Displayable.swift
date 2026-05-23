@@ -157,6 +157,13 @@ public extension PackageNameDisplayable
             }
 
             return "\(self.internalName.packageIdentifier)@\(boundVersionUnwrapped)"
+        case .inlineFormatted:
+            guard let boundVersionUnwrapped = internalName.boundVersion else
+            {
+                return self.internalName.packageIdentifier
+            }
+            
+            return "\(self.internalName.packageIdentifier) 􀎡 \(boundVersionUnwrapped)"
         }
     }
 }

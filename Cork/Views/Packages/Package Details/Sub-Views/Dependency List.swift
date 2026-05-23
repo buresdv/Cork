@@ -8,11 +8,17 @@
 import SwiftUI
 import Defaults
 import CorkModels
+import FactoryKit
 
 struct DependencyList: View
 {
     @Default(.displayAdvancedDependencies) var displayAdvancedDependencies: Bool
     @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
+    
+    @InjectedObservable(\.navigationManager) var navigationManager
+    
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
+    
     @State private var dependencySearchText: String = ""
 
     @State var dependencies: [BrewPackageDependency]
@@ -44,17 +50,22 @@ struct DependencyList: View
                 {
                     TableColumn("package-details.dependencies.results.name")
                     { dependency in
-                        SanitizedPackageName(
-                            package: .init(
-                                rawName: dependency.name,
-                                type: .formula,
-                                installedOn: nil,
-                                versions: [dependency.version],
-                                url: nil,
-                                sizeInBytes: nil,
-                                downloadCount: nil),
-                            shouldShowVersion: false
-                        )
+                        // Find the dependency in the tracker to show it in a more complete way
+                        if let dependencyFromTracker: BrewPackage = brewPackagesTracker.successfullyLoadedFormulae.first(where: { $0.internalName == BrewPackageName(from: dependency.name) }) {
+                            
+                            dependencyFromTracker.nameView(withComponents: .boundVersion)
+                                .contextMenu {
+                                    Button {
+                                        navigationManager.openedScreen = .package(package: dependencyFromTracker)
+                                    } label: {
+                                        Text("action.open-detail-for-\(dependencyFromTracker.name(withPrecision: .inlineFormatted))")
+                                    }
+
+                                }
+                            
+                        } else {
+                            Text("DEBUG: Unexpected missing string")
+                        }
                     }
                     TableColumn("package-details.dependencies.results.version")
                     { dependency in

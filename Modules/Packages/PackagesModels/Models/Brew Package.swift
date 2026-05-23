@@ -78,7 +78,7 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
     public var isPinned: Bool
 
-    public let installedOn: Date?
+    public var installedOn: Date?
     public let versions: [String]
 
     public let url: URL?
@@ -186,6 +186,9 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
         /// Includes the base name and the bound version, if one exists
         case precise
+        
+        /// Includes the bound version, mimicking the name view
+        case inlineFormatted
     }
 
     public enum NameDisplayComponents: Equatable
@@ -426,7 +429,7 @@ public extension BrewPackage
         self.init(
             rawName: minimalPackage.name(withPrecision: .precise),
             type: minimalPackage.type,
-            installedOn: minimalPackage.installDate,
+            installedOn: minimalPackage.installedOn,
             versions: [],
             url: nil,
             sizeInBytes: nil,

@@ -10,6 +10,8 @@ import Foundation
 public protocol Package: Identifiable, PackageNameDisplayable
 {
     var internalName: BrewPackageName { get set }
+    
+    var installedOn: Date? { get set }
 
     var type: BrewPackage.PackageType { get set }
 }
