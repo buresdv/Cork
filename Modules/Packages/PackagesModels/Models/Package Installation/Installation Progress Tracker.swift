@@ -180,6 +180,21 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             case installingCask
             case movingCask
             case linkingAppToCask
+            
+            public var progressPercentageForCase: Double
+            {
+                switch self
+                {
+                case .downloadingCask:
+                    return 25
+                case .installingCask:
+                    return 80
+                case .movingCask:
+                    return 90
+                case .linkingAppToCask:
+                    return 95
+                }
+            }
 
             public var patterns: [String]
             {
@@ -192,7 +207,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 case .movingCask:
                     ["Moving App"]
                 case .linkingAppToCask:
-                    ["Linking binary"]
+                    ["Linking"]
                 }
             }
 

@@ -36,6 +36,8 @@ extension InstallationProgressTracker
                 
                 self.installStage = .cask(standardCase)
                 
+                self.installProgress.set(toPercentage: standardCase.progressPercentageForCase)
+                
                 print("Matched install stage: \(standardCase)")
                 
             } onErrorOutput: { errorCase in

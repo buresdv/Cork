@@ -79,7 +79,7 @@ struct OutdatedPackageListBoxRow: View
             }
         }
         .contextMenu
-        {            
+        {
             OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
         }
     }
