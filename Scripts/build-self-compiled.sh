@@ -80,16 +80,6 @@ std_error() {
 }
 
 ####
-# Check if a command is available in PATH. If not, prints an error and exits.
-require_command() {
-    local cmd="$1"
-
-    if ! command -v "$cmd" >/dev/null 2>&1; then
-        std_error "'$cmd' is required but was not found in PATH"
-    fi
-}
-
-####
 # Ask the user to confirm replacing an existing app at the given path. Exits if the user
 # cancels.
 confirm_replace() {
@@ -183,9 +173,9 @@ case "$(uname -s)" in
     *) std_error "Cork can only be built on macOS" ;;
 esac
 
-require_command xcodebuild
-require_command xcrun
-require_command ditto
+if ! command -v xcodebuild &>/dev/null; then
+    std_error "xcodebuild is required to run this script, but it was not found in PATH."
+fi
 
 if (( run_tuist == 1 )); then
     if ! command -v tuist &>/dev/null; then
