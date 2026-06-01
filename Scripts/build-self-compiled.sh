@@ -55,7 +55,7 @@ usage() {
     cat <<EOF
 Builds Cork's Self-Compiled scheme without opening Xcode.
 
-${C_BLUE}Usage: ${C_GREEN}scripts/build-self-compiled.sh ${C_CYAN}[options]${C_NC}
+${C_BLUE}Usage: ${C_GREEN}./Scripts/build-self-compiled.sh ${C_CYAN}[options]${C_NC}
 
 ${C_BLUE}Options:${C_NC}
   ${C_CYAN}--install${C_NC}              Copy Cork.app to /Applications after building
@@ -71,7 +71,7 @@ EOF
 }
 
 ####
-# Print an error message and exits with a non-zero status.
+# Print an error message and exit with a non-zero status.
 std_error() {
     local message="$*"
 
