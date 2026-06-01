@@ -66,7 +66,7 @@ ${C_BLUE}Options:${C_NC}
   ${C_CYAN}--force${C_NC}                Replace an existing installed app without prompting
   ${C_CYAN}--launch${C_NC}               Open the built or installed app after the build
   ${C_CYAN}--verbose${C_NC}              Show full xcodebuild output
-  ${C_CYAN}-h${C_NC}, ${C_CYAN}--help${C_NC}             Show this help
+  ${C_CYAN}-h${C_NC}, ${C_CYAN}--help${C_NC}             Show this help message
 EOF
 }
 
