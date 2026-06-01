@@ -14,9 +14,61 @@ extension InstallationProgressTracker
     @MainActor
     func installFormula(
         _ formulaToInstall: MinimalHomebrewPackage
-    ) async throws(InstallationError.ImplementedError.FormulaInstallError)
+    ) async throws(InstallationError)
     {
-        print("Hello")
+        AppConstants.shared.logger.info("Package is Formula")
+        AppConstants.shared.logger.debug("Installing package \(formulaToInstall.name(withPrecision: .precise), privacy: .public)")
+
+        let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", formulaToInstall.name(withPrecision: .precise)])
+        installationProcess = process
+        
+        var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
+        var installError: InstallationError.ImplementedError.FormulaInstallError?
+        
+        for await output in stream
+        {
+            print("Raw formula install output: \(output)")
+            
+            self.insertOutput(output)
+            
+            output.match(as: FormulaInstallMatcher.self)
+            { standardCase in
+                
+                print("Matched standard case: \(standardCase)")
+                
+                self.installStage = .formula(standardCase)
+                
+                
+            } onErrorOutput: { errorCase in
+                print("Matched error case: \(errorCase)")
+                
+                switch errorCase
+                {
+                case .requiresPassword:
+                    installError = .implemented(.requiresSudoPassword)
+                }
+            } onUnimplementedOutput: { unimplementedCase in
+                print("Matched unimplemented case: \(unimplementedCase)")
+                
+                consolidatedUnimplementedOutput.append(unimplementedCase)
+            }
+
+            print("Install errors: \(installError)")
+            
+            if let installError
+            {
+                print("Install process will throw error: \(installError)")
+                
+                throw .implemented(.couldNotInstallFormula(installError))
+            }
+            
+            if !consolidatedUnimplementedOutput.isEmpty
+            {
+                throw .implemented(.couldNotInstallFormula(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
+            }
+            
+        }
+        
         /*
         let package: BrewPackage = packageBeingInstalled.package
         var packageDependencies: [String] = .init()

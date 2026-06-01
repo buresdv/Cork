@@ -21,7 +21,18 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             public enum FormulaInstallError: LocalizedError, Equatable
             {
                 public enum ImplementedError: LocalizedError, Equatable
-                {}
+                {
+                    case requiresSudoPassword
+
+                    public var errorDescription: String?
+                    {
+                        switch self
+                        {
+                        case .requiresSudoPassword:
+                            return String(localized: "add-package.install.requires-sudo-password")
+                        }
+                    }
+                }
 
                 case implemented(ImplementedError)
                 case unimplelented(rawOutput: [TerminalOutput])
@@ -82,8 +93,10 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
 
     public enum FormulaInstallMatcher: TerminalOutputMatchable
     {
-        public enum StandardCases: TerminalOutputCase, Sendable
+        public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
         {
+            public typealias Argument = MinimalHomebrewPackage
+
             public static let allCases: [InstallationProgressTracker.FormulaInstallMatcher.StandardCases] = [
                 .findingDependencies,
                 .downloadingDependencies(
@@ -129,9 +142,9 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 case .installingDependencies(let dependencyName, _, _):
                     ["Installing \(dependencyName)"]
                 case .downloadingPackage(let package):
-                    ["Fetching \(package.name)"]
+                    ["Fetching \(package.name(withPrecision: .precise))"]
                 case .installingPackage(let package):
-                    ["Installing \(package.name)"]
+                    ["Installing \(package.name(withPrecision: .precise))"]
                 }
             }
 
@@ -141,15 +154,21 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 {
                 case .findingDependencies:
                     return "add-package.install.loading-dependencies"
-                case .downloadingDependencies(let dependencyName):
+                case .downloadingDependencies:
                     return "add-package.install.fetching-dependencies"
-                case .installingDependencies(let dependencyName, let dependencyNumber, let totalNumberOfDependencies):
+                case .installingDependencies(_, let dependencyNumber, let totalNumberOfDependencies):
                     return "add-package.install.installing-dependencies-\(dependencyNumber)-of-\(totalNumberOfDependencies)"
                 case .downloadingPackage(let package):
-                    return "add-package.install.downloading-package-\(package.name)"
+                    return "add-package.install.downloading-package-\(package.name(withPrecision: .inlineFormatted))"
                 case .installingPackage(let package):
-                    return "add-package.install.installing-package-\(package.name)"
+                    return "add-package.install.installing-package-\(package.name(withPrecision: .inlineFormatted))"
                 }
+            }
+
+            @ViewBuilder
+            public func view(_: [MinimalHomebrewPackage]) -> some View
+            {
+                Text("DEBUG: SHould not be seen")
             }
         }
 
@@ -180,7 +199,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             case installingCask
             case movingCask
             case linkingAppToCask
-            
+
             public var progressPercentageForCase: Double
             {
                 switch self
