@@ -189,7 +189,7 @@ require_command ditto
 
 if (( run_tuist == 1 )); then
     if ! command -v tuist &>/dev/null; then
-        std_error "Tuist is required to run this script with --skip-tuist." \
+        std_error "Tuist is required to run this script, but it was not found in PATH." \
             "Please install Tuist and try again, or run the script with --skip-tuist if" \
             "you have already generated the Xcode project."
     fi
@@ -275,4 +275,3 @@ echo "${C_NOTE}Built app is at: $export_app"
 if (( install == 1 )); then
     echo "${C_NOTE}Installed app is at: $dest_app"
 fi
-
