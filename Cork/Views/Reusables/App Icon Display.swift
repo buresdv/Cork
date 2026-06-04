@@ -5,8 +5,8 @@
 //  Created by David Bureš - P on 22.10.2025.
 //
 
-import SwiftUI
 import ApplicationInspector
+import SwiftUI
 
 /// Show the icon of a linked app
 struct AppIconDisplay: View
@@ -32,7 +32,7 @@ struct AppIconDisplay: View
     }
 
     let displayType: DisplayType
-    
+
     let allowRevealingInFinderFromIcon: Bool
 
     var body: some View
@@ -86,7 +86,7 @@ struct AppIconDisplay: View
 private struct ApplicationIconImage: View
 {
     let app: Application
-    
+
     let allowRevealingInFinderThroughIcon: Bool
 
     var body: some View
@@ -97,12 +97,20 @@ private struct ApplicationIconImage: View
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 35)
-                .contextMenu {
+                .contextMenu
+                {
                     Button
                     {
                         app.url.revealInFinder(.openParentDirectoryAndHighlightTarget)
                     } label: {
                         Label("action.reveal-\(app.name)-in-finder", systemImage: "finder")
+                    }
+
+                    Button
+                    {
+                        NSWorkspace.shared.openApplication(at: app.url, configuration: .init())
+                    } label: {
+                        Label("action.open-\(app.name)", systemImage: "arrow.up.forward.square")
                     }
                 }
         }

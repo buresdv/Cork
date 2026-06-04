@@ -134,7 +134,7 @@ struct SearchResultRow: View, Sendable
                         
                         List(outputs)
                         { rawOutput in
-                            Text(rawOutput.description)
+                            rawOutput.outputView
                         }
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
                         .frame(minHeight: 100)

@@ -274,7 +274,18 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             }
         }
 
-        public typealias IgnoredCases = IgnoresNoOutputs
+        public enum IgnoredCases: TerminalOutputCase
+        {
+            case trustWarning
+            
+            public var patterns: [String]
+            {
+                switch self {
+                case .trustWarning:
+                    ["The following taps are not trusted"]
+                }
+            }
+        }
     }
 
     public enum InstallStageType

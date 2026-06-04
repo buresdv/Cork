@@ -81,7 +81,7 @@ struct ErroredOutView: View
             {
                 List(rawOutputs)
                 { rawOutput in
-                    Text(rawOutput.description)
+                    rawOutput.outputView
                 }
                 .listStyle(.bordered)
                 .alternatingRowBackgrounds(.enabled)
