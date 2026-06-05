@@ -85,20 +85,20 @@ struct PackageDetailView: View, Sendable, DismissablePane
                 {
                     InlineFatalError(errorMessage: "error.generic.unexpected-homebrew-response", errorDescription: erroredOut.errorDescription)
                 }
-                else
+                else if let packageDetails
                 {
                     FullSizeGroupedForm
                     {
                         BasicPackageInfoView(
                             package: packageStructureToUse,
-                            packageDetails: packageDetails!,
+                            packageDetails: packageDetails,
                             isLoadingDetails: isLoadingDetails,
                             isInPreviewWindow: isInPreviewWindow,
                             isShowingExpandedCaveats: $isShowingExpandedCaveats
                         )
 
                         PackageDependencies(
-                            dependencies: packageDetails?.dependencies,
+                            dependencies: packageDetails.dependencies,
                             isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies
                         )
 
@@ -114,11 +114,11 @@ struct PackageDetailView: View, Sendable, DismissablePane
 
             if !isInPreviewWindow
             {
-                if packageDetails != nil
+                if let packageDetails
                 {
                     PackageModificationButtons(
                         package: packageStructureToUse,
-                        packageDetails: packageDetails!,
+                        packageDetails: packageDetails,
                         isLoadingDetails: isLoadingDetails
                     )
                     
@@ -138,16 +138,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
         .frame(minWidth: 450, minHeight: 400, alignment: .topLeading)
         .task(id: package.id)
         {
-            AppConstants.shared.logger.info("Will start loading of details for package \(package.name(withPrecision: .general))")
-            
+            erroredOut = (false, nil)
             isLoadingDetails = true
-            defer
-            {
-                if isLoadingDetails
-                {
-                    isLoadingDetails = false
-                }
-            }
 
             do
             {
@@ -163,8 +155,14 @@ struct PackageDetailView: View, Sendable, DismissablePane
                     }
                 }
             }
+            catch is CancellationError
+            {
+                return
+            }
             catch let packageInfoDecodingError
             {
+                isLoadingDetails = false
+
                 AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")
 
                 erroredOut = (true, packageInfoDecodingError.localizedDescription)

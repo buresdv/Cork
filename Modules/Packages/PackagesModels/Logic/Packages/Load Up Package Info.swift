@@ -294,6 +294,13 @@ public extension BrewPackage
             rawOutput = await shell(AppConstants.shared.brewExecutablePath, ["info", "--json=v2", "--cask", self.name(withPrecision: .precise)])
         }
 
+        do
+        {
+            try Task.checkCancellation()
+        } catch let taskCancellationError {
+            throw .standardErrorNotEmpty(presentError: taskCancellationError.localizedDescription)
+        }
+
         // MARK: - Error checking
 
         guard !rawOutput.containsErrors
