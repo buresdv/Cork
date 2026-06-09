@@ -87,9 +87,9 @@ struct AdoptablePackagesList: View
         } sectionHeaderContent: {
             HStack(alignment: .center, spacing: 10)
             {
-                deselectAllButton
-
                 selectAllButton
+                
+                deselectAllButton
             }
         } sectionFooterContent: {
             HStack(alignment: .center)

@@ -7,16 +7,18 @@
 
 import CorkModels
 import Defaults
-import SwiftUI
 import FactoryKit
+import SwiftUI
 
 struct OutdatedPackagesList_List: View
 {
     @Default(.outdatedPackageInfoDisplayAmount) var outdatedPackageInfoDisplayAmount
-    
+
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
 
     let packageUpdatingType: OutdatedPackage.PackageUpdatingType
+
+    @State private var isSearchFieldFocused: Bool = false
 
     /// Filter out those relevant packages for this context form the tracker
     var relevantPackages: Set<OutdatedPackage>
@@ -29,38 +31,39 @@ struct OutdatedPackagesList_List: View
             return outdatedPackagesTracker.packagesThatUpdateThemselves
         }
     }
-    
+
     var sortedRelevantPackages: [OutdatedPackage]
     {
         return relevantPackages.sorted(by: { $0.package.installedOn! < $1.package.installedOn! })
     }
-    
+
     var filteredRelevantPackages: [OutdatedPackage]
     {
-        guard !searchText.isEmpty else
+        guard !searchText.isEmpty
+        else
         {
             return sortedRelevantPackages
         }
-        
-        return sortedRelevantPackages.filter({ $0.package.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchText) })
+
+        return sortedRelevantPackages.filter { $0.package.name(withPrecision: .precise).localizedCaseInsensitiveContains(searchText) }
     }
-    
+
     /// Check whether all relevant packages are deselected - for `Deselect All` button
     var areAnyRelevantPackagesSelected: Bool
     {
-        !relevantPackages.filter({ $0.isSelected }).isEmpty
+        !relevantPackages.filter { $0.isSelected }.isEmpty
     }
-    
+
     /// Check if there is at least one package that is not selected - for `Select All` button
     var areAnyPackagesLeftToSelect: Bool
     {
-        return relevantPackages.filter({ !$0.isSelected }).isEmpty
+        return relevantPackages.filter { !$0.isSelected }.isEmpty
     }
-    
+
     @State private var isShowingSearchField: Bool = false
-    
+
     @State private var searchText: String = ""
-    
+
     var body: some View
     {
         List
@@ -82,36 +85,41 @@ struct OutdatedPackagesList_List: View
                         deselectAllButton(packagesToDeselect: relevantPackages)
 
                         selectAllButton(packagesToSelect: relevantPackages)
-                        
+
                         Spacer()
-                        
+
                         ToggleSearchFieldButton(isShowingSearchField: $isShowingSearchField)
                     }
-                   
-                   if isShowingSearchField
-                   {
-                       Divider()
-                       
-                       CustomSearchField(
-                           search: $searchText,
-                           customPromptText: nil
-                       )
-                       .transition(.push(from: .top))
-                   }
+
+                    if isShowingSearchField
+                    {
+                        Divider()
+
+                        CustomSearchField(
+                            search: $searchText,
+                            isFocused: $isSearchFieldFocused,
+                            customPromptText: nil
+                        )
+                        .transition(.push(from: .top))
+                        .onAppear
+                        {
+                            isSearchFieldFocused = true
+                        }
+                    }
                 }
             }
         }
         .listStyle(.bordered(alternatesRowBackgrounds: true))
     }
-    
+
     @ViewBuilder
-    func selectAllButton(packagesToSelect: Set<OutdatedPackage>) -> some View
+    func selectAllButton(packagesToSelect _: Set<OutdatedPackage>) -> some View
     {
         Button
         {
-            relevantPackages.forEach
+            for relevantPackage in relevantPackages
             {
-                $0.changeSelectedState(to: true)
+                relevantPackage.changeSelectedState(to: true)
             }
         } label: {
             Text("start-page.updated.action.select-all")
@@ -119,15 +127,15 @@ struct OutdatedPackagesList_List: View
         .disabled(areAnyPackagesLeftToSelect)
         .buttonStyle(.accessoryBar)
     }
-    
+
     @ViewBuilder
-    func deselectAllButton(packagesToDeselect: Set<OutdatedPackage>) -> some View
+    func deselectAllButton(packagesToDeselect _: Set<OutdatedPackage>) -> some View
     {
         Button
         {
-            relevantPackages.forEach
+            for relevantPackage in relevantPackages
             {
-                $0.changeSelectedState(to: false)
+                relevantPackage.changeSelectedState(to: false)
             }
         } label: {
             Text("start-page.updated.action.deselect-all")
