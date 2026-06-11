@@ -101,6 +101,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
                             dependencies: packageDetails.dependencies,
                             isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies
                         )
+                        
+                        DependantsList(packageDetails: packageDetails)
 
                         PackageSystemInfo(
                             package: packageStructureToUse,
@@ -151,7 +153,7 @@ struct PackageDetailView: View, Sendable, DismissablePane
                 {
                     if packageDetails.installedAsDependency
                     {
-                        await packageDetails.loadDependents()
+                        await packageDetails.loadDependents(usingTracker: brewPackagesTracker)
                     }
                 }
             }
