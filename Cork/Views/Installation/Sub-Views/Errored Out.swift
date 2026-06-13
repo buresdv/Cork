@@ -30,7 +30,7 @@ struct ErroredOutView: View
                     case .implemented(let implementedFormulaInstallError):
                         EmptyView()
                     case .unimplelented(let rawOutputs):
-                        EmptyView()
+                        unimplementedErrorView(rawOutputs: rawOutputs)
                     }
 
                     // MARK: - Cask Errors

@@ -27,17 +27,18 @@ extension InstallationProgressTracker
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
         var installError: InstallationError.ImplementedError.FormulaInstallError?
         var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
-        var installOutput: [String] = .init()
 
         for await output in stream
         {
+            self.insertOutput(output)
+            
             switch output
             {
             case .standardOutput(let outputLine):
 
                 AppConstants.shared.logger.debug("Package instrall line out: \(outputLine, privacy: .public)")
-
-                AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies ?? .init()), privacy: .public)")
+                
+                AppConstants.shared.logger.info("Does the line contain an element from the array? \(outputLine.containsElementFromArray(packageDependencies), privacy: .public)")
 
                 if outputLine.contains(/Would install \d dependencies for/)
                 {
@@ -53,7 +54,7 @@ extension InstallationProgressTracker
                     
                     self.installProgress.completedUnitCount = 1
                 }
-                else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(formulaToInstall.name(withPrecision: .precise)) dependency")
+                else if outputLine.contains("Installing dependencies") || outputLine.contains("Installing \(formulaToInstall.name(withPrecision: .precise)) dependency") || outputLine.contains("Pouring") && outputLine.containsElementFromArray(packageDependencies)
                 {
                     AppConstants.shared.logger.info("Will install dependencies!")
                     self.installStage = .formula(.installingDependencies(dependencyName: "", dependencyNumber: self.numberInLineOfPackageCurrentlyBeingInstalled + 1, totalNumberOfDependencies: packageDependencies.count))
@@ -63,11 +64,17 @@ extension InstallationProgressTracker
                     AppConstants.shared.logger.info("Installing dependency \(self.numberInLineOfPackageCurrentlyBeingInstalled) of \(packageDependencies.count)")
 
                     // TODO: Add a math formula for advancing the stepper
-                    self.installProgress.completedUnitCount = self.installProgress.completedUnitCount + Int64(Double(10) / (Double(3) * Double(self.numberOfPackageDependencies)))
+                    self.installProgress.increment(byPercentage: 4)
                 }
-
-                else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies ?? .empty))
+                
+                else if outputLine.contains("Already downloaded") || (outputLine.contains("Fetching") && outputLine.containsElementFromArray(packageDependencies))
                 {
+                    guard !packageDependencies.isEmpty else
+                    {
+                        AppConstants.shared.logger.warning("Falsely jumped into dependency install branch - inspect error")
+                        
+                        return
+                    }
                     AppConstants.shared.logger.info("Will fetch dependencies!")
                     self.installStage = .formula(.downloadingDependencies(dependencyName: ""))
 
@@ -75,30 +82,21 @@ extension InstallationProgressTracker
 
                     AppConstants.shared.logger.info("Fetching dependency \(self.numberInLineOfPackageCurrentlyBeingFetched) of \(packageDependencies.count)")
 
-                    self.installProgress.completedUnitCount = self.installProgress.completedUnitCount + Int64(Double(10) / (Double(3) * (Double(self.numberOfPackageDependencies) * Double(5))))
+                    self.installProgress.increment(byPercentage: 4)
                 }
 
-                else if outputLine.contains("Fetching \(formulaToInstall.name(withPrecision: .precise))") || outputLine.contains("Installing \(formulaToInstall.name(withPrecision: .precise))")
+                else if outputLine.contains("Fetching \(formulaToInstall.name(withPrecision: .precise))") || outputLine.contains("Installing \(formulaToInstall.name(withPrecision: .precise))") || outputLine.contains("Pouring") && outputLine.contains(formulaToInstall.name(withPrecision: .general))
                 {
-                    if hasAlreadyMatchedLineAboutInstallingPackageItself
-                    { /// Only the second line about the package being installed is valid
-                        AppConstants.shared.logger.info("Will install the package itself!")
-                        self.installStage = .formula(.installingPackage(package: formulaToInstall))
+                    AppConstants.shared.logger.info("Will install package itself!")
+                    
+                    self.installStage = .formula(.installingPackage(package: formulaToInstall))
 
-                        // TODO: Add a math formula for advancing the stepper
-                        self.installProgress.completedUnitCount = self.installProgress.completedUnitCount + Int64((Double(10) - Double(self.installProgress.completedUnitCount)) / Double(2))
-
-                        AppConstants.shared.logger.info("Stepper value: \(Double(Double(10) / (Double(3) * Double(self.numberOfPackageDependencies))))")
-                    }
-                    else
-                    { /// When it appears for the first time, ignore it
-                        AppConstants.shared.logger.info("Matched the dud line about the package itself being installed!")
-                        hasAlreadyMatchedLineAboutInstallingPackageItself = true
-                        self.installProgress.completedUnitCount = self.installProgress.completedUnitCount + Int64((Double(10) - Double(self.installProgress.completedUnitCount)) / Double(2))
-                    }
+                    // TODO: Add a math formula for advancing the stepper
+                    self.installProgress.set(toPercentage: 90)
                 }
-
-                installOutput.append(outputLine)
+                else {
+                    consolidatedUnimplementedOutput.append(output)
+                }
 
                 AppConstants.shared.logger.debug("Current installation stage: \(String(describing: self.installStage))")
 
@@ -113,19 +111,24 @@ extension InstallationProgressTracker
                 }
             }
 
-            print("Install errors: \(String(describing: installError))")
+        }
+        
+        AppConstants.shared.logger.info("""
+            Installer result:
+            - Fatal install errors: \(installError)
+            - Consolidated unimplemented outputs: \(consolidatedUnimplementedOutput)
+            """)
 
-            if let installError
-            {
-                print("Install process will throw error: \(installError)")
+        if let installError
+        {
+            print("Install process will throw error: \(installError)")
 
-                throw .implemented(.couldNotInstallFormula(installError))
-            }
+            throw .implemented(.couldNotInstallFormula(installError))
+        }
 
-            if !consolidatedUnimplementedOutput.isEmpty
-            {
-                throw .implemented(.couldNotInstallFormula(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
-            }
+        if !consolidatedUnimplementedOutput.isEmpty
+        {
+            throw .implemented(.couldNotInstallFormula(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
         }
     }
 }

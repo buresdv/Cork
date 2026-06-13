@@ -30,15 +30,10 @@ extension InstallationProgressTracker
                 try await installCask(packageToInstall)
             }
         }
-        catch let implementedError as InstallationError
+        catch let implementedError
         {
             print("Package install error: \(implementedError)")
             throw implementedError
-        }
-        catch let unexpectedError {
-            print("Unexpected install error: \(unexpectedError)")
-            
-            throw unexpectedError
         }
 
         do
