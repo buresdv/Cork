@@ -277,12 +277,15 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         public enum IgnoredCases: TerminalOutputCase
         {
             case trustWarning
+            case installOverview
             
             public var patterns: [String]
             {
                 switch self {
                 case .trustWarning:
                     ["The following taps are not trusted"]
+                case .installOverview:
+                    ["Would install 1 cask"]
                 }
             }
         }

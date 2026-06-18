@@ -20817,7 +20817,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adoptable apps"
+            "value" : "可适配的应用程序"
           }
         },
         "zh-Hant" : {
@@ -73559,7 +73559,7 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "There are %lld installed apps that can be added to Homebrew"
+                  "value" : "有 %lld 个已安装的应用程序可以添加到 Homebrew 中"
                 }
               }
             }

@@ -188,7 +188,7 @@ struct AdoptablePackagesSection: View
                     }
                     
                     #if DEBUG
-                    debug_listPackagesThatWouldGetAdopted
+                    //debug_listPackagesThatWouldGetAdopted
                     #endif
                 }
                 .animation(.smooth, value: excludedApps)

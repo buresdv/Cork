@@ -26,10 +26,20 @@ extension InstallationProgressTracker
 
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
         var installError: InstallationError.ImplementedError.FormulaInstallError?
-        var hasAlreadyMatchedLineAboutInstallingPackageItself: Bool = false
+        
+        let ignoredOutputs: Array<any RegexComponent> = [
+            /Would install \d formula/
+        ]
 
         for await output in stream
         {
+            // Check if the line isn't ignorable
+            guard !output.description.containsElementFromArray(ignoredOutputs) else
+            {
+                AppConstants.shared.logger.info("Hit ignored output: \(output.description)")
+                continue
+            }
+            
             self.insertOutput(output)
             
             switch output
