@@ -5278,7 +5278,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Status of outdated packaes"
+            "value" : "可更新软件包状态"
           }
         },
         "zh-Hant" : {
@@ -5378,7 +5378,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "List of outdated packages"
+            "value" : "可更新软件包列表"
           }
         },
         "zh-Hant" : {
@@ -5478,7 +5478,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Loading outdated packages"
+            "value" : "正在加载可更新软件包"
           }
         },
         "zh-Hant" : {
@@ -5578,7 +5578,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Package of Cask type"
+            "value" : "Cask 类型的软件包"
           }
         },
         "zh-Hant" : {
@@ -5678,7 +5678,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Package of Formula type"
+            "value" : "Formula 类型的软件包"
           }
         },
         "zh-Hant" : {
@@ -5878,7 +5878,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Package of an unknown type"
+            "value" : "未知类型的软件包"
           }
         },
         "zh-Hant" : {
@@ -5978,7 +5978,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Return to status page"
+            "value" : "返回状态页面"
           }
         },
         "zh-Hant" : {
@@ -6179,7 +6179,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "List of installed Casks"
+            "value" : "已安装的 Cask 列表"
           }
         },
         "zh-Hant" : {
@@ -6279,7 +6279,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "List of installed Formulae"
+            "value" : "已安装的 Formula 列表"
           }
         },
         "zh-Hant" : {
@@ -6580,7 +6580,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adopt"
+            "value" : "接管"
           }
         },
         "zh-Hant" : {
@@ -6782,7 +6782,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add"
+            "value" : "新增"
           }
         },
         "zh-Hant" : {
@@ -6882,7 +6882,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add apps to Homebrew"
+            "value" : "将应用程序交由 Homebrew 接管"
           }
         },
         "zh-Hant" : {
@@ -7487,7 +7487,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancel and disable mass app adoption"
+            "value" : "取消并禁用批量接管应用程序"
           }
         },
         "zh-Hant" : {
@@ -7587,7 +7587,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Check for Updates…"
+            "value" : "检查更新…"
           }
         },
         "zh-Hant" : {
@@ -7687,7 +7687,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Check for outdated packages"
+            "value" : "检查可更新的软件包"
           }
         },
         "zh-Hant" : {
@@ -8790,7 +8790,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide section…"
+            "value" : "隐藏该区域…"
           }
         },
         "zh-Hant" : {
@@ -8890,7 +8890,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide section"
+            "value" : "隐藏该区域"
           }
         },
         "zh-Hant" : {
@@ -9191,7 +9191,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Installed packages"
+            "value" : "已安装的软件包"
           }
         },
         "zh-Hant" : {
@@ -9392,7 +9392,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ignore %@"
+            "value" : "忽略 %@"
           }
         },
         "zh-Hant" : {
@@ -9493,7 +9493,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stop ignoring %@"
+            "value" : "取消忽略 %@"
           }
         },
         "zh-Hant" : {
@@ -10897,7 +10897,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reveal %@ in Finder"
+            "value" : "在访达中显示 %@"
           }
         },
         "zh-Hant" : {
@@ -11498,7 +11498,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show less"
+            "value" : "收起"
           }
         },
         "zh-Hant" : {
@@ -11599,7 +11599,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show more"
+            "value" : "显示更多"
           }
         },
         "zh-Hant" : {
@@ -12723,6 +12723,12 @@
             "state" : "translated",
             "value" : "Couldn’t install %1$@ %2$@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法安装 %1$@ %2$@"
+          }
         }
       }
     },
@@ -12948,6 +12954,12 @@
             "state" : "translated",
             "value" : "Couldn’t install package"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法安装软件包"
+          }
         }
       }
     },
@@ -12961,6 +12973,12 @@
             "state" : "translated",
             "value" : "Unexpected outputs"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "异常输出"
+          }
         }
       }
     },
@@ -12973,6 +12991,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Some unexpected outputs were encountered"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "遇到了一些异常输出"
           }
         }
       }
@@ -16109,6 +16133,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "There was an unexpected output"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存在异常输出"
           }
         }
       }
@@ -20140,7 +20170,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couldn’t adopt %@"
+            "value" : "无法接管 %@"
           }
         },
         "zh-Hant" : {
@@ -20240,7 +20270,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finished adopting %@"
+            "value" : "已完成接管 %@"
           }
         },
         "zh-Hant" : {
@@ -20340,7 +20370,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This package can now be updated through Homebrew"
+            "value" : "该软件包现可通过 Homebrew 更新"
           }
         },
         "zh-Hant" : {
@@ -20440,7 +20470,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adopting %@…"
+            "value" : "接管 %@ 中…"
           }
         },
         "zh-Hant" : {
@@ -20532,12 +20562,6 @@
           }
         },
         "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ignored adoptable apps"
-          }
-        },
-        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ignored adoptable apps"
@@ -20641,7 +20665,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adoptable apps"
+            "value" : "可被接管的应用程序"
           }
         },
         "zh-Hant" : {
@@ -33582,7 +33606,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取已选的的接管候选项"
+            "value" : "无法获取选中的接管候选项"
           }
         },
         "zh-Hant" : {
@@ -35390,7 +35414,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When a new adoptable app becomes available, this section will automatically re-appear.\n\nYou can show the section again at any time in the “Discoverability“ tab of Cork’s Settings"
+            "value" : "当检测到新的可被接管的应用程序时，此区域会自动重新显示。\n\n你也可以随时在 Cork 设置的「探索」中重新显示此区域。"
           }
         },
         "zh-Hant" : {
@@ -35490,7 +35514,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Are you sure you want to hide the Adoptable Packages section?"
+            "value" : "你确定要隐藏“可被接管的软件包”区域吗？"
           }
         },
         "zh-Hant" : {
@@ -39036,6 +39060,12 @@
             "state" : "translated",
             "value" : "This action was not performed"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "该操作未被执行"
+          }
         }
       }
     },
@@ -39145,6 +39175,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t determine how much space was freed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法确定释放了多少空间"
           }
         }
       }
@@ -39458,6 +39494,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show problems"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看问题"
           }
         }
       }
@@ -41163,8 +41205,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "清除缓存…"
+            "state" : "translated",
+            "value" : "清除 Homebrew 缓存…"
           }
         },
         "zh-Hant" : {
@@ -42369,7 +42411,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adding apps failed"
+            "value" : "接管应用程序失败"
           }
         },
         "zh-Hant" : {
@@ -42470,7 +42512,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Details"
+            "value" : "详情"
           }
         },
         "zh-Hant" : {
@@ -42571,7 +42613,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法获取此 Cask 的采用候选项"
+            "value" : "无法获取此 Cask 的接管候选项"
           }
         },
         "zh-Hant" : {
@@ -42588,6 +42630,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version %1$@ is required, but version %2$@ is installed"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前安装的版本为 %2$@，需要版本 %1$@"
           }
         }
       }
@@ -42692,7 +42740,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "There were errors when adding the selected apps to Homebrew."
+            "value" : "将所选应用程序交由 Homebrew 接管时出错。"
           }
         },
         "zh-Hant" : {
@@ -42793,7 +42841,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "All selected apps were added to Homebrew"
+            "value" : "所有被选中的应用程序均被 Homebrew 接管"
           }
         },
         "zh-Hant" : {
@@ -42894,7 +42942,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You can now update the added apps through Homebrew"
+            "value" : "你现在可以通过 Homebrew 更新已添加的应用程序"
           }
         },
         "zh-Hant" : {
@@ -43197,7 +43245,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App adoption"
+            "value" : "应用程序接管"
           }
         },
         "zh-Hant" : {
@@ -50922,7 +50970,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This action cannot be undone"
+            "value" : "此操作无法被撤销"
           }
         },
         "zh-Hant" : {
@@ -51023,7 +51071,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Are you sure you want to add %lld of your installed apps to Homebrew?"
+            "value" : "确定要将已安装的 %lld 个应用交由 Homebrew 接管吗？"
           }
         },
         "zh-Hant" : {
@@ -62072,7 +62120,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hide when all adoptable apps are excluded"
+            "value" : "在所有可被接管的应用程序被排除时隐藏"
           }
         },
         "zh-Hant" : {
@@ -62172,7 +62220,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App adoption:"
+            "value" : "应用程序接管："
           }
         },
         "zh-Hant" : {
@@ -62273,7 +62321,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Find external apps that can be added to Homebrew"
+            "value" : "查找可被 Homebrew 接管的应用程序"
           }
         },
         "zh-Hant" : {
@@ -70291,7 +70339,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App adoption results"
+            "value" : "应用程序接管结果"
           }
         },
         "zh-Hant" : {
@@ -81177,6 +81225,12 @@
             "state" : "translated",
             "value" : "Installing updates..."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安装更新中…"
+          }
         }
       }
     },
@@ -81805,6 +81859,12 @@
             "state" : "translated",
             "value" : "Some updates were not successful.\nCheck below for more information on which packages couldn’t be updated, and why those updates failed."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "部分软件包更新失败。\n请在下方查询有关哪些软件包无法被更新以及更新失败的原因。"
+          }
         }
       }
     },
@@ -81816,6 +81876,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t update some packages"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法更新部分软件包"
           }
         }
       }
@@ -82311,7 +82377,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "更新 %@…"
+            "value" : "正在更新 %@…"
           }
         },
         "zh-Hant" : {
@@ -82629,6 +82695,12 @@
             "state" : "translated",
             "value" : "Updating packages"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在更新软件包"
+          }
         }
       }
     },
@@ -82653,6 +82725,12 @@
             "state" : "translated",
             "value" : "The updating process encountered some outputs it did not expect.\nThis does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新过程中遇到了意外的输出。\n这并不一定代表更新失败。请查看下方详情，再判断是否需要采取进一步操作。"
+          }
         }
       }
     },
@@ -82664,6 +82742,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Encountered unexpected Homebrew outputs"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "遇到了意外的 Homebrew 输出"
           }
         }
       }
