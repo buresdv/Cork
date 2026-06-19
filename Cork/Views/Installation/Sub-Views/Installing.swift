@@ -44,21 +44,6 @@ struct InstallingPackageView: View
             
             installationProgressTracker.streamedOutputsDisplay
         }
-        .toolbar
-        {
-            ToolbarItem(placement: .automatic)
-            {
-                switch installationProgressTracker.installStage
-                {
-                case .formula(let standardCases):
-                    Text(standardCases.stageDescription)
-                        .foregroundStyle(.secondary)
-                case .cask(let standardCases):
-                    standardCases.view([packageToInstall])
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
         .task
         {
             do throws

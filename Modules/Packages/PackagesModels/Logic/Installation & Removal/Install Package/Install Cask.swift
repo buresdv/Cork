@@ -8,6 +8,7 @@
 import CorkShared
 import CorkTerminalFunctions
 import Foundation
+import BetterProgress
 
 extension InstallationProgressTracker
 {
@@ -35,6 +36,8 @@ extension InstallationProgressTracker
             { standardCase in
                 
                 self.installStage = .cask(standardCase)
+                
+                self.installProgress.setText(to: .belowBar(standardCase.stageDescription(withPackage: caskToInstall)))
                 
                 self.installProgress.set(toPercentage: standardCase.progressPercentageForCase)
                 

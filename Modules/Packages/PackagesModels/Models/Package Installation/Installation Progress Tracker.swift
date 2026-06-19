@@ -93,10 +93,8 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
 
     public enum FormulaInstallMatcher: TerminalOutputMatchable
     {
-        public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
+        public enum StandardCases: TerminalOutputCase, Sendable
         {
-            public typealias Argument = MinimalHomebrewPackage
-
             public static let allCases: [InstallationProgressTracker.FormulaInstallMatcher.StandardCases] = [
                 .findingDependencies,
                 .downloadingDependencies(
@@ -148,27 +146,21 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 }
             }
 
-            public var stageDescription: LocalizedStringKey
+            public var stageDescription: String
             {
                 switch self
                 {
                 case .findingDependencies:
-                    return "add-package.install.loading-dependencies"
+                    return String(localized: "add-package.install.loading-dependencies")
                 case .downloadingDependencies:
-                    return "add-package.install.fetching-dependencies"
+                    return String(localized: "add-package.install.fetching-dependencies")
                 case .installingDependencies(_, let dependencyNumber, let totalNumberOfDependencies):
-                    return "add-package.install.installing-dependencies-\(dependencyNumber)-of-\(totalNumberOfDependencies)"
+                    return String(localized: "add-package.install.installing-dependencies-\(dependencyNumber)-of-\(totalNumberOfDependencies)")
                 case .downloadingPackage(let package):
-                    return "add-package.install.downloading-package-\(package.name(withPrecision: .inlineFormatted))"
+                    return String(localized: "add-package.install.downloading-package-\(package.name(withPrecision: .inlineFormatted))")
                 case .installingPackage(let package):
-                    return "add-package.install.installing-package-\(package.name(withPrecision: .inlineFormatted))"
+                    return String(localized: "add-package.install.installing-package-\(package.name(withPrecision: .inlineFormatted))")
                 }
-            }
-
-            @ViewBuilder
-            public func view(_: [MinimalHomebrewPackage]) -> some View
-            {
-                Text("DEBUG: SHould not be seen")
             }
         }
 
@@ -191,10 +183,8 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
 
     public enum CaskInstallMatcher: TerminalOutputMatchable
     {
-        public enum StandardCases: TerminalOutputCase, StageDisplayable, Sendable
+        public enum StandardCases: TerminalOutputCase, Sendable
         {
-            public typealias Argument = MinimalHomebrewPackage
-
             case downloadingCask
             case installingCask
             case movingCask
@@ -230,26 +220,18 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                 }
             }
 
-            @ViewBuilder
-            public func view(_ arguments: [MinimalHomebrewPackage]) -> some View
+            public func stageDescription(withPackage: MinimalHomebrewPackage) -> String
             {
-                if let caskToInstall = arguments.first(where: { $0.type == .cask })
+                switch self
                 {
-                    switch self
-                    {
-                    case .downloadingCask:
-                        Text("add-package.install.downloading-cask-\(caskToInstall.name(withPrecision: .precise))")
-                    case .installingCask:
-                        Text("add-package.install.installing-cask-\(caskToInstall.name(withPrecision: .precise))")
-                    case .movingCask:
-                        Text("add-package.install.moving-cask-\(caskToInstall.name(withPrecision: .precise))")
-                    case .linkingAppToCask:
-                        Text("add-package.install.linking-cask-binary.\(caskToInstall.name(withPrecision: .precise))")
-                    }
-                }
-                else
-                {
-                    EmptyView()
+                case .downloadingCask:
+                    return String(localized: "add-package.install.downloading-cask-\(withPackage.name(withPrecision: .precise))")
+                case .installingCask:
+                    return String(localized: "add-package.install.installing-cask-\(withPackage.name(withPrecision: .precise))")
+                case .movingCask:
+                    return String(localized: "add-package.install.moving-cask-\(withPackage.name(withPrecision: .precise))")
+                case .linkingAppToCask:
+                    return String(localized: "add-package.install.linking-cask-binary.\(withPackage.name(withPrecision: .precise))")
                 }
             }
         }
