@@ -66,9 +66,15 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             switch updatingType
             {
             case .partial:
-                return .init(totalItems: outdatedPackagesTrackerToUse.packagesMarkedForUpdating.count)
+                return .init(
+                    totalItems: outdatedPackagesTrackerToUse.packagesMarkedForUpdating.count,
+                    underProgressBarText: "add-package.install.ready"
+                )
             case .complete:
-                return .init(totalItems: 1)
+                return .init(
+                    totalItems: 1,
+                    underProgressBarText: "add-package.install.ready"
+                )
             }
         }()
 

@@ -15383,7 +15383,6 @@
       }
     },
     "add-package.install.ready" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

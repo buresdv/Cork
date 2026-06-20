@@ -260,10 +260,11 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
         {
             case trustWarning
             case installOverview
-            
+
             public var patterns: [String]
             {
-                switch self {
+                switch self
+                {
                 case .trustWarning:
                     ["The following taps are not trusted"]
                 case .installOverview:
@@ -310,9 +311,15 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             switch packageToInstall.type
             {
             case .formula:
-                return .init(totalItems: Self.FormulaInstallMatcher.StandardCases.allCases.count)
+                return .init(
+                    totalItems: Self.FormulaInstallMatcher.StandardCases.allCases.count,
+                    underProgressBarText: "add-package.install.ready"
+                )
             case .cask:
-                return .init(totalItems: Self.CaskInstallMatcher.StandardCases.allCases.count)
+                return .init(
+                    totalItems: Self.CaskInstallMatcher.StandardCases.allCases.count,
+                    underProgressBarText: "add-package.install.ready"
+                )
             }
         }()
 
