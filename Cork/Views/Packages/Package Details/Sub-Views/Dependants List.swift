@@ -24,6 +24,8 @@ struct DependantsList: View
 
     @State private var isDependantsListExpanded: Bool = false
     @State private var dependantsSearchText: String = ""
+    
+    @State private var selectedDependants: Set<BrewPackage.ID> = .init()
 
     private var dependantsToShow: [BrewPackage]
     {
@@ -38,7 +40,7 @@ struct DependantsList: View
             }
             else
             {
-                return dependants.filter { $0.name(withPrecision: .precise).localizedCaseInsensitiveContains(dependantsSearchText) }
+                return dependants.filter { $0.name(withPrecision: .general).localizedCaseInsensitiveContains(dependantsSearchText) }
             }
         case .noDependantsToShow:
             return .init()
@@ -100,16 +102,23 @@ struct DependantsList: View
                     {
                         CustomSearchField(search: $dependantsSearchText, customPromptText: nil)
                     }
-
-                    List(dependantsToShow)
-                    { dependant in
-                        dependant.nameView(withComponents: .boundVersion)
-                            .contextMenu
-                            {
-                                dependant.contextMenu(builtInContent: .openPackageDetailButton)
-                            }
+                    
+                    Table(dependantsToShow)
+                    {
+                        TableColumn("package-details.dependencies.results.name")
+                        { dependant in
+                            dependant.nameView(withComponents: .boundVersion)
+                                .contextMenu
+                                {
+                                    dependant.contextMenu(builtInContent: .openPackageDetailButton)
+                                }
+                        }
+                        TableColumn("package-details.dependencies.results.version")
+                        { dependant in
+                            Text(dependant.getFormattedVersions())
+                        }
                     }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .tableStyle(.bordered)
                 }
 
             } label: {

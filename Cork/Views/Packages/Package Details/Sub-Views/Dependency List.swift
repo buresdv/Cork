@@ -41,7 +41,7 @@ struct DependencyList: View
         {
             if showSearchFieldForDependenciesInPackageDetails
             {
-                CustomSearchField(search: $dependencySearchText, customPromptText: "package-details.dependencies.search.prompt")
+                CustomSearchField(search: $dependencySearchText, customPromptText: nil)
             }
 
             if displayAdvancedDependencies
