@@ -53,6 +53,14 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
         }
     }
     
+    @ViewBuilder
+    public var openDetailForSelfButton: some View
+    {
+        #if DEBUG
+        Text(String("DEBUG: Detail for self button not available for minimal packages"))
+        #endif
+    }
+    
     public static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")
 
     public var displayRepresentation: DisplayRepresentation

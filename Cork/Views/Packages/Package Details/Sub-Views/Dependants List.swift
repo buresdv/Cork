@@ -12,10 +12,12 @@ import SwiftUI
 struct DependantsList: View
 {
     @Default(.showSearchFieldForDependenciesInPackageDetails) var showSearchFieldForDependenciesInPackageDetails: Bool
+    
+    @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
     enum PackageDependantsDisplayStage: Equatable
     {
-        case loadingDependants, showingDependants(dependantsToShow: [MinimalHomebrewPackage]), noDependantsToShow
+        case loadingDependants, showingDependants(dependantsToShow: [BrewPackage]), noDependantsToShow
     }
 
     let packageDetails: BrewPackage.BrewPackageDetails
@@ -23,7 +25,7 @@ struct DependantsList: View
     @State private var isDependantsListExpanded: Bool = false
     @State private var dependantsSearchText: String = ""
 
-    private var dependantsToShow: [MinimalHomebrewPackage]
+    private var dependantsToShow: [BrewPackage]
     {
         switch packageDependantsDisplayStage
         {
@@ -56,7 +58,13 @@ struct DependantsList: View
                 }
                 else
                 {
-                    return .showingDependants(dependantsToShow: dependants)
+                    let dependantNames: Set<BrewPackageName> = Set(dependants.map(\.internalName))
+                    
+                    let extractedFullPackages: [BrewPackage] = {
+                        return brewPackagesTracker.successfullyLoadedFormulae.filter{ dependantNames.contains( $0.internalName ) }
+                    }()
+                    
+                    return .showingDependants(dependantsToShow: extractedFullPackages)
                 }
             }
             else
@@ -98,8 +106,7 @@ struct DependantsList: View
                         dependant.nameView(withComponents: .boundVersion)
                             .contextMenu
                             {
-                                dependant.contextMenu(using: dependant)
-                                Text("DEBUG")
+                                dependant.contextMenu(builtInContent: .openPackageDetailButton)
                             }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))

@@ -85,8 +85,13 @@ struct TapDetailView: View, Sendable
             {
                 let loadedTapInfo: TapInfo = try await tap.loadDetails()
                 
+                guard !Task.isCancelled else { return }
+                
                 loadingState = .loaded(info: loadedTapInfo)
-            } catch let tapDetailsLoadingError {
+            } catch is CancellationError {
+                return
+            }
+            catch let tapDetailsLoadingError {
                 loadingState = .erroredOut(withErrorText: tapDetailsLoadingError.localizedDescription)
             }
         }

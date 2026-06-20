@@ -11,7 +11,7 @@ import Foundation
 
 public enum BrewPackageInfoLoadingError: LocalizedError
 {
-    case didNotGetAnyTerminalOutput, standardErrorNotEmpty(presentError: String), couldNotConvertOutputToData, couldNotRetrievePackageFromOutput, couldNotDecodeOutput(presentError: String)
+    case didNotGetAnyTerminalOutput, standardErrorNotEmpty(presentError: String), couldNotConvertOutputToData, couldNotRetrievePackageFromOutput, couldNotDecodeOutput(presentError: String), taskCancelled
 
     public var errorDescription: String?
     {
@@ -27,6 +27,8 @@ public enum BrewPackageInfoLoadingError: LocalizedError
             return String(localized: "error.package-loading-couldnt-get-package-from-parsed-output")
         case .couldNotDecodeOutput(let presentError):
             return String(localized: "error.generic-couldnt-decode-json.\(presentError)")
+        case .taskCancelled:
+            return String(localized: "error.task-cancelled")
         }
     }
 }
@@ -297,7 +299,10 @@ public extension BrewPackage
         do
         {
             try Task.checkCancellation()
-        } catch let taskCancellationError {
+        } catch is CancellationError {
+            throw .taskCancelled
+        }
+        catch let taskCancellationError {
             throw .standardErrorNotEmpty(presentError: taskCancellationError.localizedDescription)
         }
 

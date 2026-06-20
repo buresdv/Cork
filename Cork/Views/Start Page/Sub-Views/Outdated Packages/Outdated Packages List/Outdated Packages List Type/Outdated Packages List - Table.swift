@@ -130,10 +130,8 @@ struct OutdatedPackagesList_Table: View
                 { outdatedPackage in
                     TableRow(outdatedPackage)
                         .contextMenu
-                        {                            
-                            OpenPackageDetailButton(
-                                packageToOpenDetailFor: outdatedPackage.package
-                            )
+                        {
+                            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
                         }
                 }
             }

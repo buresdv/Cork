@@ -34,10 +34,7 @@ struct OutdatedPackageListBoxRow: View
         }
         .contextMenu
         {
-            outdatedPackage.package.contextMenu
-            {
-                OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
-            }
+            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
         }
     }
 
@@ -49,7 +46,7 @@ struct OutdatedPackageListBoxRow: View
         outdatedPackage.package.nameView(withComponents: .boundVersion)
             .contextMenu
             {
-                OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
+                outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
             }
     }
 
@@ -80,7 +77,7 @@ struct OutdatedPackageListBoxRow: View
         }
         .contextMenu
         {
-            OpenPackageDetailButton(packageToOpenDetailFor: outdatedPackage.package)
+            outdatedPackage.package.contextMenu(builtInContent: .openPackageDetailButton)
         }
     }
 }

@@ -56,7 +56,7 @@ struct DependencyList: View
                             dependencyFromTracker.nameView(withComponents: .boundVersion)
                                 .contextMenu
                                 {
-                                    OpenPackageDetailButton(packageToOpenDetailFor: dependencyFromTracker)
+                                    dependencyFromTracker.contextMenu(builtInContent: .openPackageDetailButton)
                                 }
                         }
                         else

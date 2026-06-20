@@ -24,6 +24,10 @@ public protocol PackageNameDisplayable
     associatedtype PreviewSelfButton: View
     /// Button for previewing packages that are not installed
     var previewSelfButton: PreviewSelfButton { get }
+    
+    associatedtype OpenDetailForSelfButton: View
+    /// Button for opening a package's detail
+    var openDetailForSelfButton: OpenDetailForSelfButton { get }
 }
 
 /// The package's name parsed into chunks
@@ -168,15 +172,31 @@ public extension PackageNameDisplayable
     }
 }
 
+public enum BuiltInContextMenuItems
+{
+    case previewSelfButton
+    case openPackageDetailButton
+}
+
 public extension PackageNameDisplayable
 {
     /// Context menu for the package's actions
     @ViewBuilder
     func contextMenu(
+        builtInContent: BuiltInContextMenuItems...,
         @ViewBuilder extraContent: () -> some View = { EmptyView() }
     ) -> some View
     {
-        self.previewSelfButton
+        ForEach(builtInContent, id: \.self)
+        { builtInItem in
+            switch builtInItem
+            {
+            case .previewSelfButton:
+                self.previewSelfButton
+            case .openPackageDetailButton:
+                self.openDetailForSelfButton
+            }
+        }
         
         Divider()
         

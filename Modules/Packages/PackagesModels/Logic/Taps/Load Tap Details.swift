@@ -17,6 +17,7 @@ public extension BrewTap
         case couldNotDownloadJson(error: Error)
         case couldNotReadJson
         case couldNotDecodeJson(error: TapInfo.JSONParsingError)
+        case taskCancelled
 
         public var errorDescription: String?
         {
@@ -30,6 +31,8 @@ public extension BrewTap
                 return String(localized: "error.tap-info-loading.could-not-read-json")
             case .couldNotDecodeJson(let error):
                 return error.localizedDescription
+            case .taskCancelled:
+                return String(localized: "error.task-cancelled")
             }
         }
     }
@@ -110,7 +113,7 @@ public extension BrewTap
     {
         let tapInfoLoadingResult: [TerminalOutput] = await shell(appConstants.brewExecutablePath, ["tap-info", "--json", self.name(withPrecision: .full)])
 
-        appConstants.logger.info("Result of tap info: \(tapInfoLoadingResult)")
+        appConstants.logger.info("Result of tap info for tap \(self.name(withPrecision: .full)): \(tapInfoLoadingResult)")
 
         guard !tapInfoLoadingResult.isEmpty
         else

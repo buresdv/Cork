@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CorkShared
 
 public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
 {
@@ -151,7 +152,7 @@ public extension [TerminalOutput]
 
             case .standardError(let errorString):
                 let shouldSearchInErrorOutputs: Bool = outputTypes.contains(.standardErrors)
-                let outputContainsSearchString: Bool = errorString.contains(errorString)
+                let outputContainsSearchString: Bool = errorString.contains(searchString)
 
                 return shouldSearchInErrorOutputs && outputContainsSearchString
             }
@@ -171,6 +172,7 @@ public extension [TerminalOutput]
     {
         if failOnAnyErrorsPresent, self.containsErrors
         {
+            AppConstants.shared.logger.error("Failed while extracting JSON from output because it contained these errors: \(self.standardErrors)")
             return nil
         }
 

@@ -405,6 +405,21 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
             EmptyView()
         }
     }
+    
+    @ViewBuilder
+    public var openDetailForSelfButton: some View
+    {
+        if isInstalled
+        {
+            OpenPackageDetailButton(packageToOpenDetailFor: self)
+        }
+        else
+        {
+            #if DEBUG
+            Text(String("DEBUG: Detail for self button not available for packages that are not installed"))
+            #endif
+        }
+    }
 }
 
 /// Convert between ``MinimalHomebrewPackage`` and ``BrewPackage``
