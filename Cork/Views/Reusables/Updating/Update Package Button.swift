@@ -18,16 +18,29 @@ struct UpdatePackageButton: View
     
     let packageToUpdate: BrewPackage
     
-    var outdatedPackageFromTracker: [OutdatedPackage]
+    var outdatedPackageFromTracker: OutdatedPackage?
     {
-        return outdatedPackagesTracker.outdatedPackages.filter({ $0.package.getCompletePackageName() == packageToUpdate.getCompletePackageName() })
+        return outdatedPackagesTracker.outdatedPackages.first(where: { $0.package.getCompletePackageName() == packageToUpdate.getCompletePackageName() })
     }
     
     var body: some View
     {
         Button
         {
-            appState.showSheet(ofType: .update)
+            if let outdatedPackageFromTracker
+            {
+                outdatedPackagesTracker.setOnlyOnePackageToSelectedState(
+                    packageToSingleOut: outdatedPackageFromTracker,
+                    selectedStateToSetThatOnePackageTo: true
+                )
+                
+                appState.showSheet(ofType: .update)
+            }
+            else
+            {
+                appState.showAlert(errorToShow: .couldNotFindPackageUUIDInList)
+            }
+            
         } label: {
             Text("action.update-\(packageToUpdate.name(withPrecision: .precise))")
         }

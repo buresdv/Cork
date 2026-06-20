@@ -8,6 +8,7 @@
 import SwiftUI
 import CorkModels
 
+/*
 struct InstallationFatalErrorView: View
 {
     let packageBeingInstalled: BrewPackage
@@ -36,3 +37,4 @@ struct InstallationFatalErrorView: View
         }
     }
 }
+*/

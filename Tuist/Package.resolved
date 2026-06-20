@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buresdv/BetterProgress",
       "state" : {
-        "revision" : "daf28d2f96b6e42169723cbaaa2f05f8d789e8b1",
-        "version" : "1.0.0"
+        "revision" : "fd0f101c51db5fe92db01836fe15ea6619ffb373",
+        "version" : "1.2.1"
       }
     },
     {

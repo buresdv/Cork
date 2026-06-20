@@ -55,9 +55,12 @@ public extension BrewTap
         case .external(let name):
             tapInfoRaw = try await self.loadTapJSONDataForThirdPartyTap()
         }
+        
 
         do
         {
+            appConstants.logger.info("got valid data from JSON output: \(tapInfoRaw)")
+            
             self.setBeingLoadedStatus(to: false)
 
             return try await .init(from: tapInfoRaw)
@@ -105,7 +108,7 @@ public extension BrewTap
     /// We have to use the built-in commands, because these taps are still hosted on GitHub and don't have APIs
     private func loadTapJSONDataForThirdPartyTap() async throws(BrewTap.TapInfoLoadingError) -> Data
     {
-        let tapInfoLoadingResult: [TerminalOutput] = await shell(AppConstants.shared.brewExecutablePath, ["tap-info", "--json", self.name(withPrecision: .full)])
+        let tapInfoLoadingResult: [TerminalOutput] = await shell(appConstants.brewExecutablePath, ["tap-info", "--json", self.name(withPrecision: .full)])
 
         appConstants.logger.info("Result of tap info: \(tapInfoLoadingResult)")
 

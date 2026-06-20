@@ -5,16 +5,34 @@
 //  Created by David Bureš on 03.07.2022.
 //
 
+import ButtonKit
+import CorkModels
 import CorkNotifications
 import CorkShared
-import SwiftUI
-import ButtonKit
 import Defaults
-import CorkModels
 import FactoryKit
+import SwiftUI
+
+typealias PackageInstallationProcessStepTracker = AddFormulaView.PackageInstallationProcessStepTracker
 
 struct AddFormulaView: View
 {
+    @Observable
+    final class PackageInstallationProcessStepTracker
+    {
+        private(set) var currentStep: PackageInstallationProcessSteps
+
+        init()
+        {
+            self.currentStep = .ready
+        }
+
+        func advanceStep(to newStep: PackageInstallationProcessSteps)
+        {
+            self.currentStep = newStep
+        }
+    }
+
     @Environment(\.dismiss) var dismiss: DismissAction
 
     @State private var packageRequested: String = ""
@@ -24,145 +42,75 @@ struct AddFormulaView: View
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
-    @State private var foundPackageSelection: BrewPackage?
-
-    @Bindable var searchResultTracker: SearchResultTracker = .init()
-    @Bindable var installationProgressTracker: InstallationProgressTracker = .init()
-
-    @State var packageInstallationProcessStep: PackageInstallationProcessSteps = .ready
-
     @State var packageInstallTrackingNumber: Float = 0
 
     @FocusState var isSearchFieldFocused: Bool
 
-    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
+    @State private var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker = .init()
 
-    var shouldShowSheetTitle: Bool
-    {
-        [.ready, .presentingSearchResults].contains(packageInstallationProcessStep)
-    }
-    
-    var isDismissable: Bool
-    {
-        [.ready, .presentingSearchResults, .fatalError, .anotherProcessAlreadyRunning, .binaryAlreadyExists, .requiresSudoPassword, .wrongArchitecture, .anotherProcessAlreadyRunning, .installationTerminatedUnexpectedly, .installing].contains(packageInstallationProcessStep)
-    }
+    @State private var installationProgressTracker: InstallationProgressTracker?
+
+    @Default(.notifyAboutPackageInstallationResults) var notifyAboutPackageInstallationResults: Bool
 
     var sheetTitle: LocalizedStringKey
     {
-        switch packageInstallationProcessStep
-        {
-        case .ready:
-            return "add-package.title"
-        case .searching:
-            return ""
-        case .presentingSearchResults:
-            return "add-package.title"
-        case .installing:
-            return ""
-        case .finished:
-            return ""
-        case .fatalError:
-            return ""
-        case .requiresSudoPassword:
-            return ""
-        case .wrongArchitecture:
-            return ""
-        case .binaryAlreadyExists:
-            return ""
-        case .anotherProcessAlreadyRunning:
-            return ""
-        case .installationTerminatedUnexpectedly:
-            return ""
-        case .adoptingAlreadyInstalledCask:
-            return ""
-        }
+        return "add-package.title"
     }
 
     var body: some View
     {
         NavigationStack
         {
-            SheetTemplate(isShowingTitle: shouldShowSheetTitle)
+            SheetTemplate(isShowingTitle: true)
             {
                 Group
                 {
-                    switch packageInstallationProcessStep
+                    switch packageInstallationProcessStepTracker.currentStep
                     {
                     case .ready:
-                        InstallationInitialView(
-                            searchResultTracker: searchResultTracker,
-                            packageRequested: $packageRequested,
-                            foundPackageSelection: $foundPackageSelection,
-                            installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
-                        )
-
-                    case .searching:
+                        InstallationInitialView()
+                    case .searching(let forSearchString):
                         InstallationSearchingView(
-                            packageRequested: $packageRequested,
-                            searchResultTracker: searchResultTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
+                            packageRequested: forSearchString
                         )
-
-                    case .presentingSearchResults:
+                    case .presentingSearchResults(let forSearchString, let foundFormulae, let foundCasks):
                         PresentingSearchResultsView(
-                            searchResultTracker: searchResultTracker,
-                            packageRequested: $packageRequested,
-                            foundPackageSelection: $foundPackageSelection,
-                            packageInstallationProcessStep: $packageInstallationProcessStep,
-                            installationProgressTracker: installationProgressTracker
+                            oldSearchString: forSearchString,
+                            foundFormulae: foundFormulae,
+                            foundCasks: foundCasks
                         )
-
-                    case .installing:
-                        InstallingPackageView(
-                            installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
-                        )
-
+                    case .installing(let package):
+                        InstallingPackageView(packageToInstall: package)
                     case .finished:
                         InstallationFinishedSuccessfullyView()
-
-                    case .fatalError: /// This shows up when the function for executing the install action throws an error
-                        InstallationFatalErrorView(packageBeingInstalled: installationProgressTracker.packageBeingInstalled.package)
-
-                    case .requiresSudoPassword:
-                        SudoRequiredView(installationProgressTracker: installationProgressTracker)
-
-                    case .wrongArchitecture:
-                        WrongArchitectureView(installationProgressTracker: installationProgressTracker)
-
-                    case .binaryAlreadyExists:
-                        BinaryAlreadyExistsView(
-                            installationProgressTracker: installationProgressTracker,
-                            packageInstallationProcessStep: $packageInstallationProcessStep
-                        )
-
-                    case .anotherProcessAlreadyRunning:
-                        AnotherProcessAlreadyRunningView()
-
-                    case .installationTerminatedUnexpectedly:
-                        InstallationTerminatedUnexpectedlyView(
-                            terminalOutputOfTheInstallation: installationProgressTracker.packageBeingInstalled.realTimeTerminalOutput
-                        )
-                        
-                    case .adoptingAlreadyInstalledCask:
-                        AdoptingAlreadyInstalledCaskView(
-                            installationProgressTracker: installationProgressTracker
+                    case .unexpectedTerminalOutput(let unexpectedOutputType):
+                        // TODO: Implement the unexpected output views
+                        switch unexpectedOutputType
+                        {
+                        case .containedErrors(let rawOutputThatContainsErrors):
+                            EmptyView()
+                        case .didNotContainErrors(let rawOutputThatDidNotContainErrors):
+                            EmptyView()
+                        }
+                    case .erroredOut(let package, let withError):
+                        ErroredOutView(
+                            error: withError,
+                            packageThatWasBeingInstalled: package
                         )
                     }
                 }
                 .navigationTitle(sheetTitle)
                 .toolbar
                 {
-                    if isDismissable
+                    if packageInstallationProcessStepTracker.currentStep.isDismissable
                     {
                         ToolbarItem(placement: .cancellationAction)
                         {
                             AsyncButton
                             {
                                 dismiss()
-                                installationProgressTracker.cancel()
-                                
+                                installationProgressTracker?.cancel()
+
                                 do
                                 {
                                     try await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
@@ -181,6 +129,7 @@ struct AddFormulaView: View
                 }
             }
         }
+        .environment(packageInstallationProcessStepTracker)
         .onDisappear
         {
             cachedDownloadsTracker.assignPackageTypeToCachedDownloads(brewPackagesTracker: brewPackagesTracker)
@@ -188,7 +137,6 @@ struct AddFormulaView: View
             {
                 try? await brewPackagesTracker.synchronizeInstalledPackages(cachedDownloadsTracker: cachedDownloadsTracker)
             }
-            
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import CorkModels
 import FactoryKit
-
+/*
 struct WrongArchitectureView: View, Sendable
 {
     @Environment(\.dismiss) var dismiss: DismissAction
@@ -16,7 +16,7 @@ struct WrongArchitectureView: View, Sendable
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
 
-    @Bindable var installationProgressTracker: InstallationProgressTracker
+    let packageToInstall: MinimalHomebrewPackage
 
     var body: some View
     {
@@ -26,7 +26,7 @@ struct WrongArchitectureView: View, Sendable
             {
                 HeadlineWithSubheadline(
                     headline: "add-package.install.wrong-architecture.title",
-                    subheadline: "add-package.install.wrong-architecture-\(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise)).user-architecture-is-\(ProcessInfo().CPUArchitecture == .arm ? "Apple Silicon" : "Intel")",
+                    subheadline: "add-package.install.wrong-architecture-\(packageToInstall.name).user-architecture-is-\(ProcessInfo().CPUArchitecture == .arm ? "Apple Silicon" : "Intel")",
                     alignment: .leading
                 )
             }
@@ -34,3 +34,4 @@ struct WrongArchitectureView: View, Sendable
         .fixedSize()
     }
 }
+*/

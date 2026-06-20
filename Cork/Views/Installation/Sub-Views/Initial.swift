@@ -5,11 +5,11 @@
 //  Created by David Bureš on 20.08.2023.
 //
 
-import SwiftUI
+import CorkModels
 import CorkShared
 import Defaults
-import CorkModels
 import FactoryKit
+import SwiftUI
 
 struct InstallationInitialView: View
 {
@@ -25,18 +25,14 @@ struct InstallationInitialView: View
 
     @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
 
-    @Bindable var searchResultTracker: SearchResultTracker
+    @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker
 
     @State private var isTopFormulaeSectionCollapsed: Bool = false
     @State private var isTopCasksSectionCollapsed: Bool = false
 
-    @Binding var packageRequested: String
+    @State private var packageRequested: String = ""
 
-    @Binding var foundPackageSelection: BrewPackage?
-
-    @Bindable var installationProgressTracker: InstallationProgressTracker
-
-    @Binding var packageInstallationProcessStep: PackageInstallationProcessSteps
+    @State private var foundPackageSelection: MinimalHomebrewPackage?
 
     @State var isSearchFieldFocused: Bool = true
 
@@ -80,15 +76,13 @@ struct InstallationInitialView: View
         {
             if enableDiscoverability
             {
-                ToolbarItemGroup(placement: .automatic)
+                ToolbarItemGroup(placement: .primaryAction)
                 {
-                    previewPackageButton
-                    
                     startInstallProcessForTopPackageButton
                 }
             }
-            
-            ToolbarItem(placement: .primaryAction)
+
+            ToolbarItem(placement: .automatic)
             {
                 searchForPackageButton
             }
@@ -98,60 +92,35 @@ struct InstallationInitialView: View
             foundPackageSelection = nil
         }
     }
-    
-    @ViewBuilder
-    var previewPackageButton: some View
-    {
-        PreviewPackageButtonWithCustomAction
-        {
-            guard let packageToPreview: BrewPackage = foundPackageSelection else
-            {
-                AppConstants.shared.logger.error("Could not retrieve top package to preview")
-                
-                return
-            }
-            
-            openWindow(value: MinimalHomebrewPackage(
-                name: packageToPreview.name(withPrecision: .precise),
-                type: packageToPreview.type,
-                installedIntentionally: packageToPreview.installedIntentionally
-            ))
-        }
-        .disabled(foundPackageSelection == nil)
-        .labelStyle(.titleOnly)
-    }
-    
+
     @ViewBuilder
     var startInstallProcessForTopPackageButton: some View
     {
         Button
         {
-            guard let packageToInstall: BrewPackage = foundPackageSelection else
+            guard let packageToInstall: MinimalHomebrewPackage = foundPackageSelection
+            else
             {
                 AppConstants.shared.logger.error("Could not retrieve top package to install")
-                
+
                 return
             }
-            
-            installationProgressTracker.packageBeingInstalled = PackageInProgressOfBeingInstalled(package: packageToInstall, installationStage: .ready, packageInstallationProgress: 0)
-            
-            AppConstants.shared.logger.debug("Packages to install: \(installationProgressTracker.packageBeingInstalled.package.name(withPrecision: .precise), privacy: .public)")
-            
-            packageInstallationProcessStep = .installing
-            
+
+            packageInstallationProcessStepTracker.advanceStep(to: .installing(package: packageToInstall))
+
         } label: {
             Text("add-package.install.action")
         }
         .keyboardShortcut(foundPackageSelection != nil ? .defaultAction : .init(.end))
         .disabled(foundPackageSelection == nil)
     }
-    
+
     @ViewBuilder
     var searchForPackageButton: some View
     {
         Button
         {
-            packageInstallationProcessStep = .searching
+            packageInstallationProcessStepTracker.advanceStep(to: .searching(forSearchString: packageRequested))
         } label: {
             Text("add-package.search.action")
         }

@@ -22,7 +22,7 @@ public protocol PackageNameDisplayable
     func name(withPrecision precision: NameRetrievalPrecision) -> String
     
     associatedtype PreviewSelfButton: View
-    /// Button for previewing the package
+    /// Button for previewing packages that are not installed
     var previewSelfButton: PreviewSelfButton { get }
 }
 
@@ -157,6 +157,13 @@ public extension PackageNameDisplayable
             }
 
             return "\(self.internalName.packageIdentifier)@\(boundVersionUnwrapped)"
+        case .inlineFormatted:
+            guard let boundVersionUnwrapped = internalName.boundVersion else
+            {
+                return self.internalName.packageIdentifier
+            }
+            
+            return "\(self.internalName.packageIdentifier) 􀎡 \(boundVersionUnwrapped)"
         }
     }
 }
@@ -166,7 +173,6 @@ public extension PackageNameDisplayable
     /// Context menu for the package's actions
     @ViewBuilder
     func contextMenu(
-        using packageDisplayable: any PackageNameDisplayable,
         @ViewBuilder extraContent: () -> some View = { EmptyView() }
     ) -> some View
     {
@@ -193,7 +199,7 @@ public extension PackageNameDisplayable
                 if let boundVersion = self.internalName.boundVersion
                 {
                     Text("􀎡 \(boundVersion)")
-                        .foregroundStyle(.tertiary)
+                        .foregroundColor(Color(nsColor: .tertiaryLabelColor))
                         .font(.subheadline)
                         .layoutPriority(-Double(2))
                 }

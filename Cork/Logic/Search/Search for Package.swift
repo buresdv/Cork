@@ -10,7 +10,7 @@ import CorkShared
 import CorkTerminalFunctions
 import Foundation
 
-func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]?
+func searchForPackage(packageName: String, packageType: BrewPackage.PackageType) async -> [String]
 {
     var finalCommandOutputs: [TerminalOutput]
 
@@ -27,7 +27,7 @@ func searchForPackage(packageName: String, packageType: BrewPackage.PackageType)
 
     guard let unsplitListOfFoundPackages: String = finalCommandOutputs.standardOutputs.first else
     {
-        return nil
+        return .init()
     }
     
     return unsplitListOfFoundPackages.components(separatedBy: .newlines).filter { !$0.isEmpty }

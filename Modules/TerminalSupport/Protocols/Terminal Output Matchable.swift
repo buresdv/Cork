@@ -58,14 +58,14 @@ public extension TerminalOutput
 {
     /// Match a single streamed output line against a ``TerminalOutputMatchable`` type
     @discardableResult
-    func match<T: TerminalOutputMatchable, Result>(
-        as _: T.Type,
-        onStandardOutput: ((T.StandardCases) -> Result?)? = nil,
-        onErrorOutput: ((T.ErrorCases) -> Result?)? = nil,
+    func match<Type: TerminalOutputMatchable, Result>(
+        as _: Type.Type,
+        onStandardOutput: ((Type.StandardCases) -> Result?)? = nil,
+        onErrorOutput: ((Type.ErrorCases) -> Result?)? = nil,
         onUnimplementedOutput: ((TerminalOutput) -> Result?)? = nil
     ) -> Result?
     {
-        if T.IgnoredCases.allCases.contains(where: { $0.patterns.contains(where: { description.contains($0) }) })
+        if Type.IgnoredCases.allCases.contains(where: { $0.patterns.contains(where: { description.contains($0) }) })
         {
             return nil
         }
@@ -73,7 +73,7 @@ public extension TerminalOutput
         switch self
         {
         case .standardOutput(let string):
-            if let matched = T.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            if let matched = Type.StandardCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
             {
                 return onStandardOutput?(matched) ?? nil
             }
@@ -83,7 +83,7 @@ public extension TerminalOutput
             }
 
         case .standardError(let string):
-            if let matched = T.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
+            if let matched = Type.ErrorCases.allCases.first(where: { $0.patterns.contains(where: { string.contains($0) }) })
             {
                 return onErrorOutput?(matched) ?? nil
             }

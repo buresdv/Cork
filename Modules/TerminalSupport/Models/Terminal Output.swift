@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
 {
@@ -32,6 +33,50 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
     {
         if case .standardError = self { return true }
         return false
+    }
+    
+    @ViewBuilder
+    public var outputView: some View
+    {
+        Group
+        {
+            switch self
+            {
+            case .standardOutput(let string):
+                HStack(alignment: .center, spacing: 5)
+                {
+                    Text(string)
+                }
+            case .standardError(let string):
+                HStack(alignment: .center, spacing: 5)
+                {
+                    if let cautionImage = NSImage(named: NSImage.cautionName)
+                    {
+                        Image(nsImage: cautionImage)
+                    }
+                    else
+                    {
+                        Image(systemName: "exclamationmark.triangle")
+                            .foregroundStyle(.orange)
+                    }
+                    
+                    Text(string)
+                }
+            }
+        }
+        .lineLimit(nil)
+        .fixedSize(horizontal: false, vertical: true)
+        .contextMenu {
+            Button
+            {
+                let pasteboard: NSPasteboard = NSPasteboard.general
+                pasteboard.declareTypes([.string], owner: nil)
+                pasteboard.setString(self.description, forType: .string)
+            } label: {
+                Text("action.copy")
+            }
+
+        }
     }
 }
 

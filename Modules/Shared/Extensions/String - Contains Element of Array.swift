@@ -13,4 +13,9 @@ public extension String
     {
         substrings.contains(where: { self.contains($0) })
     }
+
+    func containsElementFromArray(_ arrayOfComponents: [any RegexComponent]) -> Bool
+    {
+        arrayOfComponents.contains { contains($0) }
+    }
 }

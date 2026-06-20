@@ -45,7 +45,10 @@ struct TopPackagesSection: View
             {
                 ForEach(packages.prefix(15))
                 { topPackage in
-                    SearchResultRow(searchedForPackage: topPackage, context: .topPackages)
+                    
+                    let convertedPackage: MinimalHomebrewPackage = .init(fromFullPackage: topPackage)
+                    
+                    SearchResultRow(context: .topPackage(package: convertedPackage, downloadCount: topPackage.downloadCount))
                 }
             }
         } header: {
