@@ -33,6 +33,7 @@ struct AdoptablePackageListTemplate<Content: View, Header: View, Footer: View>: 
     @Query private var excludedApps: [ExcludedAdoptableApp]
 
     @State private var isShowingSearchField: Bool = false
+    @State private var isSearchFieldFocused: Bool = false
 
     var body: some View
     {
@@ -76,9 +77,13 @@ struct AdoptablePackageListTemplate<Content: View, Header: View, Footer: View>: 
                         
                         CustomSearchField(
                             search: $searchText,
+                            isFocused: $isSearchFieldFocused,
                             customPromptText: nil
                         )
                         .transition(.push(from: .top))
+                        .onAppear {
+                            isSearchFieldFocused = true
+                        }
                     }
                 }
             } footer: {

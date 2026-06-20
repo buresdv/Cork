@@ -18,6 +18,8 @@ struct OutdatedPackagesList_Table: View
     
     let packageUpdatingType: OutdatedPackage.PackageUpdatingType
     
+    @State private var isSearchFieldFocused: Bool = false
+    
     /// Filter out those relevant packages for this context form the tracker
     var relevantPackages: Set<OutdatedPackage>
     {
@@ -86,8 +88,17 @@ struct OutdatedPackagesList_Table: View
                         {
                             Divider()
                             
-                            CustomSearchField(search: $searchText, customPromptText: nil)
+                            CustomSearchField(
+                                search: $searchText,
+                                isFocused: $isSearchFieldFocused,
+                                customPromptText: nil
+                            )
                                 .animation(.smooth, value: isShowingSearchField)
+                                .transition(.push(from: .top))
+                                .onAppear
+                            {
+                                    isSearchFieldFocused = true
+                                }
                         }
                     }
                 }
