@@ -33,7 +33,7 @@ struct HeadlineWithArbitraryContent<Content: View>: View
     
     var body: some View
     {
-        VStack(alignment: .leading)
+        VStack(alignment: .leading, spacing: 5)
         {
             Text(headline)
                 .font(.headline)

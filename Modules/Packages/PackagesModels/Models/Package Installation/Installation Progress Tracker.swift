@@ -46,6 +46,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     case binaryAlreadyExists
                     case wrongArchitecture
                     case containsUnexpectedOutputs(rawOutput: [TerminalOutput])
+                    case conflictingCaskInstalled(offendingCaskName: String?, caskThatWasBeingInstalled: MinimalHomebrewPackage)
 
                     public var errorDescription: String?
                     {
@@ -57,8 +58,17 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                             return String(localized: "add-package.install.binary-already-exists")
                         case .wrongArchitecture:
                             return String(localized: "add-package.install.wrong-architecture")
-                        case .containsUnexpectedOutputs(let rawOutput):
+                        case .containsUnexpectedOutputs(_):
                             return String(localized: "add-package.install.contains-unexpected-outputs")
+                        case .conflictingCaskInstalled(let offendingCaskName, let caskThatWasBeingInstalled):
+                            if let offendingCaskName
+                            {
+                                return String(localized: "add-package.install.conflicting-cask-installed.\(offendingCaskName)-conflicts-with-\(caskThatWasBeingInstalled.name(withPrecision: .inlineFormatted))")
+                            }
+                            else
+                            {
+                                return String(localized: "add-package.install.conflicting-cask-installed.unknown-offending-cask")
+                            }
                         }
                     }
 
@@ -74,6 +84,16 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                             return String(localized: "add-package.install.wrong-architecture.recovery-suggestion")
                         case .containsUnexpectedOutputs(let rawOutput):
                             return String(localized: "add-package.install.contains-unexpected-outputs.recovery-suggestion")
+                        case .conflictingCaskInstalled(let offendingCaskName, let caskThatWasBeingInstalled):
+                            if let offendingCaskName
+                            {
+                                return String(localized: "add-package.install.conflicting-cask-installed.\(offendingCaskName)-conflicts-with-\(caskThatWasBeingInstalled.name(withPrecision: .inlineFormatted)).recovery-suggestion")
+                            }
+                            else
+                            {
+                                return String(localized: "add-package.install.conflicting-cask-installed.unknown-offending-cask.recovery-suggestion")
+                            }
+                            
                         }
                     }
                 }
@@ -241,6 +261,7 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
             case requiresSudoPassword
             case binaryAlreadyExists
             case wrongArchitecture
+            case conflictingCaskInstalled
 
             public var patterns: [String]
             {
@@ -252,6 +273,8 @@ public class InstallationProgressTracker: @MainActor TerminalOutputStreamable
                     ["there is already an App at"]
                 case .wrongArchitecture:
                     ["/depends on hardware architecture being.+but you are running/"]
+                case .conflictingCaskInstalled:
+                    ["conflicts with"]
                 }
             }
         }

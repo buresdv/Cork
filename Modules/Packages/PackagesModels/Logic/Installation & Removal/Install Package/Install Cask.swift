@@ -5,10 +5,10 @@
 //  Created by David Bureš on 28.04.2026.
 //
 
+import BetterProgress
 import CorkShared
 import CorkTerminalFunctions
 import Foundation
-import BetterProgress
 
 extension InstallationProgressTracker
 {
@@ -22,30 +22,30 @@ extension InstallationProgressTracker
 
         let (stream, process): (AsyncStream<TerminalOutput>, Process) = shell(AppConstants.shared.brewExecutablePath, ["install", "--cask", caskToInstall.name(withPrecision: .precise)])
         installationProcess = process
-        
+
         var consolidatedUnimplementedOutput: [TerminalOutput] = .init()
         var installError: InstallationError.ImplementedError.CaskInstallError?
-        
+
         for await output in stream
         {
             print("Raw cask install output: \(output)")
-            
+
             self.insertOutput(output)
 
             output.match(as: CaskInstallMatcher.self)
             { standardCase in
-                
+
                 self.installStage = .cask(standardCase)
-                
+
                 self.installProgress.setText(to: .belowBar(standardCase.stageDescription(withPackage: caskToInstall)))
-                
+
                 self.installProgress.set(toPercentage: standardCase.progressPercentageForCase)
-                
+
                 print("Matched install stage: \(standardCase)")
-                
+
             } onErrorOutput: { errorCase in
                 print("Matched error stage: \(errorCase)")
-                
+
                 switch errorCase
                 {
                 case .requiresSudoPassword:
@@ -54,27 +54,54 @@ extension InstallationProgressTracker
                     installError = .implemented(.binaryAlreadyExists)
                 case .wrongArchitecture:
                     installError = .implemented(.wrongArchitecture)
+                case .conflictingCaskInstalled:
+
+                    installError = .implemented(
+                        .conflictingCaskInstalled(
+                            offendingCaskName: self.extractOffendingCaskNameFromInstallConflict(fromTerminalOutput: output),
+                            caskThatWasBeingInstalled: caskToInstall
+                        )
+                    )
                 }
             } onUnimplementedOutput: { unimplementedCase in
                 print("Matched unimplemented stage")
                 consolidatedUnimplementedOutput.append(unimplementedCase)
             }
         }
-        
+
         print("Install errors: \(installError)")
-        
+
         if let installError
         {
             print("Install process will throw error: \(installError)")
-            
+
             throw .implemented(.couldNotInstallCask(installError))
         }
-        
+
         if !consolidatedUnimplementedOutput.isEmpty
         {
             throw .implemented(.couldNotInstallCask(.unimplelented(rawOutput: consolidatedUnimplementedOutput)))
         }
-        
-        
+    }
+
+    private func extractOffendingCaskNameFromInstallConflict(fromTerminalOutput errorLine: TerminalOutput) -> String?
+    {
+        let conflictingCaskRegex: Regex = /conflicts with ['"]([^'"]+)['"]/
+
+        let extractedOffendingCaskName = errorLine.description.firstMatch(of: conflictingCaskRegex)
+
+        if let extractedOffendingCaskName
+        {
+            let actualOffendingCaskName = extractedOffendingCaskName.1
+
+            AppConstants.shared.logger.info("Extracted offending cask name: \(actualOffendingCaskName)")
+
+            return String(actualOffendingCaskName)
+        }
+        else
+        {
+            AppConstants.shared.logger.info("Could not extract offending cask name")
+            return nil
+        }
     }
 }

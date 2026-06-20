@@ -19,7 +19,7 @@ struct ErroredOutView: View
     {
         ComplexWithIcon(systemName: "xmark.seal")
         {
-            HeadlineWithArbitraryContent(headline: "add-\(packageThatWasBeingInstalled.type.description)-\(packageThatWasBeingInstalled.name(withPrecision: .general)).error.title")
+            HeadlineWithArbitraryContent(headline: "add-\(packageThatWasBeingInstalled.type.description)-\(packageThatWasBeingInstalled.name(withPrecision: .inlineFormatted)).error.title")
             {
                 switch error
                 {
@@ -27,7 +27,7 @@ struct ErroredOutView: View
                     switch formulaInstallError
                     {
                     case .implemented(let implementedFormulaInstallError):
-                        VStack(alignment: .leading)
+                        VStack(alignment: .leading, spacing: 5)
                         {
                             if let errorDescription = implementedFormulaInstallError.errorDescription
                             {
@@ -41,6 +41,7 @@ struct ErroredOutView: View
                             if let recoverySuggestion = implementedFormulaInstallError.recoverySuggestion
                             {
                                 Text(recoverySuggestion)
+                                    .foregroundStyle(.secondary)
                             }
                             else
                             {
@@ -57,7 +58,7 @@ struct ErroredOutView: View
                     switch caskInstallError
                     {
                     case .implemented(let implementedCaskInstallError):
-                        VStack(alignment: .leading)
+                        VStack(alignment: .leading, spacing: 5)
                         {
                             if let errorDescription = implementedCaskInstallError.errorDescription
                             {
@@ -71,6 +72,7 @@ struct ErroredOutView: View
                             if let recoverySuggestion = implementedCaskInstallError.recoverySuggestion
                             {
                                 Text(recoverySuggestion)
+                                    .foregroundStyle(.secondary)
                             }
                             else
                             {
