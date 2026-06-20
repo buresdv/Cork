@@ -38,24 +38,18 @@ struct UpdateSomePackagesView: View
             
             updateProgressTracker.streamedOutputsDisplay
         }
-        .toolbar
-        {
-            ToolbarItem(placement: .automatic)
-            {
-                if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
-                {
-                    Text("update-packages.incremental.update-in-progress-\(packageBeingUpdated.package.name(withPrecision: .precise))")
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
         .frame(maxWidth: .infinity)
         .task
         {
             var consolidatedUpdateResults: [SinglePackageUpdatingResult] = .init()
+            
+            /// Keep track of which package in line is being updated - So we can do "updating package 1 of 3"
+            var numberInLineOfPackageBeingCurrentlyUpdated: Int = 0
 
             for packageToUpdate in packagesToUpdate
             {
+                numberInLineOfPackageBeingCurrentlyUpdated += 1
+                
                 let numberOfItemsInPackageProgress: Int = 3
                 
                 let packageProgress: Progress = .init(
@@ -65,6 +59,17 @@ struct UpdateSomePackagesView: View
                 )
 
                 updateProgressTracker.packageBeingCurrentlyUpdated = packageToUpdate
+                
+                updateProgressTracker.updateProgress.setText(to: .aboveBar(String(localized:"update-packages.incremental.package-count.\(numberInLineOfPackageBeingCurrentlyUpdated)-of-\(packagesToUpdate.count)")))
+                
+                if let packageBeingUpdated = updateProgressTracker.packageBeingCurrentlyUpdated
+                {
+                    updateProgressTracker.updateProgress.setText(to: .belowBar(String(localized: "update-packages.incremental.update-in-progress-\(packageBeingUpdated.package.name(withPrecision: .inlineFormatted))")))
+                }
+                else
+                {
+                    updateProgressTracker.updateProgress.setText(to: .belowBar(String(localized: "update-packages.incremental.update-in-progress.unknown-package")))
+                }
                 
                 packageProgress.increment(bySetNumber: 1)
 
