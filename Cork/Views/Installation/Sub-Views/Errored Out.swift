@@ -26,9 +26,27 @@ struct ErroredOutView: View
                 case .couldNotInstallFormula(let formulaInstallError):
                     switch formulaInstallError
                     {
-                    // TODO: Add formula errors
                     case .implemented(let implementedFormulaInstallError):
-                        EmptyView()
+                        VStack(alignment: .leading)
+                        {
+                            if let errorDescription = implementedFormulaInstallError.errorDescription
+                            {
+                                Text(errorDescription)
+                            }
+                            else
+                            {
+                                Text("DEBUG: Unexpected missing string")
+                            }
+
+                            if let recoverySuggestion = implementedFormulaInstallError.recoverySuggestion
+                            {
+                                Text(recoverySuggestion)
+                            }
+                            else
+                            {
+                                Text("DEBUG: Unexpected missing string")
+                            }
+                        }
                     case .unimplelented(let rawOutputs):
                         unimplementedErrorView(rawOutputs: rawOutputs)
                     }
