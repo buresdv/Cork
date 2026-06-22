@@ -18,6 +18,9 @@ public extension BrewPackagesTracker
     {
         AppConstants.shared.logger.debug("Will start synchronization process")
         
+        /// Save the old casks, we will compare them to see if we need to reload adoptable apps later
+        let oldLoadedCasks: Set<BrewPackage> = self.successfullyLoadedCasks
+        
         async let updatedFormulaeTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .formula, appState: AppState())
         async let updatedCasksTracker: BrewPackages? = await self.loadInstalledPackages(packageTypeToLoad: .cask, appState: AppState())
         
@@ -34,11 +37,21 @@ public extension BrewPackagesTracker
         
         await cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: self)
         
-        do
+        AppConstants.shared.logger.debug("Number of old packages: \(oldLoadedCasks.count), Number of new packages: \(self.successfullyLoadedCasks.count)")
+        
+        if self.successfullyLoadedCasks.count != oldLoadedCasks.count
         {
-            self.adoptableApps = try await self.getAdoptableCasks(cacheUsePolicy: .useCachedData)
-        } catch let adoptableCasksSynchronizationError {
-            AppConstants.shared.logger.error("Failed while synchronizing adoptable casks: \(adoptableCasksSynchronizationError)")
+            do
+            {
+                
+                self.adoptableApps = try await self.getAdoptableCasks(cacheUsePolicy: .useCachedData)
+            } catch let adoptableCasksSynchronizationError {
+                AppConstants.shared.logger.error("Failed while synchronizing adoptable casks: \(adoptableCasksSynchronizationError)")
+            }
+        }
+        else
+        {
+            AppConstants.shared.logger.error("No changes to packages. No need to reload the adoptable apps.")
         }
     }
 }

@@ -41,14 +41,6 @@ struct UpdateAllPackagesView: View
 
             updateProgressTracker.streamedOutputsDisplay
         }
-        .toolbar
-        {
-            ToolbarItem(placement: .automatic)
-            {
-                Text(fullUpdateStageTracker.currentStage.description)
-                    .foregroundStyle(.secondary)
-            }
-        }
         .frame(maxWidth: .infinity)
         .task
         {

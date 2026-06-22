@@ -20,7 +20,7 @@ import SwiftUI
 public typealias BrewPackages = Set<Result<BrewPackage, BrewPackage.PackageLoadingError>>
 
 /// A representation of a Homebrew package
-public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable, PackageNameDisplayable
+public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable, Modifiable, Package
 {
     public init(
         rawName: String,
@@ -73,12 +73,12 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public var id: UUID
     public var internalName: BrewPackageName
 
-    public let type: PackageType
+    public var type: PackageType
     public var isTagged: Bool = false
 
     public var isPinned: Bool
 
-    public let installedOn: Date?
+    public var installedOn: Date?
     public let versions: [String]
 
     public let url: URL?
@@ -86,18 +86,6 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
     public var installedIntentionally: Bool
 
     public let sizeInBytes: Int64?
-
-    public var isInstalled: Bool
-    {
-        if installedOn != nil
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
-    }
 
     /// Download count for top packages
     public let downloadCount: Int?
@@ -186,6 +174,9 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
 
         /// Includes the base name and the bound version, if one exists
         case precise
+        
+        /// Includes the bound version, mimicking the name view
+        case inlineFormatted
     }
 
     public enum NameDisplayComponents: Equatable
@@ -414,6 +405,21 @@ public struct BrewPackage: Identifiable, Equatable, Hashable, Codable, Sendable,
             EmptyView()
         }
     }
+    
+    @ViewBuilder
+    public var openDetailForSelfButton: some View
+    {
+        if isInstalled
+        {
+            OpenPackageDetailButton(packageToOpenDetailFor: self)
+        }
+        else
+        {
+            #if DEBUG
+            Text(String("DEBUG: Detail for self button not available for packages that are not installed"))
+            #endif
+        }
+    }
 }
 
 /// Convert between ``MinimalHomebrewPackage`` and ``BrewPackage``
@@ -426,7 +432,7 @@ public extension BrewPackage
         self.init(
             rawName: minimalPackage.name(withPrecision: .precise),
             type: minimalPackage.type,
-            installedOn: minimalPackage.installDate,
+            installedOn: minimalPackage.installedOn,
             versions: [],
             url: nil,
             sizeInBytes: nil,

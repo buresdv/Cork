@@ -69,10 +69,8 @@ public extension TerminalOutputStreamable where Self: AnyObject
                         {
                             ForEach(self.outputs)
                             { line in
-                                Text(line.description)
+                                line.outputView
                                     .id(line.id)
-                                    .lineLimit(nil)
-                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
                         .frame(minHeight: 200)

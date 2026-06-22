@@ -96,12 +96,11 @@ extension MassAppAdoptionView.MassAppAdoptionTacker
                 {
                     
                     appConstants.logger.info("Found the right output for getting version mismatches: \(terminalStringThatDescribesTheMismatchedVersion)")
-                    
-                    
-                    let expectedVersion = Reference(Substring.self)
-                    let installedVersion = Reference(Substring.self)
+                            
+                    let expectedVersion: Reference = Reference(Substring.self)
+                    let installedVersion: Reference = Reference(Substring.self)
 
-                    let versionsMatchingRegex = Regex {
+                    let versionsMatchingRegex: Regex = Regex {
                         "short version of "
                         OneOrMore(.any)
                         " is "

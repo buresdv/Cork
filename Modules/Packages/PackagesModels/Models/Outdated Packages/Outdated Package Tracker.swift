@@ -157,3 +157,32 @@ public extension OutdatedPackagesTracker
         self.isCheckingForPackageUpdates = true
     }
 }
+
+public extension OutdatedPackagesTracker
+{
+    // Set all outdated packages to this selected state
+    func setAllPackagesToSelectedState(stateToSet: Bool)
+    {
+        for outdatedPackage in self.outdatedPackages
+        {
+            outdatedPackage.changeSelectedState(to: stateToSet)
+        }
+    }
+    
+    func setOnlyOnePackageToSelectedState(
+        packageToSingleOut: OutdatedPackage,
+        selectedStateToSetThatOnePackageTo: Bool
+    ) {
+        self.outdatedPackages.forEach
+        { outdatedPackage in
+            if outdatedPackage == packageToSingleOut
+            {
+                outdatedPackage.changeSelectedState(to: selectedStateToSetThatOnePackageTo)
+            }
+            else
+            {
+                outdatedPackage.changeSelectedState(to: !selectedStateToSetThatOnePackageTo)
+            }
+        }
+    }
+}

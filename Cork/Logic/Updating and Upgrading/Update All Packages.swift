@@ -79,6 +79,9 @@ extension OutdatedPackagesTracker
                 case .linking:
                     linkingStateProgress.increment(bySetNumber: .random(in: 1...3))
                 }
+                
+                updateProgressTracker.updateProgress.setText(to: .belowBar(standardOutputCase.description))
+                
             } onUnimplementedOutput:
             { unimplementedOutput in
                 self.appConstants.logger.info("Unimplemented output for updater: \(unimplementedOutput.description, privacy: .public)")

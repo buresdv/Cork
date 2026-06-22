@@ -101,6 +101,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
                             dependencies: packageDetails.dependencies,
                             isDependencyDisclosureGroupExpanded: $isShowingExpandedDependencies
                         )
+                        
+                        DependantsList(packageDetails: packageDetails)
 
                         PackageSystemInfo(
                             package: packageStructureToUse,
@@ -144,6 +146,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
             do
             {
                 packageDetails = try await package.loadDetails()
+                
+                guard !Task.isCancelled else { return }
 
                 isLoadingDetails = false
 
@@ -151,7 +155,7 @@ struct PackageDetailView: View, Sendable, DismissablePane
                 {
                     if packageDetails.installedAsDependency
                     {
-                        await packageDetails.loadDependents()
+                        await packageDetails.loadDependents(usingTracker: brewPackagesTracker)
                     }
                 }
             }
@@ -161,6 +165,8 @@ struct PackageDetailView: View, Sendable, DismissablePane
             }
             catch let packageInfoDecodingError
             {
+                if case .taskCancelled = packageInfoDecodingError as? BrewPackageInfoLoadingError { return }
+                
                 isLoadingDetails = false
 
                 AppConstants.shared.logger.error("Failed while parsing package info: \(packageInfoDecodingError, privacy: .public)")

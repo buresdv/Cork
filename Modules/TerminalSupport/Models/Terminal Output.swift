@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import CorkShared
 
 public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomStringConvertible
 {
@@ -32,6 +34,50 @@ public enum TerminalOutput: Identifiable, Hashable, Equatable, Sendable, CustomS
     {
         if case .standardError = self { return true }
         return false
+    }
+    
+    @ViewBuilder
+    public var outputView: some View
+    {
+        Group
+        {
+            switch self
+            {
+            case .standardOutput(let string):
+                HStack(alignment: .center, spacing: 5)
+                {
+                    Text(string)
+                }
+            case .standardError(let string):
+                HStack(alignment: .center, spacing: 5)
+                {
+                    if let cautionImage = NSImage(named: NSImage.cautionName)
+                    {
+                        Image(nsImage: cautionImage)
+                    }
+                    else
+                    {
+                        Image(systemName: "exclamationmark.triangle")
+                            .foregroundStyle(.orange)
+                    }
+                    
+                    Text(string)
+                }
+            }
+        }
+        .lineLimit(nil)
+        .fixedSize(horizontal: false, vertical: true)
+        .contextMenu {
+            Button
+            {
+                let pasteboard: NSPasteboard = NSPasteboard.general
+                pasteboard.declareTypes([.string], owner: nil)
+                pasteboard.setString(self.description, forType: .string)
+            } label: {
+                Text("action.copy")
+            }
+
+        }
     }
 }
 
@@ -106,7 +152,7 @@ public extension [TerminalOutput]
 
             case .standardError(let errorString):
                 let shouldSearchInErrorOutputs: Bool = outputTypes.contains(.standardErrors)
-                let outputContainsSearchString: Bool = errorString.contains(errorString)
+                let outputContainsSearchString: Bool = errorString.contains(searchString)
 
                 return shouldSearchInErrorOutputs && outputContainsSearchString
             }
@@ -126,6 +172,7 @@ public extension [TerminalOutput]
     {
         if failOnAnyErrorsPresent, self.containsErrors
         {
+            AppConstants.shared.logger.error("Failed while extracting JSON from output because it contained these errors: \(self.standardErrors)")
             return nil
         }
 

@@ -48,7 +48,7 @@ public extension BrewPackage
 
         public let isCompatible: Bool?
 
-        public var dependents: [String]?
+        public var dependents: [MinimalHomebrewPackage]?
 
         // MARK: - Init
 
@@ -58,7 +58,7 @@ public extension BrewPackage
             homepage: URL,
             tap: BrewTap,
             installedAsDependency: Bool,
-            dependents: [String]? = nil,
+            dependents: [MinimalHomebrewPackage]? = nil,
             dependencies: [BrewPackageDependency]? = nil,
             outdated: Bool,
             caveats: String? = nil,
@@ -82,7 +82,7 @@ public extension BrewPackage
 
         // MARK: - Functions
 
-        public func loadDependents() async
+        public func loadDependents(usingTracker installedPackagesTracker: BrewPackagesTracker) async
         {
             AppConstants.shared.logger.debug("Will load dependents for \(self.name)")
             let packageDependentsRaw: String = await shell(AppConstants.shared.brewExecutablePath, ["uses", "--installed", name]).standardOutputs.joined()
@@ -91,7 +91,20 @@ public extension BrewPackage
 
             AppConstants.shared.logger.debug("Dependents loaded: \(finalDependents)")
 
-            dependents = finalDependents
+            var consolidatedDependants: [MinimalHomebrewPackage] = .init()
+            
+            // Extract the dependants from the packages tracker
+            finalDependents.forEach
+            { dependantName in
+                guard let foundPackage = installedPackagesTracker.successfullyLoadedFormulae.first(where: { $0.name(withPrecision: .precise) == dependantName } ) else
+                {
+                    return
+                }
+                
+                consolidatedDependants.append(.init(fromFullPackage: foundPackage))
+            }
+            
+            dependents = consolidatedDependants
         }
     }
 }

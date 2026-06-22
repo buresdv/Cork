@@ -30,7 +30,7 @@ struct CompletedwithUnexpectedOutputsStage: View
                 {
                     List(unexpectedOutputs)
                     { unexpectedOutput in
-                        Text(unexpectedOutput.description)
+                        unexpectedOutput.outputView
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
                     .frame(minHeight: 100)

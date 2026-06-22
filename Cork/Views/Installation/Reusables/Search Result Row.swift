@@ -16,9 +16,20 @@ struct SearchResultRow: View, Sendable
     @Default(.showCompatibilityWarning) var showCompatibilityWarning: Bool
 
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-
-    let searchedForPackage: BrewPackage
+    @Environment(TopPackagesTracker.self) var topPackagesTracker: TopPackagesTracker
+    
     let context: Self.Context
+    
+    var extractedRelevantPackage: MinimalHomebrewPackage
+    {
+        switch context
+        {
+        case .searchResult(let searchedForPackage):
+            return searchedForPackage
+        case .topPackage(let package, _):
+            return package
+        }
+    }
 
     enum PackageDescriptionLoadingState: Equatable
     {
@@ -31,6 +42,18 @@ struct SearchResultRow: View, Sendable
 
     @State private var isLoadingDescription: Bool = true
     @State private var descriptionParsingFailed: Bool = false
+    
+    /// Get the relevant package from the context
+    var relevantPackage: MinimalHomebrewPackage
+    {
+        switch self.context
+        {
+        case .topPackage(let package, _):
+            return package
+        case .searchResult(let searchedForPackage):
+            return searchedForPackage
+        }
+    }
 
     var body: some View
     {
@@ -38,31 +61,31 @@ struct SearchResultRow: View, Sendable
         {
             HStack(alignment: .center)
             {
-                searchedForPackage.nameView(withComponents: .boundVersion)
-
+                relevantPackage.nameView(withComponents: .boundVersion)
+                
                 switch context
                 {
-                case .topPackages:
+                case .topPackage(_, let downloadCount):
                     Spacer()
-
-                    if let downloadCount = searchedForPackage.downloadCount
+                    
+                    if let downloadCount
                     {
                         Text("add-package.top-packages.list-item-\(downloadCount)")
                             .foregroundStyle(.secondary)
                             .font(.caption)
                     }
-
-                case .searchResults:
-                    if searchedForPackage.type == .formula
+                                        
+                case .searchResult(let package):
+                    if package.type == .formula
                     {
-                        if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.getCompletePackageName() == searchedForPackage.getCompletePackageName() })
+                        if brewPackagesTracker.successfullyLoadedFormulae.contains(where: { $0.getCompletePackageName() == package.internalName })
                         {
                             PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }
                     }
                     else
                     {
-                        if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.getCompletePackageName() == searchedForPackage.getCompletePackageName() })
+                        if brewPackagesTracker.successfullyLoadedCasks.contains(where: { $0.getCompletePackageName() == package.internalName })
                         {
                             PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }
@@ -111,7 +134,7 @@ struct SearchResultRow: View, Sendable
                         
                         List(outputs)
                         { rawOutput in
-                            Text(rawOutput.description)
+                            rawOutput.outputView
                         }
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
                         .frame(minHeight: 100)
@@ -123,34 +146,36 @@ struct SearchResultRow: View, Sendable
                 }
             }
         }
-        .tag(searchedForPackage)
+        .tag(relevantPackage)
         .task
         {
             if showDescriptionsInSearchResults
             {
-                AppConstants.shared.logger.info("\(searchedForPackage.name(withPrecision: .precise), privacy: .auto) came into view")
+                AppConstants.shared.logger.info("\(relevantPackage.name(withPrecision: .precise), privacy: .auto) came into view")
 
                 if self.packageDescriptionLoadingState == .loading
                 {
-                    AppConstants.shared.logger.info("\(searchedForPackage.name(withPrecision: .precise), privacy: .auto) does not have its description loaded")
+                    defer
+                    {
+                        isLoadingDescription = false
+                    }
+
+                    AppConstants.shared.logger.info("\(relevantPackage.name(withPrecision: .precise), privacy: .auto) does not have its description loaded")
 
                     do
                     {
-                        let searchedForPackage: BrewPackage = .init(
-                            rawName: searchedForPackage.name(withPrecision: .precise),
-                            type: searchedForPackage.type,
-                            installedOn: Date(),
-                            versions: [],
-                            url: nil,
-                            sizeInBytes: nil,
-                            downloadCount: nil
-                        )
+                        guard let searchedForPackageConvertedForDetailLoading: BrewPackage = .init(using: relevantPackage) else
+                        {
+                            AppConstants.shared.logger.error("Failed to convert minimal package to actual package")
+                            
+                            return
+                        }
 
                         do throws(BrewPackage.DescriptionLoadingError)
                         {
                             // let parsedPackageInfo: BrewPackage.BrewPackageDetails = try await searchedForPackage.loadDetails()
-
-                            let loadedDescription: String = try await searchedForPackage.loadDescripton()
+                            
+                            let loadedDescription: String = try await extractedRelevantPackage.loadDescription()
 
                             self.packageDescriptionLoadingState = .loaded(withResult: loadedDescription)
 
@@ -164,15 +189,21 @@ struct SearchResultRow: View, Sendable
                 }
                 else
                 {
-                    AppConstants.shared.logger.info("\(searchedForPackage.name(withPrecision: .precise), privacy: .auto) already has its description loaded")
+                    AppConstants.shared.logger.info("\(relevantPackage.name(withPrecision: .precise), privacy: .auto) already has its description loaded")
                 }
             }
         }
+        .contextMenu
+        {
+            extractedRelevantPackage.contextMenu()
+        }
     }
-
-    enum Context
-    {
-        case searchResults
-        case topPackages
+    
+    enum Context {
+        case searchResult(searchedForPackage: MinimalHomebrewPackage)
+        case topPackage(
+            package: MinimalHomebrewPackage,
+            downloadCount: Int?
+        )
     }
 }

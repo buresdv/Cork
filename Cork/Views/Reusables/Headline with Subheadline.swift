@@ -24,3 +24,21 @@ struct HeadlineWithSubheadline: View
         }
     }
 }
+
+struct HeadlineWithArbitraryContent<Content: View>: View
+{
+    let headline: LocalizedStringKey
+    
+    @ViewBuilder var content: Content
+    
+    var body: some View
+    {
+        VStack(alignment: .leading, spacing: 5)
+        {
+            Text(headline)
+                .font(.headline)
+            
+            content
+        }
+    }
+}

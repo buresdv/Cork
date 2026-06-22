@@ -56,6 +56,10 @@ public func shell(
     
     var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
     
+    // Disable trust until I can implement a UI for it
+    // TODO: Implement trusting and remove this
+    finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
+    
     // MARK: - Set up mirrors if the environment variables exist
 
     if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
@@ -164,6 +168,10 @@ public func shell(
 
     var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
 
+    // Disable trust until I can implement a UI for it
+    // TODO: Implement trusting and remove this
+    finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
+    
     // MARK: - Set up mirrors if the environment variables exist
 
     if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]

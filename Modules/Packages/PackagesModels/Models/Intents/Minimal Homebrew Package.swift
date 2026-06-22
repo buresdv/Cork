@@ -9,14 +9,14 @@ import AppIntents
 import Foundation
 import SwiftUI
 
-public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable, PackageNameDisplayable
+public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable, Package, DescriptionLoadable
 {
     /// Initialize from an unparsed name
     public init(name: String, type: BrewPackage.PackageType, installDate: Date? = nil, installedIntentionally: Bool) {
         self.id = .init()
         self.internalName = .init(from: name)
         self.type = type
-        self.installDate = installDate
+        self.installedOn = installDate
         self.installedIntentionally = installedIntentionally
     }
     
@@ -26,7 +26,7 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
         self.id = .init()
         self.internalName = fullPackage.internalName
         self.type = fullPackage.type
-        self.installDate = fullPackage.installedOn
+        self.installedOn = fullPackage.installedOn
         self.installedIntentionally = fullPackage.installedIntentionally
     }
     
@@ -36,14 +36,14 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
 
     public var type: BrewPackage.PackageType
 
-    public var installDate: Date?
+    public var installedOn: Date?
 
     public var installedIntentionally: Bool?
 
     @ViewBuilder
     public var previewSelfButton: some View
     {
-        if let installDate
+        if let installedOn
         {
             EmptyView()
         }
@@ -51,6 +51,14 @@ public struct MinimalHomebrewPackage: Identifiable, Hashable, AppEntity, Codable
         {
             PreviewPackageButton(packageToPreview: self)
         }
+    }
+    
+    @ViewBuilder
+    public var openDetailForSelfButton: some View
+    {
+        #if DEBUG
+        Text(String("DEBUG: Detail for self button not available for minimal packages"))
+        #endif
     }
     
     public static let typeDisplayRepresentation: TypeDisplayRepresentation = .init(name: "intents.type.minimal-homebrew-package")

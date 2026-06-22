@@ -38,6 +38,8 @@ public struct TapInfo: Codable, Sendable
 
         do
         {
+            print("Actual JSON data converted: \(String(data: jsonData, encoding: .utf8))")
+            
             let decodedTapInfo = try decoder.decode([TapInfo].self, from: jsonData)
             
             guard let relevantTapInfo = decodedTapInfo.first else
@@ -49,6 +51,8 @@ public struct TapInfo: Codable, Sendable
             
         } catch let jsonDecodingError
         {
+            print("Actual JSON error: \(jsonDecodingError)")
+            
             throw .couldNotDecode(failureReason: jsonDecodingError.localizedDescription)
         }
     }

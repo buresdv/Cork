@@ -18,7 +18,7 @@ struct SidebarPackageRow: View
     @Default(.enableSwipeActions) var enableSwipeActions: Bool
 
     @InjectedObservable(\.appState) var appState: AppState
-    @InjectedObservable(\.navigationManager) var navigationManager
+    @InjectedObservable(\.navigationManager) var navigationManager: NavigationManager
     
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
@@ -31,7 +31,10 @@ struct SidebarPackageRow: View
         }
         .contextMenu
         {
-            SidebarContextMenu(package: package)
+            package.contextMenu()
+            {
+                SidebarContextMenu(package: package)
+            }
         }
         .modify
         { viewProxy in
