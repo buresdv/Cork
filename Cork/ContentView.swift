@@ -438,13 +438,7 @@ private extension View
                     BrewfileImportProgressView()
 
                 case .maintenance(let fastCacheDeletion):
-                    switch fastCacheDeletion
-                    {
-                    case false:
-                        MaintenanceView()
-                    case true:
-                        MaintenanceView(forcedOptions: true)
-                    }
+                    MaintenanceView(fastCacheDeletion: fastCacheDeletion)
                 }
             }
     }

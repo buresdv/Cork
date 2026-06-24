@@ -21,8 +21,8 @@ struct MaintenanceReadyView: View
     @Binding var maintenanceSteps: MaintenanceView.MaintenanceStage
 
     @State var isShowingControlButtons: Bool
-
-    @State var forcedOptions: Bool
+    
+    let fastCacheDeletion: Bool
 
     var enablePadding: Bool = true
 
@@ -67,6 +67,16 @@ struct MaintenanceReadyView: View
                 }
             }
         }
+        .onAppear
+        {
+            if fastCacheDeletion
+            {
+                selectedMaintenanceStepsTracker.shouldDeleteDownloads = true
+                selectedMaintenanceStepsTracker.shouldPerformHealthCheck = false
+                selectedMaintenanceStepsTracker.shouldPurgeCache = false
+                selectedMaintenanceStepsTracker.shouldUninstallOrphans = false
+            }
+        }
         .toolbar
         {
             if isShowingControlButtons
@@ -82,31 +92,20 @@ struct MaintenanceReadyView: View
                         Text("maintenance.steps.start")
                     }
                     .keyboardShortcut(.defaultAction)
-                    //.disabled(isStartDisabled)
+                    .disabled(isStartDisabled)
                 }
-            }
-        }
-        .onAppear
-        {
-            if !forcedOptions
-            {
-                /// Replace the provided values with those from AppStorage
-                /// I have to do this because I don't want the settings in the sheet itself to affect those in the defaults
-                selectedMaintenanceStepsTracker.shouldUninstallOrphans = default_shouldUninstallOrphans
-                selectedMaintenanceStepsTracker.shouldPurgeCache = default_shouldPurgeCache
-                selectedMaintenanceStepsTracker.shouldDeleteDownloads = default_shouldDeleteDownloads
-                selectedMaintenanceStepsTracker.shouldPerformHealthCheck = default_shouldPerformHealthCheck
             }
         }
     }
 
-    /*
     private var isStartDisabled: Bool
     {
-        [shouldUninstallOrphans, shouldPurgeCache, shouldDeleteDownloads, shouldPerformHealthCheck].allSatisfy
+        [selectedMaintenanceStepsTracker.shouldUninstallOrphans,
+         selectedMaintenanceStepsTracker.shouldPurgeCache,
+         selectedMaintenanceStepsTracker.shouldDeleteDownloads,
+         selectedMaintenanceStepsTracker.shouldPerformHealthCheck].allSatisfy
         {
             !$0
         }
     }
-     */
 }

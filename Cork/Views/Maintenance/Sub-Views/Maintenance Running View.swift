@@ -99,9 +99,15 @@ struct MaintenanceRunningView: View
             {
                 let cachedDownloadsSizeBeforeDeletion: Int = cachedDownloadsTracker.cachedDownloadsSize
                 
+                AppConstants.shared.logger.info("Space before deletion: \(cachedDownloadsSizeBeforeDeletion)")
+                
                 try deleteCachedDownloads()
                 
+                await cachedDownloadsTracker.loadCachedDownloadedPackages(brewPackagesTracker: brewPackagesTracker)
+                
                 let cachedDownloadsSizeAfterDeletion: Int = cachedDownloadsTracker.cachedDownloadsSize
+                
+                AppConstants.shared.logger.info("Space after deletion: \(cachedDownloadsSizeAfterDeletion)")
                 
                 cachedDownloadsRemovalResults = .init(reclaimedSpace: cachedDownloadsSizeBeforeDeletion - cachedDownloadsSizeAfterDeletion)
             }

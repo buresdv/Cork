@@ -78,8 +78,8 @@ struct MaintenanceView: View
     @State var maintenanceFoundNoProblems: Bool = true
 
     @State var reclaimedSpaceAfterCachePurge: Int = 0
-
-    @State var forcedOptions: Bool? = false
+    
+    let fastCacheDeletion: Bool
 
     var sheetTitle: LocalizedStringKey
     {
@@ -145,7 +145,7 @@ struct MaintenanceView: View
                 selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker,
                 maintenanceSteps: $maintenanceSteps,
                 isShowingControlButtons: true,
-                forcedOptions: forcedOptions!
+                fastCacheDeletion: fastCacheDeletion
             )
 
         case .maintenanceRunning:
