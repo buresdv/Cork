@@ -69924,7 +69924,6 @@
     },
     "settings.maintenance.default-steps" : {
       "comment" : "MARK: - Settings: Maintenance",
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

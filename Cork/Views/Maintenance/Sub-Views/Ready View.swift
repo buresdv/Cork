@@ -68,7 +68,7 @@ struct MaintenanceReadyView: View
             }
         }
         .onAppear
-        {
+        {            
             if fastCacheDeletion
             {
                 selectedMaintenanceStepsTracker.shouldDeleteDownloads = true
