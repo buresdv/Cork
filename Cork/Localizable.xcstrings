@@ -28867,6 +28867,16 @@
         }
       }
     },
+    "error.app-already-exists-at.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Cask couldn’t be linked to the App because of broken permissions at %@"
+          }
+        }
+      }
+    },
     "error.brewfile.export.could-not-determine-working-directory" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -33785,6 +33795,16 @@
         }
       }
     },
+    "error.post-install-step-failed.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t complete post-installation step: %@"
+          }
+        }
+      }
+    },
     "error.preview-package-app-would-be-adopted-as.no-cask-name-selected" : {
       "comment" : "An error message displayed when the user tries to preview a package that would be adopted, but no package is selected.",
       "localizations" : {
@@ -34814,6 +34834,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The loading process was unexpectedly terminated"
+          }
+        }
+      }
+    },
+    "error.terminal-required" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminal is required to update this package"
           }
         }
       }

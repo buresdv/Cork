@@ -133,6 +133,10 @@ public func shell(
             guard !standardOutput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !standardOutput.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
             else
             {
+                AppConstants.shared.logger.debug("""
+Hit an empty or disqualified output.
+Command: \(launchPath.absoluteString) \(arguments)
+""")
                 return
             }
 

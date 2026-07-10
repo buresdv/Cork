@@ -80,7 +80,7 @@ struct MaintenanceView: View
     {
         self.fastCacheDeletion = fastCacheDeletion
 
-        let tracker = SelectedMaintenanceStepsTracker()
+        let tracker: SelectedMaintenanceStepsTracker = .init()
         tracker.shouldPurgeCache = Defaults[.default_shouldPurgeCache]
         tracker.shouldDeleteDownloads = Defaults[.default_shouldDeleteDownloads]
         tracker.shouldUninstallOrphans = Defaults[.default_shouldUninstallOrphans]

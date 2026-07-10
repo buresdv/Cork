@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CorkShared
 
 /// Decodable tap info
 public struct TapInfo: Codable, Sendable
@@ -55,6 +56,47 @@ public struct TapInfo: Codable, Sendable
             
             throw .couldNotDecode(failureReason: jsonDecodingError.localizedDescription)
         }
+    }
+    
+    public init(builtInTapType: BrewPackage.PackageType, includedPackages: [String]) async
+    {
+        self.name = {
+            switch builtInTapType {
+            case .formula:
+                return "core"
+            case .cask:
+                return "cask"
+            }
+        }()
+        
+        self.repo = "homebrew"
+        self.user = "homebrew"
+        self.path = AppConstants.shared.tapPath
+        
+        self.installed = true
+        self.official = true
+        
+        switch builtInTapType {
+        case .formula:
+            self.formulaNames = includedPackages
+            self.caskTokens = .empty
+        case .cask:
+            self.formulaNames = .empty
+            self.caskTokens = includedPackages
+        }
+        
+        self.formulaFiles = nil
+        self.caskFiles = nil
+        self.commandFiles = nil
+        self.remote = {
+            switch builtInTapType {
+            case .formula:
+                return .init(string: "https://github.com/Homebrew/homebrew-core")!
+            case .cask:
+                return .init(string: "https://github.com/Homebrew/homebrew-cask")!
+            }
+        }()
+        self.customRemote = nil
     }
     
     /// The name of the tap
