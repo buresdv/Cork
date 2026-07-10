@@ -51,28 +51,82 @@ public extension BrewTap
         self.setBeingLoadedStatus(to: true)
 
         var tapInfoRaw: Data
-        
-        switch self.nameInternal.repo {
+
+        switch self.nameInternal.repo
+        {
         case .homebrew:
             tapInfoRaw = try await self.loadTapJSONDataForFirstPartyTap()
-        case .external(let name):
+        case .external:
             tapInfoRaw = try await self.loadTapJSONDataForThirdPartyTap()
         }
-        
 
-        do
+        switch self.nameInternal.repo
         {
-            appConstants.logger.info("got valid data from JSON output: \(tapInfoRaw)")
-            
-            self.setBeingLoadedStatus(to: false)
+        case .homebrew:
+            struct SpeakeasyResponse: Decodable
+            {
+                let packageFullName: String
 
-            return try await .init(from: tapInfoRaw)
-        }
-        catch let tapDetailsInitializationError
-        {
-            self.setBeingLoadedStatus(to: false)
+                private enum CodingKeys: String, CodingKey
+                {
+                    case fullName
+                    case fullToken
+                }
 
-            throw .couldNotDecodeJson(error: tapDetailsInitializationError)
+                init(from decoder: Decoder) throws
+                {
+                    let container = try decoder.container(keyedBy: CodingKeys.self)
+
+                    if let fullName = try? container.decode(String.self, forKey: .fullName)
+                    {
+                        packageFullName = fullName
+                    }
+                    else if let fullToken = try? container.decode(String.self, forKey: .fullToken)
+                    {
+                        packageFullName = fullToken
+                    }
+                    else
+                    {
+                        throw DecodingError.keyNotFound(
+                            CodingKeys.fullName,
+                            DecodingError.Context(
+                                codingPath: decoder.codingPath,
+                                debugDescription: "The JSON doesn't contain 'full_name' or 'full_token'."
+                            )
+                        )
+                    }
+                }
+            }
+
+            let speakeasyDecoder: JSONDecoder = {
+                let decoder: JSONDecoder = .init()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                return decoder
+            }()
+
+            guard let decodedSpeakeasyResponse = try? speakeasyDecoder.decode([SpeakeasyResponse].self, from: tapInfoRaw)
+            else
+            {
+                throw TapInfoLoadingError.couldNotDecodeJson(error: .couldNotDecode(failureReason: "Could not decode Speakeasy response"))
+            }
+
+            return await .init(builtInTapType: self.nameInternal.tapName == "core" ? .formula : .cask, includedPackages: decodedSpeakeasyResponse.map(\.packageFullName))
+
+        case .external:
+            do
+            {
+                appConstants.logger.info("got valid data from JSON output: \(tapInfoRaw)")
+
+                self.setBeingLoadedStatus(to: false)
+
+                return try await .init(from: tapInfoRaw)
+            }
+            catch let tapDetailsInitializationError
+            {
+                self.setBeingLoadedStatus(to: false)
+
+                throw .couldNotDecodeJson(error: tapDetailsInitializationError)
+            }
         }
     }
 
@@ -82,26 +136,26 @@ public extension BrewTap
     private func loadTapJSONDataForFirstPartyTap() async throws(BrewTap.TapInfoLoadingError) -> Data
     {
         var infoRetrievalURL: URL
-        
+
         if self.nameInternal.tapName == "core"
         { // URL for Core
-            infoRetrievalURL = .init(string: "https://formulae.brew.sh/api/formula.json")!
+            infoRetrievalURL = .init(string: "https://packages.homebrew.corkmac.app/formulae")!
         }
         else
         { // URL for Cask
-            infoRetrievalURL = .init(string: "https://formulae.brew.sh/api/cask.json")!
+            infoRetrievalURL = .init(string: "https://packages.homebrew.corkmac.app/casks")!
         }
-        
+
         do
         {
             let downloadedData: Data = try await downloadDataFromURL(infoRetrievalURL)
-            
-            let downloadedDataAsString: String = String(data: downloadedData, encoding: .utf8)!
-            
-            appConstants.logger.info("Result of tap info: \(downloadedDataAsString))")
-            
+
+            appConstants.logger.info("Downloaded data size: \(downloadedData.count)")
+
             return downloadedData
-        } catch let jsonDownloadingError {
+        }
+        catch let jsonDownloadingError
+        {
             throw .couldNotDownloadJson(error: jsonDownloadingError)
         }
     }

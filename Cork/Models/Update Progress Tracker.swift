@@ -87,7 +87,9 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
     {
         public enum StandardCases: String, CustomStringConvertible, TerminalOutputCase
         {
-            case downloading = "update-packages.detail-stage.downloading"
+            case downloadingFormulae = "update-packages.detail-stage.downloading-formulae"
+            case downloadingCasks = "update-packages.detail-stage.downloading-casks"
+            case downloadingGeneric = "update-packages.detail-stage.downloading"
             case pouring = "update-packages.detail-stage.pouring"
             case cleanup = "update-packages.detail-stage.cleanup"
             case backingUp = "update-packages.detail-stage.backing-up"
@@ -97,16 +99,20 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             {
                 switch self
                 {
-                case .downloading:
-                    ["Downloading", "Upgrading", "Fetching"]
+                case .downloadingFormulae:
+                    ["Fetching downloads"]
+                case .downloadingCasks:
+                    ["Downloading Cask files"]
+                case .downloadingGeneric:
+                    ["Downloading"]
                 case .pouring:
-                    ["Pouring", "Running installer"]
+                    ["Pouring", "Running installer", "Upgrading"]
                 case .cleanup:
-                    ["cleanup", "Removing App", "Unlinking", "Uninstalling", "Purging"]
+                    ["cleanup", "Removing", "Unlinking", "Uninstalling", "Purging"]
                 case .backingUp:
-                    ["Backing App"]
+                    ["Backing"]
                 case .linking:
-                    ["Moving App", "Linking"]
+                    ["Moving", "Linking"]
                 }
             }
 
@@ -116,19 +122,45 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             }
         }
 
-        public typealias ErrorCases = ExpectsNoErrors
+        public enum ErrorCases: TerminalOutputCase
+        {
+            case multipleUpdatesFailed
+            
+            public var patterns: [String]
+            {
+                switch self
+                {
+                case .multipleUpdatesFailed:
+                    ["Problems with multiple casks", "Problems with multiple formulae"]
+                }
+            }
+        }
 
         public enum IgnoredCases: TerminalOutputCase
         {
+            case updateOverview
             case tapUpdate
             case noChecksumDefined
+            case updateResultsSummary
+            case additionalTools
+            case completionsInstalledToPath
+            case quittingApplication
+            case applicationQuitSuccessfully
+            case reopeningApplication
 
             public var patterns: [String]
             {
                 switch self
                 {
+                case .updateOverview: ["Would upgrade \\d+ outdated packages", "Upgrading \\d+ outdated packages"]
                 case .tapUpdate: ["tap"]
                 case .noChecksumDefined: ["No checksum defined for"]
+                case .updateResultsSummary: ["Upgraded \\d+ outdated packages"]
+                case .additionalTools: ["includes additional tools and libraries not included in the regular"]
+                case .completionsInstalledToPath: ["completions have been installed to"]
+                case .quittingApplication: ["Quitting application"]
+                case .applicationQuitSuccessfully: ["quit successfully"]
+                case .reopeningApplication: ["application closed during upgrade"]
                 }
             }
         }
@@ -202,8 +234,22 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
     {
         public enum ImplementedError: LocalizedError
         {
+            case thereIsAlreadyAppAtPath(path: String)
             case postInstallStepFailed(rawOutput: String)
             case terminalRequired
+            
+            public var errorDescription: String?
+            {
+                switch self
+                {
+                case .thereIsAlreadyAppAtPath(let path):
+                    return String(localized: "error.app-already-exists-at.\(path)")
+                case .postInstallStepFailed(let rawOutput):
+                    return String(localized: "error.post-install-step-failed.\(rawOutput)")
+                case .terminalRequired:
+                    return String(localized: "error.terminal-required")
+                }
+            }
         }
 
         case implemented(

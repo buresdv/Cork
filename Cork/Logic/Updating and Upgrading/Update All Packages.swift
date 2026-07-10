@@ -5,13 +5,13 @@
 //  Created by David Bureš on 04.07.2022.
 //
 
+import BetterProgress
+import CorkModels
 import CorkShared
 import CorkTerminalFunctions
 import Defaults
 import Foundation
 import SwiftUI
-import CorkModels
-import BetterProgress
 
 extension OutdatedPackagesTracker
 {
@@ -22,11 +22,11 @@ extension OutdatedPackagesTracker
     ) async throws(UpdateAllPackagesView.CompleteUpdatingError)
     {
         let includeGreedyPackages: Bool = Defaults[.includeGreedyOutdatedPackages]
-        
+
         let totalCases: Int = UpdateProgressTracker.UpdateProcessMatcher.StandardCases.allCases.count
-        
-        let percentagePerOneStep: Double = Double(100/totalCases)
-        
+
+        let percentagePerOneStep: Double = .init(100 / totalCases)
+
         /// The step number for switching update stages
         /// The number of packages that are being updated, divided by the number of process steps
         let incrementalProgress: Progress = .init(
@@ -34,61 +34,79 @@ extension OutdatedPackagesTracker
             percentageOfParentToTakeUp: 100,
             totalItemsOfThisProgress: totalCases
         )
-        
+
         // MARK: - Initialize the random progress trackers
+
         // These are random because you never know how many outputs you might get per stage, and it's better to give the users somethig to look at
         let downloadingStateProgress: Progress = .init(
             parent: incrementalProgress,
             percentageOfParentToTakeUp: percentagePerOneStep,
-            totalItemsOfThisProgress: .random(in: 20...50)
+            totalItemsOfThisProgress: .random(in: 20 ... 50)
         )
-        
-        let pouringStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20...50))
-        
-        let cleanupStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20...50))
-        
-        let backingUpStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20...50))
-        
-        let linkingStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20...50))
-        
+
+        let pouringStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20 ... 50))
+
+        let cleanupStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20 ... 50))
+
+        let backingUpStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20 ... 50))
+
+        let linkingStateProgress: Progress = .init(parent: incrementalProgress, percentageOfParentToTakeUp: percentagePerOneStep, totalItemsOfThisProgress: .random(in: 20 ... 50))
+
         // MARK: - Do the actual updating
-        
+
         var consolidatedUnexpectedOutputs: [TerminalOutput] = .init()
         
+        var processError: UpdateAllPackagesView.CompleteUpdatingError?
+
         for await output in shell(AppConstants.shared.brewExecutablePath, ["upgrade", includeGreedyPackages ? "--greedy" : ""])
         {
             updateProgressTracker.insertOutput(output)
-            
+
             output.match(as: UpdateProgressTracker.UpdateProcessMatcher.self)
             { standardOutputCase in
-                
+
                 self.appConstants.logger.debug("Matched \(output.description) as \(standardOutputCase)")
-                
+
                 fullUpdateStageTracker.currentStage = standardOutputCase
-                
+
                 switch standardOutputCase
                 {
-                case .downloading:
-                    downloadingStateProgress.increment(bySetNumber: .random(in: 1...3))
+                case .downloadingGeneric:
+                    downloadingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
+                case .downloadingFormulae:
+                    downloadingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
+                case .downloadingCasks:
+                    downloadingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
                 case .pouring:
-                    pouringStateProgress.increment(bySetNumber: .random(in: 1...3))
+                    pouringStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
                 case .cleanup:
-                    cleanupStateProgress.increment(bySetNumber: .random(in: 1...3))
+                    cleanupStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
                 case .backingUp:
-                    backingUpStateProgress.increment(bySetNumber: .random(in: 1...3))
+                    backingUpStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
                 case .linking:
-                    linkingStateProgress.increment(bySetNumber: .random(in: 1...3))
+                    linkingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
                 }
-                
+
                 updateProgressTracker.updateProgress.setText(to: .belowBar(standardOutputCase.description))
-                
-            } onUnimplementedOutput:
+
+            } onErrorOutput: { errorCase in
+                switch errorCase
+                {
+                case .multipleUpdatesFailed:
+                    processError = .mutlipleCasksFailed(output)
+                }
+            }
+            onUnimplementedOutput:
             { unimplementedOutput in
                 self.appConstants.logger.info("Unimplemented output for updater: \(unimplementedOutput.description, privacy: .public)")
-                
+
                 consolidatedUnexpectedOutputs.append(unimplementedOutput)
             }
+        }
 
+        if let processError
+        {
+            throw processError
         }
         
         if !consolidatedUnexpectedOutputs.isEmpty
