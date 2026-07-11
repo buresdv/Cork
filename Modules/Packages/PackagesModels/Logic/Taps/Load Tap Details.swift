@@ -52,17 +52,15 @@ public extension BrewTap
 
         var tapInfoRaw: Data
 
-        switch self.nameInternal.repo
+        if self.isSpeakeasySupported
         {
-        case .homebrew:
             tapInfoRaw = try await self.loadTapJSONDataForFirstPartyTap()
-        case .external:
+        } else {
             tapInfoRaw = try await self.loadTapJSONDataForThirdPartyTap()
         }
 
-        switch self.nameInternal.repo
+        if self.isSpeakeasySupported
         {
-        case .homebrew:
             struct SpeakeasyResponse: Decodable
             {
                 let packageFullName: String
@@ -111,8 +109,9 @@ public extension BrewTap
             }
 
             return await .init(builtInTapType: self.nameInternal.tapName == "core" ? .formula : .cask, includedPackages: decodedSpeakeasyResponse.map(\.packageFullName))
-
-        case .external:
+        }
+        else
+        {
             do
             {
                 appConstants.logger.info("got valid data from JSON output: \(tapInfoRaw)")

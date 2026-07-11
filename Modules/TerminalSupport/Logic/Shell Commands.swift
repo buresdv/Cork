@@ -18,18 +18,96 @@ public func shell(
     workingDirectory: URL? = nil
 ) async -> [TerminalOutput]
 {
+    let task: Process = .init()
+
+    var finalEnvironment: [String: String] = ProcessInfo.processInfo.environment
+
+    // Disable trust until I can implement a UI for it
+    // TODO: Implement trusting and remove this
+    finalEnvironment["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
+    
+    // MARK: - Set up mirrors if the environment variables exist
+
+    if let brewApiDomain = ProcessInfo.processInfo.environment["HOMEBREW_API_DOMAIN"]
+    {
+        finalEnvironment["HOMEBREW_API_DOMAIN"] = brewApiDomain
+    }
+    if let brewBottleDomain = ProcessInfo.processInfo.environment["HOMEBREW_BOTTLE_DOMAIN"]
+    {
+        finalEnvironment["HOMEBREW_BOTTLE_DOMAIN"] = brewBottleDomain
+    }
+
+    // MARK: - Set up proxy if it's enabled
+
+    if let proxySettings = AppConstants.shared.proxySettings
+    {
+        AppConstants.shared.logger.info("Proxy is enabled")
+        finalEnvironment["ALL_PROXY"] = "\(proxySettings.host):\(proxySettings.port)"
+    }
+
+    // MARK: - Block automatic cleanup is configured
+
+    if !UserDefaults.standard.bool(forKey: "isAutomaticCleanupEnabled")
+    {
+        finalEnvironment["HOMEBREW_NO_INSTALL_CLEANUP"] = "TRUE"
+    }
+
+    AppConstants.shared.logger.debug("Final environment: \(finalEnvironment)")
+
+    // MARK: - Set working directory if provided
+
+    if let workingDirectory
+    {
+        AppConstants.shared.logger.info("Working directory configured: \(workingDirectory)")
+        task.currentDirectoryURL = workingDirectory
+    }
+
+    let sudoHelperURL: URL = Bundle.main.resourceURL!.appendingPathComponent("Sudo Helper", conformingTo: .executable)
+
+    finalEnvironment["SUDO_ASKPASS"] = sudoHelperURL.path
+
+    task.environment = finalEnvironment
+    task.launchPath = launchPath.path
+
+    /// Filter out empty things from the arguments so they don't fuck it up
+    task.arguments = arguments.filter { $0 != "" }
+
+    let pipe: Pipe = .init()
+    task.standardOutput = pipe
+
+    let errorPipe: Pipe = .init()
+    task.standardError = errorPipe
+
+    do
+    {
+        try task.run()
+    }
+    catch
+    {
+        AppConstants.shared.logger.error("\(String(describing: error))")
+        return []
+    }
+
+    let standardOutput = pipe.fileHandleForReading.readDataToEndOfFile()
+    let standardError = errorPipe.fileHandleForReading.readDataToEndOfFile()
+
     var allOutputs: [TerminalOutput] = .init()
 
-    for await streamedOutput in shell(launchPath, arguments, environment: environment, workingDirectory: workingDirectory)
+    if let output = String(data: standardOutput, encoding: .utf8),
+       !output.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+       !output.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
     {
-        switch streamedOutput
-        {
-        case .standardOutput(let output):
-            allOutputs.append(.standardOutput(output))
-        case .standardError(let error):
-            allOutputs.append(.standardError(error))
-        }
+        allOutputs.append(.standardOutput(output))
     }
+
+    if let output = String(data: standardError, encoding: .utf8),
+       !output.isEmpty,
+       !output.containsAny(of: Container.shared.appConstants().disqualifyingSymbolsForTerminalOutputs)
+    {
+        allOutputs.append(.standardError(output))
+    }
+
+    AppConstants.shared.logger.debug("Consolidated outputs: \(allOutputs)")
 
     return allOutputs
 }
@@ -139,6 +217,8 @@ Command: \(launchPath.absoluteString) \(arguments)
 """)
                 return
             }
+            
+            AppConstants.shared.logger.debug("Async terminal output yielded with: \(standardOutput)")
 
             continuation.yield(.standardOutput(standardOutput))
         }
@@ -259,6 +339,8 @@ public func shell(
                 return
             }
 
+            AppConstants.shared.logger.debug("Async terminal output yielded with: \(standardOutput)")
+            
             continuation.yield(.standardOutput(standardOutput))
         }
 
