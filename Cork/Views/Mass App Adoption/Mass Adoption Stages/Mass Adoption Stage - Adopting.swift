@@ -19,13 +19,29 @@ struct MassAdoptionStage_Adopting: View
 
     var body: some View
     {
-        ProgressView(value: currentAdoptionIndex, total: Double(appsToAdopt.count))
+        Group
         {
-            Text("app-adoption.currently-being-adopted.\(massAppAdoptionTracker.appCurrentlyBeingAdopted.appExecutable)")
+            // TODO: Change these progress bars into a Progress class
+            if appsToAdopt.count == 1
+            {
+                ProgressView()
+                {
+                    Text("app-adoption.currently-being-adopted.\(massAppAdoptionTracker.appCurrentlyBeingAdopted.appExecutable)")
+                }
+                .progressViewStyle(.linear)
+            } else {
+                ProgressView(value: currentAdoptionIndex, total: Double(appsToAdopt.count))
+                {
+                    Text("app-adoption.currently-being-adopted.\(massAppAdoptionTracker.appCurrentlyBeingAdopted.appExecutable)")
+                }
+                .progressViewStyle(.linear)
+            }
         }
-        .progressViewStyle(.linear)
         .task
         {
+            // Move the progress a little bit so the user doesn't think the thing broke
+            currentAdoptionIndex = 0.5
+            
             for appToAdopt in appsToAdopt
             {
                 guard let selectedAdoptionCandidateCaskName = appToAdopt.selectedAdoptionCandidateCaskName else

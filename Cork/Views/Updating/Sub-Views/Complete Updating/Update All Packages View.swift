@@ -29,7 +29,7 @@ struct UpdateAllPackagesView: View
 
         public init()
         {
-            self.currentStage = .downloadingGeneric
+            self.currentStage = .downloading
         }
     }
 

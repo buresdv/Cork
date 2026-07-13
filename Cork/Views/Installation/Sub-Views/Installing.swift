@@ -17,31 +17,27 @@ struct InstallingPackageView: View
 
     @InjectedObservable(\.appState) var appState: AppState
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
-    
+
     @Environment(PackageInstallationProcessStepTracker.self) var packageInstallationProcessStepTracker: PackageInstallationProcessStepTracker
 
     @Environment(CachedDownloadsTracker.self) var cachedDownloadsTracker: CachedDownloadsTracker
 
     let packageToInstall: MinimalHomebrewPackage
 
-    @State var isShowingRealTimeOutput: Bool = false
+    @Binding var installationProgressTracker: InstallationProgressTracker
 
-    @State private var installationProgressTracker: InstallationProgressTracker
-
-        init(packageToInstall: MinimalHomebrewPackage)
-        {
-            self.packageToInstall = packageToInstall
-            self._installationProgressTracker = State(
-                initialValue: InstallationProgressTracker(packageToInstall: packageToInstall)
-            )
-        }
+    init(packageToInstall: MinimalHomebrewPackage, installationProgressTracker: Binding<InstallationProgressTracker>)
+    {
+        self.packageToInstall = packageToInstall
+        self._installationProgressTracker = installationProgressTracker
+    }
 
     var body: some View
     {
         VStack(alignment: .leading)
         {
             ProgressView(installationProgressTracker.installProgress)
-            
+
             installationProgressTracker.streamedOutputsDisplay
         }
         .task
@@ -53,11 +49,13 @@ struct InstallingPackageView: View
                     using: brewPackagesTracker,
                     cachedDownloadsTracker: cachedDownloadsTracker
                 )
-                
+
                 packageInstallationProcessStepTracker.advanceStep(to: .finished)
-            } catch let installationError as InstallationProgressTracker.InstallationError
+            }
+            catch let installationError as InstallationProgressTracker.InstallationError
             {
-                switch installationError {
+                switch installationError
+                {
                 case .implemented(let implementedError):
                     packageInstallationProcessStepTracker.advanceStep(to: .erroredOut(
                         package: packageToInstall,
@@ -65,14 +63,14 @@ struct InstallingPackageView: View
                     ))
                 case .unimplemented(let rawOutput):
                     packageInstallationProcessStepTracker.advanceStep(to:
-                            .unexpectedTerminalOutput(rawOutput.containsErrors ? .containedErrors(rawOutput: rawOutput) : .didNotContainErrors(rawOutput: rawOutput))
+                        .unexpectedTerminalOutput(rawOutput.containsErrors ? .containedErrors(rawOutput: rawOutput) : .didNotContainErrors(rawOutput: rawOutput))
                     )
                 }
             }
             catch let unexpectedError
-            { /// There was an unexpected error, so handle that differently
-                
+            { // TODO: There was an unexpected error, so handle that differently
             }
         }
     }
 }
+

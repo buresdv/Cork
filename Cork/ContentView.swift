@@ -411,7 +411,7 @@ private extension View
                 switch sheetType
                 {
                 case .packageInstallation:
-                    AddFormulaView()
+                    InstallPackageView()
                 case .tapAddition:
                     AddTapView()
 

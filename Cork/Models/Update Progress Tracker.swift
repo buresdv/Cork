@@ -87,9 +87,7 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
     {
         public enum StandardCases: String, CustomStringConvertible, TerminalOutputCase
         {
-            case downloadingFormulae = "update-packages.detail-stage.downloading-formulae"
-            case downloadingCasks = "update-packages.detail-stage.downloading-casks"
-            case downloadingGeneric = "update-packages.detail-stage.downloading"
+            case downloading = "update-packages.detail-stage.downloading"
             case pouring = "update-packages.detail-stage.pouring"
             case cleanup = "update-packages.detail-stage.cleanup"
             case backingUp = "update-packages.detail-stage.backing-up"
@@ -99,12 +97,8 @@ public class UpdateProgressTracker: @MainActor TerminalOutputStreamable
             {
                 switch self
                 {
-                case .downloadingFormulae:
-                    ["Fetching downloads"]
-                case .downloadingCasks:
-                    ["Downloading Cask files"]
-                case .downloadingGeneric:
-                    ["Downloading"]
+                case .downloading:
+                    ["Downloading", "Fetching"]
                 case .pouring:
                     ["Pouring", "Running installer", "Upgrading"]
                 case .cleanup:

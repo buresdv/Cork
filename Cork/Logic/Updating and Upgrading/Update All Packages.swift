@@ -71,11 +71,7 @@ extension OutdatedPackagesTracker
 
                 switch standardOutputCase
                 {
-                case .downloadingGeneric:
-                    downloadingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
-                case .downloadingFormulae:
-                    downloadingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
-                case .downloadingCasks:
+                case .downloading:
                     downloadingStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
                 case .pouring:
                     pouringStateProgress.increment(bySetNumber: .random(in: 1 ... 3))
