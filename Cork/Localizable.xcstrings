@@ -28250,6 +28250,17 @@
       },
       "shouldTranslate" : false
     },
+    "debug.action.insert-debug-element-into-outdated-package-tracker" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEBUG: Insert element into outdated packages tracker"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "debug.action.licensing" : {
       "localizations" : {
         "cs" : {

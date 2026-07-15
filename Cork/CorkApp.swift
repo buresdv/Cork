@@ -28,6 +28,7 @@ struct CorkApp: App
     @InjectedObservable(\.appState) var appState: AppState
     @InjectedObservable(\.navigationManager) var navigationManager
     @InjectedObservable(\.brewfileManager) var brewfileManager: BrewfileManager
+    @InjectedObservable(\.outdatedPackagesTracker) var outdatedPackagesTracker: OutdatedPackagesTracker
     
     @State var brewPackagesTracker: BrewPackagesTracker = .init()
     @State var tapTracker: TapTracker = .init()
@@ -35,8 +36,6 @@ struct CorkApp: App
     @State var cachedDownloadsTracker: CachedDownloadsTracker = .init()
 
     @State var topPackagesTracker: TopPackagesTracker = .init()
-
-    @State var outdatedPackagesTracker: OutdatedPackagesTracker = .init()
 
     @Default(.demoActivatedAt) var demoActivatedAt: Date?
     @Default(.hasValidatedEmail) var hasValidatedEmail: Bool
@@ -92,7 +91,6 @@ struct CorkApp: App
                 .environment(brewPackagesTracker)
                 .environment(tapTracker)
                 .environment(cachedDownloadsTracker)
-                .environment(outdatedPackagesTracker)
                 .environment(topPackagesTracker)
                 .modelContainer(for: [
                     SavedTaggedPackage.self,
@@ -149,6 +147,7 @@ struct CorkApp: App
                 }
                 .onChange(of: outdatedPackagesTracker.allDisplayableOutdatedPackages.count)
                 { _, outdatedPackageCount in
+                    AppConstants.shared.logger.debug("Number of displayable outdated packages changed - will try to handle them")
                     handleOutdatedPackageChangeAppBadge(outdatedPackageCount: outdatedPackageCount)
                 }
                 .onChange(of: outdatedPackageNotificationType) // Set the correct app badge number when the user changes their notification settings
@@ -300,7 +299,6 @@ struct CorkApp: App
                 .navigationTitle(packageToPreview?.name(withPrecision: .precise) ?? "")
                 .environment(appState)
                 .environment(brewPackagesTracker)
-                .environment(outdatedPackagesTracker)
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unifiedCompact)
@@ -330,7 +328,6 @@ struct CorkApp: App
                 .environment(brewPackagesTracker)
                 .environment(tapTracker)
                 .environment(cachedDownloadsTracker)
-                .environment(outdatedPackagesTracker)
         }
     }
 
@@ -605,6 +602,13 @@ struct CorkApp: App
                 openWindow(id: .errorInspectorWindowID, value: BrewPackage.PackageLoadingError.packageIsNotAFolder("Hello I am an error", packageURL: .applicationDirectory).localizedDescription)
             } label: {
                 Text("debug.action.show-error-inspector")
+            }
+            
+            Button
+            {
+                outdatedPackagesTracker.insertDebugElementIntoOutdatedPackagesTracker()
+            } label: {
+                Text("debug.action.insert-debug-element-into-outdated-package-tracker")
             }
         } label: {
             Text("debug.action.ui")
