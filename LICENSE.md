@@ -1,6 +1,6 @@
 Cork is developed by David Bureš and is provided as-is, unless otherwise stated in individual contracts and other relevant documents.
 
-*This provisional license is to prevent bad faith actors from makig use of the hard work of Cork's community for nothing in return.*
+*This provisional license is to prevent bad faith actors from making use of the hard work of Cork's community for nothing in return.*
 
 The basis for this provisional license is the [Commons Clause](https://commonsclause.com/), which may add other provisions not specified in this provisional license.
 
