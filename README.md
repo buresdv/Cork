@@ -178,11 +178,3 @@ In my case, it was `echo "eval \"\$(/Users/david/.local/bin/mise activate zsh)\"
 10. In the popup that appears, click `Custom`, then click `Next` in the bottom right of the popup
 11. Click `Copy App`
 12. Open the resulting folder. You'll see an app called Cork. Drag Cork to your `/Applications/` folder, and you're done!
-
-## License
-
-Cork is licensed under [Commons Clause](https://commonsclause.com).
-
-This means that Cork's source source is available and you can modify it, contribute to it etc., but you can't sell or distribute Cork or modified versions of it.
-
-Moreover, you can’t distribute compiled versions of Cork without consulting me first. Compiling versions for your personal use is fine.
