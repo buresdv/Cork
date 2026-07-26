@@ -640,11 +640,11 @@ Uninstall it, then try again</target>
       </trans-unit>
       <trans-unit id="add-package.install.conflicting-cask-installed.%@-conflicts-with-%@">
         <source>add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@</source>
-        <target state="needs-translation">add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@</target>
+        <target state="needs-review-translation">add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@</target>
       </trans-unit>
       <trans-unit id="add-package.install.conflicting-cask-installed.%@-conflicts-with-%@.recovery-suggestion">
         <source>add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion</source>
-        <target state="needs-translation">add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion</target>
+        <target state="needs-review-translation">add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion</target>
       </trans-unit>
       <trans-unit id="add-package.install.downloading-cask-%@">
         <source>Downloading %@…</source>
@@ -3446,7 +3446,7 @@ Check below for more information on which packages couldn’t be updated, and wh
       </trans-unit>
       <trans-unit id="update-packages.incremental.package-count.%lld-of-%lld">
         <source>update-packages.incremental.package-count.%1$lld-of-%2$lld</source>
-        <target state="needs-translation">update-packages.incremental.package-count.%1$lld-of-%2$lld</target>
+        <target state="needs-review-translation">update-packages.incremental.package-count.%1$lld-of-%2$lld</target>
       </trans-unit>
       <trans-unit id="update-packages.incremental.update-in-progress-%@">
         <source>Updating %@…</source>

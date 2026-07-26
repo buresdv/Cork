@@ -395,11 +395,11 @@
         <source>Installed packages</source>
         <target state="needs-review-translation">Installed packages</target>
       </trans-unit>
-      <trans-unit id="action.open-%@" xml:space="preserve" approved="no">
+      <trans-unit id="action.open-%@">
         <source>Open %@</source>
         <target state="translated">Open %@</target>
       </trans-unit>
-      <trans-unit id="action.open-detail-for-%@" xml:space="preserve" approved="no">
+      <trans-unit id="action.open-detail-for-%@">
         <source>Open detail for %@</source>
         <target state="translated">Open detail for %@</target>
       </trans-unit>
@@ -422,7 +422,7 @@
         <target state="needs-review-translation">Preview %@</target>
         <note>A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.</note>
       </trans-unit>
-      <trans-unit id="action.preview-package.%@" xml:space="preserve" approved="no">
+      <trans-unit id="action.preview-package.%@">
         <source>Preview %@</source>
         <target state="translated">Preview %@</target>
       </trans-unit>
