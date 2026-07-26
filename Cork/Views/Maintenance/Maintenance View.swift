@@ -8,6 +8,7 @@
 import CorkModels
 import FactoryKit
 import SwiftUI
+import Defaults
 
 typealias MaintenanceResults = MaintenanceFinishedView.MaintenanceResults
 
@@ -61,25 +62,31 @@ struct MaintenanceView: View
     }
 
     @Environment(\.dismiss) var dismiss: DismissAction
-
     @Environment(BrewPackagesTracker.self) var brewPackagesTracker: BrewPackagesTracker
     @InjectedObservable(\.appState) var appState: AppState
 
+    @State private var selectedMaintenanceStepsTracker: SelectedMaintenanceStepsTracker
+
     @State var maintenanceSteps: MaintenanceStage = .ready
-
-    @State private var selectedMaintenanceStepsTracker: SelectedMaintenanceStepsTracker = .init()
-
     @State var numberOfOrphansRemoved: Int = 0
-
     @State var packagesHoldingBackCachePurge: [String] = .init()
-
     @State var brewHealthCheckStatus: HealthCheckStatus = .notRunYet
-
     @State var maintenanceFoundNoProblems: Bool = true
-
     @State var reclaimedSpaceAfterCachePurge: Int = 0
 
-    @State var forcedOptions: Bool? = false
+    let fastCacheDeletion: Bool
+
+    init(fastCacheDeletion: Bool)
+    {
+        self.fastCacheDeletion = fastCacheDeletion
+
+        let tracker: SelectedMaintenanceStepsTracker = .init()
+        tracker.shouldPurgeCache = Defaults[.default_shouldPurgeCache]
+        tracker.shouldDeleteDownloads = Defaults[.default_shouldDeleteDownloads]
+        tracker.shouldUninstallOrphans = Defaults[.default_shouldUninstallOrphans]
+        tracker.shouldPerformHealthCheck = Defaults[.default_shouldPerformHealthCheck]
+        _selectedMaintenanceStepsTracker = State(initialValue: tracker)
+    }
 
     var sheetTitle: LocalizedStringKey
     {
@@ -145,7 +152,7 @@ struct MaintenanceView: View
                 selectedMaintenanceStepsTracker: selectedMaintenanceStepsTracker,
                 maintenanceSteps: $maintenanceSteps,
                 isShowingControlButtons: true,
-                forcedOptions: forcedOptions!
+                fastCacheDeletion: fastCacheDeletion
             )
 
         case .maintenanceRunning:

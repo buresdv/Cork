@@ -88,6 +88,14 @@ private extension BrewPackagesTracker
     {
         do
         {
+            /// Check if the parent folder exists. If it doesn't, return an empty set instead of crashing.
+            guard FileManager.default.fileExists(atPath: packageTypeToLoad.parentFolder.path)
+            else
+            {
+                AppConstants.shared.logger.debug("Parent folder for \(packageTypeToLoad.rawValue, privacy: .public) does not exist, returning empty set")
+                return .init()
+            }
+
             /// This gets URLs to all package folders in a folder.
             /// `/opt/homebrew/Caskroom/microsoft-edge/`
             let urlsInParentFolder: [URL] = try packageTypeToLoad.parentFolder.getContents(options: [.skipsHiddenFiles])
@@ -98,19 +106,35 @@ private extension BrewPackagesTracker
 
             let namesOfTaggedPackages: Set<String>? = try? await getNamesOfTaggedPackages()
 
+            /// Filter out symlinks and non-directory items before spawning tasks
+            let packageURLsToProcess: [URL] = urlsInParentFolder.filter
+            { packageURL in
+                /// Check if the package folder is just a symlink - If so, it is just a renamed package and we don't have to parse it
+                // TODO: Create a more robust system for showing what the package was renamed to - see stash "Skeleton for more complete renamed package support"
+                guard packageURL.isSymlink() != true
+                else
+                {
+                    AppConstants.shared.logger.debug("Hit symlink: \(packageURL)")
+                    return false
+                }
+
+                /// Check if the item is actually a directory
+                guard packageURL.isDirectory
+                else
+                {
+                    AppConstants.shared.logger.warning("Skipping non-directory item in package folder: \(packageURL)")
+                    return false
+                }
+
+                return true
+            }
+
             let packageLoader: BrewPackages = await withTaskGroup(of: Result<BrewPackage, BrewPackage.PackageLoadingError>.self)
             { taskGroup in
-                for packageURL in urlsInParentFolder
+                for packageURL in packageURLsToProcess
                 {
                     AppConstants.shared.logger.debug("Will add package at URL \(packageURL) to the package loading task group")
 
-                    /// Check if the package folder is just a symlink - If so, it is just a renamed package and we don't have to parse it
-                    // TODO: Create a more robust system for showing what the package was renamed to - see stash "Skeleton for more complete renamed package support"
-                    guard packageURL.isSymlink() == false else
-                    {
-                        continue
-                    }
-                    
                     taskGroup.addTask
                     {
                         await self.loadInstalledPackage(
@@ -119,20 +143,9 @@ private extension BrewPackagesTracker
                             namesOfTaggedPackages: namesOfTaggedPackages
                         )
                     }
-
-                    /*
-                     guard taskGroup.addTaskUnlessCancelled(priority: .high, operation: {
-                         await self.loadInstalledPackage(packageURL: packageURL)
-                     })
-                     else
-                     {
-                         AppConstants.shared.logger.warning("Package loading task group got cancelled")
-                         break
-                     }
-                      */
                 }
 
-                var loadedPackages: BrewPackages = .init(minimumCapacity: urlsInParentFolder.count)
+                var loadedPackages: BrewPackages = .init(minimumCapacity: packageURLsToProcess.count)
                 for await loadedPackage in taskGroup
                 {
                     loadedPackages.insert(loadedPackage)
@@ -159,7 +172,7 @@ private extension BrewPackagesTracker
             if shouldStrictlyCheckForHomebrewErrors
             {
                 /// Check if the number of loaded packages, both successful and failed, matches the number of package URLs in the package container folder
-                guard packageLoader.count == urlsInParentFolder.count
+                guard packageLoader.count == packageURLsToProcess.count
                 else
                 {
                     throw BrewPackage.PackageLoadingError.numberOLoadedPackagesDosNotMatchNumberOfPackageFolders
@@ -171,6 +184,7 @@ private extension BrewPackagesTracker
         catch let parentFolderReadingError
         {
             AppConstants.shared.logger.error("Couldn't get contents of folder \(packageTypeToLoad.parentFolder, privacy: .public)")
+            AppConstants.shared.logger.debug("getContents failed with error: \(parentFolderReadingError)")
 
             throw .couldNotReadContentsOfParentFolder(failureReason: parentFolderReadingError.localizedDescription, folderURL: packageTypeToLoad.parentFolder)
         }
@@ -269,7 +283,7 @@ private extension BrewPackagesTracker
                         return false
                     }
                 }()
-                
+
                 /// Find the latest installed version URL for Casks, and return the URL to the linked Formula directory for Formulae
                 let urlToVersionUsedForDeterminingActualExecutableLocation: URL = {
                     switch packageURL.packageType
@@ -287,41 +301,44 @@ private extension BrewPackagesTracker
                         }
                     }
                 }()
-                
+
                 /// Resolve path to the actual executable for casks, and the path to the currently linked folder for formulae
-                let finalExecutableURL: URL = await {
+                let finalExecutableURL: URL = await
+                {
                     switch packageURL.packageType
                     {
                     case .formula:
                         AppConstants.shared.logger.debug("Package is formula, will use the Cellar URL (\(packageURL))")
                         return packageURL
                     case .cask:
-                        
+
                         AppConstants.shared.logger.debug("Package is Cask, will try to discover the actual URL")
-                        
+
                         let urlToActualExecutable: URL = await urlToVersionUsedForDeterminingActualExecutableLocation.getUrlToActualCaskExecutable()
-                        
+
                         AppConstants.shared.logger.debug("Actual URL discovered: \(urlToActualExecutable)")
-                        
+
                         return urlToActualExecutable
                     }
                 }()
 
-                let packageSize: Int64 = await {
+                let packageSize: Int64 = await
+                {
                     switch packageURL.packageType
                     {
                     case .formula:
                         return packageURL.directorySize
                     case .cask:
-                        guard let sizeOfActualApp: Int64 = await urlToVersionUsedForDeterminingActualExecutableLocation.getActualAppSize() else
+                        guard let sizeOfActualApp: Int64 = await urlToVersionUsedForDeterminingActualExecutableLocation.getActualAppSize()
+                        else
                         {
                             return packageURL.directorySize
                         }
-                        
+
                         return sizeOfActualApp
                     }
                 }()
-                
+
                 let loadedPackage: Result<BrewPackage, BrewPackage.PackageLoadingError> = .success(
                     .init(
                         rawName: packageName,
@@ -375,7 +392,7 @@ private extension URL
         {
             /// Get the contents of the version's folder
             let contentsOfVersionFolder: [URL] = try FileManager.default.contentsOfDirectory(at: self, includingPropertiesForKeys: [.isSymbolicLinkKey])
-            
+
             AppConstants.shared.logger.info("Discovered these versions for determining actual app size: \(contentsOfVersionFolder)")
 
             /// Filter out the symlinks, and do your best to approximate which symlink is valid (there should be only one, anyway). If something breaks, be conservative and say there are no symlinks
@@ -388,10 +405,10 @@ private extension URL
             }
 
             AppConstants.shared.logger.info("Will use this symlink URL for determining app size: \(symlinkUrl)")
-            
+
             /// Resolve the symlink to the location of the actual app
             let resolvedSymlinkUrl: URL = symlinkUrl.resolvingSymlinksInPath()
-            
+
             AppConstants.shared.logger.info("Symlink for determining app size resolved to \(resolvedSymlinkUrl)")
 
             /// Make sure the resolved symlink is not the original URL itself
@@ -405,7 +422,6 @@ private extension URL
 
             /// Return the size of the app bundle
             return resolvedSymlinkUrl
-            
         }
         catch let directoryContentsDiscoveryError
         {
@@ -414,7 +430,7 @@ private extension URL
             return self
         }
     }
-    
+
     /// Get the actual size of the installed app by resolving a symlink inside a version's folder and loading the size of the app from the `Applications` directory
     func getActualAppSize() async -> Int64?
     {

@@ -41,43 +41,40 @@ struct PackagesIncludedInTapList: View
         VStack(spacing: 5)
         {
             CustomSearchField(search: $searchString, customPromptText: "tap-details.included-packages.search.prompt")
-            List
-            {
-                ForEach(packagesToDisplay)
-                { (minimalPackage: MinimalHomebrewPackage) in
-                    HStack(alignment: .center)
+            List(packagesToDisplay)
+            { minimalPackage in
+                HStack(alignment: .center)
+                {
+                    if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
                     {
-                        if let initializedBrewPackageForDisplayInList: BrewPackage = .init(using: minimalPackage)
-                        {
-                            initializedBrewPackageForDisplayInList.nameView(withComponents: .boundVersion)
+                        initializedBrewPackageForDisplayInList.nameView(withComponents: .boundVersion)
 
-                            var isPackageAlreadyInstalled: Bool
-                            {
-                                var packageContainedInFormulae: Bool {
-                                    return brewPackagesTracker.successfullyLoadedFormulae.contains { installedPackage in
-                                        installedPackage.internalName == minimalPackage.internalName
-                                    }
+                        var isPackageAlreadyInstalled: Bool
+                        {
+                            var packageContainedInFormulae: Bool {
+                                return brewPackagesTracker.successfullyLoadedFormulae.contains { installedPackage in
+                                    installedPackage.internalName == minimalPackage.internalName
                                 }
-                                
-                                var packageContainedInCasks: Bool {
-                                    return brewPackagesTracker.successfullyLoadedCasks.contains { installedPackage in
-                                        installedPackage.internalName == minimalPackage.internalName
-                                    }
-                                }
-                                  
-                                return packageContainedInFormulae || packageContainedInCasks
                             }
                             
-                            if isPackageAlreadyInstalled
-                            {
-                                PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
+                            var packageContainedInCasks: Bool {
+                                return brewPackagesTracker.successfullyLoadedCasks.contains { installedPackage in
+                                    installedPackage.internalName == minimalPackage.internalName
+                                }
                             }
+                              
+                            return packageContainedInFormulae || packageContainedInCasks
+                        }
+                        
+                        if isPackageAlreadyInstalled
+                        {
+                            PillTextWithLocalizableText(localizedText: "add-package.result.already-installed")
                         }
                     }
-                    .contextMenu
-                    {
-                        contextMenu(packageToPreview: minimalPackage)
-                    }
+                }
+                .contextMenu
+                {
+                    contextMenu(packageToPreview: minimalPackage)
                 }
             }
             .frame(height: 150)

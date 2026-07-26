@@ -13,9 +13,9 @@ import Defaults
 import FactoryKit
 import SwiftUI
 
-typealias PackageInstallationProcessStepTracker = AddFormulaView.PackageInstallationProcessStepTracker
+typealias PackageInstallationProcessStepTracker = InstallPackageView.PackageInstallationProcessStepTracker
 
-struct AddFormulaView: View
+struct InstallPackageView: View
 {
     @Observable
     final class PackageInstallationProcessStepTracker
@@ -80,7 +80,24 @@ struct AddFormulaView: View
                             foundCasks: foundCasks
                         )
                     case .installing(let package):
-                        InstallingPackageView(packageToInstall: package)
+                        // TODO: Fix this hideous shit
+                        /// This is here because I need the binding to be optional here, but not optional in the child
+                        let trackerBinding: Binding<InstallationProgressTracker> = .init(
+                            get: {
+                                if let existingTracker = installationProgressTracker
+                                {
+                                    return existingTracker
+                                }
+                                else
+                                {
+                                    let newTracker: InstallationProgressTracker = .init(packageToInstall: package)
+                                    installationProgressTracker = newTracker // How about this line undefines my behavior
+                                    return newTracker
+                                }
+                            },
+                            set: { installationProgressTracker = $0 }
+                        )
+                        InstallingPackageView(packageToInstall: package, installationProgressTracker: trackerBinding)
                     case .finished:
                         InstallationFinishedSuccessfullyView()
                     case .unexpectedTerminalOutput(let unexpectedOutputType):
@@ -120,7 +137,14 @@ struct AddFormulaView: View
                                     appState.showAlert(errorToShow: .couldNotSynchronizePackages(error: synchronizationError.localizedDescription))
                                 }
                             } label: {
-                                Text("action.cancel")
+                                if let customDismissText = packageInstallationProcessStepTracker.currentStep.customDismissButtonText
+                                {
+                                    Text(customDismissText)
+                                }
+                                else
+                                {
+                                    Text("action.cancel")
+                                }
                             }
                             .keyboardShortcut(.cancelAction)
                             .disabledWhenLoading()

@@ -411,7 +411,7 @@ private extension View
                 switch sheetType
                 {
                 case .packageInstallation:
-                    AddFormulaView()
+                    InstallPackageView()
                 case .tapAddition:
                     AddTapView()
 
@@ -438,13 +438,9 @@ private extension View
                     BrewfileImportProgressView()
 
                 case .maintenance(let fastCacheDeletion):
-                    switch fastCacheDeletion
-                    {
-                    case false:
-                        MaintenanceView()
-                    case true:
-                        MaintenanceView(forcedOptions: true)
-                    }
+                    MaintenanceView(
+                        fastCacheDeletion: fastCacheDeletion
+                    )
                 }
             }
     }

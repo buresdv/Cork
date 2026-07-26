@@ -1,0 +1,3 @@
+[submodule "tools"]
+	path = tools
+	url = git@github.com:Rikidar-d-o-o/tools.git

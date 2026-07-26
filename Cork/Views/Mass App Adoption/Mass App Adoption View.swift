@@ -187,15 +187,40 @@ struct MassAppAdoptionView: View
             case someSuccessSomeFailure
             case failure
         }
-
+        
         var isDismissable: Bool
         {
             switch self
             {
             case .adopting:
                 return true
-            case .finished:
-                return true
+            case .finished(let result):
+                switch result
+                {
+                case .success:
+                    return false
+                case .someSuccessSomeFailure:
+                    return true
+                case .failure:
+                    return true
+                }
+            }
+        }
+        
+        var customDismissButtonText: LocalizedStringKey?
+        {
+            switch self {
+            case .adopting:
+                return nil
+            case .finished(let result):
+                switch result {
+                case .success:
+                    return nil
+                case .someSuccessSomeFailure:
+                    return "action.close"
+                case .failure:
+                    return "action.close"
+                }
             }
         }
     }
@@ -229,7 +254,7 @@ struct MassAppAdoptionView: View
                 {
                     ToolbarItem(placement: .cancellationAction)
                     {
-                        DismissSheetButton(dismiss: _dismiss)
+                        DismissSheetButton(dismiss: _dismiss, customButtonText: massAdoptionTracker.massAdoptionStage.customDismissButtonText)
                     }
                 }
             }

@@ -93,6 +93,15 @@ public class OutdatedPackagesTracker
             return .managedOnly
         }
     }
+    
+    public func insertDebugElementIntoOutdatedPackagesTracker() -> Void
+    {
+        appConstants.logger.debug("Will attempt to put debug element into the outdated packages tracker")
+        
+        self.outdatedPackages.insert(.init(package: .init(rawName: "debug@\(Int.random(in: 1...100000))", type: .cask, installedOn: .now, versions: [], url: nil, sizeInBytes: nil, downloadCount: nil), installedVersions: [], newerVersion: String(Int.random(in: 1...200)), updatingManagedBy: .homebrew))
+        
+        appConstants.logger.debug("Number of packages in tracker: \(self.outdatedPackages.count)")
+    }
 }
 
 public extension OutdatedPackagesTracker

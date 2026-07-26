@@ -20,11 +20,11 @@ public protocol PackageNameDisplayable
 
     /// Reconstruct the internal name into a Brew-compatible format
     func name(withPrecision precision: NameRetrievalPrecision) -> String
-    
+
     associatedtype PreviewSelfButton: View
     /// Button for previewing packages that are not installed
     var previewSelfButton: PreviewSelfButton { get }
-    
+
     associatedtype OpenDetailForSelfButton: View
     /// Button for opening a package's detail
     var openDetailForSelfButton: OpenDetailForSelfButton { get }
@@ -69,8 +69,12 @@ public struct BrewPackageName: Equatable, Hashable, Codable, Comparable, Sendabl
             case (true, false): // lhs numeric, rhs alphanumeric — rhs comes first
                 return false
 
-            case (true, true): // Both numeric — sort numerically ascending
-                return Int(lhsVersion)! < Int(rhsVersion)!
+            case (true, true): // idk what's even happening here, I'm tired
+                if let lhsNum = Double(lhsVersion), let rhsNum = Double(rhsVersion)
+                {
+                    return lhsNum < rhsNum
+                }
+                return lhsVersion < rhsVersion // Fallback to string comparison
             }
         }
     }
@@ -162,11 +166,12 @@ public extension PackageNameDisplayable
 
             return "\(self.internalName.packageIdentifier)@\(boundVersionUnwrapped)"
         case .inlineFormatted:
-            guard let boundVersionUnwrapped = internalName.boundVersion else
+            guard let boundVersionUnwrapped = internalName.boundVersion
+            else
             {
                 return self.internalName.packageIdentifier
             }
-            
+
             return "\(self.internalName.packageIdentifier) 􀎡 \(boundVersionUnwrapped)"
         }
     }
@@ -197,9 +202,9 @@ public extension PackageNameDisplayable
                 self.openDetailForSelfButton
             }
         }
-        
+
         Divider()
-        
+
         extraContent()
     }
 }

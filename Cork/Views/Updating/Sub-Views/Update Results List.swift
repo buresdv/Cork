@@ -30,7 +30,7 @@ struct UpdateResultsList: View
                 }
             }
             .listStyle(.bordered(alternatesRowBackgrounds: true))
-            .frame(minHeight: 100)
+            .frame(minHeight: 150)
         }
     }
     
@@ -43,11 +43,12 @@ struct UpdateResultsList: View
         {
             Text(failedPackage.package.name(withPrecision: .precise))
                 .font(.body)
-
+            
             Text(error.localizedDescription)
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .symbolRenderingMode(.multicolor)
+                .selectionDisabled(false)
         }
     }
     
