@@ -9514,7 +9514,14 @@
       }
     },
     "action.preview-package.%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preview %@ "
+          }
+        }
+      }
     },
     "action.purge-%@" : {
       "localizations" : {
