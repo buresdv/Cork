@@ -1,0 +1,26 @@
+name: l10n-export
+on:
+  push:
+    branches: [main]
+    paths: ['**/Localizable.xcstrings']
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.x' }
+      - name: Fetch tools submodule
+        run: |
+          git config url."https://x-access-token:${{ secrets.TOOLS_PAT }}@github.com/".insteadOf "git@github.com:"
+          git submodule update --init tools
+      - run: python3 tools/Localization/xcstrings_export.py Cork/Localizable.xcstrings xliff
+      - name: Commit XLIFF
+        run: |
+          git config user.name "l10n-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add xliff
+          git diff --cached --quiet || git commit -m "Sync XLIFF from string catalog"
+          git push
