@@ -400,11 +400,13 @@
         <source>Installed packages</source>
         <target state="needs-review-translation">Nainstalované balíčky</target>
       </trans-unit>
-      <trans-unit id="action.open-%@">
+      <trans-unit id="action.open-%@" xml:space="preserve" approved="no">
         <source>Open %@</source>
+        <target state="translated">Otevřít %@</target>
       </trans-unit>
-      <trans-unit id="action.open-detail-for-%@">
+      <trans-unit id="action.open-detail-for-%@" xml:space="preserve" approved="no">
         <source>Open detail for %@</source>
+        <target state="translated">Otevřít detail pro %@</target>
       </trans-unit>
       <trans-unit id="action.open-terminal">
         <source>Open Terminal</source>
@@ -425,8 +427,9 @@
         <target state="needs-review-translation">Nahlédnout do %@</target>
         <note>A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.</note>
       </trans-unit>
-      <trans-unit id="action.preview-package.%@">
+      <trans-unit id="action.preview-package.%@" xml:space="preserve" approved="no">
         <source>Preview %@</source>
+        <target state="translated">Nahlédnout do %@</target>
       </trans-unit>
       <trans-unit id="action.purge-%@">
         <source>Purge %@</source>
