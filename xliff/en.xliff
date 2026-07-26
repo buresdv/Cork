@@ -395,6 +395,14 @@
         <source>Installed packages</source>
         <target state="translated">Installed packages</target>
       </trans-unit>
+      <trans-unit id="action.open-%@">
+        <source>Open %@</source>
+        <target state="translated">Open %@</target>
+      </trans-unit>
+      <trans-unit id="action.open-detail-for-%@">
+        <source>Open detail for %@</source>
+        <target state="translated">Open detail for %@</target>
+      </trans-unit>
       <trans-unit id="action.open-terminal">
         <source>Open Terminal</source>
         <target state="translated">Open Terminal</target>
@@ -413,6 +421,10 @@
         <source>Preview %@</source>
         <target state="translated">Preview %@</target>
         <note>A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.</note>
+      </trans-unit>
+      <trans-unit id="action.preview-package.%@">
+        <source>Preview %@ </source>
+        <target state="translated">Preview %@ </target>
       </trans-unit>
       <trans-unit id="action.purge-%@">
         <source>Purge %@</source>
