@@ -395,8 +395,9 @@
         <source>Installed packages</source>
         <target state="needs-review-translation">Installed packages</target>
       </trans-unit>
-      <trans-unit id="action.open-%@">
+      <trans-unit id="action.open-%@" xml:space="preserve" approved="no">
         <source>Open %@</source>
+        <target state="translated">Open %@</target>
       </trans-unit>
       <trans-unit id="action.open-detail-for-%@">
         <source>Open detail for %@</source>
