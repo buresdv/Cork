@@ -14,7 +14,7 @@ jobs:
         with: { python-version: '3.x' }
       - name: Fetch tools submodule
         run: |
-          git config url."https://x-access-token:${{ secrets.TOOLS_PAT }}@github.com/".insteadOf "git@github.com:"
+          git config --global url."https://x-access-token:${{ secrets.TOOLS_PAT }}@github.com/".insteadOf "git@github.com:"
           git submodule update --init tools
       - run: python3 tools/Localization/xcstrings_import.py Cork/Localizable.xcstrings xliff
       - name: Commit catalog
