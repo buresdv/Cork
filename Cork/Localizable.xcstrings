@@ -9088,7 +9088,14 @@
       }
     },
     "action.open-%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open %@"
+          }
+        }
+      }
     },
     "action.open-detail-for-%@" : {
 
