@@ -9518,7 +9518,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Preview %@ "
+            "value" : "Preview %@"
           }
         }
       }
