@@ -28,12 +28,12 @@ jobs:
         with:
           title: "Merge translations into string catalog"
           commit-message: "Merge translations into string catalog"
-          branch: l10n/import
+          branch: l10n-import
           base: main
           delete-branch: true
           add-paths: Cork/Localizable.xcstrings
           labels: l10n
       - name: Enable auto-merge
-        run: gh pr merge --auto --squash l10n/import || true
+        run: gh pr merge --auto --squash l10n-import || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
