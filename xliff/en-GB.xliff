@@ -399,8 +399,9 @@
         <source>Open %@</source>
         <target state="translated">Open %@</target>
       </trans-unit>
-      <trans-unit id="action.open-detail-for-%@">
+      <trans-unit id="action.open-detail-for-%@" xml:space="preserve" approved="no">
         <source>Open detail for %@</source>
+        <target state="translated">Open detail for %@</target>
       </trans-unit>
       <trans-unit id="action.open-terminal">
         <source>Open Terminal</source>
