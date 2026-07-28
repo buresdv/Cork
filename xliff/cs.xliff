@@ -562,13 +562,15 @@
         <source>Report on the forums…</source>
         <target state="needs-review-translation">Nahlásit na fóru…</target>
       </trans-unit>
-      <trans-unit id="add-%@-%@.error.title">
+      <trans-unit id="add-%@-%@.error.title" xml:space="preserve" approved="no">
         <source>Couldn’t install %@ %@</source>
+        <target state="translated">Při instalaci %@ %@ se vyskytla chyba</target>
         <note>Title for „Install failed“ sheet. 
 First placeholder is the type of the package, second is the name of the package that was being installed</note>
       </trans-unit>
-      <trans-unit id="add-package.%@.error.unimplemented-outputs.message">
+      <trans-unit id="add-package.%@.error.unimplemented-outputs.message" xml:space="preserve" approved="no">
         <source>While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below</source>
+        <target state="translated">To nemusí znamenat, že instalace balíčku %@ nebyla úspěšná. Více informací naleznete níže</target>
         <note>Message for when an unexpected terminal output gets caught during the install process.
 The placeholder is the name of the package that the user tried to install.</note>
       </trans-unit>
@@ -580,16 +582,19 @@ The placeholder is the name of the package that the user tried to install.</note
         <source>Loading of top packages timed out</source>
         <target state="needs-review-translation">Načítání nejoblíbenějších balíčků se nezdařilo</target>
       </trans-unit>
-      <trans-unit id="add-package.error.title">
+      <trans-unit id="add-package.error.title" xml:space="preserve" approved="no">
         <source>Couldn’t install package</source>
+        <target state="translated">Při instalaci balíčku se vyskytla chyba</target>
         <note>Title of the error screen.</note>
       </trans-unit>
-      <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label">
+      <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label" xml:space="preserve" approved="no">
         <source>Unexpected outputs</source>
+        <target state="translated">Neočekávané výstupy</target>
         <note>A label for a dropdown that shows the raw output of a failed installation.</note>
       </trans-unit>
-      <trans-unit id="add-package.error.unimplemented-outputs.message">
+      <trans-unit id="add-package.error.unimplemented-outputs.message" xml:space="preserve" approved="no">
         <source>Some unexpected outputs were encountered</source>
+        <target state="translated">Vyskytly se neočekávané výstupy</target>
         <note>A message displayed when an error is not yet implemented.</note>
       </trans-unit>
       <trans-unit id="add-package.fatal-error-%@">
@@ -638,11 +643,13 @@ Uninstall it, then try again</source>
         <target state="needs-review-translation">Tento soudek už ve složce Aplikace existuje
 Odinstalujte jej a zkuste to znovu</target>
       </trans-unit>
-      <trans-unit id="add-package.install.conflicting-cask-installed.%@-conflicts-with-%@">
+      <trans-unit id="add-package.install.conflicting-cask-installed.%@-conflicts-with-%@" xml:space="preserve" approved="no">
         <source>add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@</source>
+        <target state="translated">add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@</target>
       </trans-unit>
-      <trans-unit id="add-package.install.conflicting-cask-installed.%@-conflicts-with-%@.recovery-suggestion">
+      <trans-unit id="add-package.install.conflicting-cask-installed.%@-conflicts-with-%@.recovery-suggestion" xml:space="preserve" approved="no">
         <source>add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion</source>
+        <target state="needs-translation">add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion</target>
       </trans-unit>
       <trans-unit id="add-package.install.downloading-cask-%@">
         <source>Downloading %@…</source>
@@ -733,12 +740,14 @@ Use the command below.</source>
         <source>No description provided</source>
         <target state="needs-review-translation">Vývojář neposkytnul popis balíčku</target>
       </trans-unit>
-      <trans-unit id="add-package.result.description.too-many-outputs.dropdown-label">
+      <trans-unit id="add-package.result.description.too-many-outputs.dropdown-label" xml:space="preserve" approved="no">
         <source>Unexpected outputs</source>
+        <target state="translated">Neočekávané výstupy</target>
         <note>A label that describes a dropdown that shows a list of possible package descriptions.</note>
       </trans-unit>
-      <trans-unit id="add-package.result.description.too-many-outputs.label">
+      <trans-unit id="add-package.result.description.too-many-outputs.label" xml:space="preserve" approved="no">
         <source>There was an unexpected output</source>
+        <target state="translated">Vyskytl se neočekávaný výstup</target>
         <note>A label displayed when a package has too many output.</note>
       </trans-unit>
       <trans-unit id="add-package.result.loading-description">
@@ -757,8 +766,9 @@ Use the command below.</source>
         <source>Search</source>
         <target state="needs-review-translation">Hledat</target>
       </trans-unit>
-      <trans-unit id="add-package.search.failed">
+      <trans-unit id="add-package.search.failed" xml:space="preserve" approved="no">
         <source>Couldn’t find anything</source>
+        <target state="translated">Výsledek hledání je prázdný</target>
         <note>Label for an inline content unavailable view that indicates that a search for packages failed.</note>
       </trans-unit>
       <trans-unit id="add-package.search.prompt">
@@ -802,13 +812,15 @@ Use the command below.</source>
         <source>Top Formulae</source>
         <target state="needs-review-translation">Nejoblíbenější vzorce</target>
       </trans-unit>
-      <trans-unit id="add-package.top-packages.list-item-%@">
+      <trans-unit id="add-package.top-packages.list-item-%@" xml:space="preserve" approved="no">
         <source>%@ downloads</source>
+        <target state="translated">%@ stažení</target>
         <note>Label for the umber of downloads in a top package.
 Placeholder is the number of times the package was downloaded.</note>
       </trans-unit>
-      <trans-unit id="add-package.top-packages.list-item-%lld##/plural/one">
+      <trans-unit id="add-package.top-packages.list-item-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>%lld download</source>
+        <target state="translated">1 stažení</target>
       </trans-unit>
       <trans-unit id="add-package.top-packages.list-item-%lld##/plural/other">
         <source>%lld downloads</source>
@@ -1254,8 +1266,9 @@ Uninstall them and try again</source>
         <source>DEBUG</source>
         <target state="needs-review-translation">DEBUG</target>
       </trans-unit>
-      <trans-unit id="downloading">
+      <trans-unit id="downloading" xml:space="preserve" approved="no">
         <source>downloading</source>
+        <target state="translated">stahování</target>
       </trans-unit>
       <trans-unit id="error-inspector.title">
         <source>Error Inspector</source>
@@ -1673,23 +1686,27 @@ Nejste si jistí, jestli je Cork pro vás? Vyzkoušejte zdarma sedmidenní demo.
         <source>Maintenance Finished</source>
         <target state="needs-review-translation">Údržba byla dokončena</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/one">
+      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/one" xml:space="preserve" approved="no">
         <source>One orphaned package was removed</source>
+        <target state="translated">Jeden osiřelý balíček byl odstraněn</target>
         <note>A message that describes the number of orphaned formulae that were removed. The argument is the number of orphaned formulae that were removed.</note>
       </trans-unit>
-      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/other">
+      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/other" xml:space="preserve" approved="no">
         <source>%lld orphaned packages were removed</source>
+        <target state="translated">%lld osiřelých balíčků bylo odstraněno</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.action-not-performed">
+      <trans-unit id="maintenance.results.action-not-performed" xml:space="preserve" approved="no">
         <source>This action was not performed</source>
+        <target state="translated">Krok neproběhl</target>
         <note>A message displayed when a maintenance action was not performed.</note>
       </trans-unit>
       <trans-unit id="maintenance.results.cached-downloads">
         <source>Cached downloads deleted</source>
         <target state="needs-review-translation">Mezipaměť se staženými balíčky byla vymazána</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.cached-downloads.could-not-determine-reclaimed-space">
+      <trans-unit id="maintenance.results.cached-downloads.could-not-determine-reclaimed-space" xml:space="preserve" approved="no">
         <source>Couldn’t determine how much space was freed</source>
+        <target state="translated">Při výpočtu uvolněného místa se vyskytla chyba</target>
       </trans-unit>
       <trans-unit id="maintenance.results.cached-downloads.summary-%@">
         <source>You reclaimed %@</source>
@@ -1703,8 +1720,9 @@ Nejste si jistí, jestli je Cork pro vás? Vyzkoušejte zdarma sedmidenní demo.
         <source>No problems with Homebrew found</source>
         <target state="needs-review-translation">Homebrew funguje normálně</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.health-check.problems.show-list">
+      <trans-unit id="maintenance.results.health-check.problems.show-list" xml:space="preserve" approved="no">
         <source>Show problems</source>
+        <target state="translated">Zobrazit problémy</target>
         <note>A button to show a list of health check problems.</note>
       </trans-unit>
       <trans-unit id="maintenance.results.orphans-count-%lld##/plural/zero">
@@ -1832,11 +1850,13 @@ Nejste si jistí, jestli je Cork pro vás? Vyzkoušejte zdarma sedmidenní demo.
         <target state="needs-review-translation">Při získávání vybrané verze přidatelného balíčku se vyskytla chyba</target>
         <note>A message displayed when a failed adoption attempt does not include the name of the selected adoption candidate's cask.</note>
       </trans-unit>
-      <trans-unit id="mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@">
+      <trans-unit id="mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@" xml:space="preserve" approved="no">
         <source>Version %@ is required, but version %@ is installed</source>
+        <target state="translated">Je nutná verze %@, ale je nainstalovaná verze %@</target>
       </trans-unit>
-      <trans-unit id="mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected">
+      <trans-unit id="mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected" xml:space="preserve" approved="no">
         <source>Couldn’t read the selected adoption candidate for %@</source>
+        <target state="translated">Při čtení vybraného balíčku pro %@ se vyskytla chyba</target>
       </trans-unit>
       <trans-unit id="mass-adoption.failed.message">
         <source>There were errors when adding the selected apps to Homebrew.</source>
@@ -2217,8 +2237,9 @@ Zkuste to znovu nebo restartujte Cork</target>
         <source>Loading package info…</source>
         <target state="needs-review-translation">Načítání informací…</target>
       </trans-unit>
-      <trans-unit id="package-details.dependants">
+      <trans-unit id="package-details.dependants" xml:space="preserve" approved="no">
         <source>Dependency of...</source>
+        <target state="translated">Je závislostí pro balíčky...</target>
         <note>A heading for a list of packages that depend on the current package.</note>
       </trans-unit>
       <trans-unit id="package-details.dependants.dependency-of-%@">
@@ -3432,8 +3453,9 @@ Packages included in it are audited to make sure they are safe.</source>
         <source>Downloading…</source>
         <target state="needs-review-translation">Stahování…</target>
       </trans-unit>
-      <trans-unit id="update-packages.detail-stage.installing-update">
+      <trans-unit id="update-packages.detail-stage.installing-update" xml:space="preserve" approved="no">
         <source>Installing updates...</source>
+        <target state="translated">Instalace aktualizací...</target>
         <note>Description of a stage of updating a package.</note>
       </trans-unit>
       <trans-unit id="update-packages.detail-stage.linking">
@@ -3468,17 +3490,20 @@ Klikněte na "Dokončit v Terminálu"
 Použijte zkratku ⌘+V pro vložení příkazu, který se zkopíruje po tom, co kliknete na "Dokončit v Terminálu". Potom na klávesnici stiskněte ↩ (Return) a řiďte se podle instrukcí v Terminálu
 Až se příkaz dokončí, vraťte se do Corku</target>
       </trans-unit>
-      <trans-unit id="update-packages.failed.details-dropdown.label">
+      <trans-unit id="update-packages.failed.details-dropdown.label" xml:space="preserve" approved="no">
         <source>Unsuccessful updates</source>
+        <target state="translated">Neúspěšné aktualizace</target>
         <note>A label for a dropdown that shows more details about a failed update.</note>
       </trans-unit>
-      <trans-unit id="update-packages.failed.message">
+      <trans-unit id="update-packages.failed.message" xml:space="preserve" approved="no">
         <source>Some updates were not successful.
 Check below for more information on which packages couldn’t be updated, and why those updates failed.</source>
+        <target state="translated">Některé aktualizace neproběhly úspěšně. Více informací naleznete níže.</target>
         <note>Message displayed when an update to the app failed.</note>
       </trans-unit>
-      <trans-unit id="update-packages.failed.title">
+      <trans-unit id="update-packages.failed.title" xml:space="preserve" approved="no">
         <source>Couldn’t update some packages</source>
+        <target state="translated">Při aktualizaci některých balíčků se vyskytly chyby</target>
         <note>Title of the error screen when updating packages failed.</note>
       </trans-unit>
       <trans-unit id="update-packages.finished">
@@ -3497,8 +3522,9 @@ Check below for more information on which packages couldn’t be updated, and wh
         <source>I don't know what you did to make this appear</source>
         <target state="needs-review-translation">Netuším, jak jste se sem dostali</target>
       </trans-unit>
-      <trans-unit id="update-packages.incremental.package-count.%lld-of-%lld">
+      <trans-unit id="update-packages.incremental.package-count.%lld-of-%lld" xml:space="preserve" approved="no">
         <source>update-packages.incremental.package-count.%1$lld-of-%2$lld</source>
+        <target state="needs-translation">update-packages.incremental.package-count.%1$lld-of-%2$lld</target>
       </trans-unit>
       <trans-unit id="update-packages.incremental.update-in-progress-%@">
         <source>Updating %@…</source>
@@ -3516,20 +3542,24 @@ Check below for more information on which packages couldn’t be updated, and wh
         <source>You're all up to date</source>
         <target state="needs-review-translation">Všechny balíčky máte aktuální</target>
       </trans-unit>
-      <trans-unit id="update-packages.sheet-title">
+      <trans-unit id="update-packages.sheet-title" xml:space="preserve" approved="no">
         <source>Updating packages</source>
+        <target state="translated">Aktualizace balíčků</target>
       </trans-unit>
-      <trans-unit id="update-packages.unexpected-outputs.details-dropdown.label">
+      <trans-unit id="update-packages.unexpected-outputs.details-dropdown.label" xml:space="preserve" approved="no">
         <source>Unexpected Homebrew outputs</source>
+        <target state="translated">Neočekávané výstupy Homebrew</target>
         <note>A label for a dropdown that shows unexpected output from a package update.</note>
       </trans-unit>
-      <trans-unit id="update-packages.unexpected-outputs.message">
+      <trans-unit id="update-packages.unexpected-outputs.message" xml:space="preserve" approved="no">
         <source>The updating process encountered some outputs it did not expect.
 This does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious.</source>
+        <target state="translated">Při aktualizaci balíčků se vyskytly neočekávané výstupy. To nemusí znamenat, že tyto aktualizace selhaly. Více informací naleznete níže.</target>
         <note>Message displayed when there are unexpected outputs during the update packages process.</note>
       </trans-unit>
-      <trans-unit id="update-packages.unexpected-outputs.title">
+      <trans-unit id="update-packages.unexpected-outputs.title" xml:space="preserve" approved="no">
         <source>Encountered unexpected Homebrew outputs</source>
+        <target state="translated">Vyskytly se neočekávané výstupy Homebrew</target>
         <note>Title of the unexpected outputs stage in the update packages flow.</note>
       </trans-unit>
       <trans-unit id="update-packages.updating.checking">
