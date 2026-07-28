@@ -23,6 +23,19 @@ jobs:
         run: |
           git checkout origin/main -- Cork/Localizable.xcstrings
           python3 tools/Localization/xcstrings_export.py Cork/Localizable.xcstrings xliff
+      - name: Validate catalog against xcstrings schema
+        run: |
+          pip install jsonschema
+          curl -sSL -o /tmp/xcstrings.schema.json \
+            https://raw.githubusercontent.com/buresdv/xcstrings.schema.json/refs/tags/v1.0.0/xcstrings.schema.json
+          python3 - <<'EOF'
+          import json
+          import jsonschema
+          schema = json.load(open("/tmp/xcstrings.schema.json"))
+          catalog = json.load(open("Cork/Localizable.xcstrings"))
+          jsonschema.validate(catalog, schema)
+          print("Localizable.xcstrings matches the schema")
+          EOF
       - name: Push to l10n branch
         run: |
           git config user.name "l10n-bot"

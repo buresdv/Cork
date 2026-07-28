@@ -1,11 +1,17 @@
 name: Test Application
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
+    branches-ignore:
+      - l10n
+      - l10n-import
+    paths:
+      - "**.swift"
+  pull_request:
+    branches-ignore:
+      - l10n
+    paths:
+      - "**.swift"
+      - l10n-import
 jobs:
   test:
     runs-on: macos-15

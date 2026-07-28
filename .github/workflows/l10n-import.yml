@@ -23,13 +23,26 @@ jobs:
         run: |
           git checkout origin/l10n -- xliff Cork/Localizable.xcstrings
           python3 tools/Localization/xcstrings_import.py Cork/Localizable.xcstrings xliff
+      - name: Validate catalog against xcstrings schema
+        run: |
+          pip install jsonschema
+          curl -sSL -o /tmp/xcstrings.schema.json \
+            https://raw.githubusercontent.com/buresdv/xcstrings.schema.json/refs/tags/v1.0.0/xcstrings.schema.json
+          python3 - <<'EOF'
+          import json
+          import jsonschema
+          schema = json.load(open("/tmp/xcstrings.schema.json"))
+          catalog = json.load(open("Cork/Localizable.xcstrings"))
+          jsonschema.validate(catalog, schema)
+          print("Localizable.xcstrings matches the schema")
+          EOF
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
         with:
           title: "Merge translations into string catalog"
           commit-message: "Merge translations into string catalog"
           branch: l10n-import
-          base: main
+          base: l10n
           delete-branch: true
           add-paths: Cork/Localizable.xcstrings
           labels: l10n
