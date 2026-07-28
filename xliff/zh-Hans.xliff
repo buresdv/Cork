@@ -10,9 +10,9 @@
         <source>(%@)</source>
         <target state="needs-review-translation">(%@)</target>
       </trans-unit>
-      <trans-unit id="DEBUG: Log packages to be adopted">
+      <trans-unit id="DEBUG: Log packages to be adopted" xml:space="preserve" approved="no">
         <source>DEBUG: Log packages to be adopted</source>
-        <target state="needs-review-translation">DEBUG: Log packages to be adopted</target>
+        <target state="translated">调试：记录待采用的软件包</target>
       </trans-unit>
       <trans-unit id="GitHub">
         <source>GitHub</source>
@@ -22,25 +22,25 @@
         <source>Hello, World!</source>
         <target state="needs-review-translation">你好，世界！</target>
       </trans-unit>
-      <trans-unit id="Installing %@">
+      <trans-unit id="Installing %@" xml:space="preserve" approved="no">
         <source>Installing %@</source>
-        <target state="needs-review-translation">安装 %@</target>
+        <target state="translated">正在安装 %@</target>
       </trans-unit>
-      <trans-unit id="Loading info...">
+      <trans-unit id="Loading info..." xml:space="preserve" approved="no">
         <source>Loading info…</source>
-        <target state="needs-review-translation">加载信息...</target>
+        <target state="translated">正在加载信息…</target>
       </trans-unit>
-      <trans-unit id="Loading top packages…">
+      <trans-unit id="Loading top packages…" xml:space="preserve" approved="no">
         <source>Loading top packages… </source>
-        <target state="needs-review-translation">加载热门软件包...</target>
+        <target state="translated">正在加载热门软件包…</target>
       </trans-unit>
       <trans-unit id="Main Window">
         <source>Main Window</source>
         <target state="needs-review-translation">主窗口</target>
       </trans-unit>
-      <trans-unit id="Tap">
+      <trans-unit id="Tap" xml:space="preserve" approved="no">
         <source>Tap</source>
-        <target state="needs-review-translation">Tap</target>
+        <target state="translated">扩展仓库</target>
       </trans-unit>
       <trans-unit id="about.contact">
         <source>Contact Me</source>
@@ -70,17 +70,17 @@
         <source>Rob Napier</source>
         <target state="needs-review-translation">Rob Napier</target>
       </trans-unit>
-      <trans-unit id="about.contributors.1.purpose">
+      <trans-unit id="about.contributors.1.purpose" xml:space="preserve" approved="no">
         <source>Gave invaluable help with all sorts of problems, from async Swift to blocking package installations</source>
-        <target state="needs-review-translation">在从 Swift 异步编程到软件包安装阻塞等各种问题上提供了宝贵帮助</target>
+        <target state="translated">在 Swift 异步编程、软件包安装阻塞等各种问题上提供了宝贵帮助</target>
       </trans-unit>
       <trans-unit id="about.contributors.2.name">
         <source>Łukasz Rutkowski</source>
         <target state="needs-review-translation">Łukasz Rutkowski</target>
       </trans-unit>
-      <trans-unit id="about.contributors.2.purpose">
+      <trans-unit id="about.contributors.2.purpose" xml:space="preserve" approved="no">
         <source>Fixed many async and SwiftUI problems</source>
-        <target state="needs-review-translation">解决了很多异步和 SwiftUI 相关问题</target>
+        <target state="translated">解决了很多异步问题和 SwiftUI 相关问题</target>
       </trans-unit>
       <trans-unit id="about.contributors.3.name">
         <source>Jierong Li</source>
@@ -102,9 +102,9 @@
         <source>Andrey Radchishin</source>
         <target state="needs-review-translation">Andrey Radchishin</target>
       </trans-unit>
-      <trans-unit id="about.contributors.5.purpose">
+      <trans-unit id="about.contributors.5.purpose" xml:space="preserve" approved="no">
         <source>Added a way of going back to the Homebrew Status page</source>
-        <target state="needs-review-translation">添加了返回主页的功能</target>
+        <target state="translated">添加了一种用于返回 Homebrew 状态页的方法</target>
       </trans-unit>
       <trans-unit id="about.contributors.6.name">
         <source>Christian Tietze</source>
@@ -122,33 +122,33 @@
         <source>Created the Tuist configuration for compiling self-hosted versions</source>
         <target state="needs-review-translation">创建了用于自行编译版本的 Tuist 配置</target>
       </trans-unit>
-      <trans-unit id="about.copyright-%@">
+      <trans-unit id="about.copyright-%@" xml:space="preserve" approved="no">
         <source>© %@ David Bureš and contributors</source>
-        <target state="needs-review-translation">© %@ David Bureš 及其他贡献者。</target>
+        <target state="translated">© %@ David Bureš 及其他贡献者</target>
       </trans-unit>
-      <trans-unit id="about.copyright-%lld">
+      <trans-unit id="about.copyright-%lld" xml:space="preserve" approved="no">
         <source>© %lld David Bureš and contributors</source>
-        <target state="needs-review-translation">© %lld David Bureš 及其他贡献者。</target>
+        <target state="translated">© %lld David Bureš 及其他贡献者</target>
       </trans-unit>
-      <trans-unit id="about.packages">
+      <trans-unit id="about.packages" xml:space="preserve" approved="no">
         <source>Packages Used</source>
-        <target state="needs-review-translation">使用的软件包</target>
+        <target state="translated">已使用的软件包</target>
       </trans-unit>
       <trans-unit id="about.packages.1.name">
         <source>DavidFoundation</source>
         <target state="needs-review-translation">DavidFoundation</target>
       </trans-unit>
-      <trans-unit id="about.packages.1.purpose">
+      <trans-unit id="about.packages.1.purpose" xml:space="preserve" approved="no">
         <source>My own package that provides some basic convenience features</source>
-        <target state="needs-review-translation">我自己的软件包提供了一些基本功能</target>
+        <target state="translated">我的软件包，提供了一些基础的便捷功能</target>
       </trans-unit>
       <trans-unit id="about.packages.3.name">
         <source>LaunchAtLogin</source>
         <target state="needs-review-translation">LaunchAtLogin</target>
       </trans-unit>
-      <trans-unit id="about.packages.3.purpose">
+      <trans-unit id="about.packages.3.purpose" xml:space="preserve" approved="no">
         <source>A package that lets Cork start when you log in</source>
-        <target state="needs-review-translation">一个让 Cork 登录时启动的软件包</target>
+        <target state="translated">一个允许 Cork 登录时启动的软件包</target>
       </trans-unit>
       <trans-unit id="about.privacy-policy">
         <source>[Privacy policy](https://corkmac.app/privacy-en.html)</source>
@@ -304,8 +304,9 @@
         <source>Add apps to Homebrew</source>
         <target state="needs-review-translation">Add apps to Homebrew</target>
       </trans-unit>
-      <trans-unit id="action.adopt-some-packages.%lld##/plural/one">
+      <trans-unit id="action.adopt-some-packages.%lld##/plural/one" xml:space="preserve" approved="no">
         <source>Add %lld app</source>
+        <target state="translated">添加%lld个应用</target>
         <note>A button label that says "Adopt" followed by the number of apps that will be adopted.</note>
       </trans-unit>
       <trans-unit id="action.adopt-some-packages.%lld##/plural/other">
@@ -394,11 +395,13 @@
         <source>Installed packages</source>
         <target state="needs-review-translation">Installed packages</target>
       </trans-unit>
-      <trans-unit id="action.open-%@">
+      <trans-unit id="action.open-%@" xml:space="preserve" approved="no">
         <source>Open %@</source>
+        <target state="translated">打开%@</target>
       </trans-unit>
-      <trans-unit id="action.open-detail-for-%@">
+      <trans-unit id="action.open-detail-for-%@" xml:space="preserve" approved="no">
         <source>Open detail for %@</source>
+        <target state="translated">打开%@详情</target>
       </trans-unit>
       <trans-unit id="action.open-terminal">
         <source>Open Terminal</source>
@@ -419,8 +422,9 @@
         <target state="needs-review-translation">Preview %@</target>
         <note>A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.</note>
       </trans-unit>
-      <trans-unit id="action.preview-package.%@">
+      <trans-unit id="action.preview-package.%@" xml:space="preserve" approved="no">
         <source>Preview %@</source>
+        <target state="translated">预览%@</target>
       </trans-unit>
       <trans-unit id="action.purge-%@">
         <source>Purge %@</source>
@@ -553,13 +557,15 @@
         <source>Report on the forums…</source>
         <target state="needs-review-translation">在论坛反馈…</target>
       </trans-unit>
-      <trans-unit id="add-%@-%@.error.title">
+      <trans-unit id="add-%@-%@.error.title" xml:space="preserve" approved="no">
         <source>Couldn’t install %@ %@</source>
+        <target state="translated">无法安装%@ %@</target>
         <note>Title for „Install failed“ sheet. 
 First placeholder is the type of the package, second is the name of the package that was being installed</note>
       </trans-unit>
-      <trans-unit id="add-package.%@.error.unimplemented-outputs.message">
+      <trans-unit id="add-package.%@.error.unimplemented-outputs.message" xml:space="preserve" approved="no">
         <source>While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below</source>
+        <target state="translated">尽管%@可能并未安装失败，仍建议检查下方的意外输出列表</target>
         <note>Message for when an unexpected terminal output gets caught during the install process.
 The placeholder is the name of the package that the user tried to install.</note>
       </trans-unit>
@@ -571,16 +577,19 @@ The placeholder is the name of the package that the user tried to install.</note
         <source>Loading of top packages timed out</source>
         <target state="needs-review-translation">加载热门软件包超时</target>
       </trans-unit>
-      <trans-unit id="add-package.error.title">
+      <trans-unit id="add-package.error.title" xml:space="preserve" approved="no">
         <source>Couldn’t install package</source>
+        <target state="translated">无法安装包</target>
         <note>Title of the error screen.</note>
       </trans-unit>
-      <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label">
+      <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label" xml:space="preserve" approved="no">
         <source>Unexpected outputs</source>
+        <target state="translated">意外输出</target>
         <note>A label for a dropdown that shows the raw output of a failed installation.</note>
       </trans-unit>
-      <trans-unit id="add-package.error.unimplemented-outputs.message">
+      <trans-unit id="add-package.error.unimplemented-outputs.message" xml:space="preserve" approved="no">
         <source>Some unexpected outputs were encountered</source>
+        <target state="translated">遇到一些意外输出</target>
         <note>A message displayed when an error is not yet implemented.</note>
       </trans-unit>
       <trans-unit id="add-package.fatal-error-%@">
@@ -725,12 +734,14 @@ Use the command below.</source>
         <source>No description provided</source>
         <target state="needs-review-translation">未提供任何信息</target>
       </trans-unit>
-      <trans-unit id="add-package.result.description.too-many-outputs.dropdown-label">
+      <trans-unit id="add-package.result.description.too-many-outputs.dropdown-label" xml:space="preserve" approved="no">
         <source>Unexpected outputs</source>
+        <target state="translated">意外输出</target>
         <note>A label that describes a dropdown that shows a list of possible package descriptions.</note>
       </trans-unit>
-      <trans-unit id="add-package.result.description.too-many-outputs.label">
+      <trans-unit id="add-package.result.description.too-many-outputs.label" xml:space="preserve" approved="no">
         <source>There was an unexpected output</source>
+        <target state="translated">存在一个意外输出</target>
         <note>A label displayed when a package has too many output.</note>
       </trans-unit>
       <trans-unit id="add-package.result.loading-description">
@@ -749,8 +760,9 @@ Use the command below.</source>
         <source>Search</source>
         <target state="needs-review-translation">搜索</target>
       </trans-unit>
-      <trans-unit id="add-package.search.failed">
+      <trans-unit id="add-package.search.failed" xml:space="preserve" approved="no">
         <source>Couldn’t find anything</source>
+        <target state="translated">找不到任何内容</target>
         <note>Label for an inline content unavailable view that indicates that a search for packages failed.</note>
       </trans-unit>
       <trans-unit id="add-package.search.prompt">
@@ -794,13 +806,15 @@ Use the command below.</source>
         <source>Top Formulae</source>
         <target state="needs-review-translation">热门 Formula</target>
       </trans-unit>
-      <trans-unit id="add-package.top-packages.list-item-%@">
+      <trans-unit id="add-package.top-packages.list-item-%@" xml:space="preserve" approved="no">
         <source>%@ downloads</source>
+        <target state="translated">下载%@个</target>
         <note>Label for the umber of downloads in a top package.
 Placeholder is the number of times the package was downloaded.</note>
       </trans-unit>
-      <trans-unit id="add-package.top-packages.list-item-%lld##/plural/one">
+      <trans-unit id="add-package.top-packages.list-item-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>%lld download</source>
+        <target state="translated">下载了%lld个</target>
       </trans-unit>
       <trans-unit id="add-package.top-packages.list-item-%lld##/plural/other">
         <source>%lld downloads</source>
@@ -1249,8 +1263,9 @@ Uninstall them and try again</source>
         <source>DEBUG</source>
         <target state="needs-review-translation">DEBUG</target>
       </trans-unit>
-      <trans-unit id="downloading">
+      <trans-unit id="downloading" xml:space="preserve" approved="no">
         <source>downloading</source>
+        <target state="translated">下载中</target>
       </trans-unit>
       <trans-unit id="error-inspector.title">
         <source>Error Inspector</source>
@@ -1664,23 +1679,27 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</so
         <source>Maintenance Finished</source>
         <target state="needs-review-translation">维护完成</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/one">
+      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/one" xml:space="preserve" approved="no">
         <source>One orphaned package was removed</source>
+        <target state="translated">已移除 1 个孤立的软件包</target>
         <note>A message that describes the number of orphaned formulae that were removed. The argument is the number of orphaned formulae that were removed.</note>
       </trans-unit>
-      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/other">
+      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/other" xml:space="preserve" approved="no">
         <source>%lld orphaned packages were removed</source>
+        <target state="translated">已移除 %lld 个孤立的软件包</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.action-not-performed">
+      <trans-unit id="maintenance.results.action-not-performed" xml:space="preserve" approved="no">
         <source>This action was not performed</source>
+        <target state="translated">该操作没有被执行</target>
         <note>A message displayed when a maintenance action was not performed.</note>
       </trans-unit>
       <trans-unit id="maintenance.results.cached-downloads">
         <source>Cached downloads deleted</source>
         <target state="needs-review-translation">下载缓存已删除</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.cached-downloads.could-not-determine-reclaimed-space">
+      <trans-unit id="maintenance.results.cached-downloads.could-not-determine-reclaimed-space" xml:space="preserve" approved="no">
         <source>Couldn’t determine how much space was freed</source>
+        <target state="translated">无法确定释放了多少存储空间</target>
       </trans-unit>
       <trans-unit id="maintenance.results.cached-downloads.summary-%@">
         <source>You reclaimed %@</source>
@@ -1694,16 +1713,18 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</so
         <source>No problems with Homebrew found</source>
         <target state="needs-review-translation">未发现 Homebrew 相关问题</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.health-check.problems.show-list">
+      <trans-unit id="maintenance.results.health-check.problems.show-list" xml:space="preserve" approved="no">
         <source>Show problems</source>
+        <target state="translated">展示问题</target>
         <note>A button to show a list of health check problems.</note>
       </trans-unit>
       <trans-unit id="maintenance.results.orphans-count-%lld##/plural/zero">
         <source>No orphaned packages found</source>
         <target state="needs-review-translation">未发现孤立包</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.orphans-count-%lld##/plural/one">
+      <trans-unit id="maintenance.results.orphans-count-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>%lld orphaned package removed</source>
+        <target state="translated">已移除 %lld 个孤立的软件包</target>
       </trans-unit>
       <trans-unit id="maintenance.results.orphans-count-%lld##/plural/other">
         <source>%lld orphaned packages removed</source>
@@ -1737,8 +1758,9 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</so
         <source>Some caches weren't purged because of %@ not being updated</source>
         <target state="needs-review-translation">因 %@ 没有更新，部分缓存未被清除</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.package-cache.skipped-%@-and-%lld-others##/plural/one">
+      <trans-unit id="maintenance.results.package-cache.skipped-%@-and-%lld-others##/plural/one" xml:space="preserve" approved="no">
         <source>Some caches weren't purged because of %@ and %lld other package not being updated</source>
+        <target state="translated">由于 %@ 和其余%lld 个软件包未更新，一些缓存未被清除</target>
       </trans-unit>
       <trans-unit id="maintenance.results.package-cache.skipped-%@-and-%lld-others##/plural/other">
         <source>Some caches weren't purged because of %@ and %lld other packages not being updated</source>
@@ -1817,8 +1839,9 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</so
         <target state="needs-review-translation">无法获取此 Cask 的采用候选项</target>
         <note>A message displayed when a failed adoption attempt does not include the name of the selected adoption candidate's cask.</note>
       </trans-unit>
-      <trans-unit id="mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@">
+      <trans-unit id="mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@" xml:space="preserve" approved="no">
         <source>Version %@ is required, but version %@ is installed</source>
+        <target state="translated">要求满足版本 %@，但当前安装的为版本 %@</target>
       </trans-unit>
       <trans-unit id="mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected">
         <source>Couldn’t read the selected adoption candidate for %@</source>
@@ -1904,8 +1927,9 @@ Try again, or restart Cork</source>
         <source>Install a new package</source>
         <target state="needs-review-translation">安装软件包</target>
       </trans-unit>
-      <trans-unit id="navigation.installed-packages.count-%lld##/plural/one">
+      <trans-unit id="navigation.installed-packages.count-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>%lld package installed</source>
+        <target state="translated">已安装 %lld 个软件包</target>
       </trans-unit>
       <trans-unit id="navigation.installed-packages.count-%lld##/plural/other">
         <source>%lld packages installed</source>
@@ -1991,8 +2015,9 @@ Try again, or restart Cork</source>
         <source>New outdated package</source>
         <target state="needs-review-translation">有可用软件包更新</target>
       </trans-unit>
-      <trans-unit id="notification.outdated-packages-found.body-%lld##/plural/one">
+      <trans-unit id="notification.outdated-packages-found.body-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>You have %lld outdated package</source>
+        <target state="translated">当前有 %lld 个过时的软件包</target>
       </trans-unit>
       <trans-unit id="notification.outdated-packages-found.body-%lld##/plural/other">
         <source>You have %lld outdated packages</source>
@@ -2193,8 +2218,9 @@ Try again, or restart Cork</source>
         <source>Loading package info…</source>
         <target state="needs-review-translation">加载软件包信息…</target>
       </trans-unit>
-      <trans-unit id="package-details.dependants">
+      <trans-unit id="package-details.dependants" xml:space="preserve" approved="no">
         <source>Dependency of...</source>
+        <target state="translated">依赖于...</target>
         <note>A heading for a list of packages that depend on the current package.</note>
       </trans-unit>
       <trans-unit id="package-details.dependants.dependency-of-%@">
@@ -2349,8 +2375,9 @@ Try again, or restart Cork</source>
         <source>Loading service info…</source>
         <target state="needs-review-translation">加载服务信息...</target>
       </trans-unit>
-      <trans-unit id="service-status-page.active-services-%lld##/plural/one">
+      <trans-unit id="service-status-page.active-services-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>You have %lld active service</source>
+        <target state="translated">有 %lld 个正在运行的服务</target>
       </trans-unit>
       <trans-unit id="service-status-page.active-services-%lld##/plural/other">
         <source>You have %lld active services</source>
@@ -2360,8 +2387,9 @@ Try again, or restart Cork</source>
         <source>These services are running normally</source>
         <target state="needs-review-translation">以下服务运行正常</target>
       </trans-unit>
-      <trans-unit id="service-status-page.errored-out-services-%lld##/plural/one">
+      <trans-unit id="service-status-page.errored-out-services-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>You have %lld service with errors</source>
+        <target state="translated">有 %lld 个服务存在错误</target>
       </trans-unit>
       <trans-unit id="service-status-page.errored-out-services-%lld##/plural/other">
         <source>You have %lld services with errors</source>
@@ -2371,8 +2399,9 @@ Try again, or restart Cork</source>
         <source>These services either crashed, or could not be started at all</source>
         <target state="needs-review-translation">这些服务可能崩溃或无法启动</target>
       </trans-unit>
-      <trans-unit id="service-status-page.inactive-services-%lld##/plural/one">
+      <trans-unit id="service-status-page.inactive-services-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>You have %lld inactive service</source>
+        <target state="translated">有 %lld 个停用服务</target>
       </trans-unit>
       <trans-unit id="service-status-page.inactive-services-%lld##/plural/other">
         <source>You have %lld inactive services</source>
@@ -2394,8 +2423,9 @@ Try again, or restart Cork</source>
         <source>Services Status</source>
         <target state="needs-review-translation">服务状态</target>
       </trans-unit>
-      <trans-unit id="service-status-page.unknown-services-%lld##/plural/one">
+      <trans-unit id="service-status-page.unknown-services-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>You have %lld service with an unknown status</source>
+        <target state="translated">有 %lld 个状态未知的服务</target>
       </trans-unit>
       <trans-unit id="service-status-page.unknown-services-%lld##/plural/other">
         <source>You have %lld services with an unknown status</source>
@@ -2453,8 +2483,9 @@ Try again, or restart Cork</source>
         <source>Services</source>
         <target state="needs-review-translation">服务</target>
       </trans-unit>
-      <trans-unit id="services.count.%lld##/plural/one">
+      <trans-unit id="services.count.%lld##/plural/one" xml:space="preserve" approved="no">
         <source>%lld service found</source>
+        <target state="translated">找到 %lld 个服务</target>
       </trans-unit>
       <trans-unit id="services.count.%lld##/plural/other">
         <source>%lld services found</source>
@@ -2983,13 +3014,13 @@ This can remove shared files and break your other packages.</source>
         <source>Balanced</source>
         <target state="needs-review-translation">均衡</target>
       </trans-unit>
-      <trans-unit id="setup.level.slightly-advanced.title">
+      <trans-unit id="setup.level.slightly-advanced.title" xml:space="preserve" approved="no">
         <source>Slightly Advanced</source>
-        <target state="needs-review-translation">较为高级</target>
+        <target state="translated">较高级</target>
       </trans-unit>
-      <trans-unit id="setup.level.slightly-basic.title">
+      <trans-unit id="setup.level.slightly-basic.title" xml:space="preserve" approved="no">
         <source>Slightly Basic</source>
-        <target state="needs-review-translation">较为基础</target>
+        <target state="translated">较基础</target>
       </trans-unit>
       <trans-unit id="setup.slider.title">
         <source>How would you like to experience Cork?</source>
@@ -3000,9 +3031,9 @@ This can remove shared files and break your other packages.</source>
         <target state="needs-review-translation">已安装软件包</target>
         <note>MARK: - Sidebar</note>
       </trans-unit>
-      <trans-unit id="sidebar.section.added-taps">
+      <trans-unit id="sidebar.section.added-taps" xml:space="preserve" approved="no">
         <source>Added Taps</source>
-        <target state="needs-review-translation">已安装 Tap</target>
+        <target state="translated">已添加的扩展仓库</target>
       </trans-unit>
       <trans-unit id="sidebar.section.added-taps.contextmenu.remove-%@">
         <source>Remove %@</source>
@@ -3040,8 +3071,9 @@ This can remove shared files and break your other packages.</source>
         <source>No Formulae installed</source>
         <target state="needs-review-translation">未安装任何 Formulae</target>
       </trans-unit>
-      <trans-unit id="start-page.added-taps.count-%lld##/plural/one">
+      <trans-unit id="start-page.added-taps.count-%lld##/plural/one" xml:space="preserve" approved="no">
         <source>You have %lld Tap added</source>
+        <target state="translated">添加了 %lld 个扩展仓库</target>
       </trans-unit>
       <trans-unit id="start-page.added-taps.count-%lld##/plural/other">
         <source>You have %lld Taps added</source>
