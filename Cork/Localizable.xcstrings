@@ -9789,6 +9789,12 @@
     },
     "action.open-%@": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otevřít %@"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -9805,6 +9811,12 @@
     },
     "action.open-detail-for-%@": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otevřít detail pro %@"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -10227,6 +10239,12 @@
     },
     "action.preview-package.%@": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nahlédnout do %@"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -13363,6 +13381,12 @@
       "comment": "Title for „Install failed“ sheet. \nFirst placeholder is the type of the package, second is the name of the package that was being installed",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Při instalaci %@ %@ se vyskytla chyba"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -13375,6 +13399,12 @@
       "comment": "Message for when an unexpected terminal output gets caught during the install process.\nThe placeholder is the name of the package that the user tried to install.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To nemusí znamenat, že instalace balíčku %@ nebyla úspěšná. Více informací naleznete níže"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -13588,6 +13618,12 @@
       "comment": "Title of the error screen.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Při instalaci balíčku se vyskytla chyba"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -13600,6 +13636,12 @@
       "comment": "A label for a dropdown that shows the raw output of a failed installation.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neočekávané výstupy"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -13612,6 +13654,12 @@
       "comment": "A message displayed when an error is not yet implemented.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vyskytly se neočekávané výstupy"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -14631,6 +14679,12 @@
     },
     "add-package.install.conflicting-cask-installed.%@-conflicts-with-%@": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "needs_review",
@@ -14641,6 +14695,12 @@
     },
     "add-package.install.conflicting-cask-installed.%@-conflicts-with-%@.recovery-suggestion": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "add-package.install.conflicting-cask-installed.%1$@-conflicts-with-%2$@.recovery-suggestion"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "needs_review",
@@ -16777,6 +16837,12 @@
       "comment": "A label that describes a dropdown that shows a list of possible package descriptions.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neočekávané výstupy"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -16789,6 +16855,12 @@
       "comment": "A label displayed when a package has too many output.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vyskytl se neočekávaný výstup"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -17203,6 +17275,12 @@
       "comment": "Label for an inline content unavailable view that indicates that a search for packages failed.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Výsledek hledání je prázdný"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -18217,6 +18295,12 @@
       "comment": "Label for the umber of downloads in a top package.\nPlaceholder is the number of times the package was downloaded.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ stažení"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -18230,6 +18314,12 @@
         "cs": {
           "variations": {
             "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "1 stažení"
+                }
+              },
               "other": {
                 "stringUnit": {
                   "state": "needs_review",
@@ -29008,6 +29098,12 @@
     "downloading": {
       "extractionState": "stale",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stahování"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -38944,6 +39040,24 @@
       "comment": "A message that describes the number of orphaned formulae that were removed. The argument is the number of orphaned formulae that were removed.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Jeden osiřelý balíček byl odstraněn"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld osiřelých balíčků bylo odstraněno"
+                }
+              }
+            }
+          }
+        },
         "en": {
           "variations": {
             "plural": {
@@ -38968,6 +39082,12 @@
       "comment": "A message displayed when a maintenance action was not performed.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Krok neproběhl"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -39078,6 +39198,12 @@
     },
     "maintenance.results.cached-downloads.could-not-determine-reclaimed-space": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Při výpočtu uvolněného místa se vyskytla chyba"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -39390,6 +39516,12 @@
       "comment": "A button to show a list of health check problems.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zobrazit problémy"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -42461,6 +42593,12 @@
     },
     "mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je nutná verze %@, ale je nainstalovaná verze %@"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -42471,6 +42609,12 @@
     },
     "mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Při čtení vybraného balíčku pro %@ se vyskytla chyba"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -51577,6 +51721,12 @@
       "comment": "A heading for a list of packages that depend on the current package.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je závislostí pro balíčky..."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -80439,6 +80589,12 @@
       "comment": "Description of a stage of updating a package.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instalace aktualizací..."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81055,6 +81211,12 @@
       "comment": "A label for a dropdown that shows more details about a failed update.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neúspěšné aktualizace"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81067,6 +81229,12 @@
       "comment": "Message displayed when an update to the app failed.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Některé aktualizace neproběhly úspěšně. Více informací naleznete níže."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81079,6 +81247,12 @@
       "comment": "Title of the error screen when updating packages failed.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Při aktualizaci některých balíčků se vyskytly chyby"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81491,6 +81665,12 @@
     },
     "update-packages.incremental.package-count.%lld-of-%lld": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "update-packages.incremental.package-count.%1$lld-of-%2$lld"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "needs_review",
@@ -81902,6 +82082,12 @@
     },
     "update-packages.sheet-title": {
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktualizace balíčků"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81914,6 +82100,12 @@
       "comment": "A label for a dropdown that shows unexpected output from a package update.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neočekávané výstupy Homebrew"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81926,6 +82118,12 @@
       "comment": "Message displayed when there are unexpected outputs during the update packages process.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Při aktualizaci balíčků se vyskytly neočekávané výstupy. To nemusí znamenat, že tyto aktualizace selhaly. Více informací naleznete níže."
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
@@ -81938,6 +82136,12 @@
       "comment": "Title of the unexpected outputs stage in the update packages flow.",
       "extractionState": "manual",
       "localizations": {
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vyskytly se neočekávané výstupy Homebrew"
+          }
+        },
         "en": {
           "stringUnit": {
             "state": "translated",
