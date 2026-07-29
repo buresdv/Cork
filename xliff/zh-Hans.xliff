@@ -242,76 +242,76 @@
         <source>List of outdated packages</source>
         <target state="needs-review-translation">List of outdated packages</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.outdated-packages-box.loading">
+      <trans-unit id="accessibility.label.outdated-packages-box.loading" xml:space="preserve" approved="no">
         <source>Loading outdated packages</source>
-        <target state="needs-review-translation">Loading outdated packages</target>
+        <target state="translated">正在加载已过时的软件包</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.package-type.cask">
+      <trans-unit id="accessibility.label.package-type.cask" xml:space="preserve" approved="no">
         <source>Package of Cask type</source>
-        <target state="needs-review-translation">Package of Cask type</target>
+        <target state="translated">Cask 类型软件包</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.package-type.formula">
+      <trans-unit id="accessibility.label.package-type.formula" xml:space="preserve" approved="no">
         <source>Package of Formula type</source>
-        <target state="needs-review-translation">Package of Formula type</target>
+        <target state="translated">Formula 类型软件包</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.package-type.unimplemented">
+      <trans-unit id="accessibility.label.package-type.unimplemented" xml:space="preserve" approved="no">
         <source>Package of an unimplemented type</source>
-        <target state="needs-review-translation">Package of an unimplemented type</target>
+        <target state="translated">未实现类型的软件包</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.package-type.unknown">
+      <trans-unit id="accessibility.label.package-type.unknown" xml:space="preserve" approved="no">
         <source>Package of an unknown type</source>
-        <target state="needs-review-translation">Package of an unknown type</target>
+        <target state="translated">未知类型的软件包</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.return-to-status-page">
+      <trans-unit id="accessibility.label.return-to-status-page" xml:space="preserve" approved="no">
         <source>Return to status page</source>
-        <target state="needs-review-translation">Return to status page</target>
+        <target state="translated">返回状态页面</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.sidebar">
+      <trans-unit id="accessibility.label.sidebar" xml:space="preserve" approved="no">
         <source>List of installed packages</source>
-        <target state="needs-review-translation">List of installed packages</target>
+        <target state="translated">已安装的软件包列表</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.sidebar.casks-section">
+      <trans-unit id="accessibility.label.sidebar.casks-section" xml:space="preserve" approved="no">
         <source>List of installed Casks</source>
-        <target state="needs-review-translation">List of installed Casks</target>
+        <target state="translated">已安装的 Cask 列表</target>
       </trans-unit>
-      <trans-unit id="accessibility.label.sidebar.formulae-section">
+      <trans-unit id="accessibility.label.sidebar.formulae-section" xml:space="preserve" approved="no">
         <source>List of installed Formulae</source>
-        <target state="needs-review-translation">List of installed Formulae</target>
+        <target state="translated">已安装的 Formulae 软件包列表</target>
       </trans-unit>
-      <trans-unit id="accessibility.value.listing-outdated-packages.%lld-managed.%lld-unmanaged">
+      <trans-unit id="accessibility.value.listing-outdated-packages.%lld-managed.%lld-unmanaged" xml:space="preserve" approved="no">
         <source>%lld outdated packages managed by Homebrew and %lld outdated packages not managed by Homebrew</source>
-        <target state="needs-review-translation">%lld outdated packages managed by Homebrew and %lld outdated packages not managed by Homebrew</target>
+        <target state="translated">%lld 个由 Homebrew 管理的过时的软件包和 %lld 个不由 Homebrew 管理的过时的软件包</target>
       </trans-unit>
       <trans-unit id="action.activate-demo">
         <source>Try Demo</source>
         <target state="needs-review-translation">试用</target>
       </trans-unit>
-      <trans-unit id="action.adopt">
+      <trans-unit id="action.adopt" xml:space="preserve" approved="no">
         <source>Adopt</source>
-        <target state="needs-review-translation">Adopt</target>
+        <target state="translated">接管</target>
         <note>Action for adopting a package into Homebrew - it will add the already-instaled package into Homerbew to start updating it through Homebrew</note>
       </trans-unit>
-      <trans-unit id="action.adopt-%@">
+      <trans-unit id="action.adopt-%@" xml:space="preserve" approved="no">
         <source>Adopt %@</source>
-        <target state="needs-review-translation">Adopt %@</target>
+        <target state="translated">接管 %@</target>
       </trans-unit>
-      <trans-unit id="action.adopt-packages">
+      <trans-unit id="action.adopt-packages" xml:space="preserve" approved="no">
         <source>Add</source>
-        <target state="needs-review-translation">Add</target>
+        <target state="translated">添加</target>
         <note>A button label that translates to "Adopt packages" in English.</note>
       </trans-unit>
-      <trans-unit id="action.adopt-packages.longer">
+      <trans-unit id="action.adopt-packages.longer" xml:space="preserve" approved="no">
         <source>Add apps to Homebrew</source>
-        <target state="needs-review-translation">Add apps to Homebrew</target>
+        <target state="translated">添加程序至 Homebrew</target>
       </trans-unit>
       <trans-unit id="action.adopt-some-packages.%lld##/plural/one">
         <source>Add %lld app</source>
-        <target state="translated">添加%lld个应用</target>
+        <target state="translated">添加 %lld 个应用</target>
         <note>A button label that says "Adopt" followed by the number of apps that will be adopted.</note>
       </trans-unit>
-      <trans-unit id="action.adopt-some-packages.%lld##/plural/other">
+      <trans-unit id="action.adopt-some-packages.%lld##/plural/other" xml:space="preserve" approved="no">
         <source>Add %lld apps</source>
-        <target state="needs-review-translation">Add %lld apps</target>
+        <target state="translated">添加 %lld 个应用</target>
       </trans-unit>
       <trans-unit id="action.buy">
         <source>Buy Cork</source>
@@ -321,17 +321,17 @@
         <source>Cancel</source>
         <target state="needs-review-translation">取消</target>
       </trans-unit>
-      <trans-unit id="action.cancel-and-disable-mass-adoption">
+      <trans-unit id="action.cancel-and-disable-mass-adoption" xml:space="preserve" approved="no">
         <source>Cancel and disable mass app adoption</source>
-        <target state="needs-review-translation">Cancel and disable mass app adoption</target>
+        <target state="translated">取消并停止批量应用接管</target>
       </trans-unit>
-      <trans-unit id="action.check-for-updates">
+      <trans-unit id="action.check-for-updates" xml:space="preserve" approved="no">
         <source>Check for Updates…</source>
-        <target state="needs-review-translation">Check for Updates…</target>
+        <target state="translated">正在检查更新…</target>
       </trans-unit>
-      <trans-unit id="action.check-for-updates.help">
+      <trans-unit id="action.check-for-updates.help" xml:space="preserve" approved="no">
         <source>Check for outdated packages</source>
-        <target state="needs-review-translation">Check for outdated packages</target>
+        <target state="translated">检查过时软件包</target>
       </trans-unit>
       <trans-unit id="action.check-license">
         <source>Activate</source>
@@ -357,9 +357,9 @@
         <source>Done</source>
         <target state="needs-review-translation">完成</target>
       </trans-unit>
-      <trans-unit id="action.finish-updating-in-terminal">
+      <trans-unit id="action.finish-updating-in-terminal" xml:space="preserve" approved="no">
         <source>Finish in Terminal</source>
-        <target state="needs-review-translation">在终端中继续</target>
+        <target state="translated">切换至终端中完成</target>
       </trans-unit>
       <trans-unit id="action.go-to-status-page">
         <source>Status page</source>
@@ -374,13 +374,13 @@
         <source>Hide</source>
         <target state="needs-review-translation">隐藏</target>
       </trans-unit>
-      <trans-unit id="action.hide-adoptable-packages-section-if-only-excluded-apps-available">
+      <trans-unit id="action.hide-adoptable-packages-section-if-only-excluded-apps-available" xml:space="preserve" approved="no">
         <source>Hide section…</source>
-        <target state="needs-review-translation">Hide section…</target>
+        <target state="translated">隐藏部分…</target>
       </trans-unit>
-      <trans-unit id="action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm">
+      <trans-unit id="action.hide-adoptable-packages-section-if-only-excluded-apps-available.confirm" xml:space="preserve" approved="no">
         <source>Hide section</source>
-        <target state="needs-review-translation">Hide section</target>
+        <target state="translated">隐藏部分</target>
       </trans-unit>
       <trans-unit id="action.hide-search-field.hint">
         <source>Hide search field for adoptable packages</source>
@@ -391,40 +391,40 @@
         <source>Inspect error…</source>
         <target state="needs-review-translation">检查错误…</target>
       </trans-unit>
-      <trans-unit id="action.intents.get-installed-packages.short-title">
+      <trans-unit id="action.intents.get-installed-packages.short-title" xml:space="preserve" approved="no">
         <source>Installed packages</source>
-        <target state="needs-review-translation">Installed packages</target>
+        <target state="translated">已安装的软件包</target>
       </trans-unit>
       <trans-unit id="action.open-%@">
         <source>Open %@</source>
-        <target state="translated">打开%@</target>
+        <target state="translated">打开 %@</target>
       </trans-unit>
       <trans-unit id="action.open-detail-for-%@">
         <source>Open detail for %@</source>
-        <target state="translated">打开%@详情</target>
+        <target state="translated">打开 %@ 详情</target>
       </trans-unit>
       <trans-unit id="action.open-terminal">
         <source>Open Terminal</source>
         <target state="needs-review-translation">打开终端</target>
       </trans-unit>
-      <trans-unit id="action.package-adoption.ignore.%@">
+      <trans-unit id="action.package-adoption.ignore.%@" xml:space="preserve" approved="no">
         <source>Ignore %@</source>
-        <target state="needs-review-translation">Ignore %@</target>
+        <target state="translated">忽略 %@</target>
         <note>A button that allows a user to ignore a particular app that is being recommended for adoption. The argument is the name of the app.</note>
       </trans-unit>
-      <trans-unit id="action.package-adoption.include.%@">
+      <trans-unit id="action.package-adoption.include.%@" xml:space="preserve" approved="no">
         <source>Stop ignoring %@</source>
-        <target state="needs-review-translation">Stop ignoring %@</target>
+        <target state="translated">停止忽略 %@</target>
         <note>A menu item that allows the user to include a package in the app store. The argument is the name of the package, and the second argument is the system image for the plus sign.</note>
       </trans-unit>
-      <trans-unit id="action.preview-package-app-would-be-adopted-as.%@">
+      <trans-unit id="action.preview-package-app-would-be-adopted-as.%@" xml:space="preserve" approved="no">
         <source>Preview %@</source>
-        <target state="needs-review-translation">Preview %@</target>
+        <target state="translated">预览 %@</target>
         <note>A context menu item that previews the app that would be adopted. The argument is a localized string describing the app that would be adopted.</note>
       </trans-unit>
       <trans-unit id="action.preview-package.%@">
         <source>Preview %@</source>
-        <target state="translated">预览%@</target>
+        <target state="translated">预览 %@</target>
       </trans-unit>
       <trans-unit id="action.purge-%@">
         <source>Purge %@</source>
@@ -475,22 +475,22 @@
         <source>Restart Cork</source>
         <target state="needs-review-translation">重启 Cork</target>
       </trans-unit>
-      <trans-unit id="action.reveal-%@-in-finder">
+      <trans-unit id="action.reveal-%@-in-finder" xml:space="preserve" approved="no">
         <source>Reveal %@ in Finder</source>
-        <target state="needs-review-translation">Reveal %@ in Finder</target>
+        <target state="translated">在 Finder 中显示 %@</target>
         <note>A button that reveals the location of a specific adoptable package in the Finder. The argument is the name of the adoptable package.</note>
       </trans-unit>
-      <trans-unit id="action.reveal-applications-folder-in-finder">
+      <trans-unit id="action.reveal-applications-folder-in-finder" xml:space="preserve" approved="no">
         <source>Reveal Applications in Finder</source>
-        <target state="needs-review-translation">在访达中显示应用程序</target>
+        <target state="translated">在 Finder 中显示应用程序</target>
       </trans-unit>
-      <trans-unit id="action.reveal-certain-file-in-finder-%@">
+      <trans-unit id="action.reveal-certain-file-in-finder-%@" xml:space="preserve" approved="no">
         <source>Reveal %@ in Finder</source>
-        <target state="needs-review-translation">在访达中显示 %@</target>
+        <target state="translated">在 Finder 中显示 %@</target>
       </trans-unit>
-      <trans-unit id="action.reveal-in-finder">
+      <trans-unit id="action.reveal-in-finder" xml:space="preserve" approved="no">
         <source>Reveal in Finder</source>
-        <target state="needs-review-translation">在访达中显示</target>
+        <target state="translated">在 Finder 中显示</target>
       </trans-unit>
       <trans-unit id="action.search-again">
         <source>Search Again</source>
@@ -500,29 +500,29 @@
         <source>Show</source>
         <target state="needs-review-translation">显示</target>
       </trans-unit>
-      <trans-unit id="action.show-less">
+      <trans-unit id="action.show-less" xml:space="preserve" approved="no">
         <source>Show less</source>
-        <target state="needs-review-translation">Show less</target>
+        <target state="translated">显示更少</target>
         <note>A label for a button that shows fewer items.</note>
       </trans-unit>
-      <trans-unit id="action.show-more">
+      <trans-unit id="action.show-more" xml:space="preserve" approved="no">
         <source>Show more</source>
-        <target state="needs-review-translation">Show more</target>
+        <target state="translated">显示更多</target>
         <note>A button label that translates to "Show more" in English.</note>
       </trans-unit>
-      <trans-unit id="action.show-search-field">
+      <trans-unit id="action.show-search-field" xml:space="preserve" approved="no">
         <source>Show search field</source>
-        <target state="needs-review-translation">显示搜索框</target>
+        <target state="translated">显示搜索框</target>
         <note>A label for a button that shows a search field.</note>
       </trans-unit>
-      <trans-unit id="action.show-search-field.hint">
+      <trans-unit id="action.show-search-field.hint" xml:space="preserve" approved="no">
         <source>Show search field for adoptable packages</source>
-        <target state="needs-review-translation">显示可接管软件包搜索框</target>
+        <target state="translated">显示可接管软件包的搜索框</target>
         <note>A hint for a button that shows a search field.</note>
       </trans-unit>
-      <trans-unit id="action.show-terminal-output">
+      <trans-unit id="action.show-terminal-output" xml:space="preserve" approved="no">
         <source>Show Homebrew output</source>
-        <target state="needs-review-translation">显示终端输出</target>
+        <target state="translated">显示 Homebrew 输出</target>
       </trans-unit>
       <trans-unit id="action.uninstall-%@">
         <source>Uninstall %@</source>
@@ -537,9 +537,9 @@
         <target state="needs-review-translation">更新 %@</target>
         <note>Updating individual packages - "Update (package name)"</note>
       </trans-unit>
-      <trans-unit id="action.update-homebrew">
+      <trans-unit id="action.update-homebrew" xml:space="preserve" approved="no">
         <source>Update Homebrew and all packages</source>
-        <target state="needs-review-translation">更新 Homebrew 及所有包</target>
+        <target state="translated">更新 Homebrew 及所有软件包</target>
       </trans-unit>
       <trans-unit id="action.update-homebrew.terminal">
         <source>Update Homebrew through Terminal</source>
@@ -559,13 +559,13 @@
       </trans-unit>
       <trans-unit id="add-%@-%@.error.title">
         <source>Couldn’t install %@ %@</source>
-        <target state="translated">无法安装%@ %@</target>
+        <target state="translated">无法安装 %@ %@</target>
         <note>Title for „Install failed“ sheet. 
 First placeholder is the type of the package, second is the name of the package that was being installed</note>
       </trans-unit>
       <trans-unit id="add-package.%@.error.unimplemented-outputs.message">
         <source>While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below</source>
-        <target state="translated">尽管%@可能并未安装失败，仍建议检查下方的意外输出列表</target>
+        <target state="translated">尽管 %@ 可能并未安装失败，仍建议检查下方的意外输出列表</target>
         <note>Message for when an unexpected terminal output gets caught during the install process.
 The placeholder is the name of the package that the user tried to install.</note>
       </trans-unit>
@@ -579,7 +579,7 @@ The placeholder is the name of the package that the user tried to install.</note
       </trans-unit>
       <trans-unit id="add-package.error.title">
         <source>Couldn’t install package</source>
-        <target state="translated">无法安装包</target>
+        <target state="translated">无法安装软件包</target>
         <note>Title of the error screen.</note>
       </trans-unit>
       <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label">
@@ -596,15 +596,14 @@ The placeholder is the name of the package that the user tried to install.</note
         <source>An error occurred while installing %@</source>
         <target state="needs-review-translation">安装 %@ 时出现错误</target>
       </trans-unit>
-      <trans-unit id="add-package.fatal-error.description">
+      <trans-unit id="add-package.fatal-error.description" xml:space="preserve" approved="no">
         <source>Try installing the package again, or restarting Cork
 If the problem persists, restart your Mac</source>
-        <target state="needs-review-translation">请尝试重新安装软件包或重启 Cork
-如果问题仍然存在，请重启您的 Mac</target>
+        <target state="translated">尝试重新安装软件包或重启 Cork，如果问题仍然存在，请重启您的 Mac</target>
       </trans-unit>
-      <trans-unit id="add-package.fatal-error.generic">
+      <trans-unit id="add-package.fatal-error.generic" xml:space="preserve" approved="no">
         <source>An error occurred during the install process</source>
-        <target state="needs-review-translation">安装过程出现错误</target>
+        <target state="translated">安装过程中出现错误</target>
       </trans-unit>
       <trans-unit id="add-package.finished">
         <source>Packages successfully installed</source>
