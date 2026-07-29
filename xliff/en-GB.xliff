@@ -557,15 +557,15 @@
         <source>Report on the forums…</source>
         <target state="needs-review-translation">Report on the forums…</target>
       </trans-unit>
-      <trans-unit id="add-%@-%@.error.title" xml:space="preserve" approved="no">
+      <trans-unit id="add-%@-%@.error.title">
         <source>Couldn’t install %@ %@</source>
-        <target state="needs-translation">Couldn’t install %@ %@</target>
+        <target state="needs-review-translation">Couldn’t install %@ %@</target>
         <note>Title for „Install failed“ sheet. 
 First placeholder is the type of the package, second is the name of the package that was being installed</note>
       </trans-unit>
-      <trans-unit id="add-package.%@.error.unimplemented-outputs.message" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.%@.error.unimplemented-outputs.message">
         <source>While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below</source>
-        <target state="needs-translation">While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below</target>
+        <target state="needs-review-translation">While this doesn’t necessarily mean %@ wasn’t installed, you should check the list of unexpected outputs below</target>
         <note>Message for when an unexpected terminal output gets caught during the install process.
 The placeholder is the name of the package that the user tried to install.</note>
       </trans-unit>
@@ -577,19 +577,19 @@ The placeholder is the name of the package that the user tried to install.</note
         <source>Loading of top packages timed out</source>
         <target state="needs-review-translation">Loading of top packages timed out</target>
       </trans-unit>
-      <trans-unit id="add-package.error.title" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.error.title">
         <source>Couldn’t install package</source>
-        <target state="needs-translation">Couldn’t install package</target>
+        <target state="needs-review-translation">Couldn’t install package</target>
         <note>Title of the error screen.</note>
       </trans-unit>
-      <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.error.unimplemented-outputs.dropdown.label">
         <source>Unexpected outputs</source>
-        <target state="needs-translation">Unexpected outputs</target>
+        <target state="needs-review-translation">Unexpected outputs</target>
         <note>A label for a dropdown that shows the raw output of a failed installation.</note>
       </trans-unit>
-      <trans-unit id="add-package.error.unimplemented-outputs.message" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.error.unimplemented-outputs.message">
         <source>Some unexpected outputs were encountered</source>
-        <target state="needs-translation">Some unexpected outputs were encountered</target>
+        <target state="needs-review-translation">Some unexpected outputs were encountered</target>
         <note>A message displayed when an error is not yet implemented.</note>
       </trans-unit>
       <trans-unit id="add-package.fatal-error-%@">
@@ -735,14 +735,14 @@ Use the command below.</target>
         <source>No description provided</source>
         <target state="needs-review-translation">No description provided</target>
       </trans-unit>
-      <trans-unit id="add-package.result.description.too-many-outputs.dropdown-label" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.result.description.too-many-outputs.dropdown-label">
         <source>Unexpected outputs</source>
-        <target state="needs-translation">Unexpected outputs</target>
+        <target state="needs-review-translation">Unexpected outputs</target>
         <note>A label that describes a dropdown that shows a list of possible package descriptions.</note>
       </trans-unit>
-      <trans-unit id="add-package.result.description.too-many-outputs.label" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.result.description.too-many-outputs.label">
         <source>There was an unexpected output</source>
-        <target state="needs-translation">There was an unexpected output</target>
+        <target state="needs-review-translation">There was an unexpected output</target>
         <note>A label displayed when a package has too many output.</note>
       </trans-unit>
       <trans-unit id="add-package.result.loading-description">
@@ -761,9 +761,9 @@ Use the command below.</target>
         <source>Search</source>
         <target state="needs-review-translation">Search</target>
       </trans-unit>
-      <trans-unit id="add-package.search.failed" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.search.failed">
         <source>Couldn’t find anything</source>
-        <target state="needs-translation">Couldn’t find anything</target>
+        <target state="needs-review-translation">Couldn’t find anything</target>
         <note>Label for an inline content unavailable view that indicates that a search for packages failed.</note>
       </trans-unit>
       <trans-unit id="add-package.search.prompt">
@@ -807,9 +807,9 @@ Use the command below.</target>
         <source>Top Formulae</source>
         <target state="needs-review-translation">Top Formulae</target>
       </trans-unit>
-      <trans-unit id="add-package.top-packages.list-item-%@" xml:space="preserve" approved="no">
+      <trans-unit id="add-package.top-packages.list-item-%@">
         <source>%@ downloads</source>
-        <target state="needs-translation">%@ downloads</target>
+        <target state="needs-review-translation">%@ downloads</target>
         <note>Label for the umber of downloads in a top package.
 Placeholder is the number of times the package was downloaded.</note>
       </trans-unit>
@@ -1263,9 +1263,9 @@ Uninstall them and try again</target>
         <source>DEBUG</source>
         <target state="needs-review-translation">DEBUG</target>
       </trans-unit>
-      <trans-unit id="downloading" xml:space="preserve" approved="no">
+      <trans-unit id="downloading">
         <source>downloading</source>
-        <target state="needs-translation">downloading</target>
+        <target state="needs-review-translation">downloading</target>
       </trans-unit>
       <trans-unit id="error-inspector.title">
         <source>Error Inspector</source>
@@ -1684,27 +1684,27 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</ta
         <source>Maintenance Finished</source>
         <target state="needs-review-translation">Maintenance finished</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/one" xml:space="preserve" approved="no">
+      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/one">
         <source>One orphaned package was removed</source>
-        <target state="needs-translation">One orphaned package was removed</target>
+        <target state="needs-review-translation">One orphaned package was removed</target>
         <note>A message that describes the number of orphaned formulae that were removed. The argument is the number of orphaned formulae that were removed.</note>
       </trans-unit>
-      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/other" xml:space="preserve" approved="no">
+      <trans-unit id="maintenance.results.%lld-orphans-removed##/plural/other">
         <source>%lld orphaned packages were removed</source>
-        <target state="needs-translation">%lld orphaned packages were removed</target>
+        <target state="needs-review-translation">%lld orphaned packages were removed</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.action-not-performed" xml:space="preserve" approved="no">
+      <trans-unit id="maintenance.results.action-not-performed">
         <source>This action was not performed</source>
-        <target state="needs-translation">This action was not performed</target>
+        <target state="needs-review-translation">This action was not performed</target>
         <note>A message displayed when a maintenance action was not performed.</note>
       </trans-unit>
       <trans-unit id="maintenance.results.cached-downloads">
         <source>Cached downloads deleted</source>
         <target state="needs-review-translation">Cached downloads deleted</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.cached-downloads.could-not-determine-reclaimed-space" xml:space="preserve" approved="no">
+      <trans-unit id="maintenance.results.cached-downloads.could-not-determine-reclaimed-space">
         <source>Couldn’t determine how much space was freed</source>
-        <target state="needs-translation">Couldn’t determine how much space was freed</target>
+        <target state="needs-review-translation">Couldn’t determine how much space was freed</target>
       </trans-unit>
       <trans-unit id="maintenance.results.cached-downloads.summary-%@">
         <source>You reclaimed %@</source>
@@ -1718,9 +1718,9 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</ta
         <source>No problems with Homebrew found</source>
         <target state="needs-review-translation">No problems with Homebrew found</target>
       </trans-unit>
-      <trans-unit id="maintenance.results.health-check.problems.show-list" xml:space="preserve" approved="no">
+      <trans-unit id="maintenance.results.health-check.problems.show-list">
         <source>Show problems</source>
-        <target state="needs-translation">Show problems</target>
+        <target state="needs-review-translation">Show problems</target>
         <note>A button to show a list of health check problems.</note>
       </trans-unit>
       <trans-unit id="maintenance.results.orphans-count-%lld##/plural/zero">
@@ -1844,13 +1844,13 @@ Not sure if Cork is right for you? Try the demo, which is limited to 7 days.</ta
         <target state="needs-review-translation">Couldn't get the adoption candidate for this Cask</target>
         <note>A message displayed when a failed adoption attempt does not include the name of the selected adoption candidate's cask.</note>
       </trans-unit>
-      <trans-unit id="mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@" xml:space="preserve" approved="no">
+      <trans-unit id="mass-adoption.failed.implemented.mismatched-versions.expected-%@.installed%@">
         <source>Version %@ is required, but version %@ is installed</source>
-        <target state="needs-translation">Version %@ is required, but version %@ is installed</target>
+        <target state="needs-review-translation">Version %@ is required, but version %@ is installed</target>
       </trans-unit>
-      <trans-unit id="mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected" xml:space="preserve" approved="no">
+      <trans-unit id="mass-adoption.failed.implemented.no-adoption-candidate-for-%@-selected">
         <source>Couldn’t read the selected adoption candidate for %@</source>
-        <target state="needs-translation">Couldn’t read the selected adoption candidate for %@</target>
+        <target state="needs-review-translation">Couldn’t read the selected adoption candidate for %@</target>
       </trans-unit>
       <trans-unit id="mass-adoption.failed.message">
         <source>There were errors when adding the selected apps to Homebrew.</source>
@@ -2223,9 +2223,9 @@ Try again, or restart Cork</target>
         <source>Loading package info…</source>
         <target state="needs-review-translation">Loading package info…</target>
       </trans-unit>
-      <trans-unit id="package-details.dependants" xml:space="preserve" approved="no">
+      <trans-unit id="package-details.dependants">
         <source>Dependency of...</source>
-        <target state="needs-translation">Dependency of...</target>
+        <target state="needs-review-translation">Dependency of...</target>
         <note>A heading for a list of packages that depend on the current package.</note>
       </trans-unit>
       <trans-unit id="package-details.dependants.dependency-of-%@">
@@ -3371,9 +3371,9 @@ Packages included in it are audited to make sure they are safe.</target>
         <source>Downloading…</source>
         <target state="needs-review-translation">Downloading…</target>
       </trans-unit>
-      <trans-unit id="update-packages.detail-stage.installing-update" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.detail-stage.installing-update">
         <source>Installing updates...</source>
-        <target state="needs-translation">Installing updates...</target>
+        <target state="needs-review-translation">Installing updates...</target>
         <note>Description of a stage of updating a package.</note>
       </trans-unit>
       <trans-unit id="update-packages.detail-stage.linking">
@@ -3408,20 +3408,20 @@ Click "Finish in Terminal" below
 Use ⌘+V to insert the command, and then press ↩ (Return) to execute the command and follow the instructions
 After the command finishes, return to Cork</target>
       </trans-unit>
-      <trans-unit id="update-packages.failed.details-dropdown.label" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.failed.details-dropdown.label">
         <source>Unsuccessful updates</source>
-        <target state="needs-translation">Unsuccessful updates</target>
+        <target state="needs-review-translation">Unsuccessful updates</target>
         <note>A label for a dropdown that shows more details about a failed update.</note>
       </trans-unit>
-      <trans-unit id="update-packages.failed.message" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.failed.message">
         <source>Some updates were not successful.
 Check below for more information on which packages couldn’t be updated, and why those updates failed.</source>
-        <target state="needs-translation">Some updates were not successful. Check below for more information on which packages couldn’t be updated, and why those updates failed.</target>
+        <target state="needs-review-translation">Some updates were not successful. Check below for more information on which packages couldn’t be updated, and why those updates failed.</target>
         <note>Message displayed when an update to the app failed.</note>
       </trans-unit>
-      <trans-unit id="update-packages.failed.title" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.failed.title">
         <source>Couldn’t update some packages</source>
-        <target state="needs-translation">Couldn’t update some packages</target>
+        <target state="needs-review-translation">Couldn’t update some packages</target>
         <note>Title of the error screen when updating packages failed.</note>
       </trans-unit>
       <trans-unit id="update-packages.finished">
@@ -3459,24 +3459,24 @@ Check below for more information on which packages couldn’t be updated, and wh
         <source>You're all up to date</source>
         <target state="needs-review-translation">You are all up to date</target>
       </trans-unit>
-      <trans-unit id="update-packages.sheet-title" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.sheet-title">
         <source>Updating packages</source>
-        <target state="needs-translation">Updating packages</target>
+        <target state="needs-review-translation">Updating packages</target>
       </trans-unit>
-      <trans-unit id="update-packages.unexpected-outputs.details-dropdown.label" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.unexpected-outputs.details-dropdown.label">
         <source>Unexpected Homebrew outputs</source>
-        <target state="needs-translation">Unexpected Homebrew outputs</target>
+        <target state="needs-review-translation">Unexpected Homebrew outputs</target>
         <note>A label for a dropdown that shows unexpected output from a package update.</note>
       </trans-unit>
-      <trans-unit id="update-packages.unexpected-outputs.message" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.unexpected-outputs.message">
         <source>The updating process encountered some outputs it did not expect.
 This does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious.</source>
-        <target state="needs-translation">The updating process encountered some outputs it did not expect. This does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious.</target>
+        <target state="needs-review-translation">The updating process encountered some outputs it did not expect. This does not necessarily mean the update was not successful. See the unexpected outputs below and decide if they seem serious.</target>
         <note>Message displayed when there are unexpected outputs during the update packages process.</note>
       </trans-unit>
-      <trans-unit id="update-packages.unexpected-outputs.title" xml:space="preserve" approved="no">
+      <trans-unit id="update-packages.unexpected-outputs.title">
         <source>Encountered unexpected Homebrew outputs</source>
-        <target state="needs-translation">Encountered unexpected Homebrew outputs</target>
+        <target state="needs-review-translation">Encountered unexpected Homebrew outputs</target>
         <note>Title of the unexpected outputs stage in the update packages flow.</note>
       </trans-unit>
       <trans-unit id="update-packages.updating.checking">
